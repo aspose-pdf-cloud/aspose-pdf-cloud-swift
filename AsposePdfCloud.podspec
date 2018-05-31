@@ -7,6 +7,6 @@ Pod::Spec.new do |s|
   s.source = { :git => 'git@github.com:swagger-api/swagger-mustache.git', :tag => 'v1.0.0' }
   s.authors = 'Swagger Codegen'
   s.license = MIT
-  s.source_files = 'AsposePdfCloud/Classes/**/*.swift'
+  s.source_files = 'AsposePdfCloud/**/*.swift'
   s.dependency 'Alamofire', '~> 4.5.0'
 end

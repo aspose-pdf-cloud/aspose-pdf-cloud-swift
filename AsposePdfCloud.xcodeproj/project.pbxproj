@@ -6,6 +6,19 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		1EDA443420C019A80011162F /* APIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDA442920C019A80011162F /* APIs.swift */; };
+		1EDA443520C019A80011162F /* JSONEncodableEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDA442A20C019A80011162F /* JSONEncodableEncoding.swift */; };
+		1EDA443620C019A80011162F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDA442B20C019A80011162F /* Extensions.swift */; };
+		1EDA443720C019A80011162F /* JSONEncodingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDA442C20C019A80011162F /* JSONEncodingHelper.swift */; };
+		1EDA443820C019A80011162F /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDA442E20C019A80011162F /* Models.swift */; };
+		1EDA443920C019A80011162F /* AlamofireImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDA443020C019A80011162F /* AlamofireImplementations.swift */; };
+		1EDA443A20C019A80011162F /* CodableHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDA443120C019A80011162F /* CodableHelper.swift */; };
+		1EDA443B20C019A80011162F /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDA443220C019A80011162F /* APIHelper.swift */; };
+		1EDA443C20C019A80011162F /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDA443320C019A80011162F /* Configuration.swift */; };
+		53671E0EE375CF850D1BAC78 /* Pods_AsposePdfCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F6BFEBDEA93D2F985C2BBF4 /* Pods_AsposePdfCloud.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		1EDA441C20C011790011162F /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -20,6 +33,22 @@
 
 /* Begin PBXFileReference section */
 		1EDA441E20C011790011162F /* libAsposePdfCloud.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAsposePdfCloud.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EDA442820C019A70011162F /* AsposePdfCloud-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AsposePdfCloud-Bridging-Header.h"; sourceTree = "<group>"; };
+		1EDA442920C019A80011162F /* APIs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIs.swift; sourceTree = "<group>"; };
+		1EDA442A20C019A80011162F /* JSONEncodableEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncodableEncoding.swift; sourceTree = "<group>"; };
+		1EDA442B20C019A80011162F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		1EDA442C20C019A80011162F /* JSONEncodingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncodingHelper.swift; sourceTree = "<group>"; };
+		1EDA442D20C019A80011162F /* Models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Models; sourceTree = "<group>"; };
+		1EDA442E20C019A80011162F /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		1EDA442F20C019A80011162F /* APIs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = APIs; sourceTree = "<group>"; };
+		1EDA443020C019A80011162F /* AlamofireImplementations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireImplementations.swift; sourceTree = "<group>"; };
+		1EDA443120C019A80011162F /* CodableHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableHelper.swift; sourceTree = "<group>"; };
+		1EDA443220C019A80011162F /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
+		1EDA443320C019A80011162F /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		1EDA443D20C01CE40011162F /* AsposePdfCloud.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = AsposePdfCloud.podspec; sourceTree = "<group>"; };
+		2F4F2A5499BCA94D73D4E37D /* Pods-AsposePdfCloud.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsposePdfCloud.release.xcconfig"; path = "Pods/Target Support Files/Pods-AsposePdfCloud/Pods-AsposePdfCloud.release.xcconfig"; sourceTree = "<group>"; };
+		7F6BFEBDEA93D2F985C2BBF4 /* Pods_AsposePdfCloud.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AsposePdfCloud.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACE7379FF02BD79337F4A6B9 /* Pods-AsposePdfCloud.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsposePdfCloud.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AsposePdfCloud/Pods-AsposePdfCloud.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,17 +56,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53671E0EE375CF850D1BAC78 /* Pods_AsposePdfCloud.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D9AD8C6A923B7D82A56E4D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7F6BFEBDEA93D2F985C2BBF4 /* Pods_AsposePdfCloud.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1EDA441520C011790011162F = {
 			isa = PBXGroup;
 			children = (
+				1EDA443D20C01CE40011162F /* AsposePdfCloud.podspec */,
 				1EDA442020C011790011162F /* AsposePdfCloud */,
 				1EDA441F20C011790011162F /* Products */,
+				79827BA9E8B3BFE84AD3E084 /* Pods */,
+				1D9AD8C6A923B7D82A56E4D4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,8 +93,29 @@
 		1EDA442020C011790011162F /* AsposePdfCloud */ = {
 			isa = PBXGroup;
 			children = (
+				1EDA443020C019A80011162F /* AlamofireImplementations.swift */,
+				1EDA443220C019A80011162F /* APIHelper.swift */,
+				1EDA442F20C019A80011162F /* APIs */,
+				1EDA442920C019A80011162F /* APIs.swift */,
+				1EDA443120C019A80011162F /* CodableHelper.swift */,
+				1EDA443320C019A80011162F /* Configuration.swift */,
+				1EDA442B20C019A80011162F /* Extensions.swift */,
+				1EDA442A20C019A80011162F /* JSONEncodableEncoding.swift */,
+				1EDA442C20C019A80011162F /* JSONEncodingHelper.swift */,
+				1EDA442D20C019A80011162F /* Models */,
+				1EDA442E20C019A80011162F /* Models.swift */,
+				1EDA442820C019A70011162F /* AsposePdfCloud-Bridging-Header.h */,
 			);
 			path = AsposePdfCloud;
+			sourceTree = "<group>";
+		};
+		79827BA9E8B3BFE84AD3E084 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ACE7379FF02BD79337F4A6B9 /* Pods-AsposePdfCloud.debug.xcconfig */,
+				2F4F2A5499BCA94D73D4E37D /* Pods-AsposePdfCloud.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -63,6 +125,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1EDA442520C011790011162F /* Build configuration list for PBXNativeTarget "AsposePdfCloud" */;
 			buildPhases = (
+				09F531395293B78B2291989D /* [CP] Check Pods Manifest.lock */,
 				1EDA441A20C011790011162F /* Sources */,
 				1EDA441B20C011790011162F /* Frameworks */,
 				1EDA441C20C011790011162F /* CopyFiles */,
@@ -88,6 +151,7 @@
 				TargetAttributes = {
 					1EDA441D20C011790011162F = {
 						CreatedOnToolsVersion = 9.4;
+						LastSwiftMigration = 0940;
 					};
 				};
 			};
@@ -108,11 +172,41 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		09F531395293B78B2291989D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AsposePdfCloud-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1EDA441A20C011790011162F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EDA443920C019A80011162F /* AlamofireImplementations.swift in Sources */,
+				1EDA443A20C019A80011162F /* CodableHelper.swift in Sources */,
+				1EDA443720C019A80011162F /* JSONEncodingHelper.swift in Sources */,
+				1EDA443C20C019A80011162F /* Configuration.swift in Sources */,
+				1EDA443520C019A80011162F /* JSONEncodableEncoding.swift in Sources */,
+				1EDA443B20C019A80011162F /* APIHelper.swift in Sources */,
+				1EDA443620C019A80011162F /* Extensions.swift in Sources */,
+				1EDA443420C019A80011162F /* APIs.swift in Sources */,
+				1EDA443820C019A80011162F /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,12 +329,21 @@
 		};
 		1EDA442620C011790011162F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ACE7379FF02BD79337F4A6B9 /* Pods-AsposePdfCloud.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2J7FTC9Q5N;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "AsposePdfCloud/AsposePdfCloud-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -248,12 +351,20 @@
 		};
 		1EDA442720C011790011162F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F4F2A5499BCA94D73D4E37D /* Pods-AsposePdfCloud.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2J7FTC9Q5N;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "AsposePdfCloud/AsposePdfCloud-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
