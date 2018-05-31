@@ -93,18 +93,18 @@
 		1EDA442020C011790011162F /* AsposePdfCloud */ = {
 			isa = PBXGroup;
 			children = (
+				1EDA442F20C019A80011162F /* APIs */,
+				1EDA442D20C019A80011162F /* Models */,
+				1EDA442820C019A70011162F /* AsposePdfCloud-Bridging-Header.h */,
 				1EDA443020C019A80011162F /* AlamofireImplementations.swift */,
 				1EDA443220C019A80011162F /* APIHelper.swift */,
-				1EDA442F20C019A80011162F /* APIs */,
 				1EDA442920C019A80011162F /* APIs.swift */,
 				1EDA443120C019A80011162F /* CodableHelper.swift */,
 				1EDA443320C019A80011162F /* Configuration.swift */,
 				1EDA442B20C019A80011162F /* Extensions.swift */,
 				1EDA442A20C019A80011162F /* JSONEncodableEncoding.swift */,
 				1EDA442C20C019A80011162F /* JSONEncodingHelper.swift */,
-				1EDA442D20C019A80011162F /* Models */,
 				1EDA442E20C019A80011162F /* Models.swift */,
-				1EDA442820C019A70011162F /* AsposePdfCloud-Bridging-Header.h */,
 			);
 			path = AsposePdfCloud;
 			sourceTree = "<group>";
