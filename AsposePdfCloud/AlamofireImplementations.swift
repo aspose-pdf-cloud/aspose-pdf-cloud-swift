@@ -141,7 +141,7 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
                 if stringResponse.result.isFailure {
                     completion(
                         nil,
-                        ErrorResponse.error(stringResponse.response?.statusCode ?? 500, stringResponse.data, stringResponse.result.error as Error!)
+                        ErrorResponse.error(stringResponse.response?.statusCode ?? 500, stringResponse.data, (stringResponse.result.error as Error?)!)
                     )
                     return
                 }
@@ -343,7 +343,7 @@ open class AlamofireDecodableRequestBuilder<T:Decodable>: AlamofireRequestBuilde
                 if stringResponse.result.isFailure {
                     completion(
                         nil,
-                        ErrorResponse.error(stringResponse.response?.statusCode ?? 500, stringResponse.data, stringResponse.result.error as Error!)
+                        ErrorResponse.error(stringResponse.response?.statusCode ?? 500, stringResponse.data, (stringResponse.result.error as Error?)!)
                     )
                     return
                 }
