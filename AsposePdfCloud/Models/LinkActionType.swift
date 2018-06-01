@@ -27,11 +27,11 @@ import Foundation
 
 /** Represents list of link action types. */
 public enum LinkActionType: Int, Codable {
-    case _0 = "0"
-    case _1 = "1"
-    case _2 = "2"
-    case _3 = "3"
-    case _4 = "4"
-    case _5 = "5"
+    case goToAction = 0
+    case goToURIAction = 1
+    case javascriptAction = 2
+    case launchAction = 3
+    case namedAction = 4
+    case submitFormAction = 5
 
 }

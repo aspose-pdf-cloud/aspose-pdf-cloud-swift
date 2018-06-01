@@ -27,8 +27,7 @@ import Foundation
 
 /** Specifies style information applied to text. */
 public enum FontStyles: Int, Codable {
-    case _0 = "0"
-    case _1 = "1"
-    case _2 = "2"
-
+    case regular = 0
+    case bold = 1
+    case italic = 2
 }

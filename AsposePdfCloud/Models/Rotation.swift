@@ -27,9 +27,9 @@ import Foundation
 
 /** Enumeration of possible rotation values. */
 public enum Rotation: Int, Codable {
-    case _0 = "0"
-    case _1 = "1"
-    case _2 = "2"
-    case _3 = "3"
+    case _none = 0
+    case on90 = 1
+    case on180 = 2
+    case on270 = 3
 
 }

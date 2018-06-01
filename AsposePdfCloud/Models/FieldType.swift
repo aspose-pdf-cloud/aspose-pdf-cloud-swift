@@ -27,9 +27,9 @@ import Foundation
 
 /** Represents an enumeration of available field types. */
 public enum FieldType: Int, Codable {
-    case _0 = "0"
-    case _1 = "1"
-    case _2 = "2"
-    case _3 = "3"
+    case text = 0
+    case integer = 1
+    case boolean = 2
+    case list = 3
 
 }

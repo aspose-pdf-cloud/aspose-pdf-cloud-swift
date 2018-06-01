@@ -27,8 +27,8 @@ import Foundation
 
 /**  */
 public enum SignatureType: Int, Codable {
-    case _0 = "0"
-    case _1 = "1"
-    case _2 = "2"
+    case PKCS1 = 0
+    case PKCS7 = 1
+    case PKCS7Detached = 2
 
 }
