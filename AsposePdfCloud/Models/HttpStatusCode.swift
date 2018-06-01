@@ -27,7 +27,7 @@ import Foundation
 
 /**  */
 public enum HttpStatusCode: Int, Codable {
-    case continue = 100
+    case _continue = 100
     case switchingProtocols = 101
     case ok = 200
     case created = 201

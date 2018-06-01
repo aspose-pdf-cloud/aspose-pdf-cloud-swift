@@ -27,9 +27,9 @@ import Foundation
 
 /** Represents enumeration of the stamp types. */
 public enum StampType: Int, Codable {
-    case Text = 0
-    case Image = 1
-    case Page = 2
-    case PageNumber = 3
+    case text = 0
+    case image = 1
+    case page = 2
+    case pageNumber = 3
 
 }
