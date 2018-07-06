@@ -3834,9 +3834,15 @@ open class PdfAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func putCreateDocument(name: String, templateFile: String? = nil, dataFile: String? = nil, templateType: String? = nil, storage: String? = nil, folder: String? = nil, url: String? = nil, fitSize: Bool? = nil, completion: @escaping ((_ data: DocumentResponse?,_ error: Error?) -> Void)) {
-        putCreateDocumentWithRequestBuilder(name: name, templateFile: templateFile, dataFile: dataFile, templateType: templateType, storage: storage, folder: folder, url: url, fitSize: fitSize).execute { (response, error) -> Void in
-            completion(response?.body, error);
+        
+        AuthAspose.checkAuth() {
+            var request = putCreateDocumentWithRequestBuilder(name: name, templateFile: templateFile, dataFile: dataFile, templateType: templateType, storage: storage, folder: folder, url: url, fitSize: fitSize)
+                
+            request.execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
         }
+
     }
 
 
@@ -3862,8 +3868,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let url1 = NSURLComponents(string: URLString)
+        url1?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "templateFile": templateFile, 
             "dataFile": dataFile, 
             "templateType": templateType, 
@@ -3876,7 +3882,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<DocumentResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (url1?.string ?? URLString), parameters: parameters, isBody: false, headers: ["Authorization": "Bearer " + AsposePdfCloudAPI.accessToken!/*, "Accept": "application/json"*/])
     }
 
     /**

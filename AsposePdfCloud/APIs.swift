@@ -24,9 +24,11 @@ import Foundation
 
 open class AsposePdfCloudAPI {
     open static var basePath = "https://api.aspose.cloud/v1.1"
-    open static var credential: URLCredential?
-    open static var customHeaders: [String:String] = [:]
+    open static var appSid: String?
+    open static var appKey: String?
     open static var requestBuilderFactory: RequestBuilderFactory = AlamofireRequestBuilderFactory()
+    open static var accessToken: String?
+    open static var refreshToken: String?
 }
 
 open class RequestBuilder<T> {
@@ -47,7 +49,7 @@ open class RequestBuilder<T> {
         self.isBody = isBody
         self.headers = headers
 
-        addHeaders(AsposePdfCloudAPI.customHeaders)
+        //addHeaders(AsposePdfCloudAPI.customHeaders)
     }
 
     open func addHeaders(_ aHeaders:[String:String]) {
@@ -65,10 +67,6 @@ open class RequestBuilder<T> {
         return self
     }
 
-    open func addCredential() -> Self {
-        self.credential = AsposePdfCloudAPI.credential
-        return self
-    }
 }
 
 public protocol RequestBuilderFactory {
