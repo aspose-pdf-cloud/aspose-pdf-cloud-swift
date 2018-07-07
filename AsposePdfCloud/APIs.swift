@@ -50,7 +50,7 @@ open class RequestBuilder<T> {
         self.headers = headers
         
         //OAuth2.0
-        addHeader("Authorization", "Bearer " + AsposePdfCloudAPI.accessToken!)
+        addHeader(name: "Authorization", value: "Bearer " + AsposePdfCloudAPI.accessToken!)
     }
 
     open func addHeaders(_ aHeaders:[String:String]) {
