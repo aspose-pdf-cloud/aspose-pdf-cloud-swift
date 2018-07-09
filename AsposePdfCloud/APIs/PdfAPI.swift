@@ -67,8 +67,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -76,7 +76,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "DELETE", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -119,8 +119,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -128,7 +128,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "DELETE", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -168,8 +168,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -177,7 +177,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "DELETE", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -220,8 +220,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -229,7 +229,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "DELETE", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -270,8 +270,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "format": format, 
             "storage": storage, 
             "folder": folder, 
@@ -281,7 +281,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -321,8 +321,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -330,7 +330,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<AttachmentResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -367,8 +367,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -376,7 +376,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<AttachmentsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -415,8 +415,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "bookmarkPath": bookmarkPath, 
             "storage": storage, 
             "folder": folder
@@ -425,7 +425,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -462,8 +462,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -471,7 +471,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<DocumentPropertiesResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -511,8 +511,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -520,7 +520,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<DocumentPropertyResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -556,8 +556,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "path": path, 
             "versionId": versionId, 
             "storage": storage
@@ -566,7 +566,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -606,8 +606,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -615,7 +615,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -647,15 +647,15 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "srcPath": srcPath
         ])
         
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -695,8 +695,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -704,7 +704,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<FieldResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -741,8 +741,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -750,7 +750,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<FieldsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -795,8 +795,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "withEmpty": withEmpty, 
             "storage": storage, 
             "folder": folder
@@ -805,7 +805,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<TextItemsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -848,8 +848,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -857,7 +857,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<TextFormatResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -899,8 +899,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "withEmpty": withEmpty, 
             "storage": storage, 
             "folder": folder
@@ -909,7 +909,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<TextItemsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -957,8 +957,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "srcPath": srcPath, 
             "htmlFileName": htmlFileName, 
             "height": height, 
@@ -973,7 +973,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -1022,8 +1022,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "format": format, 
             "width": width?.encodeToJSON(), 
             "height": height?.encodeToJSON(), 
@@ -1034,7 +1034,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -1074,8 +1074,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -1083,7 +1083,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<ImagesResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -1115,15 +1115,15 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "srcPath": srcPath
         ])
         
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -1155,15 +1155,15 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "srcPath": srcPath
         ])
         
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -1209,8 +1209,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "format": format, 
             "width": width?.encodeToJSON(), 
             "height": height?.encodeToJSON(), 
@@ -1221,7 +1221,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -1264,8 +1264,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -1273,7 +1273,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<AnnotationResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -1313,8 +1313,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -1322,7 +1322,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<AnnotationsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -1364,8 +1364,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "width": width?.encodeToJSON(), 
             "height": height?.encodeToJSON(), 
             "folder": folder
@@ -1374,7 +1374,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -1416,8 +1416,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "width": width?.encodeToJSON(), 
             "height": height?.encodeToJSON(), 
             "folder": folder
@@ -1426,7 +1426,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -1468,8 +1468,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "width": width?.encodeToJSON(), 
             "height": height?.encodeToJSON(), 
             "folder": folder
@@ -1478,7 +1478,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -1520,8 +1520,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "width": width?.encodeToJSON(), 
             "height": height?.encodeToJSON(), 
             "folder": folder
@@ -1530,7 +1530,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -1572,8 +1572,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "width": width?.encodeToJSON(), 
             "height": height?.encodeToJSON(), 
             "folder": folder
@@ -1582,7 +1582,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -1624,8 +1624,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "width": width?.encodeToJSON(), 
             "height": height?.encodeToJSON(), 
             "folder": folder
@@ -1634,7 +1634,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -1677,8 +1677,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -1686,7 +1686,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<LinkAnnotationResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -1726,8 +1726,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -1735,7 +1735,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<LinkAnnotationsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -1787,8 +1787,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "format": format, 
             "regex": regex, 
             "X": X.encodeToJSON(), 
@@ -1802,7 +1802,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<TextRectsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -1844,8 +1844,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "withEmpty": withEmpty, 
             "storage": storage, 
             "folder": folder
@@ -1854,7 +1854,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<TextItemsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -1891,8 +1891,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -1900,7 +1900,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<DocumentPagesResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -1932,15 +1932,15 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "srcPath": srcPath
         ])
         
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -1991,8 +1991,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "addReturnToLineEnd": addReturnToLineEnd, 
             "format": format, 
             "imageResolutionX": imageResolutionX?.encodeToJSON(), 
@@ -2007,7 +2007,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -2044,8 +2044,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "contentRecognitionMode": contentRecognitionMode, 
             "folder": folder
         ])
@@ -2053,7 +2053,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -2144,8 +2144,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "additionalMarginWidthInPoints": additionalMarginWidthInPoints?.encodeToJSON(), 
             "compressSvgGraphicsIfAny": compressSvgGraphicsIfAny, 
             "convertMarkedContentToLayers": convertMarkedContentToLayers, 
@@ -2180,7 +2180,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -2217,8 +2217,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "pagesCount": pagesCount?.encodeToJSON(), 
             "folder": folder
         ])
@@ -2226,7 +2226,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -2261,15 +2261,15 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "folder": folder
         ])
         
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -2306,8 +2306,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "type": type, 
             "folder": folder
         ])
@@ -2315,7 +2315,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -2354,8 +2354,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "separateImages": separateImages, 
             "slidesAsImages": slidesAsImages, 
             "folder": folder
@@ -2364,7 +2364,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -2401,8 +2401,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "compressOutputToZipArchive": compressOutputToZipArchive, 
             "folder": folder
         ])
@@ -2410,7 +2410,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -2475,8 +2475,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "brightness": brightness, 
             "compression": compression, 
             "colorDepth": colorDepth, 
@@ -2498,7 +2498,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -2541,8 +2541,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "insertBlankColumnAtFirst": insertBlankColumnAtFirst, 
             "minimizeTheNumberOfWorksheets": minimizeTheNumberOfWorksheets, 
             "scaleFactor": scaleFactor, 
@@ -2553,7 +2553,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -2588,15 +2588,15 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "folder": folder
         ])
         
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -2631,15 +2631,15 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "folder": folder
         ])
         
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -2671,15 +2671,15 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "srcPath": srcPath
         ])
         
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -2725,8 +2725,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -2734,7 +2734,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<TextItemResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -2780,8 +2780,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -2789,7 +2789,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<TextFormatResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -2834,8 +2834,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "withEmpty": withEmpty, 
             "storage": storage, 
             "folder": folder
@@ -2844,7 +2844,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<TextItemsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -2892,8 +2892,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "srcPath": srcPath, 
             "adjustPageSize": adjustPageSize, 
             "height": height, 
@@ -2908,7 +2908,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -2957,8 +2957,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "format": format, 
             "regex": regex, 
             "X": X.encodeToJSON(), 
@@ -2972,7 +2972,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<TextRectsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -3011,8 +3011,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "withEmpty": withEmpty, 
             "storage": storage, 
             "folder": folder
@@ -3021,7 +3021,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<TextItemsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -3058,8 +3058,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "signName": signName, 
             "folder": folder
         ])
@@ -3067,7 +3067,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SignatureVerifyResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -3113,8 +3113,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "url": url, 
             "height": height, 
             "width": width, 
@@ -3128,7 +3128,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -3165,8 +3165,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -3174,7 +3174,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<WordCountResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -3209,15 +3209,15 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "folder": folder
         ])
         
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -3251,8 +3251,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "srcPath": srcPath, 
             "xslFilePath": xslFilePath
         ])
@@ -3260,7 +3260,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -3292,15 +3292,15 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "srcPath": srcPath
         ])
         
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -3332,15 +3332,15 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "srcPath": srcPath
         ])
         
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -3385,8 +3385,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: appendDocument)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "appendFile": appendFile, 
             "startPage": startPage?.encodeToJSON(), 
             "endPage": endPage?.encodeToJSON(), 
@@ -3397,7 +3397,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<DocumentResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -3441,8 +3441,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: field)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "page": page.encodeToJSON(), 
             "storage": storage, 
             "folder": folder
@@ -3451,7 +3451,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -3490,8 +3490,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: textReplace)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -3499,7 +3499,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<DocumentTextReplaceResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -3538,8 +3538,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: textReplaceListRequest)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -3547,7 +3547,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<DocumentTextReplaceResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -3586,8 +3586,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: textReplace)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -3595,7 +3595,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<TextReplaceResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -3640,8 +3640,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "newIndex": newIndex.encodeToJSON(), 
             "storage": storage, 
             "folder": folder
@@ -3650,7 +3650,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -3692,8 +3692,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: options)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -3701,7 +3701,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -3743,8 +3743,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: textReplace)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -3752,7 +3752,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<PageTextReplaceResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -3794,8 +3794,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: textReplaceListRequest)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -3803,7 +3803,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<PageTextReplaceResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -3845,8 +3845,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: textReplaceListRequest)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -3854,7 +3854,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<TextReplaceResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -3901,8 +3901,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: image)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "imageFile": imageFile, 
             "storage": storage, 
             "folder": folder
@@ -3911,7 +3911,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<ImageResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -3953,8 +3953,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: signature)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -3962,7 +3962,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -4007,8 +4007,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: signature)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -4016,7 +4016,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -4059,8 +4059,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "format": format, 
             "from": from?.encodeToJSON(), 
             "to": to?.encodeToJSON(), 
@@ -4071,7 +4071,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SplitResultResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -4108,8 +4108,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -4117,7 +4117,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<DocumentPagesResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -4162,8 +4162,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: paragraph)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -4171,7 +4171,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -4214,15 +4214,15 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: paragraph)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "folder": folder
         ])
         
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -4260,8 +4260,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "format": format, 
             "url": url, 
             "outPath": outPath
@@ -4270,7 +4270,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -4311,8 +4311,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "path": path, 
             "versionId": versionId, 
             "storage": storage
@@ -4321,7 +4321,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -4368,8 +4368,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "templateFile": templateFile, 
             "dataFile": dataFile, 
             "templateType": templateType, 
@@ -4382,7 +4382,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<DocumentResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -4425,8 +4425,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: images)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "ocr": ocr, 
             "ocrLang": ocrLang, 
             "storage": storage, 
@@ -4436,7 +4436,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<DocumentResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -4510,8 +4510,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: exportOptions)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "resultFile": resultFile, 
             "brightness": brightness, 
             "compression": compression, 
@@ -4535,7 +4535,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -4575,8 +4575,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "srcPath": srcPath, 
             "dstFolder": dstFolder
         ])
@@ -4584,7 +4584,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -4624,8 +4624,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -4633,7 +4633,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -4689,8 +4689,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "srcPath": srcPath, 
             "htmlFileName": htmlFileName, 
             "height": height, 
@@ -4706,7 +4706,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -4746,15 +4746,15 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: imageTemplates)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "dstFolder": dstFolder
         ])
         
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -4801,8 +4801,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "width": width?.encodeToJSON(), 
             "height": height?.encodeToJSON(), 
             "folder": folder, 
@@ -4812,7 +4812,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -4859,8 +4859,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "width": width?.encodeToJSON(), 
             "height": height?.encodeToJSON(), 
             "folder": folder, 
@@ -4870,7 +4870,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -4917,8 +4917,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "width": width?.encodeToJSON(), 
             "height": height?.encodeToJSON(), 
             "folder": folder, 
@@ -4928,7 +4928,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -4975,8 +4975,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "width": width?.encodeToJSON(), 
             "height": height?.encodeToJSON(), 
             "folder": folder, 
@@ -4986,7 +4986,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -5026,8 +5026,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "srcPath": srcPath, 
             "dstFolder": dstFolder
         ])
@@ -5035,7 +5035,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -5074,8 +5074,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: mergeDocuments)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -5083,7 +5083,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<DocumentResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -5123,8 +5123,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "srcPath": srcPath, 
             "dstFolder": dstFolder
         ])
@@ -5132,7 +5132,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -5177,8 +5177,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: stamp)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -5186,7 +5186,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -5233,8 +5233,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "width": width?.encodeToJSON(), 
             "height": height?.encodeToJSON(), 
@@ -5244,7 +5244,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -5291,8 +5291,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "width": width?.encodeToJSON(), 
             "height": height?.encodeToJSON(), 
@@ -5302,7 +5302,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -5349,8 +5349,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "width": width?.encodeToJSON(), 
             "height": height?.encodeToJSON(), 
@@ -5360,7 +5360,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -5407,8 +5407,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "width": width?.encodeToJSON(), 
             "height": height?.encodeToJSON(), 
@@ -5418,7 +5418,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -5465,8 +5465,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "width": width?.encodeToJSON(), 
             "height": height?.encodeToJSON(), 
@@ -5476,7 +5476,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -5523,8 +5523,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "width": width?.encodeToJSON(), 
             "height": height?.encodeToJSON(), 
@@ -5534,7 +5534,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -5574,8 +5574,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "srcPath": srcPath, 
             "dstFolder": dstFolder
         ])
@@ -5583,7 +5583,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -5636,8 +5636,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "addReturnToLineEnd": addReturnToLineEnd, 
             "format": format, 
@@ -5652,7 +5652,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -5691,8 +5691,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "contentRecognitionMode": contentRecognitionMode
         ])
@@ -5700,7 +5700,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -5793,8 +5793,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "additionalMarginWidthInPoints": additionalMarginWidthInPoints?.encodeToJSON(), 
             "compressSvgGraphicsIfAny": compressSvgGraphicsIfAny, 
@@ -5829,7 +5829,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -5868,8 +5868,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "pagesCount": pagesCount?.encodeToJSON()
         ])
@@ -5877,7 +5877,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -5914,15 +5914,15 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath
         ])
         
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -5961,8 +5961,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "type": type
         ])
@@ -5970,7 +5970,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -6011,8 +6011,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "separateImages": separateImages, 
             "slidesAsImages": slidesAsImages
@@ -6021,7 +6021,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -6060,8 +6060,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "compressOutputToZipArchive": compressOutputToZipArchive
         ])
@@ -6069,7 +6069,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -6136,8 +6136,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "brightness": brightness, 
             "compression": compression, 
@@ -6159,7 +6159,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -6204,8 +6204,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "insertBlankColumnAtFirst": insertBlankColumnAtFirst, 
             "minimizeTheNumberOfWorksheets": minimizeTheNumberOfWorksheets, 
@@ -6216,7 +6216,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -6253,15 +6253,15 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath
         ])
         
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -6298,15 +6298,15 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath
         ])
         
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -6362,8 +6362,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "addReturnToLineEnd": addReturnToLineEnd, 
             "format": format, 
@@ -6379,7 +6379,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -6421,8 +6421,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "contentRecognitionMode": contentRecognitionMode, 
             "folder": folder
@@ -6431,7 +6431,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -6527,8 +6527,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "additionalMarginWidthInPoints": additionalMarginWidthInPoints?.encodeToJSON(), 
             "compressSvgGraphicsIfAny": compressSvgGraphicsIfAny, 
@@ -6564,7 +6564,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -6606,8 +6606,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "pagesCount": pagesCount?.encodeToJSON(), 
             "folder": folder
@@ -6616,7 +6616,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -6656,8 +6656,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "folder": folder
         ])
@@ -6665,7 +6665,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -6707,8 +6707,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "type": type, 
             "folder": folder
@@ -6717,7 +6717,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -6761,8 +6761,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "separateImages": separateImages, 
             "slidesAsImages": slidesAsImages, 
@@ -6772,7 +6772,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -6814,8 +6814,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "compressOutputToZipArchive": compressOutputToZipArchive, 
             "folder": folder
@@ -6824,7 +6824,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -6894,8 +6894,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "brightness": brightness, 
             "compression": compression, 
@@ -6918,7 +6918,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -6966,8 +6966,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "insertBlankColumnAtFirst": insertBlankColumnAtFirst, 
             "minimizeTheNumberOfWorksheets": minimizeTheNumberOfWorksheets, 
@@ -6979,7 +6979,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -7019,8 +7019,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "folder": folder
         ])
@@ -7028,7 +7028,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -7068,8 +7068,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "folder": folder
         ])
@@ -7077,7 +7077,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -7117,15 +7117,15 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: privileges)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "folder": folder
         ])
         
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -7165,8 +7165,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "srcPath": srcPath, 
             "dstFolder": dstFolder
         ])
@@ -7174,7 +7174,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -7216,8 +7216,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder, 
             "lang": lang
@@ -7226,7 +7226,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -7268,8 +7268,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: property)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -7277,7 +7277,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<DocumentPropertyResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -7333,8 +7333,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "srcPath": srcPath, 
             "adjustPageSize": adjustPageSize, 
             "height": height, 
@@ -7350,7 +7350,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -7392,8 +7392,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: field)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -7401,7 +7401,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<FieldResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -7440,8 +7440,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: fields)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -7449,7 +7449,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<FieldsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -7503,8 +7503,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "url": url, 
             "height": height, 
             "width": width, 
@@ -7519,7 +7519,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -7556,15 +7556,15 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath
         ])
         
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -7604,8 +7604,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "folder": folder
         ])
@@ -7613,7 +7613,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -7655,8 +7655,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "srcPath": srcPath, 
             "xslFilePath": xslFilePath, 
             "dstFolder": dstFolder
@@ -7665,7 +7665,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -7705,8 +7705,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "srcPath": srcPath, 
             "dstFolder": dstFolder
         ])
@@ -7714,7 +7714,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -7754,8 +7754,8 @@ open class PdfAPI {
         let URLString = AsposePdfCloudAPI.basePath + path
         let parameters: [String:Any]? = nil
 
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "srcPath": srcPath, 
             "dstFolder": dstFolder
         ])
@@ -7763,7 +7763,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
 }
