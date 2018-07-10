@@ -61,10 +61,10 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func deleteFieldWithRequestBuilder(name: String, fieldName: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/fields/{fieldName}"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{fieldName}", with: "\(fieldName)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/fields/{fieldName}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{fieldName}", with: "\(fieldName)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -113,10 +113,10 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func deletePageWithRequestBuilder(name: String, pageNumber: Int, storage: String? = nil, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -163,9 +163,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func deletePropertiesWithRequestBuilder(name: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/documentproperties"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/documentproperties"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -214,10 +214,10 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func deletePropertyWithRequestBuilder(name: String, propertyName: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/documentproperties/{propertyName}"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{propertyName}", with: "\(propertyName)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/documentproperties/{propertyName}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{propertyName}", with: "\(propertyName)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -265,9 +265,9 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getDocumentWithRequestBuilder(name: String, format: String? = nil, storage: String? = nil, folder: String? = nil, outPath: String? = nil) -> RequestBuilder<URL> {
-        var path = "/pdf/{name}"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -315,10 +315,10 @@ open class PdfAPI {
      - returns: RequestBuilder<AttachmentResponse> 
      */
     open class func getDocumentAttachmentByIndexWithRequestBuilder(name: String, attachmentIndex: Int, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AttachmentResponse> {
-        var path = "/pdf/{name}/attachments/{attachmentIndex}"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{attachmentIndex}", with: "\(attachmentIndex)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/attachments/{attachmentIndex}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{attachmentIndex}", with: "\(attachmentIndex)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -362,9 +362,9 @@ open class PdfAPI {
      - returns: RequestBuilder<AttachmentsResponse> 
      */
     open class func getDocumentAttachmentsWithRequestBuilder(name: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AttachmentsResponse> {
-        var path = "/pdf/{name}/attachments"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/attachments"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -410,9 +410,9 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getDocumentBookmarksWithRequestBuilder(name: String, bookmarkPath: String? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<URL> {
-        var path = "/pdf/{name}/bookmarks"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/bookmarks"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -457,9 +457,9 @@ open class PdfAPI {
      - returns: RequestBuilder<DocumentPropertiesResponse> 
      */
     open class func getDocumentPropertiesWithRequestBuilder(name: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<DocumentPropertiesResponse> {
-        var path = "/pdf/{name}/documentproperties"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/documentproperties"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -505,10 +505,10 @@ open class PdfAPI {
      - returns: RequestBuilder<DocumentPropertyResponse> 
      */
     open class func getDocumentPropertyWithRequestBuilder(name: String, propertyName: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<DocumentPropertyResponse> {
-        var path = "/pdf/{name}/documentproperties/{propertyName}"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{propertyName}", with: "\(propertyName)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/documentproperties/{propertyName}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{propertyName}", with: "\(propertyName)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -552,8 +552,8 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getDownloadWithRequestBuilder(path: String, versionId: String? = nil, storage: String? = nil) -> RequestBuilder<URL> {
-        let path = "/storage/file"
-        let URLString = AsposePdfCloudAPI.basePath + path
+        let pathUrl = "/storage/file"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -600,10 +600,10 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getDownloadDocumentAttachmentByIndexWithRequestBuilder(name: String, attachmentIndex: Int, storage: String? = nil, folder: String? = nil) -> RequestBuilder<URL> {
-        var path = "/pdf/{name}/attachments/{attachmentIndex}/download"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{attachmentIndex}", with: "\(attachmentIndex)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/attachments/{attachmentIndex}/download"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{attachmentIndex}", with: "\(attachmentIndex)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -643,8 +643,8 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getEpubInStorageToPdfWithRequestBuilder(srcPath: String) -> RequestBuilder<URL> {
-        let path = "/pdf/create/epub"
-        let URLString = AsposePdfCloudAPI.basePath + path
+        let pathUrl = "/pdf/create/epub"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -689,10 +689,10 @@ open class PdfAPI {
      - returns: RequestBuilder<FieldResponse> 
      */
     open class func getFieldWithRequestBuilder(name: String, fieldName: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<FieldResponse> {
-        var path = "/pdf/{name}/fields/{fieldName}"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{fieldName}", with: "\(fieldName)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/fields/{fieldName}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{fieldName}", with: "\(fieldName)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -736,9 +736,9 @@ open class PdfAPI {
      - returns: RequestBuilder<FieldsResponse> 
      */
     open class func getFieldsWithRequestBuilder(name: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<FieldsResponse> {
-        var path = "/pdf/{name}/fields"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/fields"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -788,11 +788,11 @@ open class PdfAPI {
      - returns: RequestBuilder<TextItemsResponse> 
      */
     open class func getFragmentWithRequestBuilder(name: String, pageNumber: Int, fragmentNumber: Int, withEmpty: String? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<TextItemsResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/fragments/{fragmentNumber}"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{fragmentNumber}", with: "\(fragmentNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/fragments/{fragmentNumber}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{fragmentNumber}", with: "\(fragmentNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -841,11 +841,11 @@ open class PdfAPI {
      - returns: RequestBuilder<TextFormatResponse> 
      */
     open class func getFragmentTextFormatWithRequestBuilder(name: String, pageNumber: Int, fragmentNumber: Int, storage: String? = nil, folder: String? = nil) -> RequestBuilder<TextFormatResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/fragments/{fragmentNumber}/textFormat"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{fragmentNumber}", with: "\(fragmentNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/fragments/{fragmentNumber}/textFormat"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{fragmentNumber}", with: "\(fragmentNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -893,10 +893,10 @@ open class PdfAPI {
      - returns: RequestBuilder<TextItemsResponse> 
      */
     open class func getFragmentsWithRequestBuilder(name: String, pageNumber: Int, withEmpty: String? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<TextItemsResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/fragments"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/fragments"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -953,8 +953,8 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getHtmlInStorageToPdfWithRequestBuilder(srcPath: String, htmlFileName: String, height: Double? = nil, width: Double? = nil, isLandscape: Bool? = nil, marginLeft: Double? = nil, marginBottom: Double? = nil, marginRight: Double? = nil, marginTop: Double? = nil) -> RequestBuilder<URL> {
-        let path = "/pdf/create/html"
-        let URLString = AsposePdfCloudAPI.basePath + path
+        let pathUrl = "/pdf/create/html"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -1015,11 +1015,11 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getImageWithRequestBuilder(name: String, pageNumber: Int, imageNumber: Int, format: String? = nil, width: Int? = nil, height: Int? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<URL> {
-        var path = "/pdf/{name}/pages/{pageNumber}/images/{imageNumber}"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{imageNumber}", with: "\(imageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/images/{imageNumber}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{imageNumber}", with: "\(imageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -1068,10 +1068,10 @@ open class PdfAPI {
      - returns: RequestBuilder<ImagesResponse> 
      */
     open class func getImagesWithRequestBuilder(name: String, pageNumber: Int, storage: String? = nil, folder: String? = nil) -> RequestBuilder<ImagesResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/images"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/images"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -1111,8 +1111,8 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getLaTeXInStorageToPdfWithRequestBuilder(srcPath: String) -> RequestBuilder<URL> {
-        let path = "/pdf/create/latex"
-        let URLString = AsposePdfCloudAPI.basePath + path
+        let pathUrl = "/pdf/create/latex"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -1151,8 +1151,8 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getMhtInStorageToPdfWithRequestBuilder(srcPath: String) -> RequestBuilder<URL> {
-        let path = "/pdf/create/mht"
-        let URLString = AsposePdfCloudAPI.basePath + path
+        let pathUrl = "/pdf/create/mht"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -1203,10 +1203,10 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getPageWithRequestBuilder(name: String, pageNumber: Int, format: String? = nil, width: Int? = nil, height: Int? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<URL> {
-        var path = "/pdf/{name}/pages/{pageNumber}"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -1257,11 +1257,11 @@ open class PdfAPI {
      - returns: RequestBuilder<AnnotationResponse> 
      */
     open class func getPageAnnotationWithRequestBuilder(name: String, pageNumber: Int, annotationNumber: Int, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AnnotationResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/annotations/{annotationNumber}"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{annotationNumber}", with: "\(annotationNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/annotations/{annotationNumber}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{annotationNumber}", with: "\(annotationNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -1307,10 +1307,10 @@ open class PdfAPI {
      - returns: RequestBuilder<AnnotationsResponse> 
      */
     open class func getPageAnnotationsWithRequestBuilder(name: String, pageNumber: Int, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AnnotationsResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/annotations"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/annotations"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -1358,10 +1358,10 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getPageConvertToBmpWithRequestBuilder(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil) -> RequestBuilder<URL> {
-        var path = "/pdf/{name}/pages/{pageNumber}/convert/bmp"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/convert/bmp"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -1410,10 +1410,10 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getPageConvertToEmfWithRequestBuilder(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil) -> RequestBuilder<URL> {
-        var path = "/pdf/{name}/pages/{pageNumber}/convert/emf"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/convert/emf"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -1462,10 +1462,10 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getPageConvertToGifWithRequestBuilder(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil) -> RequestBuilder<URL> {
-        var path = "/pdf/{name}/pages/{pageNumber}/convert/gif"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/convert/gif"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -1514,10 +1514,10 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getPageConvertToJpegWithRequestBuilder(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil) -> RequestBuilder<URL> {
-        var path = "/pdf/{name}/pages/{pageNumber}/convert/jpeg"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/convert/jpeg"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -1566,10 +1566,10 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getPageConvertToPngWithRequestBuilder(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil) -> RequestBuilder<URL> {
-        var path = "/pdf/{name}/pages/{pageNumber}/convert/png"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/convert/png"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -1618,10 +1618,10 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getPageConvertToTiffWithRequestBuilder(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil) -> RequestBuilder<URL> {
-        var path = "/pdf/{name}/pages/{pageNumber}/convert/tiff"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/convert/tiff"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -1670,11 +1670,11 @@ open class PdfAPI {
      - returns: RequestBuilder<LinkAnnotationResponse> 
      */
     open class func getPageLinkAnnotationByIndexWithRequestBuilder(name: String, pageNumber: Int, linkIndex: Int, storage: String? = nil, folder: String? = nil) -> RequestBuilder<LinkAnnotationResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/links/{linkIndex}"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{linkIndex}", with: "\(linkIndex)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/links/{linkIndex}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{linkIndex}", with: "\(linkIndex)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -1720,10 +1720,10 @@ open class PdfAPI {
      - returns: RequestBuilder<LinkAnnotationsResponse> 
      */
     open class func getPageLinkAnnotationsWithRequestBuilder(name: String, pageNumber: Int, storage: String? = nil, folder: String? = nil) -> RequestBuilder<LinkAnnotationsResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/links"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/links"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -1781,10 +1781,10 @@ open class PdfAPI {
      - returns: RequestBuilder<TextRectsResponse> 
      */
     open class func getPageTextWithRequestBuilder(name: String, pageNumber: Int, X: Int, Y: Int, width: Int, height: Int, format: [String]? = nil, regex: String? = nil, splitRects: Bool? = nil, folder: String? = nil) -> RequestBuilder<TextRectsResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/text"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/text"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -1838,10 +1838,10 @@ open class PdfAPI {
      - returns: RequestBuilder<TextItemsResponse> 
      */
     open class func getPageTextItemsWithRequestBuilder(name: String, pageNumber: Int, withEmpty: String? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<TextItemsResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/textItems"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/textItems"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -1886,9 +1886,9 @@ open class PdfAPI {
      - returns: RequestBuilder<DocumentPagesResponse> 
      */
     open class func getPagesWithRequestBuilder(name: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<DocumentPagesResponse> {
-        var path = "/pdf/{name}/pages"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -1928,8 +1928,8 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getPclInStorageToPdfWithRequestBuilder(srcPath: String) -> RequestBuilder<URL> {
-        let path = "/pdf/create/pcl"
-        let URLString = AsposePdfCloudAPI.basePath + path
+        let pathUrl = "/pdf/create/pcl"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -1986,9 +1986,9 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getPdfInStorageToDocWithRequestBuilder(name: String, addReturnToLineEnd: Bool? = nil, format: String? = nil, imageResolutionX: Int? = nil, imageResolutionY: Int? = nil, maxDistanceBetweenTextLines: Int? = nil, mode: String? = nil, recognizeBullets: Bool? = nil, relativeHorizontalProximity: Double? = nil, folder: String? = nil) -> RequestBuilder<URL> {
-        var path = "/pdf/{name}/convert/doc"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/convert/doc"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -2039,9 +2039,9 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getPdfInStorageToEpubWithRequestBuilder(name: String, contentRecognitionMode: String? = nil, folder: String? = nil) -> RequestBuilder<URL> {
-        var path = "/pdf/{name}/convert/epub"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/convert/epub"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -2139,9 +2139,9 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getPdfInStorageToHtmlWithRequestBuilder(name: String, additionalMarginWidthInPoints: Int? = nil, compressSvgGraphicsIfAny: Bool? = nil, convertMarkedContentToLayers: Bool? = nil, defaultFontName: String? = nil, documentType: String? = nil, fixedLayout: Bool? = nil, imageResolution: Int? = nil, minimalLineWidth: Int? = nil, preventGlyphsGrouping: Bool? = nil, splitCssIntoPages: Bool? = nil, splitIntoPages: Bool? = nil, useZOrder: Bool? = nil, antialiasingProcessing: String? = nil, cssClassNamesPrefix: String? = nil, explicitListOfSavedPages: [Int]? = nil, fontEncodingStrategy: String? = nil, fontSavingMode: String? = nil, htmlMarkupGenerationMode: String? = nil, lettersPositioningMethod: String? = nil, pagesFlowTypeDependsOnViewersScreenSize: Bool? = nil, partsEmbeddingMode: String? = nil, rasterImagesSavingMode: String? = nil, removeEmptyAreasOnTopAndBottom: Bool? = nil, saveShadowedTextsAsTransparentTexts: Bool? = nil, saveTransparentTexts: Bool? = nil, specialFolderForAllImages: String? = nil, specialFolderForSvgImages: String? = nil, trySaveTextUnderliningAndStrikeoutingInCss: Bool? = nil, folder: String? = nil) -> RequestBuilder<URL> {
-        var path = "/pdf/{name}/convert/html"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/convert/html"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -2212,9 +2212,9 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getPdfInStorageToLaTeXWithRequestBuilder(name: String, pagesCount: Int? = nil, folder: String? = nil) -> RequestBuilder<URL> {
-        var path = "/pdf/{name}/convert/latex"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/convert/latex"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -2256,9 +2256,9 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getPdfInStorageToMobiXmlWithRequestBuilder(name: String, folder: String? = nil) -> RequestBuilder<URL> {
-        var path = "/pdf/{name}/convert/mobixml"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/convert/mobixml"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -2301,9 +2301,9 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getPdfInStorageToPdfAWithRequestBuilder(name: String, type: String, folder: String? = nil) -> RequestBuilder<URL> {
-        var path = "/pdf/{name}/convert/pdfa"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/convert/pdfa"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -2349,9 +2349,9 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getPdfInStorageToPptxWithRequestBuilder(name: String, separateImages: Bool? = nil, slidesAsImages: Bool? = nil, folder: String? = nil) -> RequestBuilder<URL> {
-        var path = "/pdf/{name}/convert/pptx"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/convert/pptx"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -2396,9 +2396,9 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getPdfInStorageToSvgWithRequestBuilder(name: String, compressOutputToZipArchive: Bool? = nil, folder: String? = nil) -> RequestBuilder<URL> {
-        var path = "/pdf/{name}/convert/svg"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/convert/svg"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -2470,9 +2470,9 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getPdfInStorageToTiffWithRequestBuilder(name: String, brightness: Double? = nil, compression: String? = nil, colorDepth: String? = nil, leftMargin: Int? = nil, rightMargin: Int? = nil, topMargin: Int? = nil, bottomMargin: Int? = nil, orientation: String? = nil, skipBlankPages: Bool? = nil, width: Int? = nil, height: Int? = nil, xResolution: Int? = nil, yResolution: Int? = nil, pageIndex: Int? = nil, pageCount: Int? = nil, folder: String? = nil) -> RequestBuilder<URL> {
-        var path = "/pdf/{name}/convert/tiff"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/convert/tiff"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -2536,9 +2536,9 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getPdfInStorageToXlsWithRequestBuilder(name: String, insertBlankColumnAtFirst: Bool? = nil, minimizeTheNumberOfWorksheets: Bool? = nil, scaleFactor: Double? = nil, uniformWorksheets: Bool? = nil, folder: String? = nil) -> RequestBuilder<URL> {
-        var path = "/pdf/{name}/convert/xls"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/convert/xls"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -2583,9 +2583,9 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getPdfInStorageToXmlWithRequestBuilder(name: String, folder: String? = nil) -> RequestBuilder<URL> {
-        var path = "/pdf/{name}/convert/xml"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/convert/xml"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -2626,9 +2626,9 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getPdfInStorageToXpsWithRequestBuilder(name: String, folder: String? = nil) -> RequestBuilder<URL> {
-        var path = "/pdf/{name}/convert/xps"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/convert/xps"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -2667,8 +2667,8 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getPsInStorageToPdfWithRequestBuilder(srcPath: String) -> RequestBuilder<URL> {
-        let path = "/pdf/create/ps"
-        let URLString = AsposePdfCloudAPI.basePath + path
+        let pathUrl = "/pdf/create/ps"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -2717,12 +2717,12 @@ open class PdfAPI {
      - returns: RequestBuilder<TextItemResponse> 
      */
     open class func getSegmentWithRequestBuilder(name: String, pageNumber: Int, fragmentNumber: Int, segmentNumber: Int, storage: String? = nil, folder: String? = nil) -> RequestBuilder<TextItemResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/fragments/{fragmentNumber}/segments/{segmentNumber}"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{fragmentNumber}", with: "\(fragmentNumber)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{segmentNumber}", with: "\(segmentNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/fragments/{fragmentNumber}/segments/{segmentNumber}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{fragmentNumber}", with: "\(fragmentNumber)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{segmentNumber}", with: "\(segmentNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -2772,12 +2772,12 @@ open class PdfAPI {
      - returns: RequestBuilder<TextFormatResponse> 
      */
     open class func getSegmentTextFormatWithRequestBuilder(name: String, pageNumber: Int, fragmentNumber: Int, segmentNumber: Int, storage: String? = nil, folder: String? = nil) -> RequestBuilder<TextFormatResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/fragments/{fragmentNumber}/segments/{segmentNumber}/textformat"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{fragmentNumber}", with: "\(fragmentNumber)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{segmentNumber}", with: "\(segmentNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/fragments/{fragmentNumber}/segments/{segmentNumber}/textformat"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{fragmentNumber}", with: "\(fragmentNumber)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{segmentNumber}", with: "\(segmentNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -2827,11 +2827,11 @@ open class PdfAPI {
      - returns: RequestBuilder<TextItemsResponse> 
      */
     open class func getSegmentsWithRequestBuilder(name: String, pageNumber: Int, fragmentNumber: Int, withEmpty: String? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<TextItemsResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/fragments/{fragmentNumber}/segments"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{fragmentNumber}", with: "\(fragmentNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/fragments/{fragmentNumber}/segments"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{fragmentNumber}", with: "\(fragmentNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -2888,8 +2888,8 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getSvgInStorageToPdfWithRequestBuilder(srcPath: String, adjustPageSize: Bool? = nil, height: Double? = nil, width: Double? = nil, isLandscape: Bool? = nil, marginLeft: Double? = nil, marginBottom: Double? = nil, marginRight: Double? = nil, marginTop: Double? = nil) -> RequestBuilder<URL> {
-        let path = "/pdf/create/svg"
-        let URLString = AsposePdfCloudAPI.basePath + path
+        let pathUrl = "/pdf/create/svg"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -2952,9 +2952,9 @@ open class PdfAPI {
      - returns: RequestBuilder<TextRectsResponse> 
      */
     open class func getTextWithRequestBuilder(name: String, X: Int, Y: Int, width: Int, height: Int, format: [String]? = nil, regex: String? = nil, splitRects: Bool? = nil, folder: String? = nil) -> RequestBuilder<TextRectsResponse> {
-        var path = "/pdf/{name}/text"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/text"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -3006,9 +3006,9 @@ open class PdfAPI {
      - returns: RequestBuilder<TextItemsResponse> 
      */
     open class func getTextItemsWithRequestBuilder(name: String, withEmpty: String? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<TextItemsResponse> {
-        var path = "/pdf/{name}/textItems"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/textItems"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -3053,9 +3053,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SignatureVerifyResponse> 
      */
     open class func getVerifySignatureWithRequestBuilder(name: String, signName: String, folder: String? = nil) -> RequestBuilder<SignatureVerifyResponse> {
-        var path = "/pdf/{name}/verifySignature"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/verifySignature"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -3109,8 +3109,8 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getWebInStorageToPdfWithRequestBuilder(url: String, height: Double? = nil, width: Double? = nil, isLandscape: Bool? = nil, marginLeft: Double? = nil, marginBottom: Double? = nil, marginRight: Double? = nil, marginTop: Double? = nil) -> RequestBuilder<URL> {
-        let path = "/pdf/create/web"
-        let URLString = AsposePdfCloudAPI.basePath + path
+        let pathUrl = "/pdf/create/web"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -3160,9 +3160,9 @@ open class PdfAPI {
      - returns: RequestBuilder<WordCountResponse> 
      */
     open class func getWordsPerPageWithRequestBuilder(name: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<WordCountResponse> {
-        var path = "/pdf/{name}/pages/wordCount"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/wordCount"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -3204,9 +3204,9 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getXfaPdfInStorageToAcroFormWithRequestBuilder(name: String, folder: String? = nil) -> RequestBuilder<URL> {
-        var path = "/pdf/{name}/convert/xfatoacroform"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/convert/xfatoacroform"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -3247,8 +3247,8 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getXmlInStorageToPdfWithRequestBuilder(srcPath: String, xslFilePath: String? = nil) -> RequestBuilder<URL> {
-        let path = "/pdf/create/xml"
-        let URLString = AsposePdfCloudAPI.basePath + path
+        let pathUrl = "/pdf/create/xml"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -3288,8 +3288,8 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getXpsInStorageToPdfWithRequestBuilder(srcPath: String) -> RequestBuilder<URL> {
-        let path = "/pdf/create/xps"
-        let URLString = AsposePdfCloudAPI.basePath + path
+        let pathUrl = "/pdf/create/xps"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -3328,8 +3328,8 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func getXslFoInStorageToPdfWithRequestBuilder(srcPath: String) -> RequestBuilder<URL> {
-        let path = "/pdf/create/xslfo"
-        let URLString = AsposePdfCloudAPI.basePath + path
+        let pathUrl = "/pdf/create/xslfo"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -3380,9 +3380,9 @@ open class PdfAPI {
      - returns: RequestBuilder<DocumentResponse> 
      */
     open class func postAppendDocumentWithRequestBuilder(name: String, appendDocument: AppendDocument? = nil, appendFile: String? = nil, startPage: Int? = nil, endPage: Int? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<DocumentResponse> {
-        var path = "/pdf/{name}/appendDocument"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/appendDocument"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: appendDocument)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -3436,9 +3436,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func postCreateFieldWithRequestBuilder(name: String, page: Int, field: Field? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/fields"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/fields"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: field)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -3485,9 +3485,9 @@ open class PdfAPI {
      - returns: RequestBuilder<DocumentTextReplaceResponse> 
      */
     open class func postDocumentReplaceTextWithRequestBuilder(name: String, textReplace: TextReplaceRequest, storage: String? = nil, folder: String? = nil) -> RequestBuilder<DocumentTextReplaceResponse> {
-        var path = "/pdf/{name}/replaceText"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/replaceText"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: textReplace)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -3533,9 +3533,9 @@ open class PdfAPI {
      - returns: RequestBuilder<DocumentTextReplaceResponse> 
      */
     open class func postDocumentReplaceTextListWithRequestBuilder(name: String, textReplaceListRequest: TextReplaceListRequest, storage: String? = nil, folder: String? = nil) -> RequestBuilder<DocumentTextReplaceResponse> {
-        var path = "/pdf/{name}/replaceTextList"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/replaceTextList"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: textReplaceListRequest)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -3581,9 +3581,9 @@ open class PdfAPI {
      - returns: RequestBuilder<TextReplaceResponse> 
      */
     open class func postDocumentTextReplaceWithRequestBuilder(name: String, textReplace: TextReplaceListRequest, storage: String? = nil, folder: String? = nil) -> RequestBuilder<TextReplaceResponse> {
-        var path = "/pdf/{name}/text/replace"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/text/replace"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: textReplace)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -3634,10 +3634,10 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func postMovePageWithRequestBuilder(name: String, pageNumber: Int, newIndex: Int, storage: String? = nil, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/movePage"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/movePage"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -3687,9 +3687,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func postOptimizeDocumentWithRequestBuilder(name: String, options: OptimizeOptions? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/optimize"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/optimize"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: options)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -3737,10 +3737,10 @@ open class PdfAPI {
      - returns: RequestBuilder<PageTextReplaceResponse> 
      */
     open class func postPageReplaceTextWithRequestBuilder(name: String, pageNumber: Int, textReplace: TextReplaceRequest, storage: String? = nil, folder: String? = nil) -> RequestBuilder<PageTextReplaceResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/replaceText"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/replaceText"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: textReplace)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -3788,10 +3788,10 @@ open class PdfAPI {
      - returns: RequestBuilder<PageTextReplaceResponse> 
      */
     open class func postPageReplaceTextListWithRequestBuilder(name: String, pageNumber: Int, textReplaceListRequest: TextReplaceListRequest, storage: String? = nil, folder: String? = nil) -> RequestBuilder<PageTextReplaceResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/replaceTextList"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/replaceTextList"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: textReplaceListRequest)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -3839,10 +3839,10 @@ open class PdfAPI {
      - returns: RequestBuilder<TextReplaceResponse> 
      */
     open class func postPageTextReplaceWithRequestBuilder(name: String, pageNumber: Int, textReplaceListRequest: TextReplaceListRequest, storage: String? = nil, folder: String? = nil) -> RequestBuilder<TextReplaceResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/text/replace"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/text/replace"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: textReplaceListRequest)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -3894,11 +3894,11 @@ open class PdfAPI {
      - returns: RequestBuilder<ImageResponse> 
      */
     open class func postReplaceImageWithRequestBuilder(name: String, pageNumber: Int, imageNumber: Int, imageFile: String? = nil, storage: String? = nil, folder: String? = nil, image: ? = nil) -> RequestBuilder<ImageResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/images/{imageNumber}"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{imageNumber}", with: "\(imageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/images/{imageNumber}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{imageNumber}", with: "\(imageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: image)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -3948,9 +3948,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func postSignDocumentWithRequestBuilder(name: String, signature: Signature? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/sign"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/sign"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: signature)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -4001,10 +4001,10 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func postSignPageWithRequestBuilder(name: String, pageNumber: Int, signature: Signature? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/sign"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/sign"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: signature)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -4054,9 +4054,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SplitResultResponse> 
      */
     open class func postSplitDocumentWithRequestBuilder(name: String, format: String? = nil, from: Int? = nil, to: Int? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<SplitResultResponse> {
-        var path = "/pdf/{name}/split"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/split"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -4103,9 +4103,9 @@ open class PdfAPI {
      - returns: RequestBuilder<DocumentPagesResponse> 
      */
     open class func putAddNewPageWithRequestBuilder(name: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<DocumentPagesResponse> {
-        var path = "/pdf/{name}/pages"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -4156,10 +4156,10 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putAddParagraphWithRequestBuilder(name: String, pageNumber: Int, paragraph: Paragraph? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/paragraph"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/paragraph"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: paragraph)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -4208,10 +4208,10 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putAddTextWithRequestBuilder(name: String, pageNumber: Int, paragraph: Paragraph? = nil, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/text"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/text"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: paragraph)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -4256,8 +4256,8 @@ open class PdfAPI {
      - returns: RequestBuilder<URL> 
      */
     open class func putConvertDocumentWithRequestBuilder(format: String? = nil, url: String? = nil, outPath: String? = nil, file: ? = nil) -> RequestBuilder<URL> {
-        let path = "/pdf/convert"
-        let URLString = AsposePdfCloudAPI.basePath + path
+        let pathUrl = "/pdf/convert"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -4307,8 +4307,8 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putCreateWithRequestBuilder(path: String, file: , versionId: String? = nil, storage: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        let path = "/storage/file"
-        let URLString = AsposePdfCloudAPI.basePath + path
+        let pathUrl = "/storage/file"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -4363,9 +4363,9 @@ open class PdfAPI {
      - returns: RequestBuilder<DocumentResponse> 
      */
     open class func putCreateDocumentWithRequestBuilder(name: String, templateFile: String? = nil, dataFile: String? = nil, templateType: String? = nil, storage: String? = nil, folder: String? = nil, url: String? = nil, fitSize: Bool? = nil) -> RequestBuilder<DocumentResponse> {
-        var path = "/pdf/{name}"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -4420,9 +4420,9 @@ open class PdfAPI {
      - returns: RequestBuilder<DocumentResponse> 
      */
     open class func putCreateDocumentFromImagesWithRequestBuilder(name: String, images: ImagesListRequest? = nil, ocr: Bool? = nil, ocrLang: String? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<DocumentResponse> {
-        var path = "/pdf/{name}/fromimages"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/fromimages"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: images)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -4505,9 +4505,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putDocumentSaveAsTiffWithRequestBuilder(name: String, exportOptions: TiffExportOptions? = nil, resultFile: String? = nil, brightness: Double? = nil, compression: String? = nil, colorDepth: String? = nil, leftMargin: Int? = nil, rightMargin: Int? = nil, topMargin: Int? = nil, bottomMargin: Int? = nil, orientation: String? = nil, skipBlankPages: Bool? = nil, width: Int? = nil, height: Int? = nil, xResolution: Int? = nil, yResolution: Int? = nil, pageIndex: Int? = nil, pageCount: Int? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/SaveAs/tiff"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/SaveAs/tiff"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: exportOptions)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -4570,9 +4570,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putEpubInStorageToPdfWithRequestBuilder(name: String, srcPath: String, dstFolder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/create/epub"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/create/epub"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -4619,9 +4619,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putFieldsFlattenWithRequestBuilder(name: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/fields/flatten"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/fields/flatten"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -4684,9 +4684,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putHtmlInStorageToPdfWithRequestBuilder(name: String, srcPath: String, htmlFileName: String, height: Double? = nil, width: Double? = nil, isLandscape: Bool? = nil, marginLeft: Double? = nil, marginBottom: Double? = nil, marginRight: Double? = nil, marginTop: Double? = nil, dstFolder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/create/html"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/create/html"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -4741,9 +4741,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putImageInStorageToPdfWithRequestBuilder(name: String, imageTemplates: ImageTemplatesRequest, dstFolder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/create/images"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/create/images"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: imageTemplates)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -4795,10 +4795,10 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putImagesExtractAsGifWithRequestBuilder(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil, destFolder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/images/extract/gif"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/images/extract/gif"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -4853,10 +4853,10 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putImagesExtractAsJpegWithRequestBuilder(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil, destFolder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/images/extract/jpeg"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/images/extract/jpeg"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -4911,10 +4911,10 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putImagesExtractAsPngWithRequestBuilder(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil, destFolder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/images/extract/png"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/images/extract/png"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -4969,10 +4969,10 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putImagesExtractAsTiffWithRequestBuilder(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil, destFolder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/images/extract/tiff"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/images/extract/tiff"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -5021,9 +5021,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putLaTeXInStorageToPdfWithRequestBuilder(name: String, srcPath: String, dstFolder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/create/latex"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/create/latex"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -5069,9 +5069,9 @@ open class PdfAPI {
      - returns: RequestBuilder<DocumentResponse> 
      */
     open class func putMergeDocumentsWithRequestBuilder(name: String, mergeDocuments: MergeDocuments? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<DocumentResponse> {
-        var path = "/pdf/{name}/merge"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/merge"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: mergeDocuments)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -5118,9 +5118,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putMhtInStorageToPdfWithRequestBuilder(name: String, srcPath: String, dstFolder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/create/mht"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/create/mht"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -5171,10 +5171,10 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPageAddStampWithRequestBuilder(name: String, pageNumber: Int, stamp: Stamp, storage: String? = nil, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/stamp"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/stamp"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: stamp)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -5227,10 +5227,10 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPageConvertToBmpWithRequestBuilder(name: String, pageNumber: Int, outPath: String, width: Int? = nil, height: Int? = nil, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/convert/bmp"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/convert/bmp"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -5285,10 +5285,10 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPageConvertToEmfWithRequestBuilder(name: String, pageNumber: Int, outPath: String, width: Int? = nil, height: Int? = nil, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/convert/emf"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/convert/emf"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -5343,10 +5343,10 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPageConvertToGifWithRequestBuilder(name: String, pageNumber: Int, outPath: String, width: Int? = nil, height: Int? = nil, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/convert/gif"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/convert/gif"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -5401,10 +5401,10 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPageConvertToJpegWithRequestBuilder(name: String, pageNumber: Int, outPath: String, width: Int? = nil, height: Int? = nil, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/convert/jpeg"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/convert/jpeg"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -5459,10 +5459,10 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPageConvertToPngWithRequestBuilder(name: String, pageNumber: Int, outPath: String, width: Int? = nil, height: Int? = nil, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/convert/png"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/convert/png"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -5517,10 +5517,10 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPageConvertToTiffWithRequestBuilder(name: String, pageNumber: Int, outPath: String, width: Int? = nil, height: Int? = nil, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/pages/{pageNumber}/convert/tiff"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/convert/tiff"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -5569,9 +5569,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPclInStorageToPdfWithRequestBuilder(name: String, srcPath: String, dstFolder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/create/pcl"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/create/pcl"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -5632,8 +5632,8 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPdfInRequestToDocWithRequestBuilder(outPath: String, addReturnToLineEnd: Bool? = nil, format: String? = nil, imageResolutionX: Int? = nil, imageResolutionY: Int? = nil, maxDistanceBetweenTextLines: Int? = nil, mode: String? = nil, recognizeBullets: Bool? = nil, relativeHorizontalProximity: Double? = nil, file: ? = nil) -> RequestBuilder<SaaSposeResponse> {
-        let path = "/pdf/convert/doc"
-        let URLString = AsposePdfCloudAPI.basePath + path
+        let pathUrl = "/pdf/convert/doc"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -5687,8 +5687,8 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPdfInRequestToEpubWithRequestBuilder(outPath: String, contentRecognitionMode: String? = nil, file: ? = nil) -> RequestBuilder<SaaSposeResponse> {
-        let path = "/pdf/convert/epub"
-        let URLString = AsposePdfCloudAPI.basePath + path
+        let pathUrl = "/pdf/convert/epub"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -5789,8 +5789,8 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPdfInRequestToHtmlWithRequestBuilder(outPath: String, additionalMarginWidthInPoints: Int? = nil, compressSvgGraphicsIfAny: Bool? = nil, convertMarkedContentToLayers: Bool? = nil, defaultFontName: String? = nil, documentType: String? = nil, fixedLayout: Bool? = nil, imageResolution: Int? = nil, minimalLineWidth: Int? = nil, preventGlyphsGrouping: Bool? = nil, splitCssIntoPages: Bool? = nil, splitIntoPages: Bool? = nil, useZOrder: Bool? = nil, antialiasingProcessing: String? = nil, cssClassNamesPrefix: String? = nil, explicitListOfSavedPages: [Int]? = nil, fontEncodingStrategy: String? = nil, fontSavingMode: String? = nil, htmlMarkupGenerationMode: String? = nil, lettersPositioningMethod: String? = nil, pagesFlowTypeDependsOnViewersScreenSize: Bool? = nil, partsEmbeddingMode: String? = nil, rasterImagesSavingMode: String? = nil, removeEmptyAreasOnTopAndBottom: Bool? = nil, saveShadowedTextsAsTransparentTexts: Bool? = nil, saveTransparentTexts: Bool? = nil, specialFolderForAllImages: String? = nil, specialFolderForSvgImages: String? = nil, trySaveTextUnderliningAndStrikeoutingInCss: Bool? = nil, file: ? = nil) -> RequestBuilder<SaaSposeResponse> {
-        let path = "/pdf/convert/html"
-        let URLString = AsposePdfCloudAPI.basePath + path
+        let pathUrl = "/pdf/convert/html"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -5864,8 +5864,8 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPdfInRequestToLaTeXWithRequestBuilder(outPath: String, pagesCount: Int? = nil, file: ? = nil) -> RequestBuilder<SaaSposeResponse> {
-        let path = "/pdf/convert/latex"
-        let URLString = AsposePdfCloudAPI.basePath + path
+        let pathUrl = "/pdf/convert/latex"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -5910,8 +5910,8 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPdfInRequestToMobiXmlWithRequestBuilder(outPath: String, file: ? = nil) -> RequestBuilder<SaaSposeResponse> {
-        let path = "/pdf/convert/mobixml"
-        let URLString = AsposePdfCloudAPI.basePath + path
+        let pathUrl = "/pdf/convert/mobixml"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -5957,8 +5957,8 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPdfInRequestToPdfAWithRequestBuilder(outPath: String, type: String, file: ? = nil) -> RequestBuilder<SaaSposeResponse> {
-        let path = "/pdf/convert/pdfa"
-        let URLString = AsposePdfCloudAPI.basePath + path
+        let pathUrl = "/pdf/convert/pdfa"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -6007,8 +6007,8 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPdfInRequestToPptxWithRequestBuilder(outPath: String, separateImages: Bool? = nil, slidesAsImages: Bool? = nil, file: ? = nil) -> RequestBuilder<SaaSposeResponse> {
-        let path = "/pdf/convert/pptx"
-        let URLString = AsposePdfCloudAPI.basePath + path
+        let pathUrl = "/pdf/convert/pptx"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -6056,8 +6056,8 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPdfInRequestToSvgWithRequestBuilder(outPath: String, compressOutputToZipArchive: Bool? = nil, file: ? = nil) -> RequestBuilder<SaaSposeResponse> {
-        let path = "/pdf/convert/svg"
-        let URLString = AsposePdfCloudAPI.basePath + path
+        let pathUrl = "/pdf/convert/svg"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -6132,8 +6132,8 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPdfInRequestToTiffWithRequestBuilder(outPath: String, brightness: Double? = nil, compression: String? = nil, colorDepth: String? = nil, leftMargin: Int? = nil, rightMargin: Int? = nil, topMargin: Int? = nil, bottomMargin: Int? = nil, orientation: String? = nil, skipBlankPages: Bool? = nil, width: Int? = nil, height: Int? = nil, xResolution: Int? = nil, yResolution: Int? = nil, pageIndex: Int? = nil, pageCount: Int? = nil, file: ? = nil) -> RequestBuilder<SaaSposeResponse> {
-        let path = "/pdf/convert/tiff"
-        let URLString = AsposePdfCloudAPI.basePath + path
+        let pathUrl = "/pdf/convert/tiff"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -6200,8 +6200,8 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPdfInRequestToXlsWithRequestBuilder(outPath: String, insertBlankColumnAtFirst: Bool? = nil, minimizeTheNumberOfWorksheets: Bool? = nil, scaleFactor: Double? = nil, uniformWorksheets: Bool? = nil, file: ? = nil) -> RequestBuilder<SaaSposeResponse> {
-        let path = "/pdf/convert/xls"
-        let URLString = AsposePdfCloudAPI.basePath + path
+        let pathUrl = "/pdf/convert/xls"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -6249,8 +6249,8 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPdfInRequestToXmlWithRequestBuilder(outPath: String, file: ? = nil) -> RequestBuilder<SaaSposeResponse> {
-        let path = "/pdf/convert/xml"
-        let URLString = AsposePdfCloudAPI.basePath + path
+        let pathUrl = "/pdf/convert/xml"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -6294,8 +6294,8 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPdfInRequestToXpsWithRequestBuilder(outPath: String, file: ? = nil) -> RequestBuilder<SaaSposeResponse> {
-        let path = "/pdf/convert/xps"
-        let URLString = AsposePdfCloudAPI.basePath + path
+        let pathUrl = "/pdf/convert/xps"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -6357,9 +6357,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPdfInStorageToDocWithRequestBuilder(name: String, outPath: String, addReturnToLineEnd: Bool? = nil, format: String? = nil, imageResolutionX: Int? = nil, imageResolutionY: Int? = nil, maxDistanceBetweenTextLines: Int? = nil, mode: String? = nil, recognizeBullets: Bool? = nil, relativeHorizontalProximity: Double? = nil, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/convert/doc"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/convert/doc"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -6416,9 +6416,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPdfInStorageToEpubWithRequestBuilder(name: String, outPath: String, contentRecognitionMode: String? = nil, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/convert/epub"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/convert/epub"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -6522,9 +6522,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPdfInStorageToHtmlWithRequestBuilder(name: String, outPath: String, additionalMarginWidthInPoints: Int? = nil, compressSvgGraphicsIfAny: Bool? = nil, convertMarkedContentToLayers: Bool? = nil, defaultFontName: String? = nil, documentType: String? = nil, fixedLayout: Bool? = nil, imageResolution: Int? = nil, minimalLineWidth: Int? = nil, preventGlyphsGrouping: Bool? = nil, splitCssIntoPages: Bool? = nil, splitIntoPages: Bool? = nil, useZOrder: Bool? = nil, antialiasingProcessing: String? = nil, cssClassNamesPrefix: String? = nil, explicitListOfSavedPages: [Int]? = nil, fontEncodingStrategy: String? = nil, fontSavingMode: String? = nil, htmlMarkupGenerationMode: String? = nil, lettersPositioningMethod: String? = nil, pagesFlowTypeDependsOnViewersScreenSize: Bool? = nil, partsEmbeddingMode: String? = nil, rasterImagesSavingMode: String? = nil, removeEmptyAreasOnTopAndBottom: Bool? = nil, saveShadowedTextsAsTransparentTexts: Bool? = nil, saveTransparentTexts: Bool? = nil, specialFolderForAllImages: String? = nil, specialFolderForSvgImages: String? = nil, trySaveTextUnderliningAndStrikeoutingInCss: Bool? = nil, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/convert/html"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/convert/html"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -6601,9 +6601,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPdfInStorageToLaTeXWithRequestBuilder(name: String, outPath: String, pagesCount: Int? = nil, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/convert/latex"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/convert/latex"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -6651,9 +6651,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPdfInStorageToMobiXmlWithRequestBuilder(name: String, outPath: String, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/convert/mobixml"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/convert/mobixml"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -6702,9 +6702,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPdfInStorageToPdfAWithRequestBuilder(name: String, outPath: String, type: String, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/convert/pdfa"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/convert/pdfa"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -6756,9 +6756,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPdfInStorageToPptxWithRequestBuilder(name: String, outPath: String, separateImages: Bool? = nil, slidesAsImages: Bool? = nil, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/convert/pptx"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/convert/pptx"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -6809,9 +6809,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPdfInStorageToSvgWithRequestBuilder(name: String, outPath: String, compressOutputToZipArchive: Bool? = nil, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/convert/svg"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/convert/svg"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -6889,9 +6889,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPdfInStorageToTiffWithRequestBuilder(name: String, outPath: String, brightness: Double? = nil, compression: String? = nil, colorDepth: String? = nil, leftMargin: Int? = nil, rightMargin: Int? = nil, topMargin: Int? = nil, bottomMargin: Int? = nil, orientation: String? = nil, skipBlankPages: Bool? = nil, width: Int? = nil, height: Int? = nil, xResolution: Int? = nil, yResolution: Int? = nil, pageIndex: Int? = nil, pageCount: Int? = nil, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/convert/tiff"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/convert/tiff"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -6961,9 +6961,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPdfInStorageToXlsWithRequestBuilder(name: String, outPath: String, insertBlankColumnAtFirst: Bool? = nil, minimizeTheNumberOfWorksheets: Bool? = nil, scaleFactor: Double? = nil, uniformWorksheets: Bool? = nil, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/convert/xls"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/convert/xls"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -7014,9 +7014,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPdfInStorageToXmlWithRequestBuilder(name: String, outPath: String, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/convert/xml"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/convert/xml"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -7063,9 +7063,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPdfInStorageToXpsWithRequestBuilder(name: String, outPath: String, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/convert/xps"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/convert/xps"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -7112,9 +7112,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPrivilegesWithRequestBuilder(name: String, privileges: DocumentPrivilege? = nil, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/privileges"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/privileges"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: privileges)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -7160,9 +7160,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putPsInStorageToPdfWithRequestBuilder(name: String, srcPath: String, dstFolder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/create/ps"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/create/ps"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -7211,9 +7211,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putSearchableDocumentWithRequestBuilder(name: String, storage: String? = nil, folder: String? = nil, lang: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/ocr"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/ocr"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -7262,10 +7262,10 @@ open class PdfAPI {
      - returns: RequestBuilder<DocumentPropertyResponse> 
      */
     open class func putSetPropertyWithRequestBuilder(name: String, propertyName: String, property: DocumentProperty? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<DocumentPropertyResponse> {
-        var path = "/pdf/{name}/documentproperties/{propertyName}"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{propertyName}", with: "\(propertyName)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/documentproperties/{propertyName}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{propertyName}", with: "\(propertyName)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: property)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -7328,9 +7328,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putSvgInStorageToPdfWithRequestBuilder(name: String, srcPath: String, adjustPageSize: Bool? = nil, height: Double? = nil, width: Double? = nil, isLandscape: Bool? = nil, marginLeft: Double? = nil, marginBottom: Double? = nil, marginRight: Double? = nil, marginTop: Double? = nil, dstFolder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/create/svg"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/create/svg"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -7386,10 +7386,10 @@ open class PdfAPI {
      - returns: RequestBuilder<FieldResponse> 
      */
     open class func putUpdateFieldWithRequestBuilder(name: String, fieldName: String, field: Field? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<FieldResponse> {
-        var path = "/pdf/{name}/fields/{fieldName}"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        path = path.replacingOccurrences(of: "{fieldName}", with: "\(fieldName)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/fields/{fieldName}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{fieldName}", with: "\(fieldName)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: field)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -7435,9 +7435,9 @@ open class PdfAPI {
      - returns: RequestBuilder<FieldsResponse> 
      */
     open class func putUpdateFieldsWithRequestBuilder(name: String, fields: Fields? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<FieldsResponse> {
-        var path = "/pdf/{name}/fields"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/fields"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: fields)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -7498,9 +7498,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putWebInStorageToPdfWithRequestBuilder(name: String, url: String, height: Double? = nil, width: Double? = nil, isLandscape: Bool? = nil, marginLeft: Double? = nil, marginBottom: Double? = nil, marginRight: Double? = nil, marginTop: Double? = nil, dstFolder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/create/web"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/create/web"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -7552,8 +7552,8 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putXfaPdfInRequestToAcroFormWithRequestBuilder(outPath: String, file: ? = nil) -> RequestBuilder<SaaSposeResponse> {
-        let path = "/pdf/convert/xfatoacroform"
-        let URLString = AsposePdfCloudAPI.basePath + path
+        let pathUrl = "/pdf/convert/xfatoacroform"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
 
         let urlObj = NSURLComponents(string: URLString)
@@ -7599,9 +7599,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putXfaPdfInStorageToAcroFormWithRequestBuilder(name: String, outPath: String, folder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/convert/xfatoacroform"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/convert/xfatoacroform"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -7650,9 +7650,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putXmlInStorageToPdfWithRequestBuilder(name: String, srcPath: String, xslFilePath: String? = nil, dstFolder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/create/xml"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/create/xml"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -7700,9 +7700,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putXpsInStorageToPdfWithRequestBuilder(name: String, srcPath: String, dstFolder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/create/xps"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/create/xps"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
@@ -7749,9 +7749,9 @@ open class PdfAPI {
      - returns: RequestBuilder<SaaSposeResponse> 
      */
     open class func putXslFoInStorageToPdfWithRequestBuilder(name: String, srcPath: String, dstFolder: String? = nil) -> RequestBuilder<SaaSposeResponse> {
-        var path = "/pdf/{name}/create/xslfo"
-        path = path.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + path
+        var pathUrl = "/pdf/{name}/create/xslfo"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
