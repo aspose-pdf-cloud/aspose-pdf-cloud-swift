@@ -242,7 +242,7 @@ open class PdfAPI {
      - parameter outPath: (query) Path to save result (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getDocument(name: String, format: String? = nil, storage: String? = nil, folder: String? = nil, outPath: String? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getDocument(name: String, format: String? = nil, storage: String? = nil, folder: String? = nil, outPath: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getDocumentWithRequestBuilder(name: name, format: format, storage: storage, folder: folder, outPath: outPath).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -388,7 +388,7 @@ open class PdfAPI {
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getDocumentBookmarks(name: String, bookmarkPath: String? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getDocumentBookmarks(name: String, bookmarkPath: String? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getDocumentBookmarksWithRequestBuilder(name: name, bookmarkPath: bookmarkPath, storage: storage, folder: folder).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -531,7 +531,7 @@ open class PdfAPI {
      - parameter storage: (query) User&#39;s storage name (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getDownload(path: String, versionId: String? = nil, storage: String? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getDownload(path: String, versionId: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getDownloadWithRequestBuilder(path: path, versionId: versionId, storage: storage).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -578,7 +578,7 @@ open class PdfAPI {
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getDownloadDocumentAttachmentByIndex(name: String, attachmentIndex: Int, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getDownloadDocumentAttachmentByIndex(name: String, attachmentIndex: Int, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getDownloadDocumentAttachmentByIndexWithRequestBuilder(name: name, attachmentIndex: attachmentIndex, storage: storage, folder: folder).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -624,7 +624,7 @@ open class PdfAPI {
      - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.epub) 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getEpubInStorageToPdf(srcPath: String, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getEpubInStorageToPdf(srcPath: String, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getEpubInStorageToPdfWithRequestBuilder(srcPath: srcPath).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -926,7 +926,7 @@ open class PdfAPI {
      - parameter marginTop: (query) Page margin top (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getHtmlInStorageToPdf(srcPath: String, htmlFileName: String, height: Double? = nil, width: Double? = nil, isLandscape: Bool? = nil, marginLeft: Double? = nil, marginBottom: Double? = nil, marginRight: Double? = nil, marginTop: Double? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getHtmlInStorageToPdf(srcPath: String, htmlFileName: String, height: Double? = nil, width: Double? = nil, isLandscape: Bool? = nil, marginLeft: Double? = nil, marginBottom: Double? = nil, marginRight: Double? = nil, marginTop: Double? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getHtmlInStorageToPdfWithRequestBuilder(srcPath: srcPath, htmlFileName: htmlFileName, height: height, width: width, isLandscape: isLandscape, marginLeft: marginLeft, marginBottom: marginBottom, marginRight: marginRight, marginTop: marginTop).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -989,7 +989,7 @@ open class PdfAPI {
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getImage(name: String, pageNumber: Int, imageNumber: Int, format: String? = nil, width: Int? = nil, height: Int? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getImage(name: String, pageNumber: Int, imageNumber: Int, format: String? = nil, width: Int? = nil, height: Int? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getImageWithRequestBuilder(name: name, pageNumber: pageNumber, imageNumber: imageNumber, format: format, width: width, height: height, storage: storage, folder: folder).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -1092,7 +1092,7 @@ open class PdfAPI {
      - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.tex) 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getLaTeXInStorageToPdf(srcPath: String, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getLaTeXInStorageToPdf(srcPath: String, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getLaTeXInStorageToPdfWithRequestBuilder(srcPath: srcPath).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -1132,7 +1132,7 @@ open class PdfAPI {
      - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.mht) 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getMhtInStorageToPdf(srcPath: String, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getMhtInStorageToPdf(srcPath: String, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getMhtInStorageToPdfWithRequestBuilder(srcPath: srcPath).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -1178,7 +1178,7 @@ open class PdfAPI {
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPage(name: String, pageNumber: Int, format: String? = nil, width: Int? = nil, height: Int? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getPage(name: String, pageNumber: Int, format: String? = nil, width: Int? = nil, height: Int? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getPageWithRequestBuilder(name: name, pageNumber: pageNumber, format: format, width: width, height: height, storage: storage, folder: folder).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -1335,7 +1335,7 @@ open class PdfAPI {
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPageConvertToBmp(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getPageConvertToBmp(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getPageConvertToBmpWithRequestBuilder(name: name, pageNumber: pageNumber, width: width, height: height, folder: folder).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -1387,7 +1387,7 @@ open class PdfAPI {
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPageConvertToEmf(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getPageConvertToEmf(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getPageConvertToEmfWithRequestBuilder(name: name, pageNumber: pageNumber, width: width, height: height, folder: folder).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -1439,7 +1439,7 @@ open class PdfAPI {
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPageConvertToGif(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getPageConvertToGif(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getPageConvertToGifWithRequestBuilder(name: name, pageNumber: pageNumber, width: width, height: height, folder: folder).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -1491,7 +1491,7 @@ open class PdfAPI {
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPageConvertToJpeg(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getPageConvertToJpeg(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getPageConvertToJpegWithRequestBuilder(name: name, pageNumber: pageNumber, width: width, height: height, folder: folder).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -1543,7 +1543,7 @@ open class PdfAPI {
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPageConvertToPng(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getPageConvertToPng(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getPageConvertToPngWithRequestBuilder(name: name, pageNumber: pageNumber, width: width, height: height, folder: folder).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -1595,7 +1595,7 @@ open class PdfAPI {
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPageConvertToTiff(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getPageConvertToTiff(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getPageConvertToTiffWithRequestBuilder(name: name, pageNumber: pageNumber, width: width, height: height, folder: folder).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -1909,7 +1909,7 @@ open class PdfAPI {
      - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.pcl) 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPclInStorageToPdf(srcPath: String, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getPclInStorageToPdf(srcPath: String, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getPclInStorageToPdfWithRequestBuilder(srcPath: srcPath).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -1958,7 +1958,7 @@ open class PdfAPI {
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPdfInStorageToDoc(name: String, addReturnToLineEnd: Bool? = nil, format: String? = nil, imageResolutionX: Int? = nil, imageResolutionY: Int? = nil, maxDistanceBetweenTextLines: Int? = nil, mode: String? = nil, recognizeBullets: Bool? = nil, relativeHorizontalProximity: Double? = nil, folder: String? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getPdfInStorageToDoc(name: String, addReturnToLineEnd: Bool? = nil, format: String? = nil, imageResolutionX: Int? = nil, imageResolutionY: Int? = nil, maxDistanceBetweenTextLines: Int? = nil, mode: String? = nil, recognizeBullets: Bool? = nil, relativeHorizontalProximity: Double? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getPdfInStorageToDocWithRequestBuilder(name: name, addReturnToLineEnd: addReturnToLineEnd, format: format, imageResolutionX: imageResolutionX, imageResolutionY: imageResolutionY, maxDistanceBetweenTextLines: maxDistanceBetweenTextLines, mode: mode, recognizeBullets: recognizeBullets, relativeHorizontalProximity: relativeHorizontalProximity, folder: folder).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -2018,7 +2018,7 @@ open class PdfAPI {
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPdfInStorageToEpub(name: String, contentRecognitionMode: String? = nil, folder: String? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getPdfInStorageToEpub(name: String, contentRecognitionMode: String? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getPdfInStorageToEpubWithRequestBuilder(name: name, contentRecognitionMode: contentRecognitionMode, folder: folder).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -2091,7 +2091,7 @@ open class PdfAPI {
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPdfInStorageToHtml(name: String, additionalMarginWidthInPoints: Int? = nil, compressSvgGraphicsIfAny: Bool? = nil, convertMarkedContentToLayers: Bool? = nil, defaultFontName: String? = nil, documentType: String? = nil, fixedLayout: Bool? = nil, imageResolution: Int? = nil, minimalLineWidth: Int? = nil, preventGlyphsGrouping: Bool? = nil, splitCssIntoPages: Bool? = nil, splitIntoPages: Bool? = nil, useZOrder: Bool? = nil, antialiasingProcessing: String? = nil, cssClassNamesPrefix: String? = nil, explicitListOfSavedPages: [Int]? = nil, fontEncodingStrategy: String? = nil, fontSavingMode: String? = nil, htmlMarkupGenerationMode: String? = nil, lettersPositioningMethod: String? = nil, pagesFlowTypeDependsOnViewersScreenSize: Bool? = nil, partsEmbeddingMode: String? = nil, rasterImagesSavingMode: String? = nil, removeEmptyAreasOnTopAndBottom: Bool? = nil, saveShadowedTextsAsTransparentTexts: Bool? = nil, saveTransparentTexts: Bool? = nil, specialFolderForAllImages: String? = nil, specialFolderForSvgImages: String? = nil, trySaveTextUnderliningAndStrikeoutingInCss: Bool? = nil, folder: String? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getPdfInStorageToHtml(name: String, additionalMarginWidthInPoints: Int? = nil, compressSvgGraphicsIfAny: Bool? = nil, convertMarkedContentToLayers: Bool? = nil, defaultFontName: String? = nil, documentType: String? = nil, fixedLayout: Bool? = nil, imageResolution: Int? = nil, minimalLineWidth: Int? = nil, preventGlyphsGrouping: Bool? = nil, splitCssIntoPages: Bool? = nil, splitIntoPages: Bool? = nil, useZOrder: Bool? = nil, antialiasingProcessing: String? = nil, cssClassNamesPrefix: String? = nil, explicitListOfSavedPages: [Int]? = nil, fontEncodingStrategy: String? = nil, fontSavingMode: String? = nil, htmlMarkupGenerationMode: String? = nil, lettersPositioningMethod: String? = nil, pagesFlowTypeDependsOnViewersScreenSize: Bool? = nil, partsEmbeddingMode: String? = nil, rasterImagesSavingMode: String? = nil, removeEmptyAreasOnTopAndBottom: Bool? = nil, saveShadowedTextsAsTransparentTexts: Bool? = nil, saveTransparentTexts: Bool? = nil, specialFolderForAllImages: String? = nil, specialFolderForSvgImages: String? = nil, trySaveTextUnderliningAndStrikeoutingInCss: Bool? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getPdfInStorageToHtmlWithRequestBuilder(name: name, additionalMarginWidthInPoints: additionalMarginWidthInPoints, compressSvgGraphicsIfAny: compressSvgGraphicsIfAny, convertMarkedContentToLayers: convertMarkedContentToLayers, defaultFontName: defaultFontName, documentType: documentType, fixedLayout: fixedLayout, imageResolution: imageResolution, minimalLineWidth: minimalLineWidth, preventGlyphsGrouping: preventGlyphsGrouping, splitCssIntoPages: splitCssIntoPages, splitIntoPages: splitIntoPages, useZOrder: useZOrder, antialiasingProcessing: antialiasingProcessing, cssClassNamesPrefix: cssClassNamesPrefix, explicitListOfSavedPages: explicitListOfSavedPages, fontEncodingStrategy: fontEncodingStrategy, fontSavingMode: fontSavingMode, htmlMarkupGenerationMode: htmlMarkupGenerationMode, lettersPositioningMethod: lettersPositioningMethod, pagesFlowTypeDependsOnViewersScreenSize: pagesFlowTypeDependsOnViewersScreenSize, partsEmbeddingMode: partsEmbeddingMode, rasterImagesSavingMode: rasterImagesSavingMode, removeEmptyAreasOnTopAndBottom: removeEmptyAreasOnTopAndBottom, saveShadowedTextsAsTransparentTexts: saveShadowedTextsAsTransparentTexts, saveTransparentTexts: saveTransparentTexts, specialFolderForAllImages: specialFolderForAllImages, specialFolderForSvgImages: specialFolderForSvgImages, trySaveTextUnderliningAndStrikeoutingInCss: trySaveTextUnderliningAndStrikeoutingInCss, folder: folder).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -2191,7 +2191,7 @@ open class PdfAPI {
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPdfInStorageToLaTeX(name: String, pagesCount: Int? = nil, folder: String? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getPdfInStorageToLaTeX(name: String, pagesCount: Int? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getPdfInStorageToLaTeXWithRequestBuilder(name: name, pagesCount: pagesCount, folder: folder).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -2236,7 +2236,7 @@ open class PdfAPI {
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPdfInStorageToMobiXml(name: String, folder: String? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getPdfInStorageToMobiXml(name: String, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getPdfInStorageToMobiXmlWithRequestBuilder(name: name, folder: folder).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -2280,7 +2280,7 @@ open class PdfAPI {
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPdfInStorageToPdfA(name: String, type: String, folder: String? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getPdfInStorageToPdfA(name: String, type: String, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getPdfInStorageToPdfAWithRequestBuilder(name: name, type: type, folder: folder).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -2327,7 +2327,7 @@ open class PdfAPI {
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPdfInStorageToPptx(name: String, separateImages: Bool? = nil, slidesAsImages: Bool? = nil, folder: String? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getPdfInStorageToPptx(name: String, separateImages: Bool? = nil, slidesAsImages: Bool? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getPdfInStorageToPptxWithRequestBuilder(name: name, separateImages: separateImages, slidesAsImages: slidesAsImages, folder: folder).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -2375,7 +2375,7 @@ open class PdfAPI {
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPdfInStorageToSvg(name: String, compressOutputToZipArchive: Bool? = nil, folder: String? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getPdfInStorageToSvg(name: String, compressOutputToZipArchive: Bool? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getPdfInStorageToSvgWithRequestBuilder(name: name, compressOutputToZipArchive: compressOutputToZipArchive, folder: folder).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -2435,7 +2435,7 @@ open class PdfAPI {
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPdfInStorageToTiff(name: String, brightness: Double? = nil, compression: String? = nil, colorDepth: String? = nil, leftMargin: Int? = nil, rightMargin: Int? = nil, topMargin: Int? = nil, bottomMargin: Int? = nil, orientation: String? = nil, skipBlankPages: Bool? = nil, width: Int? = nil, height: Int? = nil, xResolution: Int? = nil, yResolution: Int? = nil, pageIndex: Int? = nil, pageCount: Int? = nil, folder: String? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getPdfInStorageToTiff(name: String, brightness: Double? = nil, compression: String? = nil, colorDepth: String? = nil, leftMargin: Int? = nil, rightMargin: Int? = nil, topMargin: Int? = nil, bottomMargin: Int? = nil, orientation: String? = nil, skipBlankPages: Bool? = nil, width: Int? = nil, height: Int? = nil, xResolution: Int? = nil, yResolution: Int? = nil, pageIndex: Int? = nil, pageCount: Int? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getPdfInStorageToTiffWithRequestBuilder(name: name, brightness: brightness, compression: compression, colorDepth: colorDepth, leftMargin: leftMargin, rightMargin: rightMargin, topMargin: topMargin, bottomMargin: bottomMargin, orientation: orientation, skipBlankPages: skipBlankPages, width: width, height: height, xResolution: xResolution, yResolution: yResolution, pageIndex: pageIndex, pageCount: pageCount, folder: folder).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -2512,7 +2512,7 @@ open class PdfAPI {
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPdfInStorageToXls(name: String, insertBlankColumnAtFirst: Bool? = nil, minimizeTheNumberOfWorksheets: Bool? = nil, scaleFactor: Double? = nil, uniformWorksheets: Bool? = nil, folder: String? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getPdfInStorageToXls(name: String, insertBlankColumnAtFirst: Bool? = nil, minimizeTheNumberOfWorksheets: Bool? = nil, scaleFactor: Double? = nil, uniformWorksheets: Bool? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getPdfInStorageToXlsWithRequestBuilder(name: name, insertBlankColumnAtFirst: insertBlankColumnAtFirst, minimizeTheNumberOfWorksheets: minimizeTheNumberOfWorksheets, scaleFactor: scaleFactor, uniformWorksheets: uniformWorksheets, folder: folder).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -2563,7 +2563,7 @@ open class PdfAPI {
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPdfInStorageToXml(name: String, folder: String? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getPdfInStorageToXml(name: String, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getPdfInStorageToXmlWithRequestBuilder(name: name, folder: folder).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -2606,7 +2606,7 @@ open class PdfAPI {
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPdfInStorageToXps(name: String, folder: String? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getPdfInStorageToXps(name: String, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getPdfInStorageToXpsWithRequestBuilder(name: name, folder: folder).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -2648,7 +2648,7 @@ open class PdfAPI {
      - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.ps) 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPsInStorageToPdf(srcPath: String, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getPsInStorageToPdf(srcPath: String, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getPsInStorageToPdfWithRequestBuilder(srcPath: srcPath).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -2861,7 +2861,7 @@ open class PdfAPI {
      - parameter marginTop: (query) Page margin top (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getSvgInStorageToPdf(srcPath: String, adjustPageSize: Bool? = nil, height: Double? = nil, width: Double? = nil, isLandscape: Bool? = nil, marginLeft: Double? = nil, marginBottom: Double? = nil, marginRight: Double? = nil, marginTop: Double? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getSvgInStorageToPdf(srcPath: String, adjustPageSize: Bool? = nil, height: Double? = nil, width: Double? = nil, isLandscape: Bool? = nil, marginLeft: Double? = nil, marginBottom: Double? = nil, marginRight: Double? = nil, marginTop: Double? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getSvgInStorageToPdfWithRequestBuilder(srcPath: srcPath, adjustPageSize: adjustPageSize, height: height, width: width, isLandscape: isLandscape, marginLeft: marginLeft, marginBottom: marginBottom, marginRight: marginRight, marginTop: marginTop).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -3083,7 +3083,7 @@ open class PdfAPI {
      - parameter marginTop: (query) Page margin top (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getWebInStorageToPdf(url: String, height: Double? = nil, width: Double? = nil, isLandscape: Bool? = nil, marginLeft: Double? = nil, marginBottom: Double? = nil, marginRight: Double? = nil, marginTop: Double? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getWebInStorageToPdf(url: String, height: Double? = nil, width: Double? = nil, isLandscape: Bool? = nil, marginLeft: Double? = nil, marginBottom: Double? = nil, marginRight: Double? = nil, marginTop: Double? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getWebInStorageToPdfWithRequestBuilder(url: url, height: height, width: width, isLandscape: isLandscape, marginLeft: marginLeft, marginBottom: marginBottom, marginRight: marginRight, marginTop: marginTop).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -3184,7 +3184,7 @@ open class PdfAPI {
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getXfaPdfInStorageToAcroForm(name: String, folder: String? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getXfaPdfInStorageToAcroForm(name: String, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getXfaPdfInStorageToAcroFormWithRequestBuilder(name: name, folder: folder).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -3227,7 +3227,7 @@ open class PdfAPI {
      - parameter xslFilePath: (query) Full XSL source filename (ex. /folder1/folder2/template.xsl) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getXmlInStorageToPdf(srcPath: String, xslFilePath: String? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getXmlInStorageToPdf(srcPath: String, xslFilePath: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getXmlInStorageToPdfWithRequestBuilder(srcPath: srcPath, xslFilePath: xslFilePath).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -3269,7 +3269,7 @@ open class PdfAPI {
      - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.xps) 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getXpsInStorageToPdf(srcPath: String, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getXpsInStorageToPdf(srcPath: String, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getXpsInStorageToPdfWithRequestBuilder(srcPath: srcPath).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -3309,7 +3309,7 @@ open class PdfAPI {
      - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.xslfo) 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getXslFoInStorageToPdf(srcPath: String, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func getXslFoInStorageToPdf(srcPath: String, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             getXslFoInStorageToPdfWithRequestBuilder(srcPath: srcPath).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -4239,7 +4239,7 @@ open class PdfAPI {
      - parameter file: (form) A file to be converted. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putConvertDocument(format: String? = nil, url: String? = nil, outPath: String? = nil, file: URL? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func putConvertDocument(format: String? = nil, url: String? = nil, outPath: String? = nil, file: URL? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             putConvertDocumentWithRequestBuilder(format: format, url: url, outPath: outPath, file: file).execute { (response, error) -> Void in
                 completion(response?.body, error);
