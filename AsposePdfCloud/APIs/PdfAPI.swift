@@ -3866,10 +3866,10 @@ open class PdfAPI {
      - parameter imageFile: (query) Path to image file if specified. Request content is used otherwise. (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
-     - parameter image: (body) Image file. (optional)
+     - parameter image: (form) Image file. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func postReplaceImage(name: String, pageNumber: Int, imageNumber: Int, imageFile: String? = nil, storage: String? = nil, folder: String? = nil, image: ? = nil, completion: @escaping ((_ data: ImageResponse?,_ error: Error?) -> Void)) {
+    open class func postReplaceImage(name: String, pageNumber: Int, imageNumber: Int, imageFile: String? = nil, storage: String? = nil, folder: String? = nil, image: URL? = nil, completion: @escaping ((_ data: ImageResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             postReplaceImageWithRequestBuilder(name: name, pageNumber: pageNumber, imageNumber: imageNumber, imageFile: imageFile, storage: storage, folder: folder, image: image).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -3889,17 +3889,22 @@ open class PdfAPI {
      - parameter imageFile: (query) Path to image file if specified. Request content is used otherwise. (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
-     - parameter image: (body) Image file. (optional)
+     - parameter image: (form) Image file. (optional)
 
      - returns: RequestBuilder<ImageResponse> 
      */
-    open class func postReplaceImageWithRequestBuilder(name: String, pageNumber: Int, imageNumber: Int, imageFile: String? = nil, storage: String? = nil, folder: String? = nil, image: ? = nil) -> RequestBuilder<ImageResponse> {
+    open class func postReplaceImageWithRequestBuilder(name: String, pageNumber: Int, imageNumber: Int, imageFile: String? = nil, storage: String? = nil, folder: String? = nil, image: URL? = nil) -> RequestBuilder<ImageResponse> {
         var pathUrl = "/pdf/{name}/pages/{pageNumber}/images/{imageNumber}"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
         pathUrl = pathUrl.replacingOccurrences(of: "{imageNumber}", with: "\(imageNumber)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: image)
+        let formParams: [String:Any?] = [
+            "image": image
+        ]
+
+        let nonNullParameters = APIHelper.rejectNil(formParams)
+        let parameters = APIHelper.convertBoolToString(nonNullParameters)
 
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
@@ -3911,7 +3916,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<ImageResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -4231,10 +4236,10 @@ open class PdfAPI {
      - parameter format: (query) The format to convert. (optional)
      - parameter url: (query)  (optional)
      - parameter outPath: (query) Path to save result (optional)
-     - parameter file: (body) A file to be converted. (optional)
+     - parameter file: (form) A file to be converted. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putConvertDocument(format: String? = nil, url: String? = nil, outPath: String? = nil, file: ? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
+    open class func putConvertDocument(format: String? = nil, url: String? = nil, outPath: String? = nil, file: URL? = nil, completion: @escaping ((_ data: URL?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             putConvertDocumentWithRequestBuilder(format: format, url: url, outPath: outPath, file: file).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -4251,14 +4256,19 @@ open class PdfAPI {
      - parameter format: (query) The format to convert. (optional)
      - parameter url: (query)  (optional)
      - parameter outPath: (query) Path to save result (optional)
-     - parameter file: (body) A file to be converted. (optional)
+     - parameter file: (form) A file to be converted. (optional)
 
      - returns: RequestBuilder<URL> 
      */
-    open class func putConvertDocumentWithRequestBuilder(format: String? = nil, url: String? = nil, outPath: String? = nil, file: ? = nil) -> RequestBuilder<URL> {
+    open class func putConvertDocumentWithRequestBuilder(format: String? = nil, url: String? = nil, outPath: String? = nil, file: URL? = nil) -> RequestBuilder<URL> {
         let pathUrl = "/pdf/convert"
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
+        let formParams: [String:Any?] = [
+            "file": file
+        ]
+
+        let nonNullParameters = APIHelper.rejectNil(formParams)
+        let parameters = APIHelper.convertBoolToString(nonNullParameters)
 
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
@@ -4270,19 +4280,19 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<URL>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
      Upload a specific file 
      
      - parameter path: (query) Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext 
-     - parameter file: (body) File to upload 
+     - parameter file: (form) File to upload 
      - parameter versionId: (query) Source file&#39;s version (optional)
      - parameter storage: (query) User&#39;s storage name (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putCreate(path: String, file: , versionId: String? = nil, storage: String? = nil, completion: @escaping ((_ data: SaaSposeResponse?,_ error: Error?) -> Void)) {
+    open class func putCreate(path: String, file: URL, versionId: String? = nil, storage: String? = nil, completion: @escaping ((_ data: SaaSposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             putCreateWithRequestBuilder(path: path, file: file, versionId: versionId, storage: storage).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -4300,16 +4310,21 @@ open class PdfAPI {
 }}]
      
      - parameter path: (query) Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext 
-     - parameter file: (body) File to upload 
+     - parameter file: (form) File to upload 
      - parameter versionId: (query) Source file&#39;s version (optional)
      - parameter storage: (query) User&#39;s storage name (optional)
 
      - returns: RequestBuilder<SaaSposeResponse> 
      */
-    open class func putCreateWithRequestBuilder(path: String, file: , versionId: String? = nil, storage: String? = nil) -> RequestBuilder<SaaSposeResponse> {
+    open class func putCreateWithRequestBuilder(path: String, file: URL, versionId: String? = nil, storage: String? = nil) -> RequestBuilder<SaaSposeResponse> {
         let pathUrl = "/storage/file"
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
+        let formParams: [String:Any?] = [
+            "File": file
+        ]
+
+        let nonNullParameters = APIHelper.rejectNil(formParams)
+        let parameters = APIHelper.convertBoolToString(nonNullParameters)
 
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
@@ -4321,7 +4336,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -5598,10 +5613,10 @@ open class PdfAPI {
      - parameter mode: (query) Allows to control how a PDF document is converted into a word processing document. (optional)
      - parameter recognizeBullets: (query) Recognize bullets. (optional)
      - parameter relativeHorizontalProximity: (query) Relative horizontal proximity. (optional)
-     - parameter file: (body) A file to be converted. (optional)
+     - parameter file: (form) A file to be converted. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putPdfInRequestToDoc(outPath: String, addReturnToLineEnd: Bool? = nil, format: String? = nil, imageResolutionX: Int? = nil, imageResolutionY: Int? = nil, maxDistanceBetweenTextLines: Int? = nil, mode: String? = nil, recognizeBullets: Bool? = nil, relativeHorizontalProximity: Double? = nil, file: ? = nil, completion: @escaping ((_ data: SaaSposeResponse?,_ error: Error?) -> Void)) {
+    open class func putPdfInRequestToDoc(outPath: String, addReturnToLineEnd: Bool? = nil, format: String? = nil, imageResolutionX: Int? = nil, imageResolutionY: Int? = nil, maxDistanceBetweenTextLines: Int? = nil, mode: String? = nil, recognizeBullets: Bool? = nil, relativeHorizontalProximity: Double? = nil, file: URL? = nil, completion: @escaping ((_ data: SaaSposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             putPdfInRequestToDocWithRequestBuilder(outPath: outPath, addReturnToLineEnd: addReturnToLineEnd, format: format, imageResolutionX: imageResolutionX, imageResolutionY: imageResolutionY, maxDistanceBetweenTextLines: maxDistanceBetweenTextLines, mode: mode, recognizeBullets: recognizeBullets, relativeHorizontalProximity: relativeHorizontalProximity, file: file).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -5627,14 +5642,19 @@ open class PdfAPI {
      - parameter mode: (query) Allows to control how a PDF document is converted into a word processing document. (optional)
      - parameter recognizeBullets: (query) Recognize bullets. (optional)
      - parameter relativeHorizontalProximity: (query) Relative horizontal proximity. (optional)
-     - parameter file: (body) A file to be converted. (optional)
+     - parameter file: (form) A file to be converted. (optional)
 
      - returns: RequestBuilder<SaaSposeResponse> 
      */
-    open class func putPdfInRequestToDocWithRequestBuilder(outPath: String, addReturnToLineEnd: Bool? = nil, format: String? = nil, imageResolutionX: Int? = nil, imageResolutionY: Int? = nil, maxDistanceBetweenTextLines: Int? = nil, mode: String? = nil, recognizeBullets: Bool? = nil, relativeHorizontalProximity: Double? = nil, file: ? = nil) -> RequestBuilder<SaaSposeResponse> {
+    open class func putPdfInRequestToDocWithRequestBuilder(outPath: String, addReturnToLineEnd: Bool? = nil, format: String? = nil, imageResolutionX: Int? = nil, imageResolutionY: Int? = nil, maxDistanceBetweenTextLines: Int? = nil, mode: String? = nil, recognizeBullets: Bool? = nil, relativeHorizontalProximity: Double? = nil, file: URL? = nil) -> RequestBuilder<SaaSposeResponse> {
         let pathUrl = "/pdf/convert/doc"
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
+        let formParams: [String:Any?] = [
+            "file": file
+        ]
+
+        let nonNullParameters = APIHelper.rejectNil(formParams)
+        let parameters = APIHelper.convertBoolToString(nonNullParameters)
 
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
@@ -5652,7 +5672,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -5660,10 +5680,10 @@ open class PdfAPI {
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.epub) 
      - parameter contentRecognitionMode: (query) Рroperty tunes conversion for this or that desirable method of recognition of content. (optional)
-     - parameter file: (body) A file to be converted. (optional)
+     - parameter file: (form) A file to be converted. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putPdfInRequestToEpub(outPath: String, contentRecognitionMode: String? = nil, file: ? = nil, completion: @escaping ((_ data: SaaSposeResponse?,_ error: Error?) -> Void)) {
+    open class func putPdfInRequestToEpub(outPath: String, contentRecognitionMode: String? = nil, file: URL? = nil, completion: @escaping ((_ data: SaaSposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             putPdfInRequestToEpubWithRequestBuilder(outPath: outPath, contentRecognitionMode: contentRecognitionMode, file: file).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -5682,14 +5702,19 @@ open class PdfAPI {
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.epub) 
      - parameter contentRecognitionMode: (query) Рroperty tunes conversion for this or that desirable method of recognition of content. (optional)
-     - parameter file: (body) A file to be converted. (optional)
+     - parameter file: (form) A file to be converted. (optional)
 
      - returns: RequestBuilder<SaaSposeResponse> 
      */
-    open class func putPdfInRequestToEpubWithRequestBuilder(outPath: String, contentRecognitionMode: String? = nil, file: ? = nil) -> RequestBuilder<SaaSposeResponse> {
+    open class func putPdfInRequestToEpubWithRequestBuilder(outPath: String, contentRecognitionMode: String? = nil, file: URL? = nil) -> RequestBuilder<SaaSposeResponse> {
         let pathUrl = "/pdf/convert/epub"
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
+        let formParams: [String:Any?] = [
+            "file": file
+        ]
+
+        let nonNullParameters = APIHelper.rejectNil(formParams)
+        let parameters = APIHelper.convertBoolToString(nonNullParameters)
 
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
@@ -5700,7 +5725,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -5735,10 +5760,10 @@ open class PdfAPI {
      - parameter specialFolderForAllImages: (query) The path to directory to which must be saved any images if they are encountered during saving of document as HTML. If parameter is empty or null then image files(if any) wil be saved together with other files linked to HTML It does not affect anything if CustomImageSavingStrategy property was successfully used to process relevant image file. (optional)
      - parameter specialFolderForSvgImages: (query) The path to directory to which must be saved only SVG-images if they are encountered during saving of document as HTML. If parameter is empty or null then SVG files(if any) wil be saved together with other image-files (near to output file) or in special folder for images (if it specified in SpecialImagesFolderIfAny option). It does not affect anything if CustomImageSavingStrategy property was successfully used to process relevant image file. (optional)
      - parameter trySaveTextUnderliningAndStrikeoutingInCss: (query) PDF itself does not contain underlining markers for texts. It emulated with line situated under text. This option allows converter try guess that this or that line is a text&#39;s underlining and put this info into CSS instead of drawing of underlining graphically. (optional)
-     - parameter file: (body) A file to be converted. (optional)
+     - parameter file: (form) A file to be converted. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putPdfInRequestToHtml(outPath: String, additionalMarginWidthInPoints: Int? = nil, compressSvgGraphicsIfAny: Bool? = nil, convertMarkedContentToLayers: Bool? = nil, defaultFontName: String? = nil, documentType: String? = nil, fixedLayout: Bool? = nil, imageResolution: Int? = nil, minimalLineWidth: Int? = nil, preventGlyphsGrouping: Bool? = nil, splitCssIntoPages: Bool? = nil, splitIntoPages: Bool? = nil, useZOrder: Bool? = nil, antialiasingProcessing: String? = nil, cssClassNamesPrefix: String? = nil, explicitListOfSavedPages: [Int]? = nil, fontEncodingStrategy: String? = nil, fontSavingMode: String? = nil, htmlMarkupGenerationMode: String? = nil, lettersPositioningMethod: String? = nil, pagesFlowTypeDependsOnViewersScreenSize: Bool? = nil, partsEmbeddingMode: String? = nil, rasterImagesSavingMode: String? = nil, removeEmptyAreasOnTopAndBottom: Bool? = nil, saveShadowedTextsAsTransparentTexts: Bool? = nil, saveTransparentTexts: Bool? = nil, specialFolderForAllImages: String? = nil, specialFolderForSvgImages: String? = nil, trySaveTextUnderliningAndStrikeoutingInCss: Bool? = nil, file: ? = nil, completion: @escaping ((_ data: SaaSposeResponse?,_ error: Error?) -> Void)) {
+    open class func putPdfInRequestToHtml(outPath: String, additionalMarginWidthInPoints: Int? = nil, compressSvgGraphicsIfAny: Bool? = nil, convertMarkedContentToLayers: Bool? = nil, defaultFontName: String? = nil, documentType: String? = nil, fixedLayout: Bool? = nil, imageResolution: Int? = nil, minimalLineWidth: Int? = nil, preventGlyphsGrouping: Bool? = nil, splitCssIntoPages: Bool? = nil, splitIntoPages: Bool? = nil, useZOrder: Bool? = nil, antialiasingProcessing: String? = nil, cssClassNamesPrefix: String? = nil, explicitListOfSavedPages: [Int]? = nil, fontEncodingStrategy: String? = nil, fontSavingMode: String? = nil, htmlMarkupGenerationMode: String? = nil, lettersPositioningMethod: String? = nil, pagesFlowTypeDependsOnViewersScreenSize: Bool? = nil, partsEmbeddingMode: String? = nil, rasterImagesSavingMode: String? = nil, removeEmptyAreasOnTopAndBottom: Bool? = nil, saveShadowedTextsAsTransparentTexts: Bool? = nil, saveTransparentTexts: Bool? = nil, specialFolderForAllImages: String? = nil, specialFolderForSvgImages: String? = nil, trySaveTextUnderliningAndStrikeoutingInCss: Bool? = nil, file: URL? = nil, completion: @escaping ((_ data: SaaSposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             putPdfInRequestToHtmlWithRequestBuilder(outPath: outPath, additionalMarginWidthInPoints: additionalMarginWidthInPoints, compressSvgGraphicsIfAny: compressSvgGraphicsIfAny, convertMarkedContentToLayers: convertMarkedContentToLayers, defaultFontName: defaultFontName, documentType: documentType, fixedLayout: fixedLayout, imageResolution: imageResolution, minimalLineWidth: minimalLineWidth, preventGlyphsGrouping: preventGlyphsGrouping, splitCssIntoPages: splitCssIntoPages, splitIntoPages: splitIntoPages, useZOrder: useZOrder, antialiasingProcessing: antialiasingProcessing, cssClassNamesPrefix: cssClassNamesPrefix, explicitListOfSavedPages: explicitListOfSavedPages, fontEncodingStrategy: fontEncodingStrategy, fontSavingMode: fontSavingMode, htmlMarkupGenerationMode: htmlMarkupGenerationMode, lettersPositioningMethod: lettersPositioningMethod, pagesFlowTypeDependsOnViewersScreenSize: pagesFlowTypeDependsOnViewersScreenSize, partsEmbeddingMode: partsEmbeddingMode, rasterImagesSavingMode: rasterImagesSavingMode, removeEmptyAreasOnTopAndBottom: removeEmptyAreasOnTopAndBottom, saveShadowedTextsAsTransparentTexts: saveShadowedTextsAsTransparentTexts, saveTransparentTexts: saveTransparentTexts, specialFolderForAllImages: specialFolderForAllImages, specialFolderForSvgImages: specialFolderForSvgImages, trySaveTextUnderliningAndStrikeoutingInCss: trySaveTextUnderliningAndStrikeoutingInCss, file: file).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -5784,14 +5809,19 @@ open class PdfAPI {
      - parameter specialFolderForAllImages: (query) The path to directory to which must be saved any images if they are encountered during saving of document as HTML. If parameter is empty or null then image files(if any) wil be saved together with other files linked to HTML It does not affect anything if CustomImageSavingStrategy property was successfully used to process relevant image file. (optional)
      - parameter specialFolderForSvgImages: (query) The path to directory to which must be saved only SVG-images if they are encountered during saving of document as HTML. If parameter is empty or null then SVG files(if any) wil be saved together with other image-files (near to output file) or in special folder for images (if it specified in SpecialImagesFolderIfAny option). It does not affect anything if CustomImageSavingStrategy property was successfully used to process relevant image file. (optional)
      - parameter trySaveTextUnderliningAndStrikeoutingInCss: (query) PDF itself does not contain underlining markers for texts. It emulated with line situated under text. This option allows converter try guess that this or that line is a text&#39;s underlining and put this info into CSS instead of drawing of underlining graphically. (optional)
-     - parameter file: (body) A file to be converted. (optional)
+     - parameter file: (form) A file to be converted. (optional)
 
      - returns: RequestBuilder<SaaSposeResponse> 
      */
-    open class func putPdfInRequestToHtmlWithRequestBuilder(outPath: String, additionalMarginWidthInPoints: Int? = nil, compressSvgGraphicsIfAny: Bool? = nil, convertMarkedContentToLayers: Bool? = nil, defaultFontName: String? = nil, documentType: String? = nil, fixedLayout: Bool? = nil, imageResolution: Int? = nil, minimalLineWidth: Int? = nil, preventGlyphsGrouping: Bool? = nil, splitCssIntoPages: Bool? = nil, splitIntoPages: Bool? = nil, useZOrder: Bool? = nil, antialiasingProcessing: String? = nil, cssClassNamesPrefix: String? = nil, explicitListOfSavedPages: [Int]? = nil, fontEncodingStrategy: String? = nil, fontSavingMode: String? = nil, htmlMarkupGenerationMode: String? = nil, lettersPositioningMethod: String? = nil, pagesFlowTypeDependsOnViewersScreenSize: Bool? = nil, partsEmbeddingMode: String? = nil, rasterImagesSavingMode: String? = nil, removeEmptyAreasOnTopAndBottom: Bool? = nil, saveShadowedTextsAsTransparentTexts: Bool? = nil, saveTransparentTexts: Bool? = nil, specialFolderForAllImages: String? = nil, specialFolderForSvgImages: String? = nil, trySaveTextUnderliningAndStrikeoutingInCss: Bool? = nil, file: ? = nil) -> RequestBuilder<SaaSposeResponse> {
+    open class func putPdfInRequestToHtmlWithRequestBuilder(outPath: String, additionalMarginWidthInPoints: Int? = nil, compressSvgGraphicsIfAny: Bool? = nil, convertMarkedContentToLayers: Bool? = nil, defaultFontName: String? = nil, documentType: String? = nil, fixedLayout: Bool? = nil, imageResolution: Int? = nil, minimalLineWidth: Int? = nil, preventGlyphsGrouping: Bool? = nil, splitCssIntoPages: Bool? = nil, splitIntoPages: Bool? = nil, useZOrder: Bool? = nil, antialiasingProcessing: String? = nil, cssClassNamesPrefix: String? = nil, explicitListOfSavedPages: [Int]? = nil, fontEncodingStrategy: String? = nil, fontSavingMode: String? = nil, htmlMarkupGenerationMode: String? = nil, lettersPositioningMethod: String? = nil, pagesFlowTypeDependsOnViewersScreenSize: Bool? = nil, partsEmbeddingMode: String? = nil, rasterImagesSavingMode: String? = nil, removeEmptyAreasOnTopAndBottom: Bool? = nil, saveShadowedTextsAsTransparentTexts: Bool? = nil, saveTransparentTexts: Bool? = nil, specialFolderForAllImages: String? = nil, specialFolderForSvgImages: String? = nil, trySaveTextUnderliningAndStrikeoutingInCss: Bool? = nil, file: URL? = nil) -> RequestBuilder<SaaSposeResponse> {
         let pathUrl = "/pdf/convert/html"
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
+        let formParams: [String:Any?] = [
+            "file": file
+        ]
+
+        let nonNullParameters = APIHelper.rejectNil(formParams)
+        let parameters = APIHelper.convertBoolToString(nonNullParameters)
 
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
@@ -5829,7 +5859,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -5837,10 +5867,10 @@ open class PdfAPI {
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.tex) 
      - parameter pagesCount: (query) Pages count. (optional)
-     - parameter file: (body) A file to be converted. (optional)
+     - parameter file: (form) A file to be converted. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putPdfInRequestToLaTeX(outPath: String, pagesCount: Int? = nil, file: ? = nil, completion: @escaping ((_ data: SaaSposeResponse?,_ error: Error?) -> Void)) {
+    open class func putPdfInRequestToLaTeX(outPath: String, pagesCount: Int? = nil, file: URL? = nil, completion: @escaping ((_ data: SaaSposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             putPdfInRequestToLaTeXWithRequestBuilder(outPath: outPath, pagesCount: pagesCount, file: file).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -5859,14 +5889,19 @@ open class PdfAPI {
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.tex) 
      - parameter pagesCount: (query) Pages count. (optional)
-     - parameter file: (body) A file to be converted. (optional)
+     - parameter file: (form) A file to be converted. (optional)
 
      - returns: RequestBuilder<SaaSposeResponse> 
      */
-    open class func putPdfInRequestToLaTeXWithRequestBuilder(outPath: String, pagesCount: Int? = nil, file: ? = nil) -> RequestBuilder<SaaSposeResponse> {
+    open class func putPdfInRequestToLaTeXWithRequestBuilder(outPath: String, pagesCount: Int? = nil, file: URL? = nil) -> RequestBuilder<SaaSposeResponse> {
         let pathUrl = "/pdf/convert/latex"
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
+        let formParams: [String:Any?] = [
+            "file": file
+        ]
+
+        let nonNullParameters = APIHelper.rejectNil(formParams)
+        let parameters = APIHelper.convertBoolToString(nonNullParameters)
 
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
@@ -5877,17 +5912,17 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
      Converts PDF document (in request content) to MOBIXML format and uploads resulting file to storage.
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.mobixml) 
-     - parameter file: (body) A file to be converted. (optional)
+     - parameter file: (form) A file to be converted. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putPdfInRequestToMobiXml(outPath: String, file: ? = nil, completion: @escaping ((_ data: SaaSposeResponse?,_ error: Error?) -> Void)) {
+    open class func putPdfInRequestToMobiXml(outPath: String, file: URL? = nil, completion: @escaping ((_ data: SaaSposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             putPdfInRequestToMobiXmlWithRequestBuilder(outPath: outPath, file: file).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -5905,14 +5940,19 @@ open class PdfAPI {
 }}]
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.mobixml) 
-     - parameter file: (body) A file to be converted. (optional)
+     - parameter file: (form) A file to be converted. (optional)
 
      - returns: RequestBuilder<SaaSposeResponse> 
      */
-    open class func putPdfInRequestToMobiXmlWithRequestBuilder(outPath: String, file: ? = nil) -> RequestBuilder<SaaSposeResponse> {
+    open class func putPdfInRequestToMobiXmlWithRequestBuilder(outPath: String, file: URL? = nil) -> RequestBuilder<SaaSposeResponse> {
         let pathUrl = "/pdf/convert/mobixml"
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
+        let formParams: [String:Any?] = [
+            "file": file
+        ]
+
+        let nonNullParameters = APIHelper.rejectNil(formParams)
+        let parameters = APIHelper.convertBoolToString(nonNullParameters)
 
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
@@ -5922,7 +5962,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -5930,10 +5970,10 @@ open class PdfAPI {
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.pdf) 
      - parameter type: (query) Type of PdfA format. 
-     - parameter file: (body) A file to be converted. (optional)
+     - parameter file: (form) A file to be converted. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putPdfInRequestToPdfA(outPath: String, type: String, file: ? = nil, completion: @escaping ((_ data: SaaSposeResponse?,_ error: Error?) -> Void)) {
+    open class func putPdfInRequestToPdfA(outPath: String, type: String, file: URL? = nil, completion: @escaping ((_ data: SaaSposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             putPdfInRequestToPdfAWithRequestBuilder(outPath: outPath, type: type, file: file).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -5952,14 +5992,19 @@ open class PdfAPI {
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.pdf) 
      - parameter type: (query) Type of PdfA format. 
-     - parameter file: (body) A file to be converted. (optional)
+     - parameter file: (form) A file to be converted. (optional)
 
      - returns: RequestBuilder<SaaSposeResponse> 
      */
-    open class func putPdfInRequestToPdfAWithRequestBuilder(outPath: String, type: String, file: ? = nil) -> RequestBuilder<SaaSposeResponse> {
+    open class func putPdfInRequestToPdfAWithRequestBuilder(outPath: String, type: String, file: URL? = nil) -> RequestBuilder<SaaSposeResponse> {
         let pathUrl = "/pdf/convert/pdfa"
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
+        let formParams: [String:Any?] = [
+            "file": file
+        ]
+
+        let nonNullParameters = APIHelper.rejectNil(formParams)
+        let parameters = APIHelper.convertBoolToString(nonNullParameters)
 
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
@@ -5970,7 +6015,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -5979,10 +6024,10 @@ open class PdfAPI {
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.pptx) 
      - parameter separateImages: (query) Separate images. (optional)
      - parameter slidesAsImages: (query) Slides as images. (optional)
-     - parameter file: (body) A file to be converted. (optional)
+     - parameter file: (form) A file to be converted. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putPdfInRequestToPptx(outPath: String, separateImages: Bool? = nil, slidesAsImages: Bool? = nil, file: ? = nil, completion: @escaping ((_ data: SaaSposeResponse?,_ error: Error?) -> Void)) {
+    open class func putPdfInRequestToPptx(outPath: String, separateImages: Bool? = nil, slidesAsImages: Bool? = nil, file: URL? = nil, completion: @escaping ((_ data: SaaSposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             putPdfInRequestToPptxWithRequestBuilder(outPath: outPath, separateImages: separateImages, slidesAsImages: slidesAsImages, file: file).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -6002,14 +6047,19 @@ open class PdfAPI {
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.pptx) 
      - parameter separateImages: (query) Separate images. (optional)
      - parameter slidesAsImages: (query) Slides as images. (optional)
-     - parameter file: (body) A file to be converted. (optional)
+     - parameter file: (form) A file to be converted. (optional)
 
      - returns: RequestBuilder<SaaSposeResponse> 
      */
-    open class func putPdfInRequestToPptxWithRequestBuilder(outPath: String, separateImages: Bool? = nil, slidesAsImages: Bool? = nil, file: ? = nil) -> RequestBuilder<SaaSposeResponse> {
+    open class func putPdfInRequestToPptxWithRequestBuilder(outPath: String, separateImages: Bool? = nil, slidesAsImages: Bool? = nil, file: URL? = nil) -> RequestBuilder<SaaSposeResponse> {
         let pathUrl = "/pdf/convert/pptx"
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
+        let formParams: [String:Any?] = [
+            "file": file
+        ]
+
+        let nonNullParameters = APIHelper.rejectNil(formParams)
+        let parameters = APIHelper.convertBoolToString(nonNullParameters)
 
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
@@ -6021,7 +6071,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -6029,10 +6079,10 @@ open class PdfAPI {
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.svg) 
      - parameter compressOutputToZipArchive: (query) Specifies whether output will be created as one zip-archive. (optional)
-     - parameter file: (body) A file to be converted. (optional)
+     - parameter file: (form) A file to be converted. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putPdfInRequestToSvg(outPath: String, compressOutputToZipArchive: Bool? = nil, file: ? = nil, completion: @escaping ((_ data: SaaSposeResponse?,_ error: Error?) -> Void)) {
+    open class func putPdfInRequestToSvg(outPath: String, compressOutputToZipArchive: Bool? = nil, file: URL? = nil, completion: @escaping ((_ data: SaaSposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             putPdfInRequestToSvgWithRequestBuilder(outPath: outPath, compressOutputToZipArchive: compressOutputToZipArchive, file: file).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -6051,14 +6101,19 @@ open class PdfAPI {
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.svg) 
      - parameter compressOutputToZipArchive: (query) Specifies whether output will be created as one zip-archive. (optional)
-     - parameter file: (body) A file to be converted. (optional)
+     - parameter file: (form) A file to be converted. (optional)
 
      - returns: RequestBuilder<SaaSposeResponse> 
      */
-    open class func putPdfInRequestToSvgWithRequestBuilder(outPath: String, compressOutputToZipArchive: Bool? = nil, file: ? = nil) -> RequestBuilder<SaaSposeResponse> {
+    open class func putPdfInRequestToSvgWithRequestBuilder(outPath: String, compressOutputToZipArchive: Bool? = nil, file: URL? = nil) -> RequestBuilder<SaaSposeResponse> {
         let pathUrl = "/pdf/convert/svg"
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
+        let formParams: [String:Any?] = [
+            "file": file
+        ]
+
+        let nonNullParameters = APIHelper.rejectNil(formParams)
+        let parameters = APIHelper.convertBoolToString(nonNullParameters)
 
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
@@ -6069,7 +6124,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -6091,10 +6146,10 @@ open class PdfAPI {
      - parameter yResolution: (query) Vertical resolution. (optional)
      - parameter pageIndex: (query) Start page to export. (optional)
      - parameter pageCount: (query) Number of pages to export. (optional)
-     - parameter file: (body) A file to be converted. (optional)
+     - parameter file: (form) A file to be converted. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putPdfInRequestToTiff(outPath: String, brightness: Double? = nil, compression: String? = nil, colorDepth: String? = nil, leftMargin: Int? = nil, rightMargin: Int? = nil, topMargin: Int? = nil, bottomMargin: Int? = nil, orientation: String? = nil, skipBlankPages: Bool? = nil, width: Int? = nil, height: Int? = nil, xResolution: Int? = nil, yResolution: Int? = nil, pageIndex: Int? = nil, pageCount: Int? = nil, file: ? = nil, completion: @escaping ((_ data: SaaSposeResponse?,_ error: Error?) -> Void)) {
+    open class func putPdfInRequestToTiff(outPath: String, brightness: Double? = nil, compression: String? = nil, colorDepth: String? = nil, leftMargin: Int? = nil, rightMargin: Int? = nil, topMargin: Int? = nil, bottomMargin: Int? = nil, orientation: String? = nil, skipBlankPages: Bool? = nil, width: Int? = nil, height: Int? = nil, xResolution: Int? = nil, yResolution: Int? = nil, pageIndex: Int? = nil, pageCount: Int? = nil, file: URL? = nil, completion: @escaping ((_ data: SaaSposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             putPdfInRequestToTiffWithRequestBuilder(outPath: outPath, brightness: brightness, compression: compression, colorDepth: colorDepth, leftMargin: leftMargin, rightMargin: rightMargin, topMargin: topMargin, bottomMargin: bottomMargin, orientation: orientation, skipBlankPages: skipBlankPages, width: width, height: height, xResolution: xResolution, yResolution: yResolution, pageIndex: pageIndex, pageCount: pageCount, file: file).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -6127,14 +6182,19 @@ open class PdfAPI {
      - parameter yResolution: (query) Vertical resolution. (optional)
      - parameter pageIndex: (query) Start page to export. (optional)
      - parameter pageCount: (query) Number of pages to export. (optional)
-     - parameter file: (body) A file to be converted. (optional)
+     - parameter file: (form) A file to be converted. (optional)
 
      - returns: RequestBuilder<SaaSposeResponse> 
      */
-    open class func putPdfInRequestToTiffWithRequestBuilder(outPath: String, brightness: Double? = nil, compression: String? = nil, colorDepth: String? = nil, leftMargin: Int? = nil, rightMargin: Int? = nil, topMargin: Int? = nil, bottomMargin: Int? = nil, orientation: String? = nil, skipBlankPages: Bool? = nil, width: Int? = nil, height: Int? = nil, xResolution: Int? = nil, yResolution: Int? = nil, pageIndex: Int? = nil, pageCount: Int? = nil, file: ? = nil) -> RequestBuilder<SaaSposeResponse> {
+    open class func putPdfInRequestToTiffWithRequestBuilder(outPath: String, brightness: Double? = nil, compression: String? = nil, colorDepth: String? = nil, leftMargin: Int? = nil, rightMargin: Int? = nil, topMargin: Int? = nil, bottomMargin: Int? = nil, orientation: String? = nil, skipBlankPages: Bool? = nil, width: Int? = nil, height: Int? = nil, xResolution: Int? = nil, yResolution: Int? = nil, pageIndex: Int? = nil, pageCount: Int? = nil, file: URL? = nil) -> RequestBuilder<SaaSposeResponse> {
         let pathUrl = "/pdf/convert/tiff"
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
+        let formParams: [String:Any?] = [
+            "file": file
+        ]
+
+        let nonNullParameters = APIHelper.rejectNil(formParams)
+        let parameters = APIHelper.convertBoolToString(nonNullParameters)
 
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
@@ -6159,7 +6219,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -6170,10 +6230,10 @@ open class PdfAPI {
      - parameter minimizeTheNumberOfWorksheets: (query) Minimize the number of worksheets (optional)
      - parameter scaleFactor: (query) Scale factor (optional)
      - parameter uniformWorksheets: (query) Uniform worksheets (optional)
-     - parameter file: (body) A file to be converted. (optional)
+     - parameter file: (form) A file to be converted. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putPdfInRequestToXls(outPath: String, insertBlankColumnAtFirst: Bool? = nil, minimizeTheNumberOfWorksheets: Bool? = nil, scaleFactor: Double? = nil, uniformWorksheets: Bool? = nil, file: ? = nil, completion: @escaping ((_ data: SaaSposeResponse?,_ error: Error?) -> Void)) {
+    open class func putPdfInRequestToXls(outPath: String, insertBlankColumnAtFirst: Bool? = nil, minimizeTheNumberOfWorksheets: Bool? = nil, scaleFactor: Double? = nil, uniformWorksheets: Bool? = nil, file: URL? = nil, completion: @escaping ((_ data: SaaSposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             putPdfInRequestToXlsWithRequestBuilder(outPath: outPath, insertBlankColumnAtFirst: insertBlankColumnAtFirst, minimizeTheNumberOfWorksheets: minimizeTheNumberOfWorksheets, scaleFactor: scaleFactor, uniformWorksheets: uniformWorksheets, file: file).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -6195,14 +6255,19 @@ open class PdfAPI {
      - parameter minimizeTheNumberOfWorksheets: (query) Minimize the number of worksheets (optional)
      - parameter scaleFactor: (query) Scale factor (optional)
      - parameter uniformWorksheets: (query) Uniform worksheets (optional)
-     - parameter file: (body) A file to be converted. (optional)
+     - parameter file: (form) A file to be converted. (optional)
 
      - returns: RequestBuilder<SaaSposeResponse> 
      */
-    open class func putPdfInRequestToXlsWithRequestBuilder(outPath: String, insertBlankColumnAtFirst: Bool? = nil, minimizeTheNumberOfWorksheets: Bool? = nil, scaleFactor: Double? = nil, uniformWorksheets: Bool? = nil, file: ? = nil) -> RequestBuilder<SaaSposeResponse> {
+    open class func putPdfInRequestToXlsWithRequestBuilder(outPath: String, insertBlankColumnAtFirst: Bool? = nil, minimizeTheNumberOfWorksheets: Bool? = nil, scaleFactor: Double? = nil, uniformWorksheets: Bool? = nil, file: URL? = nil) -> RequestBuilder<SaaSposeResponse> {
         let pathUrl = "/pdf/convert/xls"
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
+        let formParams: [String:Any?] = [
+            "file": file
+        ]
+
+        let nonNullParameters = APIHelper.rejectNil(formParams)
+        let parameters = APIHelper.convertBoolToString(nonNullParameters)
 
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
@@ -6216,17 +6281,17 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
      Converts PDF document (in request content) to XML format and uploads resulting file to storage.
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.xml) 
-     - parameter file: (body) A file to be converted. (optional)
+     - parameter file: (form) A file to be converted. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putPdfInRequestToXml(outPath: String, file: ? = nil, completion: @escaping ((_ data: SaaSposeResponse?,_ error: Error?) -> Void)) {
+    open class func putPdfInRequestToXml(outPath: String, file: URL? = nil, completion: @escaping ((_ data: SaaSposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             putPdfInRequestToXmlWithRequestBuilder(outPath: outPath, file: file).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -6244,14 +6309,19 @@ open class PdfAPI {
 }}]
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.xml) 
-     - parameter file: (body) A file to be converted. (optional)
+     - parameter file: (form) A file to be converted. (optional)
 
      - returns: RequestBuilder<SaaSposeResponse> 
      */
-    open class func putPdfInRequestToXmlWithRequestBuilder(outPath: String, file: ? = nil) -> RequestBuilder<SaaSposeResponse> {
+    open class func putPdfInRequestToXmlWithRequestBuilder(outPath: String, file: URL? = nil) -> RequestBuilder<SaaSposeResponse> {
         let pathUrl = "/pdf/convert/xml"
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
+        let formParams: [String:Any?] = [
+            "file": file
+        ]
+
+        let nonNullParameters = APIHelper.rejectNil(formParams)
+        let parameters = APIHelper.convertBoolToString(nonNullParameters)
 
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
@@ -6261,17 +6331,17 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
      Converts PDF document (in request content) to XPS format and uploads resulting file to storage.
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.xps) 
-     - parameter file: (body) A file to be converted. (optional)
+     - parameter file: (form) A file to be converted. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putPdfInRequestToXps(outPath: String, file: ? = nil, completion: @escaping ((_ data: SaaSposeResponse?,_ error: Error?) -> Void)) {
+    open class func putPdfInRequestToXps(outPath: String, file: URL? = nil, completion: @escaping ((_ data: SaaSposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             putPdfInRequestToXpsWithRequestBuilder(outPath: outPath, file: file).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -6289,14 +6359,19 @@ open class PdfAPI {
 }}]
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.xps) 
-     - parameter file: (body) A file to be converted. (optional)
+     - parameter file: (form) A file to be converted. (optional)
 
      - returns: RequestBuilder<SaaSposeResponse> 
      */
-    open class func putPdfInRequestToXpsWithRequestBuilder(outPath: String, file: ? = nil) -> RequestBuilder<SaaSposeResponse> {
+    open class func putPdfInRequestToXpsWithRequestBuilder(outPath: String, file: URL? = nil) -> RequestBuilder<SaaSposeResponse> {
         let pathUrl = "/pdf/convert/xps"
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
+        let formParams: [String:Any?] = [
+            "file": file
+        ]
+
+        let nonNullParameters = APIHelper.rejectNil(formParams)
+        let parameters = APIHelper.convertBoolToString(nonNullParameters)
 
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
@@ -6306,7 +6381,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -7526,10 +7601,10 @@ open class PdfAPI {
      Converts PDF document which contatins XFA form (in request content) to PDF with AcroForm and uploads resulting file to storage.
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.pdf) 
-     - parameter file: (body) A file to be converted. (optional)
+     - parameter file: (form) A file to be converted. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putXfaPdfInRequestToAcroForm(outPath: String, file: ? = nil, completion: @escaping ((_ data: SaaSposeResponse?,_ error: Error?) -> Void)) {
+    open class func putXfaPdfInRequestToAcroForm(outPath: String, file: URL? = nil, completion: @escaping ((_ data: SaaSposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth(){
             putXfaPdfInRequestToAcroFormWithRequestBuilder(outPath: outPath, file: file).execute { (response, error) -> Void in
                 completion(response?.body, error);
@@ -7547,14 +7622,19 @@ open class PdfAPI {
 }}]
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.pdf) 
-     - parameter file: (body) A file to be converted. (optional)
+     - parameter file: (form) A file to be converted. (optional)
 
      - returns: RequestBuilder<SaaSposeResponse> 
      */
-    open class func putXfaPdfInRequestToAcroFormWithRequestBuilder(outPath: String, file: ? = nil) -> RequestBuilder<SaaSposeResponse> {
+    open class func putXfaPdfInRequestToAcroFormWithRequestBuilder(outPath: String, file: URL? = nil) -> RequestBuilder<SaaSposeResponse> {
         let pathUrl = "/pdf/convert/xfatoacroform"
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: file)
+        let formParams: [String:Any?] = [
+            "file": file
+        ]
+
+        let nonNullParameters = APIHelper.rejectNil(formParams)
+        let parameters = APIHelper.convertBoolToString(nonNullParameters)
 
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
@@ -7564,7 +7644,7 @@ open class PdfAPI {
 
         let requestBuilder: RequestBuilder<SaaSposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
