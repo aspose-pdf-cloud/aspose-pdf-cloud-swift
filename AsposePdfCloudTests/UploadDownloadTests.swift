@@ -19,14 +19,45 @@
  *
  */
 
-#import <UIKit/UIKit.h>
-
-//! Project version number for AsposePdfCloud.
-FOUNDATION_EXPORT double AsposePdfCloudVersionNumber;
-
-//! Project version string for AsposePdfCloud.
-FOUNDATION_EXPORT const unsigned char AsposePdfCloudVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <AsposePdfCloud/PublicHeader.h>
+import XCTest
+@testable import AsposePdfCloud
 
 
+class UploadDownloadTests: AsposePdfCloudTests {
+    
+    override func setUp() {
+        super.setUp()
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+    }
+    
+    func testUploadFile() {
+        let name = "33539.jpg"
+        let path = self.tempFolder + "/" + name
+        
+        
+        let bundle = Bundle(for: type(of: self))
+        let file = bundle.url(forResource: "33539", withExtension: "jpg")!
+        
+        let expectation = self.expectation(description: "testUploadFile")
+        
+        PdfAPI.putCreate(path: path, file: file) {
+            (response, error) in
+            guard error == nil else {
+                XCTFail("error uploading file " + name)
+                return
+            }
+            
+            if let response = response {
+                XCTAssert(response.code == HttpStatusCode.ok)
+                
+                expectation.fulfill()
+            }
+        }
+        
+        self.waitForExpectations(timeout: self.testTimeout, handler: nil)
+    }
+    
+}

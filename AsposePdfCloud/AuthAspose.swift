@@ -1,12 +1,25 @@
-//
-//  AuthAspose.swift
-//  AsposePdfCloud
-//
-//  Created by Kaferi Andrey on 23.06.2018.
-//  Copyright © 2018 Aspose. All rights reserved.
-//
+/**
+ *
+ *   Copyright (c) 2018 Aspose.Pdf for Cloud
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ *
+ */
 
-import UIKit
+import Foundation
 import Alamofire
 
 open class AuthAspose {
@@ -27,90 +40,29 @@ open class AuthAspose {
                 "Content-Type": "application/x-www-form-urlencoded"
             ]
             
-            Alamofire.request(urlString, method: .post, parameters: parameters, headers: headers).responseJSON {
+            Alamofire.request(urlString, method: .post, parameters: parameters, headers: headers).responseJSON{
+                
                 responseJSON in
                 
                 guard let statusCode = responseJSON.response?.statusCode else { return }
                 guard let jsonArray = responseJSON.result.value as? [String: Any] else { return }
                 
-                print("statusCode: ", statusCode)
+                print("Auth Status Code: ", statusCode)
                 
                 if (200..<300).contains(statusCode) {
-                    let value = responseJSON.result.value
-                    
                     AsposePdfCloudAPI.accessToken = jsonArray["access_token"] as? String
                     completion()
                     
-                    //print("value: ", value ?? "nil")
-                    
                 } else {
-                    //print("error")
+                    print("error")
+                    
                 }
             }
         }
         else
         {
-            //completion()
+            completion()
         }
-    }
-    
-    
-    public func auth() -> Int{
-        
-        print("simple=========================================")
-        
-        request("http://jsonplaceholder.typicode.com/posts").responseData{
-            response in print("Hello world")
-        }
-        //print("viewDidLoad ended")
-        
-        print("begin=========================================")
-        
-        AsposePdfCloudAPI.appSid = ""
-        AsposePdfCloudAPI.appKey = ""
-        let baseUrl = "https://api-dev.aspose.cloud/v1.1"
-        let path = "/oauth2/token"
-        let urlString = baseUrl.replacingOccurrences(of: "/v1.1", with: "") + path
-        //let url = NSURLComponents(string: urlString)
-        
-        //let urlRequest = URLRequest(url: URL(string: urlString)!)
-        //urlRequest.url
-        
-        let parameters: [String: Any]? = [
-            "grant_type": "client_credentials",
-            "client_id": AsposePdfCloudAPI.appSid!,
-            "client_secret": AsposePdfCloudAPI.appKey!]
-    
-        let headers: [String: String] = [
-            "Content-Type": "application/x-www-form-urlencoded"
-        ]
-        var stCode = 0
-        Alamofire.request(urlString, method: .post, parameters: parameters, headers: headers).responseJSON {
-            responseJSON in
-            
-            guard let statusCode = responseJSON.response?.statusCode else { return }
-            stCode = statusCode
-            print("statusCode: ", statusCode)
-            
-            if (200..<300).contains(statusCode) {
-                let value = responseJSON.result.value
-                print("value: ", value ?? "nil")
-            } else {
-                print("error")
-            }
-        }
-        
-        
-        //Alamofire.request(url: urlRequest, method: HTTPMethod.post, parameters: parameters, encoding: nil, headers: headers)
-        
-        /*
-        Alamofire.request("https://httpbin.org/get").response{ response in
-            print("Response: \(describing: response.response)")
-            
-        }*/
-        
-        print("end=========================================")
-        return 200
     }
 }
 

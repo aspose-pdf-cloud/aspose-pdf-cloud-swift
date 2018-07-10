@@ -113,6 +113,42 @@
 		1E4BCAA820DE650E002B310F /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4BCA9F20DE650E002B310F /* Configuration.swift */; };
 		1E4BCAA920DE650E002B310F /* APIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4BCAA020DE650E002B310F /* APIs.swift */; };
 		1E4BCAAC20DE655E002B310F /* PdfAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4BCAAB20DE655E002B310F /* PdfAPI.swift */; };
+		1E6333EB20F13B18002ACFB6 /* ImageSrcType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6333E720F13B17002ACFB6 /* ImageSrcType.swift */; };
+		1E6333EC20F13B18002ACFB6 /* ImageTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6333E820F13B17002ACFB6 /* ImageTemplate.swift */; };
+		1E6333ED20F13B18002ACFB6 /* MarginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6333E920F13B18002ACFB6 /* MarginInfo.swift */; };
+		1E6333EE20F13B18002ACFB6 /* ImageTemplatesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6333EA20F13B18002ACFB6 /* ImageTemplatesRequest.swift */; };
+		1E75A8B620F37C8B007036FB /* AnnotationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E75A8B520F37C8B007036FB /* AnnotationsTests.swift */; };
+		1E75A8BD20F3A73A007036FB /* UploadDownloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E75A8BC20F3A73A007036FB /* UploadDownloadTests.swift */; };
+		1ECA137B20F3CCE7003FF0AB /* 33539.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA135D20F3CCE7003FF0AB /* 33539.jpg */; };
+		1ECA137C20F3CCE7003FF0AB /* 44781.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA135E20F3CCE7003FF0AB /* 44781.jpg */; };
+		1ECA137D20F3CCE7003FF0AB /* 4pages.epub in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA135F20F3CCE7003FF0AB /* 4pages.epub */; };
+		1ECA137E20F3CCE7003FF0AB /* 4pages.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA136020F3CCE7003FF0AB /* 4pages.pdf */; };
+		1ECA137F20F3CCE7003FF0AB /* BlankWithSignature.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA136120F3CCE7003FF0AB /* BlankWithSignature.pdf */; };
+		1ECA138020F3CCE7003FF0AB /* butterfly.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA136220F3CCE7003FF0AB /* butterfly.jpg */; };
+		1ECA138120F3CCE7003FF0AB /* Hello world.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA136320F3CCE7003FF0AB /* Hello world.pdf */; };
+		1ECA138220F3CCE7003FF0AB /* HtmlExample1.html in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA136420F3CCE7003FF0AB /* HtmlExample1.html */; };
+		1ECA138320F3CCE7003FF0AB /* HtmlWithImage.zip in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA136520F3CCE7003FF0AB /* HtmlWithImage.zip */; };
+		1ECA138420F3CCE7003FF0AB /* Koala.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA136620F3CCE7003FF0AB /* Koala.jpg */; };
+		1ECA138520F3CCE7003FF0AB /* marketing.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA136720F3CCE7003FF0AB /* marketing.pdf */; };
+		1ECA138620F3CCE7003FF0AB /* MhtExample.mht in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA136820F3CCE7003FF0AB /* MhtExample.mht */; };
+		1ECA138720F3CCE7003FF0AB /* PdfWithAcroForm.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA136920F3CCE7003FF0AB /* PdfWithAcroForm.pdf */; };
+		1ECA138820F3CCE7003FF0AB /* PdfWithAnnotations.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA136A20F3CCE7003FF0AB /* PdfWithAnnotations.pdf */; };
+		1ECA138920F3CCE7003FF0AB /* PdfWithBookmarks.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA136B20F3CCE7003FF0AB /* PdfWithBookmarks.pdf */; };
+		1ECA138A20F3CCE7003FF0AB /* PdfWithEmbeddedFiles.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA136C20F3CCE7003FF0AB /* PdfWithEmbeddedFiles.pdf */; };
+		1ECA138B20F3CCE7003FF0AB /* PdfWithImages2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA136D20F3CCE7003FF0AB /* PdfWithImages2.pdf */; };
+		1ECA138C20F3CCE7003FF0AB /* PdfWithLinks.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA136E20F3CCE7003FF0AB /* PdfWithLinks.pdf */; };
+		1ECA138D20F3CCE7003FF0AB /* PdfWithXfaForm.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA136F20F3CCE7003FF0AB /* PdfWithXfaForm.pdf */; };
+		1ECA138E20F3CCE7003FF0AB /* Penguins.emf in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA137020F3CCE7003FF0AB /* Penguins.emf */; };
+		1ECA138F20F3CCE7003FF0AB /* Penguins.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA137120F3CCE7003FF0AB /* Penguins.jpg */; };
+		1ECA139020F3CCE7003FF0AB /* rusdoc.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA137220F3CCE7003FF0AB /* rusdoc.pdf */; };
+		1ECA139120F3CCE7003FF0AB /* Simple.svg in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA137320F3CCE7003FF0AB /* Simple.svg */; };
+		1ECA139220F3CCE7003FF0AB /* Simple.xps in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA137420F3CCE7003FF0AB /* Simple.xps */; };
+		1ECA139320F3CCE7003FF0AB /* template.pcl in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA137520F3CCE7003FF0AB /* template.pcl */; };
+		1ECA139420F3CCE7003FF0AB /* template.xml in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA137620F3CCE7003FF0AB /* template.xml */; };
+		1ECA139520F3CCE7003FF0AB /* test1234.pfx in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA137720F3CCE7003FF0AB /* test1234.pfx */; };
+		1ECA139620F3CCE7003FF0AB /* TexExample.tex in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA137820F3CCE7003FF0AB /* TexExample.tex */; };
+		1ECA139720F3CCE7003FF0AB /* Typography.PS in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA137920F3CCE7003FF0AB /* Typography.PS */; };
+		1ECA139820F3CCE7003FF0AB /* XslfoExample.xslfo in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA137A20F3CCE7003FF0AB /* XslfoExample.xslfo */; };
 		1ECBAABE20DE4F090020CD15 /* AsposePdfCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ECBAAB420DE4F090020CD15 /* AsposePdfCloud.framework */; };
 		1ECBAAC320DE4F090020CD15 /* AsposePdfCloudTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECBAAC220DE4F090020CD15 /* AsposePdfCloudTests.swift */; };
 		1ECBAAC520DE4F090020CD15 /* AsposePdfCloud.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ECBAAB720DE4F090020CD15 /* AsposePdfCloud.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -130,6 +166,18 @@
 			remoteInfo = AsposePdfCloud;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1E75A8BA20F3A5D0007036FB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1E4BC9D820DE6498002B310F /* SplitResultDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitResultDocument.swift; sourceTree = "<group>"; };
@@ -238,6 +286,42 @@
 		1E4BCA9F20DE650E002B310F /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		1E4BCAA020DE650E002B310F /* APIs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIs.swift; sourceTree = "<group>"; };
 		1E4BCAAB20DE655E002B310F /* PdfAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PdfAPI.swift; sourceTree = "<group>"; };
+		1E6333E720F13B17002ACFB6 /* ImageSrcType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSrcType.swift; sourceTree = "<group>"; };
+		1E6333E820F13B17002ACFB6 /* ImageTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTemplate.swift; sourceTree = "<group>"; };
+		1E6333E920F13B18002ACFB6 /* MarginInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarginInfo.swift; sourceTree = "<group>"; };
+		1E6333EA20F13B18002ACFB6 /* ImageTemplatesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTemplatesRequest.swift; sourceTree = "<group>"; };
+		1E75A8B520F37C8B007036FB /* AnnotationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationsTests.swift; sourceTree = "<group>"; };
+		1E75A8BC20F3A73A007036FB /* UploadDownloadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDownloadTests.swift; sourceTree = "<group>"; };
+		1ECA135D20F3CCE7003FF0AB /* 33539.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 33539.jpg; sourceTree = "<group>"; };
+		1ECA135E20F3CCE7003FF0AB /* 44781.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 44781.jpg; sourceTree = "<group>"; };
+		1ECA135F20F3CCE7003FF0AB /* 4pages.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4pages.epub; sourceTree = "<group>"; };
+		1ECA136020F3CCE7003FF0AB /* 4pages.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = 4pages.pdf; sourceTree = "<group>"; };
+		1ECA136120F3CCE7003FF0AB /* BlankWithSignature.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = BlankWithSignature.pdf; sourceTree = "<group>"; };
+		1ECA136220F3CCE7003FF0AB /* butterfly.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = butterfly.jpg; sourceTree = "<group>"; };
+		1ECA136320F3CCE7003FF0AB /* Hello world.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Hello world.pdf"; sourceTree = "<group>"; };
+		1ECA136420F3CCE7003FF0AB /* HtmlExample1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = HtmlExample1.html; sourceTree = "<group>"; };
+		1ECA136520F3CCE7003FF0AB /* HtmlWithImage.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = HtmlWithImage.zip; sourceTree = "<group>"; };
+		1ECA136620F3CCE7003FF0AB /* Koala.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Koala.jpg; sourceTree = "<group>"; };
+		1ECA136720F3CCE7003FF0AB /* marketing.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = marketing.pdf; sourceTree = "<group>"; };
+		1ECA136820F3CCE7003FF0AB /* MhtExample.mht */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MhtExample.mht; sourceTree = "<group>"; };
+		1ECA136920F3CCE7003FF0AB /* PdfWithAcroForm.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = PdfWithAcroForm.pdf; sourceTree = "<group>"; };
+		1ECA136A20F3CCE7003FF0AB /* PdfWithAnnotations.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = PdfWithAnnotations.pdf; sourceTree = "<group>"; };
+		1ECA136B20F3CCE7003FF0AB /* PdfWithBookmarks.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = PdfWithBookmarks.pdf; sourceTree = "<group>"; };
+		1ECA136C20F3CCE7003FF0AB /* PdfWithEmbeddedFiles.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = PdfWithEmbeddedFiles.pdf; sourceTree = "<group>"; };
+		1ECA136D20F3CCE7003FF0AB /* PdfWithImages2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = PdfWithImages2.pdf; sourceTree = "<group>"; };
+		1ECA136E20F3CCE7003FF0AB /* PdfWithLinks.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = PdfWithLinks.pdf; sourceTree = "<group>"; };
+		1ECA136F20F3CCE7003FF0AB /* PdfWithXfaForm.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = PdfWithXfaForm.pdf; sourceTree = "<group>"; };
+		1ECA137020F3CCE7003FF0AB /* Penguins.emf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Penguins.emf; sourceTree = "<group>"; };
+		1ECA137120F3CCE7003FF0AB /* Penguins.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Penguins.jpg; sourceTree = "<group>"; };
+		1ECA137220F3CCE7003FF0AB /* rusdoc.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = rusdoc.pdf; sourceTree = "<group>"; };
+		1ECA137320F3CCE7003FF0AB /* Simple.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Simple.svg; sourceTree = "<group>"; };
+		1ECA137420F3CCE7003FF0AB /* Simple.xps */ = {isa = PBXFileReference; lastKnownFileType = file; path = Simple.xps; sourceTree = "<group>"; };
+		1ECA137520F3CCE7003FF0AB /* template.pcl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = template.pcl; sourceTree = "<group>"; };
+		1ECA137620F3CCE7003FF0AB /* template.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = template.xml; sourceTree = "<group>"; };
+		1ECA137720F3CCE7003FF0AB /* test1234.pfx */ = {isa = PBXFileReference; lastKnownFileType = file; path = test1234.pfx; sourceTree = "<group>"; };
+		1ECA137820F3CCE7003FF0AB /* TexExample.tex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TexExample.tex; sourceTree = "<group>"; };
+		1ECA137920F3CCE7003FF0AB /* Typography.PS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Typography.PS; sourceTree = "<group>"; };
+		1ECA137A20F3CCE7003FF0AB /* XslfoExample.xslfo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = XslfoExample.xslfo; sourceTree = "<group>"; };
 		1ECBAAB420DE4F090020CD15 /* AsposePdfCloud.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AsposePdfCloud.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ECBAAB720DE4F090020CD15 /* AsposePdfCloud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AsposePdfCloud.h; sourceTree = "<group>"; };
 		1ECBAAB820DE4F090020CD15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -272,6 +356,10 @@
 		1E4BC9D720DE645F002B310F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1E6333E720F13B17002ACFB6 /* ImageSrcType.swift */,
+				1E6333E820F13B17002ACFB6 /* ImageTemplate.swift */,
+				1E6333EA20F13B18002ACFB6 /* ImageTemplatesRequest.swift */,
+				1E6333E920F13B18002ACFB6 /* MarginInfo.swift */,
 				1E4BCA0120DE649B002B310F /* Annotation.swift */,
 				1E4BC9E820DE6498002B310F /* AnnotationResponse.swift */,
 				1E4BC9E020DE6498002B310F /* Annotations.swift */,
@@ -380,9 +468,47 @@
 			path = APIs;
 			sourceTree = "<group>";
 		};
+		1ECA135C20F3CCE7003FF0AB /* TestData */ = {
+			isa = PBXGroup;
+			children = (
+				1ECA135D20F3CCE7003FF0AB /* 33539.jpg */,
+				1ECA135E20F3CCE7003FF0AB /* 44781.jpg */,
+				1ECA135F20F3CCE7003FF0AB /* 4pages.epub */,
+				1ECA136020F3CCE7003FF0AB /* 4pages.pdf */,
+				1ECA136120F3CCE7003FF0AB /* BlankWithSignature.pdf */,
+				1ECA136220F3CCE7003FF0AB /* butterfly.jpg */,
+				1ECA136320F3CCE7003FF0AB /* Hello world.pdf */,
+				1ECA136420F3CCE7003FF0AB /* HtmlExample1.html */,
+				1ECA136520F3CCE7003FF0AB /* HtmlWithImage.zip */,
+				1ECA136620F3CCE7003FF0AB /* Koala.jpg */,
+				1ECA136720F3CCE7003FF0AB /* marketing.pdf */,
+				1ECA136820F3CCE7003FF0AB /* MhtExample.mht */,
+				1ECA136920F3CCE7003FF0AB /* PdfWithAcroForm.pdf */,
+				1ECA136A20F3CCE7003FF0AB /* PdfWithAnnotations.pdf */,
+				1ECA136B20F3CCE7003FF0AB /* PdfWithBookmarks.pdf */,
+				1ECA136C20F3CCE7003FF0AB /* PdfWithEmbeddedFiles.pdf */,
+				1ECA136D20F3CCE7003FF0AB /* PdfWithImages2.pdf */,
+				1ECA136E20F3CCE7003FF0AB /* PdfWithLinks.pdf */,
+				1ECA136F20F3CCE7003FF0AB /* PdfWithXfaForm.pdf */,
+				1ECA137020F3CCE7003FF0AB /* Penguins.emf */,
+				1ECA137120F3CCE7003FF0AB /* Penguins.jpg */,
+				1ECA137220F3CCE7003FF0AB /* rusdoc.pdf */,
+				1ECA137320F3CCE7003FF0AB /* Simple.svg */,
+				1ECA137420F3CCE7003FF0AB /* Simple.xps */,
+				1ECA137520F3CCE7003FF0AB /* template.pcl */,
+				1ECA137620F3CCE7003FF0AB /* template.xml */,
+				1ECA137720F3CCE7003FF0AB /* test1234.pfx */,
+				1ECA137820F3CCE7003FF0AB /* TexExample.tex */,
+				1ECA137920F3CCE7003FF0AB /* Typography.PS */,
+				1ECA137A20F3CCE7003FF0AB /* XslfoExample.xslfo */,
+			);
+			path = TestData;
+			sourceTree = "<group>";
+		};
 		1ECBAAAA20DE4F090020CD15 = {
 			isa = PBXGroup;
 			children = (
+				1ECA135C20F3CCE7003FF0AB /* TestData */,
 				1ECBAACE20DE4FE70020CD15 /* Cartfile */,
 				1ECBAAB620DE4F090020CD15 /* AsposePdfCloud */,
 				1ECBAAC120DE4F090020CD15 /* AsposePdfCloudTests */,
@@ -424,6 +550,8 @@
 		1ECBAAC120DE4F090020CD15 /* AsposePdfCloudTests */ = {
 			isa = PBXGroup;
 			children = (
+				1E75A8BC20F3A73A007036FB /* UploadDownloadTests.swift */,
+				1E75A8B520F37C8B007036FB /* AnnotationsTests.swift */,
 				1ECBAAC220DE4F090020CD15 /* AsposePdfCloudTests.swift */,
 				1ECBAAC420DE4F090020CD15 /* Info.plist */,
 			);
@@ -478,6 +606,7 @@
 				1ECBAAB920DE4F090020CD15 /* Sources */,
 				1ECBAABA20DE4F090020CD15 /* Frameworks */,
 				1ECBAABB20DE4F090020CD15 /* Resources */,
+				1E75A8BA20F3A5D0007036FB /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -539,6 +668,36 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ECA138820F3CCE7003FF0AB /* PdfWithAnnotations.pdf in Resources */,
+				1ECA138B20F3CCE7003FF0AB /* PdfWithImages2.pdf in Resources */,
+				1ECA139020F3CCE7003FF0AB /* rusdoc.pdf in Resources */,
+				1ECA137C20F3CCE7003FF0AB /* 44781.jpg in Resources */,
+				1ECA138720F3CCE7003FF0AB /* PdfWithAcroForm.pdf in Resources */,
+				1ECA138A20F3CCE7003FF0AB /* PdfWithEmbeddedFiles.pdf in Resources */,
+				1ECA138C20F3CCE7003FF0AB /* PdfWithLinks.pdf in Resources */,
+				1ECA137B20F3CCE7003FF0AB /* 33539.jpg in Resources */,
+				1ECA138620F3CCE7003FF0AB /* MhtExample.mht in Resources */,
+				1ECA137E20F3CCE7003FF0AB /* 4pages.pdf in Resources */,
+				1ECA138D20F3CCE7003FF0AB /* PdfWithXfaForm.pdf in Resources */,
+				1ECA139520F3CCE7003FF0AB /* test1234.pfx in Resources */,
+				1ECA138120F3CCE7003FF0AB /* Hello world.pdf in Resources */,
+				1ECA138E20F3CCE7003FF0AB /* Penguins.emf in Resources */,
+				1ECA139820F3CCE7003FF0AB /* XslfoExample.xslfo in Resources */,
+				1ECA139220F3CCE7003FF0AB /* Simple.xps in Resources */,
+				1ECA137D20F3CCE7003FF0AB /* 4pages.epub in Resources */,
+				1ECA138F20F3CCE7003FF0AB /* Penguins.jpg in Resources */,
+				1ECA138320F3CCE7003FF0AB /* HtmlWithImage.zip in Resources */,
+				1ECA139420F3CCE7003FF0AB /* template.xml in Resources */,
+				1ECA138920F3CCE7003FF0AB /* PdfWithBookmarks.pdf in Resources */,
+				1ECA137F20F3CCE7003FF0AB /* BlankWithSignature.pdf in Resources */,
+				1ECA139720F3CCE7003FF0AB /* Typography.PS in Resources */,
+				1ECA138520F3CCE7003FF0AB /* marketing.pdf in Resources */,
+				1ECA139320F3CCE7003FF0AB /* template.pcl in Resources */,
+				1ECA138220F3CCE7003FF0AB /* HtmlExample1.html in Resources */,
+				1ECA138420F3CCE7003FF0AB /* Koala.jpg in Resources */,
+				1ECA138020F3CCE7003FF0AB /* butterfly.jpg in Resources */,
+				1ECA139620F3CCE7003FF0AB /* TexExample.tex in Resources */,
+				1ECA139120F3CCE7003FF0AB /* Simple.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,6 +768,7 @@
 				1E4BCA8F20DE64A2002B310F /* TextFormatResponse.swift in Sources */,
 				1E4BCA4A20DE64A2002B310F /* LinkAnnotationsResponse.swift in Sources */,
 				1E4BCA8020DE64A2002B310F /* HorizontalAlignment.swift in Sources */,
+				1E6333EE20F13B18002ACFB6 /* ImageTemplatesRequest.swift in Sources */,
 				1E4BCA4E20DE64A2002B310F /* FieldType.swift in Sources */,
 				1E4BCAA520DE650E002B310F /* JSONEncodableEncoding.swift in Sources */,
 				1E4BCA8B20DE64A2002B310F /* Images.swift in Sources */,
@@ -623,6 +783,7 @@
 				1E4BCA8720DE64A2002B310F /* PdfAType.swift in Sources */,
 				1E4BCA5B20DE64A2002B310F /* OptimizeOptions.swift in Sources */,
 				1E4BCA7E20DE64A2002B310F /* PageTextReplaceResponse.swift in Sources */,
+				1E6333EC20F13B18002ACFB6 /* ImageTemplate.swift in Sources */,
 				1E4BCA5F20DE64A2002B310F /* Color.swift in Sources */,
 				1E4BCA9020DE64A2002B310F /* FontSavingModes.swift in Sources */,
 				1E4BCA6820DE64A2002B310F /* TextReplaceRequest.swift in Sources */,
@@ -654,6 +815,7 @@
 				1E4BCAA620DE650E002B310F /* AlamofireImplementations.swift in Sources */,
 				1E4BCA7C20DE64A2002B310F /* LinkActionType.swift in Sources */,
 				1E4BCA8920DE64A2002B310F /* LinkAnnotationResponse.swift in Sources */,
+				1E6333ED20F13B18002ACFB6 /* MarginInfo.swift in Sources */,
 				1E4BCA8420DE64A2002B310F /* HtmlDocumentType.swift in Sources */,
 				1E4BCA7120DE64A2002B310F /* SignatureType.swift in Sources */,
 				1E4BCA4C20DE64A2002B310F /* VerticalAlignment.swift in Sources */,
@@ -668,6 +830,7 @@
 				1E4BCA5D20DE64A2002B310F /* DocumentResponse.swift in Sources */,
 				1E4BCA4920DE64A2002B310F /* HttpStatusCode.swift in Sources */,
 				1E4BCA3E20DE64A2002B310F /* DocumentProperties.swift in Sources */,
+				1E6333EB20F13B18002ACFB6 /* ImageSrcType.swift in Sources */,
 				1E4BCA7520DE64A2002B310F /* Pages.swift in Sources */,
 				1E4BCAA920DE650E002B310F /* APIs.swift in Sources */,
 				1E4BCA6F20DE64A2002B310F /* Attachments.swift in Sources */,
@@ -680,6 +843,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E75A8B620F37C8B007036FB /* AnnotationsTests.swift in Sources */,
+				1E75A8BD20F3A73A007036FB /* UploadDownloadTests.swift in Sources */,
 				1ECBAAC320DE4F090020CD15 /* AsposePdfCloudTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

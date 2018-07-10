@@ -19,14 +19,42 @@
  *
  */
 
-#import <UIKit/UIKit.h>
+import XCTest
+@testable import AsposePdfCloud
 
-//! Project version number for AsposePdfCloud.
-FOUNDATION_EXPORT double AsposePdfCloudVersionNumber;
+class AnnotationsTests: AsposePdfCloudTests {
+    
+    override func setUp() {
+        super.setUp()
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+    }
+    
+    func testGetPageAnnotations() {
+        let name = "PdfWithAnnotations.pdf"
+        
+        let pageNumber = 2
+        let expectation = self.expectation(description: "testGetPageAnnotations")
+        
+        uploadFile(name: name) {
 
-//! Project version string for AsposePdfCloud.
-FOUNDATION_EXPORT const unsigned char AsposePdfCloudVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <AsposePdfCloud/PublicHeader.h>
-
-
+            PdfAPI.getPageAnnotations(name: name, pageNumber: pageNumber, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testGetPageAnnotations")
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssert(response.code == HttpStatusCode.ok)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+}
