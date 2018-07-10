@@ -119,6 +119,8 @@
 		1E6333EE20F13B18002ACFB6 /* ImageTemplatesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6333EA20F13B18002ACFB6 /* ImageTemplatesRequest.swift */; };
 		1E75A8B620F37C8B007036FB /* AnnotationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E75A8B520F37C8B007036FB /* AnnotationsTests.swift */; };
 		1E75A8BD20F3A73A007036FB /* UploadDownloadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E75A8BC20F3A73A007036FB /* UploadDownloadTests.swift */; };
+		1EA7C07F20F4E26B00EDAE33 /* AppendTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA7C07E20F4E26B00EDAE33 /* AppendTests.swift */; };
+		1EA7C08120F4E9EC00EDAE33 /* AttachmentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA7C08020F4E9EC00EDAE33 /* AttachmentsTests.swift */; };
 		1ECA137B20F3CCE7003FF0AB /* 33539.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA135D20F3CCE7003FF0AB /* 33539.jpg */; };
 		1ECA137C20F3CCE7003FF0AB /* 44781.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA135E20F3CCE7003FF0AB /* 44781.jpg */; };
 		1ECA137D20F3CCE7003FF0AB /* 4pages.epub in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA135F20F3CCE7003FF0AB /* 4pages.epub */; };
@@ -292,6 +294,8 @@
 		1E6333EA20F13B18002ACFB6 /* ImageTemplatesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTemplatesRequest.swift; sourceTree = "<group>"; };
 		1E75A8B520F37C8B007036FB /* AnnotationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationsTests.swift; sourceTree = "<group>"; };
 		1E75A8BC20F3A73A007036FB /* UploadDownloadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDownloadTests.swift; sourceTree = "<group>"; };
+		1EA7C07E20F4E26B00EDAE33 /* AppendTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppendTests.swift; sourceTree = "<group>"; };
+		1EA7C08020F4E9EC00EDAE33 /* AttachmentsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentsTests.swift; sourceTree = "<group>"; };
 		1ECA135D20F3CCE7003FF0AB /* 33539.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 33539.jpg; sourceTree = "<group>"; };
 		1ECA135E20F3CCE7003FF0AB /* 44781.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 44781.jpg; sourceTree = "<group>"; };
 		1ECA135F20F3CCE7003FF0AB /* 4pages.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4pages.epub; sourceTree = "<group>"; };
@@ -550,6 +554,8 @@
 		1ECBAAC120DE4F090020CD15 /* AsposePdfCloudTests */ = {
 			isa = PBXGroup;
 			children = (
+				1EA7C08020F4E9EC00EDAE33 /* AttachmentsTests.swift */,
+				1EA7C07E20F4E26B00EDAE33 /* AppendTests.swift */,
 				1E75A8BC20F3A73A007036FB /* UploadDownloadTests.swift */,
 				1E75A8B520F37C8B007036FB /* AnnotationsTests.swift */,
 				1ECBAAC220DE4F090020CD15 /* AsposePdfCloudTests.swift */,
@@ -844,8 +850,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E75A8B620F37C8B007036FB /* AnnotationsTests.swift in Sources */,
+				1EA7C08120F4E9EC00EDAE33 /* AttachmentsTests.swift in Sources */,
 				1E75A8BD20F3A73A007036FB /* UploadDownloadTests.swift in Sources */,
 				1ECBAAC320DE4F090020CD15 /* AsposePdfCloudTests.swift in Sources */,
+				1EA7C07F20F4E26B00EDAE33 /* AppendTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
