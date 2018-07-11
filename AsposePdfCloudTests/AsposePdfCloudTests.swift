@@ -40,42 +40,36 @@ class AsposePdfCloudTests: XCTestCase {
     }
     
     internal func uploadFile(name: String, completion: @escaping ()->Void) {
-        let path = self.tempFolder + "/" + name
-        let file = URL(fileURLWithPath: self.testDataFolder + "/" + name)
+        let path = "\(self.tempFolder)/\(name)"
+        let file = URL(fileURLWithPath: "\(self.testDataFolder)/\(name)")
         
         PdfAPI.putCreate(path: path, file: file) {
             (response, error) in
             guard error == nil else {
-                XCTFail("error uploading file " + name)
+                XCTFail("error uploading file \(name)")
                 return
             }
             
             if response?.code == HttpStatusCode.ok {
+                print("file \(name) was uploaded")
                 completion()
             }
         }
     }
 
- /*
-    func testCreateEmptyDocument() {
+    internal func uploadFiles(names: [String], completion: @escaping ()->Void) {
         
-        let expectation = self.expectation(description: "testCreateEptyDocument")
-        let name = "empty_swift.pdf"
+        var _names = names
         
-        PdfAPI.putCreateDocument(name: name, folder: self.tempFolder) { (response, error) in
-            guard error == nil else {
-                XCTFail("error creating empty pdf document")
-                return
+        if names.count > 1 {
+            uploadFile(name: _names.removeFirst()) {
+                self.uploadFiles(names: _names, completion: completion)
             }
-            
-            if let response = response {
-                XCTAssert(response.code == HttpStatusCode.ok)
-                
-                expectation.fulfill()
-            }
+        } else if names.count == 1 {
+            uploadFile(name: _names.removeFirst(), completion: completion)
+        } else {
+            completion()
         }
         
-        self.waitForExpectations(timeout: testTimeout, handler: nil)
-    }*/
-    
+    }    
 }
