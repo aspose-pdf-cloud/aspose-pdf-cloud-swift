@@ -41,25 +41,24 @@ class AppendTests: AsposePdfCloudTests {
     func testPostAppendDocumentUsingQueryParams() {
         
         let expectation = self.expectation(description: "testPostAppendDocumentUsingQueryParams")
+        let files = [fileName, appendFile]
         
-        uploadFile(name: self.fileName) {
-            self.uploadFile(name: self.appendFile) {
-                PdfAPI.postAppendDocument(name: self.fileName,
-                                          appendFile: self.tempFolder + "/" + self.appendFile,
-                                          startPage: self.startPage,
-                                          endPage: self.endPage,
-                                          folder: self.tempFolder) {
-                    (response, error) in
-                    guard error == nil else {
-                        XCTFail("error testPostAppendDocumentUsingQueryParams")
-                        return
-                    }
+        uploadFiles(names: files) {
+            PdfAPI.postAppendDocument(name: self.fileName,
+                    appendFile: self.tempFolder + "/" + self.appendFile,
+                    startPage: self.startPage,
+                    endPage: self.endPage,
+                    folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testPostAppendDocumentUsingQueryParams")
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssert(response.code == HttpStatusCode.ok)
                     
-                    if let response = response {
-                        XCTAssert(response.code == HttpStatusCode.ok)
-                        
-                        expectation.fulfill()
-                    }
+                    expectation.fulfill()
                 }
             }
         }
@@ -72,23 +71,22 @@ class AppendTests: AsposePdfCloudTests {
         let expectation = self.expectation(description: "testPostAppendDocumentUsingBodyParams")
         let appendDocument = AppendDocument(document: self.tempFolder + "/" + self.appendFile,
                                             startPage: startPage, endPage: endPage)
+        let files = [fileName, appendFile]
         
-        uploadFile(name: self.fileName) {
-            self.uploadFile(name: self.appendFile) {
-                PdfAPI.postAppendDocument(name: self.fileName,
-                                          appendDocument:  appendDocument,
-                                          folder: self.tempFolder) {
-                    (response, error) in
-                    guard error == nil else {
-                        XCTFail("error testPostAppendDocumentUsingBodyParams")
-                        return
-                    }
+        uploadFiles(names: files) {
+            PdfAPI.postAppendDocument(name: self.fileName,
+                                      appendDocument:  appendDocument,
+                                      folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testPostAppendDocumentUsingBodyParams")
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssert(response.code == HttpStatusCode.ok)
                     
-                    if let response = response {
-                        XCTAssert(response.code == HttpStatusCode.ok)
-                        
-                        expectation.fulfill()
-                    }
+                    expectation.fulfill()
                 }
             }
         }
@@ -96,20 +94,3 @@ class AppendTests: AsposePdfCloudTests {
         self.waitForExpectations(timeout: testTimeout, handler: nil)
     }
 }
-   /*
-    /// <summary>
-    ///     Test PostAppendDocument using json
-    /// </summary>
-    [Test]
-    public void PostAppendDocumentUsingBodyParamsTest()
-{
-    UploadFile(Name, Name);
-    UploadFile(AppendFile, AppendFile);
-    
-    var appendDocument = new AppendDocument(Path.Combine(TempFolder, AppendFile), StartPage, EndPage);
-    var responce =
-    PdfApi.PostAppendDocument(Name, appendDocument, folder: TempFolder);
-    Assert.That(responce.Code, Is.EqualTo(HttpStatusCode.OK));
-    }
-    
-}*/
