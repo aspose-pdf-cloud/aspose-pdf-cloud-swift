@@ -22,69 +22,56 @@
 import XCTest
 @testable import AsposePdfCloud
 
-
-class UploadDownloadTests: AsposePdfCloudTests {
+class TextItemsTests: AsposePdfCloudTests {
     
-    override func setUp() {
-        super.setUp()
-    }
+    let fileName = "4pages.pdf"
     
-    override func tearDown() {
-        super.tearDown()
-    }
-    
-    func testUploadFile() {
-        let name = "33539.jpg"
-        let path = self.tempFolder + "/" + name
+    func testGetPageTextItems() {
         
+        let expectation = self.expectation(description: "testGetPageTextItems")
         
-        //let bundle = Bundle(for: type(of: self))
-        //let file = bundle.url(forResource: "33539", withExtension: "jpg")!
-        
-        let file = URL(fileURLWithPath: "\(self.testDataFolder)/\(name)")
-        
-        let expectation = self.expectation(description: "testUploadFile")
-        
-        PdfAPI.putCreate(path: path, file: file) {
-            (response, error) in
-            guard error == nil else {
-                XCTFail("error uploading file " + name)
-                return
-            }
+        uploadFile(name: fileName) {
             
-            if let response = response {
-                XCTAssert(response.code == HttpStatusCode.ok)
-                
-                expectation.fulfill()
-            }
-        }
-        
-        self.waitForExpectations(timeout: self.testTimeout, handler: nil)
-    }
-    
-    
-    func testGetDownloadFile() {
-        
-        let name = "4pages.pdf"
-        let path = "\(self.tempFolder)/\(name)"
-        let expectation = self.expectation(description: "testGetDownloadFile")
-        
-        uploadFile(name: name) {
-        
-            PdfAPI.getDownload(path: path) {
+            PdfAPI.getPageTextItems(name: self.fileName, pageNumber: 1, folder: self.tempFolder) {
                 (response, error) in
                 guard error == nil else {
-                    XCTFail("error testGetDownloadFile")
+                    XCTFail("error testGetPageTextItems: " + (error.debugDescription))
                     return
                 }
                 
                 if let response = response {
-                    XCTAssertFalse(response.isEmpty)
+                    XCTAssert(response.code == HttpStatusCode.ok)
                     
                     expectation.fulfill()
                 }
             }
         }
-        self.waitForExpectations(timeout: self.testTimeout, handler: nil)
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    
+    func testGetTextItems() {
+        
+        let expectation = self.expectation(description: "testGetTextItems")
+        
+        uploadFile(name: fileName) {
+            
+            PdfAPI.getTextItems(name: self.fileName, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testGetTextItems: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssert(response.code == HttpStatusCode.ok)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
     }
 }

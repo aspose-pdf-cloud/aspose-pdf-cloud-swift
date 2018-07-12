@@ -26,13 +26,14 @@ class AsposePdfCloudTests: XCTestCase {
     
     internal let tempFolder = "TempPdfCloud"
     internal let testDataFolder = "TestData"
-    internal let testTimeout = 60.0
+    internal let testTimeout = 30.0
     
     override func setUp() {
         super.setUp()
         AsposePdfCloudAPI.appSid = ""
         AsposePdfCloudAPI.appKey = ""
-        AsposePdfCloudAPI.basePath = "http://api-dev.aspose.cloud/v1.1"
+        //AsposePdfCloudAPI.basePath = "http://api-dev.aspose.cloud/v1.1"
+        AsposePdfCloudAPI.basePath = "https://billing.cloud.saltov.dynabic.com/v1.1"
     }
     
     override func tearDown() {

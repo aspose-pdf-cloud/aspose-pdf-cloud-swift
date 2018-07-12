@@ -167,6 +167,14 @@
 		1ECBAACF20DE4FE70020CD15 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 1ECBAACE20DE4FE70020CD15 /* Cartfile */; };
 		1ECBAAD220DE54E50020CD15 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ECBAAD120DE54E50020CD15 /* Alamofire.framework */; };
 		1ECBAAD520DE566C0020CD15 /* AuthAspose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECBAAD420DE566C0020CD15 /* AuthAspose.swift */; };
+		1EE09B5820F7442D001DB24C /* ParagraphsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE09B5720F7442D001DB24C /* ParagraphsTests.swift */; };
+		1EE09B5A20F74765001DB24C /* PrivilegesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE09B5920F74765001DB24C /* PrivilegesTests.swift */; };
+		1EE09B5C20F748C1001DB24C /* PropertiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE09B5B20F748C1001DB24C /* PropertiesTests.swift */; };
+		1EE09B5E20F74E34001DB24C /* SignTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE09B5D20F74E34001DB24C /* SignTests.swift */; };
+		1EE09B6020F76A6B001DB24C /* TextItemsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE09B5F20F76A6B001DB24C /* TextItemsTests.swift */; };
+		1EE09B6220F76BA6001DB24C /* TextReplaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE09B6120F76BA6001DB24C /* TextReplaceTests.swift */; };
+		1EE09B6420F7A944001DB24C /* TextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE09B6320F7A944001DB24C /* TextTests.swift */; };
+		1EE09B6620F7AEE3001DB24C /* ConvertToPdfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE09B6520F7AEE3001DB24C /* ConvertToPdfTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -355,6 +363,14 @@
 		1ECBAACE20DE4FE70020CD15 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		1ECBAAD120DE54E50020CD15 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		1ECBAAD420DE566C0020CD15 /* AuthAspose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAspose.swift; sourceTree = "<group>"; };
+		1EE09B5720F7442D001DB24C /* ParagraphsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParagraphsTests.swift; sourceTree = "<group>"; };
+		1EE09B5920F74765001DB24C /* PrivilegesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivilegesTests.swift; sourceTree = "<group>"; };
+		1EE09B5B20F748C1001DB24C /* PropertiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesTests.swift; sourceTree = "<group>"; };
+		1EE09B5D20F74E34001DB24C /* SignTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignTests.swift; sourceTree = "<group>"; };
+		1EE09B5F20F76A6B001DB24C /* TextItemsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextItemsTests.swift; sourceTree = "<group>"; };
+		1EE09B6120F76BA6001DB24C /* TextReplaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextReplaceTests.swift; sourceTree = "<group>"; };
+		1EE09B6320F7A944001DB24C /* TextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTests.swift; sourceTree = "<group>"; };
+		1EE09B6520F7AEE3001DB24C /* ConvertToPdfTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertToPdfTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -573,6 +589,14 @@
 		1ECBAAC120DE4F090020CD15 /* AsposePdfCloudTests */ = {
 			isa = PBXGroup;
 			children = (
+				1EE09B6520F7AEE3001DB24C /* ConvertToPdfTests.swift */,
+				1EE09B6320F7A944001DB24C /* TextTests.swift */,
+				1EE09B6120F76BA6001DB24C /* TextReplaceTests.swift */,
+				1EE09B5F20F76A6B001DB24C /* TextItemsTests.swift */,
+				1EE09B5D20F74E34001DB24C /* SignTests.swift */,
+				1EE09B5B20F748C1001DB24C /* PropertiesTests.swift */,
+				1EE09B5920F74765001DB24C /* PrivilegesTests.swift */,
+				1EE09B5720F7442D001DB24C /* ParagraphsTests.swift */,
 				1E92E9E920F6623100CFC699 /* PagesTests.swift */,
 				1E92E9E720F6609A00CFC699 /* OcrTests.swift */,
 				1E92E9E520F65E1D00CFC699 /* MergeTests.swift */,
@@ -880,20 +904,28 @@
 			files = (
 				1E75A8B620F37C8B007036FB /* AnnotationsTests.swift in Sources */,
 				1EA7C08120F4E9EC00EDAE33 /* AttachmentsTests.swift in Sources */,
+				1EE09B5C20F748C1001DB24C /* PropertiesTests.swift in Sources */,
 				1EAE26EA20F60FF20011A389 /* FieldsTests.swift in Sources */,
 				1EAE26E420F5DBE60011A389 /* ConvertTests.swift in Sources */,
+				1EE09B6420F7A944001DB24C /* TextTests.swift in Sources */,
 				1E75A8BD20F3A73A007036FB /* UploadDownloadTests.swift in Sources */,
+				1EE09B5820F7442D001DB24C /* ParagraphsTests.swift in Sources */,
 				1E92E9E420F65C3A00CFC699 /* LinksTests.swift in Sources */,
 				1E92E9E820F6609A00CFC699 /* OcrTests.swift in Sources */,
+				1EE09B6020F76A6B001DB24C /* TextItemsTests.swift in Sources */,
+				1EE09B6620F7AEE3001DB24C /* ConvertToPdfTests.swift in Sources */,
 				1EAE26E820F606E90011A389 /* DocumentTests.swift in Sources */,
 				1EA7C08320F504B800EDAE33 /* BookmarksTests.swift in Sources */,
 				1E92E9E620F65E1D00CFC699 /* MergeTests.swift in Sources */,
+				1EE09B5A20F74765001DB24C /* PrivilegesTests.swift in Sources */,
 				1ECBAAC320DE4F090020CD15 /* AsposePdfCloudTests.swift in Sources */,
+				1EE09B5E20F74E34001DB24C /* SignTests.swift in Sources */,
 				1E92E9E020F650EA00CFC699 /* FragmentsAndSegmentsTests.swift in Sources */,
 				1E92E9E220F654C400CFC699 /* ImagesTests.swift in Sources */,
 				1EAE26E620F602E20011A389 /* DocumentSaveAsTiffTests.swift in Sources */,
 				1E92E9EA20F6623100CFC699 /* PagesTests.swift in Sources */,
 				1EA7C07F20F4E26B00EDAE33 /* AppendTests.swift in Sources */,
+				1EE09B6220F76BA6001DB24C /* TextReplaceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
