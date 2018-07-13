@@ -84,22 +84,22 @@ class ConvertToPdfTests: AsposePdfCloudTests {
         let expectation = self.expectation(description: "testGetWebInStorageToPdf")
         let sourceUrl = "http://google.com"
         
-        uploadFile(name: name) {
+ 
+        
+        PdfAPI.getWebInStorageToPdf(url: sourceUrl) {
+            (response, error) in
+            guard error == nil else {
+                XCTFail("error testGetWebInStorageToPdf: " + (error.debugDescription))
+                return
+            }
             
-            PdfAPI.getWebInStorageToPdf(url: sourceUrl) {
-                (response, error) in
-                guard error == nil else {
-                    XCTFail("error testGetWebInStorageToPdf: " + (error.debugDescription))
-                    return
-                }
+            if let response = response {
+                XCTAssertFalse(response.isEmpty)
                 
-                if let response = response {
-                    XCTAssertFalse(response.isEmpty)
-                    
-                    expectation.fulfill()
-                }
+                expectation.fulfill()
             }
         }
+        
         
         self.waitForExpectations(timeout: testTimeout, handler: nil)
     }
@@ -111,22 +111,21 @@ class ConvertToPdfTests: AsposePdfCloudTests {
         let sourceUrl = "http://google.com"
         let resultName = "fromWeb.pdf"
         
-        uploadFile(name: name) {
+
+        PdfAPI.putWebInStorageToPdf(name: resultName, url: sourceUrl, dstFolder: self.tempFolder) {
+            (response, error) in
+            guard error == nil else {
+                XCTFail("error testPutWebInStorageToPdf: " + (error.debugDescription))
+                return
+            }
             
-            PdfAPI.putWebInStorageToPdf(name: resultName, url: sourceUrl, dstFolder: self.tempFolder) {
-                (response, error) in
-                guard error == nil else {
-                    XCTFail("error testPutWebInStorageToPdf: " + (error.debugDescription))
-                    return
-                }
+            if let response = response {
+                XCTAssert(response.code == HttpStatusCode.created)
                 
-                if let response = response {
-                    XCTAssert(response.code == HttpStatusCode.created)
-                    
-                    expectation.fulfill()
-                }
+                expectation.fulfill()
             }
         }
+
         
         self.waitForExpectations(timeout: testTimeout, handler: nil)
     }
@@ -192,7 +191,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
         let expectation = self.expectation(description: "testGetMhtInStorageToPdf")
         let name = "MhtExample.mht"
         
-        uploadFile(name: name) {
+        //uploadFile(name: name) {
             
             PdfAPI.getMhtInStorageToPdf(srcPath: "\(self.tempFolder)/\(name)") {
                 (response, error) in
@@ -207,7 +206,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
                     expectation.fulfill()
                 }
             }
-        }
+        //}
         
         self.waitForExpectations(timeout: testTimeout, handler: nil)
     }

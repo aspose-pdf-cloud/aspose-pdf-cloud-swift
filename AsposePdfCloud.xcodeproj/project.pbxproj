@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E3B278520F88E2500D9DBB2 /* PageConvertToImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3B278420F88E2500D9DBB2 /* PageConvertToImageTests.swift */; };
 		1E4BCA3820DE64A2002B310F /* SplitResultDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4BC9D820DE6498002B310F /* SplitResultDocument.swift */; };
 		1E4BCA3920DE64A2002B310F /* WordCountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4BC9D920DE6498002B310F /* WordCountResponse.swift */; };
 		1E4BCA3A20DE64A2002B310F /* WrapMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4BC9DA20DE6498002B310F /* WrapMode.swift */; };
@@ -200,6 +201,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1E3B278420F88E2500D9DBB2 /* PageConvertToImageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageConvertToImageTests.swift; sourceTree = "<group>"; };
 		1E4BC9D820DE6498002B310F /* SplitResultDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitResultDocument.swift; sourceTree = "<group>"; };
 		1E4BC9D920DE6498002B310F /* WordCountResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCountResponse.swift; sourceTree = "<group>"; };
 		1E4BC9DA20DE6498002B310F /* WrapMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WrapMode.swift; sourceTree = "<group>"; };
@@ -589,6 +591,7 @@
 		1ECBAAC120DE4F090020CD15 /* AsposePdfCloudTests */ = {
 			isa = PBXGroup;
 			children = (
+				1E3B278420F88E2500D9DBB2 /* PageConvertToImageTests.swift */,
 				1EE09B6520F7AEE3001DB24C /* ConvertToPdfTests.swift */,
 				1EE09B6320F7A944001DB24C /* TextTests.swift */,
 				1EE09B6120F76BA6001DB24C /* TextReplaceTests.swift */,
@@ -921,6 +924,7 @@
 				1ECBAAC320DE4F090020CD15 /* AsposePdfCloudTests.swift in Sources */,
 				1EE09B5E20F74E34001DB24C /* SignTests.swift in Sources */,
 				1E92E9E020F650EA00CFC699 /* FragmentsAndSegmentsTests.swift in Sources */,
+				1E3B278520F88E2500D9DBB2 /* PageConvertToImageTests.swift in Sources */,
 				1E92E9E220F654C400CFC699 /* ImagesTests.swift in Sources */,
 				1EAE26E620F602E20011A389 /* DocumentSaveAsTiffTests.swift in Sources */,
 				1E92E9EA20F6623100CFC699 /* PagesTests.swift in Sources */,

@@ -159,6 +159,31 @@ class DocumentTests: AsposePdfCloudTests {
      }
     
     
+    func testPutCreateDocument() {
+        
+        let expectation = self.expectation(description: "testPutCreateDocument")
+        let name = "HtmlExample1.pdf"
+        let templateName = "HtmlExample1.html"
+        
+        uploadFile(name: templateName) {
+            PdfAPI.putCreateDocument(name: name, templateFile: "\(self.tempFolder)/\(templateName)", templateType: "html", folder: self.tempFolder) { (response, error) in
+                guard error == nil else {
+                    XCTFail("error testPutCreateDocument")
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssert(response.code == HttpStatusCode.ok)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    
     func testPutCreateDocumentFromImages() {
         
         let image1 = "33539.jpg"

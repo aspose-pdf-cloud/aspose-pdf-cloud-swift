@@ -54,16 +54,15 @@ class ImagesTests: AsposePdfCloudTests {
     }
     
     
-    func testGetImageTextFormat() {
+    func testGetImageWithFormat() {
         
         let expectation = self.expectation(description: "testGetImageWithFormat")
         let pageNumber = 1
         let imageNumber = 1
-        let format = "jpeg"
         
         uploadFile(name: fileName) {
             
-            PdfAPI.getImage(name: self.fileName, pageNumber: pageNumber, imageNumber: imageNumber, format: format, folder: self.tempFolder) {
+            PdfAPI.getImage(name: self.fileName, pageNumber: pageNumber, imageNumber: imageNumber, format: "jpeg", width: 100, height: 100, folder: self.tempFolder) {
                 (response, error) in
                 guard error == nil else {
                     XCTFail("error testGetImageWithFormat: " + (error.debugDescription))
@@ -80,7 +79,7 @@ class ImagesTests: AsposePdfCloudTests {
         
         self.waitForExpectations(timeout: testTimeout, handler: nil)
     }
-    
+
     
     func testGetImages() {
         
@@ -149,6 +148,118 @@ class ImagesTests: AsposePdfCloudTests {
                 (response, error) in
                 guard error == nil else {
                     XCTFail("error testGetSegments: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssert(response.code == HttpStatusCode.ok)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    
+    func testPutImagesExtractAsJpeg() {
+        
+        
+        let expectation = self.expectation(description: "testPutImagesExtractAsJpeg")
+        let pageNumber = 1
+        let destFolder = "\(self.tempFolder)/extract_jpg"
+        
+        uploadFile(name: fileName) {
+            
+            PdfAPI.putImagesExtractAsJpeg(name: self.fileName, pageNumber: pageNumber, folder: self.tempFolder, destFolder: destFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testPutImagesExtractAsJpeg: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssert(response.code == HttpStatusCode.ok)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    
+    func testPutImagesExtractAsTiff() {
+        
+        
+        let expectation = self.expectation(description: "testPutImagesExtractAsTiff")
+        let pageNumber = 1
+        let destFolder = "\(self.tempFolder)/extract_tiff"
+        
+        uploadFile(name: fileName) {
+            
+            PdfAPI.putImagesExtractAsTiff(name: self.fileName, pageNumber: pageNumber, folder: self.tempFolder, destFolder: destFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testPutImagesExtractAsTiff: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssert(response.code == HttpStatusCode.ok)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    
+    func testPutImagesExtractAsGif() {
+        
+        
+        let expectation = self.expectation(description: "testPutImagesExtractAsGif")
+        let pageNumber = 1
+        let destFolder = "\(self.tempFolder)/extract_gif"
+        
+        uploadFile(name: fileName) {
+            
+            PdfAPI.putImagesExtractAsGif(name: self.fileName, pageNumber: pageNumber, folder: self.tempFolder, destFolder: destFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testPutImagesExtractAsGif: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssert(response.code == HttpStatusCode.ok)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    
+    func testPutImagesExtractAsPng() {
+        
+        
+        let expectation = self.expectation(description: "testPutImagesExtractAsPng")
+        let pageNumber = 1
+        let destFolder = "\(self.tempFolder)/extract_png"
+        
+        uploadFile(name: fileName) {
+            
+            PdfAPI.putImagesExtractAsPng(name: self.fileName, pageNumber: pageNumber, folder: self.tempFolder, destFolder: destFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testPutImagesExtractAsPng: " + (error.debugDescription))
                     return
                 }
                 
