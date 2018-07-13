@@ -22,36 +22,19 @@
 import XCTest
 @testable import AsposePdfCloud
 
-
-class AppendTests: AsposePdfCloudTests {
+class TextTests: AsposePdfCloudTests {
     
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-    
-    let fileName = "PdfWithImages2.pdf"
-    let appendFile = "4pages.pdf"
-    let startPage = 2
-    let endPage = 4
-    
-    func testPostAppendDocumentUsingQueryParams() {
+    func testGetText() {
         
-        let expectation = self.expectation(description: "testPostAppendDocumentUsingQueryParams")
-        let files = [fileName, appendFile]
+        let expectation = self.expectation(description: "testGetText")
+        let fileName = "4pages.pdf"
         
-        uploadFiles(names: files) {
-            PdfAPI.postAppendDocument(name: self.fileName,
-                    appendFile: self.tempFolder + "/" + self.appendFile,
-                    startPage: self.startPage,
-                    endPage: self.endPage,
-                    folder: self.tempFolder) {
+        uploadFile(name: fileName) {
+            
+            PdfAPI.getText(name: fileName, X: 0, Y: 0, width: 0, height: 0, folder: self.tempFolder) {
                 (response, error) in
                 guard error == nil else {
-                    XCTFail("error testPostAppendDocumentUsingQueryParams")
+                    XCTFail("error testGetText")
                     return
                 }
                 
@@ -65,21 +48,20 @@ class AppendTests: AsposePdfCloudTests {
         
         self.waitForExpectations(timeout: testTimeout, handler: nil)
     }
-
-    func testPostAppendDocumentUsingBodyParams() {
+    
+    
+    func testGetPageText() {
         
-        let expectation = self.expectation(description: "testPostAppendDocumentUsingBodyParams")
-        let appendDocument = AppendDocument(document: self.tempFolder + "/" + self.appendFile,
-                                            startPage: startPage, endPage: endPage)
-        let files = [fileName, appendFile]
+        let expectation = self.expectation(description: "testGetPageText")
+        let fileName = "4pages.pdf"
+        let format = ["First Page", "Second Page"]
         
-        uploadFiles(names: files) {
-            PdfAPI.postAppendDocument(name: self.fileName,
-                                      appendDocument:  appendDocument,
-                                      folder: self.tempFolder) {
+        uploadFile(name: fileName) {
+            
+            PdfAPI.getPageText(name: fileName, pageNumber: 1, X: 0, Y: 0, width: 0, height: 0, format: format, folder: self.tempFolder) {
                 (response, error) in
                 guard error == nil else {
-                    XCTFail("error testPostAppendDocumentUsingBodyParams")
+                    XCTFail("error testGetPageText")
                     return
                 }
                 

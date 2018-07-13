@@ -22,36 +22,22 @@
 import XCTest
 @testable import AsposePdfCloud
 
-
-class AppendTests: AsposePdfCloudTests {
+class LinksTests: AsposePdfCloudTests {
     
-    override func setUp() {
-        super.setUp()
-    }
+    let fileName = "PdfWithLinks.pdf"
     
-    override func tearDown() {
-        super.tearDown()
-    }
-    
-    let fileName = "PdfWithImages2.pdf"
-    let appendFile = "4pages.pdf"
-    let startPage = 2
-    let endPage = 4
-    
-    func testPostAppendDocumentUsingQueryParams() {
+    func testGetPageLinkAnnotationByIndex() {
         
-        let expectation = self.expectation(description: "testPostAppendDocumentUsingQueryParams")
-        let files = [fileName, appendFile]
+        let expectation = self.expectation(description: "testGetPageLinkAnnotationByIndex")
+        let pageNumber = 1
+        let linkIndex = 1
         
-        uploadFiles(names: files) {
-            PdfAPI.postAppendDocument(name: self.fileName,
-                    appendFile: self.tempFolder + "/" + self.appendFile,
-                    startPage: self.startPage,
-                    endPage: self.endPage,
-                    folder: self.tempFolder) {
+        uploadFile(name: fileName) {
+            
+            PdfAPI.getPageLinkAnnotationByIndex(name: self.fileName, pageNumber: pageNumber, linkIndex: linkIndex, folder: self.tempFolder) {
                 (response, error) in
                 guard error == nil else {
-                    XCTFail("error testPostAppendDocumentUsingQueryParams")
+                    XCTFail("error testGetPageLinkAnnotationByIndex: " + (error.debugDescription))
                     return
                 }
                 
@@ -65,21 +51,19 @@ class AppendTests: AsposePdfCloudTests {
         
         self.waitForExpectations(timeout: testTimeout, handler: nil)
     }
-
-    func testPostAppendDocumentUsingBodyParams() {
+    
+    
+    func testGetPageLinkAnnotations() {
         
-        let expectation = self.expectation(description: "testPostAppendDocumentUsingBodyParams")
-        let appendDocument = AppendDocument(document: self.tempFolder + "/" + self.appendFile,
-                                            startPage: startPage, endPage: endPage)
-        let files = [fileName, appendFile]
+        let expectation = self.expectation(description: "testGetPageLinkAnnotations")
+        let pageNumber = 1
         
-        uploadFiles(names: files) {
-            PdfAPI.postAppendDocument(name: self.fileName,
-                                      appendDocument:  appendDocument,
-                                      folder: self.tempFolder) {
+        uploadFile(name: fileName) {
+            
+            PdfAPI.getPageLinkAnnotations(name: self.fileName, pageNumber: pageNumber, folder: self.tempFolder) {
                 (response, error) in
                 guard error == nil else {
-                    XCTFail("error testPostAppendDocumentUsingBodyParams")
+                    XCTFail("error testGetPageLinkAnnotations: " + (error.debugDescription))
                     return
                 }
                 

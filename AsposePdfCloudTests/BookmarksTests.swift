@@ -22,69 +22,40 @@
 import XCTest
 @testable import AsposePdfCloud
 
-
-class UploadDownloadTests: AsposePdfCloudTests {
+class BookmarksTests: AsposePdfCloudTests {
     
     override func setUp() {
         super.setUp()
-    }
+     }
     
     override func tearDown() {
         super.tearDown()
     }
     
-    func testUploadFile() {
-        let name = "33539.jpg"
-        let path = self.tempFolder + "/" + name
+    private let fileName = "PdfWithBookmarks.pdf"
+    
+    func testGetDocumentBookmarks() {
         
+        let expectation = self.expectation(description: "testGetDocumentBookmarks")
         
-        //let bundle = Bundle(for: type(of: self))
-        //let file = bundle.url(forResource: "33539", withExtension: "jpg")!
-        
-        let file = URL(fileURLWithPath: "\(self.testDataFolder)/\(name)")
-        
-        let expectation = self.expectation(description: "testUploadFile")
-        
-        PdfAPI.putCreate(path: path, file: file) {
-            (response, error) in
-            guard error == nil else {
-                XCTFail("error uploading file " + name)
-                return
-            }
+        uploadFile(name: fileName) {
             
-            if let response = response {
-                XCTAssert(response.code == HttpStatusCode.ok)
-                
-                expectation.fulfill()
-            }
-        }
-        
-        self.waitForExpectations(timeout: self.testTimeout, handler: nil)
-    }
-    
-    
-    func testGetDownloadFile() {
-        
-        let name = "4pages.pdf"
-        let path = "\(self.tempFolder)/\(name)"
-        let expectation = self.expectation(description: "testGetDownloadFile")
-        
-        uploadFile(name: name) {
-        
-            PdfAPI.getDownload(path: path) {
+            PdfAPI.getDocumentBookmarks(name: self.fileName, folder: self.tempFolder) {
                 (response, error) in
                 guard error == nil else {
-                    XCTFail("error testGetDownloadFile")
+                    XCTFail("error testGetDocumentBookmarks")
                     return
                 }
                 
                 if let response = response {
-                    XCTAssertFalse(response.isEmpty)
+                    XCTAssertNotNil(response)
                     
                     expectation.fulfill()
                 }
             }
         }
-        self.waitForExpectations(timeout: self.testTimeout, handler: nil)
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
     }
+    
 }

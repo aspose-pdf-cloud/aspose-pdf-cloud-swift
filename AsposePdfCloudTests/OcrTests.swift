@@ -22,36 +22,20 @@
 import XCTest
 @testable import AsposePdfCloud
 
-
-class AppendTests: AsposePdfCloudTests {
+class OcrTests: AsposePdfCloudTests {
     
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-    
-    let fileName = "PdfWithImages2.pdf"
-    let appendFile = "4pages.pdf"
-    let startPage = 2
-    let endPage = 4
-    
-    func testPostAppendDocumentUsingQueryParams() {
+    func testPutSearchableDocument() {
         
-        let expectation = self.expectation(description: "testPostAppendDocumentUsingQueryParams")
-        let files = [fileName, appendFile]
+        let expectation = self.expectation(description: "testPutSearchableDocument")
+        let fileName = "rusdoc.pdf"
+        let lang = "rus,eng"
         
-        uploadFiles(names: files) {
-            PdfAPI.postAppendDocument(name: self.fileName,
-                    appendFile: self.tempFolder + "/" + self.appendFile,
-                    startPage: self.startPage,
-                    endPage: self.endPage,
-                    folder: self.tempFolder) {
+        uploadFile(name: fileName) {
+            
+            PdfAPI.putSearchableDocument(name: fileName, folder: self.tempFolder, lang: lang) {
                 (response, error) in
                 guard error == nil else {
-                    XCTFail("error testPostAppendDocumentUsingQueryParams")
+                    XCTFail("error testPutSearchableDocument: " + (error.debugDescription))
                     return
                 }
                 
@@ -65,21 +49,19 @@ class AppendTests: AsposePdfCloudTests {
         
         self.waitForExpectations(timeout: testTimeout, handler: nil)
     }
-
-    func testPostAppendDocumentUsingBodyParams() {
+    
+    
+    func testPutSearchableDocumentWithDefaultLang() {
         
-        let expectation = self.expectation(description: "testPostAppendDocumentUsingBodyParams")
-        let appendDocument = AppendDocument(document: self.tempFolder + "/" + self.appendFile,
-                                            startPage: startPage, endPage: endPage)
-        let files = [fileName, appendFile]
+        let expectation = self.expectation(description: "testPutSearchableDocumentWithDefaultLang")
+        let fileName = "rusdoc.pdf"
         
-        uploadFiles(names: files) {
-            PdfAPI.postAppendDocument(name: self.fileName,
-                                      appendDocument:  appendDocument,
-                                      folder: self.tempFolder) {
+        uploadFile(name: fileName) {
+            
+            PdfAPI.putSearchableDocument(name: fileName, folder: self.tempFolder) {
                 (response, error) in
                 guard error == nil else {
-                    XCTFail("error testPostAppendDocumentUsingBodyParams")
+                    XCTFail("error testPutSearchableDocumentWithDefaultLang: " + (error.debugDescription))
                     return
                 }
                 
