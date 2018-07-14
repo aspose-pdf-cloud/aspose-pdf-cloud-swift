@@ -31,13 +31,33 @@ class AsposePdfCloudTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        //Get App key and App SID from https://cloud.aspose.com
-        AsposePdfCloudAPI.appSid = ""
-        AsposePdfCloudAPI.appKey = ""
+        // read App Key and App Sid from setup.json file
+        // Get App key and App SID from https://cloud.aspose.com
+        readSettings()
     }
     
     override func tearDown() {
         super.tearDown()
+    }
+    
+    private func readSettings() {
+        if let path = Bundle(for: type(of: self)).path(forResource: "setup", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+                if let jsonResult = jsonResult as? Dictionary<String, AnyObject> {
+                    AsposePdfCloudAPI.appSid = jsonResult["app_sid"] as? String
+                    AsposePdfCloudAPI.appKey = jsonResult["app_key"] as? String
+                    
+                    if let basePath = jsonResult["product_uri"] as? String
+                    {
+                        AsposePdfCloudAPI.basePath = basePath
+                    }
+                }
+            } catch {
+                XCTFail("error reading settings file")
+            }
+        }
     }
     
     internal func uploadFile(name: String, completion: @escaping ()->Void) {
