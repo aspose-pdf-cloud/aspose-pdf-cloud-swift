@@ -84,8 +84,8 @@ class ConvertTests: AsposePdfCloudTests {
         let expectation = self.expectation(description: "testPutPdfInRequestToDoc")
         let resFileName = "result.doc"
         let outPath = "\(self.tempFolder)/\(resFileName)"
-        let file = URL(fileURLWithPath: "\(self.testDataFolder)/\(fileName)")
-            
+        let file = getURL(fileName)
+        
         PdfAPI.putPdfInRequestToDoc(outPath: outPath, file: file) {
             (response, error) in
             guard error == nil else {
@@ -162,7 +162,7 @@ class ConvertTests: AsposePdfCloudTests {
         let expectation = self.expectation(description: "testPutPdfInRequestToPdfA")
         let resFileName = "result.pdf"
         let outPath = "\(self.tempFolder)/\(resFileName)"
-        let file = URL(fileURLWithPath: "\(self.testDataFolder)/\(fileName)")
+        let file = getURL(fileName)
         
         PdfAPI.putPdfInRequestToPdfA(outPath: outPath, type: PdfAType.pdfa1a.rawValue, file: file) {
             (response, error) in
@@ -240,7 +240,7 @@ class ConvertTests: AsposePdfCloudTests {
         let expectation = self.expectation(description: "testPutPdfInRequestToTiff")
         let resFileName = "result.tiff"
         let outPath = "\(self.tempFolder)/\(resFileName)"
-        let file = URL(fileURLWithPath: "\(self.testDataFolder)/\(fileName)")
+        let file = getURL(fileName)
         
         PdfAPI.putPdfInRequestToTiff(outPath: outPath, file: file) {
             (response, error) in
@@ -318,7 +318,7 @@ class ConvertTests: AsposePdfCloudTests {
         let expectation = self.expectation(description: "testPutPdfInRequestToSvg")
         let resFileName = "result.svg"
         let outPath = "\(self.tempFolder)/\(resFileName)"
-        let file = URL(fileURLWithPath: "\(self.testDataFolder)/\(fileName)")
+        let file = getURL(fileName)
         
         PdfAPI.putPdfInRequestToSvg(outPath: outPath, file: file) {
             (response, error) in
@@ -396,7 +396,7 @@ class ConvertTests: AsposePdfCloudTests {
         let expectation = self.expectation(description: "testPutPdfInRequestToXps")
         let resFileName = "result.xps"
         let outPath = "\(self.tempFolder)/\(resFileName)"
-        let file = URL(fileURLWithPath: "\(self.testDataFolder)/\(fileName)")
+        let file = getURL(fileName)
         
         PdfAPI.putPdfInRequestToXps(outPath: outPath, file: file) {
             (response, error) in
@@ -474,7 +474,7 @@ class ConvertTests: AsposePdfCloudTests {
         let expectation = self.expectation(description: "testPutPdfInRequestToXls")
         let resFileName = "result.xls"
         let outPath = "\(self.tempFolder)/\(resFileName)"
-        let file = URL(fileURLWithPath: "\(self.testDataFolder)/\(fileName)")
+        let file = getURL(fileName)
         
         PdfAPI.putPdfInRequestToXls(outPath: outPath, file: file) {
             (response, error) in
@@ -552,7 +552,7 @@ class ConvertTests: AsposePdfCloudTests {
         let expectation = self.expectation(description: "testPutPdfInRequestToHtml")
         let resFileName = "result.zip"
         let outPath = "\(self.tempFolder)/\(resFileName)"
-        let file = URL(fileURLWithPath: "\(self.testDataFolder)/\(fileName)")
+        let file = getURL(fileName)
         
         PdfAPI.putPdfInRequestToHtml(outPath: outPath, file: file) {
             (response, error) in
@@ -630,7 +630,7 @@ class ConvertTests: AsposePdfCloudTests {
         let expectation = self.expectation(description: "testPutPdfInRequestToEpub")
         let resFileName = "result.epub"
         let outPath = "\(self.tempFolder)/\(resFileName)"
-        let file = URL(fileURLWithPath: "\(self.testDataFolder)/\(fileName)")
+        let file = getURL(fileName)
         
         PdfAPI.putPdfInRequestToEpub(outPath: outPath, file: file) {
             (response, error) in
@@ -708,7 +708,7 @@ class ConvertTests: AsposePdfCloudTests {
         let expectation = self.expectation(description: "testPutPdfInRequestToPptx")
         let resFileName = "result.pptx"
         let outPath = "\(self.tempFolder)/\(resFileName)"
-        let file = URL(fileURLWithPath: "\(self.testDataFolder)/\(fileName)")
+        let file = getURL(fileName)
         
         PdfAPI.putPdfInRequestToPptx(outPath: outPath, file: file) {
             (response, error) in
@@ -786,7 +786,7 @@ class ConvertTests: AsposePdfCloudTests {
         let expectation = self.expectation(description: "testPutPdfInRequestToLaTeX")
         let resFileName = "result.tex"
         let outPath = "\(self.tempFolder)/\(resFileName)"
-        let file = URL(fileURLWithPath: "\(self.testDataFolder)/\(fileName)")
+        let file = getURL(fileName)
         
         PdfAPI.putPdfInRequestToLaTeX(outPath: outPath, file: file) {
             (response, error) in
@@ -864,7 +864,7 @@ class ConvertTests: AsposePdfCloudTests {
         let expectation = self.expectation(description: "testPutPdfInRequestToXml")
         let resFileName = "result.xml"
         let outPath = "\(self.tempFolder)/\(resFileName)"
-        let file = URL(fileURLWithPath: "\(self.testDataFolder)/\(fileName)")
+        let file = getURL(fileName)
         
         PdfAPI.putPdfInRequestToXml(outPath: outPath, file: file) {
             (response, error) in
@@ -942,7 +942,7 @@ class ConvertTests: AsposePdfCloudTests {
         let expectation = self.expectation(description: "testPutPdfInRequestToMobiXml")
         let resFileName = "result.mobi"
         let outPath = "\(self.tempFolder)/\(resFileName)"
-        let file = URL(fileURLWithPath: "\(self.testDataFolder)/\(fileName)")
+        let file = getURL(fileName)
         
         PdfAPI.putPdfInRequestToMobiXml(outPath: outPath, file: file) {
             (response, error) in
@@ -1022,7 +1022,7 @@ class ConvertTests: AsposePdfCloudTests {
         let resFileName = "result.pdf"
         let outPath = "\(self.tempFolder)/\(resFileName)"
         let name = "PdfWithXfaForm.pdf"
-        let file = URL(fileURLWithPath: "\(self.testDataFolder)/\(name)")
+        let file = getURL(name)
         
         PdfAPI.putXfaPdfInRequestToAcroForm(outPath: outPath, file: file) {
             (response, error) in

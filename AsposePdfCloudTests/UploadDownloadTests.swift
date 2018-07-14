@@ -34,15 +34,9 @@ class UploadDownloadTests: AsposePdfCloudTests {
     }
     
     func testUploadFile() {
-        let name = "33539.jpg"
+        let name = "MhtExample.mht"
         let path = self.tempFolder + "/" + name
-        
-        
-        //let bundle = Bundle(for: type(of: self))
-        //let file = bundle.url(forResource: "33539", withExtension: "jpg")!
-        
-        let file = URL(fileURLWithPath: "\(self.testDataFolder)/\(name)")
-        
+        let file = getURL(name)
         let expectation = self.expectation(description: "testUploadFile")
         
         PdfAPI.putCreate(path: path, file: file) {

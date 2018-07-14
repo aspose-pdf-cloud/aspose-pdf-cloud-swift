@@ -41,6 +41,7 @@ open class TextReplaceRequest: TextReplace {
         var container = encoder.container(keyedBy: String.self)
 
         try container.encodeIfPresent(defaultFont, forKey: "DefaultFont")
+        try super.encode(to: encoder)
     }
 
     // Decodable protocol methods

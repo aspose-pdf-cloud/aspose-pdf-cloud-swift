@@ -26,14 +26,14 @@ class AsposePdfCloudTests: XCTestCase {
     
     internal let tempFolder = "TempPdfCloud"
     internal let testDataFolder = "TestData"
-    internal let testTimeout = 30.0
+    internal let testTimeout = 60.0
     
     override func setUp() {
         super.setUp()
+        
+        //Get App key and App SID from https://cloud.aspose.com
         AsposePdfCloudAPI.appSid = ""
         AsposePdfCloudAPI.appKey = ""
-        //AsposePdfCloudAPI.basePath = "http://api-dev.aspose.cloud/v1.1"
-        AsposePdfCloudAPI.basePath = "https://billing.cloud.saltov.dynabic.com/v1.1"
     }
     
     override func tearDown() {
@@ -42,9 +42,8 @@ class AsposePdfCloudTests: XCTestCase {
     
     internal func uploadFile(name: String, completion: @escaping ()->Void) {
         let path = "\(self.tempFolder)/\(name)"
-        let file = URL(fileURLWithPath: "\(self.testDataFolder)/\(name)")
-        
-        PdfAPI.putCreate(path: path, file: file) {
+
+        PdfAPI.putCreate(path: path, file: getURL(name)) {
             (response, error) in
             guard error == nil else {
                 XCTFail("error uploading file \(name)")
@@ -72,5 +71,10 @@ class AsposePdfCloudTests: XCTestCase {
             completion()
         }
         
-    }    
+    }
+    
+    internal func getURL(_ name: String) -> URL {
+        let bundle = Bundle(for: type(of: self))
+        return bundle.url(forResource: name, withExtension: nil)!
+    }
 }

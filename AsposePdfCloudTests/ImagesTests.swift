@@ -141,7 +141,7 @@ class ImagesTests: AsposePdfCloudTests {
         let expectation = self.expectation(description: "testGetImages")
         let pageNumber = 1
         let imageNumber = 1
-        let image = URL(fileURLWithPath: "\(self.testDataFolder)/\(imageName)")
+        let image = getURL(imageName)
         uploadFile(name: fileName) {
             
             PdfAPI.postReplaceImage(name: self.fileName, pageNumber: pageNumber, imageNumber: imageNumber, folder: self.tempFolder, image: image) {

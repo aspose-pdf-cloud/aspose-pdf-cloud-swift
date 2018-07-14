@@ -191,7 +191,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
         let expectation = self.expectation(description: "testGetMhtInStorageToPdf")
         let name = "MhtExample.mht"
         
-        //uploadFile(name: name) {
+        uploadFile(name: name) {
             
             PdfAPI.getMhtInStorageToPdf(srcPath: "\(self.tempFolder)/\(name)") {
                 (response, error) in
@@ -206,7 +206,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
                     expectation.fulfill()
                 }
             }
-        //}
+        }
         
         self.waitForExpectations(timeout: testTimeout, handler: nil)
     }
