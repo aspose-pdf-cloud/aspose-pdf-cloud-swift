@@ -45,6 +45,7 @@ open class Document: LinkElement {
 
         try container.encodeIfPresent(documentProperties, forKey: "DocumentProperties")
         try container.encodeIfPresent(pages, forKey: "Pages")
+        try super.encode(to: encoder)
     }
 
     // Decodable protocol methods

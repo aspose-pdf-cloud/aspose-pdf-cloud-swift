@@ -46,6 +46,7 @@ open class Page: LinkElement {
         try container.encodeIfPresent(id, forKey: "Id")
         try container.encodeIfPresent(images, forKey: "Images")
         try container.encodeIfPresent(rectangle, forKey: "Rectangle")
+        try super.encode(to: encoder)
     }
 
     // Decodable protocol methods

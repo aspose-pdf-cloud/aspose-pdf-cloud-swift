@@ -41,6 +41,7 @@ open class Fields: LinkElement {
         var container = encoder.container(keyedBy: String.self)
 
         try container.encodeIfPresent(list, forKey: "List")
+        try super.encode(to: encoder)
     }
 
     // Decodable protocol methods

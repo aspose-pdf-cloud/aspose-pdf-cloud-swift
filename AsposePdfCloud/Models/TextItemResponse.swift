@@ -40,6 +40,7 @@ open class TextItemResponse: SaaSposeResponse {
         var container = encoder.container(keyedBy: String.self)
 
         try container.encodeIfPresent(textItem, forKey: "TextItem")
+        try super.encode(to: encoder)
     }
 
     // Decodable protocol methods

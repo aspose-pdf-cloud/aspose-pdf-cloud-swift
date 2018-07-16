@@ -40,6 +40,7 @@ open class ImagesResponse: SaaSposeResponse {
         var container = encoder.container(keyedBy: String.self)
 
         try container.encodeIfPresent(images, forKey: "Images")
+        try super.encode(to: encoder)
     }
 
     // Decodable protocol methods

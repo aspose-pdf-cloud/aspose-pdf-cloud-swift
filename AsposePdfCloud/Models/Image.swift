@@ -45,6 +45,7 @@ open class Image: LinkElement {
 
         try container.encodeIfPresent(width, forKey: "Width")
         try container.encodeIfPresent(height, forKey: "Height")
+        try super.encode(to: encoder)
     }
 
     // Decodable protocol methods

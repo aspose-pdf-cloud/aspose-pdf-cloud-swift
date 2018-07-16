@@ -43,6 +43,7 @@ open class TextItem: LinkElement {
 
         try container.encodeIfPresent(text, forKey: "Text")
         try container.encodeIfPresent(format, forKey: "Format")
+        try super.encode(to: encoder)
     }
 
     // Decodable protocol methods

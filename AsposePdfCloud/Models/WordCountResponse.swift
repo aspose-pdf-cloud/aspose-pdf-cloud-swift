@@ -42,6 +42,7 @@ open class WordCountResponse: SaaSposeResponse {
         var container = encoder.container(keyedBy: String.self)
 
         try container.encodeIfPresent(wordsPerPage, forKey: "WordsPerPage")
+        try super.encode(to: encoder)
     }
 
     // Decodable protocol methods

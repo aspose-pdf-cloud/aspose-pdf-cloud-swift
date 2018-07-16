@@ -40,6 +40,7 @@ open class FieldResponse: SaaSposeResponse {
         var container = encoder.container(keyedBy: String.self)
 
         try container.encodeIfPresent(field, forKey: "Field")
+        try super.encode(to: encoder)
     }
 
     // Decodable protocol methods

@@ -45,6 +45,7 @@ open class DocumentProperty: LinkElement {
         try container.encodeIfPresent(name, forKey: "Name")
         try container.encodeIfPresent(value, forKey: "Value")
         try container.encodeIfPresent(builtIn, forKey: "BuiltIn")
+        try super.encode(to: encoder)
     }
 
     // Decodable protocol methods

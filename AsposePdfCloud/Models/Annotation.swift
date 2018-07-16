@@ -57,6 +57,7 @@ open class Annotation: LinkElement {
         try container.encodeIfPresent(subject, forKey: "Subject")
         try container.encodeIfPresent(title, forKey: "Title")
         try container.encodeIfPresent(modified, forKey: "Modified")
+        try super.encode(to: encoder)
     }
 
     // Decodable protocol methods

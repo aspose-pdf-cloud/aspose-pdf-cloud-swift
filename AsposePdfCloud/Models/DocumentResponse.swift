@@ -42,6 +42,7 @@ open class DocumentResponse: SaaSposeResponse {
 
         try container.encodeIfPresent(document, forKey: "Document")
         try container.encodeIfPresent(messages, forKey: "Messages")
+        try super.encode(to: encoder)
     }
 
     // Decodable protocol methods

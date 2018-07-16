@@ -45,6 +45,7 @@ open class TextFormat: LinkElement {
         try container.encodeIfPresent(color, forKey: "Color")
         try container.encodeIfPresent(fontSize, forKey: "FontSize")
         try container.encodeIfPresent(fontName, forKey: "FontName")
+        try super.encode(to: encoder)
     }
 
     // Decodable protocol methods

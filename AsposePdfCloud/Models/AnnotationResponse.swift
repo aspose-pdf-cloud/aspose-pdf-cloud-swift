@@ -40,6 +40,7 @@ open class AnnotationResponse: SaaSposeResponse {
         var container = encoder.container(keyedBy: String.self)
 
         try container.encodeIfPresent(annotation, forKey: "Annotation")
+        try super.encode(to: encoder)
     }
 
     // Decodable protocol methods

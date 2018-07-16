@@ -40,6 +40,7 @@ open class PageTextReplaceResponse: TextReplaceResponse {
         var container = encoder.container(keyedBy: String.self)
 
         try container.encodeIfPresent(page, forKey: "Page")
+        try super.encode(to: encoder)
     }
 
     // Decodable protocol methods

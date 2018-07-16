@@ -54,6 +54,7 @@ open class Field: LinkElement {
         try container.encodeIfPresent(values, forKey: "Values")
         try container.encodeIfPresent(selectedItems, forKey: "SelectedItems")
         try container.encodeIfPresent(rect, forKey: "Rect")
+        try super.encode(to: encoder)
     }
 
     // Decodable protocol methods

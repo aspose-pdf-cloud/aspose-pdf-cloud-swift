@@ -60,6 +60,7 @@ open class Attachment: LinkElement {
         try container.encodeIfPresent(modificationDate, forKey: "ModificationDate")
         try container.encodeIfPresent(size, forKey: "Size")
         try container.encodeIfPresent(checkSum, forKey: "CheckSum")
+        try super.encode(to: encoder)
     }
 
     // Decodable protocol methods

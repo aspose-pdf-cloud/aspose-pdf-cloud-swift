@@ -42,6 +42,7 @@ open class SplitResultDocument: Link {
         var container = encoder.container(keyedBy: String.self)
 
         try container.encodeIfPresent(id, forKey: "Id")
+        try super.encode(to: encoder)
     }
 
     // Decodable protocol methods

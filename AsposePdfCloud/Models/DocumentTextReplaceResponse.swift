@@ -40,6 +40,7 @@ open class DocumentTextReplaceResponse: TextReplaceResponse {
         var container = encoder.container(keyedBy: String.self)
 
         try container.encodeIfPresent(document, forKey: "Document")
+        try super.encode(to: encoder)
     }
 
     // Decodable protocol methods

@@ -40,6 +40,7 @@ open class LinkAnnotationsResponse: SaaSposeResponse {
         var container = encoder.container(keyedBy: String.self)
 
         try container.encodeIfPresent(links, forKey: "Links")
+        try super.encode(to: encoder)
     }
 
     // Decodable protocol methods

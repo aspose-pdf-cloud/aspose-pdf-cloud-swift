@@ -47,6 +47,7 @@ open class LinkAnnotation: LinkElement {
         try container.encodeIfPresent(action, forKey: "Action")
         try container.encodeIfPresent(highlighting, forKey: "Highlighting")
         try container.encodeIfPresent(color, forKey: "Color")
+        try super.encode(to: encoder)
     }
 
     // Decodable protocol methods
