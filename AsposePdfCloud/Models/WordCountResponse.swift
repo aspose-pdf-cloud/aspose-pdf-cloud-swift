@@ -34,7 +34,7 @@ open class WordCountResponse: SaaSposeResponse {
 
     
     public init(code: HttpStatusCode, status: String?, wordsPerPage: WordCount?) {
-        super.init(code, status)
+        super.init(code: code, status: status)
         self.wordsPerPage = wordsPerPage
     }
         

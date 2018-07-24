@@ -32,7 +32,7 @@ open class ImageResponse: SaaSposeResponse {
 
     
     public init(code: HttpStatusCode, status: String?, image: Image?) {
-        super.init(code, status)
+        super.init(code: code, status: status)
         self.image = image
     }
         

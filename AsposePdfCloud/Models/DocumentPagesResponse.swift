@@ -32,7 +32,7 @@ open class DocumentPagesResponse: SaaSposeResponse {
 
     
     public init(code: HttpStatusCode, status: String?, pages: Pages?) {
-        super.init(code, status)
+        super.init(code: code, status: status)
         self.pages = pages
     }
         

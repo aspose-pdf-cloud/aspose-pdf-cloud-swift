@@ -32,7 +32,7 @@ open class LinkAnnotationsResponse: SaaSposeResponse {
 
     
     public init(code: HttpStatusCode, status: String?, links: LinkAnnotations?) {
-        super.init(code, status)
+        super.init(code: code, status: status)
         self.links = links
     }
         

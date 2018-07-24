@@ -34,7 +34,7 @@ open class SignatureVerifyResponse: SaaSposeResponse {
 
     
     public init(code: HttpStatusCode, status: String?, valid: Bool?) {
-        super.init(code, status)
+        super.init(code: code, status: status)
         self.valid = valid
     }
         

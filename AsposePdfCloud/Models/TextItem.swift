@@ -34,7 +34,7 @@ open class TextItem: LinkElement {
 
     
     public init(links: [Link]?, text: String?, format: TextFormat?) {
-        super.init(links)
+        super.init(links: links)
         self.text = text
         self.format = format
     }

@@ -33,7 +33,7 @@ open class DocumentResponse: SaaSposeResponse {
 
     
     public init(code: HttpStatusCode, status: String?, document: Document?, messages: [String]?) {
-        super.init(code, status)
+        super.init(code: code, status: status)
         self.document = document
         self.messages = messages
     }

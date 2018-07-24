@@ -32,7 +32,7 @@ open class FieldsResponse: SaaSposeResponse {
 
     
     public init(code: HttpStatusCode, status: String?, fields: Fields?) {
-        super.init(code, status)
+        super.init(code: code, status: status)
         self.fields = fields
     }
         

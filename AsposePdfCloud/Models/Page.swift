@@ -36,7 +36,7 @@ open class Page: LinkElement {
 
     
     public init(links: [Link]?, id: Int?, images: Images?, rectangle: Rectangle?) {
-        super.init(links)
+        super.init(links: links)
         self.id = id
         self.images = images
         self.rectangle = rectangle

@@ -32,7 +32,7 @@ open class PageTextReplaceResponse: TextReplaceResponse {
 
     
     public init(code: HttpStatusCode, status: String?, matches: Int?, page: Page?) {
-        super.init(code, status)
+        super.init(code: code, status: status)
         self.page = page
     }
         
