@@ -32,8 +32,7 @@ open class DocumentPropertyResponse: SaaSposeResponse {
 
     
     public init(code: HttpStatusCode, status: String?, documentProperty: DocumentProperty?) {
-        super.code = code
-        super.status = status
+        super.init(code, status)
         self.documentProperty = documentProperty
     }
         

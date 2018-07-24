@@ -32,8 +32,7 @@ open class AnnotationResponse: SaaSposeResponse {
 
     
     public init(code: HttpStatusCode, status: String?, annotation: Annotation?) {
-        super.code = code
-        super.status = status
+        super.init(code, status)
         self.annotation = annotation
     }
         

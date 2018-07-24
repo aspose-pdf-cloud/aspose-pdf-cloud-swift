@@ -33,7 +33,7 @@ open class Fields: LinkElement {
 
     
     public init(links: [Link]?, list: [Field]?) {
-        super.links = links
+        super.init(links)
         self.list = list
     }
         

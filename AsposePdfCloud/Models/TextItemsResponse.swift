@@ -32,8 +32,7 @@ open class TextItemsResponse: SaaSposeResponse {
 
     
     public init(code: HttpStatusCode, status: String?, textItems: TextItems?) {
-        super.code = code
-        super.status = status
+        super.init(code, status)
         self.textItems = textItems
     }
         

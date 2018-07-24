@@ -32,8 +32,7 @@ open class TextRectsResponse: SaaSposeResponse {
 
     
     public init(code: HttpStatusCode, status: String?, textOccurences: TextRects?) {
-        super.code = code
-        super.status = status
+        super.init(code, status)
         self.textOccurences = textOccurences
     }
         

@@ -32,8 +32,7 @@ open class TextReplaceResponse: SaaSposeResponse {
 
     
     public init(code: HttpStatusCode, status: String?, matches: Int?) {
-        super.code = code
-        super.status = status
+        super.init(code, status)
         self.matches = matches
     }
         

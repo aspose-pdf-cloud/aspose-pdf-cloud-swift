@@ -32,8 +32,7 @@ open class DocumentTextReplaceResponse: TextReplaceResponse {
 
     
     public init(code: HttpStatusCode, status: String?, matches: Int?, document: Document?) {
-        super.code = code
-        super.status = status
+        super.init(code, status)
         self.document = document
     }
         

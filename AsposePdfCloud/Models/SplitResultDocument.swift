@@ -34,10 +34,7 @@ open class SplitResultDocument: Link {
 
     
     public init(href: String?, rel: String?, type: String?, title: String?, id: Int?) {
-        super.href = href
-        super.rel = rel
-        super.type = type
-        super.title = title
+        super.init(href, rel, type, title)
         self.id = id
     }
         

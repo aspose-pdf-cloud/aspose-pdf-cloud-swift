@@ -32,8 +32,7 @@ open class LinkAnnotationResponse: SaaSposeResponse {
 
     
     public init(code: HttpStatusCode, status: String?, link: LinkAnnotation?) {
-        super.code = code
-        super.status = status
+        super.init(code, status)
         self.link = link
     }
         

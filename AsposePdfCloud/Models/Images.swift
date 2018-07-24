@@ -33,7 +33,7 @@ open class Images: LinkElement {
 
     
     public init(links: [Link]?, list: [Image]?) {
-        super.links = links
+        super.init(links)
         self.list = list
     }
         

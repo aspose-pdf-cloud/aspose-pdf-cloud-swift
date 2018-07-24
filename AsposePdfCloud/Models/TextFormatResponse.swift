@@ -32,8 +32,7 @@ open class TextFormatResponse: SaaSposeResponse {
 
     
     public init(code: HttpStatusCode, status: String?, textFormat: TextFormat?) {
-        super.code = code
-        super.status = status
+        super.init(code, status)
         self.textFormat = textFormat
     }
         

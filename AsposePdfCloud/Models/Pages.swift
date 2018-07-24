@@ -33,7 +33,7 @@ open class Pages: LinkElement {
 
     
     public init(links: [Link]?, list: [Page]?) {
-        super.links = links
+        super.init(links)
         self.list = list
     }
         

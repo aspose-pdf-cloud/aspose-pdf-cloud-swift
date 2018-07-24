@@ -33,11 +33,7 @@ open class TextReplaceRequest: TextReplace {
 
     
     public init(oldValue: String, newValue: String, regex: Bool, textState: TextState?, rect: Rectangle?, defaultFont: String?) {
-        super.oldValue = oldValue
-        super.newValue = newValue
-        super.regex = regex
-        super.textState = textState
-        super.rect = rect
+        super.init(oldValue, newValue, regex, textState, rect)
         self.defaultFont = defaultFont
     }
         

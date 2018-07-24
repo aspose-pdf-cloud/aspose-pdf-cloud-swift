@@ -36,7 +36,7 @@ open class Image: LinkElement {
 
     
     public init(links: [Link]?, width: Int?, height: Int?) {
-        super.links = links
+        super.init(links)
         self.width = width
         self.height = height
     }
