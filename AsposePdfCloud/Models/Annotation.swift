@@ -44,7 +44,7 @@ open class Annotation: LinkElement {
 
     
     public init(links: [Link]?, color: Color?, contents: String?, creationDate: String?, subject: String?, title: String?, modified: String?) {
-        self.links = links
+        super.links = links
         self.color = color
         self.contents = contents
         self.creationDate = creationDate

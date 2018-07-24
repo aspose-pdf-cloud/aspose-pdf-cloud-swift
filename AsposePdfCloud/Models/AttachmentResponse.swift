@@ -32,8 +32,8 @@ open class AttachmentResponse: SaaSposeResponse {
 
     
     public init(code: HttpStatusCode, status: String?, attachment: Attachment?) {
-        self.code = code
-        self.status = status
+        super.code = code
+        super.status = status
         self.attachment = attachment
     }
         

@@ -32,8 +32,8 @@ open class FieldResponse: SaaSposeResponse {
 
     
     public init(code: HttpStatusCode, status: String?, field: Field?) {
-        self.code = code
-        self.status = status
+        super.code = code
+        super.status = status
         self.field = field
     }
         

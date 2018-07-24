@@ -33,7 +33,7 @@ open class TextItems: LinkElement {
 
     
     public init(links: [Link]?, list: [TextItem]?) {
-        self.links = links
+        super.links = links
         self.list = list
     }
         

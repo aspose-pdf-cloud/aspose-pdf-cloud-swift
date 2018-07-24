@@ -36,7 +36,7 @@ open class LinkAnnotation: LinkElement {
 
     
     public init(links: [Link]?, actionType: LinkActionType?, action: String?, highlighting: LinkHighlightingMode?, color: Color?) {
-        self.links = links
+        super.links = links
         self.actionType = actionType
         self.action = action
         self.highlighting = highlighting

@@ -33,7 +33,7 @@ open class Attachments: LinkElement {
 
     
     public init(links: [Link]?, list: [LinkElement]?) {
-        self.links = links
+        super.links = links
         self.list = list
     }
         

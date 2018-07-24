@@ -33,7 +33,7 @@ open class DocumentProperties: LinkElement {
 
     
     public init(links: [Link]?, list: [DocumentProperty]?) {
-        self.links = links
+        super.links = links
         self.list = list
     }
         

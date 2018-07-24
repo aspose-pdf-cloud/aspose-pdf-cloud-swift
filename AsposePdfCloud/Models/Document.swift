@@ -36,7 +36,7 @@ open class Document: LinkElement {
 
     
     public init(links: [Link]?, documentProperties: DocumentProperties?, pages: Pages?) {
-        self.links = links
+        super.links = links
         self.documentProperties = documentProperties
         self.pages = pages
     }

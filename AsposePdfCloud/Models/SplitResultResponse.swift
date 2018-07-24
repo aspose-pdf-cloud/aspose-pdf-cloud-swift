@@ -34,8 +34,8 @@ open class SplitResultResponse: SaaSposeResponse {
 
     
     public init(code: HttpStatusCode, status: String?, result: SplitResult?) {
-        self.code = code
-        self.status = status
+        super.code = code
+        super.status = status
         self.result = result
     }
         

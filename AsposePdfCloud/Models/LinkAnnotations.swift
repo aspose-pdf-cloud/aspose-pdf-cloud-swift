@@ -33,7 +33,7 @@ open class LinkAnnotations: LinkElement {
 
     
     public init(links: [Link]?, list: [LinkElement]?) {
-        self.links = links
+        super.links = links
         self.list = list
     }
         

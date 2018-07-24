@@ -32,8 +32,8 @@ open class ImageResponse: SaaSposeResponse {
 
     
     public init(code: HttpStatusCode, status: String?, image: Image?) {
-        self.code = code
-        self.status = status
+        super.code = code
+        super.status = status
         self.image = image
     }
         

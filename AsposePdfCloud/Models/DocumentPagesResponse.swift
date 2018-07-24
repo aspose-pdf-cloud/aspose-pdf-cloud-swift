@@ -32,8 +32,8 @@ open class DocumentPagesResponse: SaaSposeResponse {
 
     
     public init(code: HttpStatusCode, status: String?, pages: Pages?) {
-        self.code = code
-        self.status = status
+        super.code = code
+        super.status = status
         self.pages = pages
     }
         

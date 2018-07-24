@@ -35,7 +35,7 @@ open class TextFormat: LinkElement {
 
     
     public init(links: [Link]?, color: Color?, fontSize: Double?, fontName: String?) {
-        self.links = links
+        super.links = links
         self.color = color
         self.fontSize = fontSize
         self.fontName = fontName
