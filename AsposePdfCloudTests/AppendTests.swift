@@ -56,7 +56,7 @@ class AppendTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssert(response.code == HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, HttpStatusCode.ok)
                     
                     expectation.fulfill()
                 }
@@ -84,7 +84,7 @@ class AppendTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssert(response.code == HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, HttpStatusCode.ok)
                     
                     expectation.fulfill()
                 }

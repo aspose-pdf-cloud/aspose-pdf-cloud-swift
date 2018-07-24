@@ -61,7 +61,7 @@ class SignTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssert(response.code == HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, HttpStatusCode.ok)
                     
                     expectation.fulfill()
                 }
@@ -86,7 +86,7 @@ class SignTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssert(response.code == HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, HttpStatusCode.ok)
                     
                     expectation.fulfill()
                 }
@@ -111,7 +111,7 @@ class SignTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssert(response.code == HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, HttpStatusCode.ok)
                     
                     PdfAPI.getVerifySignature(name: self.fileName, signName: (self.signature?.formFieldName)!,  folder: self.tempFolder) {
                         (response, error) in
@@ -121,7 +121,7 @@ class SignTests: AsposePdfCloudTests {
                         }
                         
                         if let response = response {
-                            XCTAssert(response.code == HttpStatusCode.ok)
+                            XCTAssertEqual(response.code, HttpStatusCode.ok)
                             
                             expectation.fulfill()
                         }

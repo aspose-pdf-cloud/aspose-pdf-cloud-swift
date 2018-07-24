@@ -40,7 +40,7 @@ class FieldsTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssert(response.code == HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, HttpStatusCode.ok)
                     
                     expectation.fulfill()
                 }
@@ -66,7 +66,7 @@ class FieldsTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssert(response.code == HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, HttpStatusCode.ok)
                     
                     expectation.fulfill()
                 }
@@ -111,7 +111,7 @@ class FieldsTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssert(response.code == HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, HttpStatusCode.ok)
                     
                     expectation.fulfill()
                 }
@@ -149,7 +149,7 @@ class FieldsTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssert(response.code == HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, HttpStatusCode.ok)
                     
                     expectation.fulfill()
                 }
@@ -176,7 +176,7 @@ class FieldsTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssert(response.code == HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, HttpStatusCode.ok)
                     
                     expectation.fulfill()
                 }
@@ -202,7 +202,7 @@ class FieldsTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssert(response.code == HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, HttpStatusCode.ok)
                     
                     expectation.fulfill()
                 }

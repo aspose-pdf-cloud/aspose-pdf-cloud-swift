@@ -36,10 +36,16 @@ class UploadDownloadTests: AsposePdfCloudTests {
     func testUploadFile() {
         let name = "MhtExample.mht"
         let path = self.tempFolder + "/" + name
-        let file = getURL(name)
+        let file: URL? = getURL(name)
+        
+        if (nil == file) {
+            XCTFail("no file found \(name)")
+            return
+        }
+        
         let expectation = self.expectation(description: "testUploadFile")
         
-        PdfAPI.putCreate(path: path, file: file) {
+        PdfAPI.putCreate(path: path, file: file!) {
             (response, error) in
             guard error == nil else {
                 XCTFail("error uploading file " + name)
@@ -47,7 +53,7 @@ class UploadDownloadTests: AsposePdfCloudTests {
             }
             
             if let response = response {
-                XCTAssert(response.code == HttpStatusCode.ok)
+                XCTAssertEqual(response.code, HttpStatusCode.ok)
                 
                 expectation.fulfill()
             }

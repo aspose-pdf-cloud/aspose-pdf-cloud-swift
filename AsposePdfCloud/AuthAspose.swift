@@ -24,10 +24,12 @@ import Alamofire
 
 open class AuthAspose {
     
-    public class func checkAuth(completion: @escaping (() -> Void)) {
+    public class func checkAuth(completion: @escaping ((_ error: AuthError?) -> Void )) {
         
         if (nil == AsposePdfCloudAPI.accessToken) {
-
+            if (nil == AsposePdfCloudAPI.appSid || nil == AsposePdfCloudAPI.appKey) {
+                completion(AuthError.credentialsNotSetError)
+            }
             let path = "/oauth2/token"
             let urlString = AsposePdfCloudAPI.basePath.replacingOccurrences(of: "/v1.1", with: "") + path
             
@@ -40,29 +42,36 @@ open class AuthAspose {
                 "Content-Type": "application/x-www-form-urlencoded"
             ]
             
-            Alamofire.request(urlString, method: .post, parameters: parameters, headers: headers).responseJSON{
+            Alamofire.request(urlString, method: .post, parameters: parameters, headers: headers).responseJSON {
                 
                 responseJSON in
                 
                 guard let statusCode = responseJSON.response?.statusCode else { return }
                 guard let jsonArray = responseJSON.result.value as? [String: Any] else { return }
                 
-                print("Auth Status Code: ", statusCode)
-                
-                if (200..<300).contains(statusCode) {
+                if (HttpStatusCode.ok.rawValue == statusCode) {
                     AsposePdfCloudAPI.accessToken = jsonArray["access_token"] as? String
-                    completion()
+                    AsposePdfCloudAPI.refreshToken = jsonArray["refresh_token"] as? String
+                    completion(nil)
                     
-                } else {
-                    print("error")
-                    
+                } else if (HttpStatusCode.unauthorized.rawValue == statusCode) {
+                    completion(AuthError.unauthorizedError)
+                }
+                else {
+                    completion(AuthError.authError)
                 }
             }
         }
         else
         {
-            completion()
+            completion(nil)
         }
+    }
+    
+    public enum AuthError: Error {
+        case credentialsNotSetError
+        case unauthorizedError
+        case authError
     }
 }
 

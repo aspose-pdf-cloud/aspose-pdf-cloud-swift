@@ -96,7 +96,7 @@ class ImagesTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssert(response.code == HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, HttpStatusCode.ok)
                     
                     expectation.fulfill()
                 }
@@ -124,7 +124,7 @@ class ImagesTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssert(response.code == HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, HttpStatusCode.ok)
                     
                     expectation.fulfill()
                 }
@@ -152,7 +152,7 @@ class ImagesTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssert(response.code == HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, HttpStatusCode.ok)
                     
                     expectation.fulfill()
                 }
@@ -180,7 +180,7 @@ class ImagesTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssert(response.code == HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, HttpStatusCode.ok)
                     
                     expectation.fulfill()
                 }
@@ -208,7 +208,7 @@ class ImagesTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssert(response.code == HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, HttpStatusCode.ok)
                     
                     expectation.fulfill()
                 }
@@ -236,7 +236,7 @@ class ImagesTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssert(response.code == HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, HttpStatusCode.ok)
                     
                     expectation.fulfill()
                 }
@@ -264,7 +264,7 @@ class ImagesTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssert(response.code == HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, HttpStatusCode.ok)
                     
                     expectation.fulfill()
                 }

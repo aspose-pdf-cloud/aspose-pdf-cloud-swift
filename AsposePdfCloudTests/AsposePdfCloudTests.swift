@@ -26,7 +26,7 @@ class AsposePdfCloudTests: XCTestCase {
     
     internal let tempFolder = "TempPdfCloud"
     internal let testDataFolder = "TestData"
-    internal let testTimeout = 60.0
+    internal let testTimeout: TimeInterval = 60.0
     
     override func setUp() {
         super.setUp()
@@ -62,8 +62,14 @@ class AsposePdfCloudTests: XCTestCase {
     
     internal func uploadFile(name: String, completion: @escaping ()->Void) {
         let path = "\(self.tempFolder)/\(name)"
-
-        PdfAPI.putCreate(path: path, file: getURL(name)) {
+        
+        let url: URL? = getURL(name)
+        if (nil == url) {
+            XCTFail("no file found \(name)")
+            return
+        }
+        
+        PdfAPI.putCreate(path: path, file: url!) {
             (response, error) in
             guard error == nil else {
                 XCTFail("error uploading file \(name)")
@@ -71,7 +77,6 @@ class AsposePdfCloudTests: XCTestCase {
             }
             
             if response?.code == HttpStatusCode.ok {
-                print("file \(name) was uploaded")
                 completion()
             }
         }
@@ -93,8 +98,8 @@ class AsposePdfCloudTests: XCTestCase {
         
     }
     
-    internal func getURL(_ name: String) -> URL {
+    internal func getURL(_ name: String) -> URL? {
         let bundle = Bundle(for: type(of: self))
-        return bundle.url(forResource: name, withExtension: nil)!
+        return bundle.url(forResource: name, withExtension: nil)
     }
 }
