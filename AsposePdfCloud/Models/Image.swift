@@ -34,7 +34,13 @@ open class Image: LinkElement {
     /** Gets height of the image. */
     public var height: Int?
 
-
+    
+    public init(links: [Link]?, width: Int?, height: Int?) {
+        self.links = links
+        self.width = width
+        self.height = height
+    }
+        
     
 
     // Encodable protocol methods

@@ -32,7 +32,7 @@ open class ImagesListRequest: Codable {
     /** A list of paths for images. */
     public var imagesList: [String]
 
-
+        
     
     public init(imagesList: [String]) {
         self.imagesList = imagesList

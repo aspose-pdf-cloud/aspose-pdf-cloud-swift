@@ -32,7 +32,13 @@ open class WordCountResponse: SaaSposeResponse {
     /** with words per page info.             */
     public var wordsPerPage: WordCount?
 
-
+    
+    public init(code: HttpStatusCode, status: String?, wordsPerPage: WordCount?) {
+        self.code = code
+        self.status = status
+        self.wordsPerPage = wordsPerPage
+    }
+        
     
 
     // Encodable protocol methods

@@ -30,7 +30,13 @@ open class DocumentPagesResponse: SaaSposeResponse {
 
     public var pages: Pages?
 
-
+    
+    public init(code: HttpStatusCode, status: String?, pages: Pages?) {
+        self.code = code
+        self.status = status
+        self.pages = pages
+    }
+        
     
 
     // Encodable protocol methods

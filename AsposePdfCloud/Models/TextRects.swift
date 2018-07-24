@@ -31,7 +31,7 @@ open class TextRects: Codable {
 
     public var list: [TextRect]?
 
-
+        
     
     public init(list: [TextRect]?) {
         self.list = list

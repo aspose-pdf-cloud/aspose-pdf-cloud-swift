@@ -34,7 +34,7 @@ open class Rectangle: Codable {
     public var width: Int
     public var height: Int
 
-
+        
     
     public init(X: Int, Y: Int, width: Int, height: Int) {
         self.X = X

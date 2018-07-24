@@ -31,7 +31,14 @@ open class DocumentResponse: SaaSposeResponse {
     public var document: Document?
     public var messages: [String]?
 
-
+    
+    public init(code: HttpStatusCode, status: String?, document: Document?, messages: [String]?) {
+        self.code = code
+        self.status = status
+        self.document = document
+        self.messages = messages
+    }
+        
     
 
     // Encodable protocol methods

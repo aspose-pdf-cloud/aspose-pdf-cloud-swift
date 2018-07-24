@@ -32,7 +32,7 @@ open class LinkElement: Codable {
     /** Link to the document. */
     public var links: [Link]?
 
-
+        
     
     public init(links: [Link]?) {
         self.links = links

@@ -74,7 +74,7 @@ open class Stamp: Codable {
     /** Gets or sets value of the number of starting page. Other pages will be numbered starting from this value. */
     public var startingNumber: Int?
 
-
+        
     
     public init(type: StampType, background: Bool?, bottomMargin: Double?, horizontalAlignment: HorizontalAlignment?, leftMargin: Double?, opacity: Double?, rightMargin: Double?, rotate: Rotation?, rotateAngle: Double?, topMargin: Double?, verticalAlignment: VerticalAlignment?, xIndent: Double?, yIndent: Double?, zoom: Double?, textAlignment: HorizontalAlignment?, value: String?, textState: TextState?, fileName: String?, width: Double?, height: Double?, pageIndex: Int?, startingNumber: Int?) {
         self.type = type

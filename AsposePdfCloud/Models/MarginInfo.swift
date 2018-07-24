@@ -33,7 +33,7 @@ open class MarginInfo: Codable {
     public var top: Double
     public var bottom: Double
 
-
+        
     
     public init(_left: Double, _right: Double, top: Double, bottom: Double) {
         self._left = _left

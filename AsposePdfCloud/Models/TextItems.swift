@@ -31,7 +31,12 @@ open class TextItems: LinkElement {
 
     public var list: [TextItem]?
 
-
+    
+    public init(links: [Link]?, list: [TextItem]?) {
+        self.links = links
+        self.list = list
+    }
+        
     
 
     // Encodable protocol methods

@@ -31,7 +31,12 @@ open class Images: LinkElement {
 
     public var list: [Image]?
 
-
+    
+    public init(links: [Link]?, list: [Image]?) {
+        self.links = links
+        self.list = list
+    }
+        
     
 
     // Encodable protocol methods

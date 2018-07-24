@@ -34,7 +34,13 @@ open class Document: LinkElement {
     /** Document pages. */
     public var pages: Pages?
 
-
+    
+    public init(links: [Link]?, documentProperties: DocumentProperties?, pages: Pages?) {
+        self.links = links
+        self.documentProperties = documentProperties
+        self.pages = pages
+    }
+        
     
 
     // Encodable protocol methods

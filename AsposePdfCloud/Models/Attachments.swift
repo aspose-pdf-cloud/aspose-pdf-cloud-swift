@@ -31,7 +31,12 @@ open class Attachments: LinkElement {
 
     public var list: [LinkElement]?
 
-
+    
+    public init(links: [Link]?, list: [LinkElement]?) {
+        self.links = links
+        self.list = list
+    }
+        
     
 
     // Encodable protocol methods

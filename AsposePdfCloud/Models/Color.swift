@@ -34,7 +34,7 @@ open class Color: Codable {
     public var G: Int
     public var B: Int
 
-
+        
     
     public init(A: Int, R: Int, G: Int, B: Int) {
         self.A = A

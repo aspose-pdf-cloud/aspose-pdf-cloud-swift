@@ -40,7 +40,7 @@ open class TextState: Codable {
     /** Sets font style of the text. */
     public var fontStyle: FontStyles
 
-
+        
     
     public init(fontSize: Double, font: String?, foregroundColor: Color?, backgroundColor: Color?, fontStyle: FontStyles) {
         self.fontSize = fontSize

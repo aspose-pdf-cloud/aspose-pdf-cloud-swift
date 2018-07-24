@@ -31,7 +31,12 @@ open class Pages: LinkElement {
 
     public var list: [Page]?
 
-
+    
+    public init(links: [Link]?, list: [Page]?) {
+        self.links = links
+        self.list = list
+    }
+        
     
 
     // Encodable protocol methods

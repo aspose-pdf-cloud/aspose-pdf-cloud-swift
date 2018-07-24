@@ -44,7 +44,7 @@ open class OptimizeOptions: Codable {
     /** Make fonts not embedded if set to true.  */
     public var unembedFonts: Bool
 
-
+        
     
     public init(allowReusePageContent: Bool, compressImages: Bool, imageQuality: Int, linkDuplcateStreams: Bool, removeUnusedObjects: Bool, removeUnusedStreams: Bool, unembedFonts: Bool) {
         self.allowReusePageContent = allowReusePageContent

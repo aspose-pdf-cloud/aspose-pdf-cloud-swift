@@ -32,7 +32,13 @@ open class SplitResultResponse: SaaSposeResponse {
     /** Gets or sets the splitting result. */
     public var result: SplitResult?
 
-
+    
+    public init(code: HttpStatusCode, status: String?, result: SplitResult?) {
+        self.code = code
+        self.status = status
+        self.result = result
+    }
+        
     
 
     // Encodable protocol methods

@@ -34,7 +34,7 @@ open class SaaSposeResponse: Codable {
     /** Response status. */
     public var status: String?
 
-
+        
     
     public init(code: HttpStatusCode, status: String?) {
         self.code = code

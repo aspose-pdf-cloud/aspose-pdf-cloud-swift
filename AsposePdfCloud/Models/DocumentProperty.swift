@@ -33,7 +33,14 @@ open class DocumentProperty: LinkElement {
     public var value: String?
     public var builtIn: Bool?
 
-
+    
+    public init(links: [Link]?, name: String?, value: String?, builtIn: Bool?) {
+        self.links = links
+        self.name = name
+        self.value = value
+        self.builtIn = builtIn
+    }
+        
     
 
     // Encodable protocol methods

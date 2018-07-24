@@ -55,7 +55,7 @@ open class Signature: Codable {
     /** Gets or sets the showproperties in signature field */
     public var showProperties: Bool
 
-
+        
     
     public init(signaturePath: String?, signatureType: SignatureType, password: String?, appearance: String?, reason: String?, contact: String?, location: String?, visible: Bool, rectangle: Rectangle?, formFieldName: String?, authority: String?, date: String?, showProperties: Bool) {
         self.signaturePath = signaturePath

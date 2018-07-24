@@ -34,7 +34,14 @@ open class Page: LinkElement {
     public var images: Images?
     public var rectangle: Rectangle?
 
-
+    
+    public init(links: [Link]?, id: Int?, images: Images?, rectangle: Rectangle?) {
+        self.links = links
+        self.id = id
+        self.images = images
+        self.rectangle = rectangle
+    }
+        
     
 
     // Encodable protocol methods

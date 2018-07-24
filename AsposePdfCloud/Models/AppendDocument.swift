@@ -36,7 +36,7 @@ open class AppendDocument: Codable {
     /** Appending end page. */
     public var endPage: Int
 
-
+        
     
     public init(document: String?, startPage: Int, endPage: Int) {
         self.document = document

@@ -41,7 +41,7 @@ open class ImageTemplate: Codable {
     public var pageHeight: Double?
     public var marginInfo: MarginInfo?
 
-
+        
     
     public init(imagePath: String, imageSrcType: ImageSrcType, leftMargin: Double?, rightMargin: Double?, topMargin: Double?, bottomMargin: Double?, pageWidth: Double?, pageHeight: Double?, marginInfo: MarginInfo?) {
         self.imagePath = imagePath

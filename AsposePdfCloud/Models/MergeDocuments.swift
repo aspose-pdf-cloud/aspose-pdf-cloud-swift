@@ -32,7 +32,7 @@ open class MergeDocuments: Codable {
     /** List of documents for merging. */
     public var list: [String]?
 
-
+        
     
     public init(list: [String]?) {
         self.list = list

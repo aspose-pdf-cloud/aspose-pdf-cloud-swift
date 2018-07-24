@@ -30,7 +30,14 @@ open class DocumentTextReplaceResponse: TextReplaceResponse {
 
     public var document: Document?
 
-
+    
+    public init(code: HttpStatusCode, status: String?, matches: Int?, document: Document?) {
+        self.code = code
+        self.status = status
+        self.matches = matches
+        self.document = document
+    }
+        
     
 
     // Encodable protocol methods

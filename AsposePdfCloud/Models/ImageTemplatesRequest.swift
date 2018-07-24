@@ -36,7 +36,7 @@ open class ImageTemplatesRequest: Codable {
     /** A List of objects describing images to be added. */
     public var imagesList: [ImageTemplate]
 
-
+        
     
     public init(isOCR: Bool, oCRLangs: String?, imagesList: [ImageTemplate]) {
         self.isOCR = isOCR

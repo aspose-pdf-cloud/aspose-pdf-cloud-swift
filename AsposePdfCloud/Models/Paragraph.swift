@@ -42,7 +42,7 @@ open class Paragraph: Codable {
     public var verticalAlignment: VerticalAlignment?
     public var lines: [TextLine]
 
-
+        
     
     public init(lineSpacing: LineSpacing?, wrapMode: WrapMode?, horizontalAlignment: TextHorizontalAlignment?, leftMargin: Double?, rightMargin: Double?, topMargin: Double?, bottomMargin: Double?, rectangle: Rectangle?, rotation: Double?, subsequentLinesIndent: Double?, verticalAlignment: VerticalAlignment?, lines: [TextLine]) {
         self.lineSpacing = lineSpacing

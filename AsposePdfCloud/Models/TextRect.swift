@@ -33,7 +33,7 @@ open class TextRect: Codable {
     public var page: Int
     public var rect: Rectangle?
 
-
+        
     
     public init(text: String?, page: Int, rect: Rectangle?) {
         self.text = text

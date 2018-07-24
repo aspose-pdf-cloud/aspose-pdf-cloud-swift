@@ -30,7 +30,13 @@ open class TextReplaceResponse: SaaSposeResponse {
 
     public var matches: Int?
 
-
+    
+    public init(code: HttpStatusCode, status: String?, matches: Int?) {
+        self.code = code
+        self.status = status
+        self.matches = matches
+    }
+        
     
 
     // Encodable protocol methods

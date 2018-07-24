@@ -30,7 +30,13 @@ open class FieldResponse: SaaSposeResponse {
 
     public var field: Field?
 
-
+    
+    public init(code: HttpStatusCode, status: String?, field: Field?) {
+        self.code = code
+        self.status = status
+        self.field = field
+    }
+        
     
 
     // Encodable protocol methods

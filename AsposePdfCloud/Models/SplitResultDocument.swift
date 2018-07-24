@@ -32,7 +32,15 @@ open class SplitResultDocument: Link {
     /** Gets or sets the page number. */
     public var id: Int?
 
-
+    
+    public init(href: String?, rel: String?, type: String?, title: String?, id: Int?) {
+        self.href = href
+        self.rel = rel
+        self.type = type
+        self.title = title
+        self.id = id
+    }
+        
     
 
     // Encodable protocol methods

@@ -30,7 +30,13 @@ open class ImageResponse: SaaSposeResponse {
 
     public var image: Image?
 
-
+    
+    public init(code: HttpStatusCode, status: String?, image: Image?) {
+        self.code = code
+        self.status = status
+        self.image = image
+    }
+        
     
 
     // Encodable protocol methods

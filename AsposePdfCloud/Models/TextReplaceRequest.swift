@@ -31,7 +31,16 @@ open class TextReplaceRequest: TextReplace {
 
     public var defaultFont: String?
 
-
+    
+    public init(oldValue: String, newValue: String, regex: Bool, textState: TextState?, rect: Rectangle?, defaultFont: String?) {
+        self.oldValue = oldValue
+        self.newValue = newValue
+        self.regex = regex
+        self.textState = textState
+        self.rect = rect
+        self.defaultFont = defaultFont
+    }
+        
     
 
     // Encodable protocol methods

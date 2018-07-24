@@ -32,7 +32,13 @@ open class SignatureVerifyResponse: SaaSposeResponse {
     /** Valid sign. */
     public var valid: Bool?
 
-
+    
+    public init(code: HttpStatusCode, status: String?, valid: Bool?) {
+        self.code = code
+        self.status = status
+        self.valid = valid
+    }
+        
     
 
     // Encodable protocol methods

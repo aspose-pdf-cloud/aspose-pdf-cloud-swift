@@ -34,7 +34,7 @@ open class TextLine: Codable {
     /** Segments that form the line. Every segment has its own formatting. */
     public var segments: [Segment]?
 
-
+        
     
     public init(horizontalAlignment: TextHorizontalAlignment?, segments: [Segment]?) {
         self.horizontalAlignment = horizontalAlignment

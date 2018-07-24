@@ -31,7 +31,12 @@ open class DocumentProperties: LinkElement {
 
     public var list: [DocumentProperty]?
 
-
+    
+    public init(links: [Link]?, list: [DocumentProperty]?) {
+        self.links = links
+        self.list = list
+    }
+        
     
 
     // Encodable protocol methods

@@ -34,7 +34,15 @@ open class LinkAnnotation: LinkElement {
     public var highlighting: LinkHighlightingMode?
     public var color: Color?
 
-
+    
+    public init(links: [Link]?, actionType: LinkActionType?, action: String?, highlighting: LinkHighlightingMode?, color: Color?) {
+        self.links = links
+        self.actionType = actionType
+        self.action = action
+        self.highlighting = highlighting
+        self.color = color
+    }
+        
     
 
     // Encodable protocol methods

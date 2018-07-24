@@ -38,7 +38,7 @@ open class Link: Codable {
     /** The \&quot;title\&quot; attribute conveys human-readable information about the link.  The content of the \&quot;title\&quot; attribute is Language-Sensitive. */
     public var title: String?
 
-
+        
     
     public init(href: String?, rel: String?, type: String?, title: String?) {
         self.href = href

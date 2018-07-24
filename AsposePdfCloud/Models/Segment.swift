@@ -31,7 +31,7 @@ open class Segment: Codable {
     public var value: String?
     public var textState: TextState?
 
-
+        
     
     public init(value: String?, textState: TextState?) {
         self.value = value

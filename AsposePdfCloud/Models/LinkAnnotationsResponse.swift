@@ -30,7 +30,13 @@ open class LinkAnnotationsResponse: SaaSposeResponse {
 
     public var links: LinkAnnotations?
 
-
+    
+    public init(code: HttpStatusCode, status: String?, links: LinkAnnotations?) {
+        self.code = code
+        self.status = status
+        self.links = links
+    }
+        
     
 
     // Encodable protocol methods

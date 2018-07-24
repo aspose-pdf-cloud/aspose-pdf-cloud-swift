@@ -62,7 +62,7 @@ open class TiffExportOptions: Codable {
     /** Resulting image file. */
     public var resultFile: String?
 
-
+        
     
     public init(brightness: Double?, compression: CompressionType?, colorDepth: ColorDepth?, leftMargin: Int?, rightMargin: Int?, topMargin: Int?, bottomMargin: Int?, orientation: ShapeType?, skipBlankPages: Bool?, width: Int?, height: Int?, xResolution: Int?, yResolution: Int?, pageIndex: Int?, pageCount: Int?, resultFile: String?) {
         self.brightness = brightness

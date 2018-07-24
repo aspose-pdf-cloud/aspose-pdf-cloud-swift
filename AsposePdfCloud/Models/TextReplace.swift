@@ -40,7 +40,7 @@ open class TextReplace: Codable {
     /** Rectangle area where searched original text. */
     public var rect: Rectangle?
 
-
+        
     
     public init(oldValue: String, newValue: String, regex: Bool, textState: TextState?, rect: Rectangle?) {
         self.oldValue = oldValue

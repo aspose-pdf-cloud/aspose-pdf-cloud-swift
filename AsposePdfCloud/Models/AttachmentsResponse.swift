@@ -30,7 +30,13 @@ open class AttachmentsResponse: SaaSposeResponse {
 
     public var attachments: Attachments?
 
-
+    
+    public init(code: HttpStatusCode, status: String?, attachments: Attachments?) {
+        self.code = code
+        self.status = status
+        self.attachments = attachments
+    }
+        
     
 
     // Encodable protocol methods

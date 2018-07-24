@@ -34,7 +34,7 @@ open class PageWordCount: Codable {
     /** Number of words at the page. */
     public var count: Int
 
-
+        
     
     public init(pageNumber: Int, count: Int) {
         self.pageNumber = pageNumber

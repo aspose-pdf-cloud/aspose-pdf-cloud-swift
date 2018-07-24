@@ -44,7 +44,18 @@ open class Attachment: LinkElement {
     /** A 16-byte string that is the checksum of the bytes of the uncompressed embedded file.  The checksum is calculated by applying the standard MD5 message-digest algorithm  to the bytes of the embedded file stream. */
     public var checkSum: String?
 
-
+    
+    public init(links: [Link]?, description: String?, mimeType: String?, name: String?, creationDate: String?, modificationDate: String?, size: Int?, checkSum: String?) {
+        self.links = links
+        self.description = description
+        self.mimeType = mimeType
+        self.name = name
+        self.creationDate = creationDate
+        self.modificationDate = modificationDate
+        self.size = size
+        self.checkSum = checkSum
+    }
+        
     
 
     // Encodable protocol methods

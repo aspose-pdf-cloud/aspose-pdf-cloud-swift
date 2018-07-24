@@ -31,7 +31,12 @@ open class Fields: LinkElement {
 
     public var list: [Field]?
 
-
+    
+    public init(links: [Link]?, list: [Field]?) {
+        self.links = links
+        self.list = list
+    }
+        
     
 
     // Encodable protocol methods

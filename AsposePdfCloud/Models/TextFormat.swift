@@ -33,7 +33,14 @@ open class TextFormat: LinkElement {
     public var fontSize: Double?
     public var fontName: String?
 
-
+    
+    public init(links: [Link]?, color: Color?, fontSize: Double?, fontName: String?) {
+        self.links = links
+        self.color = color
+        self.fontSize = fontSize
+        self.fontName = fontName
+    }
+        
     
 
     // Encodable protocol methods

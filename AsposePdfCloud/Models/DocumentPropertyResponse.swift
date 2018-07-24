@@ -30,7 +30,13 @@ open class DocumentPropertyResponse: SaaSposeResponse {
 
     public var documentProperty: DocumentProperty?
 
-
+    
+    public init(code: HttpStatusCode, status: String?, documentProperty: DocumentProperty?) {
+        self.code = code
+        self.status = status
+        self.documentProperty = documentProperty
+    }
+        
     
 
     // Encodable protocol methods

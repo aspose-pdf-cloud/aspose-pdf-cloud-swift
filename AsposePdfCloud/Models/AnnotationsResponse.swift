@@ -30,7 +30,13 @@ open class AnnotationsResponse: SaaSposeResponse {
 
     public var annotations: Annotations?
 
-
+    
+    public init(code: HttpStatusCode, status: String?, annotations: Annotations?) {
+        self.code = code
+        self.status = status
+        self.annotations = annotations
+    }
+        
     
 
     // Encodable protocol methods

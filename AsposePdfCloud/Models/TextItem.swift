@@ -32,7 +32,13 @@ open class TextItem: LinkElement {
     public var text: String?
     public var format: TextFormat?
 
-
+    
+    public init(links: [Link]?, text: String?, format: TextFormat?) {
+        self.links = links
+        self.text = text
+        self.format = format
+    }
+        
     
 
     // Encodable protocol methods

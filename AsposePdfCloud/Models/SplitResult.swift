@@ -32,7 +32,7 @@ open class SplitResult: Codable {
     /** Gets or sets the list of documents. */
     public var documents: [SplitResultDocument]?
 
-
+        
     
     public init(documents: [SplitResultDocument]?) {
         self.documents = documents

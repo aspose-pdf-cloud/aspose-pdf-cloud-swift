@@ -30,7 +30,13 @@ open class TextFormatResponse: SaaSposeResponse {
 
     public var textFormat: TextFormat?
 
-
+    
+    public init(code: HttpStatusCode, status: String?, textFormat: TextFormat?) {
+        self.code = code
+        self.status = status
+        self.textFormat = textFormat
+    }
+        
     
 
     // Encodable protocol methods

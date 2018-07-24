@@ -40,7 +40,16 @@ open class Field: LinkElement {
     /** Field rectangle. */
     public var rect: Rectangle?
 
-
+    
+    public init(links: [Link]?, name: String?, type: FieldType?, values: [String]?, selectedItems: [Int]?, rect: Rectangle?) {
+        self.links = links
+        self.name = name
+        self.type = type
+        self.values = values
+        self.selectedItems = selectedItems
+        self.rect = rect
+    }
+        
     
 
     // Encodable protocol methods

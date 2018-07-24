@@ -42,7 +42,17 @@ open class Annotation: LinkElement {
     /** The date and time when the annotation was last modified. */
     public var modified: String?
 
-
+    
+    public init(links: [Link]?, color: Color?, contents: String?, creationDate: String?, subject: String?, title: String?, modified: String?) {
+        self.links = links
+        self.color = color
+        self.contents = contents
+        self.creationDate = creationDate
+        self.subject = subject
+        self.title = title
+        self.modified = modified
+    }
+        
     
 
     // Encodable protocol methods

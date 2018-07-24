@@ -30,7 +30,14 @@ open class PageTextReplaceResponse: TextReplaceResponse {
 
     public var page: Page?
 
-
+    
+    public init(code: HttpStatusCode, status: String?, matches: Int?, page: Page?) {
+        self.code = code
+        self.status = status
+        self.matches = matches
+        self.page = page
+    }
+        
     
 
     // Encodable protocol methods

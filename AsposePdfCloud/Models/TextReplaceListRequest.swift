@@ -35,7 +35,7 @@ open class TextReplaceListRequest: Codable {
     public var startIndex: Int?
     public var countReplace: Int?
 
-
+        
     
     public init(textReplaces: [TextReplace], defaultFont: String?, startIndex: Int?, countReplace: Int?) {
         self.textReplaces = textReplaces

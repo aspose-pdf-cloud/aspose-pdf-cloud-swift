@@ -30,7 +30,13 @@ open class TextRectsResponse: SaaSposeResponse {
 
     public var textOccurences: TextRects?
 
-
+    
+    public init(code: HttpStatusCode, status: String?, textOccurences: TextRects?) {
+        self.code = code
+        self.status = status
+        self.textOccurences = textOccurences
+    }
+        
     
 
     // Encodable protocol methods

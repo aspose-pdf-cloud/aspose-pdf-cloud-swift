@@ -52,7 +52,7 @@ open class DocumentPrivilege: Codable {
     /** Sets the copy level of  document&#39;s privilege. Just as the Adobe Professional&#39;s permission settings. 0: None. 1: Enable text access for screen reader devices for the visually impaired. 2: Enable copying of text, images and other content. */
     public var copyAllowLevel: Int?
 
-
+        
     
     public init(allowPrint: Bool?, allowDegradedPrinting: Bool?, allowModifyContents: Bool?, allowCopy: Bool?, allowModifyAnnotations: Bool?, allowFillIn: Bool?, allowScreenReaders: Bool?, allowAssembly: Bool?, printAllowLevel: Int?, changeAllowLevel: Int?, copyAllowLevel: Int?) {
         self.allowPrint = allowPrint

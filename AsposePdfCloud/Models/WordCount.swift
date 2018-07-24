@@ -31,7 +31,7 @@ open class WordCount: Codable {
 
     public var list: [PageWordCount]?
 
-
+        
     
     public init(list: [PageWordCount]?) {
         self.list = list

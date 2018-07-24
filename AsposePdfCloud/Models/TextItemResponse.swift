@@ -30,7 +30,13 @@ open class TextItemResponse: SaaSposeResponse {
 
     public var textItem: TextItem?
 
-
+    
+    public init(code: HttpStatusCode, status: String?, textItem: TextItem?) {
+        self.code = code
+        self.status = status
+        self.textItem = textItem
+    }
+        
     
 
     // Encodable protocol methods
