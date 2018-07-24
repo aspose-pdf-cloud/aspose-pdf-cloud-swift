@@ -79,24 +79,8 @@ class FieldsTests: AsposePdfCloudTests {
     
     func testPostCreateField() {
         
+        let field = Field(links: nil, name: "checkboxfield", type: FieldType.boolean, values: ["1"], selectedItems: nil, rect: Rectangle(X: 50, Y: 200, width: 150, height: 200))
         let name = "4pages.pdf"
-        let data: Data =
-            """
-            {
-                "Name": "checkboxfield",
-                "Type": 2,
-                "Values": ["1"],
-                "Rect":
-                {
-                    "X": 50,
-                    "Y": 200,
-                    "Width": 150,
-                    "Height": 200
-                }
-            }
-            """.data(using: .utf8)!
-        
-        let field: Field = CodableHelper.decode(Field.self, from: data).decodableObj!
         let page = 1
         
         let expectation = self.expectation(description: "testPostCreateField")
@@ -126,17 +110,8 @@ class FieldsTests: AsposePdfCloudTests {
         
         let name = "PdfWithAcroForm.pdf"
         let fieldName = "textField"
-        let data: Data =
-            """
-            {
-                "Name": "\(fieldName)",
-                "Type": 0,
-                "Values": ["Text field updated value."]
-            }
-            """.data(using: .utf8)!
-        
-        let field: Field = CodableHelper.decode(Field.self, from: data).decodableObj!
-        
+        let field = Field(links: nil, name: fieldName, type: FieldType.text, values: ["Text field updated value."], selectedItems: nil, rect: nil)
+
         let expectation = self.expectation(description: "PutUpdateFieldTest")
         
         uploadFile(name: name) {

@@ -33,18 +33,8 @@ class TextReplaceTests: AsposePdfCloudTests {
     override func setUp() {
         super.setUp()
         
-        replaceRequest = CodableHelper.decode(
-            TextReplaceRequest.self,
-            from:
-                """
-                {
-                    "OldValue": "Page",
-                    "NewValue": "p_a_g_e",
-                    "Regex": false
-                }
-                """.data(using: .utf8)!
-            ).decodableObj!
-        
+        replaceRequest = TextReplaceRequest(oldValue: "Page", newValue: "p_a_g_e", regex: false, textState: nil, rect: nil, defaultFont: nil)
+
         replaceListRequest = TextReplaceListRequest(
             textReplaces: [
                 TextReplace(oldValue: "First", newValue: "1", regex: false, textState: nil, rect: nil),
@@ -61,19 +51,8 @@ class TextReplaceTests: AsposePdfCloudTests {
     func testPostDocumentReplaceText()
     {
         let expectation = self.expectation(description: "testPostDocumentReplaceText")
-    
-        let data: Data =
-            """
-            {
-                "OldValue": "Page",
-                "NewValue": "PagE",
-                "Regex": false,
-                "TextState": null,
-                "Rect": null,
-                "DefaultFont": null
-            }
-            """.data(using: .utf8)!
-        let rr: TextReplaceRequest = CodableHelper.decode(TextReplaceRequest.self, from: data).decodableObj!
+        
+        let rr: TextReplaceRequest = TextReplaceRequest(oldValue: "Page", newValue: "PagE", regex: false, textState: nil, rect: nil, defaultFont: nil)
         
         uploadFile(name: self.fileName)
         {
