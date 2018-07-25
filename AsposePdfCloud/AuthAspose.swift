@@ -26,17 +26,25 @@ open class AuthAspose {
     
     public class func checkAuth(completion: @escaping ((_ error: AuthError?) -> Void )) {
         
-        if (nil == AsposePdfCloudAPI.accessToken) {
-            if (nil == AsposePdfCloudAPI.appSid || nil == AsposePdfCloudAPI.appKey) {
+        if (AsposePdfCloudAPI.accessToken == nil) {
+            
+            guard let appSid = AsposePdfCloudAPI.appSid else {
                 completion(AuthError.credentialsNotSetError)
+                return
             }
+            
+            guard let appKey = AsposePdfCloudAPI.appKey else {
+                completion(AuthError.credentialsNotSetError)
+                return
+            }
+            
             let path = "/oauth2/token"
             let urlString = AsposePdfCloudAPI.basePath.replacingOccurrences(of: "/v1.1", with: "") + path
             
-            let parameters: [String: Any]? = [
+            let parameters: [String: Any] = [
                 "grant_type": "client_credentials",
-                "client_id": AsposePdfCloudAPI.appSid!,
-                "client_secret": AsposePdfCloudAPI.appKey!]
+                "client_id": appSid,
+                "client_secret": appKey]
             
             let headers: [String: String] = [
                 "Content-Type": "application/x-www-form-urlencoded"
@@ -46,8 +54,14 @@ open class AuthAspose {
                 
                 responseJSON in
                 
-                guard let statusCode = responseJSON.response?.statusCode else { return }
-                guard let jsonArray = responseJSON.result.value as? [String: Any] else { return }
+                guard let statusCode = responseJSON.response?.statusCode else {
+                    completion(AuthError.authError)
+                    return
+                }
+                guard let jsonArray = responseJSON.result.value as? [String: Any] else {
+                    completion(AuthError.authError)
+                    return
+                }
                 
                 if (HttpStatusCode.ok.rawValue == statusCode) {
                     AsposePdfCloudAPI.accessToken = jsonArray["access_token"] as? String
