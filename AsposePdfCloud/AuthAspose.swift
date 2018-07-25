@@ -28,12 +28,7 @@ open class AuthAspose {
         
         if (AsposePdfCloudAPI.accessToken == nil) {
             
-            guard let appSid = AsposePdfCloudAPI.appSid else {
-                completion(AuthError.credentialsNotSetError)
-                return
-            }
-            
-            guard let appKey = AsposePdfCloudAPI.appKey else {
+            guard let appSid = AsposePdfCloudAPI.appSid, let appKey = AsposePdfCloudAPI.appKey else {
                 completion(AuthError.credentialsNotSetError)
                 return
             }
@@ -54,11 +49,7 @@ open class AuthAspose {
                 
                 responseJSON in
                 
-                guard let statusCode = responseJSON.response?.statusCode else {
-                    completion(AuthError.authError)
-                    return
-                }
-                guard let jsonArray = responseJSON.result.value as? [String: Any] else {
+                guard let statusCode = responseJSON.response?.statusCode, let jsonArray = responseJSON.result.value as? [String: Any] else {
                     completion(AuthError.authError)
                     return
                 }
