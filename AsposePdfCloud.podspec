@@ -5,11 +5,10 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '9.0'
   s.osx.deployment_target = '10.11'
   s.tvos.deployment_target = '9.0'
-  s.version = '18.6.0'
+  s.version = '18.7.0'
   s.swift_version = '4.1'
   s.source = { :git => 'https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift.git', :tag => s.version.to_s }
-  #s.documentation_url = 'https://docs.aspose.cloud/display/pdfcloud/Home'
-  s.author = 'Aspose PDF Cloud'
+  s.authors = 'Aspose PDF Cloud'
   s.license = 'MIT'
   s.homepage = 'https://products.aspose.cloud/pdf/cloud'
   s.source_files = 'AsposePdfCloud/*.swift', 'AsposePdfCloud/**/*.swift'

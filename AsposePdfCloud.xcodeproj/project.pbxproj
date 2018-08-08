@@ -203,6 +203,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0C85B165E967EB0CC5651D66 /* Pods-AsposePdfCloud.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsposePdfCloud.release.xcconfig"; path = "Pods/Target Support Files/Pods-AsposePdfCloud/Pods-AsposePdfCloud.release.xcconfig"; sourceTree = "<group>"; };
 		1E3B278420F88E2500D9DBB2 /* PageConvertToImageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageConvertToImageTests.swift; sourceTree = "<group>"; };
 		1E4BC9D820DE6498002B310F /* SplitResultDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitResultDocument.swift; sourceTree = "<group>"; };
 		1E4BC9D920DE6498002B310F /* WordCountResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCountResponse.swift; sourceTree = "<group>"; };
@@ -377,6 +378,8 @@
 		1EE09B6120F76BA6001DB24C /* TextReplaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextReplaceTests.swift; sourceTree = "<group>"; };
 		1EE09B6320F7A944001DB24C /* TextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTests.swift; sourceTree = "<group>"; };
 		1EE09B6520F7AEE3001DB24C /* ConvertToPdfTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertToPdfTests.swift; sourceTree = "<group>"; };
+		241A9FF42E437F0262210348 /* Pods_AsposePdfCloud.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AsposePdfCloud.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E39456274F2BE66188E830B /* Pods-AsposePdfCloud.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsposePdfCloud.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AsposePdfCloud/Pods-AsposePdfCloud.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -561,6 +564,7 @@
 				1ECBAAC120DE4F090020CD15 /* AsposePdfCloudTests */,
 				1ECBAAB520DE4F090020CD15 /* Products */,
 				1ECBAAD020DE54E50020CD15 /* Frameworks */,
+				2947BF75B3AFE99FFAC075FE /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -631,8 +635,18 @@
 			isa = PBXGroup;
 			children = (
 				1ECBAAD120DE54E50020CD15 /* Alamofire.framework */,
+				241A9FF42E437F0262210348 /* Pods_AsposePdfCloud.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2947BF75B3AFE99FFAC075FE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3E39456274F2BE66188E830B /* Pods-AsposePdfCloud.debug.xcconfig */,
+				0C85B165E967EB0CC5651D66 /* Pods-AsposePdfCloud.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -653,6 +667,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1ECBAAC820DE4F090020CD15 /* Build configuration list for PBXNativeTarget "AsposePdfCloud" */;
 			buildPhases = (
+				FF9FD620270CDDAAABC6DDD0 /* [CP] Check Pods Manifest.lock */,
 				1ECBAAAF20DE4F090020CD15 /* Sources */,
 				1ECBAAB020DE4F090020CD15 /* Frameworks */,
 				1ECBAAB120DE4F090020CD15 /* Headers */,
@@ -787,6 +802,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		FF9FD620270CDDAAABC6DDD0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AsposePdfCloud-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1074,6 +1107,7 @@
 		};
 		1ECBAAC920DE4F090020CD15 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E39456274F2BE66188E830B /* Pods-AsposePdfCloud.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1106,6 +1140,7 @@
 		};
 		1ECBAACA20DE4F090020CD15 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C85B165E967EB0CC5651D66 /* Pods-AsposePdfCloud.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
