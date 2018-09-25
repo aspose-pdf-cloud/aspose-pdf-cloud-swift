@@ -25,15 +25,17 @@
 import Foundation
 
 
+/** Provides annotation. */
 
-open class AnnotationsResponse: SaaSposeResponse {
+open class AnnotationInfo: Annotation {
 
-    public var annotations: Annotations?
+    /** Gets annotation type. */
+    public var annotationType: AnnotationType?
 
     
-    public init(code: HttpStatusCode, status: String?, annotations: Annotations?) {
-        super.init(code: code, status: status)
-        self.annotations = annotations
+    public init(links: [Link]?, contents: String?, creationDate: String?, subject: String?, title: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: RectanglePdf?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, annotationType: AnnotationType?) {
+        super.init(links: links)
+        self.annotationType = annotationType
     }
         
     
@@ -44,7 +46,7 @@ open class AnnotationsResponse: SaaSposeResponse {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(annotations, forKey: "Annotations")
+        try container.encodeIfPresent(annotationType, forKey: "AnnotationType")
         try super.encode(to: encoder)
     }
 
@@ -53,7 +55,7 @@ open class AnnotationsResponse: SaaSposeResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        annotations = try container.decodeIfPresent(Annotations.self, forKey: "Annotations")
+        annotationType = try container.decodeIfPresent(AnnotationType.self, forKey: "AnnotationType")
         try super.init(from: decoder)
     }
 }

@@ -25,16 +25,15 @@
 import Foundation
 
 
-/** Represents text items DTO. */
 
-open class TextItems: LinkElement {
+open class FreeTextAnnotationResponse: AsposeResponse {
 
-    public var list: [TextItem]?
+    public var annotation: FreeTextAnnotation?
 
     
-    public init(links: [Link]?, list: [TextItem]?) {
-        super.init(links: links)
-        self.list = list
+    public init(code: Int, status: String?, annotation: FreeTextAnnotation?) {
+        super.init(code: code, status: status)
+        self.annotation = annotation
     }
         
     
@@ -45,7 +44,7 @@ open class TextItems: LinkElement {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(list, forKey: "List")
+        try container.encodeIfPresent(annotation, forKey: "Annotation")
         try super.encode(to: encoder)
     }
 
@@ -54,7 +53,7 @@ open class TextItems: LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        list = try container.decodeIfPresent([TextItem].self, forKey: "List")
+        annotation = try container.decodeIfPresent(FreeTextAnnotation.self, forKey: "Annotation")
         try super.init(from: decoder)
     }
 }

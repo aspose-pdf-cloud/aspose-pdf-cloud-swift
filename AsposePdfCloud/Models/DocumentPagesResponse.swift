@@ -26,12 +26,12 @@ import Foundation
 
 
 
-open class DocumentPagesResponse: SaaSposeResponse {
+open class DocumentPagesResponse: AsposeResponse {
 
     public var pages: Pages?
 
     
-    public init(code: HttpStatusCode, status: String?, pages: Pages?) {
+    public init(code: Int, status: String?, pages: Pages?) {
         super.init(code: code, status: status)
         self.pages = pages
     }

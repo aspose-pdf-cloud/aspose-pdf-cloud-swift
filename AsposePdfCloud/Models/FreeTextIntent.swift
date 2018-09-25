@@ -25,35 +25,10 @@
 import Foundation
 
 
-/** Create document from images request. */
+/** Enumerates the intents of the free text annotation. */
+public enum FreeTextIntent: String, Codable {
+    case undefined = "Undefined"
+    case freeTextCallout = "FreeTextCallout"
+    case freeTextTypeWriter = "FreeTextTypeWriter"
 
-open class ImagesListRequest: Codable {
-
-    /** A list of paths for images. */
-    public var imagesList: [String]
-
-        
-    
-    public init(imagesList: [String]) {
-        self.imagesList = imagesList
-    }
-    
-
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encode(imagesList, forKey: "ImagesList")
-    }
-
-    // Decodable protocol methods
-
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        imagesList = try container.decode([String].self, forKey: "ImagesList")
-    }
 }
-

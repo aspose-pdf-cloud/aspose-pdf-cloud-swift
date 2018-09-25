@@ -27,13 +27,13 @@ import Foundation
 
 /** Number of words per document pages. */
 
-open class WordCountResponse: SaaSposeResponse {
+open class WordCountResponse: AsposeResponse {
 
     /** with words per page info.             */
     public var wordsPerPage: WordCount?
 
     
-    public init(code: HttpStatusCode, status: String?, wordsPerPage: WordCount?) {
+    public init(code: Int, status: String?, wordsPerPage: WordCount?) {
         super.init(code: code, status: status)
         self.wordsPerPage = wordsPerPage
     }

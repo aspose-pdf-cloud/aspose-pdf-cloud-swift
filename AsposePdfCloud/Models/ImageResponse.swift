@@ -26,12 +26,12 @@ import Foundation
 
 
 
-open class ImageResponse: SaaSposeResponse {
+open class ImageResponse: AsposeResponse {
 
     public var image: Image?
 
     
-    public init(code: HttpStatusCode, status: String?, image: Image?) {
+    public init(code: Int, status: String?, image: Image?) {
         super.init(code: code, status: status)
         self.image = image
     }

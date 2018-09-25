@@ -33,14 +33,18 @@ open class LinkAnnotation: LinkElement {
     public var action: String?
     public var highlighting: LinkHighlightingMode?
     public var color: Color?
+    public var rect: RectanglePdf?
+    public var id: String?
 
     
-    public init(links: [Link]?, actionType: LinkActionType?, action: String?, highlighting: LinkHighlightingMode?, color: Color?) {
+    public init(links: [Link]?, actionType: LinkActionType?, action: String?, highlighting: LinkHighlightingMode?, color: Color?, rect: RectanglePdf?, id: String?) {
         super.init(links: links)
         self.actionType = actionType
         self.action = action
         self.highlighting = highlighting
         self.color = color
+        self.rect = rect
+        self.id = id
     }
         
     
@@ -55,6 +59,8 @@ open class LinkAnnotation: LinkElement {
         try container.encodeIfPresent(action, forKey: "Action")
         try container.encodeIfPresent(highlighting, forKey: "Highlighting")
         try container.encodeIfPresent(color, forKey: "Color")
+        try container.encodeIfPresent(rect, forKey: "Rect")
+        try container.encodeIfPresent(id, forKey: "Id")
         try super.encode(to: encoder)
     }
 
@@ -67,6 +73,8 @@ open class LinkAnnotation: LinkElement {
         action = try container.decodeIfPresent(String.self, forKey: "Action")
         highlighting = try container.decodeIfPresent(LinkHighlightingMode.self, forKey: "Highlighting")
         color = try container.decodeIfPresent(Color.self, forKey: "Color")
+        rect = try container.decodeIfPresent(RectanglePdf.self, forKey: "Rect")
+        id = try container.decodeIfPresent(String.self, forKey: "Id")
         try super.init(from: decoder)
     }
 }

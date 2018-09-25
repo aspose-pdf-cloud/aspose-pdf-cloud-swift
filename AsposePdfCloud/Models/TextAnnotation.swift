@@ -25,16 +25,26 @@
 import Foundation
 
 
-/** List of annotations. */
+/** Provides TextAnnotation. */
 
-open class Annotations: LinkElement {
+open class TextAnnotation: MarkupAnnotation {
 
-    public var list: [LinkElement]?
+    /** Gets or sets the state to which the original annotation should be set. */
+    public var state: AnnotationState?
+    /** Gets or sets is the annotation open. */
+    public var open: Bool?
+    /** Color of the annotation. */
+    public var color: Color?
+    /** Gets or sets an icon to be used in displaying the annotation. */
+    public var icon: TextIcon?
 
     
-    public init(links: [Link]?, list: [LinkElement]?) {
+    public init(links: [Link]?, contents: String?, creationDate: String?, subject: String?, title: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: RectanglePdf?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, richText: String?, state: AnnotationState?, open: Bool?, color: Color?, icon: TextIcon?) {
         super.init(links: links)
-        self.list = list
+        self.state = state
+        self.open = open
+        self.color = color
+        self.icon = icon
     }
         
     
@@ -45,7 +55,10 @@ open class Annotations: LinkElement {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(list, forKey: "List")
+        try container.encodeIfPresent(state, forKey: "State")
+        try container.encodeIfPresent(open, forKey: "Open")
+        try container.encodeIfPresent(color, forKey: "Color")
+        try container.encodeIfPresent(icon, forKey: "Icon")
         try super.encode(to: encoder)
     }
 
@@ -54,7 +67,10 @@ open class Annotations: LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        list = try container.decodeIfPresent([LinkElement].self, forKey: "List")
+        state = try container.decodeIfPresent(AnnotationState.self, forKey: "State")
+        open = try container.decodeIfPresent(Bool.self, forKey: "Open")
+        color = try container.decodeIfPresent(Color.self, forKey: "Color")
+        icon = try container.decodeIfPresent(TextIcon.self, forKey: "Icon")
         try super.init(from: decoder)
     }
 }

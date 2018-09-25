@@ -25,18 +25,15 @@
 import Foundation
 
 
-/** Represents text DTO. */
 
-open class TextItem: LinkElement {
+open class AnnotationsInfoResponse: AsposeResponse {
 
-    public var text: String?
-    public var format: TextFormat?
+    public var annotations: AnnotationsInfo?
 
     
-    public init(links: [Link]?, text: String?, format: TextFormat?) {
-        super.init(links: links)
-        self.text = text
-        self.format = format
+    public init(code: Int, status: String?, annotations: AnnotationsInfo?) {
+        super.init(code: code, status: status)
+        self.annotations = annotations
     }
         
     
@@ -47,8 +44,7 @@ open class TextItem: LinkElement {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(text, forKey: "Text")
-        try container.encodeIfPresent(format, forKey: "Format")
+        try container.encodeIfPresent(annotations, forKey: "Annotations")
         try super.encode(to: encoder)
     }
 
@@ -57,8 +53,7 @@ open class TextItem: LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        text = try container.decodeIfPresent(String.self, forKey: "Text")
-        format = try container.decodeIfPresent(TextFormat.self, forKey: "Format")
+        annotations = try container.decodeIfPresent(AnnotationsInfo.self, forKey: "Annotations")
         try super.init(from: decoder)
     }
 }

@@ -25,20 +25,16 @@
 import Foundation
 
 
-/** Represents text format DTO. */
+/** List of annotations. */
 
-open class TextFormat: LinkElement {
+open class AnnotationsInfo: LinkElement {
 
-    public var color: Color?
-    public var fontSize: Double?
-    public var fontName: String?
+    public var list: [AnnotationInfo]?
 
     
-    public init(links: [Link]?, color: Color?, fontSize: Double?, fontName: String?) {
+    public init(links: [Link]?, list: [AnnotationInfo]?) {
         super.init(links: links)
-        self.color = color
-        self.fontSize = fontSize
-        self.fontName = fontName
+        self.list = list
     }
         
     
@@ -49,9 +45,7 @@ open class TextFormat: LinkElement {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(color, forKey: "Color")
-        try container.encodeIfPresent(fontSize, forKey: "FontSize")
-        try container.encodeIfPresent(fontName, forKey: "FontName")
+        try container.encodeIfPresent(list, forKey: "List")
         try super.encode(to: encoder)
     }
 
@@ -60,9 +54,7 @@ open class TextFormat: LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        color = try container.decodeIfPresent(Color.self, forKey: "Color")
-        fontSize = try container.decodeIfPresent(Double.self, forKey: "FontSize")
-        fontName = try container.decodeIfPresent(String.self, forKey: "FontName")
+        list = try container.decodeIfPresent([AnnotationInfo].self, forKey: "List")
         try super.init(from: decoder)
     }
 }

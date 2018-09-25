@@ -26,12 +26,12 @@ import Foundation
 
 
 
-open class AttachmentsResponse: SaaSposeResponse {
+open class AttachmentsResponse: AsposeResponse {
 
     public var attachments: Attachments?
 
     
-    public init(code: HttpStatusCode, status: String?, attachments: Attachments?) {
+    public init(code: Int, status: String?, attachments: Attachments?) {
         super.init(code: code, status: status)
         self.attachments = attachments
     }

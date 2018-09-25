@@ -31,23 +31,23 @@ open class Field: LinkElement {
 
     /** Field name. */
     public var name: String?
-    /** Field type. */
-    public var type: FieldType?
-    /** Field values. */
-    public var values: [String]?
     /** Selected items. */
     public var selectedItems: [Int]?
+    /** Field type. */
+    public var type: FieldType?
     /** Field rectangle. */
-    public var rect: Rectangle?
+    public var rect: RectanglePdf?
+    /** Field values. */
+    public var values: [String]?
 
     
-    public init(links: [Link]?, name: String?, type: FieldType?, values: [String]?, selectedItems: [Int]?, rect: Rectangle?) {
+    public init(links: [Link]?, name: String?, selectedItems: [Int]?, type: FieldType?, rect: RectanglePdf?, values: [String]?) {
         super.init(links: links)
         self.name = name
-        self.type = type
-        self.values = values
         self.selectedItems = selectedItems
+        self.type = type
         self.rect = rect
+        self.values = values
     }
         
     
@@ -59,10 +59,10 @@ open class Field: LinkElement {
         var container = encoder.container(keyedBy: String.self)
 
         try container.encodeIfPresent(name, forKey: "Name")
-        try container.encodeIfPresent(type, forKey: "Type")
-        try container.encodeIfPresent(values, forKey: "Values")
         try container.encodeIfPresent(selectedItems, forKey: "SelectedItems")
+        try container.encodeIfPresent(type, forKey: "Type")
         try container.encodeIfPresent(rect, forKey: "Rect")
+        try container.encodeIfPresent(values, forKey: "Values")
         try super.encode(to: encoder)
     }
 
@@ -72,10 +72,10 @@ open class Field: LinkElement {
         let container = try decoder.container(keyedBy: String.self)
 
         name = try container.decodeIfPresent(String.self, forKey: "Name")
-        type = try container.decodeIfPresent(FieldType.self, forKey: "Type")
-        values = try container.decodeIfPresent([String].self, forKey: "Values")
         selectedItems = try container.decodeIfPresent([Int].self, forKey: "SelectedItems")
-        rect = try container.decodeIfPresent(Rectangle.self, forKey: "Rect")
+        type = try container.decodeIfPresent(FieldType.self, forKey: "Type")
+        rect = try container.decodeIfPresent(RectanglePdf.self, forKey: "Rect")
+        values = try container.decodeIfPresent([String].self, forKey: "Values")
         try super.init(from: decoder)
     }
 }

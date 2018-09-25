@@ -25,36 +25,35 @@
 import Foundation
 
 
+/**  */
+public enum AnnotationType: String, Codable {
+    case text = "Text"
+    case circle = "Circle"
+    case polygon = "Polygon"
+    case polyLine = "PolyLine"
+    case line = "Line"
+    case square = "Square"
+    case freeText = "FreeText"
+    case highlight = "Highlight"
+    case underline = "Underline"
+    case squiggly = "Squiggly"
+    case strikeOut = "StrikeOut"
+    case caret = "Caret"
+    case ink = "Ink"
+    case link = "Link"
+    case popup = "Popup"
+    case fileAttachment = "FileAttachment"
+    case sound = "Sound"
+    case movie = "Movie"
+    case screen = "Screen"
+    case widget = "Widget"
+    case watermark = "Watermark"
+    case trapNet = "TrapNet"
+    case printerMark = "PrinterMark"
+    case redaction = "Redaction"
+    case stamp = "Stamp"
+    case richMedia = "RichMedia"
+    case unknown = "Unknown"
+    case pdf3d = "PDF3D"
 
-open class LinkAnnotationResponse: AsposeResponse {
-
-    public var link: LinkAnnotation?
-
-    
-    public init(code: Int, status: String?, link: LinkAnnotation?) {
-        super.init(code: code, status: status)
-        self.link = link
-    }
-        
-    
-
-    // Encodable protocol methods
-
-    public override func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(link, forKey: "Link")
-        try super.encode(to: encoder)
-    }
-
-    // Decodable protocol methods
-
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        link = try container.decodeIfPresent(LinkAnnotation.self, forKey: "Link")
-        try super.init(from: decoder)
-    }
 }
-

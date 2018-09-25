@@ -26,10 +26,10 @@ import Foundation
 
 
 /**  */
-public enum HorizontalAlignment: Int, Codable {
-    case _none = 0
-    case left = 1
-    case center = 2
-    case right = 3
+public enum HorizontalAlignment: String, Codable {
+    case _none = "None"
+    case _left = "Left"
+    case center = "Center"
+    case _right = "Right"
 
 }

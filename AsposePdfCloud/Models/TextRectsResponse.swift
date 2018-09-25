@@ -26,12 +26,12 @@ import Foundation
 
 
 
-open class TextRectsResponse: SaaSposeResponse {
+open class TextRectsResponse: AsposeResponse {
 
     public var textOccurences: TextRects?
 
     
-    public init(code: HttpStatusCode, status: String?, textOccurences: TextRects?) {
+    public init(code: Int, status: String?, textOccurences: TextRects?) {
         super.init(code: code, status: status)
         self.textOccurences = textOccurences
     }

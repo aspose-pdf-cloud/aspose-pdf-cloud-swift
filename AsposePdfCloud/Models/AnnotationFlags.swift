@@ -25,36 +25,18 @@
 import Foundation
 
 
+/** A set of flags specifying various characteristics of the annotation. */
+public enum AnnotationFlags: String, Codable {
+    case _default = "Default"
+    case invisible = "Invisible"
+    case hidden = "Hidden"
+    case print = "Print"
+    case noZoom = "NoZoom"
+    case noRotate = "NoRotate"
+    case noView = "NoView"
+    case readOnly = "ReadOnly"
+    case locked = "Locked"
+    case toggleNoView = "ToggleNoView"
+    case lockedContents = "LockedContents"
 
-open class LinkAnnotationResponse: AsposeResponse {
-
-    public var link: LinkAnnotation?
-
-    
-    public init(code: Int, status: String?, link: LinkAnnotation?) {
-        super.init(code: code, status: status)
-        self.link = link
-    }
-        
-    
-
-    // Encodable protocol methods
-
-    public override func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(link, forKey: "Link")
-        try super.encode(to: encoder)
-    }
-
-    // Decodable protocol methods
-
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        link = try container.decodeIfPresent(LinkAnnotation.self, forKey: "Link")
-        try super.init(from: decoder)
-    }
 }
-

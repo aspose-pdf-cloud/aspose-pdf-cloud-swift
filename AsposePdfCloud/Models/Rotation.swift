@@ -26,10 +26,10 @@ import Foundation
 
 
 /** Enumeration of possible rotation values. */
-public enum Rotation: Int, Codable {
-    case _none = 0
-    case on90 = 1
-    case on180 = 2
-    case on270 = 3
+public enum Rotation: String, Codable {
+    case _none = "None"
+    case on90 = "on90"
+    case on180 = "on180"
+    case on270 = "on270"
 
 }

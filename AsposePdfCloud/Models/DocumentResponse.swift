@@ -26,13 +26,13 @@ import Foundation
 
 
 
-open class DocumentResponse: SaaSposeResponse {
+open class DocumentResponse: AsposeResponse {
 
     public var document: Document?
     public var messages: [String]?
 
     
-    public init(code: HttpStatusCode, status: String?, document: Document?, messages: [String]?) {
+    public init(code: Int, status: String?, document: Document?, messages: [String]?) {
         super.init(code: code, status: status)
         self.document = document
         self.messages = messages

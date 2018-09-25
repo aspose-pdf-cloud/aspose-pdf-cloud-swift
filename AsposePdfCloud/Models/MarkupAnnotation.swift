@@ -25,29 +25,17 @@
 import Foundation
 
 
-/** Represents image DTO. */
+/** Provides MarkupAnnotation. */
 
-open class Image: LinkElement {
+open class MarkupAnnotation: Annotation {
 
-    /** Gets width of the image. */
-    public var width: Int?
-    /** Gets height of the image. */
-    public var height: Int?
-    /** Gets ID of the image. */
-    public var id: String?
-    /** Gets rectangle of the image. */
-    public var rectangle: RectanglePdf?
-    /** Gets page number. */
-    public var pageNumber: Int?
+    /** Get the annotation RichText. */
+    public var richText: String?
 
     
-    public init(links: [Link]?, width: Int?, height: Int?, id: String?, rectangle: RectanglePdf?, pageNumber: Int?) {
+    public init(links: [Link]?, contents: String?, creationDate: String?, subject: String?, title: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: RectanglePdf?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, richText: String?) {
         super.init(links: links)
-        self.width = width
-        self.height = height
-        self.id = id
-        self.rectangle = rectangle
-        self.pageNumber = pageNumber
+        self.richText = richText
     }
         
     
@@ -58,11 +46,7 @@ open class Image: LinkElement {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(width, forKey: "Width")
-        try container.encodeIfPresent(height, forKey: "Height")
-        try container.encodeIfPresent(id, forKey: "Id")
-        try container.encodeIfPresent(rectangle, forKey: "Rectangle")
-        try container.encodeIfPresent(pageNumber, forKey: "PageNumber")
+        try container.encodeIfPresent(richText, forKey: "RichText")
         try super.encode(to: encoder)
     }
 
@@ -71,11 +55,7 @@ open class Image: LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        width = try container.decodeIfPresent(Int.self, forKey: "Width")
-        height = try container.decodeIfPresent(Int.self, forKey: "Height")
-        id = try container.decodeIfPresent(String.self, forKey: "Id")
-        rectangle = try container.decodeIfPresent(RectanglePdf.self, forKey: "Rectangle")
-        pageNumber = try container.decodeIfPresent(Int.self, forKey: "PageNumber")
+        richText = try container.decodeIfPresent(String.self, forKey: "RichText")
         try super.init(from: decoder)
     }
 }

@@ -25,15 +25,16 @@
 import Foundation
 
 
+/** List of annotations. */
 
-open class AnnotationResponse: SaaSposeResponse {
+open class TextAnnotations: LinkElement {
 
-    public var annotation: Annotation?
+    public var list: [TextAnnotation]?
 
     
-    public init(code: HttpStatusCode, status: String?, annotation: Annotation?) {
-        super.init(code: code, status: status)
-        self.annotation = annotation
+    public init(links: [Link]?, list: [TextAnnotation]?) {
+        super.init(links: links)
+        self.list = list
     }
         
     
@@ -44,7 +45,7 @@ open class AnnotationResponse: SaaSposeResponse {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(annotation, forKey: "Annotation")
+        try container.encodeIfPresent(list, forKey: "List")
         try super.encode(to: encoder)
     }
 
@@ -53,7 +54,7 @@ open class AnnotationResponse: SaaSposeResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        annotation = try container.decodeIfPresent(Annotation.self, forKey: "Annotation")
+        list = try container.decodeIfPresent([TextAnnotation].self, forKey: "List")
         try super.init(from: decoder)
     }
 }

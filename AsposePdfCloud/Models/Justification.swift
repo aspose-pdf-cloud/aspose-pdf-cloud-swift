@@ -25,36 +25,10 @@
 import Foundation
 
 
+/** Enumerates the forms of quadding (justification) to be used in displaying the annotation?s text. */
+public enum Justification: String, Codable {
+    case _left = "Left"
+    case center = "Center"
+    case _right = "Right"
 
-open class PageTextReplaceResponse: TextReplaceResponse {
-
-    public var page: Page?
-
-    
-    public init(code: HttpStatusCode, status: String?, matches: Int?, page: Page?) {
-        super.init(code: code, status: status, matches: matches)
-        self.page = page
-    }
-        
-    
-
-    // Encodable protocol methods
-
-    public override func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(page, forKey: "Page")
-        try super.encode(to: encoder)
-    }
-
-    // Decodable protocol methods
-
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        page = try container.decodeIfPresent(Page.self, forKey: "Page")
-        try super.init(from: decoder)
-    }
 }
-
