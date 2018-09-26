@@ -40,7 +40,7 @@ open class FreeTextAnnotation: MarkupAnnotation {
 
     
     public init(links: [Link]?, contents: String?, creationDate: String?, subject: String?, title: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: RectanglePdf?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, richText: String?, justification: Justification?, intent: FreeTextIntent?, rotate: Rotation?, textStyle: TextStyle?) {
-        super.init(links: links)
+        super.init(links: links, contents: contents, creationDate: creationDate, subject: subject, title: title, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, richText: richText)
         self.justification = justification
         self.intent = intent
         self.rotate = rotate
