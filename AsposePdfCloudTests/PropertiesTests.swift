@@ -52,14 +52,14 @@ class PropertiesTests: AsposePdfCloudTests {
     private var properties: [DocumentProperty]?
     
     private func setProperty(prop: DocumentProperty, completion: @escaping ()->Void) {
-        PdfAPI.putSetProperty(name: self.fileName, propertyName: prop.name!, property: prop, folder: self.tempFolder) {
+        PdfAPI.putSetProperty(name: self.fileName, propertyName: prop.name!, value: prop.value!, folder: self.tempFolder) {
             (response, error) in
             guard error == nil else {
                 XCTFail("error try to putSetProperty: " + (error.debugDescription))
                 return
             }
             
-            if response?.code == HttpStatusCode.ok {
+            if response?.code == 200 {
                 completion()
             }
         }
@@ -80,7 +80,7 @@ class PropertiesTests: AsposePdfCloudTests {
                         }
                         
                         if let response = response {
-                            XCTAssertEqual(response.code, HttpStatusCode.ok)
+                            XCTAssertEqual(response.code, 200)
                             
                             expectation.fulfill()
                         }
@@ -107,7 +107,7 @@ class PropertiesTests: AsposePdfCloudTests {
                     }
                     
                     if let response = response {
-                        XCTAssertEqual(response.code, HttpStatusCode.ok)
+                        XCTAssertEqual(response.code, 200)
                         
                         expectation.fulfill()
                     }
@@ -134,7 +134,7 @@ class PropertiesTests: AsposePdfCloudTests {
                         }
                         
                         if let response = response {
-                            XCTAssertEqual(response.code, HttpStatusCode.ok)
+                            XCTAssertEqual(response.code, 200)
                             
                             expectation.fulfill()
                         }
@@ -161,7 +161,7 @@ class PropertiesTests: AsposePdfCloudTests {
                     }
                     
                     if let response = response {
-                        XCTAssertEqual(response.code, HttpStatusCode.ok)
+                        XCTAssertEqual(response.code, 200)
                         
                         expectation.fulfill()
                     }
@@ -178,7 +178,7 @@ class PropertiesTests: AsposePdfCloudTests {
         
         uploadFile(name: self.fileName) {
             
-            PdfAPI.putSetProperty(name: self.fileName, propertyName: self.properties![0].name!, property: self.properties![0], folder: self.tempFolder) {
+            PdfAPI.putSetProperty(name: self.fileName, propertyName: self.properties![0].name!, value: self.properties![0].value!, folder: self.tempFolder) {
                 (response, error) in
                 guard error == nil else {
                     XCTFail("error testPutSetProperty: " + (error.debugDescription))
@@ -186,7 +186,7 @@ class PropertiesTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, 200)
                     
                     expectation.fulfill()
                 }

@@ -40,7 +40,7 @@ class FieldsTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, 200)
                     
                     expectation.fulfill()
                 }
@@ -66,7 +66,7 @@ class FieldsTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, 200)
                     
                     expectation.fulfill()
                 }
@@ -79,7 +79,7 @@ class FieldsTests: AsposePdfCloudTests {
     
     func testPostCreateField() {
         
-        let field = Field(links: nil, name: "checkboxfield", type: FieldType.boolean, values: ["1"], selectedItems: nil, rect: Rectangle(X: 50, Y: 200, width: 150, height: 200))
+        let field = Field(links: nil, name: "checkboxfield", selectedItems: nil, type: FieldType.boolean, rect: RectanglePdf(LLX: 50, LLY: 200, URX: 200, URY: 400), values: ["1"])
         let name = "4pages.pdf"
         let page = 1
         
@@ -95,7 +95,7 @@ class FieldsTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, 200)
                     
                     expectation.fulfill()
                 }
@@ -110,7 +110,7 @@ class FieldsTests: AsposePdfCloudTests {
         
         let name = "PdfWithAcroForm.pdf"
         let fieldName = "textField"
-        let field = Field(links: nil, name: fieldName, type: FieldType.text, values: ["Text field updated value."], selectedItems: nil, rect: nil)
+        let field = Field(links: nil, name: fieldName, selectedItems: nil, type: FieldType.text, rect: nil, values: ["Text field updated value."])
 
         let expectation = self.expectation(description: "PutUpdateFieldTest")
         
@@ -124,7 +124,38 @@ class FieldsTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, 200)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    
+    func testPutUpdateFields() {
+        
+        let name = "PdfWithAcroForm.pdf"
+        let fieldName = "textField"
+        let field = Field(links: nil, name: fieldName, selectedItems: nil, type: FieldType.text, rect: nil, values: ["Text field updated value."])
+        
+        let fields = Fields(links: nil, list: [field])
+        
+        let expectation = self.expectation(description: "PutUpdateFieldTest")
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.putUpdateFields(name: name, fields: fields, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error PutUpdateFieldTest: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, 200)
                     
                     expectation.fulfill()
                 }
@@ -151,7 +182,7 @@ class FieldsTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, 200)
                     
                     expectation.fulfill()
                 }
@@ -177,7 +208,7 @@ class FieldsTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, 200)
                     
                     expectation.fulfill()
                 }

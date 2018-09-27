@@ -22,7 +22,7 @@
 import XCTest
 @testable import AsposePdfCloud
 
-class AnnotationsTests: AsposePdfCloudTests {
+class TextAnnotationsTests: AsposePdfCloudTests {
     
     override func setUp() {
         super.setUp()
@@ -33,17 +33,17 @@ class AnnotationsTests: AsposePdfCloudTests {
     }
     
     
-    func testGetDocumentAnnotations() {
+    func testGetDocumentTextAnnotations() {
         let name = "PdfWithAnnotations.pdf"
         
-        let expectation = self.expectation(description: "testGetDocumentAnnotations")
+        let expectation = self.expectation(description: "testGetDocumentTextAnnotations")
         
         uploadFile(name: name) {
             
-            PdfAPI.getDocumentAnnotations(name: name, folder: self.tempFolder) {
+            PdfAPI.getDocumentTextAnnotations(name: name, folder: self.tempFolder) {
                 (response, error) in
                 guard error == nil else {
-                    XCTFail("error testGetDocumentAnnotations")
+                    XCTFail("error testGetDocumentTextAnnotations")
                     return
                 }
                 
@@ -58,43 +58,18 @@ class AnnotationsTests: AsposePdfCloudTests {
     }
     
     
-    func testDeleteDocumentAnnotations() {
-        let name = "PdfWithAnnotations.pdf"
-        
-        let expectation = self.expectation(description: "testDeleteDocumentAnnotations")
-        
-        uploadFile(name: name) {
-            
-            PdfAPI.deleteDocumentAnnotations(name: name, folder: self.tempFolder) {
-                (response, error) in
-                guard error == nil else {
-                    XCTFail("error testDeleteDocumentAnnotations")
-                    return
-                }
-                
-                if let response = response {
-                    XCTAssertEqual(response.code, 200)
-                    
-                    expectation.fulfill()
-                }
-            }
-        }
-        self.waitForExpectations(timeout: testTimeout, handler: nil)
-    }
-    
-    
-    func testGetPageAnnotations() {
+    func testGetPageTextAnnotations() {
         let name = "PdfWithAnnotations.pdf"
         
         let pageNumber = 2
-        let expectation = self.expectation(description: "testGetPageAnnotations")
+        let expectation = self.expectation(description: "testGetPageTextAnnotations")
         
         uploadFile(name: name) {
-
-            PdfAPI.getPageAnnotations(name: name, pageNumber: pageNumber, folder: self.tempFolder) {
+            
+            PdfAPI.getPageTextAnnotations(name: name, pageNumber: pageNumber, folder: self.tempFolder) {
                 (response, error) in
                 guard error == nil else {
-                    XCTFail("error testGetPageAnnotations")
+                    XCTFail("error testGetPageTextAnnotations")
                     return
                 }
                 
@@ -109,43 +84,17 @@ class AnnotationsTests: AsposePdfCloudTests {
     }
     
     
-    func testDeletePageAnnotations() {
+    func testGetTextAnnotation() {
         let name = "PdfWithAnnotations.pdf"
         
-        let pageNumber = 2
-        let expectation = self.expectation(description: "testDeletePageAnnotations")
+        let expectation = self.expectation(description: "testGetTextAnnotation")
         
         uploadFile(name: name) {
             
-            PdfAPI.deletePageAnnotations(name: name, pageNumber: pageNumber, folder: self.tempFolder) {
+            PdfAPI.getDocumentTextAnnotations(name: name, folder: self.tempFolder) {
                 (response, error) in
                 guard error == nil else {
-                    XCTFail("error testDeletePageAnnotations")
-                    return
-                }
-                
-                if let response = response {
-                    XCTAssertEqual(response.code, 200)
-                    
-                    expectation.fulfill()
-                }
-            }
-        }
-        self.waitForExpectations(timeout: testTimeout, handler: nil)
-    }
-    
-    
-    func testDeleteAnnotation() {
-        let name = "PdfWithAnnotations.pdf"
-        
-        let expectation = self.expectation(description: "testDeleteAnnotation")
-        
-        uploadFile(name: name) {
-            
-            PdfAPI.getDocumentAnnotations(name: name, folder: self.tempFolder) {
-                (response, error) in
-                guard error == nil else {
-                    XCTFail("error testGetDocumentAnnotations")
+                    XCTFail("error testGetDocumentTextAnnotations")
                     return
                 }
                 
@@ -157,7 +106,7 @@ class AnnotationsTests: AsposePdfCloudTests {
                     PdfAPI.deleteAnnotation(name: name, annotationId: annotationId!, folder: self.tempFolder) {
                         (response, error) in
                         guard error == nil else {
-                            XCTFail("error testDeleteAnnotation")
+                            XCTFail("error testGetTextAnnotation")
                             return
                         }
                         
@@ -172,4 +121,115 @@ class AnnotationsTests: AsposePdfCloudTests {
         }
         self.waitForExpectations(timeout: testTimeout, handler: nil)
     }
+    
+    func testPostPageTextAnnotations() {
+        let name = "PdfWithAnnotations.pdf"
+        
+        let pageNumber = 1
+        let expectation = self.expectation(description: "testPostPageTextAnnotations")
+        
+        let annotation = TextAnnotation(
+            links: nil,
+            contents: nil,
+            creationDate: nil,
+            subject: "Text Box Subject",
+            title: "Title",
+            modified: nil,
+            id: nil,
+            flags: [AnnotationFlags._default],
+            name: "Test Free Text",
+            rect: RectanglePdf(LLX: 100, LLY: 100, URX: 200, URY: 200),
+            pageIndex: nil,
+            zIndex: 1,
+            horizontalAlignment: HorizontalAlignment.center,
+            verticalAlignment: VerticalAlignment._none,
+            richText: "Rich Text",
+            state: AnnotationState.undefined,
+            open: nil,
+            color: nil,
+            icon: nil
+        )
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.postPageTextAnnotations(name: name, pageNumber: pageNumber, annotations: [annotation], folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testPostPageTextAnnotations")
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, 201)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    
+    func testPutTextAnnotation() {
+        let name = "PdfWithAnnotations.pdf"
+        
+        let expectation = self.expectation(description: "testPutTextAnnotation")
+        
+        let annotation = TextAnnotation(
+            links: nil,
+            contents: nil,
+            creationDate: nil,
+            subject: "Text Box Subject",
+            title: "Title",
+            modified: nil,
+            id: nil,
+            flags: [AnnotationFlags._default],
+            name: "Test  Text",
+            rect: RectanglePdf(LLX: 100, LLY: 100, URX: 200, URY: 200),
+            pageIndex: nil,
+            zIndex: 1,
+            horizontalAlignment: HorizontalAlignment.center,
+            verticalAlignment: nil,
+            richText: "Rich Text",
+            state: AnnotationState.undefined,
+            open: nil,
+            color: Color(A: 0xFF, R: 0, G: 0xFF, B: 0),
+            icon: nil
+        )
+        
+        uploadFile(name: name) {
+            PdfAPI.getDocumentTextAnnotations(name: name, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testGetDocumentTextAnnotations")
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, 200)
+                    
+                    let annotationId = response.annotations?.list![0].id
+                    
+                    PdfAPI.putTextAnnotation(name: name, annotationId: annotationId!, annotation: annotation, folder: self.tempFolder) {
+                        (response, error) in
+                        guard error == nil else {
+                            XCTFail("error testPutTextAnnotation")
+                            return
+                        }
+                        
+                        if let response = response {
+                            XCTAssertEqual(response.code, 201)
+                            
+                            expectation.fulfill()
+                        }
+                    }
+                }
+            }
+            
+            
+            
+        }
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
 }
+

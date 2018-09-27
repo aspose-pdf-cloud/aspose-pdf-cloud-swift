@@ -75,7 +75,7 @@ class AsposePdfCloudTests: XCTestCase {
                 XCTFail("error uploading file \(name)")
                 return
             }
-            if let response = response, response.code == HttpStatusCode.ok {
+            if let response = response, response.code == 200 {
                 completion()
             } else {
                 XCTFail("error uploading file \(name)")

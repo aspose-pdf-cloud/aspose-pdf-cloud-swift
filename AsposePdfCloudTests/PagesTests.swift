@@ -41,7 +41,7 @@ class PagesTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, 200)
                     
                     expectation.fulfill()
                 }
@@ -67,7 +67,7 @@ class PagesTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertFalse(response.isEmpty)
+                    XCTAssertEqual(response.code, 200)
                     
                     expectation.fulfill()
                 }
@@ -77,7 +77,7 @@ class PagesTests: AsposePdfCloudTests {
         self.waitForExpectations(timeout: testTimeout, handler: nil)
     }
     
-    
+    /*
     func testGetPageWithFormat() {
         
         let expectation = self.expectation(description: "testGetPageWithFormat")
@@ -107,7 +107,7 @@ class PagesTests: AsposePdfCloudTests {
         
         self.waitForExpectations(timeout: testTimeout, handler: nil)
     }
-    
+    */
     
     func testGetPages() {
         
@@ -123,7 +123,7 @@ class PagesTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, 200)
                     
                     expectation.fulfill()
                 }
@@ -148,7 +148,7 @@ class PagesTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, 200)
                     
                     expectation.fulfill()
                 }
@@ -173,7 +173,7 @@ class PagesTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, 200)
                     
                     expectation.fulfill()
                 }
@@ -197,7 +197,7 @@ class PagesTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, 200)
                     
                     expectation.fulfill()
                 }
@@ -225,7 +225,7 @@ class PagesTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, 200)
                     
                     expectation.fulfill()
                 }

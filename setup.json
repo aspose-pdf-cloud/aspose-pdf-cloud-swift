@@ -1,4 +1,5 @@
 {
-    "app_key": "",
-    "app_sid": "",
+    "app_key" : "",
+    "app_sid" : "",
+    "product_uri" : "https://billing.cloud.saltov.dynabic.com/v2.0"
 }

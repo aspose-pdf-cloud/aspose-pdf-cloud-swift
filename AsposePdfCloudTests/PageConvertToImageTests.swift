@@ -70,7 +70,7 @@ class PageConvertToImageTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, 200)
                     
                     expectation.fulfill()
                 }
@@ -123,7 +123,7 @@ class PageConvertToImageTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, 200)
                     
                     expectation.fulfill()
                 }
@@ -176,7 +176,7 @@ class PageConvertToImageTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, 200)
                     
                     expectation.fulfill()
                 }
@@ -229,7 +229,7 @@ class PageConvertToImageTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, 200)
                     
                     expectation.fulfill()
                 }
@@ -282,7 +282,7 @@ class PageConvertToImageTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, 200)
                     
                     expectation.fulfill()
                 }
@@ -335,7 +335,7 @@ class PageConvertToImageTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, 200)
                     
                     expectation.fulfill()
                 }

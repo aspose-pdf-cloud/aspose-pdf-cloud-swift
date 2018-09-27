@@ -33,14 +33,14 @@ class SignTests: AsposePdfCloudTests {
         
         signature = Signature(
             signaturePath: "\(self.tempFolder)/\(signatureName)",
-            signatureType: SignatureType.PKCS7,
+            signatureType: SignatureType.pkcs7,
             password: "test1234",
             appearance: nil,
             reason: nil,
             contact: "test@mail.ru",
             location: "Ukraine",
             visible: true,
-            rectangle: Rectangle(X: 100, Y: 100, width: 400, height: 100),
+            rectangle: RectanglePdf(LLX: 100, LLY: 100, URX: 500, URY: 200),
             formFieldName: "Signature1",
             authority: "Sergey Smal",
             date: "08/01/2012 12:15:00.000 PM",
@@ -61,7 +61,7 @@ class SignTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, 200)
                     
                     expectation.fulfill()
                 }
@@ -86,7 +86,7 @@ class SignTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, 200)
                     
                     expectation.fulfill()
                 }
@@ -111,7 +111,7 @@ class SignTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, 200)
                     
                     PdfAPI.getVerifySignature(name: self.fileName, signName: (self.signature?.formFieldName)!,  folder: self.tempFolder) {
                         (response, error) in
@@ -121,7 +121,7 @@ class SignTests: AsposePdfCloudTests {
                         }
                         
                         if let response = response {
-                            XCTAssertEqual(response.code, HttpStatusCode.ok)
+                            XCTAssertEqual(response.code, 200)
                             
                             expectation.fulfill()
                         }

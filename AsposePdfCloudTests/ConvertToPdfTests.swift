@@ -67,7 +67,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.created)
+                    XCTAssertEqual(response.code, 201)
                     
                     expectation.fulfill()
                 }
@@ -120,7 +120,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
             }
             
             if let response = response {
-                XCTAssertEqual(response.code, HttpStatusCode.created)
+                XCTAssertEqual(response.code, 201)
                 
                 expectation.fulfill()
             }
@@ -174,7 +174,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.created)
+                    XCTAssertEqual(response.code, 201)
                     
                     expectation.fulfill()
                 }
@@ -228,7 +228,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.created)
+                    XCTAssertEqual(response.code, 201)
                     
                     expectation.fulfill()
                 }
@@ -282,7 +282,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.created)
+                    XCTAssertEqual(response.code, 201)
                     
                     expectation.fulfill()
                 }
@@ -336,7 +336,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.created)
+                    XCTAssertEqual(response.code, 201)
                     
                     expectation.fulfill()
                 }
@@ -390,7 +390,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.created)
+                    XCTAssertEqual(response.code, 201)
                     
                     expectation.fulfill()
                 }
@@ -444,7 +444,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.created)
+                    XCTAssertEqual(response.code, 201)
                     
                     expectation.fulfill()
                 }
@@ -498,7 +498,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.created)
+                    XCTAssertEqual(response.code, 201)
                     
                     expectation.fulfill()
                 }
@@ -552,7 +552,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.created)
+                    XCTAssertEqual(response.code, 201)
                     
                     expectation.fulfill()
                 }
@@ -606,7 +606,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.created)
+                    XCTAssertEqual(response.code, 201)
                     
                     expectation.fulfill()
                 }
@@ -645,7 +645,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.created)
+                    XCTAssertEqual(response.code, 201)
                     
                     expectation.fulfill()
                 }
