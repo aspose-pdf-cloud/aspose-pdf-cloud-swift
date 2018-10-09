@@ -28,6 +28,9 @@ class AsposePdfCloudTests: XCTestCase {
     internal let testDataFolder = "TestData"
     internal let testTimeout: TimeInterval = 60.0
     
+    internal let codeOk = 200
+    internal let codeCreated = 201
+    
     override func setUp() {
         super.setUp()
         
@@ -75,7 +78,7 @@ class AsposePdfCloudTests: XCTestCase {
                 XCTFail("error uploading file \(name)")
                 return
             }
-            if let response = response, response.code == 200 {
+            if let response = response, response.code == self.codeOk {
                 completion()
             } else {
                 XCTFail("error uploading file \(name)")

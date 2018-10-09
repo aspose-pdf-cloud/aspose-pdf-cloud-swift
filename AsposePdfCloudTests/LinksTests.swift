@@ -41,7 +41,7 @@ class LinksTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, 200)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     let linkId = response.links?.list![0].id
                         
@@ -53,7 +53,7 @@ class LinksTests: AsposePdfCloudTests {
                         }
                         
                         if let response = response {
-                            XCTAssertEqual(response.code, 200)
+                            XCTAssertEqual(response.code, self.codeOk)
                             
                             expectation.fulfill()
                         }
@@ -81,7 +81,7 @@ class LinksTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, 200)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     let linkId = response.links?.list![0].id
                     
@@ -93,7 +93,7 @@ class LinksTests: AsposePdfCloudTests {
                         }
                         
                         if let response = response {
-                            XCTAssertEqual(response.code, 200)
+                            XCTAssertEqual(response.code, self.codeOk)
                             
                             expectation.fulfill()
                         }
@@ -121,7 +121,7 @@ class LinksTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, 200)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -150,7 +150,7 @@ class LinksTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, 201)
+                    XCTAssertEqual(response.code, self.codeCreated)
                     
                     expectation.fulfill()
                 }
@@ -179,7 +179,7 @@ class LinksTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, 200)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     let linkId: String = (response.links?.list![0].id)!
                     
@@ -191,7 +191,7 @@ class LinksTests: AsposePdfCloudTests {
                         }
                         
                         if let response = response {
-                            XCTAssertEqual(response.code, 201)
+                            XCTAssertEqual(response.code, self.codeCreated)
                             
                             expectation.fulfill()
                         }
@@ -221,7 +221,7 @@ class LinksTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, 200)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -246,7 +246,7 @@ class LinksTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, 200)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -272,7 +272,7 @@ class LinksTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, 200)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     let linkId = response.links?.list![0].id
                     
@@ -284,7 +284,7 @@ class LinksTests: AsposePdfCloudTests {
                         }
                         
                         if let response = response {
-                            XCTAssertEqual(response.code, 200)
+                            XCTAssertEqual(response.code, self.codeOk)
                             
                             expectation.fulfill()
                         }

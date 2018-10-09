@@ -48,7 +48,7 @@ class AnnotationsTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, 200)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -73,7 +73,7 @@ class AnnotationsTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, 200)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -99,7 +99,7 @@ class AnnotationsTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, 200)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -125,7 +125,7 @@ class AnnotationsTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, 200)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -150,7 +150,7 @@ class AnnotationsTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, 200)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     let annotationId = response.annotations?.list![0].id
                     
@@ -162,7 +162,7 @@ class AnnotationsTests: AsposePdfCloudTests {
                         }
                         
                         if let response = response {
-                            XCTAssertEqual(response.code, 200)
+                            XCTAssertEqual(response.code, self.codeOk)
                             
                             expectation.fulfill()
                         }

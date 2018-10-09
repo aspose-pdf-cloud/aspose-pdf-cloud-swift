@@ -24,6 +24,9 @@ import Alamofire
 
 open class AuthAspose {
     
+    static let codeOk = 200
+    static let codeUnauthorized = 401
+
     public class func checkAuth(completion: @escaping ((_ error: AuthError?) -> Void )) {
         
         if (AsposePdfCloudAPI.accessToken == nil) {
@@ -54,12 +57,12 @@ open class AuthAspose {
                     return
                 }
                 
-                if (200 == statusCode) {
+                if (statusCode == self.codeOk) {
                     AsposePdfCloudAPI.accessToken = jsonArray["access_token"] as? String
                     AsposePdfCloudAPI.refreshToken = jsonArray["refresh_token"] as? String
                     completion(nil)
                     
-                } else if (401 == statusCode) {
+                } else if (statusCode == self.codeUnauthorized) {
                     completion(AuthError.unauthorizedError)
                 }
                 else {

@@ -48,7 +48,7 @@ class TextAnnotationsTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, 200)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -74,7 +74,7 @@ class TextAnnotationsTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, 200)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -99,7 +99,7 @@ class TextAnnotationsTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, 200)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     let annotationId = response.annotations?.list![0].id
                     
@@ -111,7 +111,7 @@ class TextAnnotationsTests: AsposePdfCloudTests {
                         }
                         
                         if let response = response {
-                            XCTAssertEqual(response.code, 200)
+                            XCTAssertEqual(response.code, self.codeOk)
                             
                             expectation.fulfill()
                         }
@@ -160,7 +160,7 @@ class TextAnnotationsTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, 201)
+                    XCTAssertEqual(response.code, self.codeCreated)
                     
                     expectation.fulfill()
                 }
@@ -206,7 +206,7 @@ class TextAnnotationsTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, 200)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     let annotationId = response.annotations?.list![0].id
                     
@@ -218,7 +218,7 @@ class TextAnnotationsTests: AsposePdfCloudTests {
                         }
                         
                         if let response = response {
-                            XCTAssertEqual(response.code, 201)
+                            XCTAssertEqual(response.code, self.codeCreated)
                             
                             expectation.fulfill()
                         }
