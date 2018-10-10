@@ -152,20 +152,24 @@ class AnnotationsTests: AsposePdfCloudTests {
                 if let response = response {
                     XCTAssertEqual(response.code, self.codeOk)
                     
-                    let annotationId = response.annotations?.list![0].id
+                    if let annotations = response.annotations, let list = annotations.list, let annotationId = list[0].id {
                     
-                    PdfAPI.deleteAnnotation(name: name, annotationId: annotationId!, folder: self.tempFolder) {
-                        (response, error) in
-                        guard error == nil else {
-                            XCTFail("error testDeleteAnnotation")
-                            return
-                        }
-                        
-                        if let response = response {
-                            XCTAssertEqual(response.code, self.codeOk)
+                        PdfAPI.deleteAnnotation(name: name, annotationId: annotationId, folder: self.tempFolder) {
+                            (response, error) in
+                            guard error == nil else {
+                                XCTFail("error testDeleteAnnotation")
+                                return
+                            }
                             
-                            expectation.fulfill()
+                            if let response = response {
+                                XCTAssertEqual(response.code, self.codeOk)
+                                
+                                expectation.fulfill()
+                            }
                         }
+                    } else {
+                        XCTFail("error testGetDocumentFreeTextAnnotations")
+                        
                     }
                 }
             }

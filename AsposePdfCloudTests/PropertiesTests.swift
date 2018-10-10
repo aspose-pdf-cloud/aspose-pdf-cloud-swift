@@ -28,23 +28,11 @@ class PropertiesTests: AsposePdfCloudTests {
         super.setUp()
         
         properties = [
-            CodableHelper.decode(
-                DocumentProperty.self,
-                from:
-                    """
-                    {"Name": "\(propertyNames[0])", "Value": "\(self.propertyValues[0])"}
-                    """.data(using: .utf8)!
-                ).decodableObj!,
-            CodableHelper.decode(
-                DocumentProperty.self,
-                    from:
-                    """
-                    {"Name": "\(self.propertyNames[0])", "Value": "\(self.propertyValues[0])"}
-                    """.data(using: .utf8)!
-                ).decodableObj!
+            DocumentProperty(links: nil, name: self.propertyNames[0], value: self.propertyValues[0], builtIn: nil),
+            DocumentProperty(links: nil, name: self.propertyNames[1], value: self.propertyValues[1], builtIn: nil)
             ]
         
-        }
+    }
 
     private let fileName = "PdfWithAcroForm.pdf"
     private let propertyNames = ["prop1", "prop2"]

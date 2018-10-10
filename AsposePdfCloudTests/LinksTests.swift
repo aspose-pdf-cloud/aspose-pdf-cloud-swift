@@ -43,20 +43,23 @@ class LinksTests: AsposePdfCloudTests {
                 if let response = response {
                     XCTAssertEqual(response.code, self.codeOk)
                     
-                    let linkId = response.links?.list![0].id
-                        
-                    PdfAPI.getPageLinkAnnotation(name: self.fileName, pageNumber: pageNumber, linkId: linkId!, folder: self.tempFolder) {
-                        (response, error) in
-                        guard error == nil else {
-                            XCTFail("error testGetPageLinkAnnotation: " + (error.debugDescription))
-                            return
-                        }
-                        
-                        if let response = response {
-                            XCTAssertEqual(response.code, self.codeOk)
+                    if let links = response.links, let list = links.list, let linkId = list[0].id {
+                    
+                        PdfAPI.getPageLinkAnnotation(name: self.fileName, pageNumber: pageNumber, linkId: linkId, folder: self.tempFolder) {
+                            (response, error) in
+                            guard error == nil else {
+                                XCTFail("error testGetPageLinkAnnotation: " + (error.debugDescription))
+                                return
+                            }
                             
-                            expectation.fulfill()
+                            if let response = response {
+                                XCTAssertEqual(response.code, self.codeOk)
+                                
+                                expectation.fulfill()
+                            }
                         }
+                    } else {
+                        XCTFail("error testGetPageLinkAnnotations: " + (error.debugDescription))
                     }
                 }
             }
@@ -83,20 +86,24 @@ class LinksTests: AsposePdfCloudTests {
                 if let response = response {
                     XCTAssertEqual(response.code, self.codeOk)
                     
-                    let linkId = response.links?.list![0].id
+                    if let links = response.links, let list = links.list, let linkId = list[0].id {
                     
-                    PdfAPI.deleteLinkAnnotation(name: self.fileName, linkId: linkId!, folder: self.tempFolder) {
-                        (response, error) in
-                        guard error == nil else {
-                            XCTFail("error testDeleteLinkAnnotation: " + (error.debugDescription))
-                            return
+                        PdfAPI.deleteLinkAnnotation(name: self.fileName, linkId: linkId, folder: self.tempFolder) {
+                            (response, error) in
+                            guard error == nil else {
+                                XCTFail("error testDeleteLinkAnnotation: " + (error.debugDescription))
+                                return
+                            }
+                            
+                            if let response = response {
+                                XCTAssertEqual(response.code, self.codeOk)
+                                
+                                expectation.fulfill()
+                            }
                         }
                         
-                        if let response = response {
-                            XCTAssertEqual(response.code, self.codeOk)
-                            
-                            expectation.fulfill()
-                        }
+                    } else {
+                        XCTFail("error testGetPageLinkAnnotations: " + (error.debugDescription))
                     }
                 }
             }
@@ -181,20 +188,23 @@ class LinksTests: AsposePdfCloudTests {
                 if let response = response {
                     XCTAssertEqual(response.code, self.codeOk)
                     
-                    let linkId: String = (response.links?.list![0].id)!
+                    if let links = response.links, let list = links.list, let linkId = list[0].id {
                     
-                    PdfAPI.putLinkAnnotation(name: self.fileName, linkId: linkId, link: link, folder: self.tempFolder) {
-                        (response, error) in
-                        guard error == nil else {
-                            XCTFail("error testPutLinkAnnotation: " + (error.debugDescription))
-                            return
-                        }
-                        
-                        if let response = response {
-                            XCTAssertEqual(response.code, self.codeCreated)
+                        PdfAPI.putLinkAnnotation(name: self.fileName, linkId: linkId, link: link, folder: self.tempFolder) {
+                            (response, error) in
+                            guard error == nil else {
+                                XCTFail("error testPutLinkAnnotation: " + (error.debugDescription))
+                                return
+                            }
                             
-                            expectation.fulfill()
+                            if let response = response {
+                                XCTAssertEqual(response.code, self.codeCreated)
+                                
+                                expectation.fulfill()
+                            }
                         }
+                    } else {
+                        XCTFail("error testGetPageLinkAnnotations: " + (error.debugDescription))
                     }
                 }
             }
@@ -274,20 +284,23 @@ class LinksTests: AsposePdfCloudTests {
                 if let response = response {
                     XCTAssertEqual(response.code, self.codeOk)
                     
-                    let linkId = response.links?.list![0].id
+                    if let links = response.links, let list = links.list, let linkId = list[0].id {
                     
-                    PdfAPI.getLinkAnnotation(name: self.fileName, linkId: linkId!, folder: self.tempFolder) {
-                        (response, error) in
-                        guard error == nil else {
-                            XCTFail("error testGetLinkAnnotation: " + (error.debugDescription))
-                            return
-                        }
-                        
-                        if let response = response {
-                            XCTAssertEqual(response.code, self.codeOk)
+                        PdfAPI.getLinkAnnotation(name: self.fileName, linkId: linkId, folder: self.tempFolder) {
+                            (response, error) in
+                            guard error == nil else {
+                                XCTFail("error testGetLinkAnnotation: " + (error.debugDescription))
+                                return
+                            }
                             
-                            expectation.fulfill()
+                            if let response = response {
+                                XCTAssertEqual(response.code, self.codeOk)
+                                
+                                expectation.fulfill()
+                            }
                         }
+                    } else {
+                        XCTFail("error testGetPageLinkAnnotations: " + (error.debugDescription))
                     }
                 }
             }

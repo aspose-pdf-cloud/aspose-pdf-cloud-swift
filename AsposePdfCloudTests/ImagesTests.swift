@@ -44,20 +44,23 @@ class ImagesTests: AsposePdfCloudTests {
                 if let response = response {
                     XCTAssertEqual(response.code, self.codeOk)
                     
-                    let imageId = response.images?.list![0].id
+                    if let images = response.images, let list = images.list, let imageId = list[0].id {
                     
-                    PdfAPI.getImage(name: self.fileName, imageId: imageId!, storage: nil, folder: self.tempFolder) {
-                        (response, error) in
-                        guard error == nil else {
-                            XCTFail("error testGetImage: " + (error.debugDescription))
-                            return
-                        }
-                        
-                        if let response = response {
-                            XCTAssertEqual(response.code, self.codeOk)
+                        PdfAPI.getImage(name: self.fileName, imageId: imageId, storage: nil, folder: self.tempFolder) {
+                            (response, error) in
+                            guard error == nil else {
+                                XCTFail("error testGetImage: " + (error.debugDescription))
+                                return
+                            }
                             
-                            expectation.fulfill()
+                            if let response = response {
+                                XCTAssertEqual(response.code, self.codeOk)
+                                
+                                expectation.fulfill()
+                            }
                         }
+                    } else {
+                        XCTFail("error testGetImages: " + (error.debugDescription))
                     }
                 }
             }
@@ -83,20 +86,23 @@ class ImagesTests: AsposePdfCloudTests {
                 if let response = response {
                     XCTAssertEqual(response.code, self.codeOk)
                     
-                    let imageId = response.images?.list![0].id
+                    if let images = response.images, let list = images.list, let imageId = list[0].id {
                     
-                    PdfAPI.deleteImage(name: self.fileName, imageId: imageId!, storage: nil, folder: self.tempFolder) {
-                        (response, error) in
-                        guard error == nil else {
-                            XCTFail("error testDeleteImage: " + (error.debugDescription))
-                            return
-                        }
-                        
-                        if let response = response {
-                            XCTAssertEqual(response.code, self.codeOk)
+                        PdfAPI.deleteImage(name: self.fileName, imageId: imageId, storage: nil, folder: self.tempFolder) {
+                            (response, error) in
+                            guard error == nil else {
+                                XCTFail("error testDeleteImage: " + (error.debugDescription))
+                                return
+                            }
                             
-                            expectation.fulfill()
+                            if let response = response {
+                                XCTAssertEqual(response.code, self.codeOk)
+                                
+                                expectation.fulfill()
+                            }
                         }
+                    } else {
+                        XCTFail("error testGetImages: " + (error.debugDescription))
                     }
                 }
             }
@@ -149,20 +155,23 @@ class ImagesTests: AsposePdfCloudTests {
                 if let response = response {
                     XCTAssertEqual(response.code, self.codeOk)
                     
-                    let imageId = response.images?.list![0].id
+                    if let images = response.images, let list = images.list, let imageId = list[0].id {
                     
-                    PdfAPI.putReplaceImage(name: self.fileName, imageId: imageId!, imageFilePath: imageFilePath, storage: nil, folder: self.tempFolder, image: nil) {
-                        (response, error) in
-                        guard error == nil else {
-                            XCTFail("error testPutReplaceImage: " + (error.debugDescription))
-                            return
-                        }
-                        
-                        if let response = response {
-                            XCTAssertEqual(response.code, self.codeOk)
+                        PdfAPI.putReplaceImage(name: self.fileName, imageId: imageId, imageFilePath: imageFilePath, storage: nil, folder: self.tempFolder, image: nil) {
+                            (response, error) in
+                            guard error == nil else {
+                                XCTFail("error testPutReplaceImage: " + (error.debugDescription))
+                                return
+                            }
                             
-                            expectation.fulfill()
+                            if let response = response {
+                                XCTAssertEqual(response.code, self.codeOk)
+                                
+                                expectation.fulfill()
+                            }
                         }
+                    } else {
+                        XCTFail("error testGetImages: " + (error.debugDescription))
                     }
                 }
             }
@@ -329,20 +338,23 @@ class ImagesTests: AsposePdfCloudTests {
                 if let response = response {
                     XCTAssertEqual(response.code, self.codeOk)
                     
-                    let imageId = response.images?.list![0].id
+                    if let images = response.images, let list = images.list, let imageId = list[0].id {
                     
-                    PdfAPI.putImageExtractAsJpeg(name: self.fileName, imageId: imageId!, folder: self.tempFolder, destFolder: destFolder) {
-                        (response, error) in
-                        guard error == nil else {
-                            XCTFail("error testPutImageExtractAsJpeg: " + (error.debugDescription))
-                            return
-                        }
-                        
-                        if let response = response {
-                            XCTAssertEqual(response.code, self.codeOk)
+                        PdfAPI.putImageExtractAsJpeg(name: self.fileName, imageId: imageId, folder: self.tempFolder, destFolder: destFolder) {
+                            (response, error) in
+                            guard error == nil else {
+                                XCTFail("error testPutImageExtractAsJpeg: " + (error.debugDescription))
+                                return
+                            }
                             
-                            expectation.fulfill()
+                            if let response = response {
+                                XCTAssertEqual(response.code, self.codeOk)
+                                
+                                expectation.fulfill()
+                            }
                         }
+                    } else {
+                        XCTFail("error testGetImages: " + (error.debugDescription))
                     }
                 }
             }
@@ -368,20 +380,23 @@ class ImagesTests: AsposePdfCloudTests {
                 if let response = response {
                     XCTAssertEqual(response.code, self.codeOk)
                     
-                    let imageId = response.images?.list![0].id
+                    if let images = response.images, let list = images.list, let imageId = list[0].id {
                     
-                    PdfAPI.getImageExtractAsJpeg(name: self.fileName, imageId: imageId!, folder: self.tempFolder) {
-                        (response, error) in
-                        guard error == nil else {
-                            XCTFail("error testGetImageExtractAsJpeg: " + (error.debugDescription))
-                            return
-                        }
-                        
-                        if let response = response {
-                            XCTAssertFalse(response.isEmpty)
+                        PdfAPI.getImageExtractAsJpeg(name: self.fileName, imageId: imageId, folder: self.tempFolder) {
+                            (response, error) in
+                            guard error == nil else {
+                                XCTFail("error testGetImageExtractAsJpeg: " + (error.debugDescription))
+                                return
+                            }
                             
-                            expectation.fulfill()
+                            if let response = response {
+                                XCTAssertFalse(response.isEmpty)
+                                
+                                expectation.fulfill()
+                            }
                         }
+                    } else {
+                        XCTFail("error testGetImages: " + (error.debugDescription))
                     }
                 }
             }
@@ -409,20 +424,23 @@ class ImagesTests: AsposePdfCloudTests {
                 if let response = response {
                     XCTAssertEqual(response.code, self.codeOk)
                     
-                    let imageId = response.images?.list![0].id
+                    if let images = response.images, let list = images.list, let imageId = list[0].id {
                     
-                    PdfAPI.putImageExtractAsTiff(name: self.fileName, imageId: imageId!, folder: self.tempFolder, destFolder: destFolder) {
-                        (response, error) in
-                        guard error == nil else {
-                            XCTFail("error testPutImageExtractAsTiff: " + (error.debugDescription))
-                            return
-                        }
-                        
-                        if let response = response {
-                            XCTAssertEqual(response.code, self.codeOk)
+                        PdfAPI.putImageExtractAsTiff(name: self.fileName, imageId: imageId, folder: self.tempFolder, destFolder: destFolder) {
+                            (response, error) in
+                            guard error == nil else {
+                                XCTFail("error testPutImageExtractAsTiff: " + (error.debugDescription))
+                                return
+                            }
                             
-                            expectation.fulfill()
+                            if let response = response {
+                                XCTAssertEqual(response.code, self.codeOk)
+                                
+                                expectation.fulfill()
+                            }
                         }
+                    } else {
+                        XCTFail("error testGetImages: " + (error.debugDescription))
                     }
                 }
             }
@@ -448,20 +466,23 @@ class ImagesTests: AsposePdfCloudTests {
                 if let response = response {
                     XCTAssertEqual(response.code, self.codeOk)
                     
-                    let imageId = response.images?.list![0].id
+                    if let images = response.images, let list = images.list, let imageId = list[0].id {
                     
-                    PdfAPI.getImageExtractAsTiff(name: self.fileName, imageId: imageId!, folder: self.tempFolder) {
-                        (response, error) in
-                        guard error == nil else {
-                            XCTFail("error testGetImageExtractAsTiff: " + (error.debugDescription))
-                            return
-                        }
-                        
-                        if let response = response {
-                            XCTAssertFalse(response.isEmpty)
+                        PdfAPI.getImageExtractAsTiff(name: self.fileName, imageId: imageId, folder: self.tempFolder) {
+                            (response, error) in
+                            guard error == nil else {
+                                XCTFail("error testGetImageExtractAsTiff: " + (error.debugDescription))
+                                return
+                            }
                             
-                            expectation.fulfill()
+                            if let response = response {
+                                XCTAssertFalse(response.isEmpty)
+                                
+                                expectation.fulfill()
+                            }
                         }
+                    } else {
+                        XCTFail("error testGetImages: " + (error.debugDescription))
                     }
                 }
             }
@@ -489,20 +510,23 @@ class ImagesTests: AsposePdfCloudTests {
                 if let response = response {
                     XCTAssertEqual(response.code, self.codeOk)
                     
-                    let imageId = response.images?.list![0].id
+                    if let images = response.images, let list = images.list, let imageId = list[0].id {
                     
-                    PdfAPI.putImageExtractAsGif(name: self.fileName, imageId: imageId!, folder: self.tempFolder, destFolder: destFolder) {
-                        (response, error) in
-                        guard error == nil else {
-                            XCTFail("error testPutImageExtractAsGif: " + (error.debugDescription))
-                            return
-                        }
-                        
-                        if let response = response {
-                            XCTAssertEqual(response.code, self.codeOk)
+                        PdfAPI.putImageExtractAsGif(name: self.fileName, imageId: imageId, folder: self.tempFolder, destFolder: destFolder) {
+                            (response, error) in
+                            guard error == nil else {
+                                XCTFail("error testPutImageExtractAsGif: " + (error.debugDescription))
+                                return
+                            }
                             
-                            expectation.fulfill()
+                            if let response = response {
+                                XCTAssertEqual(response.code, self.codeOk)
+                                
+                                expectation.fulfill()
+                            }
                         }
+                    } else {
+                        XCTFail("error testGetImages: " + (error.debugDescription))
                     }
                 }
             }
@@ -528,20 +552,23 @@ class ImagesTests: AsposePdfCloudTests {
                 if let response = response {
                     XCTAssertEqual(response.code, self.codeOk)
                     
-                    let imageId = response.images?.list![0].id
+                    if let images = response.images, let list = images.list, let imageId = list[0].id {
                     
-                    PdfAPI.getImageExtractAsGif(name: self.fileName, imageId: imageId!, folder: self.tempFolder) {
-                        (response, error) in
-                        guard error == nil else {
-                            XCTFail("error testGetImageExtractAsGif: " + (error.debugDescription))
-                            return
-                        }
-                        
-                        if let response = response {
-                            XCTAssertFalse(response.isEmpty)
+                        PdfAPI.getImageExtractAsGif(name: self.fileName, imageId: imageId, folder: self.tempFolder) {
+                            (response, error) in
+                            guard error == nil else {
+                                XCTFail("error testGetImageExtractAsGif: " + (error.debugDescription))
+                                return
+                            }
                             
-                            expectation.fulfill()
+                            if let response = response {
+                                XCTAssertFalse(response.isEmpty)
+                                
+                                expectation.fulfill()
+                            }
                         }
+                    } else {
+                        XCTFail("error testGetImages: " + (error.debugDescription))
                     }
                 }
             }
@@ -569,20 +596,23 @@ class ImagesTests: AsposePdfCloudTests {
                 if let response = response {
                     XCTAssertEqual(response.code, self.codeOk)
                     
-                    let imageId = response.images?.list![0].id
+                    if let images = response.images, let list = images.list, let imageId = list[0].id {
                     
-                    PdfAPI.putImageExtractAsPng(name: self.fileName, imageId: imageId!, folder: self.tempFolder, destFolder: destFolder) {
-                        (response, error) in
-                        guard error == nil else {
-                            XCTFail("error testPutImageExtractAsPng: " + (error.debugDescription))
-                            return
-                        }
-                        
-                        if let response = response {
-                            XCTAssertEqual(response.code, self.codeOk)
+                        PdfAPI.putImageExtractAsPng(name: self.fileName, imageId: imageId, folder: self.tempFolder, destFolder: destFolder) {
+                            (response, error) in
+                            guard error == nil else {
+                                XCTFail("error testPutImageExtractAsPng: " + (error.debugDescription))
+                                return
+                            }
                             
-                            expectation.fulfill()
+                            if let response = response {
+                                XCTAssertEqual(response.code, self.codeOk)
+                                
+                                expectation.fulfill()
+                            }
                         }
+                    } else {
+                        XCTFail("error testGetImages: " + (error.debugDescription))
                     }
                 }
             }
@@ -608,20 +638,23 @@ class ImagesTests: AsposePdfCloudTests {
                 if let response = response {
                     XCTAssertEqual(response.code, self.codeOk)
                     
-                    let imageId = response.images?.list![0].id
+                    if let images = response.images, let list = images.list, let imageId = list[0].id {
                     
-                    PdfAPI.getImageExtractAsPng(name: self.fileName, imageId: imageId!, folder: self.tempFolder) {
-                        (response, error) in
-                        guard error == nil else {
-                            XCTFail("error testGetImageExtractAsPng: " + (error.debugDescription))
-                            return
-                        }
-                        
-                        if let response = response {
-                            XCTAssertFalse(response.isEmpty)
+                        PdfAPI.getImageExtractAsPng(name: self.fileName, imageId: imageId, folder: self.tempFolder) {
+                            (response, error) in
+                            guard error == nil else {
+                                XCTFail("error testGetImageExtractAsPng: " + (error.debugDescription))
+                                return
+                            }
                             
-                            expectation.fulfill()
+                            if let response = response {
+                                XCTAssertFalse(response.isEmpty)
+                                
+                                expectation.fulfill()
+                            }
                         }
+                    } else {
+                        XCTFail("error testGetImages: " + (error.debugDescription))
                     }
                 }
             }
