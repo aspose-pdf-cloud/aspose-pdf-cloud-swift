@@ -1192,7 +1192,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7348DE768895B5ACC153475A /* Pods-AsposePdfCloudTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2J7FTC9Q5N;
 				INFOPLIST_FILE = AsposePdfCloudTests/Info.plist;
@@ -1212,7 +1212,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2BF9429DFD179E7C5FB73F8E /* Pods-AsposePdfCloudTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2J7FTC9Q5N;
 				INFOPLIST_FILE = AsposePdfCloudTests/Info.plist;
