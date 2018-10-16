@@ -25,40 +25,15 @@
 import Foundation
 
 
-/** Base class for all responses. */
+/** The enumeration of states to which the original annotation can be set. */
+public enum AnnotationState: String, Codable {
+    case undefined = "Undefined"
+    case marked = "Marked"
+    case unmarked = "Unmarked"
+    case accepted = "Accepted"
+    case rejected = "Rejected"
+    case cancelled = "Cancelled"
+    case completed = "Completed"
+    case _none = "None"
 
-open class SaaSposeResponse: Codable {
-
-    /** Response status code. */
-    public var code: HttpStatusCode
-    /** Response status. */
-    public var status: String?
-
-        
-    
-    public init(code: HttpStatusCode, status: String?) {
-        self.code = code
-        self.status = status
-    }
-    
-
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encode(code, forKey: "Code")
-        try container.encodeIfPresent(status, forKey: "Status")
-    }
-
-    // Decodable protocol methods
-
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        code = try container.decode(HttpStatusCode.self, forKey: "Code")
-        status = try container.decodeIfPresent(String.self, forKey: "Status")
-    }
 }
-

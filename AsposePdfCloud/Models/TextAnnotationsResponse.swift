@@ -25,16 +25,15 @@
 import Foundation
 
 
-/** List of annotations. */
 
-open class Annotations: LinkElement {
+open class TextAnnotationsResponse: AsposeResponse {
 
-    public var list: [LinkElement]?
+    public var annotations: TextAnnotations?
 
     
-    public init(links: [Link]?, list: [LinkElement]?) {
-        super.init(links: links)
-        self.list = list
+    public init(code: Int, status: String?, annotations: TextAnnotations?) {
+        super.init(code: code, status: status)
+        self.annotations = annotations
     }
         
     
@@ -45,7 +44,7 @@ open class Annotations: LinkElement {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(list, forKey: "List")
+        try container.encodeIfPresent(annotations, forKey: "Annotations")
         try super.encode(to: encoder)
     }
 
@@ -54,7 +53,7 @@ open class Annotations: LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        list = try container.decodeIfPresent([LinkElement].self, forKey: "List")
+        annotations = try container.decodeIfPresent(TextAnnotations.self, forKey: "Annotations")
         try super.init(from: decoder)
     }
 }

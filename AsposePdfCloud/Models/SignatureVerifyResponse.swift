@@ -27,13 +27,13 @@ import Foundation
 
 /** Returns also a message. */
 
-open class SignatureVerifyResponse: SaaSposeResponse {
+open class SignatureVerifyResponse: AsposeResponse {
 
     /** Valid sign. */
     public var valid: Bool?
 
     
-    public init(code: HttpStatusCode, status: String?, valid: Bool?) {
+    public init(code: Int, status: String?, valid: Bool?) {
         super.init(code: code, status: status)
         self.valid = valid
     }

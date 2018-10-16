@@ -25,27 +25,31 @@
 import Foundation
 
 
+/** Base class for all responses. */
 
-open class TextItemsResponse: SaaSposeResponse {
+open class AsposeResponse: Codable {
 
-    public var textItems: TextItems?
+    /** Response status code. */
+    public var code: Int
+    /** Response status. */
+    public var status: String?
 
-    
-    public init(code: HttpStatusCode, status: String?, textItems: TextItems?) {
-        super.init(code: code, status: status)
-        self.textItems = textItems
-    }
         
+    
+    public init(code: Int, status: String?) {
+        self.code = code
+        self.status = status
+    }
     
 
     // Encodable protocol methods
 
-    public override func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(textItems, forKey: "TextItems")
-        try super.encode(to: encoder)
+        try container.encode(code, forKey: "Code")
+        try container.encodeIfPresent(status, forKey: "Status")
     }
 
     // Decodable protocol methods
@@ -53,8 +57,8 @@ open class TextItemsResponse: SaaSposeResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        textItems = try container.decodeIfPresent(TextItems.self, forKey: "TextItems")
-        try super.init(from: decoder)
+        code = try container.decode(Int.self, forKey: "Code")
+        status = try container.decodeIfPresent(String.self, forKey: "Status")
     }
 }
 

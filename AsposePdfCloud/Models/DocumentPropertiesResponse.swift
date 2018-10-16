@@ -26,12 +26,12 @@ import Foundation
 
 
 
-open class DocumentPropertiesResponse: SaaSposeResponse {
+open class DocumentPropertiesResponse: AsposeResponse {
 
     public var documentProperties: DocumentProperties?
 
     
-    public init(code: HttpStatusCode, status: String?, documentProperties: DocumentProperties?) {
+    public init(code: Int, status: String?, documentProperties: DocumentProperties?) {
         super.init(code: code, status: status)
         self.documentProperties = documentProperties
     }

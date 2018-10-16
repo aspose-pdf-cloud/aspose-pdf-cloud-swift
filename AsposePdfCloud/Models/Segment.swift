@@ -28,12 +28,12 @@ import Foundation
 
 open class Segment: Codable {
 
-    public var value: String?
+    public var value: String
     public var textState: TextState?
 
         
     
-    public init(value: String?, textState: TextState?) {
+    public init(value: String, textState: TextState?) {
         self.value = value
         self.textState = textState
     }
@@ -45,7 +45,7 @@ open class Segment: Codable {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(value, forKey: "Value")
+        try container.encode(value, forKey: "Value")
         try container.encodeIfPresent(textState, forKey: "TextState")
     }
 
@@ -54,7 +54,7 @@ open class Segment: Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        value = try container.decodeIfPresent(String.self, forKey: "Value")
+        value = try container.decode(String.self, forKey: "Value")
         textState = try container.decodeIfPresent(TextState.self, forKey: "TextState")
     }
 }

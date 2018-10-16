@@ -26,14 +26,14 @@ import Foundation
 
 
 
-open class TextFormatResponse: SaaSposeResponse {
+open class FreeTextAnnotationsResponse: AsposeResponse {
 
-    public var textFormat: TextFormat?
+    public var annotations: FreeTextAnnotations?
 
     
-    public init(code: HttpStatusCode, status: String?, textFormat: TextFormat?) {
+    public init(code: Int, status: String?, annotations: FreeTextAnnotations?) {
         super.init(code: code, status: status)
-        self.textFormat = textFormat
+        self.annotations = annotations
     }
         
     
@@ -44,7 +44,7 @@ open class TextFormatResponse: SaaSposeResponse {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(textFormat, forKey: "TextFormat")
+        try container.encodeIfPresent(annotations, forKey: "Annotations")
         try super.encode(to: encoder)
     }
 
@@ -53,7 +53,7 @@ open class TextFormatResponse: SaaSposeResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        textFormat = try container.decodeIfPresent(TextFormat.self, forKey: "TextFormat")
+        annotations = try container.decodeIfPresent(FreeTextAnnotations.self, forKey: "Annotations")
         try super.init(from: decoder)
     }
 }

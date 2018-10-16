@@ -25,41 +25,10 @@
 import Foundation
 
 
-/** Represents text DTO. */
+/** Enumerates the intents of the free text annotation. */
+public enum FreeTextIntent: String, Codable {
+    case undefined = "Undefined"
+    case freeTextCallout = "FreeTextCallout"
+    case freeTextTypeWriter = "FreeTextTypeWriter"
 
-open class TextItem: LinkElement {
-
-    public var text: String?
-    public var format: TextFormat?
-
-    
-    public init(links: [Link]?, text: String?, format: TextFormat?) {
-        super.init(links: links)
-        self.text = text
-        self.format = format
-    }
-        
-    
-
-    // Encodable protocol methods
-
-    public override func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(text, forKey: "Text")
-        try container.encodeIfPresent(format, forKey: "Format")
-        try super.encode(to: encoder)
-    }
-
-    // Decodable protocol methods
-
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        text = try container.decodeIfPresent(String.self, forKey: "Text")
-        format = try container.decodeIfPresent(TextFormat.self, forKey: "Format")
-        try super.init(from: decoder)
-    }
 }
-

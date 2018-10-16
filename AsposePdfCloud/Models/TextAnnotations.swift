@@ -25,27 +25,28 @@
 import Foundation
 
 
-/** Create document from images request. */
+/** List of annotations. */
 
-open class ImagesListRequest: Codable {
+open class TextAnnotations: LinkElement {
 
-    /** A list of paths for images. */
-    public var imagesList: [String]
+    public var list: [TextAnnotation]?
 
-        
     
-    public init(imagesList: [String]) {
-        self.imagesList = imagesList
+    public init(links: [Link]?, list: [TextAnnotation]?) {
+        super.init(links: links)
+        self.list = list
     }
+        
     
 
     // Encodable protocol methods
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encode(imagesList, forKey: "ImagesList")
+        try container.encodeIfPresent(list, forKey: "List")
+        try super.encode(to: encoder)
     }
 
     // Decodable protocol methods
@@ -53,7 +54,8 @@ open class ImagesListRequest: Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        imagesList = try container.decode([String].self, forKey: "ImagesList")
+        list = try container.decodeIfPresent([TextAnnotation].self, forKey: "List")
+        try super.init(from: decoder)
     }
 }
 

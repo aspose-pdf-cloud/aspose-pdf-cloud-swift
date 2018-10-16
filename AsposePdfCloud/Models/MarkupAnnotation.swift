@@ -25,16 +25,17 @@
 import Foundation
 
 
-/** Represents text items DTO. */
+/** Provides MarkupAnnotation. */
 
-open class TextItems: LinkElement {
+open class MarkupAnnotation: Annotation {
 
-    public var list: [TextItem]?
+    /** Get the annotation RichText. */
+    public var richText: String?
 
     
-    public init(links: [Link]?, list: [TextItem]?) {
-        super.init(links: links)
-        self.list = list
+    public init(links: [Link]?, contents: String?, creationDate: String?, subject: String?, title: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: RectanglePdf?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, richText: String?) {
+        super.init(links: links, contents: contents, creationDate: creationDate, subject: subject, title: title, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment)
+        self.richText = richText
     }
         
     
@@ -45,7 +46,7 @@ open class TextItems: LinkElement {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(list, forKey: "List")
+        try container.encodeIfPresent(richText, forKey: "RichText")
         try super.encode(to: encoder)
     }
 
@@ -54,7 +55,7 @@ open class TextItems: LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        list = try container.decodeIfPresent([TextItem].self, forKey: "List")
+        richText = try container.decodeIfPresent(String.self, forKey: "RichText")
         try super.init(from: decoder)
     }
 }

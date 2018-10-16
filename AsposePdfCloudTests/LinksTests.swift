@@ -26,25 +26,85 @@ class LinksTests: AsposePdfCloudTests {
     
     let fileName = "PdfWithLinks.pdf"
     
-    func testGetPageLinkAnnotationByIndex() {
+    func testGetPageLinkAnnotation() {
         
-        let expectation = self.expectation(description: "testGetPageLinkAnnotationByIndex")
+        let expectation = self.expectation(description: "testGetPageLinkAnnotation")
         let pageNumber = 1
-        let linkIndex = 1
         
         uploadFile(name: fileName) {
             
-            PdfAPI.getPageLinkAnnotationByIndex(name: self.fileName, pageNumber: pageNumber, linkIndex: linkIndex, folder: self.tempFolder) {
+            PdfAPI.getPageLinkAnnotations(name: self.fileName, pageNumber: pageNumber, folder: self.tempFolder) {
                 (response, error) in
                 guard error == nil else {
-                    XCTFail("error testGetPageLinkAnnotationByIndex: " + (error.debugDescription))
+                    XCTFail("error testGetPageLinkAnnotations: " + (error.debugDescription))
                     return
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
-                    expectation.fulfill()
+                    if let links = response.links, let list = links.list, let linkId = list[0].id {
+                    
+                        PdfAPI.getPageLinkAnnotation(name: self.fileName, pageNumber: pageNumber, linkId: linkId, folder: self.tempFolder) {
+                            (response, error) in
+                            guard error == nil else {
+                                XCTFail("error testGetPageLinkAnnotation: " + (error.debugDescription))
+                                return
+                            }
+                            
+                            if let response = response {
+                                XCTAssertEqual(response.code, self.codeOk)
+                                
+                                expectation.fulfill()
+                            }
+                        }
+                    } else {
+                        XCTFail("error testGetPageLinkAnnotations: " + (error.debugDescription))
+                    }
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+ 
+    
+    func testDeleteLinkAnnotation() {
+        
+        let expectation = self.expectation(description: "testDeleteLinkAnnotation")
+        let pageNumber = 1
+        
+        uploadFile(name: fileName) {
+            
+            PdfAPI.getPageLinkAnnotations(name: self.fileName, pageNumber: pageNumber, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testGetPageLinkAnnotations: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    if let links = response.links, let list = links.list, let linkId = list[0].id {
+                    
+                        PdfAPI.deleteLinkAnnotation(name: self.fileName, linkId: linkId, folder: self.tempFolder) {
+                            (response, error) in
+                            guard error == nil else {
+                                XCTFail("error testDeleteLinkAnnotation: " + (error.debugDescription))
+                                return
+                            }
+                            
+                            if let response = response {
+                                XCTAssertEqual(response.code, self.codeOk)
+                                
+                                expectation.fulfill()
+                            }
+                        }
+                        
+                    } else {
+                        XCTFail("error testGetPageLinkAnnotations: " + (error.debugDescription))
+                    }
                 }
             }
         }
@@ -68,9 +128,180 @@ class LinksTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    
+    func testPostPageLinkAnnotations() {
+        
+        let expectation = self.expectation(description: "testPostPageLinkAnnotations")
+        let pageNumber = 1
+        
+        let link = LinkAnnotation(links: nil, actionType: LinkActionType.goToURIAction, action: "https://products.aspose.cloud/pdf", highlighting: nil, color: nil, rect: RectanglePdf(LLX: 100, LLY: 100, URX: 500, URY: 500), id: nil)
+        
+        
+        uploadFile(name: fileName) {
+            
+            PdfAPI.postPageLinkAnnotations(name: self.fileName, pageNumber: pageNumber, links: [link], folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testPostPageLinkAnnotations: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeCreated)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    
+    func testPutLinkAnnotation() {
+        
+        let expectation = self.expectation(description: "testPutLinkAnnotation")
+        let pageNumber = 1
+        
+        let link = LinkAnnotation(links: nil, actionType: LinkActionType.goToURIAction, action: "https://products.aspose.cloud/pdf", highlighting: nil, color: nil, rect: RectanglePdf(LLX: 100, LLY: 100, URX: 500, URY: 500), id: nil)
+        
+        
+        uploadFile(name: fileName) {
+            
+            PdfAPI.getPageLinkAnnotations(name: self.fileName, pageNumber: pageNumber, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testGetPageLinkAnnotations: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    if let links = response.links, let list = links.list, let linkId = list[0].id {
+                    
+                        PdfAPI.putLinkAnnotation(name: self.fileName, linkId: linkId, link: link, folder: self.tempFolder) {
+                            (response, error) in
+                            guard error == nil else {
+                                XCTFail("error testPutLinkAnnotation: " + (error.debugDescription))
+                                return
+                            }
+                            
+                            if let response = response {
+                                XCTAssertEqual(response.code, self.codeCreated)
+                                
+                                expectation.fulfill()
+                            }
+                        }
+                    } else {
+                        XCTFail("error testGetPageLinkAnnotations: " + (error.debugDescription))
+                    }
+                }
+            }
+            
+            
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    
+    func testDeletePageLinkAnnotations() {
+        
+        let expectation = self.expectation(description: "testDeletePageLinkAnnotations")
+        let pageNumber = 1
+        
+        uploadFile(name: fileName) {
+            
+            PdfAPI.deletePageLinkAnnotations(name: self.fileName, pageNumber: pageNumber, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testDeletePageLinkAnnotations: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    
+    func testDeleteDocumentLinkAnnotations() {
+        
+        let expectation = self.expectation(description: "testDeleteDocumentLinkAnnotations")
+        
+        uploadFile(name: fileName) {
+            
+            PdfAPI.deleteDocumentLinkAnnotations(name: self.fileName, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testDeleteDocumentLinkAnnotations: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    
+    func testGetLinkAnnotation() {
+        
+        let expectation = self.expectation(description: "testGetLinkAnnotation")
+        let pageNumber = 1
+        
+        uploadFile(name: fileName) {
+            
+            PdfAPI.getPageLinkAnnotations(name: self.fileName, pageNumber: pageNumber, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testGetPageLinkAnnotations: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    if let links = response.links, let list = links.list, let linkId = list[0].id {
+                    
+                        PdfAPI.getLinkAnnotation(name: self.fileName, linkId: linkId, folder: self.tempFolder) {
+                            (response, error) in
+                            guard error == nil else {
+                                XCTFail("error testGetLinkAnnotation: " + (error.debugDescription))
+                                return
+                            }
+                            
+                            if let response = response {
+                                XCTAssertEqual(response.code, self.codeOk)
+                                
+                                expectation.fulfill()
+                            }
+                        }
+                    } else {
+                        XCTFail("error testGetPageLinkAnnotations: " + (error.debugDescription))
+                    }
                 }
             }
         }

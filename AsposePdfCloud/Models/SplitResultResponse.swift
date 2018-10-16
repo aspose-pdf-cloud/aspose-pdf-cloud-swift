@@ -27,13 +27,13 @@ import Foundation
 
 /** Represents split result object. */
 
-open class SplitResultResponse: SaaSposeResponse {
+open class SplitResultResponse: AsposeResponse {
 
     /** Gets or sets the splitting result. */
     public var result: SplitResult?
 
     
-    public init(code: HttpStatusCode, status: String?, result: SplitResult?) {
+    public init(code: Int, status: String?, result: SplitResult?) {
         super.init(code: code, status: status)
         self.result = result
     }

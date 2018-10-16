@@ -24,130 +24,9 @@ import XCTest
 
 class TextReplaceTests: AsposePdfCloudTests {
     
-    private let fileName = "4pages.pdf"
+    private let fileName = "marketing.pdf"
     
-    private var replaceRequest: TextReplaceRequest?
     private var replaceListRequest: TextReplaceListRequest?
-    
-    
-    override func setUp() {
-        super.setUp()
-        
-        replaceRequest = TextReplaceRequest(oldValue: "Page", newValue: "p_a_g_e", regex: false, textState: nil, rect: nil, defaultFont: nil)
-
-        replaceListRequest = TextReplaceListRequest(
-            textReplaces: [
-                TextReplace(oldValue: "First", newValue: "1", regex: false, textState: nil, rect: nil),
-                TextReplace(oldValue: "Page", newValue: "p_a_g_e", regex: false, textState: nil, rect: nil)
-            ],
-            defaultFont: nil,
-            startIndex: nil,
-            countReplace: nil
-        )
-
-        
-    }
-    
-    func testPostDocumentReplaceText()
-    {
-        let expectation = self.expectation(description: "testPostDocumentReplaceText")
-        
-        let rr: TextReplaceRequest = TextReplaceRequest(oldValue: "Page", newValue: "PagE", regex: false, textState: nil, rect: nil, defaultFont: nil)
-        
-        uploadFile(name: self.fileName)
-        {
-            PdfAPI.postDocumentReplaceText(name: self.fileName, textReplace: rr, folder: self.tempFolder) {
-                (response, error) in
-                guard error == nil else {
-                    XCTFail("error testPostDocumentReplaceText: " + (error.debugDescription))
-                    return
-                }
-                
-                if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
-                    
-                    expectation.fulfill()
-                }
-            }
-        }
-        self.waitForExpectations(timeout: testTimeout, handler: nil)
-    }
-    
-    
-    func testPostDocumentReplaceTextList() {
-        
-        let expectation = self.expectation(description: "testPostDocumentReplaceTextList")
-        
-        uploadFile(name: fileName) {
-            
-            PdfAPI.postDocumentReplaceTextList(name: self.fileName, textReplaceListRequest: self.replaceListRequest!, folder: self.tempFolder) {
-                (response, error) in
-                guard error == nil else {
-                    XCTFail("error testPostDocumentReplaceTextList")
-                    return
-                }
-                
-                if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
-                    
-                    expectation.fulfill()
-                }
-            }
-        }
-        
-        self.waitForExpectations(timeout: testTimeout, handler: nil)
-    }
-    
-    
-    func testPostPageReplaceText() {
-        
-        let expectation = self.expectation(description: "testPostPageReplaceText")
-        
-        uploadFile(name: fileName) {
-            
-            PdfAPI.postPageReplaceText(name: self.fileName, pageNumber: 1, textReplace: self.replaceRequest!, folder: self.tempFolder) {
-                (response, error) in
-                guard error == nil else {
-                    XCTFail("error testPostPageReplaceText")
-                    return
-                }
-                
-                if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
-                    
-                    expectation.fulfill()
-                }
-            }
-        }
-        
-        self.waitForExpectations(timeout: testTimeout, handler: nil)
-    }
-    
-    
-    func testPostPageReplaceTextList() {
-        
-        let expectation = self.expectation(description: "testPostPageReplaceTextList")
-        
-        uploadFile(name: fileName) {
-            
-            PdfAPI.postPageReplaceTextList(name: self.fileName, pageNumber: 1, textReplaceListRequest: self.replaceListRequest!, folder: self.tempFolder) {
-                (response, error) in
-                guard error == nil else {
-                    XCTFail("error testPostPageReplaceTextList")
-                    return
-                }
-                
-                if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
-                    
-                    expectation.fulfill()
-                }
-            }
-        }
-        
-        self.waitForExpectations(timeout: testTimeout, handler: nil)
-    }
-    
     
     func testPostDocumentTextReplace() {
         
@@ -155,11 +34,11 @@ class TextReplaceTests: AsposePdfCloudTests {
         let textReplaceListRequest = TextReplaceListRequest(
             textReplaces: [
                 TextReplace(
-                    oldValue: "Page",
-                    newValue: "P_a_g_e",
+                    oldValue: "market",
+                    newValue: "m_a_r_k_e_t",
                     regex: false,
                     textState: nil,
-                    rect: Rectangle(X: 100, Y: 700, width: 300, height: 300)
+                    rect: RectanglePdf(LLX: 100, LLY: 100, URX: 400, URY: 400)
                 )
             ],
             defaultFont: nil,
@@ -177,7 +56,7 @@ class TextReplaceTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -198,7 +77,7 @@ class TextReplaceTests: AsposePdfCloudTests {
                     newValue: "P_a_g_e",
                     regex: false,
                     textState: nil,
-                    rect: Rectangle(X: 100, Y: 700, width: 300, height: 300)
+                    rect: RectanglePdf(LLX: 100, LLY: 100, URX: 400, URY: 400)
                 )
             ],
             defaultFont: nil,
@@ -216,7 +95,7 @@ class TextReplaceTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }

@@ -36,7 +36,7 @@ open class Paragraph: Codable {
     public var rightMargin: Double?
     public var topMargin: Double?
     public var bottomMargin: Double?
-    public var rectangle: Rectangle?
+    public var rectangle: RectanglePdf?
     public var rotation: Double?
     public var subsequentLinesIndent: Double?
     public var verticalAlignment: VerticalAlignment?
@@ -44,7 +44,7 @@ open class Paragraph: Codable {
 
         
     
-    public init(lineSpacing: LineSpacing?, wrapMode: WrapMode?, horizontalAlignment: TextHorizontalAlignment?, leftMargin: Double?, rightMargin: Double?, topMargin: Double?, bottomMargin: Double?, rectangle: Rectangle?, rotation: Double?, subsequentLinesIndent: Double?, verticalAlignment: VerticalAlignment?, lines: [TextLine]) {
+    public init(lineSpacing: LineSpacing?, wrapMode: WrapMode?, horizontalAlignment: TextHorizontalAlignment?, leftMargin: Double?, rightMargin: Double?, topMargin: Double?, bottomMargin: Double?, rectangle: RectanglePdf?, rotation: Double?, subsequentLinesIndent: Double?, verticalAlignment: VerticalAlignment?, lines: [TextLine]) {
         self.lineSpacing = lineSpacing
         self.wrapMode = wrapMode
         self.horizontalAlignment = horizontalAlignment
@@ -92,7 +92,7 @@ open class Paragraph: Codable {
         rightMargin = try container.decodeIfPresent(Double.self, forKey: "RightMargin")
         topMargin = try container.decodeIfPresent(Double.self, forKey: "TopMargin")
         bottomMargin = try container.decodeIfPresent(Double.self, forKey: "BottomMargin")
-        rectangle = try container.decodeIfPresent(Rectangle.self, forKey: "Rectangle")
+        rectangle = try container.decodeIfPresent(RectanglePdf.self, forKey: "Rectangle")
         rotation = try container.decodeIfPresent(Double.self, forKey: "Rotation")
         subsequentLinesIndent = try container.decodeIfPresent(Double.self, forKey: "SubsequentLinesIndent")
         verticalAlignment = try container.decodeIfPresent(VerticalAlignment.self, forKey: "VerticalAlignment")

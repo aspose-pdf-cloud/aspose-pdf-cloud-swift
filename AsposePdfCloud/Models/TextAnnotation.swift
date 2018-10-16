@@ -25,26 +25,26 @@
 import Foundation
 
 
-/** Provides link to linkAnnotation. */
+/** Provides TextAnnotation. */
 
-open class LinkAnnotation: LinkElement {
+open class TextAnnotation: MarkupAnnotation {
 
-    public var actionType: LinkActionType?
-    public var action: String?
-    public var highlighting: LinkHighlightingMode?
+    /** Gets or sets the state to which the original annotation should be set. */
+    public var state: AnnotationState?
+    /** Gets or sets is the annotation open. */
+    public var open: Bool?
+    /** Color of the annotation. */
     public var color: Color?
-    public var rect: RectanglePdf?
-    public var id: String?
+    /** Gets or sets an icon to be used in displaying the annotation. */
+    public var icon: TextIcon?
 
     
-    public init(links: [Link]?, actionType: LinkActionType?, action: String?, highlighting: LinkHighlightingMode?, color: Color?, rect: RectanglePdf?, id: String?) {
-        super.init(links: links)
-        self.actionType = actionType
-        self.action = action
-        self.highlighting = highlighting
+    public init(links: [Link]?, contents: String?, creationDate: String?, subject: String?, title: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: RectanglePdf?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, richText: String?, state: AnnotationState?, open: Bool?, color: Color?, icon: TextIcon?) {
+        super.init(links: links, contents: contents, creationDate: creationDate, subject: subject, title: title, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, richText: richText)
+        self.state = state
+        self.open = open
         self.color = color
-        self.rect = rect
-        self.id = id
+        self.icon = icon
     }
         
     
@@ -55,12 +55,10 @@ open class LinkAnnotation: LinkElement {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(actionType, forKey: "ActionType")
-        try container.encodeIfPresent(action, forKey: "Action")
-        try container.encodeIfPresent(highlighting, forKey: "Highlighting")
+        try container.encodeIfPresent(state, forKey: "State")
+        try container.encodeIfPresent(open, forKey: "Open")
         try container.encodeIfPresent(color, forKey: "Color")
-        try container.encodeIfPresent(rect, forKey: "Rect")
-        try container.encodeIfPresent(id, forKey: "Id")
+        try container.encodeIfPresent(icon, forKey: "Icon")
         try super.encode(to: encoder)
     }
 
@@ -69,12 +67,10 @@ open class LinkAnnotation: LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        actionType = try container.decodeIfPresent(LinkActionType.self, forKey: "ActionType")
-        action = try container.decodeIfPresent(String.self, forKey: "Action")
-        highlighting = try container.decodeIfPresent(LinkHighlightingMode.self, forKey: "Highlighting")
+        state = try container.decodeIfPresent(AnnotationState.self, forKey: "State")
+        open = try container.decodeIfPresent(Bool.self, forKey: "Open")
         color = try container.decodeIfPresent(Color.self, forKey: "Color")
-        rect = try container.decodeIfPresent(RectanglePdf.self, forKey: "Rect")
-        id = try container.decodeIfPresent(String.self, forKey: "Id")
+        icon = try container.decodeIfPresent(TextIcon.self, forKey: "Icon")
         try super.init(from: decoder)
     }
 }

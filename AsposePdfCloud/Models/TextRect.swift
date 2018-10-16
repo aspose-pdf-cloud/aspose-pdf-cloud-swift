@@ -31,11 +31,11 @@ open class TextRect: Codable {
 
     public var text: String?
     public var page: Int
-    public var rect: Rectangle?
+    public var rect: RectanglePdf?
 
         
     
-    public init(text: String?, page: Int, rect: Rectangle?) {
+    public init(text: String?, page: Int, rect: RectanglePdf?) {
         self.text = text
         self.page = page
         self.rect = rect
@@ -60,7 +60,7 @@ open class TextRect: Codable {
 
         text = try container.decodeIfPresent(String.self, forKey: "Text")
         page = try container.decode(Int.self, forKey: "Page")
-        rect = try container.decodeIfPresent(Rectangle.self, forKey: "Rect")
+        rect = try container.decodeIfPresent(RectanglePdf.self, forKey: "Rect")
     }
 }
 

@@ -30,11 +30,11 @@ import Foundation
 open class MergeDocuments: Codable {
 
     /** List of documents for merging. */
-    public var list: [String]?
+    public var list: [String]
 
         
     
-    public init(list: [String]?) {
+    public init(list: [String]) {
         self.list = list
     }
     
@@ -45,7 +45,7 @@ open class MergeDocuments: Codable {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(list, forKey: "List")
+        try container.encode(list, forKey: "List")
     }
 
     // Decodable protocol methods
@@ -53,7 +53,7 @@ open class MergeDocuments: Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        list = try container.decodeIfPresent([String].self, forKey: "List")
+        list = try container.decode([String].self, forKey: "List")
     }
 }
 

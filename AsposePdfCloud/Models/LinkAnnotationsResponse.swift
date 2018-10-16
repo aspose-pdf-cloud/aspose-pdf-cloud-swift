@@ -26,12 +26,12 @@ import Foundation
 
 
 
-open class LinkAnnotationsResponse: SaaSposeResponse {
+open class LinkAnnotationsResponse: AsposeResponse {
 
     public var links: LinkAnnotations?
 
     
-    public init(code: HttpStatusCode, status: String?, links: LinkAnnotations?) {
+    public init(code: Int, status: String?, links: LinkAnnotations?) {
         super.init(code: code, status: status)
         self.links = links
     }

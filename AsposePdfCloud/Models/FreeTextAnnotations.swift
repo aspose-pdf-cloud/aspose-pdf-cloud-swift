@@ -25,35 +25,28 @@
 import Foundation
 
 
-/** Represents rectangle DTO. */
+/** List of annotations. */
 
-open class Rectangle: Codable {
+open class FreeTextAnnotations: LinkElement {
 
-    public var X: Int
-    public var Y: Int
-    public var width: Int
-    public var height: Int
+    public var list: [FreeTextAnnotation]?
 
-        
     
-    public init(X: Int, Y: Int, width: Int, height: Int) {
-        self.X = X
-        self.Y = Y
-        self.width = width
-        self.height = height
+    public init(links: [Link]?, list: [FreeTextAnnotation]?) {
+        super.init(links: links)
+        self.list = list
     }
+        
     
 
     // Encodable protocol methods
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encode(X, forKey: "X")
-        try container.encode(Y, forKey: "Y")
-        try container.encode(width, forKey: "Width")
-        try container.encode(height, forKey: "Height")
+        try container.encodeIfPresent(list, forKey: "List")
+        try super.encode(to: encoder)
     }
 
     // Decodable protocol methods
@@ -61,10 +54,8 @@ open class Rectangle: Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        X = try container.decode(Int.self, forKey: "X")
-        Y = try container.decode(Int.self, forKey: "Y")
-        width = try container.decode(Int.self, forKey: "Width")
-        height = try container.decode(Int.self, forKey: "Height")
+        list = try container.decodeIfPresent([FreeTextAnnotation].self, forKey: "List")
+        try super.init(from: decoder)
     }
 }
 

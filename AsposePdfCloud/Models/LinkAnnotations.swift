@@ -29,10 +29,10 @@ import Foundation
 
 open class LinkAnnotations: LinkElement {
 
-    public var list: [LinkElement]?
+    public var list: [LinkAnnotation]?
 
     
-    public init(links: [Link]?, list: [LinkElement]?) {
+    public init(links: [Link]?, list: [LinkAnnotation]?) {
         super.init(links: links)
         self.list = list
     }
@@ -54,7 +54,7 @@ open class LinkAnnotations: LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        list = try container.decodeIfPresent([LinkElement].self, forKey: "List")
+        list = try container.decodeIfPresent([LinkAnnotation].self, forKey: "List")
         try super.init(from: decoder)
     }
 }

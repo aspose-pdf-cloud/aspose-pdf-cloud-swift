@@ -25,16 +25,15 @@
 import Foundation
 
 
-/** Single text replacement request. */
 
-open class TextReplaceRequest: TextReplace {
+open class TextAnnotationResponse: AsposeResponse {
 
-    public var defaultFont: String?
+    public var annotation: TextAnnotation?
 
     
-    public init(oldValue: String, newValue: String, regex: Bool, textState: TextState?, rect: Rectangle?, defaultFont: String?) {
-        super.init(oldValue: oldValue, newValue: newValue, regex: regex, textState: textState, rect: rect)
-        self.defaultFont = defaultFont
+    public init(code: Int, status: String?, annotation: TextAnnotation?) {
+        super.init(code: code, status: status)
+        self.annotation = annotation
     }
         
     
@@ -45,7 +44,7 @@ open class TextReplaceRequest: TextReplace {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(defaultFont, forKey: "DefaultFont")
+        try container.encodeIfPresent(annotation, forKey: "Annotation")
         try super.encode(to: encoder)
     }
 
@@ -54,7 +53,7 @@ open class TextReplaceRequest: TextReplace {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        defaultFont = try container.decodeIfPresent(String.self, forKey: "DefaultFont")
+        annotation = try container.decodeIfPresent(TextAnnotation.self, forKey: "Annotation")
         try super.init(from: decoder)
     }
 }

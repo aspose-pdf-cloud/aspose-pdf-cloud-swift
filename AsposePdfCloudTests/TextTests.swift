@@ -31,7 +31,7 @@ class TextTests: AsposePdfCloudTests {
         
         uploadFile(name: fileName) {
             
-            PdfAPI.getText(name: fileName, X: 0, Y: 0, width: 0, height: 0, folder: self.tempFolder) {
+            PdfAPI.getText(name: fileName, LLX: 0, LLY: 0, URX: 0, URY: 0, folder: self.tempFolder) {
                 (response, error) in
                 guard error == nil else {
                     XCTFail("error testGetText")
@@ -39,7 +39,7 @@ class TextTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -58,7 +58,7 @@ class TextTests: AsposePdfCloudTests {
         
         uploadFile(name: fileName) {
             
-            PdfAPI.getPageText(name: fileName, pageNumber: 1, X: 0, Y: 0, width: 0, height: 0, format: format, folder: self.tempFolder) {
+            PdfAPI.getPageText(name: fileName, pageNumber: 1, LLX: 0, LLY: 0, URX: 0, URY: 0, format: format, folder: self.tempFolder) {
                 (response, error) in
                 guard error == nil else {
                     XCTFail("error testGetPageText")
@@ -66,7 +66,65 @@ class TextTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, HttpStatusCode.ok)
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    
+    func testPutAddText() {
+        
+        let expectation = self.expectation(description: "testPutAddText")
+        let fileName = "4pages.pdf"
+        let pageNumber = 1
+        let paragraph = Paragraph(
+            lineSpacing: LineSpacing.fontSize,
+            wrapMode: WrapMode.byWords,
+            horizontalAlignment: TextHorizontalAlignment.fullJustify,
+            leftMargin: 10,
+            rightMargin: 10,
+            topMargin: 20,
+            bottomMargin: 20,
+            rectangle: RectanglePdf(LLX: 100, LLY: 100, URX: 200, URY: 200),
+            rotation: 10,
+            subsequentLinesIndent: 20,
+            verticalAlignment: VerticalAlignment.center,
+            lines: [
+                TextLine(
+                    horizontalAlignment: TextHorizontalAlignment._right,
+                    segments: [
+                        Segment(
+                            value: "segment 1",
+                            textState: TextState(
+                                fontSize: 10,
+                                font: "Arial",
+                                foregroundColor: Color(A: 0x00, R: 0x00, G: 0xFF, B: 0x00),
+                                backgroundColor: Color(A: 0x00, R: 0xFF, G: 0x00, B: 0x00),
+                                fontStyle: FontStyles.bold
+                            )
+                        )
+                    ]
+                )
+            ]
+        )
+        
+        
+        uploadFile(name: fileName) {
+            
+            PdfAPI.putAddText(name: fileName, pageNumber: pageNumber, paragraph: paragraph, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testPutAddText: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }

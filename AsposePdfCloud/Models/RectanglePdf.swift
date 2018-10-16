@@ -25,27 +25,35 @@
 import Foundation
 
 
+/** Represents rectangle DTO. */
 
-open class LinkAnnotationResponse: AsposeResponse {
+open class RectanglePdf: Codable {
 
-    public var link: LinkAnnotation?
+    public var LLX: Double
+    public var LLY: Double
+    public var URX: Double
+    public var URY: Double
 
-    
-    public init(code: Int, status: String?, link: LinkAnnotation?) {
-        super.init(code: code, status: status)
-        self.link = link
-    }
         
+    
+    public init(LLX: Double, LLY: Double, URX: Double, URY: Double) {
+        self.LLX = LLX
+        self.LLY = LLY
+        self.URX = URX
+        self.URY = URY
+    }
     
 
     // Encodable protocol methods
 
-    public override func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(link, forKey: "Link")
-        try super.encode(to: encoder)
+        try container.encode(LLX, forKey: "LLX")
+        try container.encode(LLY, forKey: "LLY")
+        try container.encode(URX, forKey: "URX")
+        try container.encode(URY, forKey: "URY")
     }
 
     // Decodable protocol methods
@@ -53,8 +61,10 @@ open class LinkAnnotationResponse: AsposeResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        link = try container.decodeIfPresent(LinkAnnotation.self, forKey: "Link")
-        try super.init(from: decoder)
+        LLX = try container.decode(Double.self, forKey: "LLX")
+        LLY = try container.decode(Double.self, forKey: "LLY")
+        URX = try container.decode(Double.self, forKey: "URX")
+        URY = try container.decode(Double.self, forKey: "URY")
     }
 }
 

@@ -26,12 +26,12 @@ import Foundation
 
 
 /** Represents list of link action types. */
-public enum LinkActionType: Int, Codable {
-    case goToAction = 0
-    case goToURIAction = 1
-    case javascriptAction = 2
-    case launchAction = 3
-    case namedAction = 4
-    case submitFormAction = 5
+public enum LinkActionType: String, Codable {
+    case goToAction = "GoToAction"
+    case goToURIAction = "GoToURIAction"
+    case javascriptAction = "JavascriptAction"
+    case launchAction = "LaunchAction"
+    case namedAction = "NamedAction"
+    case submitFormAction = "SubmitFormAction"
 
 }

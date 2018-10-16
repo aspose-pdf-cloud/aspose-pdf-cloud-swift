@@ -32,11 +32,11 @@ open class TextLine: Codable {
     /** Line&#39;s horizontal alignment */
     public var horizontalAlignment: TextHorizontalAlignment?
     /** Segments that form the line. Every segment has its own formatting. */
-    public var segments: [Segment]?
+    public var segments: [Segment]
 
         
     
-    public init(horizontalAlignment: TextHorizontalAlignment?, segments: [Segment]?) {
+    public init(horizontalAlignment: TextHorizontalAlignment?, segments: [Segment]) {
         self.horizontalAlignment = horizontalAlignment
         self.segments = segments
     }
@@ -49,7 +49,7 @@ open class TextLine: Codable {
         var container = encoder.container(keyedBy: String.self)
 
         try container.encodeIfPresent(horizontalAlignment, forKey: "HorizontalAlignment")
-        try container.encodeIfPresent(segments, forKey: "Segments")
+        try container.encode(segments, forKey: "Segments")
     }
 
     // Decodable protocol methods
@@ -58,7 +58,7 @@ open class TextLine: Codable {
         let container = try decoder.container(keyedBy: String.self)
 
         horizontalAlignment = try container.decodeIfPresent(TextHorizontalAlignment.self, forKey: "HorizontalAlignment")
-        segments = try container.decodeIfPresent([Segment].self, forKey: "Segments")
+        segments = try container.decode([Segment].self, forKey: "Segments")
     }
 }
 

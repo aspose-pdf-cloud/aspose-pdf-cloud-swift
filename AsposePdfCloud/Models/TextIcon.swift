@@ -25,36 +25,18 @@
 import Foundation
 
 
+/** Enumerates the icons to be used in displaying the annotation. */
+public enum TextIcon: String, Codable {
+    case note = "Note"
+    case comment = "Comment"
+    case key = "Key"
+    case help = "Help"
+    case newParagraph = "NewParagraph"
+    case paragraph = "Paragraph"
+    case insert = "Insert"
+    case check = "Check"
+    case cross = "Cross"
+    case circle = "Circle"
+    case star = "Star"
 
-open class LinkAnnotationResponse: AsposeResponse {
-
-    public var link: LinkAnnotation?
-
-    
-    public init(code: Int, status: String?, link: LinkAnnotation?) {
-        super.init(code: code, status: status)
-        self.link = link
-    }
-        
-    
-
-    // Encodable protocol methods
-
-    public override func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(link, forKey: "Link")
-        try super.encode(to: encoder)
-    }
-
-    // Decodable protocol methods
-
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        link = try container.decodeIfPresent(LinkAnnotation.self, forKey: "Link")
-        try super.init(from: decoder)
-    }
 }
-

@@ -26,12 +26,12 @@ import Foundation
 
 
 
-open class TextReplaceResponse: SaaSposeResponse {
+open class TextReplaceResponse: AsposeResponse {
 
     public var matches: Int?
 
     
-    public init(code: HttpStatusCode, status: String?, matches: Int?) {
+    public init(code: Int, status: String?, matches: Int?) {
         super.init(code: code, status: status)
         self.matches = matches
     }

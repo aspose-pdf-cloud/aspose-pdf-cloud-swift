@@ -26,9 +26,9 @@ import Foundation
 
 
 /**  */
-public enum SignatureType: Int, Codable {
-    case PKCS1 = 0
-    case PKCS7 = 1
-    case PKCS7Detached = 2
+public enum SignatureType: String, Codable {
+    case pkcs1 = "PKCS1"
+    case pkcs7 = "PKCS7"
+    case pkcs7detached = "PKCS7Detached"
 
 }

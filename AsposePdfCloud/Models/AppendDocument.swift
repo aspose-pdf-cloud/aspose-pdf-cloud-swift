@@ -30,7 +30,7 @@ import Foundation
 open class AppendDocument: Codable {
 
     /** Document to append (server path). */
-    public var document: String?
+    public var document: String
     /** Appending start page. */
     public var startPage: Int
     /** Appending end page. */
@@ -38,7 +38,7 @@ open class AppendDocument: Codable {
 
         
     
-    public init(document: String?, startPage: Int, endPage: Int) {
+    public init(document: String, startPage: Int, endPage: Int) {
         self.document = document
         self.startPage = startPage
         self.endPage = endPage
@@ -51,7 +51,7 @@ open class AppendDocument: Codable {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(document, forKey: "Document")
+        try container.encode(document, forKey: "Document")
         try container.encode(startPage, forKey: "StartPage")
         try container.encode(endPage, forKey: "EndPage")
     }
@@ -61,7 +61,7 @@ open class AppendDocument: Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        document = try container.decodeIfPresent(String.self, forKey: "Document")
+        document = try container.decode(String.self, forKey: "Document")
         startPage = try container.decode(Int.self, forKey: "StartPage")
         endPage = try container.decode(Int.self, forKey: "EndPage")
     }

@@ -38,11 +38,11 @@ open class TextReplace: Codable {
     /** Text properties of a new text. */
     public var textState: TextState?
     /** Rectangle area where searched original text. */
-    public var rect: Rectangle?
+    public var rect: RectanglePdf?
 
         
     
-    public init(oldValue: String, newValue: String, regex: Bool, textState: TextState?, rect: Rectangle?) {
+    public init(oldValue: String, newValue: String, regex: Bool, textState: TextState?, rect: RectanglePdf?) {
         self.oldValue = oldValue
         self.newValue = newValue
         self.regex = regex
@@ -73,7 +73,7 @@ open class TextReplace: Codable {
         newValue = try container.decode(String.self, forKey: "NewValue")
         regex = try container.decode(Bool.self, forKey: "Regex")
         textState = try container.decodeIfPresent(TextState.self, forKey: "TextState")
-        rect = try container.decodeIfPresent(Rectangle.self, forKey: "Rect")
+        rect = try container.decodeIfPresent(RectanglePdf.self, forKey: "Rect")
     }
 }
 

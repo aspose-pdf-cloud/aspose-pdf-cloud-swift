@@ -25,27 +25,39 @@
 import Foundation
 
 
+/** Represents a text style of a text */
 
-open class DocumentTextReplaceResponse: TextReplaceResponse {
+open class TextStyle: Codable {
 
-    public var document: Document?
+    /** Gets or sets font size of the text. */
+    public var fontSize: Double
+    /** Gets or sets font of the text. */
+    public var font: String?
+    /** Gets or sets foreground color of the text. */
+    public var foregroundColor: Color?
+    /** Sets background color of the text. */
+    public var backgroundColor: Color?
 
-    
-    public init(code: HttpStatusCode, status: String?, matches: Int?, document: Document?) {
-        super.init(code: code, status: status, matches: matches)
-        self.document = document
-    }
         
+    
+    public init(fontSize: Double, font: String?, foregroundColor: Color?, backgroundColor: Color?) {
+        self.fontSize = fontSize
+        self.font = font
+        self.foregroundColor = foregroundColor
+        self.backgroundColor = backgroundColor
+    }
     
 
     // Encodable protocol methods
 
-    public override func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(document, forKey: "Document")
-        try super.encode(to: encoder)
+        try container.encode(fontSize, forKey: "FontSize")
+        try container.encodeIfPresent(font, forKey: "Font")
+        try container.encodeIfPresent(foregroundColor, forKey: "ForegroundColor")
+        try container.encodeIfPresent(backgroundColor, forKey: "BackgroundColor")
     }
 
     // Decodable protocol methods
@@ -53,8 +65,10 @@ open class DocumentTextReplaceResponse: TextReplaceResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        document = try container.decodeIfPresent(Document.self, forKey: "Document")
-        try super.init(from: decoder)
+        fontSize = try container.decode(Double.self, forKey: "FontSize")
+        font = try container.decodeIfPresent(String.self, forKey: "Font")
+        foregroundColor = try container.decodeIfPresent(Color.self, forKey: "ForegroundColor")
+        backgroundColor = try container.decodeIfPresent(Color.self, forKey: "BackgroundColor")
     }
 }
 

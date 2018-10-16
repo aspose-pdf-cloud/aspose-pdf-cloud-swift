@@ -26,14 +26,14 @@ import Foundation
 
 
 
-open class TextItemResponse: SaaSposeResponse {
+open class DocumentPageResponse: AsposeResponse {
 
-    public var textItem: TextItem?
+    public var page: Page?
 
     
-    public init(code: HttpStatusCode, status: String?, textItem: TextItem?) {
+    public init(code: Int, status: String?, page: Page?) {
         super.init(code: code, status: status)
-        self.textItem = textItem
+        self.page = page
     }
         
     
@@ -44,7 +44,7 @@ open class TextItemResponse: SaaSposeResponse {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(textItem, forKey: "TextItem")
+        try container.encodeIfPresent(page, forKey: "Page")
         try super.encode(to: encoder)
     }
 
@@ -53,7 +53,7 @@ open class TextItemResponse: SaaSposeResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        textItem = try container.decodeIfPresent(TextItem.self, forKey: "TextItem")
+        page = try container.decodeIfPresent(Page.self, forKey: "Page")
         try super.init(from: decoder)
     }
 }

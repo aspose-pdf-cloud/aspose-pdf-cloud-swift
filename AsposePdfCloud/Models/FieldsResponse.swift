@@ -26,12 +26,12 @@ import Foundation
 
 
 
-open class FieldsResponse: SaaSposeResponse {
+open class FieldsResponse: AsposeResponse {
 
     public var fields: Fields?
 
     
-    public init(code: HttpStatusCode, status: String?, fields: Fields?) {
+    public init(code: Int, status: String?, fields: Fields?) {
         super.init(code: code, status: status)
         self.fields = fields
     }

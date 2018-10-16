@@ -26,12 +26,12 @@ import Foundation
 
 
 
-open class AnnotationResponse: SaaSposeResponse {
+open class FreeTextAnnotationResponse: AsposeResponse {
 
-    public var annotation: Annotation?
+    public var annotation: FreeTextAnnotation?
 
     
-    public init(code: HttpStatusCode, status: String?, annotation: Annotation?) {
+    public init(code: Int, status: String?, annotation: FreeTextAnnotation?) {
         super.init(code: code, status: status)
         self.annotation = annotation
     }
@@ -53,7 +53,7 @@ open class AnnotationResponse: SaaSposeResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        annotation = try container.decodeIfPresent(Annotation.self, forKey: "Annotation")
+        annotation = try container.decodeIfPresent(FreeTextAnnotation.self, forKey: "Annotation")
         try super.init(from: decoder)
     }
 }
