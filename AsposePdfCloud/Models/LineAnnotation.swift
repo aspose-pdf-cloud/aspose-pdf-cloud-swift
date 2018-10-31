@@ -58,7 +58,7 @@ open class LineAnnotation: MarkupAnnotation {
 
     
     public init(links: [Link]?, contents: String?, creationDate: String?, subject: String?, title: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: RectanglePdf?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, richText: String?, starting: Point?, startingStyle: LineEnding?, ending: Point?, endingStyle: LineEnding?, interiorColor: Color?, leaderLine: Double?, leaderLineExtension: Double?, leaderLineOffset: Double?, showCaption: Bool?, captionOffset: Point?, captionPosition: CaptionPosition?, color: Color?, intent: LineIntent?) {
-        super.init(links: links)
+        super.init(links: links, contents: contents, creationDate: creationDate, subject: subject, title: title, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, richText: richText)
         self.starting = starting
         self.startingStyle = startingStyle
         self.ending = ending

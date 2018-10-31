@@ -7,6 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E52FD8B2189F2AB00DEDC40 /* LineAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD702189F2A700DEDC40 /* LineAnnotation.swift */; };
+		1E52FD8C2189F2AB00DEDC40 /* PolygonAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD712189F2A700DEDC40 /* PolygonAnnotation.swift */; };
+		1E52FD8D2189F2AB00DEDC40 /* CircleAnnotationsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD722189F2A700DEDC40 /* CircleAnnotationsResponse.swift */; };
+		1E52FD8E2189F2AB00DEDC40 /* PolyLineAnnotationsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD732189F2A700DEDC40 /* PolyLineAnnotationsResponse.swift */; };
+		1E52FD8F2189F2AB00DEDC40 /* PolyLineAnnotationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD742189F2A800DEDC40 /* PolyLineAnnotationResponse.swift */; };
+		1E52FD902189F2AB00DEDC40 /* SquareAnnotationsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD752189F2A800DEDC40 /* SquareAnnotationsResponse.swift */; };
+		1E52FD912189F2AB00DEDC40 /* PolygonAnnotationsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD762189F2A800DEDC40 /* PolygonAnnotationsResponse.swift */; };
+		1E52FD922189F2AB00DEDC40 /* PolyAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD772189F2A800DEDC40 /* PolyAnnotation.swift */; };
+		1E52FD932189F2AB00DEDC40 /* LineAnnotationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD782189F2A800DEDC40 /* LineAnnotationResponse.swift */; };
+		1E52FD942189F2AB00DEDC40 /* SquareAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD792189F2A800DEDC40 /* SquareAnnotation.swift */; };
+		1E52FD952189F2AB00DEDC40 /* LineAnnotationsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD7A2189F2A900DEDC40 /* LineAnnotationsResponse.swift */; };
+		1E52FD962189F2AB00DEDC40 /* LineIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD7B2189F2A900DEDC40 /* LineIntent.swift */; };
+		1E52FD972189F2AB00DEDC40 /* CircleAnnotationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD7C2189F2A900DEDC40 /* CircleAnnotationResponse.swift */; };
+		1E52FD982189F2AB00DEDC40 /* PolyIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD7D2189F2A900DEDC40 /* PolyIntent.swift */; };
+		1E52FD992189F2AB00DEDC40 /* PolygonAnnotationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD7E2189F2A900DEDC40 /* PolygonAnnotationResponse.swift */; };
+		1E52FD9A2189F2AB00DEDC40 /* SquareAnnotationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD7F2189F2A900DEDC40 /* SquareAnnotationResponse.swift */; };
+		1E52FD9B2189F2AB00DEDC40 /* PolyLineAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD802189F2A900DEDC40 /* PolyLineAnnotation.swift */; };
+		1E52FD9C2189F2AB00DEDC40 /* PolyLineAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD812189F2A900DEDC40 /* PolyLineAnnotations.swift */; };
+		1E52FD9D2189F2AB00DEDC40 /* LineAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD822189F2AA00DEDC40 /* LineAnnotations.swift */; };
+		1E52FD9E2189F2AB00DEDC40 /* CaptionPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD832189F2AA00DEDC40 /* CaptionPosition.swift */; };
+		1E52FD9F2189F2AB00DEDC40 /* SquareAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD842189F2AA00DEDC40 /* SquareAnnotations.swift */; };
+		1E52FDA02189F2AB00DEDC40 /* PolygonAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD852189F2AA00DEDC40 /* PolygonAnnotations.swift */; };
+		1E52FDA12189F2AB00DEDC40 /* LineEnding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD862189F2AA00DEDC40 /* LineEnding.swift */; };
+		1E52FDA22189F2AB00DEDC40 /* CommonFigureAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD872189F2AA00DEDC40 /* CommonFigureAnnotation.swift */; };
+		1E52FDA32189F2AB00DEDC40 /* CircleAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD882189F2AA00DEDC40 /* CircleAnnotations.swift */; };
+		1E52FDA42189F2AB00DEDC40 /* CircleAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD892189F2AB00DEDC40 /* CircleAnnotation.swift */; };
+		1E52FDA52189F2AB00DEDC40 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD8A2189F2AB00DEDC40 /* Point.swift */; };
+		1E52FDA72189F95C00DEDC40 /* LineAnnotationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FDA62189F95C00DEDC40 /* LineAnnotationsTests.swift */; };
+		1E52FDA92189FF2200DEDC40 /* SquareAnnotationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FDA82189FF2200DEDC40 /* SquareAnnotationsTests.swift */; };
+		1E52FDAB218A008500DEDC40 /* CircleAnnotationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FDAA218A008500DEDC40 /* CircleAnnotationsTests.swift */; };
+		1E52FDAD218A010B00DEDC40 /* PolygonAnnotationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FDAC218A010B00DEDC40 /* PolygonAnnotationsTests.swift */; };
+		1E52FDAF218A028F00DEDC40 /* PolyLineAnnotationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FDAE218A028F00DEDC40 /* PolyLineAnnotationsTests.swift */; };
 		1E668ACE2174AACE004218A8 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 1E668ACB2174AACE004218A8 /* LICENSE */; };
 		1E668ACF2174AACE004218A8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1E668ACC2174AACE004218A8 /* README.md */; };
 		1E668AD22174AC62004218A8 /* PdfAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E668AD12174AC62004218A8 /* PdfAPI.swift */; };
@@ -195,6 +227,38 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E52FD702189F2A700DEDC40 /* LineAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineAnnotation.swift; sourceTree = "<group>"; };
+		1E52FD712189F2A700DEDC40 /* PolygonAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolygonAnnotation.swift; sourceTree = "<group>"; };
+		1E52FD722189F2A700DEDC40 /* CircleAnnotationsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleAnnotationsResponse.swift; sourceTree = "<group>"; };
+		1E52FD732189F2A700DEDC40 /* PolyLineAnnotationsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolyLineAnnotationsResponse.swift; sourceTree = "<group>"; };
+		1E52FD742189F2A800DEDC40 /* PolyLineAnnotationResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolyLineAnnotationResponse.swift; sourceTree = "<group>"; };
+		1E52FD752189F2A800DEDC40 /* SquareAnnotationsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareAnnotationsResponse.swift; sourceTree = "<group>"; };
+		1E52FD762189F2A800DEDC40 /* PolygonAnnotationsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolygonAnnotationsResponse.swift; sourceTree = "<group>"; };
+		1E52FD772189F2A800DEDC40 /* PolyAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolyAnnotation.swift; sourceTree = "<group>"; };
+		1E52FD782189F2A800DEDC40 /* LineAnnotationResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineAnnotationResponse.swift; sourceTree = "<group>"; };
+		1E52FD792189F2A800DEDC40 /* SquareAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareAnnotation.swift; sourceTree = "<group>"; };
+		1E52FD7A2189F2A900DEDC40 /* LineAnnotationsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineAnnotationsResponse.swift; sourceTree = "<group>"; };
+		1E52FD7B2189F2A900DEDC40 /* LineIntent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineIntent.swift; sourceTree = "<group>"; };
+		1E52FD7C2189F2A900DEDC40 /* CircleAnnotationResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleAnnotationResponse.swift; sourceTree = "<group>"; };
+		1E52FD7D2189F2A900DEDC40 /* PolyIntent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolyIntent.swift; sourceTree = "<group>"; };
+		1E52FD7E2189F2A900DEDC40 /* PolygonAnnotationResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolygonAnnotationResponse.swift; sourceTree = "<group>"; };
+		1E52FD7F2189F2A900DEDC40 /* SquareAnnotationResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareAnnotationResponse.swift; sourceTree = "<group>"; };
+		1E52FD802189F2A900DEDC40 /* PolyLineAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolyLineAnnotation.swift; sourceTree = "<group>"; };
+		1E52FD812189F2A900DEDC40 /* PolyLineAnnotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolyLineAnnotations.swift; sourceTree = "<group>"; };
+		1E52FD822189F2AA00DEDC40 /* LineAnnotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineAnnotations.swift; sourceTree = "<group>"; };
+		1E52FD832189F2AA00DEDC40 /* CaptionPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptionPosition.swift; sourceTree = "<group>"; };
+		1E52FD842189F2AA00DEDC40 /* SquareAnnotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareAnnotations.swift; sourceTree = "<group>"; };
+		1E52FD852189F2AA00DEDC40 /* PolygonAnnotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolygonAnnotations.swift; sourceTree = "<group>"; };
+		1E52FD862189F2AA00DEDC40 /* LineEnding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineEnding.swift; sourceTree = "<group>"; };
+		1E52FD872189F2AA00DEDC40 /* CommonFigureAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonFigureAnnotation.swift; sourceTree = "<group>"; };
+		1E52FD882189F2AA00DEDC40 /* CircleAnnotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleAnnotations.swift; sourceTree = "<group>"; };
+		1E52FD892189F2AB00DEDC40 /* CircleAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleAnnotation.swift; sourceTree = "<group>"; };
+		1E52FD8A2189F2AB00DEDC40 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		1E52FDA62189F95C00DEDC40 /* LineAnnotationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineAnnotationsTests.swift; sourceTree = "<group>"; };
+		1E52FDA82189FF2200DEDC40 /* SquareAnnotationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareAnnotationsTests.swift; sourceTree = "<group>"; };
+		1E52FDAA218A008500DEDC40 /* CircleAnnotationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleAnnotationsTests.swift; sourceTree = "<group>"; };
+		1E52FDAC218A010B00DEDC40 /* PolygonAnnotationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolygonAnnotationsTests.swift; sourceTree = "<group>"; };
+		1E52FDAE218A028F00DEDC40 /* PolyLineAnnotationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolyLineAnnotationsTests.swift; sourceTree = "<group>"; };
 		1E668ACA2174AACE004218A8 /* setup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = setup.json; sourceTree = "<group>"; };
 		1E668ACB2174AACE004218A8 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		1E668ACC2174AACE004218A8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -445,8 +509,14 @@
 				1E668AEF2174AFEF004218A8 /* AttachmentResponse.swift */,
 				1E668AFE2174AFF1004218A8 /* Attachments.swift */,
 				1E668AF12174AFEF004218A8 /* AttachmentsResponse.swift */,
+				1E52FD832189F2AA00DEDC40 /* CaptionPosition.swift */,
+				1E52FD892189F2AB00DEDC40 /* CircleAnnotation.swift */,
+				1E52FD7C2189F2A900DEDC40 /* CircleAnnotationResponse.swift */,
+				1E52FD882189F2AA00DEDC40 /* CircleAnnotations.swift */,
+				1E52FD722189F2A700DEDC40 /* CircleAnnotationsResponse.swift */,
 				1E668B1F2174AFF5004218A8 /* Color.swift */,
 				1E668B3F2174AFF9004218A8 /* ColorDepth.swift */,
+				1E52FD872189F2AA00DEDC40 /* CommonFigureAnnotation.swift */,
 				1E668B402174AFFA004218A8 /* CompressionType.swift */,
 				1E668B092174AFF2004218A8 /* DocFormat.swift */,
 				1E668B292174AFF6004218A8 /* DocRecognitionMode.swift */,
@@ -485,6 +555,12 @@
 				1E668B232174AFF5004218A8 /* ImageTemplatesRequest.swift */,
 				1E668B2B2174AFF7004218A8 /* Justification.swift */,
 				1E668B302174AFF7004218A8 /* LettersPositioningMethods.swift */,
+				1E52FD702189F2A700DEDC40 /* LineAnnotation.swift */,
+				1E52FD782189F2A800DEDC40 /* LineAnnotationResponse.swift */,
+				1E52FD822189F2AA00DEDC40 /* LineAnnotations.swift */,
+				1E52FD7A2189F2A900DEDC40 /* LineAnnotationsResponse.swift */,
+				1E52FD862189F2AA00DEDC40 /* LineEnding.swift */,
+				1E52FD7B2189F2A900DEDC40 /* LineIntent.swift */,
 				1E668B482174AFFB004218A8 /* LineSpacing.swift */,
 				1E668B332174AFF8004218A8 /* Link.swift */,
 				1E668B322174AFF7004218A8 /* LinkActionType.swift */,
@@ -504,6 +580,17 @@
 				1E668B4C2174AFFB004218A8 /* Paragraph.swift */,
 				1E668B102174AFF3004218A8 /* PartsEmbeddingModes.swift */,
 				1E668B3C2174AFF9004218A8 /* PdfAType.swift */,
+				1E52FD8A2189F2AB00DEDC40 /* Point.swift */,
+				1E52FD772189F2A800DEDC40 /* PolyAnnotation.swift */,
+				1E52FD712189F2A700DEDC40 /* PolygonAnnotation.swift */,
+				1E52FD7E2189F2A900DEDC40 /* PolygonAnnotationResponse.swift */,
+				1E52FD852189F2AA00DEDC40 /* PolygonAnnotations.swift */,
+				1E52FD762189F2A800DEDC40 /* PolygonAnnotationsResponse.swift */,
+				1E52FD7D2189F2A900DEDC40 /* PolyIntent.swift */,
+				1E52FD802189F2A900DEDC40 /* PolyLineAnnotation.swift */,
+				1E52FD742189F2A800DEDC40 /* PolyLineAnnotationResponse.swift */,
+				1E52FD812189F2A900DEDC40 /* PolyLineAnnotations.swift */,
+				1E52FD732189F2A700DEDC40 /* PolyLineAnnotationsResponse.swift */,
 				1E668B502174AFFC004218A8 /* RasterImagesSavingModes.swift */,
 				1E668B222174AFF5004218A8 /* RectanglePdf.swift */,
 				1E668B4E2174AFFB004218A8 /* Rotation.swift */,
@@ -515,6 +602,10 @@
 				1E668AF52174AFF0004218A8 /* SplitResult.swift */,
 				1E668B2F2174AFF7004218A8 /* SplitResultDocument.swift */,
 				1E668B492174AFFB004218A8 /* SplitResultResponse.swift */,
+				1E52FD792189F2A800DEDC40 /* SquareAnnotation.swift */,
+				1E52FD7F2189F2A900DEDC40 /* SquareAnnotationResponse.swift */,
+				1E52FD842189F2AA00DEDC40 /* SquareAnnotations.swift */,
+				1E52FD752189F2A800DEDC40 /* SquareAnnotationsResponse.swift */,
 				1E668B242174AFF6004218A8 /* Stamp.swift */,
 				1E668AE92174AFEF004218A8 /* StampType.swift */,
 				1E668B192174AFF4004218A8 /* TextAnnotation.swift */,
@@ -648,6 +739,11 @@
 				1E668BBA2174B299004218A8 /* AnnotationsTests.swift */,
 				1E9D602C2174857C0097419C /* AsposePdfCloudTests.swift */,
 				1E9D602E2174857C0097419C /* Info.plist */,
+				1E52FDA62189F95C00DEDC40 /* LineAnnotationsTests.swift */,
+				1E52FDA82189FF2200DEDC40 /* SquareAnnotationsTests.swift */,
+				1E52FDAA218A008500DEDC40 /* CircleAnnotationsTests.swift */,
+				1E52FDAC218A010B00DEDC40 /* PolygonAnnotationsTests.swift */,
+				1E52FDAE218A028F00DEDC40 /* PolyLineAnnotationsTests.swift */,
 			);
 			path = AsposePdfCloudTests;
 			sourceTree = "<group>";
@@ -853,8 +949,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E52FD952189F2AB00DEDC40 /* LineAnnotationsResponse.swift in Sources */,
 				1E668B7A2174AFFC004218A8 /* TextStyle.swift in Sources */,
 				1E668B902174AFFC004218A8 /* AsposeResponse.swift in Sources */,
+				1E52FDA02189F2AB00DEDC40 /* PolygonAnnotations.swift in Sources */,
 				1E668B792174AFFC004218A8 /* PartsEmbeddingModes.swift in Sources */,
 				1E668B842174AFFC004218A8 /* SignatureType.swift in Sources */,
 				1E668B9A2174AFFC004218A8 /* TextRect.swift in Sources */,
@@ -865,15 +963,19 @@
 				1E668AE02174AFA4004218A8 /* AuthAspose.swift in Sources */,
 				1E668B732174AFFC004218A8 /* FreeTextAnnotationsResponse.swift in Sources */,
 				1E668B692174AFFC004218A8 /* TextReplaceListRequest.swift in Sources */,
+				1E52FD932189F2AB00DEDC40 /* LineAnnotationResponse.swift in Sources */,
 				1E668B9F2174AFFC004218A8 /* TextHorizontalAlignment.swift in Sources */,
 				1E668B752174AFFC004218A8 /* DocumentPageResponse.swift in Sources */,
+				1E52FDA22189F2AB00DEDC40 /* CommonFigureAnnotation.swift in Sources */,
 				1E668B942174AFFC004218A8 /* Justification.swift in Sources */,
 				1E668B6E2174AFFC004218A8 /* WordCount.swift in Sources */,
 				1E668B7B2174AFFC004218A8 /* TextRects.swift in Sources */,
+				1E52FD9D2189F2AB00DEDC40 /* LineAnnotations.swift in Sources */,
 				1E668B822174AFFC004218A8 /* TextAnnotation.swift in Sources */,
 				1E668B7F2174AFFC004218A8 /* HtmlMarkupGenerationModes.swift in Sources */,
 				1E668BB92174AFFC004218A8 /* RasterImagesSavingModes.swift in Sources */,
 				1E668B912174AFFC004218A8 /* Images.swift in Sources */,
+				1E52FD982189F2AB00DEDC40 /* PolyIntent.swift in Sources */,
 				1E668B662174AFFC004218A8 /* LinkElement.swift in Sources */,
 				1E668B9E2174AFFC004218A8 /* TextIcon.swift in Sources */,
 				1E668BA72174AFFC004218A8 /* AnnotationState.swift in Sources */,
@@ -884,16 +986,21 @@
 				1E668BA32174AFFC004218A8 /* ImageTemplate.swift in Sources */,
 				1E668B512174AFFC004218A8 /* Segment.swift in Sources */,
 				1E668AE12174AFA4004218A8 /* CodableHelper.swift in Sources */,
+				1E52FD8E2189F2AB00DEDC40 /* PolyLineAnnotationsResponse.swift in Sources */,
 				1E668BAB2174AFFC004218A8 /* SignatureVerifyResponse.swift in Sources */,
 				1E668ADE2174AFA4004218A8 /* JSONEncodingHelper.swift in Sources */,
+				1E52FD8D2189F2AB00DEDC40 /* CircleAnnotationsResponse.swift in Sources */,
 				1E668BAD2174AFFC004218A8 /* FieldsResponse.swift in Sources */,
 				1E668B7C2174AFFC004218A8 /* ImageResponse.swift in Sources */,
 				1E668B8A2174AFFC004218A8 /* HorizontalAlignment.swift in Sources */,
 				1E668B882174AFFC004218A8 /* Color.swift in Sources */,
 				1E668B9D2174AFFC004218A8 /* TextAnnotations.swift in Sources */,
+				1E52FD8F2189F2AB00DEDC40 /* PolyLineAnnotationResponse.swift in Sources */,
 				1E668BA62174AFFC004218A8 /* VerticalAlignment.swift in Sources */,
 				1E668AE22174AFA4004218A8 /* Extensions.swift in Sources */,
 				1E668B9B2174AFFC004218A8 /* LinkActionType.swift in Sources */,
+				1E52FD942189F2AB00DEDC40 /* SquareAnnotation.swift in Sources */,
+				1E52FD9A2189F2AB00DEDC40 /* SquareAnnotationResponse.swift in Sources */,
 				1E668B5D2174AFFC004218A8 /* EpubRecognitionMode.swift in Sources */,
 				1E668B8C2174AFFC004218A8 /* ImageTemplatesRequest.swift in Sources */,
 				1E668B5A2174AFFC004218A8 /* AttachmentsResponse.swift in Sources */,
@@ -911,6 +1018,7 @@
 				1E668BA52174AFFC004218A8 /* PdfAType.swift in Sources */,
 				1E668B982174AFFC004218A8 /* SplitResultDocument.swift in Sources */,
 				1E668B892174AFFC004218A8 /* DocumentPrivilege.swift in Sources */,
+				1E52FD9E2189F2AB00DEDC40 /* CaptionPosition.swift in Sources */,
 				1E668B542174AFFC004218A8 /* FontStyles.swift in Sources */,
 				1E668B802174AFFC004218A8 /* HtmlDocumentType.swift in Sources */,
 				1E668B622174AFFC004218A8 /* MarkupAnnotation.swift in Sources */,
@@ -920,6 +1028,7 @@
 				1E668B7D2174AFFC004218A8 /* Field.swift in Sources */,
 				1E668BB82174AFFC004218A8 /* FreeTextAnnotationResponse.swift in Sources */,
 				1E668B6B2174AFFC004218A8 /* TextAnnotationsResponse.swift in Sources */,
+				1E52FD8C2189F2AB00DEDC40 /* PolygonAnnotation.swift in Sources */,
 				1E668B862174AFFC004218A8 /* Signature.swift in Sources */,
 				1E668B812174AFFC004218A8 /* LinkAnnotation.swift in Sources */,
 				1E668B8F2174AFFC004218A8 /* AnnotationsInfo.swift in Sources */,
@@ -931,7 +1040,11 @@
 				1E668B8B2174AFFC004218A8 /* RectanglePdf.swift in Sources */,
 				1E668BB12174AFFC004218A8 /* LineSpacing.swift in Sources */,
 				1E668BAC2174AFFC004218A8 /* TextLine.swift in Sources */,
+				1E52FDA32189F2AB00DEDC40 /* CircleAnnotations.swift in Sources */,
 				1E668B962174AFFC004218A8 /* AntialiasingProcessingType.swift in Sources */,
+				1E52FDA12189F2AB00DEDC40 /* LineEnding.swift in Sources */,
+				1E52FDA42189F2AB00DEDC40 /* CircleAnnotation.swift in Sources */,
+				1E52FDA52189F2AB00DEDC40 /* Point.swift in Sources */,
 				1E668AE32174AFA4004218A8 /* Models.swift in Sources */,
 				1E668B9C2174AFFC004218A8 /* Link.swift in Sources */,
 				1E668ADF2174AFA4004218A8 /* APIHelper.swift in Sources */,
@@ -946,14 +1059,22 @@
 				1E668B922174AFFC004218A8 /* DocRecognitionMode.swift in Sources */,
 				1E668B5E2174AFFC004218A8 /* SplitResult.swift in Sources */,
 				1E668B5C2174AFFC004218A8 /* TextState.swift in Sources */,
+				1E52FD9F2189F2AB00DEDC40 /* SquareAnnotations.swift in Sources */,
 				1E668B522174AFFC004218A8 /* StampType.swift in Sources */,
+				1E52FD972189F2AB00DEDC40 /* CircleAnnotationResponse.swift in Sources */,
+				1E52FD962189F2AB00DEDC40 /* LineIntent.swift in Sources */,
 				1E668B7E2174AFFC004218A8 /* MergeDocuments.swift in Sources */,
+				1E52FD8B2189F2AB00DEDC40 /* LineAnnotation.swift in Sources */,
+				1E52FD992189F2AB00DEDC40 /* PolygonAnnotationResponse.swift in Sources */,
 				1E668BA82174AFFC004218A8 /* ColorDepth.swift in Sources */,
 				1E668B6F2174AFFC004218A8 /* TextRectsResponse.swift in Sources */,
 				1E668B562174AFFC004218A8 /* FreeTextAnnotations.swift in Sources */,
 				1E668BB32174AFFC004218A8 /* FieldType.swift in Sources */,
+				1E52FD902189F2AB00DEDC40 /* SquareAnnotationsResponse.swift in Sources */,
 				1E668B8D2174AFFC004218A8 /* Stamp.swift in Sources */,
+				1E52FD922189F2AB00DEDC40 /* PolyAnnotation.swift in Sources */,
 				1E668BB62174AFFC004218A8 /* WrapMode.swift in Sources */,
+				1E52FD912189F2AB00DEDC40 /* PolygonAnnotationsResponse.swift in Sources */,
 				1E668B5B2174AFFC004218A8 /* PageWordCount.swift in Sources */,
 				1E668AE62174AFA4004218A8 /* APIs.swift in Sources */,
 				1E668B722174AFFC004218A8 /* DocFormat.swift in Sources */,
@@ -962,10 +1083,12 @@
 				1E668B852174AFFC004218A8 /* AnnotationFlags.swift in Sources */,
 				1E668B932174AFFC004218A8 /* FreeTextIntent.swift in Sources */,
 				1E668B6C2174AFFC004218A8 /* ImagesResponse.swift in Sources */,
+				1E52FD9B2189F2AB00DEDC40 /* PolyLineAnnotation.swift in Sources */,
 				1E668B612174AFFC004218A8 /* DocumentProperty.swift in Sources */,
 				1E668BAF2174AFFC004218A8 /* LinkAnnotations.swift in Sources */,
 				1E668AD22174AC62004218A8 /* PdfAPI.swift in Sources */,
 				1E668B532174AFFC004218A8 /* FieldResponse.swift in Sources */,
+				1E52FD9C2189F2AB00DEDC40 /* PolyLineAnnotations.swift in Sources */,
 				1E668BA42174AFFC004218A8 /* LinkHighlightingMode.swift in Sources */,
 				1E668B762174AFFC004218A8 /* MarginInfo.swift in Sources */,
 				1E668BB42174AFFC004218A8 /* LinkAnnotationResponse.swift in Sources */,
@@ -979,17 +1102,21 @@
 				1E668C122174B94F004218A8 /* PropertiesTests.swift in Sources */,
 				1E668C152174B94F004218A8 /* BookmarksTests.swift in Sources */,
 				1E668C0E2174B94F004218A8 /* AttachmentsTests.swift in Sources */,
+				1E52FDAD218A010B00DEDC40 /* PolygonAnnotationsTests.swift in Sources */,
 				1E668C172174B94F004218A8 /* OcrTests.swift in Sources */,
 				1E668C192174B94F004218A8 /* DocumentTests.swift in Sources */,
 				1E668C212174B950004218A8 /* ConvertTests.swift in Sources */,
 				1E668C1E2174B94F004218A8 /* TextReplaceTests.swift in Sources */,
 				1E668C162174B94F004218A8 /* LinksTests.swift in Sources */,
 				1E668BBB2174B299004218A8 /* AnnotationsTests.swift in Sources */,
+				1E52FDAF218A028F00DEDC40 /* PolyLineAnnotationsTests.swift in Sources */,
+				1E52FDA92189FF2200DEDC40 /* SquareAnnotationsTests.swift in Sources */,
 				1E668C202174B950004218A8 /* TextTests.swift in Sources */,
 				1E668C0D2174B94F004218A8 /* UploadDownloadTests.swift in Sources */,
 				1E668C182174B94F004218A8 /* PageConvertToImageTests.swift in Sources */,
 				1E9D602D2174857C0097419C /* AsposePdfCloudTests.swift in Sources */,
 				1E668C1F2174B950004218A8 /* FreeTextAnnotationsTests.swift in Sources */,
+				1E52FDA72189F95C00DEDC40 /* LineAnnotationsTests.swift in Sources */,
 				1E668C132174B94F004218A8 /* SignTests.swift in Sources */,
 				1E668C1C2174B94F004218A8 /* TextAnnotationsTests.swift in Sources */,
 				1E668C0F2174B94F004218A8 /* PagesTests.swift in Sources */,
@@ -998,6 +1125,7 @@
 				1E668C102174B94F004218A8 /* ConvertToPdfTests.swift in Sources */,
 				1E668C1D2174B94F004218A8 /* AppendTests.swift in Sources */,
 				1E668C1A2174B94F004218A8 /* MergeTests.swift in Sources */,
+				1E52FDAB218A008500DEDC40 /* CircleAnnotationsTests.swift in Sources */,
 				1E668C142174B94F004218A8 /* ImagesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

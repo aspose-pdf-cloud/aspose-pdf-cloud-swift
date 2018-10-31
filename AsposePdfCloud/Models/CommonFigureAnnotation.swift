@@ -36,7 +36,7 @@ open class CommonFigureAnnotation: MarkupAnnotation {
 
     
     public init(links: [Link]?, contents: String?, creationDate: String?, subject: String?, title: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: RectanglePdf?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, richText: String?, interiorColor: Color?, frame: RectanglePdf?) {
-        super.init(links: links)
+        super.init(links: links, contents: contents, creationDate: creationDate, subject: subject, title: title, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, richText: richText)
         self.interiorColor = interiorColor
         self.frame = frame
     }
