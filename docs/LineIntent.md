@@ -8,5 +8,5 @@ Name | Type | Value
 **linedimension** | **String** | 'LineDimension'
 **undefined** | **String** | 'Undefined'
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../src/models/LineIntent.ts)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/LineIntent.ts)
 

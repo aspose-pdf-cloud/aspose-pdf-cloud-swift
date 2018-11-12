@@ -27,5 +27,5 @@ Name | Type | Description | Notes
 **pageIndex** | **Int?** | Gets or sets the index of the page. | [optional]
 **startingNumber** | **Int?** | Gets or sets value of the number of starting page. Other pages will be numbered starting from this value. | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../src/models/Stamp.ts)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/Stamp.ts)
 

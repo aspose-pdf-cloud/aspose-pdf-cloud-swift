@@ -11,5 +11,5 @@ Name | Type | Value
 **namedaction** | **String** | 'NamedAction'
 **submitformaction** | **String** | 'SubmitFormAction'
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../src/models/LinkActionType.ts)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/LinkActionType.ts)
 

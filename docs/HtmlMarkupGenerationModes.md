@@ -10,5 +10,5 @@ Name | Type | Value
 **writeallhtml** | **String** | 'WriteAllHtml'
 **writeonlybodycontent** | **String** | 'WriteOnlyBodyContent'
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../src/models/HtmlMarkupGenerationModes.ts)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/HtmlMarkupGenerationModes.ts)
 

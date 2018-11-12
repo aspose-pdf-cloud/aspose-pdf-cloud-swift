@@ -11,5 +11,5 @@ Name | Type | Value
 **alwayssaveaswoff** | **String** | 'AlwaysSaveAsWOFF'
 **saveinallformats** | **String** | 'SaveInAllFormats'
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../src/models/FontSavingModes.ts)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/FontSavingModes.ts)
 

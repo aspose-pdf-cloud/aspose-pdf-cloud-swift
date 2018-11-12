@@ -10,5 +10,5 @@ Name | Type | Value
 **push** | **String** | 'Push'
 **toggle** | **String** | 'Toggle'
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../src/models/LinkHighlightingMode.ts)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/LinkHighlightingMode.ts)
 

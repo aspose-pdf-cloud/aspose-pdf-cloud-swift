@@ -8,5 +8,5 @@ Name | Type | Value
 **none** | **String** | 'None'
 **portrait** | **String** | 'Portrait'
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../src/models/ShapeType.ts)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/ShapeType.ts)
 

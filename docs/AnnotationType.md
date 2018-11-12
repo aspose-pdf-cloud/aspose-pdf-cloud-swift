@@ -33,5 +33,5 @@ Name | Type | Value
 **watermark** | **String** | 'Watermark'
 **widget** | **String** | 'Widget'
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../src/models/AnnotationType.ts)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/AnnotationType.ts)
 

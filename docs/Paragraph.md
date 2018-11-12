@@ -17,5 +17,5 @@ Name | Type | Description | Notes
 **verticalAlignment** | [**VerticalAlignment?**](VerticalAlignment.md) |  | [optional]
 **lines** | [**[TextLine]**](TextLine.md) |  | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../src/models/Paragraph.ts)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/Paragraph.ts)
 
