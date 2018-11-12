@@ -4,9 +4,9 @@ Represents text DTO.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**text** | **String?** |  | [optional]
-**page** | **Int** |  | 
-**rect** | [**RectanglePdf?**](RectanglePdf.md) |  | [optional]
+**Text** | **String?** |  | [optional]
+**Page** | **Int** |  | 
+**Rect** | [**RectanglePdf?**](RectanglePdf.md) |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/TextRect.swift)
 
