@@ -549,7 +549,7 @@ Name | Type | Description  | Notes
 
 <a name="getDocumentBookmarks"></a>
 ## **getDocumentBookmarks**
-> getDocumentBookmarks(name: String, bookmarkPath: String? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getDocumentBookmarks(name: String, bookmarkPath: String? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Read document bookmark/bookmarks (including children).
 
@@ -771,7 +771,7 @@ Name | Type | Description  | Notes
 
 <a name="getDownload"></a>
 ## **getDownload**
-> getDownload(path: String, versionId: String? = nil, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getDownload(path: String, versionId: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Download a specific file 
 
@@ -793,7 +793,7 @@ Name | Type | Description  | Notes
 
 <a name="getDownloadDocumentAttachmentByIndex"></a>
 ## **getDownloadDocumentAttachmentByIndex**
-> getDownloadDocumentAttachmentByIndex(name: String, attachmentIndex: Int, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getDownloadDocumentAttachmentByIndex(name: String, attachmentIndex: Int, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Download document attachment content by its index.
 
@@ -816,7 +816,7 @@ Name | Type | Description  | Notes
 
 <a name="getEpubInStorageToPdf"></a>
 ## **getEpubInStorageToPdf**
-> getEpubInStorageToPdf(srcPath: String, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getEpubInStorageToPdf(srcPath: String, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Convert EPUB file (located on storage) to PDF format and return resulting file in response. 
 
@@ -905,7 +905,7 @@ Name | Type | Description  | Notes
 
 <a name="getHtmlInStorageToPdf"></a>
 ## **getHtmlInStorageToPdf**
-> getHtmlInStorageToPdf(srcPath: String, htmlFileName: String, height: Double? = nil, width: Double? = nil, isLandscape: Bool? = nil, marginLeft: Double? = nil, marginBottom: Double? = nil, marginRight: Double? = nil, marginTop: Double? = nil, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getHtmlInStorageToPdf(srcPath: String, htmlFileName: String, height: Double? = nil, width: Double? = nil, isLandscape: Bool? = nil, marginLeft: Double? = nil, marginBottom: Double? = nil, marginRight: Double? = nil, marginTop: Double? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Convert HTML file (located on storage) to PDF format and return resulting file in response. 
 
@@ -957,7 +957,7 @@ Name | Type | Description  | Notes
 
 <a name="getImageExtractAsGif"></a>
 ## **getImageExtractAsGif**
-> getImageExtractAsGif(name: String, imageId: String, width: Int? = nil, height: Int? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getImageExtractAsGif(name: String, imageId: String, width: Int? = nil, height: Int? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Extract document image in GIF format
 
@@ -982,7 +982,7 @@ Name | Type | Description  | Notes
 
 <a name="getImageExtractAsJpeg"></a>
 ## **getImageExtractAsJpeg**
-> getImageExtractAsJpeg(name: String, imageId: String, width: Int? = nil, height: Int? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getImageExtractAsJpeg(name: String, imageId: String, width: Int? = nil, height: Int? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Extract document image in JPEG format
 
@@ -1007,7 +1007,7 @@ Name | Type | Description  | Notes
 
 <a name="getImageExtractAsPng"></a>
 ## **getImageExtractAsPng**
-> getImageExtractAsPng(name: String, imageId: String, width: Int? = nil, height: Int? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getImageExtractAsPng(name: String, imageId: String, width: Int? = nil, height: Int? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Extract document image in PNG format
 
@@ -1032,7 +1032,7 @@ Name | Type | Description  | Notes
 
 <a name="getImageExtractAsTiff"></a>
 ## **getImageExtractAsTiff**
-> getImageExtractAsTiff(name: String, imageId: String, width: Int? = nil, height: Int? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getImageExtractAsTiff(name: String, imageId: String, width: Int? = nil, height: Int? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Extract document image in TIFF format
 
@@ -1080,7 +1080,7 @@ Name | Type | Description  | Notes
 
 <a name="getLaTeXInStorageToPdf"></a>
 ## **getLaTeXInStorageToPdf**
-> getLaTeXInStorageToPdf(srcPath: String, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getLaTeXInStorageToPdf(srcPath: String, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Convert LaTeX file (located on storage) to PDF format and return resulting file in response. 
 
@@ -1168,7 +1168,7 @@ Name | Type | Description  | Notes
 
 <a name="getMhtInStorageToPdf"></a>
 ## **getMhtInStorageToPdf**
-> getMhtInStorageToPdf(srcPath: String, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getMhtInStorageToPdf(srcPath: String, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Convert MHT file (located on storage) to PDF format and return resulting file in response. 
 
@@ -1258,7 +1258,7 @@ Name | Type | Description  | Notes
 
 <a name="getPageConvertToBmp"></a>
 ## **getPageConvertToBmp**
-> getPageConvertToBmp(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getPageConvertToBmp(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Convert document page to Bmp image and return resulting file in response.
 
@@ -1283,7 +1283,7 @@ Name | Type | Description  | Notes
 
 <a name="getPageConvertToEmf"></a>
 ## **getPageConvertToEmf**
-> getPageConvertToEmf(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getPageConvertToEmf(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Convert document page to Emf image and return resulting file in response.
 
@@ -1308,7 +1308,7 @@ Name | Type | Description  | Notes
 
 <a name="getPageConvertToGif"></a>
 ## **getPageConvertToGif**
-> getPageConvertToGif(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getPageConvertToGif(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Convert document page to Gif image and return resulting file in response.
 
@@ -1333,7 +1333,7 @@ Name | Type | Description  | Notes
 
 <a name="getPageConvertToJpeg"></a>
 ## **getPageConvertToJpeg**
-> getPageConvertToJpeg(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getPageConvertToJpeg(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Convert document page to Jpeg image and return resulting file in response.
 
@@ -1358,7 +1358,7 @@ Name | Type | Description  | Notes
 
 <a name="getPageConvertToPng"></a>
 ## **getPageConvertToPng**
-> getPageConvertToPng(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getPageConvertToPng(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Convert document page to Png image and return resulting file in response.
 
@@ -1383,7 +1383,7 @@ Name | Type | Description  | Notes
 
 <a name="getPageConvertToTiff"></a>
 ## **getPageConvertToTiff**
-> getPageConvertToTiff(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getPageConvertToTiff(name: String, pageNumber: Int, width: Int? = nil, height: Int? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Convert document page to Tiff image and return resulting file in response.
 
@@ -1645,7 +1645,7 @@ Name | Type | Description  | Notes
 
 <a name="getPclInStorageToPdf"></a>
 ## **getPclInStorageToPdf**
-> getPclInStorageToPdf(srcPath: String, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getPclInStorageToPdf(srcPath: String, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Convert PCL file (located on storage) to PDF format and return resulting file in response. 
 
@@ -1666,7 +1666,7 @@ Name | Type | Description  | Notes
 
 <a name="getPdfInStorageToDoc"></a>
 ## **getPdfInStorageToDoc**
-> getPdfInStorageToDoc(name: String, addReturnToLineEnd: Bool? = nil, format: DocFormat? = nil, imageResolutionX: Int? = nil, imageResolutionY: Int? = nil, maxDistanceBetweenTextLines: Double? = nil, mode: DocRecognitionMode? = nil, recognizeBullets: Bool? = nil, relativeHorizontalProximity: Double? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getPdfInStorageToDoc(name: String, addReturnToLineEnd: Bool? = nil, format: DocFormat? = nil, imageResolutionX: Int? = nil, imageResolutionY: Int? = nil, maxDistanceBetweenTextLines: Double? = nil, mode: DocRecognitionMode? = nil, recognizeBullets: Bool? = nil, relativeHorizontalProximity: Double? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Converts PDF document (located on storage) to DOC format and returns resulting file in response content
 
@@ -1696,7 +1696,7 @@ Name | Type | Description  | Notes
 
 <a name="getPdfInStorageToEpub"></a>
 ## **getPdfInStorageToEpub**
-> getPdfInStorageToEpub(name: String, contentRecognitionMode: EpubRecognitionMode? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getPdfInStorageToEpub(name: String, contentRecognitionMode: EpubRecognitionMode? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Converts PDF document (located on storage) to EPUB format and returns resulting file in response content
 
@@ -1719,7 +1719,7 @@ Name | Type | Description  | Notes
 
 <a name="getPdfInStorageToHtml"></a>
 ## **getPdfInStorageToHtml**
-> getPdfInStorageToHtml(name: String, additionalMarginWidthInPoints: Int? = nil, compressSvgGraphicsIfAny: Bool? = nil, convertMarkedContentToLayers: Bool? = nil, defaultFontName: String? = nil, documentType: HtmlDocumentType? = nil, fixedLayout: Bool? = nil, imageResolution: Int? = nil, minimalLineWidth: Int? = nil, preventGlyphsGrouping: Bool? = nil, splitCssIntoPages: Bool? = nil, splitIntoPages: Bool? = nil, useZOrder: Bool? = nil, antialiasingProcessing: AntialiasingProcessingType? = nil, cssClassNamesPrefix: String? = nil, explicitListOfSavedPages: [Int]? = nil, fontEncodingStrategy: FontEncodingRules? = nil, fontSavingMode: FontSavingModes? = nil, htmlMarkupGenerationMode: HtmlMarkupGenerationModes? = nil, lettersPositioningMethod: LettersPositioningMethods? = nil, pagesFlowTypeDependsOnViewersScreenSize: Bool? = nil, partsEmbeddingMode: PartsEmbeddingModes? = nil, rasterImagesSavingMode: RasterImagesSavingModes? = nil, removeEmptyAreasOnTopAndBottom: Bool? = nil, saveShadowedTextsAsTransparentTexts: Bool? = nil, saveTransparentTexts: Bool? = nil, specialFolderForAllImages: String? = nil, specialFolderForSvgImages: String? = nil, trySaveTextUnderliningAndStrikeoutingInCss: Bool? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getPdfInStorageToHtml(name: String, additionalMarginWidthInPoints: Int? = nil, compressSvgGraphicsIfAny: Bool? = nil, convertMarkedContentToLayers: Bool? = nil, defaultFontName: String? = nil, documentType: HtmlDocumentType? = nil, fixedLayout: Bool? = nil, imageResolution: Int? = nil, minimalLineWidth: Int? = nil, preventGlyphsGrouping: Bool? = nil, splitCssIntoPages: Bool? = nil, splitIntoPages: Bool? = nil, useZOrder: Bool? = nil, antialiasingProcessing: AntialiasingProcessingType? = nil, cssClassNamesPrefix: String? = nil, explicitListOfSavedPages: [Int]? = nil, fontEncodingStrategy: FontEncodingRules? = nil, fontSavingMode: FontSavingModes? = nil, htmlMarkupGenerationMode: HtmlMarkupGenerationModes? = nil, lettersPositioningMethod: LettersPositioningMethods? = nil, pagesFlowTypeDependsOnViewersScreenSize: Bool? = nil, partsEmbeddingMode: PartsEmbeddingModes? = nil, rasterImagesSavingMode: RasterImagesSavingModes? = nil, removeEmptyAreasOnTopAndBottom: Bool? = nil, saveShadowedTextsAsTransparentTexts: Bool? = nil, saveTransparentTexts: Bool? = nil, specialFolderForAllImages: String? = nil, specialFolderForSvgImages: String? = nil, trySaveTextUnderliningAndStrikeoutingInCss: Bool? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Converts PDF document (located on storage) to Html format and returns resulting file in response content
 
@@ -1769,7 +1769,7 @@ Name | Type | Description  | Notes
 
 <a name="getPdfInStorageToLaTeX"></a>
 ## **getPdfInStorageToLaTeX**
-> getPdfInStorageToLaTeX(name: String, pagesCount: Int? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getPdfInStorageToLaTeX(name: String, pagesCount: Int? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Converts PDF document (located on storage) to LaTeX format and returns resulting file in response content
 
@@ -1792,7 +1792,7 @@ Name | Type | Description  | Notes
 
 <a name="getPdfInStorageToMobiXml"></a>
 ## **getPdfInStorageToMobiXml**
-> getPdfInStorageToMobiXml(name: String, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getPdfInStorageToMobiXml(name: String, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Converts PDF document (located on storage) to MOBIXML format and returns resulting file in response content
 
@@ -1814,7 +1814,7 @@ Name | Type | Description  | Notes
 
 <a name="getPdfInStorageToPdfA"></a>
 ## **getPdfInStorageToPdfA**
-> getPdfInStorageToPdfA(name: String, type: PdfAType, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getPdfInStorageToPdfA(name: String, type: PdfAType, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Converts PDF document (located on storage) to PdfA format and returns resulting file in response content
 
@@ -1837,7 +1837,7 @@ Name | Type | Description  | Notes
 
 <a name="getPdfInStorageToPptx"></a>
 ## **getPdfInStorageToPptx**
-> getPdfInStorageToPptx(name: String, separateImages: Bool? = nil, slidesAsImages: Bool? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getPdfInStorageToPptx(name: String, separateImages: Bool? = nil, slidesAsImages: Bool? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Converts PDF document (located on storage) to PPTX format and returns resulting file in response content
 
@@ -1861,7 +1861,7 @@ Name | Type | Description  | Notes
 
 <a name="getPdfInStorageToSvg"></a>
 ## **getPdfInStorageToSvg**
-> getPdfInStorageToSvg(name: String, compressOutputToZipArchive: Bool? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getPdfInStorageToSvg(name: String, compressOutputToZipArchive: Bool? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Converts PDF document (located on storage) to SVG format and returns resulting file in response content
 
@@ -1884,7 +1884,7 @@ Name | Type | Description  | Notes
 
 <a name="getPdfInStorageToTiff"></a>
 ## **getPdfInStorageToTiff**
-> getPdfInStorageToTiff(name: String, brightness: Double? = nil, compression: CompressionType? = nil, colorDepth: ColorDepth? = nil, leftMargin: Int? = nil, rightMargin: Int? = nil, topMargin: Int? = nil, bottomMargin: Int? = nil, orientation: ShapeType? = nil, skipBlankPages: Bool? = nil, width: Int? = nil, height: Int? = nil, xResolution: Int? = nil, yResolution: Int? = nil, pageIndex: Int? = nil, pageCount: Int? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getPdfInStorageToTiff(name: String, brightness: Double? = nil, compression: CompressionType? = nil, colorDepth: ColorDepth? = nil, leftMargin: Int? = nil, rightMargin: Int? = nil, topMargin: Int? = nil, bottomMargin: Int? = nil, orientation: ShapeType? = nil, skipBlankPages: Bool? = nil, width: Int? = nil, height: Int? = nil, xResolution: Int? = nil, yResolution: Int? = nil, pageIndex: Int? = nil, pageCount: Int? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Converts PDF document (located on storage) to TIFF format and returns resulting file in response content
 
@@ -1921,7 +1921,7 @@ Name | Type | Description  | Notes
 
 <a name="getPdfInStorageToXls"></a>
 ## **getPdfInStorageToXls**
-> getPdfInStorageToXls(name: String, insertBlankColumnAtFirst: Bool? = nil, minimizeTheNumberOfWorksheets: Bool? = nil, scaleFactor: Double? = nil, uniformWorksheets: Bool? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getPdfInStorageToXls(name: String, insertBlankColumnAtFirst: Bool? = nil, minimizeTheNumberOfWorksheets: Bool? = nil, scaleFactor: Double? = nil, uniformWorksheets: Bool? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Converts PDF document (located on storage) to XLS format and returns resulting file in response content
 
@@ -1947,7 +1947,7 @@ Name | Type | Description  | Notes
 
 <a name="getPdfInStorageToXml"></a>
 ## **getPdfInStorageToXml**
-> getPdfInStorageToXml(name: String, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getPdfInStorageToXml(name: String, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Converts PDF document (located on storage) to XML format and returns resulting file in response content
 
@@ -1969,7 +1969,7 @@ Name | Type | Description  | Notes
 
 <a name="getPdfInStorageToXps"></a>
 ## **getPdfInStorageToXps**
-> getPdfInStorageToXps(name: String, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getPdfInStorageToXps(name: String, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Converts PDF document (located on storage) to XPS format and returns resulting file in response content
 
@@ -2037,7 +2037,7 @@ Name | Type | Description  | Notes
 
 <a name="getPsInStorageToPdf"></a>
 ## **getPsInStorageToPdf**
-> getPsInStorageToPdf(srcPath: String, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getPsInStorageToPdf(srcPath: String, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Convert PS file (located on storage) to PDF format and return resulting file in response. 
 
@@ -2081,7 +2081,7 @@ Name | Type | Description  | Notes
 
 <a name="getSvgInStorageToPdf"></a>
 ## **getSvgInStorageToPdf**
-> getSvgInStorageToPdf(srcPath: String, adjustPageSize: Bool? = nil, height: Double? = nil, width: Double? = nil, isLandscape: Bool? = nil, marginLeft: Double? = nil, marginBottom: Double? = nil, marginRight: Double? = nil, marginTop: Double? = nil, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getSvgInStorageToPdf(srcPath: String, adjustPageSize: Bool? = nil, height: Double? = nil, width: Double? = nil, isLandscape: Bool? = nil, marginLeft: Double? = nil, marginBottom: Double? = nil, marginRight: Double? = nil, marginTop: Double? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Convert SVG file (located on storage) to PDF format and return resulting file in response. 
 
@@ -2185,7 +2185,7 @@ Name | Type | Description  | Notes
 
 <a name="getWebInStorageToPdf"></a>
 ## **getWebInStorageToPdf**
-> getWebInStorageToPdf(url: String, height: Double? = nil, width: Double? = nil, isLandscape: Bool? = nil, marginLeft: Double? = nil, marginBottom: Double? = nil, marginRight: Double? = nil, marginTop: Double? = nil, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getWebInStorageToPdf(url: String, height: Double? = nil, width: Double? = nil, isLandscape: Bool? = nil, marginLeft: Double? = nil, marginBottom: Double? = nil, marginRight: Double? = nil, marginTop: Double? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Convert web page to PDF format and return resulting file in response. 
 
@@ -2235,7 +2235,7 @@ Name | Type | Description  | Notes
 
 <a name="getXfaPdfInStorageToAcroForm"></a>
 ## **getXfaPdfInStorageToAcroForm**
-> getXfaPdfInStorageToAcroForm(name: String, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getXfaPdfInStorageToAcroForm(name: String, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Converts PDF document which contatins XFA form (located on storage) to PDF with AcroForm and returns resulting file response content
 
@@ -2257,7 +2257,7 @@ Name | Type | Description  | Notes
 
 <a name="getXmlInStorageToPdf"></a>
 ## **getXmlInStorageToPdf**
-> getXmlInStorageToPdf(srcPath: String, xslFilePath: String? = nil, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getXmlInStorageToPdf(srcPath: String, xslFilePath: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Convert XML file (located on storage) to PDF format and return resulting file in response. 
 
@@ -2279,7 +2279,7 @@ Name | Type | Description  | Notes
 
 <a name="getXpsInStorageToPdf"></a>
 ## **getXpsInStorageToPdf**
-> getXpsInStorageToPdf(srcPath: String, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getXpsInStorageToPdf(srcPath: String, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Convert XPS file (located on storage) to PDF format and return resulting file in response. 
 
@@ -2300,7 +2300,7 @@ Name | Type | Description  | Notes
 
 <a name="getXslFoInStorageToPdf"></a>
 ## **getXslFoInStorageToPdf**
-> getXslFoInStorageToPdf(srcPath: String, storage: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> getXslFoInStorageToPdf(srcPath: String, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Convert XslFo file (located on storage) to PDF format and return resulting file in response. 
 
@@ -3275,7 +3275,7 @@ Name | Type | Description  | Notes
 
 <a name="putMergeDocuments"></a>
 ## **putMergeDocuments**
-> putMergeDocuments(name: String, mergeDocuments: MergeDocuments? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: file?, _ error: Error?) -> Void))
+> putMergeDocuments(name: String, mergeDocuments: MergeDocuments? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Merge a list of documents.
 
