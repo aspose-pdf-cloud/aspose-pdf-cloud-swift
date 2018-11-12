@@ -9,5 +9,5 @@ Name | Type | Description | Notes
 **startIndex** | **Int?** |  | [optional]
 **countReplace** | **Int?** |  | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/TextReplaceListRequest.ts)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/TextReplaceListRequest.swift)
 

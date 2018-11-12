@@ -18,5 +18,5 @@ Name | Type | Description | Notes
 **date** | **String?** | Gets or sets the time of signing. | [optional]
 **showProperties** | **Bool** | Gets or sets the showproperties in signature field | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/Signature.ts)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/Signature.swift)
 

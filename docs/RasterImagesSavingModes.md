@@ -11,5 +11,5 @@ Name | Type | Value
 **asexternalpngfilesreferencedviasvg** | **String** | 'AsExternalPngFilesReferencedViaSvg'
 **aspngimagesembeddedintosvg** | **String** | 'AsPngImagesEmbeddedIntoSvg'
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/RasterImagesSavingModes.ts)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/RasterImagesSavingModes.swift)
 

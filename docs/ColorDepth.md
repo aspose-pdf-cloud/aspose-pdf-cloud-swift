@@ -9,5 +9,5 @@ Name | Type | Value
 **format4bpp** | **String** | 'Format4bpp'
 **format8bpp** | **String** | 'Format8bpp'
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/ColorDepth.ts)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/ColorDepth.swift)
 

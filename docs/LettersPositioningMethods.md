@@ -8,5 +8,5 @@ Name | Type | Value
 **useemunitsandcompensationofroundingerrorsincss** | **String** | 'UseEmUnitsAndCompensationOfRoundingErrorsInCss'
 **usepixelunitsincssletterspacingforie** | **String** | 'UsePixelUnitsInCssLetterSpacingForIE'
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/LettersPositioningMethods.ts)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/LettersPositioningMethods.swift)
 

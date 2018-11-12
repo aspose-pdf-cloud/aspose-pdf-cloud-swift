@@ -8,5 +8,5 @@ Name | Type | Description | Notes
 **startPage** | **Int** | Appending start page. | 
 **endPage** | **Int** | Appending end page. | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/AppendDocument.ts)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/AppendDocument.swift)
 

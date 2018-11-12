@@ -7,5 +7,5 @@ Name | Type | Value
 **flow** | **String** | 'Flow'
 **textbox** | **String** | 'Textbox'
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/DocRecognitionMode.ts)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/DocRecognitionMode.swift)
 
