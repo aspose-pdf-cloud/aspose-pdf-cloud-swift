@@ -5,8 +5,8 @@ Pdf document properties.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**List** | [**[DocumentProperty]?**](DocumentProperty.md) |  | [optional]
-**Links** | [**[Link]?**](Link.md) | Link to the document.<br />*Inherited from [LinkElement](LinkElement.md)* | [optional]
+**list** | [**[DocumentProperty]?**](DocumentProperty.md) |  | [optional]
+**links** | [**[Link]?**](Link.md) | Link to the document.<br />*Inherited from [LinkElement](LinkElement.md)* | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/DocumentProperties.swift)
 

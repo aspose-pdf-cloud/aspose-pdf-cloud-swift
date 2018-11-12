@@ -4,7 +4,7 @@ Enumeration of possible rotation values.
 ## Enum
 Name | Type | Value
 ------------ | ------------- | -------------
-**none** | **String** | 'None'
+**_none** | **String** | 'None'
 **on180** | **String** | 'on180'
 **on270** | **String** | 'on270'
 **on90** | **String** | 'on90'

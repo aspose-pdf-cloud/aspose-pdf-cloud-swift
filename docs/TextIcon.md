@@ -11,7 +11,7 @@ Name | Type | Value
 **help** | **String** | 'Help'
 **insert** | **String** | 'Insert'
 **key** | **String** | 'Key'
-**newparagraph** | **String** | 'NewParagraph'
+**newParagraph** | **String** | 'NewParagraph'
 **note** | **String** | 'Note'
 **paragraph** | **String** | 'Paragraph'
 **star** | **String** | 'Star'

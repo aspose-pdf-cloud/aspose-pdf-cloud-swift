@@ -7,8 +7,8 @@ during conversion of PDF to HTML to match such specific requirments.
 ## Enum
 Name | Type | Value
 ------------ | ------------- | -------------
-**writeallhtml** | **String** | 'WriteAllHtml'
-**writeonlybodycontent** | **String** | 'WriteOnlyBodyContent'
+**writeAllHtml** | **String** | 'WriteAllHtml'
+**writeOnlyBodyContent** | **String** | 'WriteOnlyBodyContent'
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/HtmlMarkupGenerationModes.swift)
 

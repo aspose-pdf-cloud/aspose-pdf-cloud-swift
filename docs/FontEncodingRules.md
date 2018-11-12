@@ -5,7 +5,7 @@ This enumeration defines rules which tune encoding logic
 Name | Type | Value
 ------------ | ------------- | -------------
 **_default** | **String** | 'Default'
-**decreasetounicodeprioritylevel** | **String** | 'DecreaseToUnicodePriorityLevel'
+**decreaseToUnicodePriorityLevel** | **String** | 'DecreaseToUnicodePriorityLevel'
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/FontEncodingRules.swift)
 

@@ -4,14 +4,14 @@ Enumerates the line ending styles to be used in drawing the line.
 ## Enum
 Name | Type | Value
 ------------ | ------------- | -------------
+**_none** | **String** | 'None'
 **butt** | **String** | 'Butt'
 **circle** | **String** | 'Circle'
-**closedarrow** | **String** | 'ClosedArrow'
+**closedArrow** | **String** | 'ClosedArrow'
 **diamond** | **String** | 'Diamond'
-**none** | **String** | 'None'
-**openarrow** | **String** | 'OpenArrow'
-**rclosedarrow** | **String** | 'RClosedArrow'
-**ropenarrow** | **String** | 'ROpenArrow'
+**openArrow** | **String** | 'OpenArrow'
+**rClosedArrow** | **String** | 'RClosedArrow'
+**rOpenArrow** | **String** | 'ROpenArrow'
 **slash** | **String** | 'Slash'
 **square** | **String** | 'Square'
 

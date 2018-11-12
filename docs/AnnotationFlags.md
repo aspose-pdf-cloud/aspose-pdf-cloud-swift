@@ -8,13 +8,13 @@ Name | Type | Value
 **hidden** | **String** | 'Hidden'
 **invisible** | **String** | 'Invisible'
 **locked** | **String** | 'Locked'
-**lockedcontents** | **String** | 'LockedContents'
-**norotate** | **String** | 'NoRotate'
-**noview** | **String** | 'NoView'
-**nozoom** | **String** | 'NoZoom'
+**lockedContents** | **String** | 'LockedContents'
+**noRotate** | **String** | 'NoRotate'
+**noView** | **String** | 'NoView'
+**noZoom** | **String** | 'NoZoom'
 **print** | **String** | 'Print'
-**readonly** | **String** | 'ReadOnly'
-**togglenoview** | **String** | 'ToggleNoView'
+**readOnly** | **String** | 'ReadOnly'
+**toggleNoView** | **String** | 'ToggleNoView'
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/AnnotationFlags.swift)
 

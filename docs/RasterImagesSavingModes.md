@@ -7,9 +7,9 @@ during conversion of PDF to HTML
 ## Enum
 Name | Type | Value
 ------------ | ------------- | -------------
-**asembeddedpartsofpngpagebackground** | **String** | 'AsEmbeddedPartsOfPngPageBackground'
-**asexternalpngfilesreferencedviasvg** | **String** | 'AsExternalPngFilesReferencedViaSvg'
-**aspngimagesembeddedintosvg** | **String** | 'AsPngImagesEmbeddedIntoSvg'
+**asEmbeddedPartsOfPngPageBackground** | **String** | 'AsEmbeddedPartsOfPngPageBackground'
+**asExternalPngFilesReferencedViaSvg** | **String** | 'AsExternalPngFilesReferencedViaSvg'
+**asPngImagesEmbeddedIntoSvg** | **String** | 'AsPngImagesEmbeddedIntoSvg'
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/RasterImagesSavingModes.swift)
 

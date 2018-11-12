@@ -5,7 +5,7 @@ Specifies style information applied to text.
 Name | Type | Value
 ------------ | ------------- | -------------
 **bold** | **String** | 'Bold'
-**bolditalic** | **String** | 'BoldItalic'
+**boldItalic** | **String** | 'BoldItalic'
 **italic** | **String** | 'Italic'
 **regular** | **String** | 'Regular'
 

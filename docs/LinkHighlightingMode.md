@@ -4,8 +4,8 @@ Enumerates the annotation?s highlighting mode, the visual effect to be used when
 ## Enum
 Name | Type | Value
 ------------ | ------------- | -------------
+**_none** | **String** | 'None'
 **invert** | **String** | 'Invert'
-**none** | **String** | 'None'
 **outline** | **String** | 'Outline'
 **push** | **String** | 'Push'
 **toggle** | **String** | 'Toggle'

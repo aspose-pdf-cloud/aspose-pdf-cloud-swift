@@ -7,9 +7,9 @@ will be embedded into main HTML file or will be generated as apart binary entiti
 ## Enum
 Name | Type | Value
 ------------ | ------------- | -------------
-**embedallintohtml** | **String** | 'EmbedAllIntoHtml'
-**embedcssonly** | **String** | 'EmbedCssOnly'
-**noembedding** | **String** | 'NoEmbedding'
+**embedAllIntoHtml** | **String** | 'EmbedAllIntoHtml'
+**embedCssOnly** | **String** | 'EmbedCssOnly'
+**noEmbedding** | **String** | 'NoEmbedding'
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/PartsEmbeddingModes.swift)
 

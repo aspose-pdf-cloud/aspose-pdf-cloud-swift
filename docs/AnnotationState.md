@@ -4,11 +4,11 @@ The enumeration of states to which the original annotation can be set.
 ## Enum
 Name | Type | Value
 ------------ | ------------- | -------------
+**_none** | **String** | 'None'
 **accepted** | **String** | 'Accepted'
 **cancelled** | **String** | 'Cancelled'
 **completed** | **String** | 'Completed'
 **marked** | **String** | 'Marked'
-**none** | **String** | 'None'
 **rejected** | **String** | 'Rejected'
 **undefined** | **String** | 'Undefined'
 **unmarked** | **String** | 'Unmarked'

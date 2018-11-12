@@ -5,9 +5,9 @@ Represents document DTO.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DocumentProperties** | [**DocumentProperties?**](DocumentProperties.md) | Document properties. | [optional]
-**Pages** | [**Pages?**](Pages.md) | Document pages. | [optional]
-**Links** | [**[Link]?**](Link.md) | Link to the document.<br />*Inherited from [LinkElement](LinkElement.md)* | [optional]
+**documentProperties** | [**DocumentProperties?**](DocumentProperties.md) | Document properties. | [optional]
+**pages** | [**Pages?**](Pages.md) | Document pages. | [optional]
+**links** | [**[Link]?**](Link.md) | Link to the document.<br />*Inherited from [LinkElement](LinkElement.md)* | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/Document.swift)
 
