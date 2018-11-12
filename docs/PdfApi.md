@@ -1601,14 +1601,14 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **name** | **String** | The document name. | 
 **pageNumber** | **Int** | Number of page (starting from 1). | 
-**format** | **[String]?** | List of formats for search. | [optional]
-**regex** | **String?** | Formats are specified as a regular expression. | [optional]
-**splitRects** | **Bool?** | Split result fragments (default is true). | [optional]
-**folder** | **String?** | The document folder. | [optional]
 **LLX** | **Double** |  | 
 **LLY** | **Double** |  | 
 **URX** | **Double** |  | 
 **URY** | **Double** |  | 
+**format** | **[String]?** | List of formats for search. | [optional]
+**regex** | **String?** | Formats are specified as a regular expression. | [optional]
+**splitRects** | **Bool?** | Split result fragments (default is true). | [optional]
+**folder** | **String?** | The document folder. | [optional]
 **storage** | **String?** | The document storage. | [optional]
 
 ### Return type
@@ -2118,14 +2118,14 @@ Read document text.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **name** | **String** | The document name. | 
-**format** | **[String]?** | List of formats for search. | [optional]
-**regex** | **String?** | Formats are specified as a regular expression. | [optional]
-**splitRects** | **Bool?** | Split result fragments (default is true). | [optional]
-**folder** | **String?** | The document folder. | [optional]
 **LLX** | **Double** |  | 
 **LLY** | **Double** |  | 
 **URX** | **Double** |  | 
 **URY** | **Double** |  | 
+**format** | **[String]?** | List of formats for search. | [optional]
+**regex** | **String?** | Formats are specified as a regular expression. | [optional]
+**splitRects** | **Bool?** | Split result fragments (default is true). | [optional]
+**folder** | **String?** | The document folder. | [optional]
 **storage** | **String?** | The document storage. | [optional]
 
 ### Return type
@@ -2836,9 +2836,9 @@ Upload a specific file
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **path** | **String** | Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext | 
+**File** | **Data** | File to upload | 
 **versionId** | **String?** | Source file's version | [optional]
 **storage** | **String?** | User's storage name | [optional]
-**File** | **Data** | File to upload | 
 
 ### Return type
 
