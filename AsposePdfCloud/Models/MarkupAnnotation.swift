@@ -29,12 +29,21 @@ import Foundation
 
 open class MarkupAnnotation: Annotation {
 
+    /** The date and time when the annotation was created. */
+    public var creationDate: String?
+    /** Get the annotation subject. */
+    public var subject: String?
+    /** Get the annotation title. */
+    public var title: String?
     /** Get the annotation RichText. */
     public var richText: String?
 
     
-    public init(links: [Link]?, contents: String?, creationDate: String?, subject: String?, title: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: RectanglePdf?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, richText: String?) {
-        super.init(links: links, contents: contents, creationDate: creationDate, subject: subject, title: title, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment)
+    public init(links: [Link]?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: RectanglePdf?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, creationDate: String?, subject: String?, title: String?, richText: String?) {
+        super.init(links: links)
+        self.creationDate = creationDate
+        self.subject = subject
+        self.title = title
         self.richText = richText
     }
         
@@ -46,6 +55,9 @@ open class MarkupAnnotation: Annotation {
 
         var container = encoder.container(keyedBy: String.self)
 
+        try container.encodeIfPresent(creationDate, forKey: "CreationDate")
+        try container.encodeIfPresent(subject, forKey: "Subject")
+        try container.encodeIfPresent(title, forKey: "Title")
         try container.encodeIfPresent(richText, forKey: "RichText")
         try super.encode(to: encoder)
     }
@@ -55,6 +67,9 @@ open class MarkupAnnotation: Annotation {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
+        creationDate = try container.decodeIfPresent(String.self, forKey: "CreationDate")
+        subject = try container.decodeIfPresent(String.self, forKey: "Subject")
+        title = try container.decodeIfPresent(String.self, forKey: "Title")
         richText = try container.decodeIfPresent(String.self, forKey: "RichText")
         try super.init(from: decoder)
     }
