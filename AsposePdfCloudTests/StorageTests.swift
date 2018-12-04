@@ -23,7 +23,7 @@ import XCTest
 @testable import AsposePdfCloud
 
 
-class UploadDownloadTests: AsposePdfCloudTests {
+class StorageTests: AsposePdfCloudTests {
     
     override func setUp() {
         super.setUp()
@@ -85,6 +85,26 @@ class UploadDownloadTests: AsposePdfCloudTests {
                 }
             }
         }
+        self.waitForExpectations(timeout: self.testTimeout, handler: nil)
+    }
+    
+    func testGetListFiles() {
+        
+        let expectation = self.expectation(description: "testGetListFiles")
+        
+        PdfAPI.getListFiles(path: self.tempFolder) {
+            (response, error) in
+            guard error == nil else {
+                XCTFail("error testGetListFiles")
+                return
+            }
+            
+            if let response = response {
+                XCTAssertEqual(response.code, self.codeOk)
+                expectation.fulfill()
+            }
+        }
+        
         self.waitForExpectations(timeout: self.testTimeout, handler: nil)
     }
 }

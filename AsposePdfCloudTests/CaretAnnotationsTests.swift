@@ -22,7 +22,7 @@
 import XCTest
 @testable import AsposePdfCloud
 
-class CircleAnnotationsTests: AsposePdfCloudTests {
+class CaretAnnotationsTests: AsposePdfCloudTests {
     
     override func setUp() {
         super.setUp()
@@ -33,17 +33,17 @@ class CircleAnnotationsTests: AsposePdfCloudTests {
     }
     
     
-    func testGetDocumentCircleAnnotations() {
+    func testGetDocumentCaretAnnotations() {
         let name = "PdfWithAnnotations.pdf"
         
-        let expectation = self.expectation(description: "testGetDocumentCircleAnnotations")
+        let expectation = self.expectation(description: "testGetDocumentCaretAnnotations")
         
         uploadFile(name: name) {
             
-            PdfAPI.getDocumentCircleAnnotations(name: name, folder: self.tempFolder) {
+            PdfAPI.getDocumentCaretAnnotations(name: name, folder: self.tempFolder) {
                 (response, error) in
                 guard error == nil else {
-                    XCTFail("error testGetDocumentCircleAnnotations")
+                    XCTFail("error testGetDocumentCaretAnnotations")
                     return
                 }
                 
@@ -58,18 +58,18 @@ class CircleAnnotationsTests: AsposePdfCloudTests {
     }
     
     
-    func testGetPageCircleAnnotations() {
+    func testGetPageCaretAnnotations() {
         let name = "PdfWithAnnotations.pdf"
         
         let pageNumber = 2
-        let expectation = self.expectation(description: "testGetPageCircleAnnotations")
+        let expectation = self.expectation(description: "testGetPageCaretAnnotations")
         
         uploadFile(name: name) {
             
-            PdfAPI.getPageCircleAnnotations(name: name, pageNumber: pageNumber, folder: self.tempFolder) {
+            PdfAPI.getPageCaretAnnotations(name: name, pageNumber: pageNumber, folder: self.tempFolder) {
                 (response, error) in
                 guard error == nil else {
-                    XCTFail("error testGetPageCircleAnnotations")
+                    XCTFail("error testGetPageCaretAnnotations")
                     return
                 }
                 
@@ -84,17 +84,17 @@ class CircleAnnotationsTests: AsposePdfCloudTests {
     }
     
     
-    func testGetCircleAnnotation() {
+    func testGetCaretAnnotation() {
         let name = "PdfWithAnnotations.pdf"
         
-        let expectation = self.expectation(description: "testGetCircleAnnotation")
+        let expectation = self.expectation(description: "testGetCaretAnnotation")
         
         uploadFile(name: name) {
             
-            PdfAPI.getDocumentCircleAnnotations(name: name, folder: self.tempFolder) {
+            PdfAPI.getDocumentCaretAnnotations(name: name, folder: self.tempFolder) {
                 (response, error) in
                 guard error == nil else {
-                    XCTFail("error testGetDocumentCircleAnnotations")
+                    XCTFail("error testGetDocumentCaretAnnotations")
                     return
                 }
                 
@@ -106,7 +106,7 @@ class CircleAnnotationsTests: AsposePdfCloudTests {
                         PdfAPI.deleteAnnotation(name: name, annotationId: annotationId, folder: self.tempFolder) {
                             (response, error) in
                             guard error == nil else {
-                                XCTFail("error testGetCircleAnnotation")
+                                XCTFail("error testGetCaretAnnotation")
                                 return
                             }
                             
@@ -117,7 +117,7 @@ class CircleAnnotationsTests: AsposePdfCloudTests {
                             }
                         }
                     } else {
-                        XCTFail("error testGetDocumentCircleAnnotations")
+                        XCTFail("error testGetDocumentCaretAnnotations")
                     }
                 }
             }
@@ -125,18 +125,17 @@ class CircleAnnotationsTests: AsposePdfCloudTests {
         self.waitForExpectations(timeout: testTimeout, handler: nil)
     }
     
-    func testPostPageCircleAnnotations() {
+    func testPostPageCaretAnnotations() {
         let name = "PdfWithAnnotations.pdf"
         
         let pageNumber = 1
-        let expectation = self.expectation(description: "testPostPageCircleAnnotations")
+        let expectation = self.expectation(description: "testPostPageCaretAnnotations")
         
-        let annotation = CircleAnnotation(
+        let annotation = CaretAnnotation(
             links: nil,
             contents: nil,
-            modified: nil,
-            id: nil,
-            flags: [AnnotationFlags._default],
+            modified: "01/01/2018 00:00:00.000 AM",
+            id: nil, flags: [AnnotationFlags._default],
             name: "Name",
             rect: RectanglePdf(LLX: 100, LLY: 100, URX: 200, URY: 200),
             pageIndex: nil,
@@ -147,17 +146,17 @@ class CircleAnnotationsTests: AsposePdfCloudTests {
             subject: "Subject",
             title: "Title",
             richText: "Rich Text",
-            interiorColor: nil,
-            frame: nil,
-            color: nil
+            color: nil,
+            frame: RectanglePdf(LLX: 100, LLY: 100, URX: 200, URY: 200),
+            symbol: nil
         )
         
         uploadFile(name: name) {
             
-            PdfAPI.postPageCircleAnnotations(name: name, pageNumber: pageNumber, annotations: [annotation], folder: self.tempFolder) {
+            PdfAPI.postPageCaretAnnotations(name: name, pageNumber: pageNumber, annotations: [annotation], folder: self.tempFolder) {
                 (response, error) in
                 guard error == nil else {
-                    XCTFail("error testPostPageCircleAnnotations")
+                    XCTFail("error testPostPageCaretAnnotations")
                     return
                 }
                 
@@ -172,15 +171,15 @@ class CircleAnnotationsTests: AsposePdfCloudTests {
     }
     
     
-    func testPutCircleAnnotation() {
+    func testPutCaretAnnotation() {
         let name = "PdfWithAnnotations.pdf"
         
-        let expectation = self.expectation(description: "testPutCircleAnnotation")
+        let expectation = self.expectation(description: "testPutCaretAnnotation")
         
-        let annotation = CircleAnnotation(
+        let annotation = CaretAnnotation(
             links: nil,
             contents: nil,
-            modified: nil,
+            modified: "01/01/2018 00:00:00.000 AM",
             id: nil,
             flags: [AnnotationFlags._default],
             name: "Name Updated",
@@ -188,21 +187,21 @@ class CircleAnnotationsTests: AsposePdfCloudTests {
             pageIndex: nil,
             zIndex: 1,
             horizontalAlignment: HorizontalAlignment.center,
-            verticalAlignment: VerticalAlignment._none,
+            verticalAlignment: nil,
             creationDate: nil,
             subject: "Subject Updated",
             title: "Title Updated",
             richText: "Rich Text Updated",
-            interiorColor: nil,
-            frame: nil,
-            color: nil
+            color: nil,
+            frame: RectanglePdf(LLX: 100, LLY: 100, URX: 200, URY: 200),
+            symbol: nil
         )
         
         uploadFile(name: name) {
-            PdfAPI.getDocumentCircleAnnotations(name: name, folder: self.tempFolder) {
+            PdfAPI.getDocumentCaretAnnotations(name: name, folder: self.tempFolder) {
                 (response, error) in
                 guard error == nil else {
-                    XCTFail("error testGetDocumentCircleAnnotations")
+                    XCTFail("error testGetDocumentCaretAnnotations")
                     return
                 }
                 
@@ -211,10 +210,10 @@ class CircleAnnotationsTests: AsposePdfCloudTests {
                     
                     if let annotations = response.annotations, let list = annotations.list, let annotationId = list[0].id {
                         
-                        PdfAPI.putCircleAnnotation(name: name, annotationId: annotationId, annotation: annotation, folder: self.tempFolder) {
+                        PdfAPI.putCaretAnnotation(name: name, annotationId: annotationId, annotation: annotation, folder: self.tempFolder) {
                             (response, error) in
                             guard error == nil else {
-                                XCTFail("error testPutCircleAnnotation")
+                                XCTFail("error testPutCaretAnnotation")
                                 return
                             }
                             
@@ -225,7 +224,7 @@ class CircleAnnotationsTests: AsposePdfCloudTests {
                             }
                         }
                     } else {
-                        XCTFail("error testGetDocumentCircleAnnotations")
+                        XCTFail("error testGetDocumentCaretAnnotations")
                     }
                 }
             }

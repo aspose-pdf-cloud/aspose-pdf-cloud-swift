@@ -40,7 +40,7 @@ open class TextAnnotation: MarkupAnnotation {
 
     
     public init(links: [Link]?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: RectanglePdf?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, creationDate: String?, subject: String?, title: String?, richText: String?, state: AnnotationState?, open: Bool?, color: Color?, icon: TextIcon?) {
-        super.init(links: links)
+        super.init(links: links, contents: contents, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, creationDate: creationDate, subject: subject, title: title, richText: richText)
         self.state = state
         self.open = open
         self.color = color

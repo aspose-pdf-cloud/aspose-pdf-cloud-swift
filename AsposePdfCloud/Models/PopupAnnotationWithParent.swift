@@ -34,7 +34,7 @@ open class PopupAnnotationWithParent: PopupAnnotation {
 
     
     public init(links: [Link]?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: RectanglePdf?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, color: Color?, open: Bool?, parent: AnnotationInfo?) {
-        super.init(links: links)
+        super.init(links: links, contents: contents, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, color: color, open: open)
         self.parent = parent
     }
         
