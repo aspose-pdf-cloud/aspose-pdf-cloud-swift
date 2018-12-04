@@ -84,7 +84,7 @@ open class CodableHelper {
             return nil
         }
         let range = NSRange(location: 0, length: (strDate.utf16.count))
-        let regex = try! NSRegularExpression(pattern: "/Date\\((\\d+?)000\\+0000\\)/")
+        let regex = try NSRegularExpression(pattern: "/Date\\((\\d+?)000\\+0000\\)/")
         let matches = regex.matches(in: strDate, options: [], range: range)
         if matches.count > 0 {
             let groupRange = matches[0].range(at: 1)
