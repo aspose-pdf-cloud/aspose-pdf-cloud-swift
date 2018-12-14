@@ -79,10 +79,7 @@ open class CodableHelper {
         return (returnedData, returnedError)
     }
     
-    open class func decodeDate(container: KeyedDecodingContainer<String>, key: String) throws -> Date? {
-        guard let strDate: String = try container.decodeIfPresent(String.self, forKey: key) else {
-            return nil
-        }
+    open class func decodeDate(_ strDate: String) throws -> Date? {
         let range = NSRange(location: 0, length: (strDate.utf16.count))
         let regex = try NSRegularExpression(pattern: "/Date\\((\\d+?)000\\+0000\\)/")
         let matches = regex.matches(in: strDate, options: [], range: range)

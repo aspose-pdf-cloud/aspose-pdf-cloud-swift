@@ -39,6 +39,7 @@
 		1E52FDAB218A008500DEDC40 /* CircleAnnotationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FDAA218A008500DEDC40 /* CircleAnnotationsTests.swift */; };
 		1E52FDAD218A010B00DEDC40 /* PolygonAnnotationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FDAC218A010B00DEDC40 /* PolygonAnnotationsTests.swift */; };
 		1E52FDAF218A028F00DEDC40 /* PolyLineAnnotationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FDAE218A028F00DEDC40 /* PolyLineAnnotationsTests.swift */; };
+		1E5CB2D421C3B48E00E5EA6F /* DateConvertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5CB2D321C3B48E00E5EA6F /* DateConvertTests.swift */; };
 		1E668ACE2174AACE004218A8 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 1E668ACB2174AACE004218A8 /* LICENSE */; };
 		1E668ACF2174AACE004218A8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1E668ACC2174AACE004218A8 /* README.md */; };
 		1E668AD22174AC62004218A8 /* PdfAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E668AD12174AC62004218A8 /* PdfAPI.swift */; };
@@ -299,6 +300,7 @@
 		1E52FDAA218A008500DEDC40 /* CircleAnnotationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleAnnotationsTests.swift; sourceTree = "<group>"; };
 		1E52FDAC218A010B00DEDC40 /* PolygonAnnotationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolygonAnnotationsTests.swift; sourceTree = "<group>"; };
 		1E52FDAE218A028F00DEDC40 /* PolyLineAnnotationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolyLineAnnotationsTests.swift; sourceTree = "<group>"; };
+		1E5CB2D321C3B48E00E5EA6F /* DateConvertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConvertTests.swift; sourceTree = "<group>"; };
 		1E668ACA2174AACE004218A8 /* setup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = setup.json; sourceTree = "<group>"; };
 		1E668ACB2174AACE004218A8 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		1E668ACC2174AACE004218A8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -828,6 +830,7 @@
 		1E9D602B2174857C0097419C /* AsposePdfCloudTests */ = {
 			isa = PBXGroup;
 			children = (
+				1E5CB2D321C3B48E00E5EA6F /* DateConvertTests.swift */,
 				1E9D85D921B57D070026DB97 /* PopupAnnotationsTests.swift */,
 				1E9D85D721B57AC10026DB97 /* IncAnnotationsTests.swift */,
 				1E9D85D521B578E40026DB97 /* CaretAnnotationsTests.swift */,
@@ -1279,6 +1282,7 @@
 				1E668C132174B94F004218A8 /* SignTests.swift in Sources */,
 				1E668C1C2174B94F004218A8 /* TextAnnotationsTests.swift in Sources */,
 				1E668C0F2174B94F004218A8 /* PagesTests.swift in Sources */,
+				1E5CB2D421C3B48E00E5EA6F /* DateConvertTests.swift in Sources */,
 				1E668C1B2174B94F004218A8 /* PrivilegesTests.swift in Sources */,
 				1E668C112174B94F004218A8 /* FieldsTests.swift in Sources */,
 				1E668C102174B94F004218A8 /* ConvertToPdfTests.swift in Sources */,
