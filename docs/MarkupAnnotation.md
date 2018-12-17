@@ -5,11 +5,11 @@ Provides MarkupAnnotation.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**creationDate** | **String?** | The date and time when the annotation was created. | [optional]
+**subject** | **String?** | Get the annotation subject. | [optional]
+**title** | **String?** | Get the annotation title. | [optional]
 **richText** | **String?** | Get the annotation RichText. | [optional]
 **contents** | **String?** | Get the annotation content.<br />*Inherited from [Annotation](Annotation.md)* | [optional]
-**creationDate** | **String?** | The date and time when the annotation was created.<br />*Inherited from [Annotation](Annotation.md)* | [optional]
-**subject** | **String?** | Get the annotation subject.<br />*Inherited from [Annotation](Annotation.md)* | [optional]
-**title** | **String?** | Get the annotation title.<br />*Inherited from [Annotation](Annotation.md)* | [optional]
 **modified** | **String?** | The date and time when the annotation was last modified.<br />*Inherited from [Annotation](Annotation.md)* | [optional]
 **id** | **String?** | Gets ID of the annotation.<br />*Inherited from [Annotation](Annotation.md)* | [optional]
 **flags** | [**[AnnotationFlags]?**](AnnotationFlags.md) | Gets Flags of the annotation.<br />*Inherited from [Annotation](Annotation.md)* | [optional]

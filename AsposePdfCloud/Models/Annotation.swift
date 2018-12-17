@@ -31,12 +31,6 @@ open class Annotation: LinkElement {
 
     /** Get the annotation content. */
     public var contents: String?
-    /** The date and time when the annotation was created. */
-    public var creationDate: String?
-    /** Get the annotation subject. */
-    public var subject: String?
-    /** Get the annotation title. */
-    public var title: String?
     /** The date and time when the annotation was last modified. */
     public var modified: String?
     /** Gets ID of the annotation. */
@@ -57,12 +51,9 @@ open class Annotation: LinkElement {
     public var verticalAlignment: VerticalAlignment?
 
     
-    public init(links: [Link]?, contents: String?, creationDate: String?, subject: String?, title: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: RectanglePdf?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?) {
+    public init(links: [Link]?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: RectanglePdf?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?) {
         super.init(links: links)
         self.contents = contents
-        self.creationDate = creationDate
-        self.subject = subject
-        self.title = title
         self.modified = modified
         self.id = id
         self.flags = flags
@@ -83,9 +74,6 @@ open class Annotation: LinkElement {
         var container = encoder.container(keyedBy: String.self)
 
         try container.encodeIfPresent(contents, forKey: "Contents")
-        try container.encodeIfPresent(creationDate, forKey: "CreationDate")
-        try container.encodeIfPresent(subject, forKey: "Subject")
-        try container.encodeIfPresent(title, forKey: "Title")
         try container.encodeIfPresent(modified, forKey: "Modified")
         try container.encodeIfPresent(id, forKey: "Id")
         try container.encodeIfPresent(flags, forKey: "Flags")
@@ -104,9 +92,6 @@ open class Annotation: LinkElement {
         let container = try decoder.container(keyedBy: String.self)
 
         contents = try container.decodeIfPresent(String.self, forKey: "Contents")
-        creationDate = try container.decodeIfPresent(String.self, forKey: "CreationDate")
-        subject = try container.decodeIfPresent(String.self, forKey: "Subject")
-        title = try container.decodeIfPresent(String.self, forKey: "Title")
         modified = try container.decodeIfPresent(String.self, forKey: "Modified")
         id = try container.decodeIfPresent(String.self, forKey: "Id")
         flags = try container.decodeIfPresent([AnnotationFlags].self, forKey: "Flags")
