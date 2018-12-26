@@ -25,7 +25,7 @@
 import Foundation
 
 
-/** Enumeration of the annotation?s caption positioning. */
+/** Enumeration of the annotation’s caption positioning. */
 public enum CaptionPosition: String, Codable {
     case inline = "Inline"
     case top = "Top"

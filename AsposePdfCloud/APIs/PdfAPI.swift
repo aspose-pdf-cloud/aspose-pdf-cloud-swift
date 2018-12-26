@@ -1,4 +1,4 @@
-/**
+﻿/**
  *
  *   Copyright (c) 2018 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -4567,7 +4567,7 @@ open class PdfAPI {
      Converts PDF document (located on storage) to EPUB format and returns resulting file in response content
      
      - parameter name: (path) The document name. 
-     - parameter contentRecognitionMode: (query) ?roperty tunes conversion for this or that desirable method of recognition of content. (optional)
+     - parameter contentRecognitionMode: (query) Рroperty tunes conversion for this or that desirable method of recognition of content. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -4592,7 +4592,7 @@ open class PdfAPI {
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
-     - parameter contentRecognitionMode: (query) ?roperty tunes conversion for this or that desirable method of recognition of content. (optional)
+     - parameter contentRecognitionMode: (query) Рroperty tunes conversion for this or that desirable method of recognition of content. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
 
@@ -9919,7 +9919,7 @@ open class PdfAPI {
      Converts PDF document (in request content) to EPUB format and uploads resulting file to storage.
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.epub) 
-     - parameter contentRecognitionMode: (query) ?roperty tunes conversion for this or that desirable method of recognition of content. (optional)
+     - parameter contentRecognitionMode: (query) Рroperty tunes conversion for this or that desirable method of recognition of content. (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter file: (form) A file to be converted. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -9947,7 +9947,7 @@ open class PdfAPI {
 }}]
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.epub) 
-     - parameter contentRecognitionMode: (query) ?roperty tunes conversion for this or that desirable method of recognition of content. (optional)
+     - parameter contentRecognitionMode: (query) Рroperty tunes conversion for this or that desirable method of recognition of content. (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter file: (form) A file to be converted. (optional)
 
@@ -10795,7 +10795,7 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.epub) 
-     - parameter contentRecognitionMode: (query) ?roperty tunes conversion for this or that desirable method of recognition of content. (optional)
+     - parameter contentRecognitionMode: (query) Рroperty tunes conversion for this or that desirable method of recognition of content. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -10824,7 +10824,7 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.epub) 
-     - parameter contentRecognitionMode: (query) ?roperty tunes conversion for this or that desirable method of recognition of content. (optional)
+     - parameter contentRecognitionMode: (query) Рroperty tunes conversion for this or that desirable method of recognition of content. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
 
