@@ -25,7 +25,7 @@
 import Foundation
 
 
-/** Enumerates the annotation?s highlighting mode, the visual effect to be used when the mouse button is pressed or held down inside its active area. */
+/** Enumerates the annotation’s highlighting mode, the visual effect to be used when the mouse button is pressed or held down inside its active area. */
 public enum LinkHighlightingMode: String, Codable {
     case _none = "None"
     case invert = "Invert"

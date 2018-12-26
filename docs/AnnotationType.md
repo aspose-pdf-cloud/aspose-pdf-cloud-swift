@@ -1,37 +1,37 @@
-# AnnotationType
+﻿# AnnotationType
 
 
 ## Enum
-Name | Type | Value
------------- | ------------- | -------------
-**caret** | **String** | 'Caret'
-**circle** | **String** | 'Circle'
-**fileAttachment** | **String** | 'FileAttachment'
-**freeText** | **String** | 'FreeText'
-**highlight** | **String** | 'Highlight'
-**ink** | **String** | 'Ink'
-**line** | **String** | 'Line'
-**link** | **String** | 'Link'
-**movie** | **String** | 'Movie'
-**pdf3d** | **String** | 'PDF3D'
-**polygon** | **String** | 'Polygon'
-**polyLine** | **String** | 'PolyLine'
-**popup** | **String** | 'Popup'
-**printerMark** | **String** | 'PrinterMark'
-**redaction** | **String** | 'Redaction'
-**richMedia** | **String** | 'RichMedia'
-**screen** | **String** | 'Screen'
-**sound** | **String** | 'Sound'
-**square** | **String** | 'Square'
-**squiggly** | **String** | 'Squiggly'
-**stamp** | **String** | 'Stamp'
-**strikeOut** | **String** | 'StrikeOut'
-**text** | **String** | 'Text'
-**trapNet** | **String** | 'TrapNet'
-**underline** | **String** | 'Underline'
-**unknown** | **String** | 'Unknown'
-**watermark** | **String** | 'Watermark'
-**widget** | **String** | 'Widget'
+Name | Type | Value | Description
+------------ | ------------- | ------------- | -------------
+**caret** | **String** | 'Caret' | Caret annotation type.
+**circle** | **String** | 'Circle' | Circle annotation type.
+**fileAttachment** | **String** | 'FileAttachment' | File attachment annotation type.
+**freeText** | **String** | 'FreeText' | Free text annotation type.
+**highlight** | **String** | 'Highlight' | Highlight annotation type.
+**ink** | **String** | 'Ink' | Ink annotation type.
+**line** | **String** | 'Line' | Line annotation type.
+**link** | **String** | 'Link' | Link annotation type.
+**movie** | **String** | 'Movie' | Movie annotation type.
+**pdf3d** | **String** | 'PDF3D' | 
+**polygon** | **String** | 'Polygon' | Polygon annotation type.
+**polyLine** | **String** | 'PolyLine' | Plyline annotation type.
+**popup** | **String** | 'Popup' | Popup annotation type.
+**printerMark** | **String** | 'PrinterMark' | Printer mark annotation type.
+**redaction** | **String** | 'Redaction' | Redaction annotation type.
+**richMedia** | **String** | 'RichMedia' | Rich media annotation type
+**screen** | **String** | 'Screen' | Screen annotation type.
+**sound** | **String** | 'Sound' | Sound annotation type.
+**square** | **String** | 'Square' | Square annotatotion type.
+**squiggly** | **String** | 'Squiggly' | Squiggle annotation type.
+**stamp** | **String** | 'Stamp' | Rubber stamp annotation type.
+**strikeOut** | **String** | 'StrikeOut' | Strikeout annotation type.
+**text** | **String** | 'Text' | Text annotation type.
+**trapNet** | **String** | 'TrapNet' | Trap network annotation type.
+**underline** | **String** | 'Underline' | Underline annotation type.
+**unknown** | **String** | 'Unknown' | Unknown annotation.
+**watermark** | **String** | 'Watermark' | Watermark annotation type.
+**widget** | **String** | 'Widget' | Widget annotation type.
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/AnnotationType.swift)
 

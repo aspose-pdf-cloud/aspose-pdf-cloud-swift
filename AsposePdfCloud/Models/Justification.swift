@@ -25,7 +25,7 @@
 import Foundation
 
 
-/** Enumerates the forms of quadding (justification) to be used in displaying the annotation?s text. */
+/** Enumerates the forms of quadding (justification) to be used in displaying the annotation’s text. */
 public enum Justification: String, Codable {
     case _left = "Left"
     case center = "Center"

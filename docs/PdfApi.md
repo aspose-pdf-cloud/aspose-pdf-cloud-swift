@@ -1,4 +1,4 @@
-# PdfApi
+﻿# PdfApi
 
 All URIs are relative to *https://api.aspose.cloud/v2.0/*
 
@@ -2147,7 +2147,7 @@ Converts PDF document (located on storage) to EPUB format and returns resulting 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **name** | **String** | The document name. | 
-**contentRecognitionMode** | [**EpubRecognitionMode?**](EpubRecognitionMode.md) | ?roperty tunes conversion for this or that desirable method of recognition of content. | [optional]
+**contentRecognitionMode** | [**EpubRecognitionMode?**](EpubRecognitionMode.md) | Рroperty tunes conversion for this or that desirable method of recognition of content. | [optional]
 **folder** | **String?** | The document folder. | [optional]
 **storage** | **String?** | The document storage. | [optional]
 
@@ -4337,7 +4337,7 @@ Converts PDF document (in request content) to EPUB format and uploads resulting 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **outPath** | **String** | Full resulting filename (ex. /folder1/folder2/result.epub) | 
-**contentRecognitionMode** | [**EpubRecognitionMode?**](EpubRecognitionMode.md) | ?roperty tunes conversion for this or that desirable method of recognition of content. | [optional]
+**contentRecognitionMode** | [**EpubRecognitionMode?**](EpubRecognitionMode.md) | Рroperty tunes conversion for this or that desirable method of recognition of content. | [optional]
 **storage** | **String?** | The document storage. | [optional]
 **file** | **Data?** | A file to be converted. | [optional]
 
@@ -4663,7 +4663,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **name** | **String** | The document name. | 
 **outPath** | **String** | Full resulting filename (ex. /folder1/folder2/result.epub) | 
-**contentRecognitionMode** | [**EpubRecognitionMode?**](EpubRecognitionMode.md) | ?roperty tunes conversion for this or that desirable method of recognition of content. | [optional]
+**contentRecognitionMode** | [**EpubRecognitionMode?**](EpubRecognitionMode.md) | Рroperty tunes conversion for this or that desirable method of recognition of content. | [optional]
 **folder** | **String?** | The document folder. | [optional]
 **storage** | **String?** | The document storage. | [optional]
 
