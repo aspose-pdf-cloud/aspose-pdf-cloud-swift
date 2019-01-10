@@ -133,12 +133,12 @@ class SquareAnnotationsTests: AsposePdfCloudTests {
         
         let annotation = SquareAnnotation(
             links: nil,
-            contents: nil,
+            color: nil, contents: nil,
             modified: nil,
             id: nil,
             flags: [AnnotationFlags._default],
             name: "Name",
-            rect: RectanglePdf(LLX: 100, LLY: 100, URX: 200, URY: 200),
+            rect: Rectangle(LLX: 100, LLY: 100, URX: 200, URY: 200),
             pageIndex: nil,
             zIndex: 1,
             horizontalAlignment: HorizontalAlignment.center,
@@ -148,8 +148,7 @@ class SquareAnnotationsTests: AsposePdfCloudTests {
             title: "Title",
             richText: "Rich Text",
             interiorColor: nil,
-            frame: nil,
-            color: nil
+            frame: nil
         )
         
         uploadFile(name: name) {
@@ -179,12 +178,13 @@ class SquareAnnotationsTests: AsposePdfCloudTests {
         
         let annotation = SquareAnnotation(
             links: nil,
+            color: nil,
             contents: nil,
             modified: nil,
             id: nil,
             flags: [AnnotationFlags._default],
             name: "Name Updated",
-            rect: RectanglePdf(LLX: 100, LLY: 100, URX: 200, URY: 200),
+            rect: Rectangle(LLX: 100, LLY: 100, URX: 200, URY: 200),
             pageIndex: nil,
             zIndex: 1,
             horizontalAlignment: HorizontalAlignment.center,
@@ -194,8 +194,7 @@ class SquareAnnotationsTests: AsposePdfCloudTests {
             title: "Title Updated",
             richText: "Rich Text Updated",
             interiorColor: nil,
-            frame: nil,
-            color: nil
+            frame: nil
         )
         
         uploadFile(name: name) {

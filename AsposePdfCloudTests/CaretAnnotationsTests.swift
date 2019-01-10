@@ -133,11 +133,12 @@ class CaretAnnotationsTests: AsposePdfCloudTests {
         
         let annotation = CaretAnnotation(
             links: nil,
+            color: nil,
             contents: nil,
             modified: "01/01/2018 00:00:00.000 AM",
             id: nil, flags: [AnnotationFlags._default],
             name: "Name",
-            rect: RectanglePdf(LLX: 100, LLY: 100, URX: 200, URY: 200),
+            rect: Rectangle(LLX: 100, LLY: 100, URX: 200, URY: 200),
             pageIndex: nil,
             zIndex: 1,
             horizontalAlignment: HorizontalAlignment.center,
@@ -146,8 +147,7 @@ class CaretAnnotationsTests: AsposePdfCloudTests {
             subject: "Subject",
             title: "Title",
             richText: "Rich Text",
-            color: nil,
-            frame: RectanglePdf(LLX: 100, LLY: 100, URX: 200, URY: 200),
+            frame: Rectangle(LLX: 100, LLY: 100, URX: 200, URY: 200),
             symbol: nil
         )
         
@@ -178,12 +178,13 @@ class CaretAnnotationsTests: AsposePdfCloudTests {
         
         let annotation = CaretAnnotation(
             links: nil,
+            color: nil,
             contents: nil,
             modified: "01/01/2018 00:00:00.000 AM",
             id: nil,
             flags: [AnnotationFlags._default],
             name: "Name Updated",
-            rect: RectanglePdf(LLX: 100, LLY: 100, URX: 200, URY: 200),
+            rect: Rectangle(LLX: 100, LLY: 100, URX: 200, URY: 200),
             pageIndex: nil,
             zIndex: 1,
             horizontalAlignment: HorizontalAlignment.center,
@@ -192,8 +193,7 @@ class CaretAnnotationsTests: AsposePdfCloudTests {
             subject: "Subject Updated",
             title: "Title Updated",
             richText: "Rich Text Updated",
-            color: nil,
-            frame: RectanglePdf(LLX: 100, LLY: 100, URX: 200, URY: 200),
+            frame: Rectangle(LLX: 100, LLY: 100, URX: 200, URY: 200),
             symbol: nil
         )
         

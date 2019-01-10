@@ -90,7 +90,7 @@ class TextTests: AsposePdfCloudTests {
             rightMargin: 10,
             topMargin: 20,
             bottomMargin: 20,
-            rectangle: RectanglePdf(LLX: 100, LLY: 100, URX: 200, URY: 200),
+            rectangle: Rectangle(LLX: 100, LLY: 100, URX: 200, URY: 200),
             rotation: 10,
             subsequentLinesIndent: 20,
             verticalAlignment: VerticalAlignment.center,

@@ -79,7 +79,7 @@ class FieldsTests: AsposePdfCloudTests {
     
     func testPostCreateField() {
         
-        let field = Field(links: nil, name: "checkboxfield", selectedItems: nil, type: FieldType.boolean, rect: RectanglePdf(LLX: 50, LLY: 200, URX: 200, URY: 400), values: ["1"])
+        let field = Field(links: nil, name: "checkboxfield", selectedItems: nil, type: FieldType.boolean, rect: Rectangle(LLX: 50, LLY: 200, URX: 200, URY: 400), values: ["1"])
         let name = "4pages.pdf"
         let page = 1
         
@@ -204,6 +204,32 @@ class FieldsTests: AsposePdfCloudTests {
                 (response, error) in
                 guard error == nil else {
                     XCTFail("error testPutFieldsFlatten: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    
+    func testPostFlattenDocument() {
+        
+        let name = "PdfWithAcroForm.pdf"
+        let expectation = self.expectation(description: "testPostFlattenDocument")
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.postFlattenDocument(name: name, updateAppearances: true, callEvents: nil, hideButtons: true, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testPostFlattenDocument: " + (error.debugDescription))
                     return
                 }
                 

@@ -111,7 +111,6 @@
 		1E668B882174AFFC004218A8 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E668B1F2174AFF5004218A8 /* Color.swift */; };
 		1E668B892174AFFC004218A8 /* DocumentPrivilege.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E668B202174AFF5004218A8 /* DocumentPrivilege.swift */; };
 		1E668B8A2174AFFC004218A8 /* HorizontalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E668B212174AFF5004218A8 /* HorizontalAlignment.swift */; };
-		1E668B8B2174AFFC004218A8 /* RectanglePdf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E668B222174AFF5004218A8 /* RectanglePdf.swift */; };
 		1E668B8C2174AFFC004218A8 /* ImageTemplatesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E668B232174AFF5004218A8 /* ImageTemplatesRequest.swift */; };
 		1E668B8D2174AFFC004218A8 /* Stamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E668B242174AFF6004218A8 /* Stamp.swift */; };
 		1E668B8E2174AFFC004218A8 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E668B252174AFF6004218A8 /* Image.swift */; };
@@ -253,6 +252,14 @@
 		1E9D85D621B578E40026DB97 /* CaretAnnotationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9D85D521B578E40026DB97 /* CaretAnnotationsTests.swift */; };
 		1E9D85D821B57AC10026DB97 /* IncAnnotationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9D85D721B57AC10026DB97 /* IncAnnotationsTests.swift */; };
 		1E9D85DA21B57D070026DB97 /* PopupAnnotationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9D85D921B57D070026DB97 /* PopupAnnotationsTests.swift */; };
+		1EC024C421E750BB00450DE6 /* DiscUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC024BC21E750B900450DE6 /* DiscUsage.swift */; };
+		1EC024C521E750BB00450DE6 /* FileVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC024BD21E750B900450DE6 /* FileVersion.swift */; };
+		1EC024C621E750BB00450DE6 /* StorageExistResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC024BE21E750B900450DE6 /* StorageExistResponse.swift */; };
+		1EC024C721E750BB00450DE6 /* FileExist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC024BF21E750B900450DE6 /* FileExist.swift */; };
+		1EC024C821E750BB00450DE6 /* FileVersionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC024C021E750BA00450DE6 /* FileVersionsResponse.swift */; };
+		1EC024C921E750BB00450DE6 /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC024C121E750BA00450DE6 /* Rectangle.swift */; };
+		1EC024CA21E750BB00450DE6 /* DiscUsageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC024C221E750BA00450DE6 /* DiscUsageResponse.swift */; };
+		1EC024CB21E750BB00450DE6 /* FileExistResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC024C321E750BA00450DE6 /* FileExistResponse.swift */; };
 		598FE4E53B340782AE55D120 /* Pods_AsposePdfCloudTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8F6D31C12FA29686CF5BB1 /* Pods_AsposePdfCloudTests.framework */; };
 		C5872656FE37FF16879C2944 /* Pods_AsposePdfCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 803B8F591F31F5250B894763 /* Pods_AsposePdfCloud.framework */; };
 /* End PBXBuildFile section */
@@ -373,7 +380,6 @@
 		1E668B1F2174AFF5004218A8 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		1E668B202174AFF5004218A8 /* DocumentPrivilege.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentPrivilege.swift; sourceTree = "<group>"; };
 		1E668B212174AFF5004218A8 /* HorizontalAlignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalAlignment.swift; sourceTree = "<group>"; };
-		1E668B222174AFF5004218A8 /* RectanglePdf.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectanglePdf.swift; sourceTree = "<group>"; };
 		1E668B232174AFF5004218A8 /* ImageTemplatesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTemplatesRequest.swift; sourceTree = "<group>"; };
 		1E668B242174AFF6004218A8 /* Stamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stamp.swift; sourceTree = "<group>"; };
 		1E668B252174AFF6004218A8 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
@@ -517,6 +523,14 @@
 		1E9D85D521B578E40026DB97 /* CaretAnnotationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretAnnotationsTests.swift; sourceTree = "<group>"; };
 		1E9D85D721B57AC10026DB97 /* IncAnnotationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncAnnotationsTests.swift; sourceTree = "<group>"; };
 		1E9D85D921B57D070026DB97 /* PopupAnnotationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupAnnotationsTests.swift; sourceTree = "<group>"; };
+		1EC024BC21E750B900450DE6 /* DiscUsage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscUsage.swift; sourceTree = "<group>"; };
+		1EC024BD21E750B900450DE6 /* FileVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileVersion.swift; sourceTree = "<group>"; };
+		1EC024BE21E750B900450DE6 /* StorageExistResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageExistResponse.swift; sourceTree = "<group>"; };
+		1EC024BF21E750B900450DE6 /* FileExist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileExist.swift; sourceTree = "<group>"; };
+		1EC024C021E750BA00450DE6 /* FileVersionsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileVersionsResponse.swift; sourceTree = "<group>"; };
+		1EC024C121E750BA00450DE6 /* Rectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rectangle.swift; sourceTree = "<group>"; };
+		1EC024C221E750BA00450DE6 /* DiscUsageResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscUsageResponse.swift; sourceTree = "<group>"; };
+		1EC024C321E750BA00450DE6 /* FileExistResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileExistResponse.swift; sourceTree = "<group>"; };
 		2BF9429DFD179E7C5FB73F8E /* Pods-AsposePdfCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsposePdfCloudTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AsposePdfCloudTests/Pods-AsposePdfCloudTests.release.xcconfig"; sourceTree = "<group>"; };
 		4B8F6D31C12FA29686CF5BB1 /* Pods_AsposePdfCloudTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AsposePdfCloudTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		712DE459C735F0BD219E9C26 /* Pods-AsposePdfCloud.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsposePdfCloud.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AsposePdfCloud/Pods-AsposePdfCloud.debug.xcconfig"; sourceTree = "<group>"; };
@@ -577,39 +591,6 @@
 		1E668AE72174AFC2004218A8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1E9D858B21B55DEF0026DB97 /* CapStyle.swift */,
-				1E9D858C21B55DF00026DB97 /* CaretAnnotation.swift */,
-				1E9D859A21B55DF20026DB97 /* CaretAnnotationResponse.swift */,
-				1E9D859521B55DF10026DB97 /* CaretAnnotations.swift */,
-				1E9D859221B55DF10026DB97 /* CaretAnnotationsResponse.swift */,
-				1E9D859421B55DF10026DB97 /* CaretSymbol.swift */,
-				1E9D859C21B55DF20026DB97 /* File.swift */,
-				1E9D859321B55DF10026DB97 /* FilesResponse.swift */,
-				1E9D85A721B55DF40026DB97 /* HighlightAnnotation.swift */,
-				1E9D858D21B55DF00026DB97 /* HighlightAnnotationResponse.swift */,
-				1E9D859621B55DF10026DB97 /* HighlightAnnotations.swift */,
-				1E9D85AA21B55DF40026DB97 /* HighlightAnnotationsResponse.swift */,
-				1E9D85A321B55DF30026DB97 /* InkAnnotation.swift */,
-				1E9D859D21B55DF20026DB97 /* InkAnnotationResponse.swift */,
-				1E9D85AB21B55DF50026DB97 /* InkAnnotations.swift */,
-				1E9D85A021B55DF30026DB97 /* InkAnnotationsResponse.swift */,
-				1E9D859E21B55DF20026DB97 /* PopupAnnotation.swift */,
-				1E9D85A821B55DF40026DB97 /* PopupAnnotationResponse.swift */,
-				1E9D859921B55DF20026DB97 /* PopupAnnotations.swift */,
-				1E9D859721B55DF10026DB97 /* PopupAnnotationsResponse.swift */,
-				1E9D85A221B55DF30026DB97 /* PopupAnnotationWithParent.swift */,
-				1E9D858F21B55DF00026DB97 /* SquigglyAnnotation.swift */,
-				1E9D858E21B55DF00026DB97 /* SquigglyAnnotationResponse.swift */,
-				1E9D859B21B55DF20026DB97 /* SquigglyAnnotations.swift */,
-				1E9D859F21B55DF30026DB97 /* SquigglyAnnotationsResponse.swift */,
-				1E9D859821B55DF10026DB97 /* StrikeOutAnnotation.swift */,
-				1E9D85A921B55DF40026DB97 /* StrikeOutAnnotationResponse.swift */,
-				1E9D85A621B55DF40026DB97 /* StrikeOutAnnotations.swift */,
-				1E9D859121B55DF00026DB97 /* StrikeOutAnnotationsResponse.swift */,
-				1E9D85A121B55DF30026DB97 /* UnderlineAnnotation.swift */,
-				1E9D85A421B55DF30026DB97 /* UnderlineAnnotationResponse.swift */,
-				1E9D859021B55DF00026DB97 /* UnderlineAnnotations.swift */,
-				1E9D85A521B55DF40026DB97 /* UnderlineAnnotationsResponse.swift */,
 				1E668B072174AFF2004218A8 /* Annotation.swift */,
 				1E668B1C2174AFF4004218A8 /* AnnotationFlags.swift */,
 				1E668B0B2174AFF2004218A8 /* AnnotationInfo.swift */,
@@ -624,7 +605,13 @@
 				1E668AEF2174AFEF004218A8 /* AttachmentResponse.swift */,
 				1E668AFE2174AFF1004218A8 /* Attachments.swift */,
 				1E668AF12174AFEF004218A8 /* AttachmentsResponse.swift */,
+				1E9D858B21B55DEF0026DB97 /* CapStyle.swift */,
 				1E52FD832189F2AA00DEDC40 /* CaptionPosition.swift */,
+				1E9D858C21B55DF00026DB97 /* CaretAnnotation.swift */,
+				1E9D859A21B55DF20026DB97 /* CaretAnnotationResponse.swift */,
+				1E9D859521B55DF10026DB97 /* CaretAnnotations.swift */,
+				1E9D859221B55DF10026DB97 /* CaretAnnotationsResponse.swift */,
+				1E9D859421B55DF10026DB97 /* CaretSymbol.swift */,
 				1E52FD892189F2AB00DEDC40 /* CircleAnnotation.swift */,
 				1E52FD7C2189F2A900DEDC40 /* CircleAnnotationResponse.swift */,
 				1E52FD882189F2AA00DEDC40 /* CircleAnnotations.swift */,
@@ -633,6 +620,8 @@
 				1E668B3F2174AFF9004218A8 /* ColorDepth.swift */,
 				1E52FD872189F2AA00DEDC40 /* CommonFigureAnnotation.swift */,
 				1E668B402174AFFA004218A8 /* CompressionType.swift */,
+				1EC024BC21E750B900450DE6 /* DiscUsage.swift */,
+				1EC024C221E750BA00450DE6 /* DiscUsageResponse.swift */,
 				1E668B092174AFF2004218A8 /* DocFormat.swift */,
 				1E668B292174AFF6004218A8 /* DocRecognitionMode.swift */,
 				1E668B2E2174AFF7004218A8 /* Document.swift */,
@@ -650,6 +639,12 @@
 				1E668B0E2174AFF3004218A8 /* Fields.swift */,
 				1E668B442174AFFA004218A8 /* FieldsResponse.swift */,
 				1E668B4A2174AFFB004218A8 /* FieldType.swift */,
+				1E9D859C21B55DF20026DB97 /* File.swift */,
+				1EC024BF21E750B900450DE6 /* FileExist.swift */,
+				1EC024C321E750BA00450DE6 /* FileExistResponse.swift */,
+				1E9D859321B55DF10026DB97 /* FilesResponse.swift */,
+				1EC024BD21E750B900450DE6 /* FileVersion.swift */,
+				1EC024C021E750BA00450DE6 /* FileVersionsResponse.swift */,
 				1E668AF62174AFF0004218A8 /* FontEncodingRules.swift */,
 				1E668AFC2174AFF0004218A8 /* FontSavingModes.swift */,
 				1E668AEB2174AFEF004218A8 /* FontStyles.swift */,
@@ -658,6 +653,10 @@
 				1E668AED2174AFEF004218A8 /* FreeTextAnnotations.swift */,
 				1E668B0A2174AFF2004218A8 /* FreeTextAnnotationsResponse.swift */,
 				1E668B2A2174AFF6004218A8 /* FreeTextIntent.swift */,
+				1E9D85A721B55DF40026DB97 /* HighlightAnnotation.swift */,
+				1E9D858D21B55DF00026DB97 /* HighlightAnnotationResponse.swift */,
+				1E9D859621B55DF10026DB97 /* HighlightAnnotations.swift */,
+				1E9D85AA21B55DF40026DB97 /* HighlightAnnotationsResponse.swift */,
 				1E668B212174AFF5004218A8 /* HorizontalAlignment.swift */,
 				1E668B172174AFF4004218A8 /* HtmlDocumentType.swift */,
 				1E668B162174AFF4004218A8 /* HtmlMarkupGenerationModes.swift */,
@@ -668,6 +667,10 @@
 				1E668B032174AFF1004218A8 /* ImagesResponse.swift */,
 				1E668B3A2174AFF9004218A8 /* ImageTemplate.swift */,
 				1E668B232174AFF5004218A8 /* ImageTemplatesRequest.swift */,
+				1E9D85A321B55DF30026DB97 /* InkAnnotation.swift */,
+				1E9D859D21B55DF20026DB97 /* InkAnnotationResponse.swift */,
+				1E9D85AB21B55DF50026DB97 /* InkAnnotations.swift */,
+				1E9D85A021B55DF30026DB97 /* InkAnnotationsResponse.swift */,
 				1E668B2B2174AFF7004218A8 /* Justification.swift */,
 				1E668B302174AFF7004218A8 /* LettersPositioningMethods.swift */,
 				1E52FD702189F2A700DEDC40 /* LineAnnotation.swift */,
@@ -706,8 +709,13 @@
 				1E52FD742189F2A800DEDC40 /* PolyLineAnnotationResponse.swift */,
 				1E52FD812189F2A900DEDC40 /* PolyLineAnnotations.swift */,
 				1E52FD732189F2A700DEDC40 /* PolyLineAnnotationsResponse.swift */,
+				1E9D859E21B55DF20026DB97 /* PopupAnnotation.swift */,
+				1E9D85A821B55DF40026DB97 /* PopupAnnotationResponse.swift */,
+				1E9D859921B55DF20026DB97 /* PopupAnnotations.swift */,
+				1E9D859721B55DF10026DB97 /* PopupAnnotationsResponse.swift */,
+				1E9D85A221B55DF30026DB97 /* PopupAnnotationWithParent.swift */,
 				1E668B502174AFFC004218A8 /* RasterImagesSavingModes.swift */,
-				1E668B222174AFF5004218A8 /* RectanglePdf.swift */,
+				1EC024C121E750BA00450DE6 /* Rectangle.swift */,
 				1E668B4E2174AFFB004218A8 /* Rotation.swift */,
 				1E668AE82174AFEF004218A8 /* Segment.swift */,
 				1E668B2C2174AFF7004218A8 /* ShapeType.swift */,
@@ -721,8 +729,17 @@
 				1E52FD7F2189F2A900DEDC40 /* SquareAnnotationResponse.swift */,
 				1E52FD842189F2AA00DEDC40 /* SquareAnnotations.swift */,
 				1E52FD752189F2A800DEDC40 /* SquareAnnotationsResponse.swift */,
+				1E9D858F21B55DF00026DB97 /* SquigglyAnnotation.swift */,
+				1E9D858E21B55DF00026DB97 /* SquigglyAnnotationResponse.swift */,
+				1E9D859B21B55DF20026DB97 /* SquigglyAnnotations.swift */,
+				1E9D859F21B55DF30026DB97 /* SquigglyAnnotationsResponse.swift */,
 				1E668B242174AFF6004218A8 /* Stamp.swift */,
 				1E668AE92174AFEF004218A8 /* StampType.swift */,
+				1EC024BE21E750B900450DE6 /* StorageExistResponse.swift */,
+				1E9D859821B55DF10026DB97 /* StrikeOutAnnotation.swift */,
+				1E9D85A921B55DF40026DB97 /* StrikeOutAnnotationResponse.swift */,
+				1E9D85A621B55DF40026DB97 /* StrikeOutAnnotations.swift */,
+				1E9D859121B55DF00026DB97 /* StrikeOutAnnotationsResponse.swift */,
 				1E668B192174AFF4004218A8 /* TextAnnotation.swift */,
 				1E668AFF2174AFF1004218A8 /* TextAnnotationResponse.swift */,
 				1E668B342174AFF8004218A8 /* TextAnnotations.swift */,
@@ -738,6 +755,10 @@
 				1E668AEC2174AFEF004218A8 /* TextReplaceResponse.swift */,
 				1E668AF32174AFF0004218A8 /* TextState.swift */,
 				1E668B112174AFF3004218A8 /* TextStyle.swift */,
+				1E9D85A121B55DF30026DB97 /* UnderlineAnnotation.swift */,
+				1E9D85A421B55DF30026DB97 /* UnderlineAnnotationResponse.swift */,
+				1E9D859021B55DF00026DB97 /* UnderlineAnnotations.swift */,
+				1E9D85A521B55DF40026DB97 /* UnderlineAnnotationsResponse.swift */,
 				1E668B3D2174AFF9004218A8 /* VerticalAlignment.swift */,
 				1E668B052174AFF1004218A8 /* WordCount.swift */,
 				1E668AF72174AFF0004218A8 /* WordCountResponse.swift */,
@@ -1075,6 +1096,7 @@
 				1E52FD952189F2AB00DEDC40 /* LineAnnotationsResponse.swift in Sources */,
 				1E668B7A2174AFFC004218A8 /* TextStyle.swift in Sources */,
 				1E9D85B121B55DF50026DB97 /* UnderlineAnnotations.swift in Sources */,
+				1EC024C821E750BB00450DE6 /* FileVersionsResponse.swift in Sources */,
 				1E668B902174AFFC004218A8 /* AsposeResponse.swift in Sources */,
 				1E52FDA02189F2AB00DEDC40 /* PolygonAnnotations.swift in Sources */,
 				1E668B792174AFFC004218A8 /* PartsEmbeddingModes.swift in Sources */,
@@ -1101,8 +1123,10 @@
 				1E9D85B921B55DF50026DB97 /* StrikeOutAnnotation.swift in Sources */,
 				1E9D85B521B55DF50026DB97 /* CaretSymbol.swift in Sources */,
 				1E668B7B2174AFFC004218A8 /* TextRects.swift in Sources */,
+				1EC024CB21E750BB00450DE6 /* FileExistResponse.swift in Sources */,
 				1E52FD9D2189F2AB00DEDC40 /* LineAnnotations.swift in Sources */,
 				1E668B822174AFFC004218A8 /* TextAnnotation.swift in Sources */,
+				1EC024CA21E750BB00450DE6 /* DiscUsageResponse.swift in Sources */,
 				1E668B7F2174AFFC004218A8 /* HtmlMarkupGenerationModes.swift in Sources */,
 				1E668BB92174AFFC004218A8 /* RasterImagesSavingModes.swift in Sources */,
 				1E668B912174AFFC004218A8 /* Images.swift in Sources */,
@@ -1118,6 +1142,7 @@
 				1E668B772174AFFC004218A8 /* Fields.swift in Sources */,
 				1E9D85C321B55DF50026DB97 /* PopupAnnotationWithParent.swift in Sources */,
 				1E668BA32174AFFC004218A8 /* ImageTemplate.swift in Sources */,
+				1EC024C521E750BB00450DE6 /* FileVersion.swift in Sources */,
 				1E668B512174AFFC004218A8 /* Segment.swift in Sources */,
 				1E668AE12174AFA4004218A8 /* CodableHelper.swift in Sources */,
 				1E52FD8E2189F2AB00DEDC40 /* PolyLineAnnotationsResponse.swift in Sources */,
@@ -1125,6 +1150,7 @@
 				1E668BAB2174AFFC004218A8 /* SignatureVerifyResponse.swift in Sources */,
 				1E9D85BE21B55DF50026DB97 /* InkAnnotationResponse.swift in Sources */,
 				1E668ADE2174AFA4004218A8 /* JSONEncodingHelper.swift in Sources */,
+				1EC024C921E750BB00450DE6 /* Rectangle.swift in Sources */,
 				1E52FD8D2189F2AB00DEDC40 /* CircleAnnotationsResponse.swift in Sources */,
 				1E668BAD2174AFFC004218A8 /* FieldsResponse.swift in Sources */,
 				1E668B7C2174AFFC004218A8 /* ImageResponse.swift in Sources */,
@@ -1148,6 +1174,7 @@
 				1E9D85B321B55DF50026DB97 /* CaretAnnotationsResponse.swift in Sources */,
 				1E668BB22174AFFC004218A8 /* SplitResultResponse.swift in Sources */,
 				1E668B592174AFFC004218A8 /* OptimizeOptions.swift in Sources */,
+				1EC024C421E750BB00450DE6 /* DiscUsage.swift in Sources */,
 				1E668B8E2174AFFC004218A8 /* Image.swift in Sources */,
 				1E668B582174AFFC004218A8 /* AttachmentResponse.swift in Sources */,
 				1E668B972174AFFC004218A8 /* Document.swift in Sources */,
@@ -1169,6 +1196,7 @@
 				1E668BB82174AFFC004218A8 /* FreeTextAnnotationResponse.swift in Sources */,
 				1E668B6B2174AFFC004218A8 /* TextAnnotationsResponse.swift in Sources */,
 				1E52FD8C2189F2AB00DEDC40 /* PolygonAnnotation.swift in Sources */,
+				1EC024C721E750BB00450DE6 /* FileExist.swift in Sources */,
 				1E668B862174AFFC004218A8 /* Signature.swift in Sources */,
 				1E668B812174AFFC004218A8 /* LinkAnnotation.swift in Sources */,
 				1E668B8F2174AFFC004218A8 /* AnnotationsInfo.swift in Sources */,
@@ -1178,7 +1206,6 @@
 				1E668B6A2174AFFC004218A8 /* AppendDocument.swift in Sources */,
 				1E668BAA2174AFFC004218A8 /* Pages.swift in Sources */,
 				1E668BA92174AFFC004218A8 /* CompressionType.swift in Sources */,
-				1E668B8B2174AFFC004218A8 /* RectanglePdf.swift in Sources */,
 				1E668BB12174AFFC004218A8 /* LineSpacing.swift in Sources */,
 				1E668BAC2174AFFC004218A8 /* TextLine.swift in Sources */,
 				1E52FDA32189F2AB00DEDC40 /* CircleAnnotations.swift in Sources */,
@@ -1213,6 +1240,7 @@
 				1E52FD8B2189F2AB00DEDC40 /* LineAnnotation.swift in Sources */,
 				1E9D85B221B55DF50026DB97 /* StrikeOutAnnotationsResponse.swift in Sources */,
 				1E9D85AF21B55DF50026DB97 /* SquigglyAnnotationResponse.swift in Sources */,
+				1EC024C621E750BB00450DE6 /* StorageExistResponse.swift in Sources */,
 				1E52FD992189F2AB00DEDC40 /* PolygonAnnotationResponse.swift in Sources */,
 				1E668BA82174AFFC004218A8 /* ColorDepth.swift in Sources */,
 				1E668B6F2174AFFC004218A8 /* TextRectsResponse.swift in Sources */,

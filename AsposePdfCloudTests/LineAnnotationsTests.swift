@@ -133,12 +133,13 @@ class LineAnnotationsTests: AsposePdfCloudTests {
         
         let annotation = LineAnnotation(
             links: nil,
+            color: nil,
             contents: nil,
             modified: nil,
             id: nil,
             flags: [AnnotationFlags._default],
             name: "Name",
-            rect: RectanglePdf(LLX: 100, LLY: 100, URX: 200, URY: 200),
+            rect: Rectangle(LLX: 100, LLY: 100, URX: 200, URY: 200),
             pageIndex: nil,
             zIndex: 1,
             horizontalAlignment: HorizontalAlignment.center,
@@ -158,7 +159,6 @@ class LineAnnotationsTests: AsposePdfCloudTests {
             showCaption: nil,
             captionOffset: nil,
             captionPosition: nil,
-            color: nil,
             intent: nil
         )
         
@@ -189,12 +189,13 @@ class LineAnnotationsTests: AsposePdfCloudTests {
         
         let annotation = LineAnnotation(
             links: nil,
+            color: nil,
             contents: nil,
             modified: nil,
             id: nil,
             flags: [AnnotationFlags._default],
             name: "Name Updated",
-            rect: RectanglePdf(LLX: 100, LLY: 100, URX: 200, URY: 200),
+            rect: Rectangle(LLX: 100, LLY: 100, URX: 200, URY: 200),
             pageIndex: nil,
             zIndex: 1,
             horizontalAlignment: HorizontalAlignment.center,
@@ -214,7 +215,6 @@ class LineAnnotationsTests: AsposePdfCloudTests {
             showCaption: nil,
             captionOffset: nil,
             captionPosition: nil,
-            color: nil,
             intent: nil
         )
         

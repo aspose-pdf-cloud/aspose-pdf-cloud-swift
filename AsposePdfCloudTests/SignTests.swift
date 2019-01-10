@@ -40,7 +40,7 @@ class SignTests: AsposePdfCloudTests {
             contact: "test@mail.ru",
             location: "Ukraine",
             visible: true,
-            rectangle: RectanglePdf(LLX: 100, LLY: 100, URX: 500, URY: 200),
+            rectangle: Rectangle(LLX: 100, LLY: 100, URX: 500, URY: 200),
             formFieldName: "Signature1",
             authority: "Sergey Smal",
             date: "08/01/2012 12:15:00.000 PM",

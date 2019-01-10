@@ -133,11 +133,12 @@ class InkAnnotationsTests: AsposePdfCloudTests {
         
         let annotation = InkAnnotation(
             links: nil,
+            color: nil,
             contents: nil,
             modified: "01/01/2018 00:00:00.000 AM",
             id: nil, flags: [AnnotationFlags._default],
             name: "Name",
-            rect: RectanglePdf(LLX: 100, LLY: 100, URX: 200, URY: 200),
+            rect: Rectangle(LLX: 100, LLY: 100, URX: 200, URY: 200),
             pageIndex: nil,
             zIndex: 1,
             horizontalAlignment: HorizontalAlignment.center,
@@ -146,7 +147,6 @@ class InkAnnotationsTests: AsposePdfCloudTests {
             subject: "Subject",
             title: "Title",
             richText: "Rich Text",
-            color: nil,
             inkList: [
                 [
                     Point(X: 10,Y: 40),
@@ -188,12 +188,12 @@ class InkAnnotationsTests: AsposePdfCloudTests {
         
         let annotation = InkAnnotation(
             links: nil,
-            contents: nil,
+            color: nil, contents: nil,
             modified: "01/01/2018 00:00:00.000 AM",
             id: nil,
             flags: [AnnotationFlags._default],
             name: "Name Updated",
-            rect: RectanglePdf(LLX: 100, LLY: 100, URX: 200, URY: 200),
+            rect: Rectangle(LLX: 100, LLY: 100, URX: 200, URY: 200),
             pageIndex: nil,
             zIndex: 1,
             horizontalAlignment: HorizontalAlignment.center,
@@ -202,7 +202,6 @@ class InkAnnotationsTests: AsposePdfCloudTests {
             subject: "Subject Updated",
             title: "Title Updated",
             richText: "Rich Text Updated",
-            color: nil,
             inkList: [
                 [
                     Point(X: 10,Y: 40),

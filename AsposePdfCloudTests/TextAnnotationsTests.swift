@@ -133,11 +133,12 @@ class TextAnnotationsTests: AsposePdfCloudTests {
         
         let annotation = TextAnnotation(
             links: nil,
+            color: nil,
             contents: nil,
             modified: nil,
             id: nil, flags: [AnnotationFlags._default],
             name: "Test Free Text",
-            rect: RectanglePdf(LLX: 100, LLY: 100, URX: 200, URY: 200),
+            rect: Rectangle(LLX: 100, LLY: 100, URX: 200, URY: 200),
             pageIndex: nil,
             zIndex: 1,
             horizontalAlignment: HorizontalAlignment.center,
@@ -148,7 +149,6 @@ class TextAnnotationsTests: AsposePdfCloudTests {
             richText: "Rich Text",
             state: AnnotationState.undefined,
             open: nil,
-            color: nil,
             icon: nil
         )
         
@@ -179,12 +179,13 @@ class TextAnnotationsTests: AsposePdfCloudTests {
         
         let annotation = TextAnnotation(
             links: nil,
+            color: Color(A: 0xFF, R: 0, G: 0xFF, B: 0),
             contents: nil,
             modified: nil,
             id: nil,
             flags: [AnnotationFlags._default],
             name: "Test  Text",
-            rect: RectanglePdf(LLX: 100, LLY: 100, URX: 200, URY: 200),
+            rect: Rectangle(LLX: 100, LLY: 100, URX: 200, URY: 200),
             pageIndex: nil,
             zIndex: 1,
             horizontalAlignment: HorizontalAlignment.center,
@@ -195,7 +196,6 @@ class TextAnnotationsTests: AsposePdfCloudTests {
             richText: "Rich Text",
             state: AnnotationState.undefined,
             open: nil,
-            color: Color(A: 0xFF, R: 0, G: 0xFF, B: 0),
             icon: nil
         )
         
