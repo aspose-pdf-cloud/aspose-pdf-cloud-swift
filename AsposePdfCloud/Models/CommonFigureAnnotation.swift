@@ -32,11 +32,11 @@ open class CommonFigureAnnotation: MarkupAnnotation {
     /** Get the annotation InteriorColor. */
     public var interiorColor: Color?
     /** Get or set the annotation Rectangle of frame. */
-    public var frame: RectanglePdf?
+    public var frame: Rectangle?
 
     
-    public init(links: [Link]?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: RectanglePdf?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, creationDate: String?, subject: String?, title: String?, richText: String?, interiorColor: Color?, frame: RectanglePdf?) {
-        super.init(links: links, contents: contents, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, creationDate: creationDate, subject: subject, title: title, richText: richText)
+    public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, creationDate: String?, subject: String?, title: String?, richText: String?, interiorColor: Color?, frame: Rectangle?) {
+        super.init(links: links)
         self.interiorColor = interiorColor
         self.frame = frame
     }
@@ -60,7 +60,7 @@ open class CommonFigureAnnotation: MarkupAnnotation {
         let container = try decoder.container(keyedBy: String.self)
 
         interiorColor = try container.decodeIfPresent(Color.self, forKey: "InteriorColor")
-        frame = try container.decodeIfPresent(RectanglePdf.self, forKey: "Frame")
+        frame = try container.decodeIfPresent(Rectangle.self, forKey: "Frame")
         try super.init(from: decoder)
     }
 }

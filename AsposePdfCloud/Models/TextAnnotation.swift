@@ -33,17 +33,14 @@ open class TextAnnotation: MarkupAnnotation {
     public var state: AnnotationState?
     /** Gets or sets is the annotation open. */
     public var open: Bool?
-    /** Color of the annotation. */
-    public var color: Color?
     /** Gets or sets an icon to be used in displaying the annotation. */
     public var icon: TextIcon?
 
     
-    public init(links: [Link]?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: RectanglePdf?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, creationDate: String?, subject: String?, title: String?, richText: String?, state: AnnotationState?, open: Bool?, color: Color?, icon: TextIcon?) {
-        super.init(links: links, contents: contents, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, creationDate: creationDate, subject: subject, title: title, richText: richText)
+    public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, creationDate: String?, subject: String?, title: String?, richText: String?, state: AnnotationState?, open: Bool?, icon: TextIcon?) {
+        super.init(links: links)
         self.state = state
         self.open = open
-        self.color = color
         self.icon = icon
     }
         
@@ -57,7 +54,6 @@ open class TextAnnotation: MarkupAnnotation {
 
         try container.encodeIfPresent(state, forKey: "State")
         try container.encodeIfPresent(open, forKey: "Open")
-        try container.encodeIfPresent(color, forKey: "Color")
         try container.encodeIfPresent(icon, forKey: "Icon")
         try super.encode(to: encoder)
     }
@@ -69,7 +65,6 @@ open class TextAnnotation: MarkupAnnotation {
 
         state = try container.decodeIfPresent(AnnotationState.self, forKey: "State")
         open = try container.decodeIfPresent(Bool.self, forKey: "Open")
-        color = try container.decodeIfPresent(Color.self, forKey: "Color")
         icon = try container.decodeIfPresent(TextIcon.self, forKey: "Icon")
         try super.init(from: decoder)
     }

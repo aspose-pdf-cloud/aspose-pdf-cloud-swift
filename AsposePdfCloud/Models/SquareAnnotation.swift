@@ -29,13 +29,10 @@ import Foundation
 
 open class SquareAnnotation: CommonFigureAnnotation {
 
-    /** Color of the annotation. */
-    public var color: Color?
 
     
-    public init(links: [Link]?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: RectanglePdf?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, creationDate: String?, subject: String?, title: String?, richText: String?, interiorColor: Color?, frame: RectanglePdf?, color: Color?) {
-        super.init(links: links, contents: contents, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, creationDate: creationDate, subject: subject, title: title, richText: richText, interiorColor: interiorColor, frame: frame)
-        self.color = color
+    public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, creationDate: String?, subject: String?, title: String?, richText: String?, interiorColor: Color?, frame: Rectangle?) {
+        super.init(links: links)
     }
         
     
@@ -46,7 +43,6 @@ open class SquareAnnotation: CommonFigureAnnotation {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(color, forKey: "Color")
         try super.encode(to: encoder)
     }
 
@@ -55,7 +51,6 @@ open class SquareAnnotation: CommonFigureAnnotation {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        color = try container.decodeIfPresent(Color.self, forKey: "Color")
         try super.init(from: decoder)
     }
 }

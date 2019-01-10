@@ -29,15 +29,12 @@ import Foundation
 
 open class PopupAnnotation: Annotation {
 
-    /** Color of the annotation. */
-    public var color: Color?
     /** Gets or sets a flag specifying whether the pop-up annotation should initially be displayed open. */
     public var open: Bool?
 
     
-    public init(links: [Link]?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: RectanglePdf?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, color: Color?, open: Bool?) {
-        super.init(links: links, contents: contents, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment)
-        self.color = color
+    public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, open: Bool?) {
+        super.init(links: links)
         self.open = open
     }
         
@@ -49,7 +46,6 @@ open class PopupAnnotation: Annotation {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(color, forKey: "Color")
         try container.encodeIfPresent(open, forKey: "Open")
         try super.encode(to: encoder)
     }
@@ -59,7 +55,6 @@ open class PopupAnnotation: Annotation {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        color = try container.decodeIfPresent(Color.self, forKey: "Color")
         open = try container.decodeIfPresent(Bool.self, forKey: "Open")
         try super.init(from: decoder)
     }
