@@ -1,11 +1,11 @@
 ﻿# SignatureVerifyResponse
-Returns also a message.
+Represent responce containing signature verification result
 
 *Inherited from [AsposeResponse](AsposeResponse.md)*
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**valid** | **Bool** | Valid sign. | 
+**valid** | **Bool** | True if signature is valid and false if not | 
 **code** | **Int** | Response status code.<br />*Inherited from [AsposeResponse](AsposeResponse.md)* | 
 **status** | **String?** | Response status.<br />*Inherited from [AsposeResponse](AsposeResponse.md)* | [optional]
 

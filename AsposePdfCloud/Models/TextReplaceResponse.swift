@@ -25,9 +25,11 @@
 import Foundation
 
 
+/** Represents response containing the result of text replacement */
 
 open class TextReplaceResponse: AsposeResponse {
 
+    /** Number of matches */
     public var matches: Int?
 
     

@@ -25,10 +25,11 @@
 import Foundation
 
 
-/** List of annotations. */
+/** Object representing a list of square annotations. */
 
 open class SquareAnnotations: LinkElement {
 
+    /** List of square annotations. */
     public var list: [SquareAnnotation]?
 
     

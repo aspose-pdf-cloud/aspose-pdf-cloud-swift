@@ -25,10 +25,11 @@
 import Foundation
 
 
-/** List of annotations. */
+/** Object representing a list of polyline annotations. */
 
 open class PolyLineAnnotations: LinkElement {
 
+    /** List of polyline annotations. */
     public var list: [PolyLineAnnotation]?
 
     

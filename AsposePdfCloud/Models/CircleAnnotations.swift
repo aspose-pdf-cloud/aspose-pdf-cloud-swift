@@ -25,10 +25,11 @@
 import Foundation
 
 
-/** List of annotations. */
+/** Object representing a list of circle annotations. */
 
 open class CircleAnnotations: LinkElement {
 
+    /** List of circle annotations. */
     public var list: [CircleAnnotation]?
 
     

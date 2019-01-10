@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **name** | **String?** | Field name. | [optional]
 **selectedItems** | **[Int]?** | Selected items. | [optional]
 **type** | [**FieldType?**](FieldType.md) | Field type. | [optional]
-**rect** | [**RectanglePdf?**](RectanglePdf.md) | Field rectangle. | [optional]
+**rect** | [**Rectangle?**](Rectangle.md) | Field rectangle. | [optional]
 **values** | **[String]** | Field values. | 
 **links** | [**[Link]?**](Link.md) | Link to the document.<br />*Inherited from [LinkElement](LinkElement.md)* | [optional]
 

@@ -25,9 +25,11 @@
 import Foundation
 
 
+/** Represents response containing single caret annotation object */
 
 open class CaretAnnotationResponse: AsposeResponse {
 
+    /** Caret annotation object */
     public var annotation: CaretAnnotation?
 
     

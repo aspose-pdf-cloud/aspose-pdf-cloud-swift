@@ -25,10 +25,11 @@
 import Foundation
 
 
-/** List of annotations. */
+/** Object representing a list of strikeout annotations. */
 
 open class StrikeOutAnnotations: LinkElement {
 
+    /** List of strikeout annotations. */
     public var list: [StrikeOutAnnotation]?
 
     

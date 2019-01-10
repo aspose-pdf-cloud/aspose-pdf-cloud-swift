@@ -1,11 +1,11 @@
 ﻿# ImageResponse
-
+Represents response containing single image info
 
 *Inherited from [AsposeResponse](AsposeResponse.md)*
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**image** | [**Image?**](Image.md) |  | [optional]
+**image** | [**Image?**](Image.md) | Image object | [optional]
 **code** | **Int** | Response status code.<br />*Inherited from [AsposeResponse](AsposeResponse.md)* | 
 **status** | **String?** | Response status.<br />*Inherited from [AsposeResponse](AsposeResponse.md)* | [optional]
 

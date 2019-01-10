@@ -25,10 +25,11 @@
 import Foundation
 
 
-/** List of page images. */
+/** Represents list of images. */
 
 open class Images: LinkElement {
 
+    /** List of images. */
     public var list: [Image]?
 
     

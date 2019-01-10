@@ -25,9 +25,11 @@
 import Foundation
 
 
+/** Represents response containing multiple circle annotation objects */
 
 open class CircleAnnotationsResponse: AsposeResponse {
 
+    /** Circle annotations object */
     public var annotations: CircleAnnotations?
 
     

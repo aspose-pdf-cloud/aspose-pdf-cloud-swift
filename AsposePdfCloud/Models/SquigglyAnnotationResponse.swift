@@ -25,9 +25,11 @@
 import Foundation
 
 
+/** Represents response containing single squiggly-underline annotation object */
 
 open class SquigglyAnnotationResponse: AsposeResponse {
 
+    /** Squiggly-underline annotation object */
     public var annotation: SquigglyAnnotation?
 
     

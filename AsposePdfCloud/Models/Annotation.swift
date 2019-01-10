@@ -29,6 +29,8 @@ import Foundation
 
 open class Annotation: LinkElement {
 
+    /** Color of the annotation. */
+    public var color: Color?
     /** Get the annotation content. */
     public var contents: String?
     /** The date and time when the annotation was last modified. */
@@ -40,7 +42,7 @@ open class Annotation: LinkElement {
     /** Gets Name of the annotation. */
     public var name: String?
     /** Gets Rect of the annotation. */
-    public var rect: RectanglePdf?
+    public var rect: Rectangle?
     /** Gets PageIndex of the annotation. */
     public var pageIndex: Int?
     /** Gets ZIndex of the annotation. */
@@ -51,8 +53,9 @@ open class Annotation: LinkElement {
     public var verticalAlignment: VerticalAlignment?
 
     
-    public init(links: [Link]?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: RectanglePdf?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?) {
+    public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?) {
         super.init(links: links)
+        self.color = color
         self.contents = contents
         self.modified = modified
         self.id = id
@@ -73,6 +76,7 @@ open class Annotation: LinkElement {
 
         var container = encoder.container(keyedBy: String.self)
 
+        try container.encodeIfPresent(color, forKey: "Color")
         try container.encodeIfPresent(contents, forKey: "Contents")
         try container.encodeIfPresent(modified, forKey: "Modified")
         try container.encodeIfPresent(id, forKey: "Id")
@@ -91,12 +95,13 @@ open class Annotation: LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
+        color = try container.decodeIfPresent(Color.self, forKey: "Color")
         contents = try container.decodeIfPresent(String.self, forKey: "Contents")
         modified = try container.decodeIfPresent(String.self, forKey: "Modified")
         id = try container.decodeIfPresent(String.self, forKey: "Id")
         flags = try container.decodeIfPresent([AnnotationFlags].self, forKey: "Flags")
         name = try container.decodeIfPresent(String.self, forKey: "Name")
-        rect = try container.decodeIfPresent(RectanglePdf.self, forKey: "Rect")
+        rect = try container.decodeIfPresent(Rectangle.self, forKey: "Rect")
         pageIndex = try container.decodeIfPresent(Int.self, forKey: "PageIndex")
         zIndex = try container.decodeIfPresent(Int.self, forKey: "ZIndex")
         horizontalAlignment = try container.decodeIfPresent(HorizontalAlignment.self, forKey: "HorizontalAlignment")

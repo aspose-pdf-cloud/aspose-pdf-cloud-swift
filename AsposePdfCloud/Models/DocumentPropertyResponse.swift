@@ -25,9 +25,11 @@
 import Foundation
 
 
+/** Represents response containing single document property info */
 
 open class DocumentPropertyResponse: AsposeResponse {
 
+    /** DocumentProperty object */
     public var documentProperty: DocumentProperty?
 
     

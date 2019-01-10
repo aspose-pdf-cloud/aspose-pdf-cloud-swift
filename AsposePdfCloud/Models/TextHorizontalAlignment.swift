@@ -25,7 +25,7 @@
 import Foundation
 
 
-/**  */
+/** Describes text horizontal alignment. */
 public enum TextHorizontalAlignment: String, Codable {
     case _left = "Left"
     case _right = "Right"

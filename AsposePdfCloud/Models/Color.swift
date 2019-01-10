@@ -29,9 +29,13 @@ import Foundation
 
 open class Color: Codable {
 
+    /** Alpha component. */
     public var A: Int
+    /** Red component. */
     public var R: Int
+    /** Green component. */
     public var G: Int
+    /** Blue component. */
     public var B: Int
 
         

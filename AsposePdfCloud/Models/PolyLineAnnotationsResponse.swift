@@ -25,9 +25,11 @@
 import Foundation
 
 
+/** Represents response containing multiple polyline annotation objects */
 
 open class PolyLineAnnotationsResponse: AsposeResponse {
 
+    /** Polyline annotations object */
     public var annotations: PolyLineAnnotations?
 
     

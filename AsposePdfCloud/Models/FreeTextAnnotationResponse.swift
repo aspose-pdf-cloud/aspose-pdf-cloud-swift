@@ -25,9 +25,11 @@
 import Foundation
 
 
+/** Represents response containing single free text annotation object */
 
 open class FreeTextAnnotationResponse: AsposeResponse {
 
+    /** Free text annotation object */
     public var annotation: FreeTextAnnotation?
 
     

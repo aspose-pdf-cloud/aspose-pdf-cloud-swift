@@ -25,10 +25,11 @@
 import Foundation
 
 
-/** List of annotations. */
+/** Object representing a list of highlight annotations. */
 
 open class HighlightAnnotations: LinkElement {
 
+    /** List of highlight annotations. */
     public var list: [HighlightAnnotation]?
 
     

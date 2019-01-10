@@ -25,10 +25,13 @@
 import Foundation
 
 
+/** Represents segment of Pdf text. */
 
 open class Segment: Codable {
 
+    /** Text that the Segment object represents. */
     public var value: String
+    /** Text state for the text that Segment object represents. */
     public var textState: TextState?
 
         

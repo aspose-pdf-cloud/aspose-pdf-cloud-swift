@@ -25,11 +25,11 @@
 import Foundation
 
 
-/** Represents split result object. */
+/** Represents responce containing split result. */
 
 open class SplitResultResponse: AsposeResponse {
 
-    /** Gets or sets the splitting result. */
+    /** SplitResult object. */
     public var result: SplitResult?
 
     

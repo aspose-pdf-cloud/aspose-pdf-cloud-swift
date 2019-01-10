@@ -25,9 +25,11 @@
 import Foundation
 
 
+/** Represents response containing multiple fields info */
 
 open class FieldsResponse: AsposeResponse {
 
+    /** Fields object */
     public var fields: Fields?
 
     

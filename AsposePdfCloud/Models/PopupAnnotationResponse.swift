@@ -25,9 +25,11 @@
 import Foundation
 
 
+/** Represents response containing single popup annotation object */
 
 open class PopupAnnotationResponse: AsposeResponse {
 
+    /** Popup annotation object */
     public var annotation: PopupAnnotationWithParent?
 
     

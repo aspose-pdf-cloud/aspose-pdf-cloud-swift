@@ -25,9 +25,11 @@
 import Foundation
 
 
+/** Represents response containing multiple images info */
 
 open class ImagesResponse: AsposeResponse {
 
+    /** Images object */
     public var images: Images?
 
     

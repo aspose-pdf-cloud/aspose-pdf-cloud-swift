@@ -25,10 +25,11 @@
 import Foundation
 
 
-/** List of annotations. */
+/** Object representing a list of free text annotations. */
 
 open class FreeTextAnnotations: LinkElement {
 
+    /** List of free text annotations. */
     public var list: [FreeTextAnnotation]?
 
     

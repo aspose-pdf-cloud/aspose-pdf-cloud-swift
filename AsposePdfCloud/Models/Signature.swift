@@ -25,6 +25,7 @@
 import Foundation
 
 
+/** Represents signature. */
 
 open class Signature: Codable {
 
@@ -45,7 +46,7 @@ open class Signature: Codable {
     /** Gets or sets a value indicating whether this  is visible. Supports only when signing particular page. */
     public var visible: Bool
     /** Gets or sets the visible rectangle of the signature. Supports only when signing particular page. */
-    public var rectangle: RectanglePdf?
+    public var rectangle: Rectangle?
     /** Gets or sets the name of the signature field. Supports only when signing document with particular form field. */
     public var formFieldName: String?
     /** Gets or sets the name of the person or authority signing the document.. */
@@ -57,7 +58,7 @@ open class Signature: Codable {
 
         
     
-    public init(signaturePath: String, signatureType: SignatureType, password: String?, appearance: String?, reason: String?, contact: String?, location: String?, visible: Bool, rectangle: RectanglePdf?, formFieldName: String?, authority: String?, date: String?, showProperties: Bool) {
+    public init(signaturePath: String, signatureType: SignatureType, password: String?, appearance: String?, reason: String?, contact: String?, location: String?, visible: Bool, rectangle: Rectangle?, formFieldName: String?, authority: String?, date: String?, showProperties: Bool) {
         self.signaturePath = signaturePath
         self.signatureType = signatureType
         self.password = password
@@ -108,7 +109,7 @@ open class Signature: Codable {
         contact = try container.decodeIfPresent(String.self, forKey: "Contact")
         location = try container.decodeIfPresent(String.self, forKey: "Location")
         visible = try container.decode(Bool.self, forKey: "Visible")
-        rectangle = try container.decodeIfPresent(RectanglePdf.self, forKey: "Rectangle")
+        rectangle = try container.decodeIfPresent(Rectangle.self, forKey: "Rectangle")
         formFieldName = try container.decodeIfPresent(String.self, forKey: "FormFieldName")
         authority = try container.decodeIfPresent(String.self, forKey: "Authority")
         date = try container.decodeIfPresent(String.self, forKey: "Date")

@@ -1,11 +1,11 @@
 ﻿# AnnotationsInfoResponse
-
+Represents multiple annotations info reponse
 
 *Inherited from [AsposeResponse](AsposeResponse.md)*
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**annotations** | [**AnnotationsInfo?**](AnnotationsInfo.md) |  | [optional]
+**annotations** | [**AnnotationsInfo?**](AnnotationsInfo.md) | Annotations info | [optional]
 **code** | **Int** | Response status code.<br />*Inherited from [AsposeResponse](AsposeResponse.md)* | 
 **status** | **String?** | Response status.<br />*Inherited from [AsposeResponse](AsposeResponse.md)* | [optional]
 

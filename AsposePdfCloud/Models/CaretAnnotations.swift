@@ -25,10 +25,11 @@
 import Foundation
 
 
-/** List of annotations. */
+/** Object representing a list of caret annotations. */
 
 open class CaretAnnotations: LinkElement {
 
+    /** List of caret annotations. */
     public var list: [CaretAnnotation]?
 
     

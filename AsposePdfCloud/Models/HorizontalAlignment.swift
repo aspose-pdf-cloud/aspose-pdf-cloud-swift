@@ -25,7 +25,7 @@
 import Foundation
 
 
-/**  */
+/** Describes horizontal alignment. */
 public enum HorizontalAlignment: String, Codable {
     case _none = "None"
     case _left = "Left"

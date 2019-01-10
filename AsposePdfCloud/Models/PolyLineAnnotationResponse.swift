@@ -25,9 +25,11 @@
 import Foundation
 
 
+/** Represents response containing single polyline annotation object */
 
 open class PolyLineAnnotationResponse: AsposeResponse {
 
+    /** Polyline annotation object */
     public var annotation: PolyLineAnnotation?
 
     

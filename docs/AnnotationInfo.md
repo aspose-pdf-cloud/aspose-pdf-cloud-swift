@@ -6,12 +6,13 @@ Provides annotation.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **annotationType** | [**AnnotationType**](AnnotationType.md) | Gets annotation type. | 
+**color** | [**Color?**](Color.md) | Color of the annotation.<br />*Inherited from [Annotation](Annotation.md)* | [optional]
 **contents** | **String?** | Get the annotation content.<br />*Inherited from [Annotation](Annotation.md)* | [optional]
 **modified** | **String?** | The date and time when the annotation was last modified.<br />*Inherited from [Annotation](Annotation.md)* | [optional]
 **id** | **String?** | Gets ID of the annotation.<br />*Inherited from [Annotation](Annotation.md)* | [optional]
 **flags** | [**[AnnotationFlags]?**](AnnotationFlags.md) | Gets Flags of the annotation.<br />*Inherited from [Annotation](Annotation.md)* | [optional]
 **name** | **String?** | Gets Name of the annotation.<br />*Inherited from [Annotation](Annotation.md)* | [optional]
-**rect** | [**RectanglePdf**](RectanglePdf.md) | Gets Rect of the annotation.<br />*Inherited from [Annotation](Annotation.md)* | 
+**rect** | [**Rectangle**](Rectangle.md) | Gets Rect of the annotation.<br />*Inherited from [Annotation](Annotation.md)* | 
 **pageIndex** | **Int?** | Gets PageIndex of the annotation.<br />*Inherited from [Annotation](Annotation.md)* | [optional]
 **zIndex** | **Int?** | Gets ZIndex of the annotation.<br />*Inherited from [Annotation](Annotation.md)* | [optional]
 **horizontalAlignment** | [**HorizontalAlignment?**](HorizontalAlignment.md) | Gets HorizontalAlignment of the annotation.<br />*Inherited from [Annotation](Annotation.md)* | [optional]

@@ -25,9 +25,11 @@
 import Foundation
 
 
+/** Represents response containing multiple ink annotation objects */
 
 open class InkAnnotationsResponse: AsposeResponse {
 
+    /** Ink annotations object */
     public var annotations: InkAnnotations?
 
     

@@ -25,10 +25,11 @@
 import Foundation
 
 
-/** List of annotations. */
+/** Object representing a list of polygon annotations. */
 
 open class PolygonAnnotations: LinkElement {
 
+    /** List of polygon annotations. */
     public var list: [PolygonAnnotation]?
 
     

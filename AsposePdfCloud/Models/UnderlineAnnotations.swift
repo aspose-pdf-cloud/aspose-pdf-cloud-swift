@@ -25,10 +25,11 @@
 import Foundation
 
 
-/** List of annotations. */
+/** Object representing a list of underline annotations. */
 
 open class UnderlineAnnotations: LinkElement {
 
+    /** List of underline annotations. */
     public var list: [UnderlineAnnotation]?
 
     

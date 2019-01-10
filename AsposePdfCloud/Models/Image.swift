@@ -36,12 +36,12 @@ open class Image: LinkElement {
     /** Gets ID of the image. */
     public var id: String?
     /** Gets rectangle of the image. */
-    public var rectangle: RectanglePdf?
+    public var rectangle: Rectangle?
     /** Gets page number. */
     public var pageNumber: Int?
 
     
-    public init(links: [Link]?, width: Int?, height: Int?, id: String?, rectangle: RectanglePdf?, pageNumber: Int?) {
+    public init(links: [Link]?, width: Int?, height: Int?, id: String?, rectangle: Rectangle?, pageNumber: Int?) {
         super.init(links: links)
         self.width = width
         self.height = height
@@ -74,7 +74,7 @@ open class Image: LinkElement {
         width = try container.decodeIfPresent(Int.self, forKey: "Width")
         height = try container.decodeIfPresent(Int.self, forKey: "Height")
         id = try container.decodeIfPresent(String.self, forKey: "Id")
-        rectangle = try container.decodeIfPresent(RectanglePdf.self, forKey: "Rectangle")
+        rectangle = try container.decodeIfPresent(Rectangle.self, forKey: "Rectangle")
         pageNumber = try container.decodeIfPresent(Int.self, forKey: "PageNumber")
         try super.init(from: decoder)
     }

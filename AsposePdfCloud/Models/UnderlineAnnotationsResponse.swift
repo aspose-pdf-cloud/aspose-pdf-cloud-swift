@@ -25,9 +25,11 @@
 import Foundation
 
 
+/** Represents response containing multiple underline annotation objects */
 
 open class UnderlineAnnotationsResponse: AsposeResponse {
 
+    /** Underline annotations object */
     public var annotations: UnderlineAnnotations?
 
     

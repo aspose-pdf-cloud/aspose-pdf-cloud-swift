@@ -31,11 +31,13 @@ open class Page: LinkElement {
 
     /** Page&#39;s id. */
     public var id: Int?
+    /** Page&#39;s images */
     public var images: Images?
-    public var rectangle: RectanglePdf?
+    /** Page&#39;s rectangle */
+    public var rectangle: Rectangle?
 
     
-    public init(links: [Link]?, id: Int?, images: Images?, rectangle: RectanglePdf?) {
+    public init(links: [Link]?, id: Int?, images: Images?, rectangle: Rectangle?) {
         super.init(links: links)
         self.id = id
         self.images = images
@@ -63,7 +65,7 @@ open class Page: LinkElement {
 
         id = try container.decodeIfPresent(Int.self, forKey: "Id")
         images = try container.decodeIfPresent(Images.self, forKey: "Images")
-        rectangle = try container.decodeIfPresent(RectanglePdf.self, forKey: "Rectangle")
+        rectangle = try container.decodeIfPresent(Rectangle.self, forKey: "Rectangle")
         try super.init(from: decoder)
     }
 }

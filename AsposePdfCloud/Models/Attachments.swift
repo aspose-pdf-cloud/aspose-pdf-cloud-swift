@@ -25,10 +25,11 @@
 import Foundation
 
 
-/** List of attachment. */
+/** Represents list of attachment. */
 
 open class Attachments: LinkElement {
 
+    /** List of annotations. */
     public var list: [LinkElement]?
 
     

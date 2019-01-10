@@ -25,9 +25,11 @@
 import Foundation
 
 
+/** Represents response containing single field info */
 
 open class FieldResponse: AsposeResponse {
 
+    /** Field object */
     public var field: Field?
 
     

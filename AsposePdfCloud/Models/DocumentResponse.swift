@@ -25,10 +25,13 @@
 import Foundation
 
 
+/** Represents response containing document info */
 
 open class DocumentResponse: AsposeResponse {
 
+    /** Document object */
     public var document: Document?
+    /** A list of messages obtained while producing the responce */
     public var messages: [String]?
 
     

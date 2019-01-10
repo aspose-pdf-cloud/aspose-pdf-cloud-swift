@@ -25,9 +25,11 @@
 import Foundation
 
 
+/** Represents response containing single link info */
 
 open class LinkAnnotationResponse: AsposeResponse {
 
+    /** LinkAnnotation object */
     public var link: LinkAnnotation?
 
     

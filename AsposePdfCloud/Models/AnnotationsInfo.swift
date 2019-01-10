@@ -25,10 +25,11 @@
 import Foundation
 
 
-/** List of annotations. */
+/** Object representing a list of annotation info objects. */
 
 open class AnnotationsInfo: LinkElement {
 
+    /** List of annotation info objects. */
     public var list: [AnnotationInfo]?
 
     
