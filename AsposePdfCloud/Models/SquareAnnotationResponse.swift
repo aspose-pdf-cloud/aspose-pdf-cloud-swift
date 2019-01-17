@@ -25,9 +25,11 @@
 import Foundation
 
 
+/** Represents response containing single square annotation object */
 
 open class SquareAnnotationResponse: AsposeResponse {
 
+    /** Square annotation object */
     public var annotation: SquareAnnotation?
 
     

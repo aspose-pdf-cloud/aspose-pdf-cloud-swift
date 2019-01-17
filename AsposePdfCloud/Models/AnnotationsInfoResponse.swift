@@ -25,9 +25,11 @@
 import Foundation
 
 
+/** Represents multiple annotations info reponse */
 
 open class AnnotationsInfoResponse: AsposeResponse {
 
+    /** Annotations info */
     public var annotations: AnnotationsInfo?
 
     

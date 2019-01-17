@@ -25,9 +25,11 @@
 import Foundation
 
 
+/** Represents response containing single text annotation object */
 
 open class TextAnnotationResponse: AsposeResponse {
 
+    /** Text annotation object */
     public var annotation: TextAnnotation?
 
     

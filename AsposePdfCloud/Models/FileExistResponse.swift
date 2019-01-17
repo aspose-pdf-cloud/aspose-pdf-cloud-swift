@@ -25,35 +25,27 @@
 import Foundation
 
 
-/** Represents rectangle DTO. */
 
-open class RectanglePdf: Codable {
+open class FileExistResponse: AsposeResponse {
 
-    public var LLX: Double
-    public var LLY: Double
-    public var URX: Double
-    public var URY: Double
+    public var fileExist: FileExist?
 
-        
     
-    public init(LLX: Double, LLY: Double, URX: Double, URY: Double) {
-        self.LLX = LLX
-        self.LLY = LLY
-        self.URX = URX
-        self.URY = URY
+    public init(code: Int, status: String?, fileExist: FileExist?) {
+        super.init(code: code, status: status)
+        self.fileExist = fileExist
     }
+        
     
 
     // Encodable protocol methods
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encode(LLX, forKey: "LLX")
-        try container.encode(LLY, forKey: "LLY")
-        try container.encode(URX, forKey: "URX")
-        try container.encode(URY, forKey: "URY")
+        try container.encodeIfPresent(fileExist, forKey: "FileExist")
+        try super.encode(to: encoder)
     }
 
     // Decodable protocol methods
@@ -61,10 +53,8 @@ open class RectanglePdf: Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        LLX = try container.decode(Double.self, forKey: "LLX")
-        LLY = try container.decode(Double.self, forKey: "LLY")
-        URX = try container.decode(Double.self, forKey: "URX")
-        URY = try container.decode(Double.self, forKey: "URY")
+        fileExist = try container.decodeIfPresent(FileExist.self, forKey: "FileExist")
+        try super.init(from: decoder)
     }
 }
 

@@ -25,9 +25,11 @@
 import Foundation
 
 
+/** Represents response containing single polygon annotation object */
 
 open class PolygonAnnotationResponse: AsposeResponse {
 
+    /** Polygon annotation object */
     public var annotation: PolygonAnnotation?
 
     

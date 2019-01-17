@@ -25,7 +25,7 @@
 import Foundation
 
 
-/**  */
+/** Defines word wrapping strategies */
 public enum WrapMode: String, Codable {
     case noWrap = "NoWrap"
     case byWords = "ByWords"

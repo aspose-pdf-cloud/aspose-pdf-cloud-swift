@@ -157,17 +157,16 @@ class PopupAnnotationsTests: AsposePdfCloudTests {
         
         let annotation = PopupAnnotation(
             links: nil,
-            contents: nil,
+            color: nil, contents: nil,
             modified: "01/01/2018 00:00:00.000 AM",
             id: nil,
             flags: [AnnotationFlags._default],
             name: "Name",
-            rect: RectanglePdf(LLX: 100, LLY: 100, URX: 200, URY: 200),
+            rect: Rectangle(LLX: 100, LLY: 100, URX: 200, URY: 200),
             pageIndex: nil,
             zIndex: 1,
             horizontalAlignment: HorizontalAlignment.center,
             verticalAlignment: VerticalAlignment._none,
-            color: nil,
             open: nil
         )
         
@@ -198,17 +197,16 @@ class PopupAnnotationsTests: AsposePdfCloudTests {
         
         let annotation = PopupAnnotation(
             links: nil,
-            contents: nil,
+            color: nil, contents: nil,
             modified: "01/01/2018 00:00:00.000 AM",
             id: nil,
             flags: [AnnotationFlags._default],
             name: "Name Updated",
-            rect: RectanglePdf(LLX: 100, LLY: 100, URX: 200, URY: 200),
+            rect: Rectangle(LLX: 100, LLY: 100, URX: 200, URY: 200),
             pageIndex: nil,
             zIndex: 1,
             horizontalAlignment: HorizontalAlignment.center,
             verticalAlignment: nil,
-            color: nil,
             open: nil
         )
         

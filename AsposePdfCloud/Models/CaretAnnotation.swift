@@ -29,17 +29,14 @@ import Foundation
 
 open class CaretAnnotation: MarkupAnnotation {
 
-    /** Color of the annotation. */
-    public var color: Color?
     /** Gets or sets caret rectangle. */
-    public var frame: RectanglePdf?
+    public var frame: Rectangle?
     /** Gets or sets symbol associated with caret. */
     public var symbol: CaretSymbol?
 
     
-    public init(links: [Link]?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: RectanglePdf?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, creationDate: String?, subject: String?, title: String?, richText: String?, color: Color?, frame: RectanglePdf?, symbol: CaretSymbol?) {
-        super.init(links: links, contents: contents, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, creationDate: creationDate, subject: subject, title: title, richText: richText)
-        self.color = color
+    public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, creationDate: String?, subject: String?, title: String?, richText: String?, frame: Rectangle?, symbol: CaretSymbol?) {
+        super.init(links: links, color: color, contents: contents, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, creationDate: creationDate, subject: subject, title: title, richText: richText)
         self.frame = frame
         self.symbol = symbol
     }
@@ -52,7 +49,6 @@ open class CaretAnnotation: MarkupAnnotation {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(color, forKey: "Color")
         try container.encodeIfPresent(frame, forKey: "Frame")
         try container.encodeIfPresent(symbol, forKey: "Symbol")
         try super.encode(to: encoder)
@@ -63,8 +59,7 @@ open class CaretAnnotation: MarkupAnnotation {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        color = try container.decodeIfPresent(Color.self, forKey: "Color")
-        frame = try container.decodeIfPresent(RectanglePdf.self, forKey: "Frame")
+        frame = try container.decodeIfPresent(Rectangle.self, forKey: "Frame")
         symbol = try container.decodeIfPresent(CaretSymbol.self, forKey: "Symbol")
         try super.init(from: decoder)
     }

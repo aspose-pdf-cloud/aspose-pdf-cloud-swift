@@ -29,17 +29,14 @@ import Foundation
 
 open class InkAnnotation: MarkupAnnotation {
 
-    /** Color of the annotation. */
-    public var color: Color?
     /** Gets or sets list of gestures that are independent lines which are represented by Point[] arrays. */
     public var inkList: [[Point]]?
     /** Style of ink annotation line endings. */
     public var capStyle: CapStyle?
 
     
-    public init(links: [Link]?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: RectanglePdf?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, creationDate: String?, subject: String?, title: String?, richText: String?, color: Color?, inkList: [[Point]]?, capStyle: CapStyle?) {
-        super.init(links: links, contents: contents, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, creationDate: creationDate, subject: subject, title: title, richText: richText)
-        self.color = color
+    public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, creationDate: String?, subject: String?, title: String?, richText: String?, inkList: [[Point]]?, capStyle: CapStyle?) {
+        super.init(links: links, color: color, contents: contents, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, creationDate: creationDate, subject: subject, title: title, richText: richText)
         self.inkList = inkList
         self.capStyle = capStyle
     }
@@ -52,7 +49,6 @@ open class InkAnnotation: MarkupAnnotation {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(color, forKey: "Color")
         try container.encodeIfPresent(inkList, forKey: "InkList")
         try container.encodeIfPresent(capStyle, forKey: "CapStyle")
         try super.encode(to: encoder)
@@ -63,7 +59,6 @@ open class InkAnnotation: MarkupAnnotation {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        color = try container.decodeIfPresent(Color.self, forKey: "Color")
         inkList = try container.decodeIfPresent([[Point]].self, forKey: "InkList")
         capStyle = try container.decodeIfPresent(CapStyle.self, forKey: "CapStyle")
         try super.init(from: decoder)

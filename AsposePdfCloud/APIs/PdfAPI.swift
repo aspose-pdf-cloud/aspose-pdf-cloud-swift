@@ -250,6 +250,114 @@ open class PdfAPI {
     }
 
     /**
+     Remove a specific file 
+     
+     - parameter path: (query) Path of the file including file name and extension e.g. /Folder1/file.ext 
+     - parameter versionId: (query) File&#39;s version (optional)
+     - parameter storage: (query) User&#39;s storage name (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func deleteFile(path: String, versionId: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            deleteFileWithRequestBuilder(path: path, versionId: versionId, storage: storage).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Remove a specific file 
+     - DELETE /storage/file
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter path: (query) Path of the file including file name and extension e.g. /Folder1/file.ext 
+     - parameter versionId: (query) File&#39;s version (optional)
+     - parameter storage: (query) User&#39;s storage name (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func deleteFileWithRequestBuilder(path: String, versionId: String? = nil, storage: String? = nil) -> RequestBuilder<AsposeResponse> {
+        let pathUrl = "/storage/file"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "path": path, 
+            "versionId": versionId, 
+            "storage": storage
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Remove a specific folder 
+     
+     - parameter path: (query) Folder path e.g. /Folder1 
+     - parameter storage: (query) User&#39;s storage name (optional)
+     - parameter recursive: (query) Remove recursivelly inner folder/files. If false and folder contains data than exception is raised. (optional, default to false)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func deleteFolder(path: String, storage: String? = nil, recursive: Bool? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            deleteFolderWithRequestBuilder(path: path, storage: storage, recursive: recursive).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Remove a specific folder 
+     - DELETE /storage/folder
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter path: (query) Folder path e.g. /Folder1 
+     - parameter storage: (query) User&#39;s storage name (optional)
+     - parameter recursive: (query) Remove recursivelly inner folder/files. If false and folder contains data than exception is raised. (optional, default to false)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func deleteFolderWithRequestBuilder(path: String, storage: String? = nil, recursive: Bool? = nil) -> RequestBuilder<AsposeResponse> {
+        let pathUrl = "/storage/folder"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "path": path, 
+            "storage": storage, 
+            "recursive": recursive
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
      Delete image from document page.
      
      - parameter name: (path) The document name. 
@@ -749,6 +857,51 @@ open class PdfAPI {
         
 
         let requestBuilder: RequestBuilder<CircleAnnotationResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Check the disk usage of the current account 
+     
+     - parameter storage: (query) User&#39;s storage name (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getDiscUsage(storage: String? = nil, completion: @escaping ((_ data: DiscUsageResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getDiscUsageWithRequestBuilder(storage: storage).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Check the disk usage of the current account 
+     - GET /storage/disc
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter storage: (query) User&#39;s storage name (optional)
+
+     - returns: RequestBuilder<DiscUsageResponse> 
+     */
+    open class func getDiscUsageWithRequestBuilder(storage: String? = nil) -> RequestBuilder<DiscUsageResponse> {
+        let pathUrl = "/storage/disc"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage
+        ])
+        
+
+        let requestBuilder: RequestBuilder<DiscUsageResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -2728,6 +2881,100 @@ open class PdfAPI {
     }
 
     /**
+     Check if a specific file or folder exists
+     
+     - parameter path: (query) File or folder path e.g. /file.ext or /Folder1 
+     - parameter versionId: (query) File&#39;s version (optional)
+     - parameter storage: (query) User&#39;s storage name (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getIsExist(path: String, versionId: String? = nil, storage: String? = nil, completion: @escaping ((_ data: FileExistResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getIsExistWithRequestBuilder(path: path, versionId: versionId, storage: storage).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Check if a specific file or folder exists
+     - GET /storage/exist
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter path: (query) File or folder path e.g. /file.ext or /Folder1 
+     - parameter versionId: (query) File&#39;s version (optional)
+     - parameter storage: (query) User&#39;s storage name (optional)
+
+     - returns: RequestBuilder<FileExistResponse> 
+     */
+    open class func getIsExistWithRequestBuilder(path: String, versionId: String? = nil, storage: String? = nil) -> RequestBuilder<FileExistResponse> {
+        let pathUrl = "/storage/exist"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "path": path, 
+            "versionId": versionId, 
+            "storage": storage
+        ])
+        
+
+        let requestBuilder: RequestBuilder<FileExistResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Check if storage exists 
+     
+     - parameter name: (path) Storage name 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getIsStorageExist(name: String, completion: @escaping ((_ data: StorageExistResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getIsStorageExistWithRequestBuilder(name: name).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Check if storage exists 
+     - GET /storage/{name}/exist
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter name: (path) Storage name 
+
+     - returns: RequestBuilder<StorageExistResponse> 
+     */
+    open class func getIsStorageExistWithRequestBuilder(name: String) -> RequestBuilder<StorageExistResponse> {
+        var pathUrl = "/storage/{name}/exist"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+
+
+        let requestBuilder: RequestBuilder<StorageExistResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
      Convert LaTeX file (located on storage) to PDF format and return resulting file in response. 
      
      - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.tex) 
@@ -2879,6 +3126,54 @@ open class PdfAPI {
         
 
         let requestBuilder: RequestBuilder<LinkAnnotationResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Get the file's versions list 
+     
+     - parameter path: (query) File path e.g. /file.ext or /Folder1/file.ext 
+     - parameter storage: (query) User&#39;s storage name (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getListFileVersions(path: String, storage: String? = nil, completion: @escaping ((_ data: FileVersionsResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getListFileVersionsWithRequestBuilder(path: path, storage: storage).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Get the file's versions list 
+     - GET /storage/version
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter path: (query) File path e.g. /file.ext or /Folder1/file.ext 
+     - parameter storage: (query) User&#39;s storage name (optional)
+
+     - returns: RequestBuilder<FileVersionsResponse> 
+     */
+    open class func getListFileVersionsWithRequestBuilder(path: String, storage: String? = nil) -> RequestBuilder<FileVersionsResponse> {
+        let pathUrl = "/storage/version"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "path": path, 
+            "storage": storage
+        ])
+        
+
+        let requestBuilder: RequestBuilder<FileVersionsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -4211,10 +4506,10 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) Number of page (starting from 1). 
-     - parameter LLX: (query)  
-     - parameter LLY: (query)  
-     - parameter URX: (query)  
-     - parameter URY: (query)  
+     - parameter LLX: (query) X-coordinate of lower - left corner. 
+     - parameter LLY: (query) Y - coordinate of lower-left corner. 
+     - parameter URX: (query) X - coordinate of upper-right corner. 
+     - parameter URY: (query) Y - coordinate of upper-right corner. 
      - parameter format: (query) List of formats for search. (optional)
      - parameter regex: (query) Formats are specified as a regular expression. (optional)
      - parameter splitRects: (query) Split result fragments (default is true). (optional)
@@ -4243,10 +4538,10 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) Number of page (starting from 1). 
-     - parameter LLX: (query)  
-     - parameter LLY: (query)  
-     - parameter URX: (query)  
-     - parameter URY: (query)  
+     - parameter LLX: (query) X-coordinate of lower - left corner. 
+     - parameter LLY: (query) Y - coordinate of lower-left corner. 
+     - parameter URX: (query) X - coordinate of upper-right corner. 
+     - parameter URY: (query) Y - coordinate of upper-right corner. 
      - parameter format: (query) List of formats for search. (optional)
      - parameter regex: (query) Formats are specified as a regular expression. (optional)
      - parameter splitRects: (query) Split result fragments (default is true). (optional)
@@ -4567,7 +4862,7 @@ open class PdfAPI {
      Converts PDF document (located on storage) to EPUB format and returns resulting file in response content
      
      - parameter name: (path) The document name. 
-     - parameter contentRecognitionMode: (query) Рroperty tunes conversion for this or that desirable method of recognition of content. (optional)
+     - parameter contentRecognitionMode: (query) Property tunes conversion for this or that desirable method of recognition of content. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -4592,7 +4887,7 @@ open class PdfAPI {
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
-     - parameter contentRecognitionMode: (query) Рroperty tunes conversion for this or that desirable method of recognition of content. (optional)
+     - parameter contentRecognitionMode: (query) Property tunes conversion for this or that desirable method of recognition of content. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
 
@@ -5731,10 +6026,10 @@ open class PdfAPI {
      Read document text.
      
      - parameter name: (path) The document name. 
-     - parameter LLX: (query)  
-     - parameter LLY: (query)  
-     - parameter URX: (query)  
-     - parameter URY: (query)  
+     - parameter LLX: (query) X-coordinate of lower - left corner. 
+     - parameter LLY: (query) Y - coordinate of lower-left corner. 
+     - parameter URX: (query) X - coordinate of upper-right corner. 
+     - parameter URY: (query) Y - coordinate of upper-right corner. 
      - parameter format: (query) List of formats for search. (optional)
      - parameter regex: (query) Formats are specified as a regular expression. (optional)
      - parameter splitRects: (query) Split result fragments (default is true). (optional)
@@ -5762,10 +6057,10 @@ open class PdfAPI {
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
-     - parameter LLX: (query)  
-     - parameter LLY: (query)  
-     - parameter URX: (query)  
-     - parameter URY: (query)  
+     - parameter LLX: (query) X-coordinate of lower - left corner. 
+     - parameter LLY: (query) Y - coordinate of lower-left corner. 
+     - parameter URX: (query) X - coordinate of upper-right corner. 
+     - parameter URY: (query) Y - coordinate of upper-right corner. 
      - parameter format: (query) List of formats for search. (optional)
      - parameter regex: (query) Formats are specified as a regular expression. (optional)
      - parameter splitRects: (query) Split result fragments (default is true). (optional)
@@ -6454,6 +6749,69 @@ open class PdfAPI {
     }
 
     /**
+     Removes all fields from the document and place their values instead.
+     
+     - parameter name: (path) The document name. 
+     - parameter updateAppearances: (query) If set, all field appearances will be regenerated before flattening. This option may help if field is incorrectly flattened. This option may decrease performance.. (optional)
+     - parameter callEvents: (query) If set, formatting and other JavaScript events will be called. (optional)
+     - parameter hideButtons: (query) If set, buttons will be removed from flattened document. (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postFlattenDocument(name: String, updateAppearances: Bool? = nil, callEvents: Bool? = nil, hideButtons: Bool? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            postFlattenDocumentWithRequestBuilder(name: name, updateAppearances: updateAppearances, callEvents: callEvents, hideButtons: hideButtons, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Removes all fields from the document and place their values instead.
+     - POST /pdf/{name}/flatten
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter updateAppearances: (query) If set, all field appearances will be regenerated before flattening. This option may help if field is incorrectly flattened. This option may decrease performance.. (optional)
+     - parameter callEvents: (query) If set, formatting and other JavaScript events will be called. (optional)
+     - parameter hideButtons: (query) If set, buttons will be removed from flattened document. (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func postFlattenDocumentWithRequestBuilder(name: String, updateAppearances: Bool? = nil, callEvents: Bool? = nil, hideButtons: Bool? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/flatten"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "updateAppearances": updateAppearances, 
+            "callEvents": callEvents, 
+            "hideButtons": hideButtons, 
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
      Insert image to document page.
      
      - parameter name: (path) The document name. 
@@ -6524,6 +6882,123 @@ open class PdfAPI {
             "imageFilePath": imageFilePath, 
             "storage": storage, 
             "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Move a specific file
+     
+     - parameter src: (query) Source file path e.g. /fileSource.ext 
+     - parameter dest: (query) Destination file path e.g. /fileDestination.ext 
+     - parameter versionId: (query) Source file&#39;s version, (optional)
+     - parameter storage: (query) User&#39;s source storage name (optional)
+     - parameter destStorage: (query) User&#39;s destination storage name (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postMoveFile(src: String, dest: String, versionId: String? = nil, storage: String? = nil, destStorage: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            postMoveFileWithRequestBuilder(src: src, dest: dest, versionId: versionId, storage: storage, destStorage: destStorage).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Move a specific file
+     - POST /storage/file
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter src: (query) Source file path e.g. /fileSource.ext 
+     - parameter dest: (query) Destination file path e.g. /fileDestination.ext 
+     - parameter versionId: (query) Source file&#39;s version, (optional)
+     - parameter storage: (query) User&#39;s source storage name (optional)
+     - parameter destStorage: (query) User&#39;s destination storage name (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func postMoveFileWithRequestBuilder(src: String, dest: String, versionId: String? = nil, storage: String? = nil, destStorage: String? = nil) -> RequestBuilder<AsposeResponse> {
+        let pathUrl = "/storage/file"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "src": src, 
+            "dest": dest, 
+            "versionId": versionId, 
+            "storage": storage, 
+            "destStorage": destStorage
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Move a specific folder 
+     
+     - parameter src: (query) Source folder path e.g. /Folder1 
+     - parameter dest: (query) Destination folder path e.g. /Folder2 
+     - parameter storage: (query) User&#39;s source storage name (optional)
+     - parameter destStorage: (query) User&#39;s destination storage name (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postMoveFolder(src: String, dest: String, storage: String? = nil, destStorage: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            postMoveFolderWithRequestBuilder(src: src, dest: dest, storage: storage, destStorage: destStorage).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Move a specific folder 
+     - POST /storage/folder
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter src: (query) Source folder path e.g. /Folder1 
+     - parameter dest: (query) Destination folder path e.g. /Folder2 
+     - parameter storage: (query) User&#39;s source storage name (optional)
+     - parameter destStorage: (query) User&#39;s destination storage name (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func postMoveFolderWithRequestBuilder(src: String, dest: String, storage: String? = nil, destStorage: String? = nil) -> RequestBuilder<AsposeResponse> {
+        let pathUrl = "/storage/folder"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "src": src, 
+            "dest": dest, 
+            "storage": storage, 
+            "destStorage": destStorage
         ])
         
 
@@ -8094,6 +8569,60 @@ open class PdfAPI {
         
 
         let requestBuilder: RequestBuilder<DocumentResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Create the folder 
+     
+     - parameter path: (query) Target folder&#39;s path e.g. Folder1/Folder2/. The folders will be created recursively 
+     - parameter storage: (query) User&#39;s source storage name (optional)
+     - parameter destStorage: (query) User&#39;s destination storage name (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func putCreateFolder(path: String, storage: String? = nil, destStorage: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            putCreateFolderWithRequestBuilder(path: path, storage: storage, destStorage: destStorage).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Create the folder 
+     - PUT /storage/folder
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter path: (query) Target folder&#39;s path e.g. Folder1/Folder2/. The folders will be created recursively 
+     - parameter storage: (query) User&#39;s source storage name (optional)
+     - parameter destStorage: (query) User&#39;s destination storage name (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func putCreateFolderWithRequestBuilder(path: String, storage: String? = nil, destStorage: String? = nil) -> RequestBuilder<AsposeResponse> {
+        let pathUrl = "/storage/folder"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "path": path, 
+            "storage": storage, 
+            "destStorage": destStorage
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -9919,7 +10448,7 @@ open class PdfAPI {
      Converts PDF document (in request content) to EPUB format and uploads resulting file to storage.
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.epub) 
-     - parameter contentRecognitionMode: (query) Рroperty tunes conversion for this or that desirable method of recognition of content. (optional)
+     - parameter contentRecognitionMode: (query) Property tunes conversion for this or that desirable method of recognition of content. (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter file: (form) A file to be converted. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -9947,7 +10476,7 @@ open class PdfAPI {
 }}]
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.epub) 
-     - parameter contentRecognitionMode: (query) Рroperty tunes conversion for this or that desirable method of recognition of content. (optional)
+     - parameter contentRecognitionMode: (query) Property tunes conversion for this or that desirable method of recognition of content. (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter file: (form) A file to be converted. (optional)
 
@@ -10795,7 +11324,7 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.epub) 
-     - parameter contentRecognitionMode: (query) Рroperty tunes conversion for this or that desirable method of recognition of content. (optional)
+     - parameter contentRecognitionMode: (query) Property tunes conversion for this or that desirable method of recognition of content. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -10824,7 +11353,7 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.epub) 
-     - parameter contentRecognitionMode: (query) Рroperty tunes conversion for this or that desirable method of recognition of content. (optional)
+     - parameter contentRecognitionMode: (query) Property tunes conversion for this or that desirable method of recognition of content. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
 

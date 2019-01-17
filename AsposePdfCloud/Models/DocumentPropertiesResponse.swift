@@ -25,9 +25,11 @@
 import Foundation
 
 
+/** Represents response containing multiple document properties info */
 
 open class DocumentPropertiesResponse: AsposeResponse {
 
+    /** DocumentProperties object */
     public var documentProperties: DocumentProperties?
 
     

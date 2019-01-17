@@ -133,12 +133,12 @@ class PolyLineAnnotationsTests: AsposePdfCloudTests {
         
         let annotation = PolyLineAnnotation(
             links: nil,
-            contents: nil,
+            color: nil, contents: nil,
             modified: nil,
             id: nil,
             flags: [AnnotationFlags._default],
             name: "Name",
-            rect: RectanglePdf(LLX: 100, LLY: 100, URX: 200, URY: 200),
+            rect: Rectangle(LLX: 100, LLY: 100, URX: 200, URY: 200),
             pageIndex: nil,
             zIndex: 1,
             horizontalAlignment: HorizontalAlignment.center,
@@ -156,8 +156,7 @@ class PolyLineAnnotationsTests: AsposePdfCloudTests {
                 Point(X: 20, Y: 10),
                 Point(X: 10, Y: 20),
                 Point(X: 10, Y: 10),
-                ],
-            color: nil
+                ]
         )
         
         uploadFile(name: name) {
@@ -187,12 +186,12 @@ class PolyLineAnnotationsTests: AsposePdfCloudTests {
         
         let annotation = PolyLineAnnotation(
             links: nil,
-            contents: nil,
+            color: nil, contents: nil,
             modified: nil,
             id: nil,
             flags: [AnnotationFlags._default],
             name: "Name Updated",
-            rect: RectanglePdf(LLX: 100, LLY: 100, URX: 200, URY: 200),
+            rect: Rectangle(LLX: 100, LLY: 100, URX: 200, URY: 200),
             pageIndex: nil,
             zIndex: 1,
             horizontalAlignment: HorizontalAlignment.center,
@@ -210,8 +209,7 @@ class PolyLineAnnotationsTests: AsposePdfCloudTests {
                 Point(X: 20, Y: 10),
                 Point(X: 10, Y: 20),
                 Point(X: 10, Y: 10),
-                ],
-            color: nil
+                ]
         )
         
         uploadFile(name: name) {

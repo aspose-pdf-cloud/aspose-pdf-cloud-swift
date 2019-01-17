@@ -25,9 +25,11 @@
 import Foundation
 
 
+/** Represents response containing single attachment info */
 
 open class AttachmentResponse: AsposeResponse {
 
+    /** Attachment object */
     public var attachment: Attachment?
 
     

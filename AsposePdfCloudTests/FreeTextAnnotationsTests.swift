@@ -134,12 +134,13 @@ class FreeTextAnnotationsTests: AsposePdfCloudTests {
         
         let annotation = FreeTextAnnotation(
             links: nil,
+            color: nil,
             contents: nil,
             modified: nil,
             id: nil,
             flags: [AnnotationFlags._default],
             name: "Test Free Text",
-            rect: RectanglePdf(LLX: 100, LLY: 100, URX: 200, URY: 200),
+            rect: Rectangle(LLX: 100, LLY: 100, URX: 200, URY: 200),
             pageIndex: nil,
             zIndex: 1,
             horizontalAlignment: HorizontalAlignment.center,
@@ -186,12 +187,13 @@ class FreeTextAnnotationsTests: AsposePdfCloudTests {
         
         let annotation = FreeTextAnnotation(
             links: nil,
+            color: nil,
             contents: nil,
             modified: nil,
             id: nil,
             flags: [AnnotationFlags._default],
             name: "Test Free Text",
-            rect: RectanglePdf(LLX: 100, LLY: 100, URX: 200, URY: 200),
+            rect: Rectangle(LLX: 100, LLY: 100, URX: 200, URY: 200),
             pageIndex: nil,
             zIndex: 1, horizontalAlignment:
             HorizontalAlignment.center,

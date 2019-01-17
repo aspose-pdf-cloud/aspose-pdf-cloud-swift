@@ -25,10 +25,11 @@
 import Foundation
 
 
-/** Represents text items DTO. */
+/** Represents multiple text occurrences DTO. */
 
 open class TextRects: Codable {
 
+    /** The list of text occurrences. */
     public var list: [TextRect]?
 
         

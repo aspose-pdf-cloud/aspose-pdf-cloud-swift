@@ -25,7 +25,7 @@
 import Foundation
 
 
-/**  */
+/** The type of signature. */
 public enum SignatureType: String, Codable {
     case pkcs1 = "PKCS1"
     case pkcs7 = "PKCS7"

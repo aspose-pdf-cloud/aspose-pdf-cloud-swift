@@ -29,8 +29,11 @@ import Foundation
 
 open class DocumentProperty: LinkElement {
 
+    /** Pame of the property. */
     public var name: String?
+    /** Property value. */
     public var value: String?
+    /** Value indicating whether it is a built-in property. */
     public var builtIn: Bool?
 
     

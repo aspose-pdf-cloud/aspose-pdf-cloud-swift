@@ -25,11 +25,11 @@
 import Foundation
 
 
-/** Returns also a message. */
+/** Represent responce containing signature verification result */
 
 open class SignatureVerifyResponse: AsposeResponse {
 
-    /** Valid sign. */
+    /** True if signature is valid and false if not */
     public var valid: Bool?
 
     

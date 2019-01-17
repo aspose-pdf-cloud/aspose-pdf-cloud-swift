@@ -25,7 +25,7 @@
 import Foundation
 
 
-/**  */
+/** Defines line spacing specifics */
 public enum LineSpacing: String, Codable {
     case fontSize = "FontSize"
     case fullSize = "FullSize"

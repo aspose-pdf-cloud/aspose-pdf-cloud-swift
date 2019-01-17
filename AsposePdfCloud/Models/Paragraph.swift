@@ -25,26 +25,38 @@
 import Foundation
 
 
-/** Paragraph DTO for add text functionality. */
+/** Represents text paragraphs as multiline text object. */
 
 open class Paragraph: Codable {
 
+    /** Line spacing mode. */
     public var lineSpacing: LineSpacing?
+    /** Word wrap mode. */
     public var wrapMode: WrapMode?
+    /** Horizontal alignment for the text inside paragrph&#39;s rectangle. */
     public var horizontalAlignment: TextHorizontalAlignment?
+    /** Left margin. */
     public var leftMargin: Double?
+    /** Right margin. */
     public var rightMargin: Double?
+    /** Top margin. */
     public var topMargin: Double?
+    /** Bottom margin. */
     public var bottomMargin: Double?
-    public var rectangle: RectanglePdf?
+    /** Rectangle of the paragraph. */
+    public var rectangle: Rectangle?
+    /** Rotation angle in degrees. */
     public var rotation: Double?
+    /** Subsequent lines indent value. */
     public var subsequentLinesIndent: Double?
+    /** Vertical alignment for the text inside paragrph&#39;s rectangle */
     public var verticalAlignment: VerticalAlignment?
+    /** An array of text lines. */
     public var lines: [TextLine]
 
         
     
-    public init(lineSpacing: LineSpacing?, wrapMode: WrapMode?, horizontalAlignment: TextHorizontalAlignment?, leftMargin: Double?, rightMargin: Double?, topMargin: Double?, bottomMargin: Double?, rectangle: RectanglePdf?, rotation: Double?, subsequentLinesIndent: Double?, verticalAlignment: VerticalAlignment?, lines: [TextLine]) {
+    public init(lineSpacing: LineSpacing?, wrapMode: WrapMode?, horizontalAlignment: TextHorizontalAlignment?, leftMargin: Double?, rightMargin: Double?, topMargin: Double?, bottomMargin: Double?, rectangle: Rectangle?, rotation: Double?, subsequentLinesIndent: Double?, verticalAlignment: VerticalAlignment?, lines: [TextLine]) {
         self.lineSpacing = lineSpacing
         self.wrapMode = wrapMode
         self.horizontalAlignment = horizontalAlignment
@@ -92,7 +104,7 @@ open class Paragraph: Codable {
         rightMargin = try container.decodeIfPresent(Double.self, forKey: "RightMargin")
         topMargin = try container.decodeIfPresent(Double.self, forKey: "TopMargin")
         bottomMargin = try container.decodeIfPresent(Double.self, forKey: "BottomMargin")
-        rectangle = try container.decodeIfPresent(RectanglePdf.self, forKey: "Rectangle")
+        rectangle = try container.decodeIfPresent(Rectangle.self, forKey: "Rectangle")
         rotation = try container.decodeIfPresent(Double.self, forKey: "Rotation")
         subsequentLinesIndent = try container.decodeIfPresent(Double.self, forKey: "SubsequentLinesIndent")
         verticalAlignment = try container.decodeIfPresent(VerticalAlignment.self, forKey: "VerticalAlignment")

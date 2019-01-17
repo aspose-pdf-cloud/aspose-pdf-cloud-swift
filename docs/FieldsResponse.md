@@ -1,11 +1,11 @@
 ﻿# FieldsResponse
-
+Represents response containing multiple fields info
 
 *Inherited from [AsposeResponse](AsposeResponse.md)*
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fields** | [**Fields?**](Fields.md) |  | [optional]
+**fields** | [**Fields?**](Fields.md) | Fields object | [optional]
 **code** | **Int** | Response status code.<br />*Inherited from [AsposeResponse](AsposeResponse.md)* | 
 **status** | **String?** | Response status.<br />*Inherited from [AsposeResponse](AsposeResponse.md)* | [optional]
 

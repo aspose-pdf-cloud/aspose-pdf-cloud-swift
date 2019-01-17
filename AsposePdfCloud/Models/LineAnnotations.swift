@@ -25,10 +25,11 @@
 import Foundation
 
 
-/** List of annotations. */
+/** Object representing a list of line annotations. */
 
 open class LineAnnotations: LinkElement {
 
+    /** List of line annotations. */
     public var list: [LineAnnotation]?
 
     

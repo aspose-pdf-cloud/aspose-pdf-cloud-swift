@@ -25,10 +25,11 @@
 import Foundation
 
 
-/** List of form fields. */
+/** Represents list of form fields. */
 
 open class Fields: LinkElement {
 
+    /** List of form fields. */
     public var list: [Field]?
 
     

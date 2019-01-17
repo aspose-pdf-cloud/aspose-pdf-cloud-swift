@@ -25,10 +25,11 @@
 import Foundation
 
 
-/** List of LinkAnnotations. */
+/** Object representing a list of link annotations. */
 
 open class LinkAnnotations: LinkElement {
 
+    /** List of link annotations. */
     public var list: [LinkAnnotation]?
 
     

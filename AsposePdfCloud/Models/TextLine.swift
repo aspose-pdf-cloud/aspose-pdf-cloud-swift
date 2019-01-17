@@ -25,7 +25,7 @@
 import Foundation
 
 
-/** A line of text to be inserted into . */
+/** A line of text to be inserted into paragraph. */
 
 open class TextLine: Codable {
 

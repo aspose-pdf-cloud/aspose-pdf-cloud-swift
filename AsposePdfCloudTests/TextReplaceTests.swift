@@ -38,7 +38,7 @@ class TextReplaceTests: AsposePdfCloudTests {
                     newValue: "m_a_r_k_e_t",
                     regex: false,
                     textState: nil,
-                    rect: RectanglePdf(LLX: 100, LLY: 100, URX: 400, URY: 400)
+                    rect: Rectangle(LLX: 100, LLY: 100, URX: 400, URY: 400)
                 )
             ],
             defaultFont: nil,
@@ -77,7 +77,7 @@ class TextReplaceTests: AsposePdfCloudTests {
                     newValue: "P_a_g_e",
                     regex: false,
                     textState: nil,
-                    rect: RectanglePdf(LLX: 100, LLY: 100, URX: 400, URY: 400)
+                    rect: Rectangle(LLX: 100, LLY: 100, URX: 400, URY: 400)
                 )
             ],
             defaultFont: nil,

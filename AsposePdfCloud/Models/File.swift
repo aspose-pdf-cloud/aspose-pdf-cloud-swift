@@ -69,8 +69,8 @@ open class File: Codable {
         if let strDate = try container.decodeIfPresent(String.self, forKey: "ModifiedDate") {
             modifiedDate = try CodableHelper.decodeDate(strDate)
         }
-        
         size = try container.decode(Int64.self, forKey: "Size")
         path = try container.decodeIfPresent(String.self, forKey: "Path")
     }
 }
+

@@ -25,9 +25,11 @@
 import Foundation
 
 
+/** Represents response containing single highlight annotation object */
 
 open class HighlightAnnotationResponse: AsposeResponse {
 
+    /** Highlight annotation object */
     public var annotation: HighlightAnnotation?
 
     

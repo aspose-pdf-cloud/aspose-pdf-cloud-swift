@@ -25,10 +25,11 @@
 import Foundation
 
 
-/** List of annotations. */
+/** Object representing a list of popup annotations. */
 
 open class PopupAnnotations: LinkElement {
 
+    /** List of popup annotations. */
     public var list: [PopupAnnotationWithParent]?
 
     

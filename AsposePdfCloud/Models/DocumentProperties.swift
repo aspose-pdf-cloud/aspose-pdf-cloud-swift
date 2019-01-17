@@ -25,10 +25,11 @@
 import Foundation
 
 
-/** Pdf document properties. */
+/** Represents list of PDF document properties. */
 
 open class DocumentProperties: LinkElement {
 
+    /** List of PDF document properties. */
     public var list: [DocumentProperty]?
 
     

@@ -25,9 +25,11 @@
 import Foundation
 
 
+/** Represents response containing multiple pages info */
 
 open class DocumentPagesResponse: AsposeResponse {
 
+    /** Page object */
     public var pages: Pages?
 
     

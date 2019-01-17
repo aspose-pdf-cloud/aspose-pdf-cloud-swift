@@ -25,15 +25,17 @@
 import Foundation
 
 
+/** Represents response containing multiple text occurrences info */
 
 open class TextRectsResponse: AsposeResponse {
 
-    public var textOccurences: TextRects?
+    /** TextRects object */
+    public var textOccurrences: TextRects?
 
     
-    public init(code: Int, status: String?, textOccurences: TextRects?) {
+    public init(code: Int, status: String?, textOccurrences: TextRects?) {
         super.init(code: code, status: status)
-        self.textOccurences = textOccurences
+        self.textOccurrences = textOccurrences
     }
         
     
@@ -44,7 +46,7 @@ open class TextRectsResponse: AsposeResponse {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(textOccurences, forKey: "TextOccurences")
+        try container.encodeIfPresent(textOccurrences, forKey: "TextOccurrences")
         try super.encode(to: encoder)
     }
 
@@ -53,7 +55,7 @@ open class TextRectsResponse: AsposeResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        textOccurences = try container.decodeIfPresent(TextRects.self, forKey: "TextOccurences")
+        textOccurrences = try container.decodeIfPresent(TextRects.self, forKey: "TextOccurrences")
         try super.init(from: decoder)
     }
 }

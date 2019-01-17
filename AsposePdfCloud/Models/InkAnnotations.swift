@@ -25,10 +25,11 @@
 import Foundation
 
 
-/** List of annotations. */
+/** Object representing a list of ink annotations. */
 
 open class InkAnnotations: LinkElement {
 
+    /** List of ink annotations. */
     public var list: [InkAnnotation]?
 
     

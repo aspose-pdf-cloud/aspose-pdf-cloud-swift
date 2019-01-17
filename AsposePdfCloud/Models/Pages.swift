@@ -25,10 +25,11 @@
 import Foundation
 
 
-/** List of pages. */
+/** Represents list of pages. */
 
 open class Pages: LinkElement {
 
+    /** List of pages. */
     public var list: [Page]?
 
     

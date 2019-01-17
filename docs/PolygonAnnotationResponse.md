@@ -1,11 +1,11 @@
 ﻿# PolygonAnnotationResponse
-
+Represents response containing single polygon annotation object
 
 *Inherited from [AsposeResponse](AsposeResponse.md)*
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**annotation** | [**PolygonAnnotation?**](PolygonAnnotation.md) |  | [optional]
+**annotation** | [**PolygonAnnotation?**](PolygonAnnotation.md) | Polygon annotation object | [optional]
 **code** | **Int** | Response status code.<br />*Inherited from [AsposeResponse](AsposeResponse.md)* | 
 **status** | **String?** | Response status.<br />*Inherited from [AsposeResponse](AsposeResponse.md)* | [optional]
 

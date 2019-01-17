@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **textReplaces** | [**[TextReplace]**](TextReplace.md) | A list of text replacement settings. | 
 **defaultFont** | **String?** |  | [optional]
-**startIndex** | **Int?** |  | [optional]
-**countReplace** | **Int?** |  | [optional]
+**startIndex** | **Int?** | The index of first match to be replaced. | [optional]
+**countReplace** | **Int?** | The number of matches to be replaced. | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/TextReplaceListRequest.swift)
 

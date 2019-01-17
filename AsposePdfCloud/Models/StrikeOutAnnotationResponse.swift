@@ -25,9 +25,11 @@
 import Foundation
 
 
+/** Represents response containing single strikeout annotation object */
 
 open class StrikeOutAnnotationResponse: AsposeResponse {
 
+    /** Strikeout annotation object */
     public var annotation: StrikeOutAnnotation?
 
     
