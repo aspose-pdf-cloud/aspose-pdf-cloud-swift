@@ -38,18 +38,18 @@ open class RedactionAnnotation: Annotation {
     /** Text to print on redact annotation. */
     public var overlayText: String?
     /** If true overlay text will be repated on the annotation.  */
-    public var repeat: Bool?
+    public var repeat_: Bool?
     /** Gets or sets. Alignment of Overlay Text. */
     public var textAlignment: HorizontalAlignment?
 
     
-    public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, quadPoint: [Point]?, fillColor: Color?, borderColor: Color?, overlayText: String?, repeat: Bool?, textAlignment: HorizontalAlignment?) {
-        super.init(links: links)
+    public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, quadPoint: [Point]?, fillColor: Color?, borderColor: Color?, overlayText: String?, repeat_: Bool?, textAlignment: HorizontalAlignment?) {
+        super.init(links: links, color: color, contents: contents, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment)
         self.quadPoint = quadPoint
         self.fillColor = fillColor
         self.borderColor = borderColor
         self.overlayText = overlayText
-        self.repeat = repeat
+        self.repeat_ = repeat_
         self.textAlignment = textAlignment
     }
         
@@ -65,7 +65,7 @@ open class RedactionAnnotation: Annotation {
         try container.encodeIfPresent(fillColor, forKey: "FillColor")
         try container.encodeIfPresent(borderColor, forKey: "BorderColor")
         try container.encodeIfPresent(overlayText, forKey: "OverlayText")
-        try container.encodeIfPresent(repeat, forKey: "Repeat")
+        try container.encodeIfPresent(repeat_, forKey: "Repeat")
         try container.encodeIfPresent(textAlignment, forKey: "TextAlignment")
         try super.encode(to: encoder)
     }
@@ -79,7 +79,7 @@ open class RedactionAnnotation: Annotation {
         fillColor = try container.decodeIfPresent(Color.self, forKey: "FillColor")
         borderColor = try container.decodeIfPresent(Color.self, forKey: "BorderColor")
         overlayText = try container.decodeIfPresent(String.self, forKey: "OverlayText")
-        repeat = try container.decodeIfPresent(Bool.self, forKey: "Repeat")
+        repeat_ = try container.decodeIfPresent(Bool.self, forKey: "Repeat")
         textAlignment = try container.decodeIfPresent(HorizontalAlignment.self, forKey: "TextAlignment")
         try super.init(from: decoder)
     }

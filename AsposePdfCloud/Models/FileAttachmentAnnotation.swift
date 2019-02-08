@@ -42,7 +42,7 @@ open class FileAttachmentAnnotation: MarkupAnnotation {
 
     
     public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, creationDate: String?, subject: String?, title: String?, richText: String?, icon: FileIcon?, opacity: Double?, fileDescription: String?, fileName: String?, filePath: String?) {
-        super.init(links: links)
+        super.init(links: links, color: color, contents: contents, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, creationDate: creationDate, subject: subject, title: title, richText: richText)
         self.icon = icon
         self.opacity = opacity
         self.fileDescription = fileDescription

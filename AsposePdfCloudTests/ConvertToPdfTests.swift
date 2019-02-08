@@ -635,7 +635,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
                 
             ])
         
-        uploadFiles(names: files) {
+        //uploadFiles(names: files) {
             
             PdfAPI.putImageInStorageToPdf(name: resultName, imageTemplates: imageTemplatesRequest, dstFolder: self.tempFolder) {
                 (response, error) in
@@ -650,7 +650,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
                     expectation.fulfill()
                 }
             }
-        }
+        //}
         
         self.waitForExpectations(timeout: testTimeout, handler: nil)
     }
