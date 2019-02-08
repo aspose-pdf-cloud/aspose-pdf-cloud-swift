@@ -578,7 +578,7 @@
 		1EF1EC25220B452100200CEF /* SoundAnnotationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundAnnotationsTests.swift; sourceTree = "<group>"; };
 		1EF1EC27220B480B00200CEF /* RedactionAnnotationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedactionAnnotationsTests.swift; sourceTree = "<group>"; };
 		1EF1EC29220B4A4600200CEF /* MovieAnnotationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAnnotationsTests.swift; sourceTree = "<group>"; };
-		1EF1EC2B220B569500200CEF /* PdfWithAnnotations1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = PdfWithAnnotations1.pdf; path = TestData/PdfWithAnnotations1.pdf; sourceTree = "<group>"; };
+		1EF1EC2B220B569500200CEF /* PdfWithAnnotations1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = PdfWithAnnotations1.pdf; sourceTree = "<group>"; };
 		2BF9429DFD179E7C5FB73F8E /* Pods-AsposePdfCloudTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsposePdfCloudTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AsposePdfCloudTests/Pods-AsposePdfCloudTests.release.xcconfig"; sourceTree = "<group>"; };
 		4B8F6D31C12FA29686CF5BB1 /* Pods_AsposePdfCloudTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AsposePdfCloudTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		712DE459C735F0BD219E9C26 /* Pods-AsposePdfCloud.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsposePdfCloud.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AsposePdfCloud/Pods-AsposePdfCloud.debug.xcconfig"; sourceTree = "<group>"; };
@@ -837,6 +837,7 @@
 		1E668BBC2174B2E2004218A8 /* TestData */ = {
 			isa = PBXGroup;
 			children = (
+				1EF1EC2B220B569500200CEF /* PdfWithAnnotations1.pdf */,
 				1E668BD72174B389004218A8 /* 4pages.epub */,
 				1E668BD42174B389004218A8 /* 4pages.pdf */,
 				1E668BD92174B38A004218A8 /* 33539.jpg */,
@@ -873,7 +874,6 @@
 		1E9D60142174857B0097419C = {
 			isa = PBXGroup;
 			children = (
-				1EF1EC2B220B569500200CEF /* PdfWithAnnotations1.pdf */,
 				1E668BBC2174B2E2004218A8 /* TestData */,
 				1E668ACB2174AACE004218A8 /* LICENSE */,
 				1E668ACC2174AACE004218A8 /* README.md */,
