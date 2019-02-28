@@ -25,38 +25,21 @@
 import Foundation
 
 
-/** Represents response containing multiple redaction annotation objects */
+/** Enumerates the icons to be used in displaying the annotation. */
+public enum StampIcon: String, Codable {
+    case draft = "Draft"
+    case approved = "Approved"
+    case experimental = "Experimental"
+    case notApproved = "NotApproved"
+    case asIs = "AsIs"
+    case expired = "Expired"
+    case notForPublicRelease = "NotForPublicRelease"
+    case confidential = "Confidential"
+    case _final = "Final"
+    case sold = "Sold"
+    case departmental = "Departmental"
+    case forComment = "ForComment"
+    case forPublicRelease = "ForPublicRelease"
+    case topSecret = "TopSecret"
 
-open class RedactionAnnotationsResponse: AsposeResponse {
-
-    /** Redaction annotations object */
-    public var annotations: RedactionAnnotations?
-
-    
-    public init(code: Int, status: String?, annotations: RedactionAnnotations?) {
-        super.init(code: code, status: status)
-        self.annotations = annotations
-    }
-        
-    
-
-    // Encodable protocol methods
-
-    public override func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(annotations, forKey: "Annotations")
-        try super.encode(to: encoder)
-    }
-
-    // Decodable protocol methods
-
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        annotations = try container.decodeIfPresent(RedactionAnnotations.self, forKey: "Annotations")
-        try super.init(from: decoder)
-    }
 }
-

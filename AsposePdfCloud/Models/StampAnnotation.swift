@@ -25,17 +25,23 @@
 import Foundation
 
 
-/** Represents response containing multiple redaction annotation objects */
+/** Provides StampAnnotation. */
 
-open class RedactionAnnotationsResponse: AsposeResponse {
+open class StampAnnotation: MarkupAnnotation {
 
-    /** Redaction annotations object */
-    public var annotations: RedactionAnnotations?
+    /** Gets or sets icon for rubber stamp. */
+    public var icon: StampIcon?
+    /** Sets content file path.  */
+    public var filePath: String?
+    /** Gets is image exist.  */
+    public var hasImage: Bool?
 
     
-    public init(code: Int, status: String?, annotations: RedactionAnnotations?) {
-        super.init(code: code, status: status)
-        self.annotations = annotations
+    public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, creationDate: String?, subject: String?, title: String?, richText: String?, icon: StampIcon?, filePath: String?, hasImage: Bool?) {
+        super.init(links: links, color: color, contents: contents, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, creationDate: creationDate, subject: subject, title: title, richText: richText)
+        self.icon = icon
+        self.filePath = filePath
+        self.hasImage = hasImage
     }
         
     
@@ -46,7 +52,9 @@ open class RedactionAnnotationsResponse: AsposeResponse {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(annotations, forKey: "Annotations")
+        try container.encodeIfPresent(icon, forKey: "Icon")
+        try container.encodeIfPresent(filePath, forKey: "FilePath")
+        try container.encodeIfPresent(hasImage, forKey: "HasImage")
         try super.encode(to: encoder)
     }
 
@@ -55,7 +63,9 @@ open class RedactionAnnotationsResponse: AsposeResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        annotations = try container.decodeIfPresent(RedactionAnnotations.self, forKey: "Annotations")
+        icon = try container.decodeIfPresent(StampIcon.self, forKey: "Icon")
+        filePath = try container.decodeIfPresent(String.self, forKey: "FilePath")
+        hasImage = try container.decodeIfPresent(Bool.self, forKey: "HasImage")
         try super.init(from: decoder)
     }
 }

@@ -25,17 +25,17 @@
 import Foundation
 
 
-/** Represents response containing multiple redaction annotation objects */
+/** Represents response containing single screen annotation object */
 
-open class RedactionAnnotationsResponse: AsposeResponse {
+open class ScreenAnnotationResponse: AsposeResponse {
 
-    /** Redaction annotations object */
-    public var annotations: RedactionAnnotations?
+    /** Screen annotation object */
+    public var annotation: ScreenAnnotation?
 
     
-    public init(code: Int, status: String?, annotations: RedactionAnnotations?) {
+    public init(code: Int, status: String?, annotation: ScreenAnnotation?) {
         super.init(code: code, status: status)
-        self.annotations = annotations
+        self.annotation = annotation
     }
         
     
@@ -46,7 +46,7 @@ open class RedactionAnnotationsResponse: AsposeResponse {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(annotations, forKey: "Annotations")
+        try container.encodeIfPresent(annotation, forKey: "Annotation")
         try super.encode(to: encoder)
     }
 
@@ -55,7 +55,7 @@ open class RedactionAnnotationsResponse: AsposeResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        annotations = try container.decodeIfPresent(RedactionAnnotations.self, forKey: "Annotations")
+        annotation = try container.decodeIfPresent(ScreenAnnotation.self, forKey: "Annotation")
         try super.init(from: decoder)
     }
 }

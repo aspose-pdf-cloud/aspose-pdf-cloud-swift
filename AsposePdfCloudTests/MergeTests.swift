@@ -43,7 +43,7 @@ class MergeTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertFalse(response.isEmpty)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }

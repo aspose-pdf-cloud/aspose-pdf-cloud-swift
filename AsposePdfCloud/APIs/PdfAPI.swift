@@ -1939,6 +1939,57 @@ open class PdfAPI {
     }
 
     /**
+     Read document screen annotations.
+     
+     - parameter name: (path) The document name. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getDocumentScreenAnnotations(name: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: ScreenAnnotationsResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getDocumentScreenAnnotationsWithRequestBuilder(name: name, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Read document screen annotations.
+     - GET /pdf/{name}/annotations/screen
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter name: (path) The document name. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<ScreenAnnotationsResponse> 
+     */
+    open class func getDocumentScreenAnnotationsWithRequestBuilder(name: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<ScreenAnnotationsResponse> {
+        var pathUrl = "/pdf/{name}/annotations/screen"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<ScreenAnnotationsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
      Read document sound annotations.
      
      - parameter name: (path) The document name. 
@@ -2087,6 +2138,57 @@ open class PdfAPI {
         
 
         let requestBuilder: RequestBuilder<SquigglyAnnotationsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Read document stamp annotations.
+     
+     - parameter name: (path) The document name. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getDocumentStampAnnotations(name: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: StampAnnotationsResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getDocumentStampAnnotationsWithRequestBuilder(name: name, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Read document stamp annotations.
+     - GET /pdf/{name}/annotations/stamp
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter name: (path) The document name. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<StampAnnotationsResponse> 
+     */
+    open class func getDocumentStampAnnotationsWithRequestBuilder(name: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<StampAnnotationsResponse> {
+        var pathUrl = "/pdf/{name}/annotations/stamp"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<StampAnnotationsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -2528,7 +2630,7 @@ open class PdfAPI {
     /**
      Read document page FileAttachment annotation by ID.
      - GET /pdf/{name}/annotations/fileattachment/{annotationId}
-     - examples: [{contentType=application/json, example=""}]
+     - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
      - parameter annotationId: (path) The annotation ID. 
@@ -2582,7 +2684,7 @@ open class PdfAPI {
     /**
      Read document page FileAttachment annotation by ID.
      - GET /pdf/{name}/annotations/fileattachment/{annotationId}/data
-     - examples: [{contentType=application/json, example=""}]
+     - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
      - parameter annotationId: (path) The annotation ID. 
@@ -2816,7 +2918,7 @@ open class PdfAPI {
     /**
      Read document image by ID.
      - GET /pdf/{name}/images/{imageId}
-     - examples: [{contentType=application/json, example=""}]
+     - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
      - parameter imageId: (path) Image ID. 
@@ -2872,7 +2974,7 @@ open class PdfAPI {
     /**
      Extract document image in GIF format
      - GET /pdf/{name}/images/{imageId}/extract/gif
-     - examples: [{contentType=application/json, example=""}]
+     - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
      - parameter imageId: (path) Image ID. 
@@ -2932,7 +3034,7 @@ open class PdfAPI {
     /**
      Extract document image in JPEG format
      - GET /pdf/{name}/images/{imageId}/extract/jpeg
-     - examples: [{contentType=application/json, example=""}]
+     - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
      - parameter imageId: (path) Image ID. 
@@ -2992,7 +3094,7 @@ open class PdfAPI {
     /**
      Extract document image in PNG format
      - GET /pdf/{name}/images/{imageId}/extract/png
-     - examples: [{contentType=application/json, example=""}]
+     - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
      - parameter imageId: (path) Image ID. 
@@ -3052,7 +3154,7 @@ open class PdfAPI {
     /**
      Extract document image in TIFF format
      - GET /pdf/{name}/images/{imageId}/extract/tiff
-     - examples: [{contentType=application/json, example=""}]
+     - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
      - parameter imageId: (path) Image ID. 
@@ -3666,7 +3768,7 @@ open class PdfAPI {
     /**
      Read document page info.
      - GET /pdf/{name}/pages/{pageNumber}
-     - examples: [{contentType=application/json, example=""}]
+     - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
@@ -3884,7 +3986,7 @@ open class PdfAPI {
     /**
      Convert document page to Bmp image and return resulting file in response.
      - GET /pdf/{name}/pages/{pageNumber}/convert/bmp
-     - examples: [{contentType=application/json, example=""}]
+     - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
@@ -3944,7 +4046,7 @@ open class PdfAPI {
     /**
      Convert document page to Emf image and return resulting file in response.
      - GET /pdf/{name}/pages/{pageNumber}/convert/emf
-     - examples: [{contentType=application/json, example=""}]
+     - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
@@ -4004,7 +4106,7 @@ open class PdfAPI {
     /**
      Convert document page to Gif image and return resulting file in response.
      - GET /pdf/{name}/pages/{pageNumber}/convert/gif
-     - examples: [{contentType=application/json, example=""}]
+     - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
@@ -4064,7 +4166,7 @@ open class PdfAPI {
     /**
      Convert document page to Jpeg image and return resulting file in response.
      - GET /pdf/{name}/pages/{pageNumber}/convert/jpeg
-     - examples: [{contentType=application/json, example=""}]
+     - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
@@ -4124,7 +4226,7 @@ open class PdfAPI {
     /**
      Convert document page to Png image and return resulting file in response.
      - GET /pdf/{name}/pages/{pageNumber}/convert/png
-     - examples: [{contentType=application/json, example=""}]
+     - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
@@ -4184,7 +4286,7 @@ open class PdfAPI {
     /**
      Convert document page to Tiff image  and return resulting file in response.
      - GET /pdf/{name}/pages/{pageNumber}/convert/tiff
-     - examples: [{contentType=application/json, example=""}]
+     - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
@@ -4868,6 +4970,60 @@ open class PdfAPI {
     }
 
     /**
+     Read document page screen annotations.
+     
+     - parameter name: (path) The document name. 
+     - parameter pageNumber: (path) The page number. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getPageScreenAnnotations(name: String, pageNumber: Int, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: ScreenAnnotationsResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getPageScreenAnnotationsWithRequestBuilder(name: name, pageNumber: pageNumber, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Read document page screen annotations.
+     - GET /pdf/{name}/pages/{pageNumber}/annotations/screen
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter name: (path) The document name. 
+     - parameter pageNumber: (path) The page number. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<ScreenAnnotationsResponse> 
+     */
+    open class func getPageScreenAnnotationsWithRequestBuilder(name: String, pageNumber: Int, storage: String? = nil, folder: String? = nil) -> RequestBuilder<ScreenAnnotationsResponse> {
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/annotations/screen"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<ScreenAnnotationsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
      Read document page sound annotations.
      
      - parameter name: (path) The document name. 
@@ -5025,6 +5181,60 @@ open class PdfAPI {
         
 
         let requestBuilder: RequestBuilder<SquigglyAnnotationsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Read document page stamp annotations.
+     
+     - parameter name: (path) The document name. 
+     - parameter pageNumber: (path) The page number. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getPageStampAnnotations(name: String, pageNumber: Int, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: StampAnnotationsResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getPageStampAnnotationsWithRequestBuilder(name: name, pageNumber: pageNumber, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Read document page stamp annotations.
+     - GET /pdf/{name}/pages/{pageNumber}/annotations/stamp
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter name: (path) The document name. 
+     - parameter pageNumber: (path) The page number. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<StampAnnotationsResponse> 
+     */
+    open class func getPageStampAnnotationsWithRequestBuilder(name: String, pageNumber: Int, storage: String? = nil, folder: String? = nil) -> RequestBuilder<StampAnnotationsResponse> {
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/annotations/stamp"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<StampAnnotationsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -6425,6 +6635,60 @@ open class PdfAPI {
     }
 
     /**
+     Read document page screen annotation by ID.
+     
+     - parameter name: (path) The document name. 
+     - parameter annotationId: (path) The annotation ID. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getScreenAnnotation(name: String, annotationId: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: ScreenAnnotationResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getScreenAnnotationWithRequestBuilder(name: name, annotationId: annotationId, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Read document page screen annotation by ID.
+     - GET /pdf/{name}/annotations/screen/{annotationId}
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter name: (path) The document name. 
+     - parameter annotationId: (path) The annotation ID. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<ScreenAnnotationResponse> 
+     */
+    open class func getScreenAnnotationWithRequestBuilder(name: String, annotationId: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<ScreenAnnotationResponse> {
+        var pathUrl = "/pdf/{name}/annotations/screen/{annotationId}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{annotationId}", with: "\(annotationId)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<ScreenAnnotationResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
      Read document page sound annotation by ID.
      
      - parameter name: (path) The document name. 
@@ -6450,7 +6714,7 @@ open class PdfAPI {
     /**
      Read document page sound annotation by ID.
      - GET /pdf/{name}/annotations/sound/{annotationId}
-     - examples: [{contentType=application/json, example=""}]
+     - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
      - parameter annotationId: (path) The annotation ID. 
@@ -6504,7 +6768,7 @@ open class PdfAPI {
     /**
      Read document page sound annotation by ID.
      - GET /pdf/{name}/annotations/sound/{annotationId}/data
-     - examples: [{contentType=application/json, example=""}]
+     - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
      - parameter annotationId: (path) The annotation ID. 
@@ -6636,6 +6900,114 @@ open class PdfAPI {
         
 
         let requestBuilder: RequestBuilder<SquigglyAnnotationResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Read document page stamp annotation by ID.
+     
+     - parameter name: (path) The document name. 
+     - parameter annotationId: (path) The annotation ID. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getStampAnnotation(name: String, annotationId: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: StampAnnotationResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getStampAnnotationWithRequestBuilder(name: name, annotationId: annotationId, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Read document page stamp annotation by ID.
+     - GET /pdf/{name}/annotations/stamp/{annotationId}
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter name: (path) The document name. 
+     - parameter annotationId: (path) The annotation ID. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<StampAnnotationResponse> 
+     */
+    open class func getStampAnnotationWithRequestBuilder(name: String, annotationId: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<StampAnnotationResponse> {
+        var pathUrl = "/pdf/{name}/annotations/stamp/{annotationId}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{annotationId}", with: "\(annotationId)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<StampAnnotationResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Read document page stamp annotation by ID.
+     
+     - parameter name: (path) The document name. 
+     - parameter annotationId: (path) The annotation ID. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getStampAnnotationData(name: String, annotationId: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getStampAnnotationDataWithRequestBuilder(name: name, annotationId: annotationId, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Read document page stamp annotation by ID.
+     - GET /pdf/{name}/annotations/stamp/{annotationId}/data
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter name: (path) The document name. 
+     - parameter annotationId: (path) The annotation ID. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<Data> 
+     */
+    open class func getStampAnnotationDataWithRequestBuilder(name: String, annotationId: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<Data> {
+        var pathUrl = "/pdf/{name}/annotations/stamp/{annotationId}/data"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{annotationId}", with: "\(annotationId)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<Data>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -8576,6 +8948,65 @@ open class PdfAPI {
     }
 
     /**
+     Add document page screen annotations.
+     
+     - parameter name: (path) The document name. 
+     - parameter pageNumber: (path) The page number. 
+     - parameter annotations: (body) The array of annotation. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postPageScreenAnnotations(name: String, pageNumber: Int, annotations: [ScreenAnnotation], storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            postPageScreenAnnotationsWithRequestBuilder(name: name, pageNumber: pageNumber, annotations: annotations, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Add document page screen annotations.
+     - POST /pdf/{name}/pages/{pageNumber}/annotations/screen
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter pageNumber: (path) The page number. 
+     - parameter annotations: (body) The array of annotation. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func postPageScreenAnnotationsWithRequestBuilder(name: String, pageNumber: Int, annotations: [ScreenAnnotation], storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/annotations/screen"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: annotations)
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
      Add document page sound annotations.
      
      - parameter name: (path) The document name. 
@@ -8735,6 +9166,65 @@ open class PdfAPI {
      */
     open class func postPageSquigglyAnnotationsWithRequestBuilder(name: String, pageNumber: Int, annotations: [SquigglyAnnotation], storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
         var pathUrl = "/pdf/{name}/pages/{pageNumber}/annotations/squiggly"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: annotations)
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
+     Add document page stamp annotations.
+     
+     - parameter name: (path) The document name. 
+     - parameter pageNumber: (path) The page number. 
+     - parameter annotations: (body) The array of annotation. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postPageStampAnnotations(name: String, pageNumber: Int, annotations: [StampAnnotation], storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            postPageStampAnnotationsWithRequestBuilder(name: name, pageNumber: pageNumber, annotations: annotations, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Add document page stamp annotations.
+     - POST /pdf/{name}/pages/{pageNumber}/annotations/stamp
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter pageNumber: (path) The page number. 
+     - parameter annotations: (body) The array of annotation. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func postPageStampAnnotationsWithRequestBuilder(name: String, pageNumber: Int, annotations: [StampAnnotation], storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/annotations/stamp"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
@@ -9327,6 +9817,69 @@ open class PdfAPI {
         let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
+     Flattens the annotations of the specified types
+     
+     - parameter name: (path) The document name. 
+     - parameter startPage: (query) The start page number. (optional)
+     - parameter endPage: (query) The end page number. (optional)
+     - parameter annotationTypes: (query) Array of annotation types. (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func putAnnotationsFlatten(name: String, startPage: Int? = nil, endPage: Int? = nil, annotationTypes: [AnnotationType]? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            putAnnotationsFlattenWithRequestBuilder(name: name, startPage: startPage, endPage: endPage, annotationTypes: annotationTypes, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Flattens the annotations of the specified types
+     - PUT /pdf/{name}/annotations/flatten
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter startPage: (query) The start page number. (optional)
+     - parameter endPage: (query) The end page number. (optional)
+     - parameter annotationTypes: (query) Array of annotation types. (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func putAnnotationsFlattenWithRequestBuilder(name: String, startPage: Int? = nil, endPage: Int? = nil, annotationTypes: [AnnotationType]? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/annotations/flatten"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "startPage": startPage?.encodeToJSON(), 
+            "endPage": endPage?.encodeToJSON(), 
+            "annotationTypes": annotationTypes, 
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -10845,7 +11398,7 @@ open class PdfAPI {
      - parameter folder: (query) Resulting document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putMergeDocuments(name: String, mergeDocuments: MergeDocuments? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
+    open class func putMergeDocuments(name: String, mergeDocuments: MergeDocuments? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: DocumentResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
@@ -10869,9 +11422,9 @@ open class PdfAPI {
      - parameter storage: (query) Resulting document storage. (optional)
      - parameter folder: (query) Resulting document folder. (optional)
 
-     - returns: RequestBuilder<Data> 
+     - returns: RequestBuilder<DocumentResponse> 
      */
-    open class func putMergeDocumentsWithRequestBuilder(name: String, mergeDocuments: MergeDocuments? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<Data> {
+    open class func putMergeDocumentsWithRequestBuilder(name: String, mergeDocuments: MergeDocuments? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<DocumentResponse> {
         var pathUrl = "/pdf/{name}/merge"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
@@ -10884,7 +11437,7 @@ open class PdfAPI {
         ])
         
 
-        let requestBuilder: RequestBuilder<Data>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<DocumentResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
@@ -13656,6 +14209,62 @@ open class PdfAPI {
     }
 
     /**
+     Replace document screen annotation
+     
+     - parameter name: (path) The document name. 
+     - parameter annotationId: (path) The annotation ID. 
+     - parameter annotation: (body) Annotation. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func putScreenAnnotation(name: String, annotationId: String, annotation: ScreenAnnotation, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: ScreenAnnotationResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            putScreenAnnotationWithRequestBuilder(name: name, annotationId: annotationId, annotation: annotation, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Replace document screen annotation
+     - PUT /pdf/{name}/annotations/screen/{annotationId}
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter name: (path) The document name. 
+     - parameter annotationId: (path) The annotation ID. 
+     - parameter annotation: (body) Annotation. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<ScreenAnnotationResponse> 
+     */
+    open class func putScreenAnnotationWithRequestBuilder(name: String, annotationId: String, annotation: ScreenAnnotation, storage: String? = nil, folder: String? = nil) -> RequestBuilder<ScreenAnnotationResponse> {
+        var pathUrl = "/pdf/{name}/annotations/screen/{annotationId}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{annotationId}", with: "\(annotationId)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: annotation)
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<ScreenAnnotationResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
      Create searchable PDF document. Generate OCR layer for images in input PDF document.
      
      - parameter name: (path) The document name. 
@@ -13995,6 +14604,122 @@ open class PdfAPI {
         let requestBuilder: RequestBuilder<SquigglyAnnotationResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
+     Replace document stamp annotation
+     
+     - parameter name: (path) The document name. 
+     - parameter annotationId: (path) The annotation ID. 
+     - parameter annotation: (body) Annotation. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func putStampAnnotation(name: String, annotationId: String, annotation: StampAnnotation, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: StampAnnotationResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            putStampAnnotationWithRequestBuilder(name: name, annotationId: annotationId, annotation: annotation, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Replace document stamp annotation
+     - PUT /pdf/{name}/annotations/stamp/{annotationId}
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter name: (path) The document name. 
+     - parameter annotationId: (path) The annotation ID. 
+     - parameter annotation: (body) Annotation. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<StampAnnotationResponse> 
+     */
+    open class func putStampAnnotationWithRequestBuilder(name: String, annotationId: String, annotation: StampAnnotation, storage: String? = nil, folder: String? = nil) -> RequestBuilder<StampAnnotationResponse> {
+        var pathUrl = "/pdf/{name}/annotations/stamp/{annotationId}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{annotationId}", with: "\(annotationId)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: annotation)
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<StampAnnotationResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
+     Extract document stamp annotation content to storage
+     
+     - parameter name: (path) The document name. 
+     - parameter annotationId: (path) The annotation ID. 
+     - parameter outFilePath: (query) The output file path. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func putStampAnnotationDataExtract(name: String, annotationId: String, outFilePath: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            putStampAnnotationDataExtractWithRequestBuilder(name: name, annotationId: annotationId, outFilePath: outFilePath, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Extract document stamp annotation content to storage
+     - PUT /pdf/{name}/annotations/stamp/{annotationId}/data/extract
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter annotationId: (path) The annotation ID. 
+     - parameter outFilePath: (query) The output file path. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func putStampAnnotationDataExtractWithRequestBuilder(name: String, annotationId: String, outFilePath: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/annotations/stamp/{annotationId}/data/extract"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{annotationId}", with: "\(annotationId)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "outFilePath": outFilePath, 
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
