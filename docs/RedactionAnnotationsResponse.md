@@ -5,7 +5,7 @@ Represents response containing multiple redaction annotation objects
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**annotations** | [**RedactionAnnotations?**](RedactionAnnotations.md) | Ink annotations object | [optional]
+**annotations** | [**RedactionAnnotations?**](RedactionAnnotations.md) | Redaction annotations object | [optional]
 **code** | **Int** | Response status code.<br />*Inherited from [AsposeResponse](AsposeResponse.md)* | 
 **status** | **String?** | Response status.<br />*Inherited from [AsposeResponse](AsposeResponse.md)* | [optional]
 

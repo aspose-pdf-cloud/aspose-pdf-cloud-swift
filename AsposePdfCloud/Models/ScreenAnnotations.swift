@@ -25,17 +25,17 @@
 import Foundation
 
 
-/** Represents response containing multiple redaction annotation objects */
+/** Object representing a list of screen annotations. */
 
-open class RedactionAnnotationsResponse: AsposeResponse {
+open class ScreenAnnotations: LinkElement {
 
-    /** Redaction annotations object */
-    public var annotations: RedactionAnnotations?
+    /** List of screen annotations. */
+    public var list: [ScreenAnnotation]?
 
     
-    public init(code: Int, status: String?, annotations: RedactionAnnotations?) {
-        super.init(code: code, status: status)
-        self.annotations = annotations
+    public init(links: [Link]?, list: [ScreenAnnotation]?) {
+        super.init(links: links)
+        self.list = list
     }
         
     
@@ -46,7 +46,7 @@ open class RedactionAnnotationsResponse: AsposeResponse {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(annotations, forKey: "Annotations")
+        try container.encodeIfPresent(list, forKey: "List")
         try super.encode(to: encoder)
     }
 
@@ -55,7 +55,7 @@ open class RedactionAnnotationsResponse: AsposeResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        annotations = try container.decodeIfPresent(RedactionAnnotations.self, forKey: "Annotations")
+        list = try container.decodeIfPresent([ScreenAnnotation].self, forKey: "List")
         try super.init(from: decoder)
     }
 }

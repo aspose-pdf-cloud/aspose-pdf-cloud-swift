@@ -25,17 +25,20 @@
 import Foundation
 
 
-/** Represents response containing multiple redaction annotation objects */
+/** Provides ScreenAnnotation. */
 
-open class RedactionAnnotationsResponse: AsposeResponse {
+open class ScreenAnnotation: Annotation {
 
-    /** Redaction annotations object */
-    public var annotations: RedactionAnnotations?
+    /** Get the annotation title. */
+    public var title: String?
+    /** Sets content file path.  */
+    public var filePath: String?
 
     
-    public init(code: Int, status: String?, annotations: RedactionAnnotations?) {
-        super.init(code: code, status: status)
-        self.annotations = annotations
+    public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, title: String?, filePath: String?) {
+        super.init(links: links)
+        self.title = title
+        self.filePath = filePath
     }
         
     
@@ -46,7 +49,8 @@ open class RedactionAnnotationsResponse: AsposeResponse {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(annotations, forKey: "Annotations")
+        try container.encodeIfPresent(title, forKey: "Title")
+        try container.encodeIfPresent(filePath, forKey: "FilePath")
         try super.encode(to: encoder)
     }
 
@@ -55,7 +59,8 @@ open class RedactionAnnotationsResponse: AsposeResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        annotations = try container.decodeIfPresent(RedactionAnnotations.self, forKey: "Annotations")
+        title = try container.decodeIfPresent(String.self, forKey: "Title")
+        filePath = try container.decodeIfPresent(String.self, forKey: "FilePath")
         try super.init(from: decoder)
     }
 }
