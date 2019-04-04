@@ -193,6 +193,114 @@ open class PdfAPI {
     }
 
     /**
+     Delete all stamps from the document
+     
+     - parameter name: (path) The document name. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func deleteDocumentStamps(name: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            deleteDocumentStampsWithRequestBuilder(name: name, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Delete all stamps from the document
+     - DELETE /pdf/{name}/stamps
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func deleteDocumentStampsWithRequestBuilder(name: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/stamps"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Delete all tables from the document
+     
+     - parameter name: (path) The document name. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func deleteDocumentTables(name: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            deleteDocumentTablesWithRequestBuilder(name: name, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Delete all tables from the document
+     - DELETE /pdf/{name}/tables
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func deleteDocumentTablesWithRequestBuilder(name: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/tables"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
      Delete document field by name.
      
      - parameter name: (path) The document name. 
@@ -643,6 +751,120 @@ open class PdfAPI {
     }
 
     /**
+     Delete all stamps from the page
+     
+     - parameter name: (path) The document name. 
+     - parameter pageNumber: (path) The page number. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func deletePageStamps(name: String, pageNumber: Int, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            deletePageStampsWithRequestBuilder(name: name, pageNumber: pageNumber, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Delete all stamps from the page
+     - DELETE /pdf/{name}/pages/{pageNumber}/stamps
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter pageNumber: (path) The page number. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func deletePageStampsWithRequestBuilder(name: String, pageNumber: Int, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/stamps"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Delete all tables from the page
+     
+     - parameter name: (path) The document name. 
+     - parameter pageNumber: (path) The page number. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func deletePageTables(name: String, pageNumber: Int, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            deletePageTablesWithRequestBuilder(name: name, pageNumber: pageNumber, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Delete all tables from the page
+     - DELETE /pdf/{name}/pages/{pageNumber}/tables
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter pageNumber: (path) The page number. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func deletePageTablesWithRequestBuilder(name: String, pageNumber: Int, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/tables"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
      Delete custom document properties.
      
      - parameter name: (path)  
@@ -738,6 +960,120 @@ open class PdfAPI {
         var pathUrl = "/pdf/{name}/documentproperties/{propertyName}"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         pathUrl = pathUrl.replacingOccurrences(of: "{propertyName}", with: "\(propertyName)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Delete document stamp by ID
+     
+     - parameter name: (path) The document name. 
+     - parameter stampId: (path) The stamp ID. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func deleteStamp(name: String, stampId: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            deleteStampWithRequestBuilder(name: name, stampId: stampId, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Delete document stamp by ID
+     - DELETE /pdf/{name}/stamps/{stampId}
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter stampId: (path) The stamp ID. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func deleteStampWithRequestBuilder(name: String, stampId: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/stamps/{stampId}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{stampId}", with: "\(stampId)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Delete document table by ID
+     
+     - parameter name: (path) The document name. 
+     - parameter tableId: (path) The table ID. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func deleteTable(name: String, tableId: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            deleteTableWithRequestBuilder(name: name, tableId: tableId, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Delete document table by ID
+     - DELETE /pdf/{name}/tables/{tableId}
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter tableId: (path) The table ID. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func deleteTableWithRequestBuilder(name: String, tableId: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/tables/{tableId}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{tableId}", with: "\(tableId)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
@@ -2194,6 +2530,57 @@ open class PdfAPI {
     }
 
     /**
+     Read document stamps.
+     
+     - parameter name: (path) The document name. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getDocumentStamps(name: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: StampsInfoResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getDocumentStampsWithRequestBuilder(name: name, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Read document stamps.
+     - GET /pdf/{name}/stamps
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter name: (path) The document name. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<StampsInfoResponse> 
+     */
+    open class func getDocumentStampsWithRequestBuilder(name: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<StampsInfoResponse> {
+        var pathUrl = "/pdf/{name}/stamps"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<StampsInfoResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
      Read document StrikeOut annotations.
      
      - parameter name: (path) The document name. 
@@ -2240,6 +2627,57 @@ open class PdfAPI {
         
 
         let requestBuilder: RequestBuilder<StrikeOutAnnotationsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Read document tables.
+     
+     - parameter name: (path)  
+     - parameter storage: (query)  (optional)
+     - parameter folder: (query)  (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getDocumentTables(name: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: TablesRecognizedResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getDocumentTablesWithRequestBuilder(name: name, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Read document tables.
+     - GET /pdf/{name}/tables
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter name: (path)  
+     - parameter storage: (query)  (optional)
+     - parameter folder: (query)  (optional)
+
+     - returns: RequestBuilder<TablesRecognizedResponse> 
+     */
+    open class func getDocumentTablesWithRequestBuilder(name: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<TablesRecognizedResponse> {
+        var pathUrl = "/pdf/{name}/tables"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<TablesRecognizedResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -3797,7 +4235,7 @@ open class PdfAPI {
     }
 
     /**
-     Read documant page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
+     Read document page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
@@ -3820,7 +4258,7 @@ open class PdfAPI {
 
 
     /**
-     Read documant page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
+     Read document page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
      - GET /pdf/{name}/pages/{pageNumber}/annotations
      - examples: [{contentType=application/json, example=""}]
      
@@ -5240,6 +5678,60 @@ open class PdfAPI {
     }
 
     /**
+     Read page document stamps.
+     
+     - parameter name: (path) The document name. 
+     - parameter pageNumber: (path) The page number. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getPageStamps(name: String, pageNumber: Int, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: StampsInfoResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getPageStampsWithRequestBuilder(name: name, pageNumber: pageNumber, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Read page document stamps.
+     - GET /pdf/{name}/pages/{pageNumber}/stamps
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter name: (path) The document name. 
+     - parameter pageNumber: (path) The page number. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<StampsInfoResponse> 
+     */
+    open class func getPageStampsWithRequestBuilder(name: String, pageNumber: Int, storage: String? = nil, folder: String? = nil) -> RequestBuilder<StampsInfoResponse> {
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/stamps"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<StampsInfoResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
      Read document page StrikeOut annotations.
      
      - parameter name: (path) The document name. 
@@ -5289,6 +5781,60 @@ open class PdfAPI {
         
 
         let requestBuilder: RequestBuilder<StrikeOutAnnotationsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Read document page tables.
+     
+     - parameter name: (path)  
+     - parameter pageNumber: (path)  
+     - parameter storage: (query)  (optional)
+     - parameter folder: (query)  (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getPageTables(name: String, pageNumber: Int, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: TablesRecognizedResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getPageTablesWithRequestBuilder(name: name, pageNumber: pageNumber, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Read document page tables.
+     - GET /pdf/{name}/pages/{pageNumber}/tables
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter name: (path)  
+     - parameter pageNumber: (path)  
+     - parameter storage: (query)  (optional)
+     - parameter folder: (query)  (optional)
+
+     - returns: RequestBuilder<TablesRecognizedResponse> 
+     */
+    open class func getPageTablesWithRequestBuilder(name: String, pageNumber: Int, storage: String? = nil, folder: String? = nil) -> RequestBuilder<TablesRecognizedResponse> {
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/tables"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<TablesRecognizedResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -6660,7 +7206,7 @@ open class PdfAPI {
     /**
      Read document page screen annotation by ID.
      - GET /pdf/{name}/annotations/screen/{annotationId}
-     - examples: [{contentType=application/json, example=""}]
+     - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
      - parameter annotationId: (path) The annotation ID. 
@@ -6684,6 +7230,60 @@ open class PdfAPI {
         
 
         let requestBuilder: RequestBuilder<ScreenAnnotationResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Read document page screen annotation by ID.
+     
+     - parameter name: (path) The document name. 
+     - parameter annotationId: (path) The annotation ID. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getScreenAnnotationData(name: String, annotationId: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getScreenAnnotationDataWithRequestBuilder(name: name, annotationId: annotationId, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Read document page screen annotation by ID.
+     - GET /pdf/{name}/annotations/screen/{annotationId}/data
+     - examples: [{output=none}]
+     
+     - parameter name: (path) The document name. 
+     - parameter annotationId: (path) The annotation ID. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<Data> 
+     */
+    open class func getScreenAnnotationDataWithRequestBuilder(name: String, annotationId: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<Data> {
+        var pathUrl = "/pdf/{name}/annotations/screen/{annotationId}/data"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{annotationId}", with: "\(annotationId)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<Data>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -7134,6 +7734,60 @@ open class PdfAPI {
         
 
         let requestBuilder: RequestBuilder<Data>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Read document page table by ID.
+     
+     - parameter name: (path) The document name. 
+     - parameter tableId: (path) The table ID. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getTable(name: String, tableId: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: TableRecognizedResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getTableWithRequestBuilder(name: name, tableId: tableId, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Read document page table by ID.
+     - GET /pdf/{name}/tables/{tableId}
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter name: (path) The document name. 
+     - parameter tableId: (path) The table ID. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<TableRecognizedResponse> 
+     */
+    open class func getTableWithRequestBuilder(name: String, tableId: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<TableRecognizedResponse> {
+        var pathUrl = "/pdf/{name}/tables/{tableId}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{tableId}", with: "\(tableId)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<TableRecognizedResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -8535,6 +9189,65 @@ open class PdfAPI {
     }
 
     /**
+     Add document page image stamps.
+     
+     - parameter name: (path) The document name. 
+     - parameter pageNumber: (path) The page number. 
+     - parameter stamps: (body) The array of stamp. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postPageImageStamps(name: String, pageNumber: Int, stamps: [ImageStamp], storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            postPageImageStampsWithRequestBuilder(name: name, pageNumber: pageNumber, stamps: stamps, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Add document page image stamps.
+     - POST /pdf/{name}/pages/{pageNumber}/stamps/image
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter pageNumber: (path) The page number. 
+     - parameter stamps: (body) The array of stamp. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func postPageImageStampsWithRequestBuilder(name: String, pageNumber: Int, stamps: [ImageStamp], storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/stamps/image"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: stamps)
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
      Add document page ink annotations.
      
      - parameter name: (path) The document name. 
@@ -8757,6 +9470,65 @@ open class PdfAPI {
         pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: annotations)
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
+     Add document pdf page stamps.
+     
+     - parameter name: (path) The document name. 
+     - parameter pageNumber: (path) The page number. 
+     - parameter stamps: (body) The array of stamp. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postPagePdfPageStamps(name: String, pageNumber: Int, stamps: [PdfPageStamp], storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            postPagePdfPageStampsWithRequestBuilder(name: name, pageNumber: pageNumber, stamps: stamps, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Add document pdf page stamps.
+     - POST /pdf/{name}/pages/{pageNumber}/stamps/pdfpage
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter pageNumber: (path) The page number. 
+     - parameter stamps: (body) The array of stamp. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func postPagePdfPageStampsWithRequestBuilder(name: String, pageNumber: Int, stamps: [PdfPageStamp], storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/stamps/pdfpage"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: stamps)
 
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
@@ -9412,6 +10184,65 @@ open class PdfAPI {
         
 
         let requestBuilder: RequestBuilder<TextReplaceResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
+     Add document page text stamps.
+     
+     - parameter name: (path) The document name. 
+     - parameter pageNumber: (path) The page number. 
+     - parameter stamps: (body) The array of stamp. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postPageTextStamps(name: String, pageNumber: Int, stamps: [TextStamp], storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            postPageTextStampsWithRequestBuilder(name: name, pageNumber: pageNumber, stamps: stamps, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Add document page text stamps.
+     - POST /pdf/{name}/pages/{pageNumber}/stamps/text
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter pageNumber: (path) The page number. 
+     - parameter stamps: (body) The array of stamp. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func postPageTextStampsWithRequestBuilder(name: String, pageNumber: Int, stamps: [TextStamp], storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/stamps/text"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: stamps)
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
@@ -14262,6 +15093,66 @@ open class PdfAPI {
         let requestBuilder: RequestBuilder<ScreenAnnotationResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
+     Extract document screen annotation content to storage
+     
+     - parameter name: (path) The document name. 
+     - parameter annotationId: (path) The annotation ID. 
+     - parameter outFilePath: (query) The output file path. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func putScreenAnnotationDataExtract(name: String, annotationId: String, outFilePath: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            putScreenAnnotationDataExtractWithRequestBuilder(name: name, annotationId: annotationId, outFilePath: outFilePath, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Extract document screen annotation content to storage
+     - PUT /pdf/{name}/annotations/screen/{annotationId}/data/extract
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter annotationId: (path) The annotation ID. 
+     - parameter outFilePath: (query) The output file path. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func putScreenAnnotationDataExtractWithRequestBuilder(name: String, annotationId: String, outFilePath: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/annotations/screen/{annotationId}/data/extract"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{annotationId}", with: "\(annotationId)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "outFilePath": outFilePath, 
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**

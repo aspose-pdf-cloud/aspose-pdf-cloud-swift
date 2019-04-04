@@ -15,7 +15,7 @@ These SDKs are now fully supported. If you have any questions, see any bugs or h
 $ gem install cocoapods
 ```
 
-> CocoaPods 1.1+ is required to build AsposePdfCloud 19.2+.
+> CocoaPods 1.1+ is required to build AsposePdfCloud 19.3+.
 
 To integrate AsposePdfCloud into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
@@ -25,7 +25,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'AsposePdfCloud', '~> 19.2'
+    pod 'AsposePdfCloud', '~> 19.3'
 end
 ```
 
@@ -82,6 +82,8 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**deleteAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#deleteAnnotation) | **DELETE** /pdf/\{name}/annotations/\{annotationId} | Delete document annotation by ID
 *PdfApi* | [**deleteDocumentAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#deleteDocumentAnnotations) | **DELETE** /pdf/\{name}/annotations | Delete all annotations from the document
 *PdfApi* | [**deleteDocumentLinkAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#deleteDocumentLinkAnnotations) | **DELETE** /pdf/\{name}/links | Delete all link annotations from the document
+*PdfApi* | [**deleteDocumentStamps**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#deleteDocumentStamps) | **DELETE** /pdf/\{name}/stamps | Delete all stamps from the document
+*PdfApi* | [**deleteDocumentTables**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#deleteDocumentTables) | **DELETE** /pdf/\{name}/tables | Delete all tables from the document
 *PdfApi* | [**deleteField**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#deleteField) | **DELETE** /pdf/\{name}/fields/\{fieldName} | Delete document field by name.
 *PdfApi* | [**deleteFile**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#deleteFile) | **DELETE** /storage/file | Remove a specific file 
 *PdfApi* | [**deleteFolder**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#deleteFolder) | **DELETE** /storage/folder | Remove a specific folder 
@@ -90,8 +92,12 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**deletePage**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#deletePage) | **DELETE** /pdf/\{name}/pages/\{pageNumber} | Delete document page by its number.
 *PdfApi* | [**deletePageAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#deletePageAnnotations) | **DELETE** /pdf/\{name}/pages/\{pageNumber}/annotations | Delete all annotations from the page
 *PdfApi* | [**deletePageLinkAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#deletePageLinkAnnotations) | **DELETE** /pdf/\{name}/pages/\{pageNumber}/links | Delete all link annotations from the page
+*PdfApi* | [**deletePageStamps**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#deletePageStamps) | **DELETE** /pdf/\{name}/pages/\{pageNumber}/stamps | Delete all stamps from the page
+*PdfApi* | [**deletePageTables**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#deletePageTables) | **DELETE** /pdf/\{name}/pages/\{pageNumber}/tables | Delete all tables from the page
 *PdfApi* | [**deleteProperties**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#deleteProperties) | **DELETE** /pdf/\{name}/documentproperties | Delete custom document properties.
 *PdfApi* | [**deleteProperty**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#deleteProperty) | **DELETE** /pdf/\{name}/documentproperties/\{propertyName} | Delete document property.
+*PdfApi* | [**deleteStamp**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#deleteStamp) | **DELETE** /pdf/\{name}/stamps/\{stampId} | Delete document stamp by ID
+*PdfApi* | [**deleteTable**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#deleteTable) | **DELETE** /pdf/\{name}/tables/\{tableId} | Delete document table by ID
 *PdfApi* | [**getCaretAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getCaretAnnotation) | **GET** /pdf/\{name}/annotations/caret/\{annotationId} | Read document page caret annotation by ID.
 *PdfApi* | [**getCircleAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getCircleAnnotation) | **GET** /pdf/\{name}/annotations/circle/\{annotationId} | Read document page circle annotation by ID.
 *PdfApi* | [**getDiscUsage**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getDiscUsage) | **GET** /storage/disc | Check the disk usage of the current account 
@@ -120,7 +126,9 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**getDocumentSquareAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getDocumentSquareAnnotations) | **GET** /pdf/\{name}/annotations/square | Read document square annotations.
 *PdfApi* | [**getDocumentSquigglyAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getDocumentSquigglyAnnotations) | **GET** /pdf/\{name}/annotations/squiggly | Read document squiggly annotations.
 *PdfApi* | [**getDocumentStampAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getDocumentStampAnnotations) | **GET** /pdf/\{name}/annotations/stamp | Read document stamp annotations.
+*PdfApi* | [**getDocumentStamps**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getDocumentStamps) | **GET** /pdf/\{name}/stamps | Read document stamps.
 *PdfApi* | [**getDocumentStrikeOutAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getDocumentStrikeOutAnnotations) | **GET** /pdf/\{name}/annotations/strikeout | Read document StrikeOut annotations.
+*PdfApi* | [**getDocumentTables**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getDocumentTables) | **GET** /pdf/\{name}/tables | Read document tables.
 *PdfApi* | [**getDocumentTextAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getDocumentTextAnnotations) | **GET** /pdf/\{name}/annotations/text | Read document text annotations.
 *PdfApi* | [**getDocumentUnderlineAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getDocumentUnderlineAnnotations) | **GET** /pdf/\{name}/annotations/underline | Read document underline annotations.
 *PdfApi* | [**getDownload**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getDownload) | **GET** /storage/file | Download a specific file 
@@ -150,7 +158,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**getMhtInStorageToPdf**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getMhtInStorageToPdf) | **GET** /pdf/create/mht | Convert MHT file (located on storage) to PDF format and return resulting file in response. 
 *PdfApi* | [**getMovieAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getMovieAnnotation) | **GET** /pdf/\{name}/annotations/movie/\{annotationId} | Read document page movie annotation by ID.
 *PdfApi* | [**getPage**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getPage) | **GET** /pdf/\{name}/pages/\{pageNumber} | Read document page info.
-*PdfApi* | [**getPageAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getPageAnnotations) | **GET** /pdf/\{name}/pages/\{pageNumber}/annotations | Read documant page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
+*PdfApi* | [**getPageAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getPageAnnotations) | **GET** /pdf/\{name}/pages/\{pageNumber}/annotations | Read document page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
 *PdfApi* | [**getPageCaretAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getPageCaretAnnotations) | **GET** /pdf/\{name}/pages/\{pageNumber}/annotations/caret | Read document page caret annotations.
 *PdfApi* | [**getPageCircleAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getPageCircleAnnotations) | **GET** /pdf/\{name}/pages/\{pageNumber}/annotations/circle | Read document page circle annotations.
 *PdfApi* | [**getPageConvertToBmp**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getPageConvertToBmp) | **GET** /pdf/\{name}/pages/\{pageNumber}/convert/bmp | Convert document page to Bmp image and return resulting file in response.
@@ -177,7 +185,9 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**getPageSquareAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getPageSquareAnnotations) | **GET** /pdf/\{name}/pages/\{pageNumber}/annotations/square | Read document page square annotations.
 *PdfApi* | [**getPageSquigglyAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getPageSquigglyAnnotations) | **GET** /pdf/\{name}/pages/\{pageNumber}/annotations/squiggly | Read document page squiggly annotations.
 *PdfApi* | [**getPageStampAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getPageStampAnnotations) | **GET** /pdf/\{name}/pages/\{pageNumber}/annotations/stamp | Read document page stamp annotations.
+*PdfApi* | [**getPageStamps**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getPageStamps) | **GET** /pdf/\{name}/pages/\{pageNumber}/stamps | Read page document stamps.
 *PdfApi* | [**getPageStrikeOutAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getPageStrikeOutAnnotations) | **GET** /pdf/\{name}/pages/\{pageNumber}/annotations/strikeout | Read document page StrikeOut annotations.
+*PdfApi* | [**getPageTables**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getPageTables) | **GET** /pdf/\{name}/pages/\{pageNumber}/tables | Read document page tables.
 *PdfApi* | [**getPageText**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getPageText) | **GET** /pdf/\{name}/pages/\{pageNumber}/text | Read page text items.
 *PdfApi* | [**getPageTextAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getPageTextAnnotations) | **GET** /pdf/\{name}/pages/\{pageNumber}/annotations/text | Read document page text annotations.
 *PdfApi* | [**getPageUnderlineAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getPageUnderlineAnnotations) | **GET** /pdf/\{name}/pages/\{pageNumber}/annotations/underline | Read document page underline annotations.
@@ -200,6 +210,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**getPsInStorageToPdf**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getPsInStorageToPdf) | **GET** /pdf/create/ps | Convert PS file (located on storage) to PDF format and return resulting file in response. 
 *PdfApi* | [**getRedactionAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getRedactionAnnotation) | **GET** /pdf/\{name}/annotations/redaction/\{annotationId} | Read document page redaction annotation by ID.
 *PdfApi* | [**getScreenAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getScreenAnnotation) | **GET** /pdf/\{name}/annotations/screen/\{annotationId} | Read document page screen annotation by ID.
+*PdfApi* | [**getScreenAnnotationData**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getScreenAnnotationData) | **GET** /pdf/\{name}/annotations/screen/\{annotationId}/data | Read document page screen annotation by ID.
 *PdfApi* | [**getSoundAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getSoundAnnotation) | **GET** /pdf/\{name}/annotations/sound/\{annotationId} | Read document page sound annotation by ID.
 *PdfApi* | [**getSoundAnnotationData**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getSoundAnnotationData) | **GET** /pdf/\{name}/annotations/sound/\{annotationId}/data | Read document page sound annotation by ID.
 *PdfApi* | [**getSquareAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getSquareAnnotation) | **GET** /pdf/\{name}/annotations/square/\{annotationId} | Read document page square annotation by ID.
@@ -208,6 +219,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**getStampAnnotationData**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getStampAnnotationData) | **GET** /pdf/\{name}/annotations/stamp/\{annotationId}/data | Read document page stamp annotation by ID.
 *PdfApi* | [**getStrikeOutAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getStrikeOutAnnotation) | **GET** /pdf/\{name}/annotations/strikeout/\{annotationId} | Read document page StrikeOut annotation by ID.
 *PdfApi* | [**getSvgInStorageToPdf**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getSvgInStorageToPdf) | **GET** /pdf/create/svg | Convert SVG file (located on storage) to PDF format and return resulting file in response. 
+*PdfApi* | [**getTable**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getTable) | **GET** /pdf/\{name}/tables/\{tableId} | Read document page table by ID.
 *PdfApi* | [**getText**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getText) | **GET** /pdf/\{name}/text | Read document text.
 *PdfApi* | [**getTextAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getTextAnnotation) | **GET** /pdf/\{name}/annotations/text/\{annotationId} | Read document page text annotation by ID.
 *PdfApi* | [**getUnderlineAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getUnderlineAnnotation) | **GET** /pdf/\{name}/annotations/underline/\{annotationId} | Read document page underline annotation by ID.
@@ -232,10 +244,12 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**postPageFileAttachmentAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postPageFileAttachmentAnnotations) | **POST** /pdf/\{name}/pages/\{pageNumber}/annotations/fileattachment | Add document page FileAttachment annotations.
 *PdfApi* | [**postPageFreeTextAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postPageFreeTextAnnotations) | **POST** /pdf/\{name}/pages/\{pageNumber}/annotations/freetext | Add document page free text annotations.
 *PdfApi* | [**postPageHighlightAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postPageHighlightAnnotations) | **POST** /pdf/\{name}/pages/\{pageNumber}/annotations/highlight | Add document page highlight annotations.
+*PdfApi* | [**postPageImageStamps**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postPageImageStamps) | **POST** /pdf/\{name}/pages/\{pageNumber}/stamps/image | Add document page image stamps.
 *PdfApi* | [**postPageInkAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postPageInkAnnotations) | **POST** /pdf/\{name}/pages/\{pageNumber}/annotations/ink | Add document page ink annotations.
 *PdfApi* | [**postPageLineAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postPageLineAnnotations) | **POST** /pdf/\{name}/pages/\{pageNumber}/annotations/line | Add document page line annotations.
 *PdfApi* | [**postPageLinkAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postPageLinkAnnotations) | **POST** /pdf/\{name}/pages/\{pageNumber}/links | Add document page link annotations.
 *PdfApi* | [**postPageMovieAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postPageMovieAnnotations) | **POST** /pdf/\{name}/pages/\{pageNumber}/annotations/movie | Add document page movie annotations.
+*PdfApi* | [**postPagePdfPageStamps**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postPagePdfPageStamps) | **POST** /pdf/\{name}/pages/\{pageNumber}/stamps/pdfpage | Add document pdf page stamps.
 *PdfApi* | [**postPagePolygonAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postPagePolygonAnnotations) | **POST** /pdf/\{name}/pages/\{pageNumber}/annotations/polygon | Add document page polygon annotations.
 *PdfApi* | [**postPagePolyLineAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postPagePolyLineAnnotations) | **POST** /pdf/\{name}/pages/\{pageNumber}/annotations/polyline | Add document page polyline annotations.
 *PdfApi* | [**postPageRedactionAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postPageRedactionAnnotations) | **POST** /pdf/\{name}/pages/\{pageNumber}/annotations/redaction | Add document page redaction annotations.
@@ -247,6 +261,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**postPageStrikeOutAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postPageStrikeOutAnnotations) | **POST** /pdf/\{name}/pages/\{pageNumber}/annotations/strikeout | Add document page StrikeOut annotations.
 *PdfApi* | [**postPageTextAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postPageTextAnnotations) | **POST** /pdf/\{name}/pages/\{pageNumber}/annotations/text | Add document page text annotations.
 *PdfApi* | [**postPageTextReplace**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postPageTextReplace) | **POST** /pdf/\{name}/pages/\{pageNumber}/text/replace | Page's replace text method.
+*PdfApi* | [**postPageTextStamps**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postPageTextStamps) | **POST** /pdf/\{name}/pages/\{pageNumber}/stamps/text | Add document page text stamps.
 *PdfApi* | [**postPageUnderlineAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postPageUnderlineAnnotations) | **POST** /pdf/\{name}/pages/\{pageNumber}/annotations/underline | Add document page underline annotations.
 *PdfApi* | [**postPopupAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postPopupAnnotation) | **POST** /pdf/\{name}/annotations/\{annotationId}/popup | Add document popup annotations.
 *PdfApi* | [**postSignDocument**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postSignDocument) | **POST** /pdf/\{name}/sign | Sign document.
@@ -323,6 +338,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**putRedactionAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#putRedactionAnnotation) | **PUT** /pdf/\{name}/annotations/redaction/\{annotationId} | Replace document redaction annotation
 *PdfApi* | [**putReplaceImage**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#putReplaceImage) | **PUT** /pdf/\{name}/images/\{imageId} | Replace document image.
 *PdfApi* | [**putScreenAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#putScreenAnnotation) | **PUT** /pdf/\{name}/annotations/screen/\{annotationId} | Replace document screen annotation
+*PdfApi* | [**putScreenAnnotationDataExtract**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#putScreenAnnotationDataExtract) | **PUT** /pdf/\{name}/annotations/screen/\{annotationId}/data/extract | Extract document screen annotation content to storage
 *PdfApi* | [**putSearchableDocument**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#putSearchableDocument) | **PUT** /pdf/\{name}/ocr | Create searchable PDF document. Generate OCR layer for images in input PDF document.
 *PdfApi* | [**putSetProperty**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#putSetProperty) | **PUT** /pdf/\{name}/documentproperties/\{propertyName} | Add/update document property.
 *PdfApi* | [**putSoundAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#putSoundAnnotation) | **PUT** /pdf/\{name}/annotations/sound/\{annotationId} | Replace document sound annotation
@@ -369,6 +385,7 @@ Class | Description
 [**CaretAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/CaretAnnotations.md) | Object representing a list of caret annotations.
 [**CaretAnnotationsResponse**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/CaretAnnotationsResponse.md) | Represents response containing multiple caret annotation objects
 [**CaretSymbol**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/CaretSymbol.md) | A symbol to be associated with the caret.
+[**CellRecognized**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/CellRecognized.md) | 
 [**CircleAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/CircleAnnotation.md) | Provides CircleAnnotation.
 [**CircleAnnotationResponse**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/CircleAnnotationResponse.md) | Represents response containing single circle annotation object
 [**CircleAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/CircleAnnotations.md) | Object representing a list of circle annotations.
@@ -427,6 +444,7 @@ Class | Description
 [**Images**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/Images.md) | Represents list of images.
 [**ImageSrcType**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/ImageSrcType.md) | Allows to specify image file format.
 [**ImagesResponse**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/ImagesResponse.md) | Represents response containing multiple images info
+[**ImageStamp**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/ImageStamp.md) | Represents Pdf stamps.
 [**ImageTemplate**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/ImageTemplate.md) | Template of image.
 [**ImageTemplatesRequest**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/ImageTemplatesRequest.md) | Create document from images request.
 [**InkAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/InkAnnotation.md) | Provides InkAnnotation.
@@ -464,6 +482,7 @@ Class | Description
 [**Paragraph**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/Paragraph.md) | Represents text paragraphs as multiline text object.
 [**PartsEmbeddingModes**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PartsEmbeddingModes.md) | This enum enumerates possible modes of embedding of files referenced in HTML It allows to control whether referenced files (HTML, Fonts,Images, CSSes) will be embedded into main HTML file or will be generated as apart binary entities 
 [**PdfAType**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfAType.md) | Allows to specify PdfA file format.
+[**PdfPageStamp**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfPageStamp.md) | Represents Pdf stamps.
 [**Point**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/Point.md) | Represent point with fractional coordinates.
 [**PolyAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PolyAnnotation.md) | Provides PolyAnnotation.
 [**PolygonAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PolygonAnnotation.md) | Provides PolygonAnnotation.
@@ -480,6 +499,7 @@ Class | Description
 [**PopupAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PopupAnnotations.md) | Object representing a list of popup annotations.
 [**PopupAnnotationsResponse**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PopupAnnotationsResponse.md) | Represents response containing multiple popup annotation objects
 [**PopupAnnotationWithParent**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PopupAnnotationWithParent.md) | Provides PopupAnnotation.
+[**Position**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/Position.md) | Represents a position object
 [**RasterImagesSavingModes**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/RasterImagesSavingModes.md) | Converted PDF can contain raster images(.png, *.jpeg etc.) This enum defines methods of how raster images can be handled during conversion of PDF to HTML 
 [**Rectangle**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/Rectangle.md) | Represents rectangle DTO.
 [**RedactionAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/RedactionAnnotation.md) | Provides RedactionAnnotation.
@@ -487,6 +507,7 @@ Class | Description
 [**RedactionAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/RedactionAnnotations.md) | Object representing a list of redaction annotations.
 [**RedactionAnnotationsResponse**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/RedactionAnnotationsResponse.md) | Represents response containing multiple redaction annotation objects
 [**Rotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/Rotation.md) | Enumeration of possible rotation values.
+[**RowRecognized**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/RowRecognized.md) | 
 [**ScreenAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/ScreenAnnotation.md) | Provides ScreenAnnotation.
 [**ScreenAnnotationResponse**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/ScreenAnnotationResponse.md) | Represents response containing single screen annotation object
 [**ScreenAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/ScreenAnnotations.md) | Object representing a list of screen annotations.
@@ -518,13 +539,21 @@ Class | Description
 [**StampAnnotationResponse**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/StampAnnotationResponse.md) | Represents response containing single stamp annotation object
 [**StampAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/StampAnnotations.md) | Object representing a list of stamp annotations.
 [**StampAnnotationsResponse**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/StampAnnotationsResponse.md) | Represents response containing multiple stamp annotation objects
+[**StampBase**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/StampBase.md) | Represents Pdf stamps.
 [**StampIcon**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/StampIcon.md) | Enumerates the icons to be used in displaying the annotation.
+[**StampInfo**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/StampInfo.md) | Provides stamp info.
+[**StampsInfo**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/StampsInfo.md) | Object representing a list of stamps.
+[**StampsInfoResponse**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/StampsInfoResponse.md) | Represents multiple stamps info reponse
 [**StampType**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/StampType.md) | Represents enumeration of the stamp types.
 [**StorageExistResponse**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/StorageExistResponse.md) | 
 [**StrikeOutAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/StrikeOutAnnotation.md) | Provides StrikeOutAnnotation.
 [**StrikeOutAnnotationResponse**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/StrikeOutAnnotationResponse.md) | Represents response containing single strikeout annotation object
 [**StrikeOutAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/StrikeOutAnnotations.md) | Object representing a list of strikeout annotations.
 [**StrikeOutAnnotationsResponse**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/StrikeOutAnnotationsResponse.md) | Represents response containing multiple strikeout annotation objects
+[**TableRecognized**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/TableRecognized.md) | 
+[**TableRecognizedResponse**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/TableRecognizedResponse.md) | Represents response containing single recognized table
+[**TablesRecognized**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/TablesRecognized.md) | Represents list of recognized tables.
+[**TablesRecognizedResponse**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/TablesRecognizedResponse.md) | Represents response containing multiple tables info
 [**TextAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/TextAnnotation.md) | Provides TextAnnotation.
 [**TextAnnotationResponse**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/TextAnnotationResponse.md) | Represents response containing single text annotation object
 [**TextAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/TextAnnotations.md) | Object representing a list of text annotations.
@@ -538,6 +567,7 @@ Class | Description
 [**TextReplace**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/TextReplace.md) | Single text replacement setting.
 [**TextReplaceListRequest**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/TextReplaceListRequest.md) | Multiple text replacements request.
 [**TextReplaceResponse**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/TextReplaceResponse.md) | Represents response containing the result of text replacement
+[**TextStamp**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/TextStamp.md) | Represents Pdf stamps.
 [**TextState**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/TextState.md) | Represents a text state of a text
 [**TextStyle**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/TextStyle.md) | Represents a text style of a text
 [**UnderlineAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/UnderlineAnnotation.md) | Provides UnderlineAnnotation.

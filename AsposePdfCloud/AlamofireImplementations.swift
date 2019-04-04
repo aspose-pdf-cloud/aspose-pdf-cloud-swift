@@ -48,6 +48,7 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
     open func createSessionManager() -> Alamofire.SessionManager {
         let configuration = URLSessionConfiguration.default
         configuration.httpAdditionalHeaders = buildHeaders()
+        configuration.timeoutIntervalForRequest = 300
         return Alamofire.SessionManager(configuration: configuration)
     }
 
