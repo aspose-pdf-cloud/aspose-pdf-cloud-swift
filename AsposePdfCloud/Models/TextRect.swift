@@ -32,16 +32,31 @@ open class TextRect: Codable {
     /** Text of the occurrence. */
     public var text: String?
     /** Page on which the occurrence is found. */
-    public var page: Int
+    public var page: Int?
     /** Rectangle of the occurrence. */
     public var rect: Rectangle?
+    /** Gets or sets a horizontal alignment of text fragment.  */
+    public var horizontalAlignment: HorizontalAlignment?
+    /** Gets or sets a vertical alignment of text fragment.  */
+    public var verticalAlignment: VerticalAlignment?
+    /** Gets or sets text position for text, represented with  object. */
+    public var position: Position?
+    /** Gets text position for text, represented with  object. The YIndent of the Position structure represents baseline coordinate of the text fragment. */
+    public var baselinePosition: Position?
+    /** Gets or sets text state for the text that  object represents. */
+    public var textState: TextState?
 
         
     
-    public init(text: String?, page: Int, rect: Rectangle?) {
+    public init(text: String?, page: Int?, rect: Rectangle?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, position: Position?, baselinePosition: Position?, textState: TextState?) {
         self.text = text
         self.page = page
         self.rect = rect
+        self.horizontalAlignment = horizontalAlignment
+        self.verticalAlignment = verticalAlignment
+        self.position = position
+        self.baselinePosition = baselinePosition
+        self.textState = textState
     }
     
 
@@ -52,8 +67,13 @@ open class TextRect: Codable {
         var container = encoder.container(keyedBy: String.self)
 
         try container.encodeIfPresent(text, forKey: "Text")
-        try container.encode(page, forKey: "Page")
+        try container.encodeIfPresent(page, forKey: "Page")
         try container.encodeIfPresent(rect, forKey: "Rect")
+        try container.encodeIfPresent(horizontalAlignment, forKey: "HorizontalAlignment")
+        try container.encodeIfPresent(verticalAlignment, forKey: "VerticalAlignment")
+        try container.encodeIfPresent(position, forKey: "Position")
+        try container.encodeIfPresent(baselinePosition, forKey: "BaselinePosition")
+        try container.encodeIfPresent(textState, forKey: "TextState")
     }
 
     // Decodable protocol methods
@@ -62,8 +82,13 @@ open class TextRect: Codable {
         let container = try decoder.container(keyedBy: String.self)
 
         text = try container.decodeIfPresent(String.self, forKey: "Text")
-        page = try container.decode(Int.self, forKey: "Page")
+        page = try container.decodeIfPresent(Int.self, forKey: "Page")
         rect = try container.decodeIfPresent(Rectangle.self, forKey: "Rect")
+        horizontalAlignment = try container.decodeIfPresent(HorizontalAlignment.self, forKey: "HorizontalAlignment")
+        verticalAlignment = try container.decodeIfPresent(VerticalAlignment.self, forKey: "VerticalAlignment")
+        position = try container.decodeIfPresent(Position.self, forKey: "Position")
+        baselinePosition = try container.decodeIfPresent(Position.self, forKey: "BaselinePosition")
+        textState = try container.decodeIfPresent(TextState.self, forKey: "TextState")
     }
 }
 

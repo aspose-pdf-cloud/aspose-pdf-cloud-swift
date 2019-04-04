@@ -229,7 +229,7 @@ class ScreenAnnotationsTests: AsposePdfCloudTests {
         self.waitForExpectations(timeout: testTimeout, handler: nil)
     }
     
-    /*
+    
     func testGetScreenAnnotationData() {
         let name = "PdfWithScreenAnnotations.pdf"
         
@@ -273,7 +273,7 @@ class ScreenAnnotationsTests: AsposePdfCloudTests {
     
     func testPutScreenAnnotationDataExtract() {
         let name = "PdfWithScreenAnnotations.pdf"
-        
+        let outFilePath = self.tempFolder + "/screen.dat"
         let expectation = self.expectation(description: "testPutScreenAnnotationDataExtract")
         
         uploadFile(name: name) {
@@ -290,7 +290,7 @@ class ScreenAnnotationsTests: AsposePdfCloudTests {
                     
                     if let annotations = response.annotations, let list = annotations.list, let annotationId = list[0].id {
                         
-                        PdfAPI.putScreenAnnotationDataExtract(name: name, annotationId: annotationId, folder: self.tempFolder) {
+                        PdfAPI.putScreenAnnotationDataExtract(name: name, annotationId: annotationId, outFilePath: outFilePath, folder: self.tempFolder) {
                             (response, error) in
                             guard error == nil else {
                                 XCTFail("error testPutScreenAnnotationDataExtract")
@@ -311,6 +311,5 @@ class ScreenAnnotationsTests: AsposePdfCloudTests {
         }
         self.waitForExpectations(timeout: testTimeout, handler: nil)
     }
- */
 }
 
