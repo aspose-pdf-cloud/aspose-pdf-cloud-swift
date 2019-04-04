@@ -38,7 +38,7 @@ open class ImageStamp: StampBase {
 
     
     public init(links: [Link]?, background: Bool?, bottomMargin: Double?, horizontalAlignment: HorizontalAlignment?, leftMargin: Double?, opacity: Double?, rightMargin: Double?, rotate: Rotation?, rotateAngle: Double?, topMargin: Double?, verticalAlignment: VerticalAlignment?, xIndent: Double?, yIndent: Double?, zoom: Double?, fileName: String?, width: Double?, height: Double?) {
-        super.init(links: links)
+        super.init(links: links, background: background, bottomMargin: bottomMargin, horizontalAlignment: horizontalAlignment, leftMargin: leftMargin, opacity: opacity, rightMargin: rightMargin, rotate: rotate, rotateAngle: rotateAngle, topMargin: topMargin, verticalAlignment: verticalAlignment, xIndent: xIndent, yIndent: yIndent, zoom: zoom)
         self.fileName = fileName
         self.width = width
         self.height = height
