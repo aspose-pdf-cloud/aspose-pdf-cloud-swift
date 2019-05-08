@@ -1267,7 +1267,7 @@ open class PdfAPI {
     /**
      Read common document info.
      - GET /pdf/{name}
-     - examples: [{output=none}]
+     - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
      - parameter storage: (query) The document storage. (optional)
@@ -1445,60 +1445,6 @@ open class PdfAPI {
         
 
         let requestBuilder: RequestBuilder<AttachmentsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
-    }
-
-    /**
-     Read document bookmark/bookmarks (including children).
-     
-     - parameter name: (path) The document name. 
-     - parameter bookmarkPath: (query) The bookmark path. Leave it empty if you want to get all the bookmarks in the document. (optional)
-     - parameter storage: (query) The document storage. (optional)
-     - parameter folder: (query) The document folder. (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func getDocumentBookmarks(name: String, bookmarkPath: String? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
-        AuthAspose.checkAuth() {
-            (authError) in
-            guard authError == nil else {
-                completion(nil, authError)
-                return
-            }
-            getDocumentBookmarksWithRequestBuilder(name: name, bookmarkPath: bookmarkPath, storage: storage, folder: folder).execute { (response, error) -> Void in
-                completion(response?.body, error);
-            }
-        }
-    }
-
-
-    /**
-     Read document bookmark/bookmarks (including children).
-     - GET /pdf/{name}/bookmarks
-     - examples: [{output=none}]
-     
-     - parameter name: (path) The document name. 
-     - parameter bookmarkPath: (query) The bookmark path. Leave it empty if you want to get all the bookmarks in the document. (optional)
-     - parameter storage: (query) The document storage. (optional)
-     - parameter folder: (query) The document folder. (optional)
-
-     - returns: RequestBuilder<Data> 
-     */
-    open class func getDocumentBookmarksWithRequestBuilder(name: String, bookmarkPath: String? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<Data> {
-        var pathUrl = "/pdf/{name}/bookmarks"
-        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + pathUrl
-        let parameters: [String:Any]? = nil
-
-        let urlObj = NSURLComponents(string: URLString)
-        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
-            "bookmarkPath": bookmarkPath, 
-            "storage": storage, 
-            "folder": folder
-        ])
-        
-
-        let requestBuilder: RequestBuilder<Data>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -6815,6 +6761,69 @@ open class PdfAPI {
     }
 
     /**
+     Converts PDF document (located on storage) to XLSX format and returns resulting file in response content
+     
+     - parameter name: (path) The document name. 
+     - parameter insertBlankColumnAtFirst: (query) Insert blank column at first (optional)
+     - parameter minimizeTheNumberOfWorksheets: (query) Minimize the number of worksheets (optional)
+     - parameter scaleFactor: (query) Scale factor (optional)
+     - parameter uniformWorksheets: (query) Uniform worksheets (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getPdfInStorageToXlsx(name: String, insertBlankColumnAtFirst: Bool? = nil, minimizeTheNumberOfWorksheets: Bool? = nil, scaleFactor: Double? = nil, uniformWorksheets: Bool? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getPdfInStorageToXlsxWithRequestBuilder(name: name, insertBlankColumnAtFirst: insertBlankColumnAtFirst, minimizeTheNumberOfWorksheets: minimizeTheNumberOfWorksheets, scaleFactor: scaleFactor, uniformWorksheets: uniformWorksheets, folder: folder, storage: storage).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Converts PDF document (located on storage) to XLSX format and returns resulting file in response content
+     - GET /pdf/{name}/convert/xlsx
+     - examples: [{output=none}]
+     
+     - parameter name: (path) The document name. 
+     - parameter insertBlankColumnAtFirst: (query) Insert blank column at first (optional)
+     - parameter minimizeTheNumberOfWorksheets: (query) Minimize the number of worksheets (optional)
+     - parameter scaleFactor: (query) Scale factor (optional)
+     - parameter uniformWorksheets: (query) Uniform worksheets (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter storage: (query) The document storage. (optional)
+
+     - returns: RequestBuilder<Data> 
+     */
+    open class func getPdfInStorageToXlsxWithRequestBuilder(name: String, insertBlankColumnAtFirst: Bool? = nil, minimizeTheNumberOfWorksheets: Bool? = nil, scaleFactor: Double? = nil, uniformWorksheets: Bool? = nil, folder: String? = nil, storage: String? = nil) -> RequestBuilder<Data> {
+        var pathUrl = "/pdf/{name}/convert/xlsx"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "insertBlankColumnAtFirst": insertBlankColumnAtFirst, 
+            "minimizeTheNumberOfWorksheets": minimizeTheNumberOfWorksheets, 
+            "scaleFactor": scaleFactor, 
+            "uniformWorksheets": uniformWorksheets, 
+            "folder": folder, 
+            "storage": storage
+        ])
+        
+
+        let requestBuilder: RequestBuilder<Data>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
      Converts PDF document (located on storage) to XML format and returns resulting file in response content
      
      - parameter name: (path) The document name. 
@@ -8407,6 +8416,69 @@ open class PdfAPI {
     }
 
     /**
+     Change document password in storage.
+     
+     - parameter name: (path) Document name. 
+     - parameter ownerPassword: (query) Owner password (encrypted Base64). 
+     - parameter newUserPassword: (query) New user password (encrypted Base64). 
+     - parameter newOwnerPassword: (query) New owner password (encrypted Base64). 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postChangePasswordDocumentInStorage(name: String, ownerPassword: String, newUserPassword: String, newOwnerPassword: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            postChangePasswordDocumentInStorageWithRequestBuilder(name: name, ownerPassword: ownerPassword, newUserPassword: newUserPassword, newOwnerPassword: newOwnerPassword, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Change document password in storage.
+     - POST /pdf/{name}/changepassword
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) Document name. 
+     - parameter ownerPassword: (query) Owner password (encrypted Base64). 
+     - parameter newUserPassword: (query) New user password (encrypted Base64). 
+     - parameter newOwnerPassword: (query) New owner password (encrypted Base64). 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func postChangePasswordDocumentInStorageWithRequestBuilder(name: String, ownerPassword: String, newUserPassword: String, newOwnerPassword: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/changepassword"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "ownerPassword": ownerPassword, 
+            "newUserPassword": newUserPassword, 
+            "newOwnerPassword": newOwnerPassword, 
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
      Create field.
      
      - parameter name: (path) The document name. 
@@ -8455,6 +8527,373 @@ open class PdfAPI {
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "page": page.encodeToJSON(), 
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
+     Decrypt document in storage.
+     
+     - parameter name: (path) Document name. 
+     - parameter password: (query) The password (encrypted Base64). 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postDecryptDocumentInStorage(name: String, password: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            postDecryptDocumentInStorageWithRequestBuilder(name: name, password: password, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Decrypt document in storage.
+     - POST /pdf/{name}/decrypt
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) Document name. 
+     - parameter password: (query) The password (encrypted Base64). 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func postDecryptDocumentInStorageWithRequestBuilder(name: String, password: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/decrypt"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "password": password, 
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Add document image footer.
+     
+     - parameter name: (path) The document name. 
+     - parameter imageFooter: (body) The image footer. 
+     - parameter startPageNumber: (query) The start page number. (optional)
+     - parameter endPageNumber: (query) The end page number. (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postDocumentImageFooter(name: String, imageFooter: ImageFooter, startPageNumber: Int? = nil, endPageNumber: Int? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            postDocumentImageFooterWithRequestBuilder(name: name, imageFooter: imageFooter, startPageNumber: startPageNumber, endPageNumber: endPageNumber, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Add document image footer.
+     - POST /pdf/{name}/footer/image
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter imageFooter: (body) The image footer. 
+     - parameter startPageNumber: (query) The start page number. (optional)
+     - parameter endPageNumber: (query) The end page number. (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func postDocumentImageFooterWithRequestBuilder(name: String, imageFooter: ImageFooter, startPageNumber: Int? = nil, endPageNumber: Int? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/footer/image"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: imageFooter)
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "startPageNumber": startPageNumber?.encodeToJSON(), 
+            "endPageNumber": endPageNumber?.encodeToJSON(), 
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
+     Add document image header.
+     
+     - parameter name: (path) The document name. 
+     - parameter imageHeader: (body) The image header. 
+     - parameter startPageNumber: (query) The start page number. (optional)
+     - parameter endPageNumber: (query) The end page number. (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postDocumentImageHeader(name: String, imageHeader: ImageHeader, startPageNumber: Int? = nil, endPageNumber: Int? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            postDocumentImageHeaderWithRequestBuilder(name: name, imageHeader: imageHeader, startPageNumber: startPageNumber, endPageNumber: endPageNumber, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Add document image header.
+     - POST /pdf/{name}/header/image
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter imageHeader: (body) The image header. 
+     - parameter startPageNumber: (query) The start page number. (optional)
+     - parameter endPageNumber: (query) The end page number. (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func postDocumentImageHeaderWithRequestBuilder(name: String, imageHeader: ImageHeader, startPageNumber: Int? = nil, endPageNumber: Int? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/header/image"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: imageHeader)
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "startPageNumber": startPageNumber?.encodeToJSON(), 
+            "endPageNumber": endPageNumber?.encodeToJSON(), 
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
+     Add document page number stamps.
+     
+     - parameter name: (path) The document name. 
+     - parameter stamp: (body) The stamp. 
+     - parameter startPageNumber: (query) The start page number. (optional)
+     - parameter endPageNumber: (query) The end page number. (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postDocumentPageNumberStamps(name: String, stamp: PageNumberStamp, startPageNumber: Int? = nil, endPageNumber: Int? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            postDocumentPageNumberStampsWithRequestBuilder(name: name, stamp: stamp, startPageNumber: startPageNumber, endPageNumber: endPageNumber, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Add document page number stamps.
+     - POST /pdf/{name}/stamps/pagenumber
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter stamp: (body) The stamp. 
+     - parameter startPageNumber: (query) The start page number. (optional)
+     - parameter endPageNumber: (query) The end page number. (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func postDocumentPageNumberStampsWithRequestBuilder(name: String, stamp: PageNumberStamp, startPageNumber: Int? = nil, endPageNumber: Int? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/stamps/pagenumber"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: stamp)
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "startPageNumber": startPageNumber?.encodeToJSON(), 
+            "endPageNumber": endPageNumber?.encodeToJSON(), 
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
+     Add document text footer.
+     
+     - parameter name: (path) The document name. 
+     - parameter textFooter: (body) The text footer. 
+     - parameter startPageNumber: (query) The start page number. (optional)
+     - parameter endPageNumber: (query) The end page number. (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postDocumentTextFooter(name: String, textFooter: TextFooter, startPageNumber: Int? = nil, endPageNumber: Int? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            postDocumentTextFooterWithRequestBuilder(name: name, textFooter: textFooter, startPageNumber: startPageNumber, endPageNumber: endPageNumber, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Add document text footer.
+     - POST /pdf/{name}/footer/text
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter textFooter: (body) The text footer. 
+     - parameter startPageNumber: (query) The start page number. (optional)
+     - parameter endPageNumber: (query) The end page number. (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func postDocumentTextFooterWithRequestBuilder(name: String, textFooter: TextFooter, startPageNumber: Int? = nil, endPageNumber: Int? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/footer/text"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: textFooter)
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "startPageNumber": startPageNumber?.encodeToJSON(), 
+            "endPageNumber": endPageNumber?.encodeToJSON(), 
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
+     Add document text header.
+     
+     - parameter name: (path) The document name. 
+     - parameter textHeader: (body) The text header. 
+     - parameter startPageNumber: (query) The start page number. (optional)
+     - parameter endPageNumber: (query) The end page number. (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postDocumentTextHeader(name: String, textHeader: TextHeader, startPageNumber: Int? = nil, endPageNumber: Int? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            postDocumentTextHeaderWithRequestBuilder(name: name, textHeader: textHeader, startPageNumber: startPageNumber, endPageNumber: endPageNumber, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Add document text header.
+     - POST /pdf/{name}/header/text
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter textHeader: (body) The text header. 
+     - parameter startPageNumber: (query) The start page number. (optional)
+     - parameter endPageNumber: (query) The end page number. (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func postDocumentTextHeaderWithRequestBuilder(name: String, textHeader: TextHeader, startPageNumber: Int? = nil, endPageNumber: Int? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/header/text"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: textHeader)
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "startPageNumber": startPageNumber?.encodeToJSON(), 
+            "endPageNumber": endPageNumber?.encodeToJSON(), 
             "storage": storage, 
             "folder": folder
         ])
@@ -8516,6 +8955,75 @@ open class PdfAPI {
         let requestBuilder: RequestBuilder<TextReplaceResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
+     Encrypt document in storage.
+     
+     - parameter name: (path) Document name. 
+     - parameter userPassword: (query) User password (encrypted Base64). 
+     - parameter ownerPassword: (query) Owner password (encrypted Base64). 
+     - parameter cryptoAlgorithm: (query) Cryptographic algorithm, see  for details. 
+     - parameter permissionsFlags: (query) Array of document permissions, see  for details. (optional)
+     - parameter usePdf20: (query) Support for revision 6 (Extension 8). (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postEncryptDocumentInStorage(name: String, userPassword: String, ownerPassword: String, cryptoAlgorithm: String, permissionsFlags: [PermissionsFlags]? = nil, usePdf20: Bool? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            postEncryptDocumentInStorageWithRequestBuilder(name: name, userPassword: userPassword, ownerPassword: ownerPassword, cryptoAlgorithm: cryptoAlgorithm, permissionsFlags: permissionsFlags, usePdf20: usePdf20, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Encrypt document in storage.
+     - POST /pdf/{name}/encrypt
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) Document name. 
+     - parameter userPassword: (query) User password (encrypted Base64). 
+     - parameter ownerPassword: (query) Owner password (encrypted Base64). 
+     - parameter cryptoAlgorithm: (query) Cryptographic algorithm, see  for details. 
+     - parameter permissionsFlags: (query) Array of document permissions, see  for details. (optional)
+     - parameter usePdf20: (query) Support for revision 6 (Extension 8). (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func postEncryptDocumentInStorageWithRequestBuilder(name: String, userPassword: String, ownerPassword: String, cryptoAlgorithm: String, permissionsFlags: [PermissionsFlags]? = nil, usePdf20: Bool? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/encrypt"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "userPassword": userPassword, 
+            "ownerPassword": ownerPassword, 
+            "cryptoAlgorithm": cryptoAlgorithm, 
+            "permissionsFlags": permissionsFlags, 
+            "usePdf20": usePdf20, 
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
@@ -10074,6 +10582,65 @@ open class PdfAPI {
     }
 
     /**
+     Add document page tables.
+     
+     - parameter name: (path) The document name. 
+     - parameter pageNumber: (path) The page number. 
+     - parameter tables: (body) The array of table. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postPageTables(name: String, pageNumber: Int, tables: [Table], storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            postPageTablesWithRequestBuilder(name: name, pageNumber: pageNumber, tables: tables, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Add document page tables.
+     - POST /pdf/{name}/pages/{pageNumber}/tables
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter pageNumber: (path) The page number. 
+     - parameter tables: (body) The array of table. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func postPageTablesWithRequestBuilder(name: String, pageNumber: Int, tables: [Table], storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/tables"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: tables)
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
      Add document page text annotations.
      
      - parameter name: (path) The document name. 
@@ -10770,6 +11337,73 @@ open class PdfAPI {
     }
 
     /**
+     Change document password from content.
+     
+     - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.doc) 
+     - parameter ownerPassword: (query) Owner password (encrypted Base64). 
+     - parameter newUserPassword: (query) New user password (encrypted Base64). 
+     - parameter newOwnerPassword: (query) New owner password (encrypted Base64). 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter file: (form) A file to be changed password. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func putChangePasswordDocument(outPath: String, ownerPassword: String, newUserPassword: String, newOwnerPassword: String, storage: String? = nil, file: URL? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            putChangePasswordDocumentWithRequestBuilder(outPath: outPath, ownerPassword: ownerPassword, newUserPassword: newUserPassword, newOwnerPassword: newOwnerPassword, storage: storage, file: file).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Change document password from content.
+     - PUT /pdf/changepassword
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.doc) 
+     - parameter ownerPassword: (query) Owner password (encrypted Base64). 
+     - parameter newUserPassword: (query) New user password (encrypted Base64). 
+     - parameter newOwnerPassword: (query) New owner password (encrypted Base64). 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter file: (form) A file to be changed password. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func putChangePasswordDocumentWithRequestBuilder(outPath: String, ownerPassword: String, newUserPassword: String, newOwnerPassword: String, storage: String? = nil, file: URL? = nil) -> RequestBuilder<AsposeResponse> {
+        let pathUrl = "/pdf/changepassword"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let formParams: [String:Any?] = [
+            "file": file
+        ]
+
+        let nonNullParameters = APIHelper.rejectNil(formParams)
+        let parameters = APIHelper.convertBoolToString(nonNullParameters)
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "outPath": outPath, 
+            "ownerPassword": ownerPassword, 
+            "newUserPassword": newUserPassword, 
+            "newOwnerPassword": newOwnerPassword, 
+            "storage": storage
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
      Replace document circle annotation
      
      - parameter name: (path) The document name. 
@@ -10983,6 +11617,140 @@ open class PdfAPI {
             "path": path, 
             "storage": storage, 
             "destStorage": destStorage
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Decrypt document from content.
+     
+     - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.doc) 
+     - parameter password: (query) The password (encrypted Base64). 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter file: (form) A file to be derypted. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func putDecryptDocument(outPath: String, password: String, storage: String? = nil, file: URL? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            putDecryptDocumentWithRequestBuilder(outPath: outPath, password: password, storage: storage, file: file).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Decrypt document from content.
+     - PUT /pdf/decrypt
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.doc) 
+     - parameter password: (query) The password (encrypted Base64). 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter file: (form) A file to be derypted. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func putDecryptDocumentWithRequestBuilder(outPath: String, password: String, storage: String? = nil, file: URL? = nil) -> RequestBuilder<AsposeResponse> {
+        let pathUrl = "/pdf/decrypt"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let formParams: [String:Any?] = [
+            "file": file
+        ]
+
+        let nonNullParameters = APIHelper.rejectNil(formParams)
+        let parameters = APIHelper.convertBoolToString(nonNullParameters)
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "outPath": outPath, 
+            "password": password, 
+            "storage": storage
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Encrypt document from content.
+     
+     - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.doc) 
+     - parameter userPassword: (query) User password (encrypted Base64). 
+     - parameter ownerPassword: (query) Owner password (encrypted Base64). 
+     - parameter cryptoAlgorithm: (query) Cryptographic algorithm, see  for details. 
+     - parameter permissionsFlags: (query) Array of document permissions, see  for details. (optional)
+     - parameter usePdf20: (query) Support for revision 6 (Extension 8). (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter file: (form) A file to be encrypted. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func putEncryptDocument(outPath: String, userPassword: String, ownerPassword: String, cryptoAlgorithm: String, permissionsFlags: [PermissionsFlags]? = nil, usePdf20: Bool? = nil, storage: String? = nil, file: URL? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            putEncryptDocumentWithRequestBuilder(outPath: outPath, userPassword: userPassword, ownerPassword: ownerPassword, cryptoAlgorithm: cryptoAlgorithm, permissionsFlags: permissionsFlags, usePdf20: usePdf20, storage: storage, file: file).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Encrypt document from content.
+     - PUT /pdf/encrypt
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.doc) 
+     - parameter userPassword: (query) User password (encrypted Base64). 
+     - parameter ownerPassword: (query) Owner password (encrypted Base64). 
+     - parameter cryptoAlgorithm: (query) Cryptographic algorithm, see  for details. 
+     - parameter permissionsFlags: (query) Array of document permissions, see  for details. (optional)
+     - parameter usePdf20: (query) Support for revision 6 (Extension 8). (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter file: (form) A file to be encrypted. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func putEncryptDocumentWithRequestBuilder(outPath: String, userPassword: String, ownerPassword: String, cryptoAlgorithm: String, permissionsFlags: [PermissionsFlags]? = nil, usePdf20: Bool? = nil, storage: String? = nil, file: URL? = nil) -> RequestBuilder<AsposeResponse> {
+        let pathUrl = "/pdf/encrypt"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let formParams: [String:Any?] = [
+            "file": file
+        ]
+
+        let nonNullParameters = APIHelper.rejectNil(formParams)
+        let parameters = APIHelper.convertBoolToString(nonNullParameters)
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "outPath": outPath, 
+            "userPassword": userPassword, 
+            "ownerPassword": ownerPassword, 
+            "cryptoAlgorithm": cryptoAlgorithm, 
+            "permissionsFlags": permissionsFlags, 
+            "usePdf20": usePdf20, 
+            "storage": storage
         ])
         
 
@@ -13659,6 +14427,76 @@ open class PdfAPI {
     }
 
     /**
+     Converts PDF document (in request content) to XLSX format and uploads resulting file to storage.
+     
+     - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.xlsx) 
+     - parameter insertBlankColumnAtFirst: (query) Insert blank column at first (optional)
+     - parameter minimizeTheNumberOfWorksheets: (query) Minimize the number of worksheets (optional)
+     - parameter scaleFactor: (query) Scale factor (optional)
+     - parameter uniformWorksheets: (query) Uniform worksheets (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter file: (form) A file to be converted. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func putPdfInRequestToXlsx(outPath: String, insertBlankColumnAtFirst: Bool? = nil, minimizeTheNumberOfWorksheets: Bool? = nil, scaleFactor: Double? = nil, uniformWorksheets: Bool? = nil, storage: String? = nil, file: URL? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            putPdfInRequestToXlsxWithRequestBuilder(outPath: outPath, insertBlankColumnAtFirst: insertBlankColumnAtFirst, minimizeTheNumberOfWorksheets: minimizeTheNumberOfWorksheets, scaleFactor: scaleFactor, uniformWorksheets: uniformWorksheets, storage: storage, file: file).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Converts PDF document (in request content) to XLSX format and uploads resulting file to storage.
+     - PUT /pdf/convert/xlsx
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.xlsx) 
+     - parameter insertBlankColumnAtFirst: (query) Insert blank column at first (optional)
+     - parameter minimizeTheNumberOfWorksheets: (query) Minimize the number of worksheets (optional)
+     - parameter scaleFactor: (query) Scale factor (optional)
+     - parameter uniformWorksheets: (query) Uniform worksheets (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter file: (form) A file to be converted. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func putPdfInRequestToXlsxWithRequestBuilder(outPath: String, insertBlankColumnAtFirst: Bool? = nil, minimizeTheNumberOfWorksheets: Bool? = nil, scaleFactor: Double? = nil, uniformWorksheets: Bool? = nil, storage: String? = nil, file: URL? = nil) -> RequestBuilder<AsposeResponse> {
+        let pathUrl = "/pdf/convert/xlsx"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let formParams: [String:Any?] = [
+            "file": file
+        ]
+
+        let nonNullParameters = APIHelper.rejectNil(formParams)
+        let parameters = APIHelper.convertBoolToString(nonNullParameters)
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "outPath": outPath, 
+            "insertBlankColumnAtFirst": insertBlankColumnAtFirst, 
+            "minimizeTheNumberOfWorksheets": minimizeTheNumberOfWorksheets, 
+            "scaleFactor": scaleFactor, 
+            "uniformWorksheets": uniformWorksheets, 
+            "storage": storage
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
      Converts PDF document (in request content) to XML format and uploads resulting file to storage.
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.xml) 
@@ -14503,6 +15341,75 @@ open class PdfAPI {
      */
     open class func putPdfInStorageToXlsWithRequestBuilder(name: String, outPath: String, insertBlankColumnAtFirst: Bool? = nil, minimizeTheNumberOfWorksheets: Bool? = nil, scaleFactor: Double? = nil, uniformWorksheets: Bool? = nil, folder: String? = nil, storage: String? = nil) -> RequestBuilder<AsposeResponse> {
         var pathUrl = "/pdf/{name}/convert/xls"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "outPath": outPath, 
+            "insertBlankColumnAtFirst": insertBlankColumnAtFirst, 
+            "minimizeTheNumberOfWorksheets": minimizeTheNumberOfWorksheets, 
+            "scaleFactor": scaleFactor, 
+            "uniformWorksheets": uniformWorksheets, 
+            "folder": folder, 
+            "storage": storage
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Converts PDF document (located on storage) to XLSX format and uploads resulting file to storage
+     
+     - parameter name: (path) The document name. 
+     - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.xlsx) 
+     - parameter insertBlankColumnAtFirst: (query) Insert blank column at first (optional)
+     - parameter minimizeTheNumberOfWorksheets: (query) Minimize the number of worksheets (optional)
+     - parameter scaleFactor: (query) Scale factor (optional)
+     - parameter uniformWorksheets: (query) Uniform worksheets (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func putPdfInStorageToXlsx(name: String, outPath: String, insertBlankColumnAtFirst: Bool? = nil, minimizeTheNumberOfWorksheets: Bool? = nil, scaleFactor: Double? = nil, uniformWorksheets: Bool? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            putPdfInStorageToXlsxWithRequestBuilder(name: name, outPath: outPath, insertBlankColumnAtFirst: insertBlankColumnAtFirst, minimizeTheNumberOfWorksheets: minimizeTheNumberOfWorksheets, scaleFactor: scaleFactor, uniformWorksheets: uniformWorksheets, folder: folder, storage: storage).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Converts PDF document (located on storage) to XLSX format and uploads resulting file to storage
+     - PUT /pdf/{name}/convert/xlsx
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.xlsx) 
+     - parameter insertBlankColumnAtFirst: (query) Insert blank column at first (optional)
+     - parameter minimizeTheNumberOfWorksheets: (query) Minimize the number of worksheets (optional)
+     - parameter scaleFactor: (query) Scale factor (optional)
+     - parameter uniformWorksheets: (query) Uniform worksheets (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter storage: (query) The document storage. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func putPdfInStorageToXlsxWithRequestBuilder(name: String, outPath: String, insertBlankColumnAtFirst: Bool? = nil, minimizeTheNumberOfWorksheets: Bool? = nil, scaleFactor: Double? = nil, uniformWorksheets: Bool? = nil, folder: String? = nil, storage: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/convert/xlsx"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
@@ -15748,6 +16655,65 @@ open class PdfAPI {
         let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Replace document page table.
+     
+     - parameter name: (path) The document name. 
+     - parameter tableId: (path) The table ID. 
+     - parameter table: (body) The table. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func putTable(name: String, tableId: String, table: Table, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            putTableWithRequestBuilder(name: name, tableId: tableId, table: table, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Replace document page table.
+     - PUT /pdf/{name}/tables/{tableId}
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter tableId: (path) The table ID. 
+     - parameter table: (body) The table. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func putTableWithRequestBuilder(name: String, tableId: String, table: Table, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/tables/{tableId}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{tableId}", with: "\(tableId)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: table)
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**

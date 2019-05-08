@@ -25,26 +25,29 @@
 import Foundation
 
 
-/** This class represents a margin for different objects. */
+/** This class represents border for graphics elements. */
 
-open class MarginInfo: Codable {
+open class BorderInfo: Codable {
 
-    /** Gets or sets a float value that indicates the left margin. */
-    public var _left: Double?
-    /** Gets or sets a float value that indicates the right margin. */
-    public var _right: Double?
-    /** Gets or sets a float value that indicates the top margin. */
-    public var top: Double?
-    /** Gets or sets a float value that indicates the bottom margin. */
-    public var bottom: Double?
+    /** Gets or sets a object that indicates left of the border. */
+    public var _left: GraphInfo?
+    /** Gets or sets a object that indicates right of the border. */
+    public var _right: GraphInfo?
+    /** Gets or sets a object that indicates the top border. */
+    public var top: GraphInfo?
+    /** Gets or sets a object that indicates bottom of the border. */
+    public var bottom: GraphInfo?
+    /** Gets or sets a rouded border radius */
+    public var roundedBorderRadius: Double?
 
         
     
-    public init(_left: Double?, _right: Double?, top: Double?, bottom: Double?) {
+    public init(_left: GraphInfo?, _right: GraphInfo?, top: GraphInfo?, bottom: GraphInfo?, roundedBorderRadius: Double?) {
         self._left = _left
         self._right = _right
         self.top = top
         self.bottom = bottom
+        self.roundedBorderRadius = roundedBorderRadius
     }
     
 
@@ -58,6 +61,7 @@ open class MarginInfo: Codable {
         try container.encodeIfPresent(_right, forKey: "Right")
         try container.encodeIfPresent(top, forKey: "Top")
         try container.encodeIfPresent(bottom, forKey: "Bottom")
+        try container.encodeIfPresent(roundedBorderRadius, forKey: "RoundedBorderRadius")
     }
 
     // Decodable protocol methods
@@ -65,10 +69,11 @@ open class MarginInfo: Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        _left = try container.decodeIfPresent(Double.self, forKey: "Left")
-        _right = try container.decodeIfPresent(Double.self, forKey: "Right")
-        top = try container.decodeIfPresent(Double.self, forKey: "Top")
-        bottom = try container.decodeIfPresent(Double.self, forKey: "Bottom")
+        _left = try container.decodeIfPresent(GraphInfo.self, forKey: "Left")
+        _right = try container.decodeIfPresent(GraphInfo.self, forKey: "Right")
+        top = try container.decodeIfPresent(GraphInfo.self, forKey: "Top")
+        bottom = try container.decodeIfPresent(GraphInfo.self, forKey: "Bottom")
+        roundedBorderRadius = try container.decodeIfPresent(Double.self, forKey: "RoundedBorderRadius")
     }
 }
 
