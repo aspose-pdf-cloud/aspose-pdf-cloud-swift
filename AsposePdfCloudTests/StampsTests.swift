@@ -304,5 +304,50 @@ class StampsTests: AsposePdfCloudTests {
         }
         self.waitForExpectations(timeout: testTimeout, handler: nil)
     }
+    
+    func testPostDocumentPageNumberStamps() {
+        let name = "4pages.pdf"
+        let expectation = self.expectation(description: "testPostDocumentPageNumberStamps")
+        
+        let stamp = PageNumberStamp(
+            links: nil,
+            background: true,
+            horizontalAlignment: HorizontalAlignment.center,
+            opacity: 1,
+            rotate: Rotation._none,
+            rotateAngle: 0,
+            xIndent: 0,
+            yIndent: 0,
+            zoom: 1,
+            value: "Page #",
+            startingNumber: 3,
+            verticalAlignment: VerticalAlignment.center,
+            bottomMargin: 1,
+            leftMargin: 2,
+            topMargin: 4,
+            rightMargin: 3
+        )
+        
+        let startPage = 2
+        let endPage = 3
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.postDocumentPageNumberStamps(name: name, stamp: stamp, startPageNumber: startPage, endPageNumber: endPage, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testPostDocumentPageNumberStamps")
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeCreated)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
 }
 

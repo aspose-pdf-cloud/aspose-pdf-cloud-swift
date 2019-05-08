@@ -36,7 +36,7 @@ open class PdfPageStamp: StampBase {
 
     
     public init(links: [Link]?, background: Bool?, bottomMargin: Double?, horizontalAlignment: HorizontalAlignment?, leftMargin: Double?, opacity: Double?, rightMargin: Double?, rotate: Rotation?, rotateAngle: Double?, topMargin: Double?, verticalAlignment: VerticalAlignment?, xIndent: Double?, yIndent: Double?, zoom: Double?, fileName: String?, pageIndex: Int?) {
-        super.init(links: links, background: background, bottomMargin: bottomMargin, horizontalAlignment: horizontalAlignment, leftMargin: leftMargin, opacity: opacity, rightMargin: rightMargin, rotate: rotate, rotateAngle: rotateAngle, topMargin: topMargin, verticalAlignment: verticalAlignment, xIndent: xIndent, yIndent: yIndent, zoom: zoom)
+        super.init(links: links, background: background, horizontalAlignment: horizontalAlignment, opacity: opacity, rotate: rotate, rotateAngle: rotateAngle, xIndent: xIndent, yIndent: yIndent, zoom: zoom)
         self.fileName = fileName
         self.pageIndex = pageIndex
     }

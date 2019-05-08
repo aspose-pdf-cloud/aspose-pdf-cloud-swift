@@ -1,14 +1,13 @@
-﻿# PdfPageStamp
-Represents Pdf stamps.
+﻿# TextHeader
+Represents Pdf text header.
 
 *Inherited from [StampBase](StampBase.md)*
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fileName** | **String?** | Gets or sets the file name. | [optional]
-**pageIndex** | **Int?** | Gets or sets the index of the page. | [optional]
-**verticalAlignment** | [**VerticalAlignment?**](VerticalAlignment.md) | Gets or sets vertical alignment of stamp on page. | [optional]
-**bottomMargin** | **Double?** | Gets or sets bottom margin of stamp. | [optional]
+**textAlignment** | [**HorizontalAlignment?**](HorizontalAlignment.md) | Alignment of the text inside the stamp. | [optional]
+**value** | **String?** | Gets or sets string value which is used as stamp on the page. | [optional]
+**textState** | [**TextState?**](TextState.md) | Gets text properties of the stamp. See for details. | [optional]
 **leftMargin** | **Double?** | Gets or sets left margin of stamp. | [optional]
 **topMargin** | **Double?** | Gets or sets top margin of stamp. | [optional]
 **rightMargin** | **Double?** | Gets or sets right margin of stamp. | [optional]
@@ -22,5 +21,5 @@ Name | Type | Description | Notes
 **zoom** | **Double?** | Zooming factor of the stamp. Allows to scale stamp.<br />*Inherited from [StampBase](StampBase.md)* | [optional]
 **links** | [**[Link]?**](Link.md) | Link to the document.<br />*Inherited from [LinkElement](LinkElement.md)* | [optional]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/PdfPageStamp.swift)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/TextHeader.swift)
 

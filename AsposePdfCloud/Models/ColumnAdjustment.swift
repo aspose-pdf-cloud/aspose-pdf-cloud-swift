@@ -19,43 +19,16 @@
  *
  */
 
-import XCTest
-@testable import AsposePdfCloud
 
-class BookmarksTests: AsposePdfCloudTests {
-    
-    override func setUp() {
-        super.setUp()
-     }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-    
-    private let fileName = "PdfWithBookmarks.pdf"
-    
-    func testGetDocumentBookmarks() {
-        
-        let expectation = self.expectation(description: "testGetDocumentBookmarks")
-        
-        uploadFile(name: fileName) {
-            
-            PdfAPI.getDocumentBookmarks(name: self.fileName, folder: self.tempFolder) {
-                (response, error) in
-                guard error == nil else {
-                    XCTFail("error testGetDocumentBookmarks")
-                    return
-                }
-                
-                if let response = response {
-                    XCTAssertNotNil(response)
-                    
-                    expectation.fulfill()
-                }
-            }
-        }
-        
-        self.waitForExpectations(timeout: testTimeout, handler: nil)
-    }
-    
+
+
+import Foundation
+
+
+/** Enumerates column adjustment types. */
+public enum ColumnAdjustment: String, Codable {
+    case customized = "Customized"
+    case autoFitToContent = "AutoFitToContent"
+    case autoFitToWindow = "AutoFitToWindow"
+
 }

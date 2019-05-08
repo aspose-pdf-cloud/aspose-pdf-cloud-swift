@@ -25,9 +25,9 @@
 import Foundation
 
 
-/** Represents Pdf stamps. */
+/** Represents Pdf image footer. */
 
-open class ImageStamp: StampBase {
+open class ImageFooter: StampBase {
 
     /** Gets or sets the file name. */
     public var fileName: String?
@@ -35,13 +35,22 @@ open class ImageStamp: StampBase {
     public var width: Double?
     /** Gets or sets image height. Setting this image allows to scale image vertically. */
     public var height: Double?
+    /** Gets or sets bottom margin of stamp. */
+    public var bottomMargin: Double?
+    /** Gets or sets left margin of stamp. */
+    public var leftMargin: Double?
+    /** Gets or sets right margin of stamp. */
+    public var rightMargin: Double?
 
     
-    public init(links: [Link]?, background: Bool?, bottomMargin: Double?, horizontalAlignment: HorizontalAlignment?, leftMargin: Double?, opacity: Double?, rightMargin: Double?, rotate: Rotation?, rotateAngle: Double?, topMargin: Double?, verticalAlignment: VerticalAlignment?, xIndent: Double?, yIndent: Double?, zoom: Double?, fileName: String?, width: Double?, height: Double?) {
+    public init(links: [Link]?, background: Bool?, horizontalAlignment: HorizontalAlignment?, opacity: Double?, rotate: Rotation?, rotateAngle: Double?, xIndent: Double?, yIndent: Double?, zoom: Double?, fileName: String?, width: Double?, height: Double?, bottomMargin: Double?, leftMargin: Double?, rightMargin: Double?) {
         super.init(links: links, background: background, horizontalAlignment: horizontalAlignment, opacity: opacity, rotate: rotate, rotateAngle: rotateAngle, xIndent: xIndent, yIndent: yIndent, zoom: zoom)
         self.fileName = fileName
         self.width = width
         self.height = height
+        self.bottomMargin = bottomMargin
+        self.leftMargin = leftMargin
+        self.rightMargin = rightMargin
     }
         
     
@@ -55,6 +64,9 @@ open class ImageStamp: StampBase {
         try container.encodeIfPresent(fileName, forKey: "FileName")
         try container.encodeIfPresent(width, forKey: "Width")
         try container.encodeIfPresent(height, forKey: "Height")
+        try container.encodeIfPresent(bottomMargin, forKey: "BottomMargin")
+        try container.encodeIfPresent(leftMargin, forKey: "LeftMargin")
+        try container.encodeIfPresent(rightMargin, forKey: "RightMargin")
         try super.encode(to: encoder)
     }
 
@@ -66,6 +78,9 @@ open class ImageStamp: StampBase {
         fileName = try container.decodeIfPresent(String.self, forKey: "FileName")
         width = try container.decodeIfPresent(Double.self, forKey: "Width")
         height = try container.decodeIfPresent(Double.self, forKey: "Height")
+        bottomMargin = try container.decodeIfPresent(Double.self, forKey: "BottomMargin")
+        leftMargin = try container.decodeIfPresent(Double.self, forKey: "LeftMargin")
+        rightMargin = try container.decodeIfPresent(Double.self, forKey: "RightMargin")
         try super.init(from: decoder)
     }
 }

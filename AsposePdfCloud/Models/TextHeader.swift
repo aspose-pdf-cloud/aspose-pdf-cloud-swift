@@ -25,9 +25,9 @@
 import Foundation
 
 
-/** Represents Pdf stamps. */
+/** Represents Pdf text header. */
 
-open class TextStamp: StampBase {
+open class TextHeader: StampBase {
 
     /** Alignment of the text inside the stamp. */
     public var textAlignment: HorizontalAlignment?
@@ -35,13 +35,22 @@ open class TextStamp: StampBase {
     public var value: String?
     /** Gets text properties of the stamp. See  for details. */
     public var textState: TextState?
+    /** Gets or sets left margin of stamp. */
+    public var leftMargin: Double?
+    /** Gets or sets top margin of stamp. */
+    public var topMargin: Double?
+    /** Gets or sets right margin of stamp. */
+    public var rightMargin: Double?
 
     
-    public init(links: [Link]?, background: Bool?, bottomMargin: Double?, horizontalAlignment: HorizontalAlignment?, leftMargin: Double?, opacity: Double?, rightMargin: Double?, rotate: Rotation?, rotateAngle: Double?, topMargin: Double?, verticalAlignment: VerticalAlignment?, xIndent: Double?, yIndent: Double?, zoom: Double?, textAlignment: HorizontalAlignment?, value: String?, textState: TextState?) {
+    public init(links: [Link]?, background: Bool?, horizontalAlignment: HorizontalAlignment?, opacity: Double?, rotate: Rotation?, rotateAngle: Double?, xIndent: Double?, yIndent: Double?, zoom: Double?, textAlignment: HorizontalAlignment?, value: String?, textState: TextState?, leftMargin: Double?, topMargin: Double?, rightMargin: Double?) {
         super.init(links: links, background: background, horizontalAlignment: horizontalAlignment, opacity: opacity, rotate: rotate, rotateAngle: rotateAngle, xIndent: xIndent, yIndent: yIndent, zoom: zoom)
         self.textAlignment = textAlignment
         self.value = value
         self.textState = textState
+        self.leftMargin = leftMargin
+        self.topMargin = topMargin
+        self.rightMargin = rightMargin
     }
         
     
@@ -55,6 +64,9 @@ open class TextStamp: StampBase {
         try container.encodeIfPresent(textAlignment, forKey: "TextAlignment")
         try container.encodeIfPresent(value, forKey: "Value")
         try container.encodeIfPresent(textState, forKey: "TextState")
+        try container.encodeIfPresent(leftMargin, forKey: "LeftMargin")
+        try container.encodeIfPresent(topMargin, forKey: "TopMargin")
+        try container.encodeIfPresent(rightMargin, forKey: "RightMargin")
         try super.encode(to: encoder)
     }
 
@@ -66,6 +78,9 @@ open class TextStamp: StampBase {
         textAlignment = try container.decodeIfPresent(HorizontalAlignment.self, forKey: "TextAlignment")
         value = try container.decodeIfPresent(String.self, forKey: "Value")
         textState = try container.decodeIfPresent(TextState.self, forKey: "TextState")
+        leftMargin = try container.decodeIfPresent(Double.self, forKey: "LeftMargin")
+        topMargin = try container.decodeIfPresent(Double.self, forKey: "TopMargin")
+        rightMargin = try container.decodeIfPresent(Double.self, forKey: "RightMargin")
         try super.init(from: decoder)
     }
 }
