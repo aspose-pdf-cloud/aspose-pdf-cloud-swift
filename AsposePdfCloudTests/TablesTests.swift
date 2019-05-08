@@ -213,5 +213,153 @@ class TablesTests: AsposePdfCloudTests {
         self.waitForExpectations(timeout: testTimeout, handler: nil)
     }
     
+    func testPostPageTables() {
+        let name = "4pages.pdf"
+        
+        let pageNumber = 1
+        let expectation = self.expectation(description: "testGetPageTables")
+        
+        let table = drawTable()
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.postPageTables(name: name, pageNumber: pageNumber, tables: [table], folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testGetPageTables")
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeCreated)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    func testPutTable() {
+        let name = "PdfWithTable.pdf"
+        
+        let expectation = self.expectation(description: "testPutTable")
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.getDocumentTables(name: name, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testGetDocumentTables")
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    if let tables = response.tables, let list = tables.list, let tableId = list[0].id {
+                        
+                        PdfAPI.putTable(name: name, tableId: tableId, table: self.drawTable(), folder: self.tempFolder) {
+                            (response, error) in
+                            guard error == nil else {
+                                XCTFail("error testPutTable")
+                                return
+                            }
+                            
+                            if let response = response {
+                                XCTAssertEqual(response.code, self.codeCreated)
+                                
+                                expectation.fulfill()
+                            }
+                        }
+                    } else {
+                        XCTFail("error testPutTable")
+                    }
+                }
+            }
+        }
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    
+    private func drawTable() -> Table {
+        let textState = TextState(
+            fontSize: 11,
+            font: "Arial Bold",
+            foregroundColor: Color(A: 255, R: 255, G: 0, B: 0),
+            backgroundColor: nil,
+            fontStyle: FontStyles.regular)
+        
+        let numOfCols = 5
+        let numOfRows = 5
+        
+        var colWidths = ""
+        for _ in 0..<numOfCols {
+            colWidths += " 30"
+        }
+        
+        var rows: [Row] = []
+        
+        let borderTableBorder = GraphInfo(
+            lineWidth: 1, color: Color(A: 255, R: 0, G: 255, B: 0),
+            dashArray: nil, dashPhase: nil, fillColor: nil, isDoubled: nil, skewAngleX: nil, skewAngleY: nil,
+                scalingRateX: nil, scalingRateY: nil, rotationAngle: nil)
+
+        for _ in 0..<numOfRows {
+            
+            let row = Row(backgroundColor: nil, border: nil, cells: [], defaultCellBorder: nil, minRowHeight: nil, fixedRowHeight: nil, isInNewPage: nil, isRowBroken: nil, defaultCellTextState: nil, defaultCellPadding: nil, verticalAlignment: nil)
+            
+            for c in 0..<numOfCols {
+                let cell = Cell(isNoBorder: nil, margin: nil, border: nil,
+                                backgroundColor: Color(A: 255, R: 0, G: 128, B: 0),
+                                backgroundImageFile: nil, alignment: nil, defaultCellTextState: textState,
+                                paragraphs: [TextRect(text: "Value", page: nil, rect: nil, horizontalAlignment: nil, verticalAlignment: nil, position: nil, baselinePosition: nil, textState: nil)],
+                                isWordWrapped: nil, verticalAlignment: nil, colSpan: nil, rowSpan: nil, width: nil)
+                
+                // change properties on cell
+                if c == 1 {
+                    cell.defaultCellTextState?.foregroundColor = Color(A: 255, R: 0, G: 0, B: 255)
+                }
+                    
+                // change properties on cell AFTER first clearing and re-adding paragraphs
+                else if c == 2
+                {
+                    cell.paragraphs?[0].text = "y"
+                    cell.defaultCellTextState?.foregroundColor = Color(A: 255, R: 0, G: 0, B: 255)
+                }
+                    
+                // change properties on paragraph
+                else if c == 3
+                {
+                    cell.paragraphs?[0].textState = textState
+                    cell.paragraphs?[0].textState?.foregroundColor = Color(A: 255, R: 0, G: 0, B: 255)
+                }
+                    
+                // change properties on paragraph AFTER first clearing and re-adding paragraphs
+                else if c == 4
+                {
+                    cell.paragraphs?[0].text = "y"
+                    cell.paragraphs?[0].textState = textState
+                    cell.paragraphs?[0].textState?.foregroundColor = Color(A: 255, R: 0, G: 0, B: 255)
+                }
+                row.cells.append(cell)
+                
+            }
+            rows.append(row)
+        }
+        
+        let defaultCellBorder = BorderInfo(
+            _left: borderTableBorder,
+            _right: borderTableBorder,
+            top: borderTableBorder,
+            bottom: borderTableBorder,
+            roundedBorderRadius: nil
+        )
+        
+        let table = Table(links: nil, alignment: nil, horizontalAlignment: nil, verticalAlignment: nil, top: 100, _left: nil, defaultCellTextState: textState, defaultCellPadding: nil, border: nil, rows: rows, defaultColumnWidth: nil,
+                          defaultCellBorder: defaultCellBorder, broken: nil, columnWidths: colWidths, repeatingRowsCount: nil, repeatingColumnsCount: nil, repeatingRowsStyle: nil, cornerStyle: nil, breakText: nil, backgroundColor: nil, isBordersIncluded: nil, columnAdjustment: nil, zIndex: nil)
+
+        return table;
+    }
 }
 

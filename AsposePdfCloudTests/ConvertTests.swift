@@ -493,6 +493,83 @@ class ConvertTests: AsposePdfCloudTests {
         self.waitForExpectations(timeout: testTimeout, handler: nil)
     }
     
+    //to XLSX
+    
+    func testGetPdfInStorageToXlsx() {
+        
+        let expectation = self.expectation(description: "testGetPdfInStorageToXlsx")
+        
+        uploadFile(name: fileName) {
+            
+            PdfAPI.getPdfInStorageToXlsx(name: self.fileName, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testGetPdfInStorageToXlsx")
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertFalse(response.isEmpty)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    func testPutPdfInStorageToXlsx() {
+        
+        let expectation = self.expectation(description: "testPutPdfInStorageToXlsx")
+        let resFileName = "result.xlsx"
+        let outPath = "\(self.tempFolder)/\(resFileName)"
+        
+        uploadFile(name: fileName) {
+            
+            PdfAPI.putPdfInStorageToXlsx(name: self.fileName, outPath: outPath, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testPutPdfInStorageToXlsx")
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeCreated)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    
+    func testPutPdfInRequestToXlsx() {
+        
+        let expectation = self.expectation(description: "testPutPdfInRequestToXlsx")
+        let resFileName = "result.xlsx"
+        let outPath = "\(self.tempFolder)/\(resFileName)"
+        let file = getURL(fileName)
+        
+        PdfAPI.putPdfInRequestToXlsx(outPath: outPath, file: file) {
+            (response, error) in
+            guard error == nil else {
+                XCTFail("error testPutPdfInRequestToXlsx")
+                return
+            }
+            
+            if let response = response {
+                XCTAssertEqual(response.code, self.codeCreated)
+                
+                expectation.fulfill()
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
     
     //to HTML
     

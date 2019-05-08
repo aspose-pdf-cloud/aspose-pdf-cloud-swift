@@ -38,7 +38,7 @@ open class TextStamp: StampBase {
 
     
     public init(links: [Link]?, background: Bool?, bottomMargin: Double?, horizontalAlignment: HorizontalAlignment?, leftMargin: Double?, opacity: Double?, rightMargin: Double?, rotate: Rotation?, rotateAngle: Double?, topMargin: Double?, verticalAlignment: VerticalAlignment?, xIndent: Double?, yIndent: Double?, zoom: Double?, textAlignment: HorizontalAlignment?, value: String?, textState: TextState?) {
-        super.init(links: links, background: background, bottomMargin: bottomMargin, horizontalAlignment: horizontalAlignment, leftMargin: leftMargin, opacity: opacity, rightMargin: rightMargin, rotate: rotate, rotateAngle: rotateAngle, topMargin: topMargin, verticalAlignment: verticalAlignment, xIndent: xIndent, yIndent: yIndent, zoom: zoom)
+        super.init(links: links, background: background, horizontalAlignment: horizontalAlignment, opacity: opacity, rotate: rotate, rotateAngle: rotateAngle, xIndent: xIndent, yIndent: yIndent, zoom: zoom)
         self.textAlignment = textAlignment
         self.value = value
         self.textState = textState
