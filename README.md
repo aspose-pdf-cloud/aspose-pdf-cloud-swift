@@ -15,7 +15,7 @@ These SDKs are now fully supported. If you have any questions, see any bugs or h
 $ gem install cocoapods
 ```
 
-> CocoaPods 1.1+ is required to build AsposePdfCloud 19.4+.
+> CocoaPods 1.1+ is required to build AsposePdfCloud 19.5+.
 
 To integrate AsposePdfCloud into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
@@ -25,7 +25,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'AsposePdfCloud', '~> 19.4'
+    pod 'AsposePdfCloud', '~> 19.5'
 end
 ```
 
