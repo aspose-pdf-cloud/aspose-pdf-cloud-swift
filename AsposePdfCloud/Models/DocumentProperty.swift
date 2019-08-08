@@ -38,10 +38,10 @@ open class DocumentProperty: LinkElement {
 
     
     public init(links: [Link]?, name: String?, value: String?, builtIn: Bool) {
+        self.builtIn = builtIn
         super.init(links: links)
         self.name = name
         self.value = value
-        self.builtIn = builtIn
     }
         
     

@@ -42,12 +42,12 @@ open class Field: LinkElement {
 
     
     public init(links: [Link]?, name: String?, selectedItems: [Int]?, type: FieldType?, rect: Rectangle?, values: [String]) {
+        self.values = values
         super.init(links: links)
         self.name = name
         self.selectedItems = selectedItems
         self.type = type
         self.rect = rect
-        self.values = values
     }
         
     

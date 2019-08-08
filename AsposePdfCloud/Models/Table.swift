@@ -76,6 +76,7 @@ open class Table: LinkElement {
 
     
     public init(links: [Link]?, alignment: HorizontalAlignment?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, top: Double?, _left: Double?, defaultCellTextState: TextState?, defaultCellPadding: MarginInfo?, border: BorderInfo?, rows: [Row], defaultColumnWidth: String?, defaultCellBorder: BorderInfo?, broken: TableBroken?, columnWidths: String?, repeatingRowsCount: Int?, repeatingColumnsCount: Int?, repeatingRowsStyle: TextState?, cornerStyle: BorderCornerStyle?, breakText: TextRect?, backgroundColor: Color?, isBordersIncluded: Bool?, columnAdjustment: ColumnAdjustment?, zIndex: Int?) {
+        self.rows = rows
         super.init(links: links)
         self.alignment = alignment
         self.horizontalAlignment = horizontalAlignment
@@ -85,7 +86,6 @@ open class Table: LinkElement {
         self.defaultCellTextState = defaultCellTextState
         self.defaultCellPadding = defaultCellPadding
         self.border = border
-        self.rows = rows
         self.defaultColumnWidth = defaultColumnWidth
         self.defaultCellBorder = defaultCellBorder
         self.broken = broken

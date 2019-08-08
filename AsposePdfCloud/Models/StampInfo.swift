@@ -46,6 +46,7 @@ open class StampInfo: LinkElement {
 
     
     public init(links: [Link]?, id: String?, indexOnPage: Int?, pageIndex: Int?, rect: Rectangle?, text: String?, visible: Bool?, stampType: StampType) {
+        self.stampType = stampType
         super.init(links: links)
         self.id = id
         self.indexOnPage = indexOnPage
@@ -53,7 +54,6 @@ open class StampInfo: LinkElement {
         self.rect = rect
         self.text = text
         self.visible = visible
-        self.stampType = stampType
     }
         
     

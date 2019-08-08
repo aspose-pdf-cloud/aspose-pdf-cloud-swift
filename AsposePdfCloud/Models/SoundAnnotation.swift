@@ -44,8 +44,8 @@ open class SoundAnnotation: MarkupAnnotation {
 
     
     public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, creationDate: String?, subject: String?, title: String?, richText: String?, filePath: String, icon: SoundIcon?, rate: Int?, channels: Int?, bits: Int?, encoding: SoundEncoding?) {
-        super.init(links: links)
         self.filePath = filePath
+        super.init(links: links)
         self.icon = icon
         self.rate = rate
         self.channels = channels

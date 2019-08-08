@@ -34,8 +34,8 @@ open class TextReplaceResponse: AsposeResponse {
 
     
     public init(code: Int, status: String?, matches: Int) {
-        super.init(code: code, status: status)
         self.matches = matches
+        super.init(code: code, status: status)
     }
         
     

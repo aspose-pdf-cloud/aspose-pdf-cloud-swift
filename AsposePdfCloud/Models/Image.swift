@@ -42,12 +42,12 @@ open class Image: LinkElement {
 
     
     public init(links: [Link]?, width: Int, height: Int, id: String?, rectangle: Rectangle?, pageNumber: Int) {
-        super.init(links: links)
         self.width = width
         self.height = height
+        self.pageNumber = pageNumber
+        super.init(links: links)
         self.id = id
         self.rectangle = rectangle
-        self.pageNumber = pageNumber
     }
         
     

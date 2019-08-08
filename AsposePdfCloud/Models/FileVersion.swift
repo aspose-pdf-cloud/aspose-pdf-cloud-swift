@@ -36,9 +36,9 @@ open class FileVersion: StorageFile {
 
     
     public init(name: String?, isFolder: Bool, modifiedDate: Date?, size: Int64, path: String?, versionId: String?, isLatest: Bool) {
+        self.isLatest = isLatest
         super.init(name: name, isFolder: isFolder, modifiedDate: modifiedDate, size: size, path: path)
         self.versionId = versionId
-        self.isLatest = isLatest
     }
         
     

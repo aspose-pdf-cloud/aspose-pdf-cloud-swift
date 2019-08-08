@@ -42,12 +42,12 @@ open class PolyAnnotation: MarkupAnnotation {
 
     
     public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, creationDate: String?, subject: String?, title: String?, richText: String?, interiorColor: Color?, startingStyle: LineEnding?, endingStyle: LineEnding?, intent: PolyIntent?, vertices: [Point]) {
+        self.vertices = vertices
         super.init(links: links)
         self.interiorColor = interiorColor
         self.startingStyle = startingStyle
         self.endingStyle = endingStyle
         self.intent = intent
-        self.vertices = vertices
     }
         
     

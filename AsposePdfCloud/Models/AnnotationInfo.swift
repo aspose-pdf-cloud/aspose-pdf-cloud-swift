@@ -34,8 +34,8 @@ open class AnnotationInfo: Annotation {
 
     
     public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, annotationType: AnnotationType) {
-        super.init(links: links)
         self.annotationType = annotationType
+        super.init(links: links)
     }
         
     

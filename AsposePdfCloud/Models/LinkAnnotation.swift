@@ -38,12 +38,12 @@ open class LinkAnnotation: LinkElement {
 
     
     public init(links: [Link]?, actionType: LinkActionType, action: String, highlighting: LinkHighlightingMode, color: Color?, rect: Rectangle, id: String?) {
-        super.init(links: links)
         self.actionType = actionType
         self.action = action
         self.highlighting = highlighting
-        self.color = color
         self.rect = rect
+        super.init(links: links)
+        self.color = color
         self.id = id
     }
         

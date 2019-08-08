@@ -54,6 +54,7 @@ open class Annotation: LinkElement {
 
     
     public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?) {
+        self.rect = rect
         super.init(links: links)
         self.color = color
         self.contents = contents
@@ -61,7 +62,6 @@ open class Annotation: LinkElement {
         self.id = id
         self.flags = flags
         self.name = name
-        self.rect = rect
         self.pageIndex = pageIndex
         self.zIndex = zIndex
         self.horizontalAlignment = horizontalAlignment

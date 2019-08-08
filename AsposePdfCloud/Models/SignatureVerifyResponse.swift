@@ -34,8 +34,8 @@ open class SignatureVerifyResponse: AsposeResponse {
 
     
     public init(code: Int, status: String?, valid: Bool) {
-        super.init(code: code, status: status)
         self.valid = valid
+        super.init(code: code, status: status)
     }
         
     

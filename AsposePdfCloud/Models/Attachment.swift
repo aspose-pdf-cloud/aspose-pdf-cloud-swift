@@ -46,13 +46,13 @@ open class Attachment: LinkElement {
 
     
     public init(links: [Link]?, description: String?, mimeType: String?, name: String?, creationDate: String?, modificationDate: String?, size: Int, checkSum: String?) {
+        self.size = size
         super.init(links: links)
         self.description = description
         self.mimeType = mimeType
         self.name = name
         self.creationDate = creationDate
         self.modificationDate = modificationDate
-        self.size = size
         self.checkSum = checkSum
     }
         
