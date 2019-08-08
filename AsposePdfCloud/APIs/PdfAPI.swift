@@ -10510,7 +10510,7 @@ open class PdfAPI {
      - parameter fdfData: (form) Fdf file. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func postImportFieldsFromFdf(name: String, storage: String? = nil, folder: String? = nil, fdfdata: Data? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+    open class func postImportFieldsFromFdf(name: String, storage: String? = nil, folder: String? = nil, fdfData: URL? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
@@ -10542,7 +10542,7 @@ open class PdfAPI {
 
      - returns: RequestBuilder<AsposeResponse> 
      */
-    open class func postImportFieldsFromFdfWithRequestBuilder(name: String, storage: String? = nil, folder: String? = nil, fdfdata: Data? = nil) -> RequestBuilder<AsposeResponse> {
+    open class func postImportFieldsFromFdfWithRequestBuilder(name: String, storage: String? = nil, folder: String? = nil, fdfData: URL? = nil) -> RequestBuilder<AsposeResponse> {
         var pathUrl = "/pdf/{name}/import/fdf"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
@@ -10574,7 +10574,7 @@ open class PdfAPI {
      - parameter xfdfData: (form) Xfdf file. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func postImportFieldsFromXfdf(name: String, storage: String? = nil, folder: String? = nil, xfdfdata: Data? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+    open class func postImportFieldsFromXfdf(name: String, storage: String? = nil, folder: String? = nil, xfdfData: URL? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
@@ -10606,7 +10606,7 @@ open class PdfAPI {
 
      - returns: RequestBuilder<AsposeResponse> 
      */
-    open class func postImportFieldsFromXfdfWithRequestBuilder(name: String, storage: String? = nil, folder: String? = nil, xfdfdata: Data? = nil) -> RequestBuilder<AsposeResponse> {
+    open class func postImportFieldsFromXfdfWithRequestBuilder(name: String, storage: String? = nil, folder: String? = nil, xfdfData: URL? = nil) -> RequestBuilder<AsposeResponse> {
         var pathUrl = "/pdf/{name}/import/xfdf"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
@@ -10638,7 +10638,7 @@ open class PdfAPI {
      - parameter xmlData: (form) Xml file. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func postImportFieldsFromXml(name: String, storage: String? = nil, folder: String? = nil, xmldata: Data? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+    open class func postImportFieldsFromXml(name: String, storage: String? = nil, folder: String? = nil, xmlData: URL? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
@@ -10670,7 +10670,7 @@ open class PdfAPI {
 
      - returns: RequestBuilder<AsposeResponse> 
      */
-    open class func postImportFieldsFromXmlWithRequestBuilder(name: String, storage: String? = nil, folder: String? = nil, xmldata: Data? = nil) -> RequestBuilder<AsposeResponse> {
+    open class func postImportFieldsFromXmlWithRequestBuilder(name: String, storage: String? = nil, folder: String? = nil, xmlData: URL? = nil) -> RequestBuilder<AsposeResponse> {
         var pathUrl = "/pdf/{name}/import/xml"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
