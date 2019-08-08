@@ -7098,22 +7098,6 @@ open class PdfAPI {
     }
 
     /**
-     * enum for parameter format
-     */
-    public enum Format_getPdfInStorageToDoc: String { 
-        case doc = "Doc"
-        case docX = "DocX"
-    }
-
-    /**
-     * enum for parameter mode
-     */
-    public enum Mode_getPdfInStorageToDoc: String { 
-        case textbox = "Textbox"
-        case flow = "Flow"
-    }
-
-    /**
      Converts PDF document (located on storage) to DOC format and returns resulting file in response content
      
      - parameter name: (path) The document name. 
@@ -7129,7 +7113,7 @@ open class PdfAPI {
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPdfInStorageToDoc(name: String, addReturnToLineEnd: Bool? = nil, format: Format_getPdfInStorageToDoc? = nil, imageResolutionX: Int? = nil, imageResolutionY: Int? = nil, maxDistanceBetweenTextLines: Double? = nil, mode: Mode_getPdfInStorageToDoc? = nil, recognizeBullets: Bool? = nil, relativeHorizontalProximity: Double? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
+    open class func getPdfInStorageToDoc(name: String, addReturnToLineEnd: Bool? = nil, format: String? = nil, imageResolutionX: Int? = nil, imageResolutionY: Int? = nil, maxDistanceBetweenTextLines: Double? = nil, mode: String? = nil, recognizeBullets: Bool? = nil, relativeHorizontalProximity: Double? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
@@ -7192,15 +7176,6 @@ open class PdfAPI {
     }
 
     /**
-     * enum for parameter contentRecognitionMode
-     */
-    public enum ContentRecognitionMode_getPdfInStorageToEpub: String { 
-        case flow = "Flow"
-        case pdfFlow = "PdfFlow"
-        case fixed = "Fixed"
-    }
-
-    /**
      Converts PDF document (located on storage) to EPUB format and returns resulting file in response content
      
      - parameter name: (path) The document name. 
@@ -7209,7 +7184,7 @@ open class PdfAPI {
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPdfInStorageToEpub(name: String, contentRecognitionMode: ContentRecognitionMode_getPdfInStorageToEpub? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
+    open class func getPdfInStorageToEpub(name: String, contentRecognitionMode: String? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
@@ -7258,74 +7233,6 @@ open class PdfAPI {
     }
 
     /**
-     * enum for parameter documentType
-     */
-    public enum DocumentType_getPdfInStorageToHtml: String { 
-        case xhtml = "Xhtml"
-        case html5 = "Html5"
-    }
-
-    /**
-     * enum for parameter antialiasingProcessing
-     */
-    public enum AntialiasingProcessing_getPdfInStorageToHtml: String { 
-        case noAdditionalProcessing = "NoAdditionalProcessing"
-        case tryCorrectResultHtml = "TryCorrectResultHtml"
-    }
-
-    /**
-     * enum for parameter fontEncodingStrategy
-     */
-    public enum FontEncodingStrategy_getPdfInStorageToHtml: String { 
-        case _default = "Default"
-        case decreaseToUnicodePriorityLevel = "DecreaseToUnicodePriorityLevel"
-    }
-
-    /**
-     * enum for parameter fontSavingMode
-     */
-    public enum FontSavingMode_getPdfInStorageToHtml: String { 
-        case alwaysSaveAsWOFF = "AlwaysSaveAsWOFF"
-        case alwaysSaveAsTTF = "AlwaysSaveAsTTF"
-        case alwaysSaveAsEOT = "AlwaysSaveAsEOT"
-        case saveInAllFormats = "SaveInAllFormats"
-    }
-
-    /**
-     * enum for parameter htmlMarkupGenerationMode
-     */
-    public enum HtmlMarkupGenerationMode_getPdfInStorageToHtml: String { 
-        case writeAllHtml = "WriteAllHtml"
-        case writeOnlyBodyContent = "WriteOnlyBodyContent"
-    }
-
-    /**
-     * enum for parameter lettersPositioningMethod
-     */
-    public enum LettersPositioningMethod_getPdfInStorageToHtml: String { 
-        case useEmUnitsAndCompensationOfRoundingErrorsInCss = "UseEmUnitsAndCompensationOfRoundingErrorsInCss"
-        case usePixelUnitsInCssLetterSpacingForIE = "UsePixelUnitsInCssLetterSpacingForIE"
-    }
-
-    /**
-     * enum for parameter partsEmbeddingMode
-     */
-    public enum PartsEmbeddingMode_getPdfInStorageToHtml: String { 
-        case embedAllIntoHtml = "EmbedAllIntoHtml"
-        case embedCssOnly = "EmbedCssOnly"
-        case noEmbedding = "NoEmbedding"
-    }
-
-    /**
-     * enum for parameter rasterImagesSavingMode
-     */
-    public enum RasterImagesSavingMode_getPdfInStorageToHtml: String { 
-        case asPngImagesEmbeddedIntoSvg = "AsPngImagesEmbeddedIntoSvg"
-        case asExternalPngFilesReferencedViaSvg = "AsExternalPngFilesReferencedViaSvg"
-        case asEmbeddedPartsOfPngPageBackground = "AsEmbeddedPartsOfPngPageBackground"
-    }
-
-    /**
      Converts PDF document (located on storage) to Html format and returns resulting file in response content
      
      - parameter name: (path) The document name. 
@@ -7361,7 +7268,7 @@ open class PdfAPI {
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPdfInStorageToHtml(name: String, additionalMarginWidthInPoints: Int? = nil, compressSvgGraphicsIfAny: Bool? = nil, convertMarkedContentToLayers: Bool? = nil, defaultFontName: String? = nil, documentType: DocumentType_getPdfInStorageToHtml? = nil, fixedLayout: Bool? = nil, imageResolution: Int? = nil, minimalLineWidth: Int? = nil, preventGlyphsGrouping: Bool? = nil, splitCssIntoPages: Bool? = nil, splitIntoPages: Bool? = nil, useZOrder: Bool? = nil, antialiasingProcessing: AntialiasingProcessing_getPdfInStorageToHtml? = nil, cssClassNamesPrefix: String? = nil, explicitListOfSavedPages: [Int]? = nil, fontEncodingStrategy: FontEncodingStrategy_getPdfInStorageToHtml? = nil, fontSavingMode: FontSavingMode_getPdfInStorageToHtml? = nil, htmlMarkupGenerationMode: HtmlMarkupGenerationMode_getPdfInStorageToHtml? = nil, lettersPositioningMethod: LettersPositioningMethod_getPdfInStorageToHtml? = nil, pagesFlowTypeDependsOnViewersScreenSize: Bool? = nil, partsEmbeddingMode: PartsEmbeddingMode_getPdfInStorageToHtml? = nil, rasterImagesSavingMode: RasterImagesSavingMode_getPdfInStorageToHtml? = nil, removeEmptyAreasOnTopAndBottom: Bool? = nil, saveShadowedTextsAsTransparentTexts: Bool? = nil, saveTransparentTexts: Bool? = nil, specialFolderForAllImages: String? = nil, specialFolderForSvgImages: String? = nil, trySaveTextUnderliningAndStrikeoutingInCss: Bool? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
+    open class func getPdfInStorageToHtml(name: String, additionalMarginWidthInPoints: Int? = nil, compressSvgGraphicsIfAny: Bool? = nil, convertMarkedContentToLayers: Bool? = nil, defaultFontName: String? = nil, documentType: String? = nil, fixedLayout: Bool? = nil, imageResolution: Int? = nil, minimalLineWidth: Int? = nil, preventGlyphsGrouping: Bool? = nil, splitCssIntoPages: Bool? = nil, splitIntoPages: Bool? = nil, useZOrder: Bool? = nil, antialiasingProcessing: String? = nil, cssClassNamesPrefix: String? = nil, explicitListOfSavedPages: [Int]? = nil, fontEncodingStrategy: String? = nil, fontSavingMode: String? = nil, htmlMarkupGenerationMode: String? = nil, lettersPositioningMethod: String? = nil, pagesFlowTypeDependsOnViewersScreenSize: Bool? = nil, partsEmbeddingMode: String? = nil, rasterImagesSavingMode: String? = nil, removeEmptyAreasOnTopAndBottom: Bool? = nil, saveShadowedTextsAsTransparentTexts: Bool? = nil, saveTransparentTexts: Bool? = nil, specialFolderForAllImages: String? = nil, specialFolderForSvgImages: String? = nil, trySaveTextUnderliningAndStrikeoutingInCss: Bool? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
@@ -7575,14 +7482,6 @@ open class PdfAPI {
     }
 
     /**
-     * enum for parameter type
-     */
-    public enum ModelType_getPdfInStorageToPdfA: String { 
-        case pdfa1a = "PDFA1A"
-        case pdfa1b = "PDFA1B"
-    }
-
-    /**
      Converts PDF document (located on storage) to PdfA format and returns resulting file in response content
      
      - parameter name: (path) The document name. 
@@ -7591,7 +7490,7 @@ open class PdfAPI {
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPdfInStorageToPdfA(name: String, type: ModelType_getPdfInStorageToPdfA, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
+    open class func getPdfInStorageToPdfA(name: String, type: String, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
@@ -7757,36 +7656,6 @@ open class PdfAPI {
     }
 
     /**
-     * enum for parameter compression
-     */
-    public enum Compression_getPdfInStorageToTiff: String { 
-        case lzw = "LZW"
-        case ccitt4 = "CCITT4"
-        case ccitt3 = "CCITT3"
-        case rle = "RLE"
-        case _none = "None"
-    }
-
-    /**
-     * enum for parameter colorDepth
-     */
-    public enum ColorDepth_getPdfInStorageToTiff: String { 
-        case _default = "Default"
-        case format8bpp = "Format8bpp"
-        case format4bpp = "Format4bpp"
-        case format1bpp = "Format1bpp"
-    }
-
-    /**
-     * enum for parameter orientation
-     */
-    public enum Orientation_getPdfInStorageToTiff: String { 
-        case _none = "None"
-        case landscape = "Landscape"
-        case portrait = "Portrait"
-    }
-
-    /**
      Converts PDF document (located on storage) to TIFF format and returns resulting file in response content
      
      - parameter name: (path) The document name. 
@@ -7809,7 +7678,7 @@ open class PdfAPI {
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPdfInStorageToTiff(name: String, brightness: Double? = nil, compression: Compression_getPdfInStorageToTiff? = nil, colorDepth: ColorDepth_getPdfInStorageToTiff? = nil, leftMargin: Int? = nil, rightMargin: Int? = nil, topMargin: Int? = nil, bottomMargin: Int? = nil, orientation: Orientation_getPdfInStorageToTiff? = nil, skipBlankPages: Bool? = nil, width: Int? = nil, height: Int? = nil, xResolution: Int? = nil, yResolution: Int? = nil, pageIndex: Int? = nil, pageCount: Int? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
+    open class func getPdfInStorageToTiff(name: String, brightness: Double? = nil, compression: String? = nil, colorDepth: String? = nil, leftMargin: Int? = nil, rightMargin: Int? = nil, topMargin: Int? = nil, bottomMargin: Int? = nil, orientation: String? = nil, skipBlankPages: Bool? = nil, width: Int? = nil, height: Int? = nil, xResolution: Int? = nil, yResolution: Int? = nil, pageIndex: Int? = nil, pageCount: Int? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
@@ -10495,16 +10364,6 @@ open class PdfAPI {
     }
 
     /**
-     * enum for parameter cryptoAlgorithm
-     */
-    public enum CryptoAlgorithm_postEncryptDocumentInStorage: String { 
-        case rc4x40 = "RC4x40"
-        case rc4x128 = "RC4x128"
-        case aesx128 = "AESx128"
-        case aesx256 = "AESx256"
-    }
-
-    /**
      Encrypt document in storage.
      
      - parameter name: (path) Document name. 
@@ -10517,7 +10376,7 @@ open class PdfAPI {
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func postEncryptDocumentInStorage(name: String, userPassword: String, ownerPassword: String, cryptoAlgorithm: CryptoAlgorithm_postEncryptDocumentInStorage, permissionsFlags: [PermissionsFlags]? = nil, usePdf20: Bool? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+    open class func postEncryptDocumentInStorage(name: String, userPassword: String, ownerPassword: String, cryptoAlgorithm: String, permissionsFlags: [PermissionsFlags]? = nil, usePdf20: Bool? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
@@ -13379,16 +13238,6 @@ open class PdfAPI {
     }
 
     /**
-     * enum for parameter cryptoAlgorithm
-     */
-    public enum CryptoAlgorithm_putEncryptDocument: String { 
-        case rc4x40 = "RC4x40"
-        case rc4x128 = "RC4x128"
-        case aesx128 = "AESx128"
-        case aesx256 = "AESx256"
-    }
-
-    /**
      Encrypt document from content.
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.doc) 
@@ -13401,7 +13250,7 @@ open class PdfAPI {
      - parameter file: (form) A file to be encrypted. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putEncryptDocument(outPath: String, userPassword: String, ownerPassword: String, cryptoAlgorithm: CryptoAlgorithm_putEncryptDocument, permissionsFlags: [PermissionsFlags]? = nil, usePdf20: Bool? = nil, storage: String? = nil, file: URL? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+    open class func putEncryptDocument(outPath: String, userPassword: String, ownerPassword: String, cryptoAlgorithm: String, permissionsFlags: [PermissionsFlags]? = nil, usePdf20: Bool? = nil, storage: String? = nil, file: URL? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
@@ -15825,22 +15674,6 @@ open class PdfAPI {
     }
 
     /**
-     * enum for parameter format
-     */
-    public enum Format_putPdfInRequestToDoc: String { 
-        case doc = "Doc"
-        case docX = "DocX"
-    }
-
-    /**
-     * enum for parameter mode
-     */
-    public enum Mode_putPdfInRequestToDoc: String { 
-        case textbox = "Textbox"
-        case flow = "Flow"
-    }
-
-    /**
      Converts PDF document (in request content) to DOC format and uploads resulting file to storage.
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.doc) 
@@ -15856,7 +15689,7 @@ open class PdfAPI {
      - parameter file: (form) A file to be converted. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putPdfInRequestToDoc(outPath: String, addReturnToLineEnd: Bool? = nil, format: Format_putPdfInRequestToDoc? = nil, imageResolutionX: Int? = nil, imageResolutionY: Int? = nil, maxDistanceBetweenTextLines: Double? = nil, mode: Mode_putPdfInRequestToDoc? = nil, recognizeBullets: Bool? = nil, relativeHorizontalProximity: Double? = nil, storage: String? = nil, file: URL? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+    open class func putPdfInRequestToDoc(outPath: String, addReturnToLineEnd: Bool? = nil, format: String? = nil, imageResolutionX: Int? = nil, imageResolutionY: Int? = nil, maxDistanceBetweenTextLines: Double? = nil, mode: String? = nil, recognizeBullets: Bool? = nil, relativeHorizontalProximity: Double? = nil, storage: String? = nil, file: URL? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
@@ -15926,15 +15759,6 @@ open class PdfAPI {
     }
 
     /**
-     * enum for parameter contentRecognitionMode
-     */
-    public enum ContentRecognitionMode_putPdfInRequestToEpub: String { 
-        case flow = "Flow"
-        case pdfFlow = "PdfFlow"
-        case fixed = "Fixed"
-    }
-
-    /**
      Converts PDF document (in request content) to EPUB format and uploads resulting file to storage.
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.epub) 
@@ -15943,7 +15767,7 @@ open class PdfAPI {
      - parameter file: (form) A file to be converted. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putPdfInRequestToEpub(outPath: String, contentRecognitionMode: ContentRecognitionMode_putPdfInRequestToEpub? = nil, storage: String? = nil, file: URL? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+    open class func putPdfInRequestToEpub(outPath: String, contentRecognitionMode: String? = nil, storage: String? = nil, file: URL? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
@@ -15999,74 +15823,6 @@ open class PdfAPI {
     }
 
     /**
-     * enum for parameter documentType
-     */
-    public enum DocumentType_putPdfInRequestToHtml: String { 
-        case xhtml = "Xhtml"
-        case html5 = "Html5"
-    }
-
-    /**
-     * enum for parameter antialiasingProcessing
-     */
-    public enum AntialiasingProcessing_putPdfInRequestToHtml: String { 
-        case noAdditionalProcessing = "NoAdditionalProcessing"
-        case tryCorrectResultHtml = "TryCorrectResultHtml"
-    }
-
-    /**
-     * enum for parameter fontEncodingStrategy
-     */
-    public enum FontEncodingStrategy_putPdfInRequestToHtml: String { 
-        case _default = "Default"
-        case decreaseToUnicodePriorityLevel = "DecreaseToUnicodePriorityLevel"
-    }
-
-    /**
-     * enum for parameter fontSavingMode
-     */
-    public enum FontSavingMode_putPdfInRequestToHtml: String { 
-        case alwaysSaveAsWOFF = "AlwaysSaveAsWOFF"
-        case alwaysSaveAsTTF = "AlwaysSaveAsTTF"
-        case alwaysSaveAsEOT = "AlwaysSaveAsEOT"
-        case saveInAllFormats = "SaveInAllFormats"
-    }
-
-    /**
-     * enum for parameter htmlMarkupGenerationMode
-     */
-    public enum HtmlMarkupGenerationMode_putPdfInRequestToHtml: String { 
-        case writeAllHtml = "WriteAllHtml"
-        case writeOnlyBodyContent = "WriteOnlyBodyContent"
-    }
-
-    /**
-     * enum for parameter lettersPositioningMethod
-     */
-    public enum LettersPositioningMethod_putPdfInRequestToHtml: String { 
-        case useEmUnitsAndCompensationOfRoundingErrorsInCss = "UseEmUnitsAndCompensationOfRoundingErrorsInCss"
-        case usePixelUnitsInCssLetterSpacingForIE = "UsePixelUnitsInCssLetterSpacingForIE"
-    }
-
-    /**
-     * enum for parameter partsEmbeddingMode
-     */
-    public enum PartsEmbeddingMode_putPdfInRequestToHtml: String { 
-        case embedAllIntoHtml = "EmbedAllIntoHtml"
-        case embedCssOnly = "EmbedCssOnly"
-        case noEmbedding = "NoEmbedding"
-    }
-
-    /**
-     * enum for parameter rasterImagesSavingMode
-     */
-    public enum RasterImagesSavingMode_putPdfInRequestToHtml: String { 
-        case asPngImagesEmbeddedIntoSvg = "AsPngImagesEmbeddedIntoSvg"
-        case asExternalPngFilesReferencedViaSvg = "AsExternalPngFilesReferencedViaSvg"
-        case asEmbeddedPartsOfPngPageBackground = "AsEmbeddedPartsOfPngPageBackground"
-    }
-
-    /**
      Converts PDF document (in request content) to Html format and uploads resulting file to storage.
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.html) 
@@ -16102,7 +15858,7 @@ open class PdfAPI {
      - parameter file: (form) A file to be converted. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putPdfInRequestToHtml(outPath: String, additionalMarginWidthInPoints: Int? = nil, compressSvgGraphicsIfAny: Bool? = nil, convertMarkedContentToLayers: Bool? = nil, defaultFontName: String? = nil, documentType: DocumentType_putPdfInRequestToHtml? = nil, fixedLayout: Bool? = nil, imageResolution: Int? = nil, minimalLineWidth: Int? = nil, preventGlyphsGrouping: Bool? = nil, splitCssIntoPages: Bool? = nil, splitIntoPages: Bool? = nil, useZOrder: Bool? = nil, antialiasingProcessing: AntialiasingProcessing_putPdfInRequestToHtml? = nil, cssClassNamesPrefix: String? = nil, explicitListOfSavedPages: [Int]? = nil, fontEncodingStrategy: FontEncodingStrategy_putPdfInRequestToHtml? = nil, fontSavingMode: FontSavingMode_putPdfInRequestToHtml? = nil, htmlMarkupGenerationMode: HtmlMarkupGenerationMode_putPdfInRequestToHtml? = nil, lettersPositioningMethod: LettersPositioningMethod_putPdfInRequestToHtml? = nil, pagesFlowTypeDependsOnViewersScreenSize: Bool? = nil, partsEmbeddingMode: PartsEmbeddingMode_putPdfInRequestToHtml? = nil, rasterImagesSavingMode: RasterImagesSavingMode_putPdfInRequestToHtml? = nil, removeEmptyAreasOnTopAndBottom: Bool? = nil, saveShadowedTextsAsTransparentTexts: Bool? = nil, saveTransparentTexts: Bool? = nil, specialFolderForAllImages: String? = nil, specialFolderForSvgImages: String? = nil, trySaveTextUnderliningAndStrikeoutingInCss: Bool? = nil, storage: String? = nil, file: URL? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+    open class func putPdfInRequestToHtml(outPath: String, additionalMarginWidthInPoints: Int? = nil, compressSvgGraphicsIfAny: Bool? = nil, convertMarkedContentToLayers: Bool? = nil, defaultFontName: String? = nil, documentType: String? = nil, fixedLayout: Bool? = nil, imageResolution: Int? = nil, minimalLineWidth: Int? = nil, preventGlyphsGrouping: Bool? = nil, splitCssIntoPages: Bool? = nil, splitIntoPages: Bool? = nil, useZOrder: Bool? = nil, antialiasingProcessing: String? = nil, cssClassNamesPrefix: String? = nil, explicitListOfSavedPages: [Int]? = nil, fontEncodingStrategy: String? = nil, fontSavingMode: String? = nil, htmlMarkupGenerationMode: String? = nil, lettersPositioningMethod: String? = nil, pagesFlowTypeDependsOnViewersScreenSize: Bool? = nil, partsEmbeddingMode: String? = nil, rasterImagesSavingMode: String? = nil, removeEmptyAreasOnTopAndBottom: Bool? = nil, saveShadowedTextsAsTransparentTexts: Bool? = nil, saveTransparentTexts: Bool? = nil, specialFolderForAllImages: String? = nil, specialFolderForSvgImages: String? = nil, trySaveTextUnderliningAndStrikeoutingInCss: Bool? = nil, storage: String? = nil, file: URL? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
@@ -16337,14 +16093,6 @@ open class PdfAPI {
     }
 
     /**
-     * enum for parameter type
-     */
-    public enum ModelType_putPdfInRequestToPdfA: String { 
-        case pdfa1a = "PDFA1A"
-        case pdfa1b = "PDFA1B"
-    }
-
-    /**
      Converts PDF document (in request content) to PdfA format and uploads resulting file to storage.
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.pdf) 
@@ -16353,7 +16101,7 @@ open class PdfAPI {
      - parameter file: (form) A file to be converted. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putPdfInRequestToPdfA(outPath: String, type: ModelType_putPdfInRequestToPdfA, storage: String? = nil, file: URL? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+    open class func putPdfInRequestToPdfA(outPath: String, type: String, storage: String? = nil, file: URL? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
@@ -16537,36 +16285,6 @@ open class PdfAPI {
     }
 
     /**
-     * enum for parameter compression
-     */
-    public enum Compression_putPdfInRequestToTiff: String { 
-        case lzw = "LZW"
-        case ccitt4 = "CCITT4"
-        case ccitt3 = "CCITT3"
-        case rle = "RLE"
-        case _none = "None"
-    }
-
-    /**
-     * enum for parameter colorDepth
-     */
-    public enum ColorDepth_putPdfInRequestToTiff: String { 
-        case _default = "Default"
-        case format8bpp = "Format8bpp"
-        case format4bpp = "Format4bpp"
-        case format1bpp = "Format1bpp"
-    }
-
-    /**
-     * enum for parameter orientation
-     */
-    public enum Orientation_putPdfInRequestToTiff: String { 
-        case _none = "None"
-        case landscape = "Landscape"
-        case portrait = "Portrait"
-    }
-
-    /**
      Converts PDF document (in request content) to TIFF format and uploads resulting file to storage.
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.tiff) 
@@ -16589,7 +16307,7 @@ open class PdfAPI {
      - parameter file: (form) A file to be converted. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putPdfInRequestToTiff(outPath: String, brightness: Double? = nil, compression: Compression_putPdfInRequestToTiff? = nil, colorDepth: ColorDepth_putPdfInRequestToTiff? = nil, leftMargin: Int? = nil, rightMargin: Int? = nil, topMargin: Int? = nil, bottomMargin: Int? = nil, orientation: Orientation_putPdfInRequestToTiff? = nil, skipBlankPages: Bool? = nil, width: Int? = nil, height: Int? = nil, xResolution: Int? = nil, yResolution: Int? = nil, pageIndex: Int? = nil, pageCount: Int? = nil, storage: String? = nil, file: URL? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+    open class func putPdfInRequestToTiff(outPath: String, brightness: Double? = nil, compression: String? = nil, colorDepth: String? = nil, leftMargin: Int? = nil, rightMargin: Int? = nil, topMargin: Int? = nil, bottomMargin: Int? = nil, orientation: String? = nil, skipBlankPages: Bool? = nil, width: Int? = nil, height: Int? = nil, xResolution: Int? = nil, yResolution: Int? = nil, pageIndex: Int? = nil, pageCount: Int? = nil, storage: String? = nil, file: URL? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
@@ -16941,22 +16659,6 @@ open class PdfAPI {
     }
 
     /**
-     * enum for parameter format
-     */
-    public enum Format_putPdfInStorageToDoc: String { 
-        case doc = "Doc"
-        case docX = "DocX"
-    }
-
-    /**
-     * enum for parameter mode
-     */
-    public enum Mode_putPdfInStorageToDoc: String { 
-        case textbox = "Textbox"
-        case flow = "Flow"
-    }
-
-    /**
      Converts PDF document (located on storage) to DOC format and uploads resulting file to storage
      
      - parameter name: (path) The document name. 
@@ -16973,7 +16675,7 @@ open class PdfAPI {
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putPdfInStorageToDoc(name: String, outPath: String, addReturnToLineEnd: Bool? = nil, format: Format_putPdfInStorageToDoc? = nil, imageResolutionX: Int? = nil, imageResolutionY: Int? = nil, maxDistanceBetweenTextLines: Double? = nil, mode: Mode_putPdfInStorageToDoc? = nil, recognizeBullets: Bool? = nil, relativeHorizontalProximity: Double? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+    open class func putPdfInStorageToDoc(name: String, outPath: String, addReturnToLineEnd: Bool? = nil, format: String? = nil, imageResolutionX: Int? = nil, imageResolutionY: Int? = nil, maxDistanceBetweenTextLines: Double? = nil, mode: String? = nil, recognizeBullets: Bool? = nil, relativeHorizontalProximity: Double? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
@@ -17041,15 +16743,6 @@ open class PdfAPI {
     }
 
     /**
-     * enum for parameter contentRecognitionMode
-     */
-    public enum ContentRecognitionMode_putPdfInStorageToEpub: String { 
-        case flow = "Flow"
-        case pdfFlow = "PdfFlow"
-        case fixed = "Fixed"
-    }
-
-    /**
      Converts PDF document (located on storage) to EPUB format and uploads resulting file to storage
      
      - parameter name: (path) The document name. 
@@ -17059,7 +16752,7 @@ open class PdfAPI {
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putPdfInStorageToEpub(name: String, outPath: String, contentRecognitionMode: ContentRecognitionMode_putPdfInStorageToEpub? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+    open class func putPdfInStorageToEpub(name: String, outPath: String, contentRecognitionMode: String? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
@@ -17113,74 +16806,6 @@ open class PdfAPI {
     }
 
     /**
-     * enum for parameter documentType
-     */
-    public enum DocumentType_putPdfInStorageToHtml: String { 
-        case xhtml = "Xhtml"
-        case html5 = "Html5"
-    }
-
-    /**
-     * enum for parameter antialiasingProcessing
-     */
-    public enum AntialiasingProcessing_putPdfInStorageToHtml: String { 
-        case noAdditionalProcessing = "NoAdditionalProcessing"
-        case tryCorrectResultHtml = "TryCorrectResultHtml"
-    }
-
-    /**
-     * enum for parameter fontEncodingStrategy
-     */
-    public enum FontEncodingStrategy_putPdfInStorageToHtml: String { 
-        case _default = "Default"
-        case decreaseToUnicodePriorityLevel = "DecreaseToUnicodePriorityLevel"
-    }
-
-    /**
-     * enum for parameter fontSavingMode
-     */
-    public enum FontSavingMode_putPdfInStorageToHtml: String { 
-        case alwaysSaveAsWOFF = "AlwaysSaveAsWOFF"
-        case alwaysSaveAsTTF = "AlwaysSaveAsTTF"
-        case alwaysSaveAsEOT = "AlwaysSaveAsEOT"
-        case saveInAllFormats = "SaveInAllFormats"
-    }
-
-    /**
-     * enum for parameter htmlMarkupGenerationMode
-     */
-    public enum HtmlMarkupGenerationMode_putPdfInStorageToHtml: String { 
-        case writeAllHtml = "WriteAllHtml"
-        case writeOnlyBodyContent = "WriteOnlyBodyContent"
-    }
-
-    /**
-     * enum for parameter lettersPositioningMethod
-     */
-    public enum LettersPositioningMethod_putPdfInStorageToHtml: String { 
-        case useEmUnitsAndCompensationOfRoundingErrorsInCss = "UseEmUnitsAndCompensationOfRoundingErrorsInCss"
-        case usePixelUnitsInCssLetterSpacingForIE = "UsePixelUnitsInCssLetterSpacingForIE"
-    }
-
-    /**
-     * enum for parameter partsEmbeddingMode
-     */
-    public enum PartsEmbeddingMode_putPdfInStorageToHtml: String { 
-        case embedAllIntoHtml = "EmbedAllIntoHtml"
-        case embedCssOnly = "EmbedCssOnly"
-        case noEmbedding = "NoEmbedding"
-    }
-
-    /**
-     * enum for parameter rasterImagesSavingMode
-     */
-    public enum RasterImagesSavingMode_putPdfInStorageToHtml: String { 
-        case asPngImagesEmbeddedIntoSvg = "AsPngImagesEmbeddedIntoSvg"
-        case asExternalPngFilesReferencedViaSvg = "AsExternalPngFilesReferencedViaSvg"
-        case asEmbeddedPartsOfPngPageBackground = "AsEmbeddedPartsOfPngPageBackground"
-    }
-
-    /**
      Converts PDF document (located on storage) to Html format and uploads resulting file to storage
      
      - parameter name: (path) The document name. 
@@ -17217,7 +16842,7 @@ open class PdfAPI {
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putPdfInStorageToHtml(name: String, outPath: String, additionalMarginWidthInPoints: Int? = nil, compressSvgGraphicsIfAny: Bool? = nil, convertMarkedContentToLayers: Bool? = nil, defaultFontName: String? = nil, documentType: DocumentType_putPdfInStorageToHtml? = nil, fixedLayout: Bool? = nil, imageResolution: Int? = nil, minimalLineWidth: Int? = nil, preventGlyphsGrouping: Bool? = nil, splitCssIntoPages: Bool? = nil, splitIntoPages: Bool? = nil, useZOrder: Bool? = nil, antialiasingProcessing: AntialiasingProcessing_putPdfInStorageToHtml? = nil, cssClassNamesPrefix: String? = nil, explicitListOfSavedPages: [Int]? = nil, fontEncodingStrategy: FontEncodingStrategy_putPdfInStorageToHtml? = nil, fontSavingMode: FontSavingMode_putPdfInStorageToHtml? = nil, htmlMarkupGenerationMode: HtmlMarkupGenerationMode_putPdfInStorageToHtml? = nil, lettersPositioningMethod: LettersPositioningMethod_putPdfInStorageToHtml? = nil, pagesFlowTypeDependsOnViewersScreenSize: Bool? = nil, partsEmbeddingMode: PartsEmbeddingMode_putPdfInStorageToHtml? = nil, rasterImagesSavingMode: RasterImagesSavingMode_putPdfInStorageToHtml? = nil, removeEmptyAreasOnTopAndBottom: Bool? = nil, saveShadowedTextsAsTransparentTexts: Bool? = nil, saveTransparentTexts: Bool? = nil, specialFolderForAllImages: String? = nil, specialFolderForSvgImages: String? = nil, trySaveTextUnderliningAndStrikeoutingInCss: Bool? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+    open class func putPdfInStorageToHtml(name: String, outPath: String, additionalMarginWidthInPoints: Int? = nil, compressSvgGraphicsIfAny: Bool? = nil, convertMarkedContentToLayers: Bool? = nil, defaultFontName: String? = nil, documentType: String? = nil, fixedLayout: Bool? = nil, imageResolution: Int? = nil, minimalLineWidth: Int? = nil, preventGlyphsGrouping: Bool? = nil, splitCssIntoPages: Bool? = nil, splitIntoPages: Bool? = nil, useZOrder: Bool? = nil, antialiasingProcessing: String? = nil, cssClassNamesPrefix: String? = nil, explicitListOfSavedPages: [Int]? = nil, fontEncodingStrategy: String? = nil, fontSavingMode: String? = nil, htmlMarkupGenerationMode: String? = nil, lettersPositioningMethod: String? = nil, pagesFlowTypeDependsOnViewersScreenSize: Bool? = nil, partsEmbeddingMode: String? = nil, rasterImagesSavingMode: String? = nil, removeEmptyAreasOnTopAndBottom: Bool? = nil, saveShadowedTextsAsTransparentTexts: Bool? = nil, saveTransparentTexts: Bool? = nil, specialFolderForAllImages: String? = nil, specialFolderForSvgImages: String? = nil, trySaveTextUnderliningAndStrikeoutingInCss: Bool? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
@@ -17448,14 +17073,6 @@ open class PdfAPI {
     }
 
     /**
-     * enum for parameter type
-     */
-    public enum ModelType_putPdfInStorageToPdfA: String { 
-        case pdfa1a = "PDFA1A"
-        case pdfa1b = "PDFA1B"
-    }
-
-    /**
      Converts PDF document (located on storage) to PdfA format and uploads resulting file to storage
      
      - parameter name: (path) The document name. 
@@ -17465,7 +17082,7 @@ open class PdfAPI {
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putPdfInStorageToPdfA(name: String, outPath: String, type: ModelType_putPdfInStorageToPdfA, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+    open class func putPdfInStorageToPdfA(name: String, outPath: String, type: String, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
@@ -17645,36 +17262,6 @@ open class PdfAPI {
     }
 
     /**
-     * enum for parameter compression
-     */
-    public enum Compression_putPdfInStorageToTiff: String { 
-        case lzw = "LZW"
-        case ccitt4 = "CCITT4"
-        case ccitt3 = "CCITT3"
-        case rle = "RLE"
-        case _none = "None"
-    }
-
-    /**
-     * enum for parameter colorDepth
-     */
-    public enum ColorDepth_putPdfInStorageToTiff: String { 
-        case _default = "Default"
-        case format8bpp = "Format8bpp"
-        case format4bpp = "Format4bpp"
-        case format1bpp = "Format1bpp"
-    }
-
-    /**
-     * enum for parameter orientation
-     */
-    public enum Orientation_putPdfInStorageToTiff: String { 
-        case _none = "None"
-        case landscape = "Landscape"
-        case portrait = "Portrait"
-    }
-
-    /**
      Converts PDF document (located on storage) to TIFF format and uploads resulting file to storage
      
      - parameter name: (path) The document name. 
@@ -17698,7 +17285,7 @@ open class PdfAPI {
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putPdfInStorageToTiff(name: String, outPath: String, brightness: Double? = nil, compression: Compression_putPdfInStorageToTiff? = nil, colorDepth: ColorDepth_putPdfInStorageToTiff? = nil, leftMargin: Int? = nil, rightMargin: Int? = nil, topMargin: Int? = nil, bottomMargin: Int? = nil, orientation: Orientation_putPdfInStorageToTiff? = nil, skipBlankPages: Bool? = nil, width: Int? = nil, height: Int? = nil, xResolution: Int? = nil, yResolution: Int? = nil, pageIndex: Int? = nil, pageCount: Int? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+    open class func putPdfInStorageToTiff(name: String, outPath: String, brightness: Double? = nil, compression: String? = nil, colorDepth: String? = nil, leftMargin: Int? = nil, rightMargin: Int? = nil, topMargin: Int? = nil, bottomMargin: Int? = nil, orientation: String? = nil, skipBlankPages: Bool? = nil, width: Int? = nil, height: Int? = nil, xResolution: Int? = nil, yResolution: Int? = nil, pageIndex: Int? = nil, pageCount: Int? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
