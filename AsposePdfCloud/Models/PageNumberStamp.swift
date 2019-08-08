@@ -46,7 +46,7 @@ open class PageNumberStamp: StampBase {
 
     
     public init(links: [Link]?, background: Bool?, horizontalAlignment: HorizontalAlignment?, opacity: Double?, rotate: Rotation?, rotateAngle: Double?, xIndent: Double?, yIndent: Double?, zoom: Double?, value: String?, startingNumber: Int?, verticalAlignment: VerticalAlignment?, bottomMargin: Double?, leftMargin: Double?, topMargin: Double?, rightMargin: Double?) {
-        super.init(links: links, background: background, horizontalAlignment: horizontalAlignment, opacity: opacity, rotate: rotate, rotateAngle: rotateAngle, xIndent: xIndent, yIndent: yIndent, zoom: zoom)
+        super.init(links: links)
         self.value = value
         self.startingNumber = startingNumber
         self.verticalAlignment = verticalAlignment

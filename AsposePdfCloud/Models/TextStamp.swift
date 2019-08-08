@@ -33,15 +33,30 @@ open class TextStamp: StampBase {
     public var textAlignment: HorizontalAlignment?
     /** Gets or sets string value which is used as stamp on the page. */
     public var value: String?
-    /** Gets text properties of the stamp. See  for details. */
+    /** Gets text properties of the stamp. See TextState for details. */
     public var textState: TextState?
+    /** Gets or sets vertical alignment of stamp on page. */
+    public var verticalAlignment: VerticalAlignment?
+    /** Gets or sets bottom margin of stamp. */
+    public var bottomMargin: Double?
+    /** Gets or sets left margin of stamp. */
+    public var leftMargin: Double?
+    /** Gets or sets top margin of stamp. */
+    public var topMargin: Double?
+    /** Gets or sets right margin of stamp. */
+    public var rightMargin: Double?
 
     
-    public init(links: [Link]?, background: Bool?, bottomMargin: Double?, horizontalAlignment: HorizontalAlignment?, leftMargin: Double?, opacity: Double?, rightMargin: Double?, rotate: Rotation?, rotateAngle: Double?, topMargin: Double?, verticalAlignment: VerticalAlignment?, xIndent: Double?, yIndent: Double?, zoom: Double?, textAlignment: HorizontalAlignment?, value: String?, textState: TextState?) {
-        super.init(links: links, background: background, horizontalAlignment: horizontalAlignment, opacity: opacity, rotate: rotate, rotateAngle: rotateAngle, xIndent: xIndent, yIndent: yIndent, zoom: zoom)
+    public init(links: [Link]?, background: Bool?, horizontalAlignment: HorizontalAlignment?, opacity: Double?, rotate: Rotation?, rotateAngle: Double?, xIndent: Double?, yIndent: Double?, zoom: Double?, textAlignment: HorizontalAlignment?, value: String?, textState: TextState?, verticalAlignment: VerticalAlignment?, bottomMargin: Double?, leftMargin: Double?, topMargin: Double?, rightMargin: Double?) {
+        super.init(links: links)
         self.textAlignment = textAlignment
         self.value = value
         self.textState = textState
+        self.verticalAlignment = verticalAlignment
+        self.bottomMargin = bottomMargin
+        self.leftMargin = leftMargin
+        self.topMargin = topMargin
+        self.rightMargin = rightMargin
     }
         
     
@@ -55,6 +70,11 @@ open class TextStamp: StampBase {
         try container.encodeIfPresent(textAlignment, forKey: "TextAlignment")
         try container.encodeIfPresent(value, forKey: "Value")
         try container.encodeIfPresent(textState, forKey: "TextState")
+        try container.encodeIfPresent(verticalAlignment, forKey: "VerticalAlignment")
+        try container.encodeIfPresent(bottomMargin, forKey: "BottomMargin")
+        try container.encodeIfPresent(leftMargin, forKey: "LeftMargin")
+        try container.encodeIfPresent(topMargin, forKey: "TopMargin")
+        try container.encodeIfPresent(rightMargin, forKey: "RightMargin")
         try super.encode(to: encoder)
     }
 
@@ -66,6 +86,11 @@ open class TextStamp: StampBase {
         textAlignment = try container.decodeIfPresent(HorizontalAlignment.self, forKey: "TextAlignment")
         value = try container.decodeIfPresent(String.self, forKey: "Value")
         textState = try container.decodeIfPresent(TextState.self, forKey: "TextState")
+        verticalAlignment = try container.decodeIfPresent(VerticalAlignment.self, forKey: "VerticalAlignment")
+        bottomMargin = try container.decodeIfPresent(Double.self, forKey: "BottomMargin")
+        leftMargin = try container.decodeIfPresent(Double.self, forKey: "LeftMargin")
+        topMargin = try container.decodeIfPresent(Double.self, forKey: "TopMargin")
+        rightMargin = try container.decodeIfPresent(Double.self, forKey: "RightMargin")
         try super.init(from: decoder)
     }
 }

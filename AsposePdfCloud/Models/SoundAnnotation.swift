@@ -30,7 +30,7 @@ import Foundation
 open class SoundAnnotation: MarkupAnnotation {
 
     /** A sound file path defining the sound to be played when the annotation is activated. */
-    public var filePath: String?
+    public var filePath: String
     /** Gets or sets an icon to be used in displaying the annotation. */
     public var icon: SoundIcon?
     /** Gets or sets the sampling rate, in samples per second. */
@@ -43,8 +43,8 @@ open class SoundAnnotation: MarkupAnnotation {
     public var encoding: SoundEncoding?
 
     
-    public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, creationDate: String?, subject: String?, title: String?, richText: String?, filePath: String?, icon: SoundIcon?, rate: Int?, channels: Int?, bits: Int?, encoding: SoundEncoding?) {
-        super.init(links: links, color: color, contents: contents, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, creationDate: creationDate, subject: subject, title: title, richText: richText)
+    public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, creationDate: String?, subject: String?, title: String?, richText: String?, filePath: String, icon: SoundIcon?, rate: Int?, channels: Int?, bits: Int?, encoding: SoundEncoding?) {
+        super.init(links: links)
         self.filePath = filePath
         self.icon = icon
         self.rate = rate
@@ -61,7 +61,7 @@ open class SoundAnnotation: MarkupAnnotation {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(filePath, forKey: "FilePath")
+        try container.encode(filePath, forKey: "FilePath")
         try container.encodeIfPresent(icon, forKey: "Icon")
         try container.encodeIfPresent(rate, forKey: "Rate")
         try container.encodeIfPresent(channels, forKey: "Channels")
@@ -75,7 +75,7 @@ open class SoundAnnotation: MarkupAnnotation {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        filePath = try container.decodeIfPresent(String.self, forKey: "FilePath")
+        filePath = try container.decode(String.self, forKey: "FilePath")
         icon = try container.decodeIfPresent(SoundIcon.self, forKey: "Icon")
         rate = try container.decodeIfPresent(Int.self, forKey: "Rate")
         channels = try container.decodeIfPresent(Int.self, forKey: "Channels")

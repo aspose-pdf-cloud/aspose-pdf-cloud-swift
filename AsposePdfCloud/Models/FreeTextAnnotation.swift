@@ -36,11 +36,11 @@ open class FreeTextAnnotation: MarkupAnnotation {
     /** Angle of annotation rotation. */
     public var rotate: Rotation?
     /** Text style of the annotation. */
-    public var textStyle: TextStyle?
+    public var textStyle: TextStyle
 
     
-    public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, creationDate: String?, subject: String?, title: String?, richText: String?, justification: Justification?, intent: FreeTextIntent?, rotate: Rotation?, textStyle: TextStyle?) {
-        super.init(links: links, color: color, contents: contents, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, creationDate: creationDate, subject: subject, title: title, richText: richText)
+    public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, creationDate: String?, subject: String?, title: String?, richText: String?, justification: Justification?, intent: FreeTextIntent?, rotate: Rotation?, textStyle: TextStyle) {
+        super.init(links: links)
         self.justification = justification
         self.intent = intent
         self.rotate = rotate
@@ -58,7 +58,7 @@ open class FreeTextAnnotation: MarkupAnnotation {
         try container.encodeIfPresent(justification, forKey: "Justification")
         try container.encodeIfPresent(intent, forKey: "Intent")
         try container.encodeIfPresent(rotate, forKey: "Rotate")
-        try container.encodeIfPresent(textStyle, forKey: "TextStyle")
+        try container.encode(textStyle, forKey: "TextStyle")
         try super.encode(to: encoder)
     }
 
@@ -70,7 +70,7 @@ open class FreeTextAnnotation: MarkupAnnotation {
         justification = try container.decodeIfPresent(Justification.self, forKey: "Justification")
         intent = try container.decodeIfPresent(FreeTextIntent.self, forKey: "Intent")
         rotate = try container.decodeIfPresent(Rotation.self, forKey: "Rotate")
-        textStyle = try container.decodeIfPresent(TextStyle.self, forKey: "TextStyle")
+        textStyle = try container.decode(TextStyle.self, forKey: "TextStyle")
         try super.init(from: decoder)
     }
 }

@@ -33,7 +33,7 @@ open class TextFooter: StampBase {
     public var textAlignment: HorizontalAlignment?
     /** Gets or sets string value which is used as stamp on the page. */
     public var value: String?
-    /** Gets text properties of the stamp. See  for details. */
+    /** Gets text properties of the stamp. See TextState for details. */
     public var textState: TextState?
     /** Gets or sets bottom margin of stamp. */
     public var bottomMargin: Double?
@@ -44,7 +44,7 @@ open class TextFooter: StampBase {
 
     
     public init(links: [Link]?, background: Bool?, horizontalAlignment: HorizontalAlignment?, opacity: Double?, rotate: Rotation?, rotateAngle: Double?, xIndent: Double?, yIndent: Double?, zoom: Double?, textAlignment: HorizontalAlignment?, value: String?, textState: TextState?, bottomMargin: Double?, leftMargin: Double?, rightMargin: Double?) {
-        super.init(links: links, background: background, horizontalAlignment: horizontalAlignment, opacity: opacity, rotate: rotate, rotateAngle: rotateAngle, xIndent: xIndent, yIndent: yIndent, zoom: zoom)
+        super.init(links: links)
         self.textAlignment = textAlignment
         self.value = value
         self.textState = textState

@@ -38,11 +38,11 @@ open class PolyAnnotation: MarkupAnnotation {
     /** Gets or sets the intent of the polygon or polyline annotation. */
     public var intent: PolyIntent?
     /** Gets or sets an array of points representing the horizontal and vertical coordinates of each vertex. */
-    public var vertices: [Point]?
+    public var vertices: [Point]
 
     
-    public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, creationDate: String?, subject: String?, title: String?, richText: String?, interiorColor: Color?, startingStyle: LineEnding?, endingStyle: LineEnding?, intent: PolyIntent?, vertices: [Point]?) {
-        super.init(links: links, color: color, contents: contents, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, creationDate: creationDate, subject: subject, title: title, richText: richText)
+    public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, creationDate: String?, subject: String?, title: String?, richText: String?, interiorColor: Color?, startingStyle: LineEnding?, endingStyle: LineEnding?, intent: PolyIntent?, vertices: [Point]) {
+        super.init(links: links)
         self.interiorColor = interiorColor
         self.startingStyle = startingStyle
         self.endingStyle = endingStyle
@@ -62,7 +62,7 @@ open class PolyAnnotation: MarkupAnnotation {
         try container.encodeIfPresent(startingStyle, forKey: "StartingStyle")
         try container.encodeIfPresent(endingStyle, forKey: "EndingStyle")
         try container.encodeIfPresent(intent, forKey: "Intent")
-        try container.encodeIfPresent(vertices, forKey: "Vertices")
+        try container.encode(vertices, forKey: "Vertices")
         try super.encode(to: encoder)
     }
 
@@ -75,7 +75,7 @@ open class PolyAnnotation: MarkupAnnotation {
         startingStyle = try container.decodeIfPresent(LineEnding.self, forKey: "StartingStyle")
         endingStyle = try container.decodeIfPresent(LineEnding.self, forKey: "EndingStyle")
         intent = try container.decodeIfPresent(PolyIntent.self, forKey: "Intent")
-        vertices = try container.decodeIfPresent([Point].self, forKey: "Vertices")
+        vertices = try container.decode([Point].self, forKey: "Vertices")
         try super.init(from: decoder)
     }
 }
