@@ -41,7 +41,7 @@ open class PdfAPI {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
-                completion(nil, authError)
+                completion(authError)
                 return
             }
             copyFileWithRequestBuilder(srcPath: srcPath, destPath: destPath, srcStorageName: srcStorageName, destStorageName: destStorageName, versionId: versionId).execute { (response, error) -> Void in
@@ -99,7 +99,7 @@ open class PdfAPI {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
-                completion(nil, authError)
+                completion(authError)
                 return
             }
             copyFolderWithRequestBuilder(srcPath: srcPath, destPath: destPath, srcStorageName: srcStorageName, destStorageName: destStorageName).execute { (response, error) -> Void in
@@ -153,7 +153,7 @@ open class PdfAPI {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
-                completion(nil, authError)
+                completion(authError)
                 return
             }
             createFolderWithRequestBuilder(path: path, storageName: storageName).execute { (response, error) -> Void in
@@ -669,7 +669,7 @@ open class PdfAPI {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
-                completion(nil, authError)
+                completion(authError)
                 return
             }
             deleteFileWithRequestBuilder(path: path, storageName: storageName, versionId: versionId).execute { (response, error) -> Void in
@@ -722,7 +722,7 @@ open class PdfAPI {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
-                completion(nil, authError)
+                completion(authError)
                 return
             }
             deleteFolderWithRequestBuilder(path: path, storageName: storageName, recursive: recursive).execute { (response, error) -> Void in
@@ -9645,7 +9645,7 @@ open class PdfAPI {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
-                completion(nil, authError)
+                completion(authError)
                 return
             }
             moveFileWithRequestBuilder(srcPath: srcPath, destPath: destPath, srcStorageName: srcStorageName, destStorageName: destStorageName, versionId: versionId).execute { (response, error) -> Void in
@@ -9703,7 +9703,7 @@ open class PdfAPI {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
-                completion(nil, authError)
+                completion(authError)
                 return
             }
             moveFolderWithRequestBuilder(srcPath: srcPath, destPath: destPath, srcStorageName: srcStorageName, destStorageName: destStorageName).execute { (response, error) -> Void in
