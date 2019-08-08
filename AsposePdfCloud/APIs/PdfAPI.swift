@@ -7149,7 +7149,7 @@ open class PdfAPI {
 
      - returns: RequestBuilder<Data> 
      */
-    open class func getPdfInStorageToDocWithRequestBuilder(name: String, addReturnToLineEnd: Bool? = nil, format: Format_getPdfInStorageToDoc? = nil, imageResolutionX: Int? = nil, imageResolutionY: Int? = nil, maxDistanceBetweenTextLines: Double? = nil, mode: Mode_getPdfInStorageToDoc? = nil, recognizeBullets: Bool? = nil, relativeHorizontalProximity: Double? = nil, folder: String? = nil, storage: String? = nil) -> RequestBuilder<Data> {
+    open class func getPdfInStorageToDocWithRequestBuilder(name: String, addReturnToLineEnd: Bool? = nil, format: String? = nil, imageResolutionX: Int? = nil, imageResolutionY: Int? = nil, maxDistanceBetweenTextLines: Double? = nil, mode: String? = nil, recognizeBullets: Bool? = nil, relativeHorizontalProximity: Double? = nil, folder: String? = nil, storage: String? = nil) -> RequestBuilder<Data> {
         var pathUrl = "/pdf/{name}/convert/doc"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
@@ -7213,7 +7213,7 @@ open class PdfAPI {
 
      - returns: RequestBuilder<Data> 
      */
-    open class func getPdfInStorageToEpubWithRequestBuilder(name: String, contentRecognitionMode: ContentRecognitionMode_getPdfInStorageToEpub? = nil, folder: String? = nil, storage: String? = nil) -> RequestBuilder<Data> {
+    open class func getPdfInStorageToEpubWithRequestBuilder(name: String, contentRecognitionMode: String? = nil, folder: String? = nil, storage: String? = nil) -> RequestBuilder<Data> {
         var pathUrl = "/pdf/{name}/convert/epub"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
@@ -7324,7 +7324,7 @@ open class PdfAPI {
 
      - returns: RequestBuilder<Data> 
      */
-    open class func getPdfInStorageToHtmlWithRequestBuilder(name: String, additionalMarginWidthInPoints: Int? = nil, compressSvgGraphicsIfAny: Bool? = nil, convertMarkedContentToLayers: Bool? = nil, defaultFontName: String? = nil, documentType: DocumentType_getPdfInStorageToHtml? = nil, fixedLayout: Bool? = nil, imageResolution: Int? = nil, minimalLineWidth: Int? = nil, preventGlyphsGrouping: Bool? = nil, splitCssIntoPages: Bool? = nil, splitIntoPages: Bool? = nil, useZOrder: Bool? = nil, antialiasingProcessing: AntialiasingProcessing_getPdfInStorageToHtml? = nil, cssClassNamesPrefix: String? = nil, explicitListOfSavedPages: [Int]? = nil, fontEncodingStrategy: FontEncodingStrategy_getPdfInStorageToHtml? = nil, fontSavingMode: FontSavingMode_getPdfInStorageToHtml? = nil, htmlMarkupGenerationMode: HtmlMarkupGenerationMode_getPdfInStorageToHtml? = nil, lettersPositioningMethod: LettersPositioningMethod_getPdfInStorageToHtml? = nil, pagesFlowTypeDependsOnViewersScreenSize: Bool? = nil, partsEmbeddingMode: PartsEmbeddingMode_getPdfInStorageToHtml? = nil, rasterImagesSavingMode: RasterImagesSavingMode_getPdfInStorageToHtml? = nil, removeEmptyAreasOnTopAndBottom: Bool? = nil, saveShadowedTextsAsTransparentTexts: Bool? = nil, saveTransparentTexts: Bool? = nil, specialFolderForAllImages: String? = nil, specialFolderForSvgImages: String? = nil, trySaveTextUnderliningAndStrikeoutingInCss: Bool? = nil, folder: String? = nil, storage: String? = nil) -> RequestBuilder<Data> {
+    open class func getPdfInStorageToHtmlWithRequestBuilder(name: String, additionalMarginWidthInPoints: Int? = nil, compressSvgGraphicsIfAny: Bool? = nil, convertMarkedContentToLayers: Bool? = nil, defaultFontName: String? = nil, documentType: String? = nil, fixedLayout: Bool? = nil, imageResolution: Int? = nil, minimalLineWidth: Int? = nil, preventGlyphsGrouping: Bool? = nil, splitCssIntoPages: Bool? = nil, splitIntoPages: Bool? = nil, useZOrder: Bool? = nil, antialiasingProcessing: String? = nil, cssClassNamesPrefix: String? = nil, explicitListOfSavedPages: [Int]? = nil, fontEncodingStrategy: String? = nil, fontSavingMode: String? = nil, htmlMarkupGenerationMode: String? = nil, lettersPositioningMethod: String? = nil, pagesFlowTypeDependsOnViewersScreenSize: Bool? = nil, partsEmbeddingMode: String? = nil, rasterImagesSavingMode: String? = nil, removeEmptyAreasOnTopAndBottom: Bool? = nil, saveShadowedTextsAsTransparentTexts: Bool? = nil, saveTransparentTexts: Bool? = nil, specialFolderForAllImages: String? = nil, specialFolderForSvgImages: String? = nil, trySaveTextUnderliningAndStrikeoutingInCss: Bool? = nil, folder: String? = nil, storage: String? = nil) -> RequestBuilder<Data> {
         var pathUrl = "/pdf/{name}/convert/html"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
@@ -7519,7 +7519,7 @@ open class PdfAPI {
 
      - returns: RequestBuilder<Data> 
      */
-    open class func getPdfInStorageToPdfAWithRequestBuilder(name: String, type: ModelType_getPdfInStorageToPdfA, folder: String? = nil, storage: String? = nil) -> RequestBuilder<Data> {
+    open class func getPdfInStorageToPdfAWithRequestBuilder(name: String, type: String, folder: String? = nil, storage: String? = nil) -> RequestBuilder<Data> {
         var pathUrl = "/pdf/{name}/convert/pdfa"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
@@ -7721,7 +7721,7 @@ open class PdfAPI {
 
      - returns: RequestBuilder<Data> 
      */
-    open class func getPdfInStorageToTiffWithRequestBuilder(name: String, brightness: Double? = nil, compression: Compression_getPdfInStorageToTiff? = nil, colorDepth: ColorDepth_getPdfInStorageToTiff? = nil, leftMargin: Int? = nil, rightMargin: Int? = nil, topMargin: Int? = nil, bottomMargin: Int? = nil, orientation: Orientation_getPdfInStorageToTiff? = nil, skipBlankPages: Bool? = nil, width: Int? = nil, height: Int? = nil, xResolution: Int? = nil, yResolution: Int? = nil, pageIndex: Int? = nil, pageCount: Int? = nil, folder: String? = nil, storage: String? = nil) -> RequestBuilder<Data> {
+    open class func getPdfInStorageToTiffWithRequestBuilder(name: String, brightness: Double? = nil, compression: String? = nil, colorDepth: String? = nil, leftMargin: Int? = nil, rightMargin: Int? = nil, topMargin: Int? = nil, bottomMargin: Int? = nil, orientation: String? = nil, skipBlankPages: Bool? = nil, width: Int? = nil, height: Int? = nil, xResolution: Int? = nil, yResolution: Int? = nil, pageIndex: Int? = nil, pageCount: Int? = nil, folder: String? = nil, storage: String? = nil) -> RequestBuilder<Data> {
         var pathUrl = "/pdf/{name}/convert/tiff"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
@@ -10412,7 +10412,7 @@ open class PdfAPI {
 
      - returns: RequestBuilder<AsposeResponse> 
      */
-    open class func postEncryptDocumentInStorageWithRequestBuilder(name: String, userPassword: String, ownerPassword: String, cryptoAlgorithm: CryptoAlgorithm_postEncryptDocumentInStorage, permissionsFlags: [PermissionsFlags]? = nil, usePdf20: Bool? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+    open class func postEncryptDocumentInStorageWithRequestBuilder(name: String, userPassword: String, ownerPassword: String, cryptoAlgorithm: String, permissionsFlags: [PermissionsFlags]? = nil, usePdf20: Bool? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
         var pathUrl = "/pdf/{name}/encrypt"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
@@ -13286,7 +13286,7 @@ open class PdfAPI {
 
      - returns: RequestBuilder<AsposeResponse> 
      */
-    open class func putEncryptDocumentWithRequestBuilder(outPath: String, userPassword: String, ownerPassword: String, cryptoAlgorithm: CryptoAlgorithm_putEncryptDocument, permissionsFlags: [PermissionsFlags]? = nil, usePdf20: Bool? = nil, storage: String? = nil, file: URL? = nil) -> RequestBuilder<AsposeResponse> {
+    open class func putEncryptDocumentWithRequestBuilder(outPath: String, userPassword: String, ownerPassword: String, cryptoAlgorithm: String, permissionsFlags: [PermissionsFlags]? = nil, usePdf20: Bool? = nil, storage: String? = nil, file: URL? = nil) -> RequestBuilder<AsposeResponse> {
         let pathUrl = "/pdf/encrypt"
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let formParams: [String:Any?] = [
@@ -15728,7 +15728,7 @@ open class PdfAPI {
 
      - returns: RequestBuilder<AsposeResponse> 
      */
-    open class func putPdfInRequestToDocWithRequestBuilder(outPath: String, addReturnToLineEnd: Bool? = nil, format: Format_putPdfInRequestToDoc? = nil, imageResolutionX: Int? = nil, imageResolutionY: Int? = nil, maxDistanceBetweenTextLines: Double? = nil, mode: Mode_putPdfInRequestToDoc? = nil, recognizeBullets: Bool? = nil, relativeHorizontalProximity: Double? = nil, storage: String? = nil, file: URL? = nil) -> RequestBuilder<AsposeResponse> {
+    open class func putPdfInRequestToDocWithRequestBuilder(outPath: String, addReturnToLineEnd: Bool? = nil, format: String? = nil, imageResolutionX: Int? = nil, imageResolutionY: Int? = nil, maxDistanceBetweenTextLines: Double? = nil, mode: String? = nil, recognizeBullets: Bool? = nil, relativeHorizontalProximity: Double? = nil, storage: String? = nil, file: URL? = nil) -> RequestBuilder<AsposeResponse> {
         let pathUrl = "/pdf/convert/doc"
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let formParams: [String:Any?] = [
@@ -15799,7 +15799,7 @@ open class PdfAPI {
 
      - returns: RequestBuilder<AsposeResponse> 
      */
-    open class func putPdfInRequestToEpubWithRequestBuilder(outPath: String, contentRecognitionMode: ContentRecognitionMode_putPdfInRequestToEpub? = nil, storage: String? = nil, file: URL? = nil) -> RequestBuilder<AsposeResponse> {
+    open class func putPdfInRequestToEpubWithRequestBuilder(outPath: String, contentRecognitionMode: String? = nil, storage: String? = nil, file: URL? = nil) -> RequestBuilder<AsposeResponse> {
         let pathUrl = "/pdf/convert/epub"
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let formParams: [String:Any?] = [
@@ -15917,7 +15917,7 @@ open class PdfAPI {
 
      - returns: RequestBuilder<AsposeResponse> 
      */
-    open class func putPdfInRequestToHtmlWithRequestBuilder(outPath: String, additionalMarginWidthInPoints: Int? = nil, compressSvgGraphicsIfAny: Bool? = nil, convertMarkedContentToLayers: Bool? = nil, defaultFontName: String? = nil, documentType: DocumentType_putPdfInRequestToHtml? = nil, fixedLayout: Bool? = nil, imageResolution: Int? = nil, minimalLineWidth: Int? = nil, preventGlyphsGrouping: Bool? = nil, splitCssIntoPages: Bool? = nil, splitIntoPages: Bool? = nil, useZOrder: Bool? = nil, antialiasingProcessing: AntialiasingProcessing_putPdfInRequestToHtml? = nil, cssClassNamesPrefix: String? = nil, explicitListOfSavedPages: [Int]? = nil, fontEncodingStrategy: FontEncodingStrategy_putPdfInRequestToHtml? = nil, fontSavingMode: FontSavingMode_putPdfInRequestToHtml? = nil, htmlMarkupGenerationMode: HtmlMarkupGenerationMode_putPdfInRequestToHtml? = nil, lettersPositioningMethod: LettersPositioningMethod_putPdfInRequestToHtml? = nil, pagesFlowTypeDependsOnViewersScreenSize: Bool? = nil, partsEmbeddingMode: PartsEmbeddingMode_putPdfInRequestToHtml? = nil, rasterImagesSavingMode: RasterImagesSavingMode_putPdfInRequestToHtml? = nil, removeEmptyAreasOnTopAndBottom: Bool? = nil, saveShadowedTextsAsTransparentTexts: Bool? = nil, saveTransparentTexts: Bool? = nil, specialFolderForAllImages: String? = nil, specialFolderForSvgImages: String? = nil, trySaveTextUnderliningAndStrikeoutingInCss: Bool? = nil, storage: String? = nil, file: URL? = nil) -> RequestBuilder<AsposeResponse> {
+    open class func putPdfInRequestToHtmlWithRequestBuilder(outPath: String, additionalMarginWidthInPoints: Int? = nil, compressSvgGraphicsIfAny: Bool? = nil, convertMarkedContentToLayers: Bool? = nil, defaultFontName: String? = nil, documentType: String? = nil, fixedLayout: Bool? = nil, imageResolution: Int? = nil, minimalLineWidth: Int? = nil, preventGlyphsGrouping: Bool? = nil, splitCssIntoPages: Bool? = nil, splitIntoPages: Bool? = nil, useZOrder: Bool? = nil, antialiasingProcessing: String? = nil, cssClassNamesPrefix: String? = nil, explicitListOfSavedPages: [Int]? = nil, fontEncodingStrategy: String? = nil, fontSavingMode: String? = nil, htmlMarkupGenerationMode: String? = nil, lettersPositioningMethod: String? = nil, pagesFlowTypeDependsOnViewersScreenSize: Bool? = nil, partsEmbeddingMode: String? = nil, rasterImagesSavingMode: String? = nil, removeEmptyAreasOnTopAndBottom: Bool? = nil, saveShadowedTextsAsTransparentTexts: Bool? = nil, saveTransparentTexts: Bool? = nil, specialFolderForAllImages: String? = nil, specialFolderForSvgImages: String? = nil, trySaveTextUnderliningAndStrikeoutingInCss: Bool? = nil, storage: String? = nil, file: URL? = nil) -> RequestBuilder<AsposeResponse> {
         let pathUrl = "/pdf/convert/html"
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let formParams: [String:Any?] = [
@@ -16133,7 +16133,7 @@ open class PdfAPI {
 
      - returns: RequestBuilder<AsposeResponse> 
      */
-    open class func putPdfInRequestToPdfAWithRequestBuilder(outPath: String, type: ModelType_putPdfInRequestToPdfA, storage: String? = nil, file: URL? = nil) -> RequestBuilder<AsposeResponse> {
+    open class func putPdfInRequestToPdfAWithRequestBuilder(outPath: String, type: String, storage: String? = nil, file: URL? = nil) -> RequestBuilder<AsposeResponse> {
         let pathUrl = "/pdf/convert/pdfa"
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let formParams: [String:Any?] = [
@@ -16353,7 +16353,7 @@ open class PdfAPI {
 
      - returns: RequestBuilder<AsposeResponse> 
      */
-    open class func putPdfInRequestToTiffWithRequestBuilder(outPath: String, brightness: Double? = nil, compression: Compression_putPdfInRequestToTiff? = nil, colorDepth: ColorDepth_putPdfInRequestToTiff? = nil, leftMargin: Int? = nil, rightMargin: Int? = nil, topMargin: Int? = nil, bottomMargin: Int? = nil, orientation: Orientation_putPdfInRequestToTiff? = nil, skipBlankPages: Bool? = nil, width: Int? = nil, height: Int? = nil, xResolution: Int? = nil, yResolution: Int? = nil, pageIndex: Int? = nil, pageCount: Int? = nil, storage: String? = nil, file: URL? = nil) -> RequestBuilder<AsposeResponse> {
+    open class func putPdfInRequestToTiffWithRequestBuilder(outPath: String, brightness: Double? = nil, compression: String? = nil, colorDepth: String? = nil, leftMargin: Int? = nil, rightMargin: Int? = nil, topMargin: Int? = nil, bottomMargin: Int? = nil, orientation: String? = nil, skipBlankPages: Bool? = nil, width: Int? = nil, height: Int? = nil, xResolution: Int? = nil, yResolution: Int? = nil, pageIndex: Int? = nil, pageCount: Int? = nil, storage: String? = nil, file: URL? = nil) -> RequestBuilder<AsposeResponse> {
         let pathUrl = "/pdf/convert/tiff"
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let formParams: [String:Any?] = [
@@ -16715,7 +16715,7 @@ open class PdfAPI {
 
      - returns: RequestBuilder<AsposeResponse> 
      */
-    open class func putPdfInStorageToDocWithRequestBuilder(name: String, outPath: String, addReturnToLineEnd: Bool? = nil, format: Format_putPdfInStorageToDoc? = nil, imageResolutionX: Int? = nil, imageResolutionY: Int? = nil, maxDistanceBetweenTextLines: Double? = nil, mode: Mode_putPdfInStorageToDoc? = nil, recognizeBullets: Bool? = nil, relativeHorizontalProximity: Double? = nil, folder: String? = nil, storage: String? = nil) -> RequestBuilder<AsposeResponse> {
+    open class func putPdfInStorageToDocWithRequestBuilder(name: String, outPath: String, addReturnToLineEnd: Bool? = nil, format: String? = nil, imageResolutionX: Int? = nil, imageResolutionY: Int? = nil, maxDistanceBetweenTextLines: Double? = nil, mode: String? = nil, recognizeBullets: Bool? = nil, relativeHorizontalProximity: Double? = nil, folder: String? = nil, storage: String? = nil) -> RequestBuilder<AsposeResponse> {
         var pathUrl = "/pdf/{name}/convert/doc"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
@@ -16785,7 +16785,7 @@ open class PdfAPI {
 
      - returns: RequestBuilder<AsposeResponse> 
      */
-    open class func putPdfInStorageToEpubWithRequestBuilder(name: String, outPath: String, contentRecognitionMode: ContentRecognitionMode_putPdfInStorageToEpub? = nil, folder: String? = nil, storage: String? = nil) -> RequestBuilder<AsposeResponse> {
+    open class func putPdfInStorageToEpubWithRequestBuilder(name: String, outPath: String, contentRecognitionMode: String? = nil, folder: String? = nil, storage: String? = nil) -> RequestBuilder<AsposeResponse> {
         var pathUrl = "/pdf/{name}/convert/epub"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
@@ -16902,7 +16902,7 @@ open class PdfAPI {
 
      - returns: RequestBuilder<AsposeResponse> 
      */
-    open class func putPdfInStorageToHtmlWithRequestBuilder(name: String, outPath: String, additionalMarginWidthInPoints: Int? = nil, compressSvgGraphicsIfAny: Bool? = nil, convertMarkedContentToLayers: Bool? = nil, defaultFontName: String? = nil, documentType: DocumentType_putPdfInStorageToHtml? = nil, fixedLayout: Bool? = nil, imageResolution: Int? = nil, minimalLineWidth: Int? = nil, preventGlyphsGrouping: Bool? = nil, splitCssIntoPages: Bool? = nil, splitIntoPages: Bool? = nil, useZOrder: Bool? = nil, antialiasingProcessing: AntialiasingProcessing_putPdfInStorageToHtml? = nil, cssClassNamesPrefix: String? = nil, explicitListOfSavedPages: [Int]? = nil, fontEncodingStrategy: FontEncodingStrategy_putPdfInStorageToHtml? = nil, fontSavingMode: FontSavingMode_putPdfInStorageToHtml? = nil, htmlMarkupGenerationMode: HtmlMarkupGenerationMode_putPdfInStorageToHtml? = nil, lettersPositioningMethod: LettersPositioningMethod_putPdfInStorageToHtml? = nil, pagesFlowTypeDependsOnViewersScreenSize: Bool? = nil, partsEmbeddingMode: PartsEmbeddingMode_putPdfInStorageToHtml? = nil, rasterImagesSavingMode: RasterImagesSavingMode_putPdfInStorageToHtml? = nil, removeEmptyAreasOnTopAndBottom: Bool? = nil, saveShadowedTextsAsTransparentTexts: Bool? = nil, saveTransparentTexts: Bool? = nil, specialFolderForAllImages: String? = nil, specialFolderForSvgImages: String? = nil, trySaveTextUnderliningAndStrikeoutingInCss: Bool? = nil, folder: String? = nil, storage: String? = nil) -> RequestBuilder<AsposeResponse> {
+    open class func putPdfInStorageToHtmlWithRequestBuilder(name: String, outPath: String, additionalMarginWidthInPoints: Int? = nil, compressSvgGraphicsIfAny: Bool? = nil, convertMarkedContentToLayers: Bool? = nil, defaultFontName: String? = nil, documentType: String? = nil, fixedLayout: Bool? = nil, imageResolution: Int? = nil, minimalLineWidth: Int? = nil, preventGlyphsGrouping: Bool? = nil, splitCssIntoPages: Bool? = nil, splitIntoPages: Bool? = nil, useZOrder: Bool? = nil, antialiasingProcessing: String? = nil, cssClassNamesPrefix: String? = nil, explicitListOfSavedPages: [Int]? = nil, fontEncodingStrategy: String? = nil, fontSavingMode: String? = nil, htmlMarkupGenerationMode: String? = nil, lettersPositioningMethod: String? = nil, pagesFlowTypeDependsOnViewersScreenSize: Bool? = nil, partsEmbeddingMode: String? = nil, rasterImagesSavingMode: String? = nil, removeEmptyAreasOnTopAndBottom: Bool? = nil, saveShadowedTextsAsTransparentTexts: Bool? = nil, saveTransparentTexts: Bool? = nil, specialFolderForAllImages: String? = nil, specialFolderForSvgImages: String? = nil, trySaveTextUnderliningAndStrikeoutingInCss: Bool? = nil, folder: String? = nil, storage: String? = nil) -> RequestBuilder<AsposeResponse> {
         var pathUrl = "/pdf/{name}/convert/html"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
@@ -17115,7 +17115,7 @@ open class PdfAPI {
 
      - returns: RequestBuilder<AsposeResponse> 
      */
-    open class func putPdfInStorageToPdfAWithRequestBuilder(name: String, outPath: String, type: ModelType_putPdfInStorageToPdfA, folder: String? = nil, storage: String? = nil) -> RequestBuilder<AsposeResponse> {
+    open class func putPdfInStorageToPdfAWithRequestBuilder(name: String, outPath: String, type: String, folder: String? = nil, storage: String? = nil) -> RequestBuilder<AsposeResponse> {
         var pathUrl = "/pdf/{name}/convert/pdfa"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
@@ -17332,7 +17332,7 @@ open class PdfAPI {
 
      - returns: RequestBuilder<AsposeResponse> 
      */
-    open class func putPdfInStorageToTiffWithRequestBuilder(name: String, outPath: String, brightness: Double? = nil, compression: Compression_putPdfInStorageToTiff? = nil, colorDepth: ColorDepth_putPdfInStorageToTiff? = nil, leftMargin: Int? = nil, rightMargin: Int? = nil, topMargin: Int? = nil, bottomMargin: Int? = nil, orientation: Orientation_putPdfInStorageToTiff? = nil, skipBlankPages: Bool? = nil, width: Int? = nil, height: Int? = nil, xResolution: Int? = nil, yResolution: Int? = nil, pageIndex: Int? = nil, pageCount: Int? = nil, folder: String? = nil, storage: String? = nil) -> RequestBuilder<AsposeResponse> {
+    open class func putPdfInStorageToTiffWithRequestBuilder(name: String, outPath: String, brightness: Double? = nil, compression: String? = nil, colorDepth: String? = nil, leftMargin: Int? = nil, rightMargin: Int? = nil, topMargin: Int? = nil, bottomMargin: Int? = nil, orientation: String? = nil, skipBlankPages: Bool? = nil, width: Int? = nil, height: Int? = nil, xResolution: Int? = nil, yResolution: Int? = nil, pageIndex: Int? = nil, pageCount: Int? = nil, folder: String? = nil, storage: String? = nil) -> RequestBuilder<AsposeResponse> {
         var pathUrl = "/pdf/{name}/convert/tiff"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
