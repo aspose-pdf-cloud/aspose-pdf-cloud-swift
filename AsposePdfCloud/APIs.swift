@@ -28,7 +28,6 @@ open class AsposePdfCloudAPI {
     open static var appKey: String?
     open static var requestBuilderFactory: RequestBuilderFactory = AlamofireRequestBuilderFactory()
     open static var accessToken: String?
-    open static var refreshToken: String?
 }
 
 open class RequestBuilder<T> {
