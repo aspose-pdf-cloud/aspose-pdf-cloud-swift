@@ -7158,11 +7158,11 @@ open class PdfAPI {
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "addReturnToLineEnd": addReturnToLineEnd, 
-            "format": format?.rawValue, 
+            "format": format, 
             "imageResolutionX": imageResolutionX?.encodeToJSON(), 
             "imageResolutionY": imageResolutionY?.encodeToJSON(), 
             "maxDistanceBetweenTextLines": maxDistanceBetweenTextLines, 
-            "mode": mode?.rawValue, 
+            "mode": mode, 
             "recognizeBullets": recognizeBullets, 
             "relativeHorizontalProximity": relativeHorizontalProximity, 
             "folder": folder, 
@@ -7221,7 +7221,7 @@ open class PdfAPI {
 
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
-            "contentRecognitionMode": contentRecognitionMode?.rawValue, 
+            "contentRecognitionMode": contentRecognitionMode, 
             "folder": folder, 
             "storage": storage
         ])
@@ -7336,7 +7336,7 @@ open class PdfAPI {
             "compressSvgGraphicsIfAny": compressSvgGraphicsIfAny, 
             "convertMarkedContentToLayers": convertMarkedContentToLayers, 
             "defaultFontName": defaultFontName, 
-            "documentType": documentType?.rawValue, 
+            "documentType": documentType, 
             "fixedLayout": fixedLayout, 
             "imageResolution": imageResolution?.encodeToJSON(), 
             "minimalLineWidth": minimalLineWidth?.encodeToJSON(), 
@@ -7344,16 +7344,16 @@ open class PdfAPI {
             "splitCssIntoPages": splitCssIntoPages, 
             "splitIntoPages": splitIntoPages, 
             "useZOrder": useZOrder, 
-            "antialiasingProcessing": antialiasingProcessing?.rawValue, 
+            "antialiasingProcessing": antialiasingProcessing, 
             "cssClassNamesPrefix": cssClassNamesPrefix, 
             "explicitListOfSavedPages": explicitListOfSavedPages, 
-            "fontEncodingStrategy": fontEncodingStrategy?.rawValue, 
-            "fontSavingMode": fontSavingMode?.rawValue, 
-            "htmlMarkupGenerationMode": htmlMarkupGenerationMode?.rawValue, 
-            "lettersPositioningMethod": lettersPositioningMethod?.rawValue, 
+            "fontEncodingStrategy": fontEncodingStrategy, 
+            "fontSavingMode": fontSavingMode, 
+            "htmlMarkupGenerationMode": htmlMarkupGenerationMode, 
+            "lettersPositioningMethod": lettersPositioningMethod, 
             "pagesFlowTypeDependsOnViewersScreenSize": pagesFlowTypeDependsOnViewersScreenSize, 
-            "partsEmbeddingMode": partsEmbeddingMode?.rawValue, 
-            "rasterImagesSavingMode": rasterImagesSavingMode?.rawValue, 
+            "partsEmbeddingMode": partsEmbeddingMode, 
+            "rasterImagesSavingMode": rasterImagesSavingMode, 
             "removeEmptyAreasOnTopAndBottom": removeEmptyAreasOnTopAndBottom, 
             "saveShadowedTextsAsTransparentTexts": saveShadowedTextsAsTransparentTexts, 
             "saveTransparentTexts": saveTransparentTexts, 
@@ -7527,7 +7527,7 @@ open class PdfAPI {
 
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
-            "type": type.rawValue, 
+            "type": type, 
             "folder": folder, 
             "storage": storage
         ])
@@ -7730,13 +7730,13 @@ open class PdfAPI {
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "brightness": brightness, 
-            "compression": compression?.rawValue, 
-            "colorDepth": colorDepth?.rawValue, 
+            "compression": compression, 
+            "colorDepth": colorDepth, 
             "leftMargin": leftMargin?.encodeToJSON(), 
             "rightMargin": rightMargin?.encodeToJSON(), 
             "topMargin": topMargin?.encodeToJSON(), 
             "bottomMargin": bottomMargin?.encodeToJSON(), 
-            "orientation": orientation?.rawValue, 
+            "orientation": orientation, 
             "skipBlankPages": skipBlankPages, 
             "width": width?.encodeToJSON(), 
             "height": height?.encodeToJSON(), 
@@ -10422,7 +10422,7 @@ open class PdfAPI {
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "userPassword": userPassword, 
             "ownerPassword": ownerPassword, 
-            "cryptoAlgorithm": cryptoAlgorithm.rawValue, 
+            "cryptoAlgorithm": cryptoAlgorithm, 
             "permissionsFlags": permissionsFlags, 
             "usePdf20": usePdf20, 
             "storage": storage, 
@@ -13301,7 +13301,7 @@ open class PdfAPI {
             "outPath": outPath, 
             "userPassword": userPassword, 
             "ownerPassword": ownerPassword, 
-            "cryptoAlgorithm": cryptoAlgorithm.rawValue, 
+            "cryptoAlgorithm": cryptoAlgorithm, 
             "permissionsFlags": permissionsFlags, 
             "usePdf20": usePdf20, 
             "storage": storage
@@ -15742,11 +15742,11 @@ open class PdfAPI {
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "addReturnToLineEnd": addReturnToLineEnd, 
-            "format": format?.rawValue, 
+            "format": format, 
             "imageResolutionX": imageResolutionX?.encodeToJSON(), 
             "imageResolutionY": imageResolutionY?.encodeToJSON(), 
             "maxDistanceBetweenTextLines": maxDistanceBetweenTextLines, 
-            "mode": mode?.rawValue, 
+            "mode": mode, 
             "recognizeBullets": recognizeBullets, 
             "relativeHorizontalProximity": relativeHorizontalProximity, 
             "storage": storage
@@ -15812,7 +15812,7 @@ open class PdfAPI {
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
-            "contentRecognitionMode": contentRecognitionMode?.rawValue, 
+            "contentRecognitionMode": contentRecognitionMode, 
             "storage": storage
         ])
         
@@ -15934,7 +15934,7 @@ open class PdfAPI {
             "compressSvgGraphicsIfAny": compressSvgGraphicsIfAny, 
             "convertMarkedContentToLayers": convertMarkedContentToLayers, 
             "defaultFontName": defaultFontName, 
-            "documentType": documentType?.rawValue, 
+            "documentType": documentType, 
             "fixedLayout": fixedLayout, 
             "imageResolution": imageResolution?.encodeToJSON(), 
             "minimalLineWidth": minimalLineWidth?.encodeToJSON(), 
@@ -15942,16 +15942,16 @@ open class PdfAPI {
             "splitCssIntoPages": splitCssIntoPages, 
             "splitIntoPages": splitIntoPages, 
             "useZOrder": useZOrder, 
-            "antialiasingProcessing": antialiasingProcessing?.rawValue, 
+            "antialiasingProcessing": antialiasingProcessing, 
             "cssClassNamesPrefix": cssClassNamesPrefix, 
             "explicitListOfSavedPages": explicitListOfSavedPages, 
-            "fontEncodingStrategy": fontEncodingStrategy?.rawValue, 
-            "fontSavingMode": fontSavingMode?.rawValue, 
-            "htmlMarkupGenerationMode": htmlMarkupGenerationMode?.rawValue, 
-            "lettersPositioningMethod": lettersPositioningMethod?.rawValue, 
+            "fontEncodingStrategy": fontEncodingStrategy, 
+            "fontSavingMode": fontSavingMode, 
+            "htmlMarkupGenerationMode": htmlMarkupGenerationMode, 
+            "lettersPositioningMethod": lettersPositioningMethod, 
             "pagesFlowTypeDependsOnViewersScreenSize": pagesFlowTypeDependsOnViewersScreenSize, 
-            "partsEmbeddingMode": partsEmbeddingMode?.rawValue, 
-            "rasterImagesSavingMode": rasterImagesSavingMode?.rawValue, 
+            "partsEmbeddingMode": partsEmbeddingMode, 
+            "rasterImagesSavingMode": rasterImagesSavingMode, 
             "removeEmptyAreasOnTopAndBottom": removeEmptyAreasOnTopAndBottom, 
             "saveShadowedTextsAsTransparentTexts": saveShadowedTextsAsTransparentTexts, 
             "saveTransparentTexts": saveTransparentTexts, 
@@ -16146,7 +16146,7 @@ open class PdfAPI {
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
-            "type": type.rawValue, 
+            "type": type, 
             "storage": storage
         ])
         
@@ -16367,13 +16367,13 @@ open class PdfAPI {
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "brightness": brightness, 
-            "compression": compression?.rawValue, 
-            "colorDepth": colorDepth?.rawValue, 
+            "compression": compression, 
+            "colorDepth": colorDepth, 
             "leftMargin": leftMargin?.encodeToJSON(), 
             "rightMargin": rightMargin?.encodeToJSON(), 
             "topMargin": topMargin?.encodeToJSON(), 
             "bottomMargin": bottomMargin?.encodeToJSON(), 
-            "orientation": orientation?.rawValue, 
+            "orientation": orientation, 
             "skipBlankPages": skipBlankPages, 
             "width": width?.encodeToJSON(), 
             "height": height?.encodeToJSON(), 
@@ -16725,11 +16725,11 @@ open class PdfAPI {
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "addReturnToLineEnd": addReturnToLineEnd, 
-            "format": format?.rawValue, 
+            "format": format, 
             "imageResolutionX": imageResolutionX?.encodeToJSON(), 
             "imageResolutionY": imageResolutionY?.encodeToJSON(), 
             "maxDistanceBetweenTextLines": maxDistanceBetweenTextLines, 
-            "mode": mode?.rawValue, 
+            "mode": mode, 
             "recognizeBullets": recognizeBullets, 
             "relativeHorizontalProximity": relativeHorizontalProximity, 
             "folder": folder, 
@@ -16794,7 +16794,7 @@ open class PdfAPI {
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
-            "contentRecognitionMode": contentRecognitionMode?.rawValue, 
+            "contentRecognitionMode": contentRecognitionMode, 
             "folder": folder, 
             "storage": storage
         ])
@@ -16915,7 +16915,7 @@ open class PdfAPI {
             "compressSvgGraphicsIfAny": compressSvgGraphicsIfAny, 
             "convertMarkedContentToLayers": convertMarkedContentToLayers, 
             "defaultFontName": defaultFontName, 
-            "documentType": documentType?.rawValue, 
+            "documentType": documentType, 
             "fixedLayout": fixedLayout, 
             "imageResolution": imageResolution?.encodeToJSON(), 
             "minimalLineWidth": minimalLineWidth?.encodeToJSON(), 
@@ -16923,16 +16923,16 @@ open class PdfAPI {
             "splitCssIntoPages": splitCssIntoPages, 
             "splitIntoPages": splitIntoPages, 
             "useZOrder": useZOrder, 
-            "antialiasingProcessing": antialiasingProcessing?.rawValue, 
+            "antialiasingProcessing": antialiasingProcessing, 
             "cssClassNamesPrefix": cssClassNamesPrefix, 
             "explicitListOfSavedPages": explicitListOfSavedPages, 
-            "fontEncodingStrategy": fontEncodingStrategy?.rawValue, 
-            "fontSavingMode": fontSavingMode?.rawValue, 
-            "htmlMarkupGenerationMode": htmlMarkupGenerationMode?.rawValue, 
-            "lettersPositioningMethod": lettersPositioningMethod?.rawValue, 
+            "fontEncodingStrategy": fontEncodingStrategy, 
+            "fontSavingMode": fontSavingMode, 
+            "htmlMarkupGenerationMode": htmlMarkupGenerationMode, 
+            "lettersPositioningMethod": lettersPositioningMethod, 
             "pagesFlowTypeDependsOnViewersScreenSize": pagesFlowTypeDependsOnViewersScreenSize, 
-            "partsEmbeddingMode": partsEmbeddingMode?.rawValue, 
-            "rasterImagesSavingMode": rasterImagesSavingMode?.rawValue, 
+            "partsEmbeddingMode": partsEmbeddingMode, 
+            "rasterImagesSavingMode": rasterImagesSavingMode, 
             "removeEmptyAreasOnTopAndBottom": removeEmptyAreasOnTopAndBottom, 
             "saveShadowedTextsAsTransparentTexts": saveShadowedTextsAsTransparentTexts, 
             "saveTransparentTexts": saveTransparentTexts, 
@@ -17124,7 +17124,7 @@ open class PdfAPI {
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
-            "type": type.rawValue, 
+            "type": type, 
             "folder": folder, 
             "storage": storage
         ])
@@ -17342,13 +17342,13 @@ open class PdfAPI {
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
             "brightness": brightness, 
-            "compression": compression?.rawValue, 
-            "colorDepth": colorDepth?.rawValue, 
+            "compression": compression, 
+            "colorDepth": colorDepth, 
             "leftMargin": leftMargin?.encodeToJSON(), 
             "rightMargin": rightMargin?.encodeToJSON(), 
             "topMargin": topMargin?.encodeToJSON(), 
             "bottomMargin": bottomMargin?.encodeToJSON(), 
-            "orientation": orientation?.rawValue, 
+            "orientation": orientation, 
             "skipBlankPages": skipBlankPages, 
             "width": width?.encodeToJSON(), 
             "height": height?.encodeToJSON(), 
