@@ -30,10 +30,10 @@ import Foundation
 open class SplitResultDocument: Link {
 
     /** Gets or sets the page number. */
-    public var id: Int?
+    public var id: Int
 
     
-    public init(href: String?, rel: String?, type: String?, title: String?, id: Int?) {
+    public init(href: String?, rel: String?, type: String?, title: String?, id: Int) {
         super.init(href: href, rel: rel, type: type, title: title)
         self.id = id
     }
@@ -46,7 +46,7 @@ open class SplitResultDocument: Link {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(id, forKey: "Id")
+        try container.encode(id, forKey: "Id")
         try super.encode(to: encoder)
     }
 
@@ -55,7 +55,7 @@ open class SplitResultDocument: Link {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        id = try container.decodeIfPresent(Int.self, forKey: "Id")
+        id = try container.decode(Int.self, forKey: "Id")
         try super.init(from: decoder)
     }
 }

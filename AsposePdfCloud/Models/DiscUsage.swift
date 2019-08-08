@@ -25,10 +25,13 @@
 import Foundation
 
 
+/** Class for disc space information. */
 
 open class DiscUsage: Codable {
 
+    /** Application used disc space. */
     public var usedSize: Int64
+    /** Total disc space. */
     public var totalSize: Int64
 
         

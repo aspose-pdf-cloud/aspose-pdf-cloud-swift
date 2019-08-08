@@ -25,14 +25,17 @@
 import Foundation
 
 
+/** File Version */
 
-open class FileVersion: File {
+open class FileVersion: StorageFile {
 
+    /** File Version ID. */
     public var versionId: String?
-    public var isLatest: Bool?
+    /** Specifies whether the file is (true) or is not (false) the latest version of an file. */
+    public var isLatest: Bool
 
     
-    public init(name: String?, isFolder: Bool, modifiedDate: Date?, size: Int64, path: String?, versionId: String?, isLatest: Bool?) {
+    public init(name: String?, isFolder: Bool, modifiedDate: Date?, size: Int64, path: String?, versionId: String?, isLatest: Bool) {
         super.init(name: name, isFolder: isFolder, modifiedDate: modifiedDate, size: size, path: path)
         self.versionId = versionId
         self.isLatest = isLatest
@@ -47,7 +50,7 @@ open class FileVersion: File {
         var container = encoder.container(keyedBy: String.self)
 
         try container.encodeIfPresent(versionId, forKey: "VersionId")
-        try container.encodeIfPresent(isLatest, forKey: "IsLatest")
+        try container.encode(isLatest, forKey: "IsLatest")
         try super.encode(to: encoder)
     }
 
@@ -57,7 +60,7 @@ open class FileVersion: File {
         let container = try decoder.container(keyedBy: String.self)
 
         versionId = try container.decodeIfPresent(String.self, forKey: "VersionId")
-        isLatest = try container.decodeIfPresent(Bool.self, forKey: "IsLatest")
+        isLatest = try container.decode(Bool.self, forKey: "IsLatest")
         try super.init(from: decoder)
     }
 }

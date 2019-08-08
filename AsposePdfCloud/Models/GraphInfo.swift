@@ -31,13 +31,13 @@ open class GraphInfo: Codable {
 
     /** Gets or sets a float value that indicates the line width of the graph. */
     public var lineWidth: Double?
-    /** Gets or sets a  object that indicates the color of the graph. */
+    /** Gets or sets a Color object that indicates the color of the graph. */
     public var color: Color?
     /** Gets or sets a dash array. */
     public var dashArray: [Int]?
     /** Gets or sets a dash phase. */
     public var dashPhase: Int?
-    /** Gets or sets a  object that indicates the fill color of the graph. */
+    /** Gets or sets a Color object that indicates the fill color of the graph. */
     public var fillColor: Color?
     /** Gets or sets is border doubled. */
     public var isDoubled: Bool?

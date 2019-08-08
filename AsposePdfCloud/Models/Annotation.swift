@@ -42,7 +42,7 @@ open class Annotation: LinkElement {
     /** Gets Name of the annotation. */
     public var name: String?
     /** Gets Rect of the annotation. */
-    public var rect: Rectangle?
+    public var rect: Rectangle
     /** Gets PageIndex of the annotation. */
     public var pageIndex: Int?
     /** Gets ZIndex of the annotation. */
@@ -53,7 +53,7 @@ open class Annotation: LinkElement {
     public var verticalAlignment: VerticalAlignment?
 
     
-    public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?) {
+    public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?) {
         super.init(links: links)
         self.color = color
         self.contents = contents
@@ -82,7 +82,7 @@ open class Annotation: LinkElement {
         try container.encodeIfPresent(id, forKey: "Id")
         try container.encodeIfPresent(flags, forKey: "Flags")
         try container.encodeIfPresent(name, forKey: "Name")
-        try container.encodeIfPresent(rect, forKey: "Rect")
+        try container.encode(rect, forKey: "Rect")
         try container.encodeIfPresent(pageIndex, forKey: "PageIndex")
         try container.encodeIfPresent(zIndex, forKey: "ZIndex")
         try container.encodeIfPresent(horizontalAlignment, forKey: "HorizontalAlignment")
@@ -101,7 +101,7 @@ open class Annotation: LinkElement {
         id = try container.decodeIfPresent(String.self, forKey: "Id")
         flags = try container.decodeIfPresent([AnnotationFlags].self, forKey: "Flags")
         name = try container.decodeIfPresent(String.self, forKey: "Name")
-        rect = try container.decodeIfPresent(Rectangle.self, forKey: "Rect")
+        rect = try container.decode(Rectangle.self, forKey: "Rect")
         pageIndex = try container.decodeIfPresent(Int.self, forKey: "PageIndex")
         zIndex = try container.decodeIfPresent(Int.self, forKey: "ZIndex")
         horizontalAlignment = try container.decodeIfPresent(HorizontalAlignment.self, forKey: "HorizontalAlignment")

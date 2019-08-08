@@ -43,7 +43,7 @@ open class Stamp: Codable {
     public var opacity: Double?
     /** Gets or sets right margin of stamp. */
     public var rightMargin: Double?
-    /** Sets or gets the rotation of stamp content according  values. Note. This property is for set angles which are multiples of 90 degrees (0, 90, 180, 270 degrees). To set arbitrary angle use RotateAngle property.  If angle set by ArbitraryAngle is not multiple of 90 then Rotate property returns Rotation.None. */
+    /** Sets or gets the rotation of stamp content according Rotation values. Note. This property is for set angles which are multiples of 90 degrees (0, 90, 180, 270 degrees). To set arbitrary angle use RotateAngle property.  If angle set by ArbitraryAngle is not multiple of 90 then Rotate property returns Rotation.None. */
     public var rotate: Rotation?
     /** Gets or sets rotate angle of stamp in degrees. This property allows to set arbitrary rotate angle.  */
     public var rotateAngle: Double?
@@ -61,7 +61,7 @@ open class Stamp: Codable {
     public var textAlignment: HorizontalAlignment?
     /** Gets or sets string value which is used as stamp on the page. */
     public var value: String?
-    /** Gets text properties of the stamp. See  for details. */
+    /** Gets text properties of the stamp. See TextState for details. */
     public var textState: TextState?
     /** Gets or sets the file name. */
     public var fileName: String?

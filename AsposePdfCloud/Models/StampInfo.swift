@@ -42,10 +42,10 @@ open class StampInfo: LinkElement {
     /** Gets the stamp is visible. */
     public var visible: Bool?
     /** Gets stamp type. */
-    public var stampType: StampType?
+    public var stampType: StampType
 
     
-    public init(links: [Link]?, id: String?, indexOnPage: Int?, pageIndex: Int?, rect: Rectangle?, text: String?, visible: Bool?, stampType: StampType?) {
+    public init(links: [Link]?, id: String?, indexOnPage: Int?, pageIndex: Int?, rect: Rectangle?, text: String?, visible: Bool?, stampType: StampType) {
         super.init(links: links)
         self.id = id
         self.indexOnPage = indexOnPage
@@ -70,7 +70,7 @@ open class StampInfo: LinkElement {
         try container.encodeIfPresent(rect, forKey: "Rect")
         try container.encodeIfPresent(text, forKey: "Text")
         try container.encodeIfPresent(visible, forKey: "Visible")
-        try container.encodeIfPresent(stampType, forKey: "StampType")
+        try container.encode(stampType, forKey: "StampType")
         try super.encode(to: encoder)
     }
 
@@ -85,7 +85,7 @@ open class StampInfo: LinkElement {
         rect = try container.decodeIfPresent(Rectangle.self, forKey: "Rect")
         text = try container.decodeIfPresent(String.self, forKey: "Text")
         visible = try container.decodeIfPresent(Bool.self, forKey: "Visible")
-        stampType = try container.decodeIfPresent(StampType.self, forKey: "StampType")
+        stampType = try container.decode(StampType.self, forKey: "StampType")
         try super.init(from: decoder)
     }
 }

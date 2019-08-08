@@ -28,7 +28,7 @@ import Foundation
 
 open class CellRecognized: Codable {
 
-    /** Gets collection of  objects that describes text containing in the cell */
+    /** Gets collection of TextRect objects that describes text containing in the cell */
     public var textRects: TextRects?
     /** Gets rectangle that describes position of the cell on page */
     public var rectangle: Rectangle?

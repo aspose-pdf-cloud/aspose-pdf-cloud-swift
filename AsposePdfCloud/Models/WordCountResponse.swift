@@ -29,7 +29,7 @@ import Foundation
 
 open class WordCountResponse: AsposeResponse {
 
-    /** with words per page info.             */
+    /** WordCount with words per page info. */
     public var wordsPerPage: WordCount?
 
     

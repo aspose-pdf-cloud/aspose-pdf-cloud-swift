@@ -30,14 +30,14 @@ import Foundation
 open class Page: LinkElement {
 
     /** Page&#39;s id. */
-    public var id: Int?
+    public var id: Int
     /** Page&#39;s images */
     public var images: Images?
     /** Page&#39;s rectangle */
     public var rectangle: Rectangle?
 
     
-    public init(links: [Link]?, id: Int?, images: Images?, rectangle: Rectangle?) {
+    public init(links: [Link]?, id: Int, images: Images?, rectangle: Rectangle?) {
         super.init(links: links)
         self.id = id
         self.images = images
@@ -52,7 +52,7 @@ open class Page: LinkElement {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(id, forKey: "Id")
+        try container.encode(id, forKey: "Id")
         try container.encodeIfPresent(images, forKey: "Images")
         try container.encodeIfPresent(rectangle, forKey: "Rectangle")
         try super.encode(to: encoder)
@@ -63,7 +63,7 @@ open class Page: LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        id = try container.decodeIfPresent(Int.self, forKey: "Id")
+        id = try container.decode(Int.self, forKey: "Id")
         images = try container.decodeIfPresent(Images.self, forKey: "Images")
         rectangle = try container.decodeIfPresent(Rectangle.self, forKey: "Rectangle")
         try super.init(from: decoder)

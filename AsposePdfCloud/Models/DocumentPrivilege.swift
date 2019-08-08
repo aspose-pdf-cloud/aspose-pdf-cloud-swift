@@ -25,7 +25,7 @@
 import Foundation
 
 
-/** Represents the privileges for accessing Pdf file./&gt;. */
+/** Represents the privileges for accessing Pdf file. */
 
 open class DocumentPrivilege: Codable {
 

@@ -43,7 +43,7 @@ open class Signature: Codable {
     public var contact: String?
     /** Gets or sets the location of the signature. */
     public var location: String?
-    /** Gets or sets a value indicating whether this  is visible. Supports only when signing particular page. */
+    /** Gets or sets a value indicating whether this Signature is visible. Supports only when signing particular page. */
     public var visible: Bool
     /** Gets or sets the visible rectangle of the signature. Supports only when signing particular page. */
     public var rectangle: Rectangle?

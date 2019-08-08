@@ -38,10 +38,10 @@ open class Field: LinkElement {
     /** Field rectangle. */
     public var rect: Rectangle?
     /** Field values. */
-    public var values: [String]?
+    public var values: [String]
 
     
-    public init(links: [Link]?, name: String?, selectedItems: [Int]?, type: FieldType?, rect: Rectangle?, values: [String]?) {
+    public init(links: [Link]?, name: String?, selectedItems: [Int]?, type: FieldType?, rect: Rectangle?, values: [String]) {
         super.init(links: links)
         self.name = name
         self.selectedItems = selectedItems
@@ -62,7 +62,7 @@ open class Field: LinkElement {
         try container.encodeIfPresent(selectedItems, forKey: "SelectedItems")
         try container.encodeIfPresent(type, forKey: "Type")
         try container.encodeIfPresent(rect, forKey: "Rect")
-        try container.encodeIfPresent(values, forKey: "Values")
+        try container.encode(values, forKey: "Values")
         try super.encode(to: encoder)
     }
 
@@ -75,7 +75,7 @@ open class Field: LinkElement {
         selectedItems = try container.decodeIfPresent([Int].self, forKey: "SelectedItems")
         type = try container.decodeIfPresent(FieldType.self, forKey: "Type")
         rect = try container.decodeIfPresent(Rectangle.self, forKey: "Rect")
-        values = try container.decodeIfPresent([String].self, forKey: "Values")
+        values = try container.decode([String].self, forKey: "Values")
         try super.init(from: decoder)
     }
 }

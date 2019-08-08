@@ -40,12 +40,12 @@ open class Attachment: LinkElement {
     /** The date and time when the embedded file was last modified. */
     public var modificationDate: String?
     /** The size of the uncompressed embedded file, in bytes. */
-    public var size: Int?
+    public var size: Int
     /** A 16-byte string that is the checksum of the bytes of the uncompressed embedded file.  The checksum is calculated by applying the standard MD5 message-digest algorithm  to the bytes of the embedded file stream. */
     public var checkSum: String?
 
     
-    public init(links: [Link]?, description: String?, mimeType: String?, name: String?, creationDate: String?, modificationDate: String?, size: Int?, checkSum: String?) {
+    public init(links: [Link]?, description: String?, mimeType: String?, name: String?, creationDate: String?, modificationDate: String?, size: Int, checkSum: String?) {
         super.init(links: links)
         self.description = description
         self.mimeType = mimeType
@@ -69,7 +69,7 @@ open class Attachment: LinkElement {
         try container.encodeIfPresent(name, forKey: "Name")
         try container.encodeIfPresent(creationDate, forKey: "CreationDate")
         try container.encodeIfPresent(modificationDate, forKey: "ModificationDate")
-        try container.encodeIfPresent(size, forKey: "Size")
+        try container.encode(size, forKey: "Size")
         try container.encodeIfPresent(checkSum, forKey: "CheckSum")
         try super.encode(to: encoder)
     }
@@ -84,7 +84,7 @@ open class Attachment: LinkElement {
         name = try container.decodeIfPresent(String.self, forKey: "Name")
         creationDate = try container.decodeIfPresent(String.self, forKey: "CreationDate")
         modificationDate = try container.decodeIfPresent(String.self, forKey: "ModificationDate")
-        size = try container.decodeIfPresent(Int.self, forKey: "Size")
+        size = try container.decode(Int.self, forKey: "Size")
         checkSum = try container.decodeIfPresent(String.self, forKey: "CheckSum")
         try super.init(from: decoder)
     }
