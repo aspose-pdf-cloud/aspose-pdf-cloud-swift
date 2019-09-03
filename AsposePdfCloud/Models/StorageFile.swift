@@ -71,7 +71,9 @@ open class StorageFile: Codable {
 
         name = try container.decodeIfPresent(String.self, forKey: "Name")
         isFolder = try container.decode(Bool.self, forKey: "IsFolder")
-        modifiedDate = try container.decodeIfPresent(Date.self, forKey: "ModifiedDate")
+        if let strDate = try container.decodeIfPresent(String.self, forKey: "ModifiedDate") {
+            modifiedDate = try CodableHelper.decodeDate(strDate)
+        }
         size = try container.decode(Int64.self, forKey: "Size")
         path = try container.decodeIfPresent(String.self, forKey: "Path")
     }

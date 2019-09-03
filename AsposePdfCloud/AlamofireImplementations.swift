@@ -33,6 +33,23 @@ class AlamofireRequestBuilderFactory: RequestBuilderFactory {
     }
 }
 
+extension Request {
+    public func debugLog() -> Self {
+        #if DEBUG
+        debugPrint(self)
+        #endif
+        return self
+    }
+}
+
+struct ArrayEncoding: ParameterEncoding {
+    func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
+        var request = try URLEncoding().encode(urlRequest, with: parameters)
+        request.url = URL(string: request.url!.absoluteString.replacingOccurrences(of: "%5B%5D=", with: "="))
+        return request
+    }
+}
+
 // Store manager to retain its reference
 private var managerStore: [String: Alamofire.SessionManager] = [:]
 
@@ -68,7 +85,7 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
      configuration (e.g. to override the cache policy).
      */
     open func makeRequest(manager: SessionManager, method: HTTPMethod, encoding: ParameterEncoding, headers: [String:String]) -> DataRequest {
-        return manager.request(URLString, method: method, parameters: parameters, encoding: encoding, headers: headers)
+        return manager.request(URLString, method: method, parameters: parameters, encoding: encoding, headers: headers).debugLog()
     }
 
     override open func execute(_ completion: @escaping (_ response: Response<T>?, _ error: Error?) -> Void) {
@@ -77,7 +94,7 @@ open class AlamofireRequestBuilder<T>: RequestBuilder<T> {
         let manager = createSessionManager()
         managerStore[managerId] = manager
 
-        let encoding:ParameterEncoding = isBody ? JSONDataEncoding() : URLEncoding()
+        let encoding:ParameterEncoding = isBody ? JSONDataEncoding() : URLEncoding(arrayEncoding: URLEncoding.ArrayEncoding.noBrackets, boolEncoding: URLEncoding.BoolEncoding.literal)
 
         let xMethod = Alamofire.HTTPMethod(rawValue: method)
         let fileKeys = parameters == nil ? [] : parameters!.filter { $1 is NSURL }

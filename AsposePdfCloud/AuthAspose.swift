@@ -36,8 +36,8 @@ open class AuthAspose {
                 return
             }
             
-            let path = "/oauth2/token"
-            let urlString = AsposePdfCloudAPI.basePath.replacingOccurrences(of: "/v2.0", with: "") + path
+            let path = "/connect/token"
+            let urlString = AsposePdfCloudAPI.basePath.replacingOccurrences(of: "/v3.0", with: "") + path
             
             let parameters: [String: Any] = [
                 "grant_type": "client_credentials",
@@ -59,7 +59,6 @@ open class AuthAspose {
                 
                 if (statusCode == self.codeOk) {
                     AsposePdfCloudAPI.accessToken = jsonArray["access_token"] as? String
-                    AsposePdfCloudAPI.refreshToken = jsonArray["refresh_token"] as? String
                     completion(nil)
                     
                 } else if (statusCode == self.codeUnauthorized) {

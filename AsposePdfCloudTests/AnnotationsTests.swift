@@ -180,7 +180,7 @@ class AnnotationsTests: AsposePdfCloudTests {
     func testPutAnnotationsFlatten() {
         let name = "PdfWithAnnotations.pdf"
         let endPage = 2
-        let annotationTypes = [AnnotationType.stamp]
+        let annotationTypes = [AnnotationType.stamp, AnnotationType.polygon]
         
         let expectation = self.expectation(description: "testPutAnnotationsFlatten")
         
@@ -190,7 +190,7 @@ class AnnotationsTests: AsposePdfCloudTests {
             PdfAPI.putAnnotationsFlatten(name: name, endPage: endPage, annotationTypes: annotationTypes, folder: self.tempFolder) {
                 (response, error) in
                 guard error == nil else {
-                    XCTFail("error testPutAnnotationsFlatten")
+                    XCTFail("error testPutAnnotationsFlatten" + (error.debugDescription))
                     return
                 }
                 

@@ -53,7 +53,7 @@ class SignTests: AsposePdfCloudTests {
         
         uploadFiles(names: [self.fileName, signatureName]) {
  
-            PdfAPI.postSignDocument(name: self.fileName, signature: self.signature, folder: self.tempFolder) {
+            PdfAPI.postSignDocument(name: self.fileName, sign: self.signature!, folder: self.tempFolder) {
                 (response, error) in
                 guard error == nil else {
                     XCTFail("error testPostSignDocument: " + (error.debugDescription))
@@ -78,7 +78,7 @@ class SignTests: AsposePdfCloudTests {
         
         uploadFiles(names: [self.fileName, signatureName]) {
             
-            PdfAPI.postSignPage(name: self.fileName, pageNumber: 1, signature: self.signature, folder: self.tempFolder) {
+            PdfAPI.postSignPage(name: self.fileName, pageNumber: 1, sign: self.signature!, folder: self.tempFolder) {
                 (response, error) in
                 guard error == nil else {
                     XCTFail("error PagesPostSignPage: " + (error.debugDescription))
@@ -103,7 +103,7 @@ class SignTests: AsposePdfCloudTests {
         
         uploadFiles(names: [self.fileName, signatureName]) {
             
-            PdfAPI.postSignDocument(name: self.fileName, signature: self.signature, folder: self.tempFolder) {
+            PdfAPI.postSignDocument(name: self.fileName, sign: self.signature!, folder: self.tempFolder) {
                 (response, error) in
                 guard error == nil else {
                     XCTFail("error try to postSignDocument: " + (error.debugDescription))

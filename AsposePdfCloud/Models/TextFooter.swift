@@ -44,7 +44,7 @@ open class TextFooter: StampBase {
 
     
     public init(links: [Link]?, background: Bool?, horizontalAlignment: HorizontalAlignment?, opacity: Double?, rotate: Rotation?, rotateAngle: Double?, xIndent: Double?, yIndent: Double?, zoom: Double?, textAlignment: HorizontalAlignment?, value: String?, textState: TextState?, bottomMargin: Double?, leftMargin: Double?, rightMargin: Double?) {
-        super.init(links: links)
+        super.init(links: links, background: background, horizontalAlignment: horizontalAlignment, opacity: opacity, rotate: rotate, rotateAngle: rotateAngle, xIndent: xIndent, yIndent: yIndent, zoom: zoom)
         self.textAlignment = textAlignment
         self.value = value
         self.textState = textState

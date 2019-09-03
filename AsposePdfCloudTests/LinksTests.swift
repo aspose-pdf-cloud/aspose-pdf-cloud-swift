@@ -144,7 +144,7 @@ class LinksTests: AsposePdfCloudTests {
         let expectation = self.expectation(description: "testPostPageLinkAnnotations")
         let pageNumber = 1
         
-        let link = LinkAnnotation(links: nil, actionType: LinkActionType.goToURIAction, action: "https://products.aspose.cloud/pdf", highlighting: nil, color: nil, rect: Rectangle(LLX: 100, LLY: 100, URX: 500, URY: 500), id: nil)
+        let link = LinkAnnotation(links: nil, actionType: LinkActionType.goToURIAction, action: "https://products.aspose.cloud/pdf", highlighting: LinkHighlightingMode._none, color: nil, rect: Rectangle(LLX: 100, LLY: 100, URX: 500, URY: 500), id: nil)
         
         
         uploadFile(name: fileName) {
@@ -157,7 +157,7 @@ class LinksTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -173,7 +173,7 @@ class LinksTests: AsposePdfCloudTests {
         let expectation = self.expectation(description: "testPutLinkAnnotation")
         let pageNumber = 1
         
-        let link = LinkAnnotation(links: nil, actionType: LinkActionType.goToURIAction, action: "https://products.aspose.cloud/pdf", highlighting: nil, color: nil, rect: Rectangle(LLX: 100, LLY: 100, URX: 500, URY: 500), id: nil)
+        let link = LinkAnnotation(links: nil, actionType: LinkActionType.goToURIAction, action: "https://products.aspose.cloud/pdf", highlighting: LinkHighlightingMode._none, color: nil, rect: Rectangle(LLX: 100, LLY: 100, URX: 500, URY: 500), id: nil)
         
         
         uploadFile(name: fileName) {
@@ -198,7 +198,7 @@ class LinksTests: AsposePdfCloudTests {
                             }
                             
                             if let response = response {
-                                XCTAssertEqual(response.code, self.codeCreated)
+                                XCTAssertEqual(response.code, self.codeOk)
                                 
                                 expectation.fulfill()
                             }

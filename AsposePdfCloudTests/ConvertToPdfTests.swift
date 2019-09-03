@@ -67,7 +67,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -120,7 +120,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
             }
             
             if let response = response {
-                XCTAssertEqual(response.code, self.codeCreated)
+                XCTAssertEqual(response.code, self.codeOk)
                 
                 expectation.fulfill()
             }
@@ -135,7 +135,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
     func testGetLaTeXInStorageToPdf() {
         
         let expectation = self.expectation(description: "testGetLaTeXInStorageToPdf")
-        let name = "TexExample.tex"
+        let name = "sample.tex"
         
         uploadFile(name: name) {
             
@@ -161,7 +161,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
     func testPutLaTeXInStorageToPdf() {
         
         let expectation = self.expectation(description: "testPutLaTeXInStorageToPdf")
-        let name = "TexExample.tex"
+        let name = "sample.tex"
         let resultName = "fromTex.pdf"
         
         uploadFile(name: name) {
@@ -174,7 +174,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -228,7 +228,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -282,7 +282,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -336,7 +336,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -390,7 +390,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -444,7 +444,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -498,7 +498,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -552,7 +552,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -606,7 +606,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -645,7 +645,7 @@ class ConvertToPdfTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }

@@ -186,10 +186,10 @@ class ImagesTests: AsposePdfCloudTests {
         let imageName = "Koala.jpg"
         let expectation = self.expectation(description: "testPostInsertImage")
         let pageNumber = 1
-        let image = getURL(imageName)
-        uploadFile(name: fileName) {
+        let imageFilePath = "\(self.tempFolder)/\(imageName)"
+        uploadFiles(names: [fileName, imageName]) {
             
-            PdfAPI.postInsertImage(name: self.fileName, pageNumber: pageNumber, llx: 10, lly: 10, urx: 100, ury: 100, folder: self.tempFolder, image: image) {
+            PdfAPI.postInsertImage(name: self.fileName, pageNumber: pageNumber, llx: 10, lly: 10, urx: 100, ury: 100, imageFilePath: imageFilePath, folder: self.tempFolder) {
                 (response, error) in
                 guard error == nil else {
                     XCTFail("error testPostInsertImage: " + (error.debugDescription))
@@ -197,7 +197,7 @@ class ImagesTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }

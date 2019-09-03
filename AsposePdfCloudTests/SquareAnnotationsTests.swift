@@ -161,7 +161,7 @@ class SquareAnnotationsTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -218,7 +218,7 @@ class SquareAnnotationsTests: AsposePdfCloudTests {
                             }
                             
                             if let response = response {
-                                XCTAssertEqual(response.code, self.codeCreated)
+                                XCTAssertEqual(response.code, self.codeOk)
                                 
                                 expectation.fulfill()
                             }

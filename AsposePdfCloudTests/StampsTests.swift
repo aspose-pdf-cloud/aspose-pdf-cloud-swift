@@ -139,21 +139,21 @@ class StampsTests: AsposePdfCloudTests {
         let stamp = TextStamp(
             links: nil,
             background: true,
-            bottomMargin: 1,
             horizontalAlignment: HorizontalAlignment.center,
-            leftMargin: 2,
             opacity: 1,
-            rightMargin: 3,
             rotate: Rotation._none,
             rotateAngle: 0,
-            topMargin: 4,
-            verticalAlignment: VerticalAlignment.center,
             xIndent: 0,
             yIndent: 0,
             zoom: 1,
             textAlignment: HorizontalAlignment.center,
             value: "Text Stamp",
-            textState: TextState(fontSize: 14, font: nil, foregroundColor: nil, backgroundColor: nil, fontStyle: FontStyles.regular)
+            textState: TextState(fontSize: 14, font: nil, foregroundColor: nil, backgroundColor: nil, fontStyle: FontStyles.regular),
+            verticalAlignment: VerticalAlignment.center,
+            bottomMargin: 1,
+            leftMargin: 2,
+            topMargin: 4,
+            rightMargin: 3
         )
         
         uploadFile(name: name) {
@@ -166,7 +166,7 @@ class StampsTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -184,21 +184,19 @@ class StampsTests: AsposePdfCloudTests {
         let stamp = ImageStamp(
             links: nil,
             background: true,
-            bottomMargin: 1,
             horizontalAlignment: HorizontalAlignment.center,
-            leftMargin: 2,
-            opacity: 1,
-            rightMargin: 3,
-            rotate: Rotation._none,
+            opacity: 1, rotate: Rotation._none,
             rotateAngle: 0,
-            topMargin: 4,
-            verticalAlignment: VerticalAlignment.center,
             xIndent: 0,
             yIndent: 0,
             zoom: 1,
             fileName: self.tempFolder + "/" + image,
             width: nil,
-            height: nil
+            height: nil,
+            verticalAlignment: VerticalAlignment.center,
+            bottomMargin: 1,
+            leftMargin: 2,
+            topMargin: 4, rightMargin: 3
         )
         
         uploadFiles(names: [name, image]) {
@@ -211,7 +209,7 @@ class StampsTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -229,20 +227,19 @@ class StampsTests: AsposePdfCloudTests {
         let stamp = PdfPageStamp(
             links: nil,
             background: true,
-            bottomMargin: 1,
             horizontalAlignment: HorizontalAlignment.center,
-            leftMargin: 2,
             opacity: 1,
-            rightMargin: 3,
             rotate: Rotation._none,
             rotateAngle: 0,
-            topMargin: 4,
-            verticalAlignment: VerticalAlignment.center,
             xIndent: 0,
             yIndent: 0,
             zoom: 1,
             fileName: self.tempFolder + "/" + pdf,
-            pageIndex: 2
+            pageIndex: 2,
+            verticalAlignment: VerticalAlignment.center,
+            bottomMargin: 1,
+            leftMargin: 2,
+            topMargin: 4, rightMargin: 3
         )
         
         uploadFiles(names: [name, pdf]) {
@@ -255,7 +252,7 @@ class StampsTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -341,7 +338,7 @@ class StampsTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }

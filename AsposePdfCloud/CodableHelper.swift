@@ -80,19 +80,12 @@ open class CodableHelper {
     }
     
     open class func decodeDate(_ strDate: String) throws -> Date? {
-        let range = NSRange(location: 0, length: (strDate.utf16.count))
-        let regex = try NSRegularExpression(pattern: "/Date\\((\\d+?)000\\+0000\\)/")
-        let matches = regex.matches(in: strDate, options: [], range: range)
-        if matches.count > 0 {
-            let groupRange = matches[0].range(at: 1)
-            let indexStartOfText = strDate.index(strDate.startIndex, offsetBy: groupRange.location)
-            let indexEndOfText = strDate.index(strDate.startIndex, offsetBy: groupRange.location + groupRange.length)
-            
-            let strTimeStamp = strDate[indexStartOfText..<indexEndOfText]
-            guard let timeStamp = Double(strTimeStamp) else {
-                return nil
-            }
-            return Date(timeIntervalSince1970: timeStamp)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        if let date = dateFormatter.date(from: strDate) {
+            return date
         }
         return nil
     }

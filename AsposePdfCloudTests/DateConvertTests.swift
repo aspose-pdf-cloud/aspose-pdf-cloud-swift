@@ -34,7 +34,7 @@ class DateConvertTests: XCTestCase {
     }
     
     func testDateConvertNotValid() {
-        let strDate: String  = "/Date(-62135596800000)/"
+        let strDate: String  = "0001-01-01T00:00:00"
         do {
             let date: Date? = try CodableHelper.decodeDate(strDate)
             XCTAssertNil(date)
@@ -54,16 +54,16 @@ class DateConvertTests: XCTestCase {
     }
     
     func testDateConvertValid() {
-        let strDate: String  = "/Date(1544447083000+0000)/"
+        let strDate: String  = "2019-09-02T11:21:13+00:00"
         
         var dateComponents = DateComponents()
-        dateComponents.year = 2018
-        dateComponents.month = 12
-        dateComponents.day = 10
+        dateComponents.year = 2019
+        dateComponents.month = 9
+        dateComponents.day = 2
         dateComponents.timeZone = TimeZone(abbreviation: "GMT")
-        dateComponents.hour = 13
-        dateComponents.minute = 4
-        dateComponents.second = 43
+        dateComponents.hour = 11
+        dateComponents.minute = 21
+        dateComponents.second = 13
         
         let userCalendar = Calendar.current // user calendar
         let expectedDate = userCalendar.date(from: dateComponents)

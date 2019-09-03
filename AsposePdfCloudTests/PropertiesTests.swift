@@ -28,8 +28,8 @@ class PropertiesTests: AsposePdfCloudTests {
         super.setUp()
         
         properties = [
-            DocumentProperty(links: nil, name: self.propertyNames[0], value: self.propertyValues[0], builtIn: nil),
-            DocumentProperty(links: nil, name: self.propertyNames[1], value: self.propertyValues[1], builtIn: nil)
+            DocumentProperty(links: nil, name: self.propertyNames[0], value: self.propertyValues[0], builtIn: false),
+            DocumentProperty(links: nil, name: self.propertyNames[1], value: self.propertyValues[1], builtIn: false)
             ]
         
     }

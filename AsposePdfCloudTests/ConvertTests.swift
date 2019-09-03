@@ -68,7 +68,7 @@ class ConvertTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -94,7 +94,7 @@ class ConvertTests: AsposePdfCloudTests {
             }
             
             if let response = response {
-                XCTAssertEqual(response.code, self.codeCreated)
+                XCTAssertEqual(response.code, self.codeOk)
                 
                 expectation.fulfill()
             }
@@ -146,7 +146,7 @@ class ConvertTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -172,7 +172,7 @@ class ConvertTests: AsposePdfCloudTests {
             }
             
             if let response = response {
-                XCTAssertEqual(response.code, self.codeCreated)
+                XCTAssertEqual(response.code, self.codeOk)
                 
                 expectation.fulfill()
             }
@@ -224,7 +224,7 @@ class ConvertTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -250,7 +250,7 @@ class ConvertTests: AsposePdfCloudTests {
             }
             
             if let response = response {
-                XCTAssertEqual(response.code, self.codeCreated)
+                XCTAssertEqual(response.code, self.codeOk)
                 
                 expectation.fulfill()
             }
@@ -302,7 +302,7 @@ class ConvertTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -328,7 +328,7 @@ class ConvertTests: AsposePdfCloudTests {
             }
             
             if let response = response {
-                XCTAssertEqual(response.code, self.codeCreated)
+                XCTAssertEqual(response.code, self.codeOk)
                 
                 expectation.fulfill()
             }
@@ -380,7 +380,7 @@ class ConvertTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -406,7 +406,7 @@ class ConvertTests: AsposePdfCloudTests {
             }
             
             if let response = response {
-                XCTAssertEqual(response.code, self.codeCreated)
+                XCTAssertEqual(response.code, self.codeOk)
                 
                 expectation.fulfill()
             }
@@ -458,7 +458,7 @@ class ConvertTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -484,7 +484,7 @@ class ConvertTests: AsposePdfCloudTests {
             }
             
             if let response = response {
-                XCTAssertEqual(response.code, self.codeCreated)
+                XCTAssertEqual(response.code, self.codeOk)
                 
                 expectation.fulfill()
             }
@@ -535,7 +535,7 @@ class ConvertTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -561,7 +561,7 @@ class ConvertTests: AsposePdfCloudTests {
             }
             
             if let response = response {
-                XCTAssertEqual(response.code, self.codeCreated)
+                XCTAssertEqual(response.code, self.codeOk)
                 
                 expectation.fulfill()
             }
@@ -613,7 +613,7 @@ class ConvertTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -639,7 +639,7 @@ class ConvertTests: AsposePdfCloudTests {
             }
             
             if let response = response {
-                XCTAssertEqual(response.code, self.codeCreated)
+                XCTAssertEqual(response.code, self.codeOk)
                 
                 expectation.fulfill()
             }
@@ -691,7 +691,7 @@ class ConvertTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -717,7 +717,7 @@ class ConvertTests: AsposePdfCloudTests {
             }
             
             if let response = response {
-                XCTAssertEqual(response.code, self.codeCreated)
+                XCTAssertEqual(response.code, self.codeOk)
                 
                 expectation.fulfill()
             }
@@ -769,7 +769,7 @@ class ConvertTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -795,7 +795,7 @@ class ConvertTests: AsposePdfCloudTests {
             }
             
             if let response = response {
-                XCTAssertEqual(response.code, self.codeCreated)
+                XCTAssertEqual(response.code, self.codeOk)
                 
                 expectation.fulfill()
             }
@@ -847,7 +847,7 @@ class ConvertTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -873,7 +873,7 @@ class ConvertTests: AsposePdfCloudTests {
             }
             
             if let response = response {
-                XCTAssertEqual(response.code, self.codeCreated)
+                XCTAssertEqual(response.code, self.codeOk)
                 
                 expectation.fulfill()
             }
@@ -925,7 +925,7 @@ class ConvertTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -951,7 +951,7 @@ class ConvertTests: AsposePdfCloudTests {
             }
             
             if let response = response {
-                XCTAssertEqual(response.code, self.codeCreated)
+                XCTAssertEqual(response.code, self.codeOk)
                 
                 expectation.fulfill()
             }
@@ -1003,7 +1003,7 @@ class ConvertTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -1029,7 +1029,7 @@ class ConvertTests: AsposePdfCloudTests {
             }
             
             if let response = response {
-                XCTAssertEqual(response.code, self.codeCreated)
+                XCTAssertEqual(response.code, self.codeOk)
                 
                 expectation.fulfill()
             }
@@ -1082,7 +1082,7 @@ class ConvertTests: AsposePdfCloudTests {
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeCreated)
+                    XCTAssertEqual(response.code, self.codeOk)
                     
                     expectation.fulfill()
                 }
@@ -1109,7 +1109,7 @@ class ConvertTests: AsposePdfCloudTests {
             }
             
             if let response = response {
-                XCTAssertEqual(response.code, self.codeCreated)
+                XCTAssertEqual(response.code, self.codeOk)
                 
                 expectation.fulfill()
             }
