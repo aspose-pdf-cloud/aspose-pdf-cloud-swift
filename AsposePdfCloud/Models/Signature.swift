@@ -55,10 +55,16 @@ open class Signature: Codable {
     public var date: String?
     /** Gets or sets the showproperties in signature field */
     public var showProperties: Bool
+    /** Gets/sets timestamp settings. */
+    public var timestampSettings: TimestampSettings?
+    /** Verify the document regarding this signature and return true if document is valid or otherwise false. */
+    public var isValid: Bool?
+    /** Gets/sets the custom appearance. */
+    public var customAppearance: SignatureCustomAppearance?
 
         
     
-    public init(signaturePath: String, signatureType: SignatureType, password: String?, appearance: String?, reason: String?, contact: String?, location: String?, visible: Bool, rectangle: Rectangle?, formFieldName: String?, authority: String?, date: String?, showProperties: Bool) {
+    public init(signaturePath: String, signatureType: SignatureType, password: String?, appearance: String?, reason: String?, contact: String?, location: String?, visible: Bool, rectangle: Rectangle?, formFieldName: String?, authority: String?, date: String?, showProperties: Bool, timestampSettings: TimestampSettings?, isValid: Bool?, customAppearance: SignatureCustomAppearance?) {
         self.signaturePath = signaturePath
         self.signatureType = signatureType
         self.password = password
@@ -72,6 +78,9 @@ open class Signature: Codable {
         self.authority = authority
         self.date = date
         self.showProperties = showProperties
+        self.timestampSettings = timestampSettings
+        self.isValid = isValid
+        self.customAppearance = customAppearance
     }
     
 
@@ -94,6 +103,9 @@ open class Signature: Codable {
         try container.encodeIfPresent(authority, forKey: "Authority")
         try container.encodeIfPresent(date, forKey: "Date")
         try container.encode(showProperties, forKey: "ShowProperties")
+        try container.encodeIfPresent(timestampSettings, forKey: "TimestampSettings")
+        try container.encodeIfPresent(isValid, forKey: "IsValid")
+        try container.encodeIfPresent(customAppearance, forKey: "CustomAppearance")
     }
 
     // Decodable protocol methods
@@ -114,6 +126,9 @@ open class Signature: Codable {
         authority = try container.decodeIfPresent(String.self, forKey: "Authority")
         date = try container.decodeIfPresent(String.self, forKey: "Date")
         showProperties = try container.decode(Bool.self, forKey: "ShowProperties")
+        timestampSettings = try container.decodeIfPresent(TimestampSettings.self, forKey: "TimestampSettings")
+        isValid = try container.decodeIfPresent(Bool.self, forKey: "IsValid")
+        customAppearance = try container.decodeIfPresent(SignatureCustomAppearance.self, forKey: "CustomAppearance")
     }
 }
 
