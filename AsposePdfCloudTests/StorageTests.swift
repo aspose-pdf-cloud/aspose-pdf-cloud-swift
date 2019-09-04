@@ -319,4 +319,29 @@ class StorageTests: AsposePdfCloudTests {
         
         self.waitForExpectations(timeout: self.testTimeout, handler: nil)
     }
+    
+    func testObjectExists() {
+        
+        let name = "4pages.pdf"
+        let path = "\(self.tempFolder)/\(name)"
+        let expectation = self.expectation(description: "testObjectExists")
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.objectExists(path: path) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testObjectExists")
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertTrue(response.exists)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        self.waitForExpectations(timeout: self.testTimeout, handler: nil)
+    }
 }

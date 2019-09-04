@@ -44,8 +44,10 @@ class SignTests: AsposePdfCloudTests {
             formFieldName: "Signature1",
             authority: "Sergey Smal",
             date: "08/01/2012 12:15:00.000 PM",
-            showProperties: false)
-        
+            showProperties: false,
+            timestampSettings: nil,
+            isValid: nil,
+            customAppearance: nil)
     }
     
     func testPostSignDocument() {
@@ -128,12 +130,52 @@ class SignTests: AsposePdfCloudTests {
                     }
                 }
             }
+        }
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    func testPostPageCertify() {
+        let expectation = self.expectation(description: "testPostPageCertify")
+        let name = "4pages.pdf"
+        let signatureFile = "33226.p12"
+        let permissionType = DocMDPAccessPermissionType.noChanges
+        
+        let signatureForCertify = Signature(
+            signaturePath: "\(self.tempFolder)/\(signatureFile)",
+            signatureType: SignatureType.pkcs7,
+            password: "sIikZSmz",
+            appearance: nil,
+            reason: nil,
+            contact: "test@mail.ru",
+            location: "Ukraine",
+            visible: true,
+            rectangle: Rectangle(LLX: 100, LLY: 100, URX: 500, URY: 200),
+            formFieldName: "Signature1",
+            authority: "Sergey Smal",
+            date: "08/01/2012 12:15:00.000 PM",
+            showProperties: false,
+            timestampSettings: nil,
+            isValid: nil,
+            customAppearance: nil)
+        
+        uploadFiles(names: [name, signatureFile]) {
             
-            
-            
+            PdfAPI.postPageCertify(name: name, pageNumber: 1, sign: signatureForCertify, docMdpAccessPermissionType: permissionType.rawValue, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testPostPageCertify: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
             
         }
         
-        self.waitForExpectations(timeout: testTimeout, handler: nil)
+        self.waitForExpectations(timeout: 120.0, handler: nil)
     }
 }

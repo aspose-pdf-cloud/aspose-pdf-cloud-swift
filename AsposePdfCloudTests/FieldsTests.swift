@@ -243,4 +243,79 @@ class FieldsTests: AsposePdfCloudTests {
         
         self.waitForExpectations(timeout: testTimeout, handler: nil)
     }
+    
+    func testGetDocumentSignatureFields() {
+        
+        let name = "adbe.x509.rsa_sha1.valid.pdf"
+        let expectation = self.expectation(description: "testGetDocumentSignatureFields")
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.getDocumentSignatureFields(name: name, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testGetDocumentSignatureFields: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    func testGetPageSignatureFields() {
+        
+        let name = "adbe.x509.rsa_sha1.valid.pdf"
+        let expectation = self.expectation(description: "testGetPageSignatureFields")
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.getPageSignatureFields(name: name, pageNumber: 1, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testGetPageSignatureFields: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    func testGetSignatureField() {
+        
+        let name = "adbe.x509.rsa_sha1.valid.pdf"
+        let expectation = self.expectation(description: "testGetSignatureField")
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.getSignatureField(name: name, fieldName: "Signature1", folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testGetSignatureField: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
 }

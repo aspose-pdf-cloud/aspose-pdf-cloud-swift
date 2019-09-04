@@ -654,4 +654,57 @@ class ConvertToPdfTests: AsposePdfCloudTests {
         
         self.waitForExpectations(timeout: testTimeout, handler: nil)
     }
+    
+    // MD
+    func testGetMarkdownInStorageToPdf() {
+        
+        let expectation = self.expectation(description: "testGetMarkdownInStorageToPdf")
+        let name = "mixed.md"
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.getMarkdownInStorageToPdf(srcPath: "\(self.tempFolder)/\(name)") {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testGetMarkdownInStorageToPdf: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertFalse(response.isEmpty)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    
+    func testPutMarkdownInStorageToPdf() {
+        
+        let expectation = self.expectation(description: "testPutMarkdownInStorageToPdf")
+        let name = "mixed.md"
+        let resultName = "fromMd.pdf"
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.putMarkdownInStorageToPdf(name: resultName, srcPath: "\(self.tempFolder)/\(name)", dstFolder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testPutMarkdownInStorageToPdf: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
 }
