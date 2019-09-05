@@ -11,12 +11,15 @@ Name | Type | Description | Notes
 **reason** | **String?** | Gets or sets the reason of the signature. | [optional]
 **contact** | **String?** | Gets or sets the contact of the signature. | [optional]
 **location** | **String?** | Gets or sets the location of the signature. | [optional]
-**visible** | **Bool** | Gets or sets a value indicating whether this is visible. Supports only when signing particular page. | 
+**visible** | **Bool** | Gets or sets a value indicating whether this Signature is visible. Supports only when signing particular page. | 
 **rectangle** | [**Rectangle?**](Rectangle.md) | Gets or sets the visible rectangle of the signature. Supports only when signing particular page. | [optional]
 **formFieldName** | **String?** | Gets or sets the name of the signature field. Supports only when signing document with particular form field. | [optional]
 **authority** | **String?** | Gets or sets the name of the person or authority signing the document.. | [optional]
 **date** | **String?** | Gets or sets the time of signing. | [optional]
 **showProperties** | **Bool** | Gets or sets the showproperties in signature field | 
+**timestampSettings** | [**TimestampSettings?**](TimestampSettings.md) | Gets/sets timestamp settings. | [optional]
+**isValid** | **Bool?** | Verify the document regarding this signature and return true if document is valid or otherwise false. | [optional]
+**customAppearance** | [**SignatureCustomAppearance?**](SignatureCustomAppearance.md) | Gets/sets the custom appearance. | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md) [[View Source]](../AsposePdfCloud/Models/Signature.swift)
 

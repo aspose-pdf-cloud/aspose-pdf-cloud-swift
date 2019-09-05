@@ -30,11 +30,11 @@ import Foundation
 open class LineAnnotation: MarkupAnnotation {
 
     /** Gets or sets starting point of line. */
-    public var starting: Point?
+    public var starting: Point
     /** Gets or sets line ending style for line starting point. */
     public var startingStyle: LineEnding?
     /** Gets or sets ending point of line. */
-    public var ending: Point?
+    public var ending: Point
     /** Gets or sets ending style for end point of line. */
     public var endingStyle: LineEnding?
     /** Gets or sets interior color of the annotation. */
@@ -55,11 +55,11 @@ open class LineAnnotation: MarkupAnnotation {
     public var intent: LineIntent?
 
     
-    public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, creationDate: String?, subject: String?, title: String?, richText: String?, starting: Point?, startingStyle: LineEnding?, ending: Point?, endingStyle: LineEnding?, interiorColor: Color?, leaderLine: Double?, leaderLineExtension: Double?, leaderLineOffset: Double?, showCaption: Bool?, captionOffset: Point?, captionPosition: CaptionPosition?, intent: LineIntent?) {
-        super.init(links: links, color: color, contents: contents, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, creationDate: creationDate, subject: subject, title: title, richText: richText)
+    public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, creationDate: String?, subject: String?, title: String?, richText: String?, starting: Point, startingStyle: LineEnding?, ending: Point, endingStyle: LineEnding?, interiorColor: Color?, leaderLine: Double?, leaderLineExtension: Double?, leaderLineOffset: Double?, showCaption: Bool?, captionOffset: Point?, captionPosition: CaptionPosition?, intent: LineIntent?) {
         self.starting = starting
-        self.startingStyle = startingStyle
         self.ending = ending
+        super.init(links: links, color: color, contents: contents, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, creationDate: creationDate, subject: subject, title: title, richText: richText)
+        self.startingStyle = startingStyle
         self.endingStyle = endingStyle
         self.interiorColor = interiorColor
         self.leaderLine = leaderLine
@@ -79,9 +79,9 @@ open class LineAnnotation: MarkupAnnotation {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(starting, forKey: "Starting")
+        try container.encode(starting, forKey: "Starting")
         try container.encodeIfPresent(startingStyle, forKey: "StartingStyle")
-        try container.encodeIfPresent(ending, forKey: "Ending")
+        try container.encode(ending, forKey: "Ending")
         try container.encodeIfPresent(endingStyle, forKey: "EndingStyle")
         try container.encodeIfPresent(interiorColor, forKey: "InteriorColor")
         try container.encodeIfPresent(leaderLine, forKey: "LeaderLine")
@@ -99,9 +99,9 @@ open class LineAnnotation: MarkupAnnotation {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        starting = try container.decodeIfPresent(Point.self, forKey: "Starting")
+        starting = try container.decode(Point.self, forKey: "Starting")
         startingStyle = try container.decodeIfPresent(LineEnding.self, forKey: "StartingStyle")
-        ending = try container.decodeIfPresent(Point.self, forKey: "Ending")
+        ending = try container.decode(Point.self, forKey: "Ending")
         endingStyle = try container.decodeIfPresent(LineEnding.self, forKey: "EndingStyle")
         interiorColor = try container.decodeIfPresent(Color.self, forKey: "InteriorColor")
         leaderLine = try container.decodeIfPresent(Double.self, forKey: "LeaderLine")

@@ -30,12 +30,12 @@ import Foundation
 open class SignatureVerifyResponse: AsposeResponse {
 
     /** True if signature is valid and false if not */
-    public var valid: Bool?
+    public var valid: Bool
 
     
-    public init(code: Int, status: String?, valid: Bool?) {
-        super.init(code: code, status: status)
+    public init(code: Int, status: String?, valid: Bool) {
         self.valid = valid
+        super.init(code: code, status: status)
     }
         
     
@@ -46,7 +46,7 @@ open class SignatureVerifyResponse: AsposeResponse {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(valid, forKey: "Valid")
+        try container.encode(valid, forKey: "Valid")
         try super.encode(to: encoder)
     }
 
@@ -55,7 +55,7 @@ open class SignatureVerifyResponse: AsposeResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        valid = try container.decodeIfPresent(Bool.self, forKey: "Valid")
+        valid = try container.decode(Bool.self, forKey: "Valid")
         try super.init(from: decoder)
     }
 }

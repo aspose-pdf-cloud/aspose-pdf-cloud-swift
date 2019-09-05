@@ -43,9 +43,9 @@ open class SoundAnnotation: MarkupAnnotation {
     public var encoding: SoundEncoding?
 
     
-    public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, creationDate: String?, subject: String?, title: String?, richText: String?, filePath: String?, icon: SoundIcon?, rate: Int?, channels: Int?, bits: Int?, encoding: SoundEncoding?) {
-        super.init(links: links, color: color, contents: contents, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, creationDate: creationDate, subject: subject, title: title, richText: richText)
+    public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, creationDate: String?, subject: String?, title: String?, richText: String?, filePath: String, icon: SoundIcon?, rate: Int?, channels: Int?, bits: Int?, encoding: SoundEncoding?) {
         self.filePath = filePath
+        super.init(links: links, color: color, contents: contents, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, creationDate: creationDate, subject: subject, title: title, richText: richText)
         self.icon = icon
         self.rate = rate
         self.channels = channels
@@ -61,7 +61,7 @@ open class SoundAnnotation: MarkupAnnotation {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(filePath, forKey: "FilePath")
+        try container.encode(filePath, forKey: "FilePath")
         try container.encodeIfPresent(icon, forKey: "Icon")
         try container.encodeIfPresent(rate, forKey: "Rate")
         try container.encodeIfPresent(channels, forKey: "Channels")

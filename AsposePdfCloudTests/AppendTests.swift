@@ -65,32 +65,4 @@ class AppendTests: AsposePdfCloudTests {
         
         self.waitForExpectations(timeout: testTimeout, handler: nil)
     }
-
-    func testPostAppendDocumentUsingBodyParams() {
-        
-        let expectation = self.expectation(description: "testPostAppendDocumentUsingBodyParams")
-        let appendDocument = AppendDocument(document: self.tempFolder + "/" + self.appendFile,
-                                            startPage: startPage, endPage: endPage)
-        let files = [fileName, appendFile]
-        
-        uploadFiles(names: files) {
-            PdfAPI.postAppendDocument(name: self.fileName,
-                                      appendDocument:  appendDocument,
-                                      folder: self.tempFolder) {
-                (response, error) in
-                guard error == nil else {
-                    XCTFail("error testPostAppendDocumentUsingBodyParams")
-                    return
-                }
-                
-                if let response = response {
-                    XCTAssertEqual(response.code, self.codeOk)
-                    
-                    expectation.fulfill()
-                }
-            }
-        }
-        
-        self.waitForExpectations(timeout: testTimeout, handler: nil)
-    }
 }

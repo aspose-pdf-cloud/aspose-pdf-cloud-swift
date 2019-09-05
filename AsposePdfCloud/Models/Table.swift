@@ -46,7 +46,7 @@ open class Table: LinkElement {
     /** Gets or sets the border. */
     public var border: BorderInfo?
     /** Sets the rows of the table. */
-    public var rows: [Row]?
+    public var rows: [Row]
     /** Gets default cell border; */
     public var defaultColumnWidth: String?
     /** Gets default cell border; */
@@ -75,7 +75,8 @@ open class Table: LinkElement {
     public var zIndex: Int?
 
     
-    public init(links: [Link]?, alignment: HorizontalAlignment?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, top: Double?, _left: Double?, defaultCellTextState: TextState?, defaultCellPadding: MarginInfo?, border: BorderInfo?, rows: [Row]?, defaultColumnWidth: String?, defaultCellBorder: BorderInfo?, broken: TableBroken?, columnWidths: String?, repeatingRowsCount: Int?, repeatingColumnsCount: Int?, repeatingRowsStyle: TextState?, cornerStyle: BorderCornerStyle?, breakText: TextRect?, backgroundColor: Color?, isBordersIncluded: Bool?, columnAdjustment: ColumnAdjustment?, zIndex: Int?) {
+    public init(links: [Link]?, alignment: HorizontalAlignment?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, top: Double?, _left: Double?, defaultCellTextState: TextState?, defaultCellPadding: MarginInfo?, border: BorderInfo?, rows: [Row], defaultColumnWidth: String?, defaultCellBorder: BorderInfo?, broken: TableBroken?, columnWidths: String?, repeatingRowsCount: Int?, repeatingColumnsCount: Int?, repeatingRowsStyle: TextState?, cornerStyle: BorderCornerStyle?, breakText: TextRect?, backgroundColor: Color?, isBordersIncluded: Bool?, columnAdjustment: ColumnAdjustment?, zIndex: Int?) {
+        self.rows = rows
         super.init(links: links)
         self.alignment = alignment
         self.horizontalAlignment = horizontalAlignment
@@ -85,7 +86,6 @@ open class Table: LinkElement {
         self.defaultCellTextState = defaultCellTextState
         self.defaultCellPadding = defaultCellPadding
         self.border = border
-        self.rows = rows
         self.defaultColumnWidth = defaultColumnWidth
         self.defaultCellBorder = defaultCellBorder
         self.broken = broken
@@ -117,7 +117,7 @@ open class Table: LinkElement {
         try container.encodeIfPresent(defaultCellTextState, forKey: "DefaultCellTextState")
         try container.encodeIfPresent(defaultCellPadding, forKey: "DefaultCellPadding")
         try container.encodeIfPresent(border, forKey: "Border")
-        try container.encodeIfPresent(rows, forKey: "Rows")
+        try container.encode(rows, forKey: "Rows")
         try container.encodeIfPresent(defaultColumnWidth, forKey: "DefaultColumnWidth")
         try container.encodeIfPresent(defaultCellBorder, forKey: "DefaultCellBorder")
         try container.encodeIfPresent(broken, forKey: "Broken")
@@ -147,7 +147,7 @@ open class Table: LinkElement {
         defaultCellTextState = try container.decodeIfPresent(TextState.self, forKey: "DefaultCellTextState")
         defaultCellPadding = try container.decodeIfPresent(MarginInfo.self, forKey: "DefaultCellPadding")
         border = try container.decodeIfPresent(BorderInfo.self, forKey: "Border")
-        rows = try container.decodeIfPresent([Row].self, forKey: "Rows")
+        rows = try container.decode([Row].self, forKey: "Rows")
         defaultColumnWidth = try container.decodeIfPresent(String.self, forKey: "DefaultColumnWidth")
         defaultCellBorder = try container.decodeIfPresent(BorderInfo.self, forKey: "DefaultCellBorder")
         broken = try container.decodeIfPresent(TableBroken.self, forKey: "Broken")

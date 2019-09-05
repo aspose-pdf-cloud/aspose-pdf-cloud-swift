@@ -4,14 +4,19 @@ All URIs are relative to *https://api.aspose.cloud/v2.0/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+*PdfApi* | [**copyFile**](PdfApi.md#copyFile) | **PUT** /pdf/storage/file/copy/\{srcPath} | Copy file
+*PdfApi* | [**copyFolder**](PdfApi.md#copyFolder) | **PUT** /pdf/storage/folder/copy/\{srcPath} | Copy folder
+*PdfApi* | [**createFolder**](PdfApi.md#createFolder) | **PUT** /pdf/storage/folder/\{path} | Create the folder
 *PdfApi* | [**deleteAnnotation**](PdfApi.md#deleteAnnotation) | **DELETE** /pdf/\{name}/annotations/\{annotationId} | Delete document annotation by ID
+*PdfApi* | [**deleteBookmark**](PdfApi.md#deleteBookmark) | **DELETE** /pdf/\{name}/bookmarks/bookmark/\{bookmarkPath} | Delete document bookmark by ID.
 *PdfApi* | [**deleteDocumentAnnotations**](PdfApi.md#deleteDocumentAnnotations) | **DELETE** /pdf/\{name}/annotations | Delete all annotations from the document
+*PdfApi* | [**deleteDocumentBookmarks**](PdfApi.md#deleteDocumentBookmarks) | **DELETE** /pdf/\{name}/bookmarks/tree | Delete all document bookmarks.
 *PdfApi* | [**deleteDocumentLinkAnnotations**](PdfApi.md#deleteDocumentLinkAnnotations) | **DELETE** /pdf/\{name}/links | Delete all link annotations from the document
 *PdfApi* | [**deleteDocumentStamps**](PdfApi.md#deleteDocumentStamps) | **DELETE** /pdf/\{name}/stamps | Delete all stamps from the document
 *PdfApi* | [**deleteDocumentTables**](PdfApi.md#deleteDocumentTables) | **DELETE** /pdf/\{name}/tables | Delete all tables from the document
 *PdfApi* | [**deleteField**](PdfApi.md#deleteField) | **DELETE** /pdf/\{name}/fields/\{fieldName} | Delete document field by name.
-*PdfApi* | [**deleteFile**](PdfApi.md#deleteFile) | **DELETE** /storage/file | Remove a specific file 
-*PdfApi* | [**deleteFolder**](PdfApi.md#deleteFolder) | **DELETE** /storage/folder | Remove a specific folder 
+*PdfApi* | [**deleteFile**](PdfApi.md#deleteFile) | **DELETE** /pdf/storage/file/\{path} | Delete file
+*PdfApi* | [**deleteFolder**](PdfApi.md#deleteFolder) | **DELETE** /pdf/storage/folder/\{path} | Delete folder
 *PdfApi* | [**deleteImage**](PdfApi.md#deleteImage) | **DELETE** /pdf/\{name}/images/\{imageId} | Delete image from document page.
 *PdfApi* | [**deleteLinkAnnotation**](PdfApi.md#deleteLinkAnnotation) | **DELETE** /pdf/\{name}/links/\{linkId} | Delete document page link annotation by ID
 *PdfApi* | [**deletePage**](PdfApi.md#deletePage) | **DELETE** /pdf/\{name}/pages/\{pageNumber} | Delete document page by its number.
@@ -23,13 +28,17 @@ Method | HTTP request | Description
 *PdfApi* | [**deleteProperty**](PdfApi.md#deleteProperty) | **DELETE** /pdf/\{name}/documentproperties/\{propertyName} | Delete document property.
 *PdfApi* | [**deleteStamp**](PdfApi.md#deleteStamp) | **DELETE** /pdf/\{name}/stamps/\{stampId} | Delete document stamp by ID
 *PdfApi* | [**deleteTable**](PdfApi.md#deleteTable) | **DELETE** /pdf/\{name}/tables/\{tableId} | Delete document table by ID
+*PdfApi* | [**downloadFile**](PdfApi.md#downloadFile) | **GET** /pdf/storage/file/\{path} | Download file
+*PdfApi* | [**getBookmark**](PdfApi.md#getBookmark) | **GET** /pdf/\{name}/bookmarks/bookmark/\{bookmarkPath} | Read document bookmark.
+*PdfApi* | [**getBookmarks**](PdfApi.md#getBookmarks) | **GET** /pdf/\{name}/bookmarks/list/\{bookmarkPath} | Read document bookmarks node list.
 *PdfApi* | [**getCaretAnnotation**](PdfApi.md#getCaretAnnotation) | **GET** /pdf/\{name}/annotations/caret/\{annotationId} | Read document page caret annotation by ID.
 *PdfApi* | [**getCircleAnnotation**](PdfApi.md#getCircleAnnotation) | **GET** /pdf/\{name}/annotations/circle/\{annotationId} | Read document page circle annotation by ID.
-*PdfApi* | [**getDiscUsage**](PdfApi.md#getDiscUsage) | **GET** /storage/disc | Check the disk usage of the current account 
+*PdfApi* | [**getDiscUsage**](PdfApi.md#getDiscUsage) | **GET** /pdf/storage/disc | Get disc usage
 *PdfApi* | [**getDocument**](PdfApi.md#getDocument) | **GET** /pdf/\{name} | Read common document info.
 *PdfApi* | [**getDocumentAnnotations**](PdfApi.md#getDocumentAnnotations) | **GET** /pdf/\{name}/annotations | Read documant page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
 *PdfApi* | [**getDocumentAttachmentByIndex**](PdfApi.md#getDocumentAttachmentByIndex) | **GET** /pdf/\{name}/attachments/\{attachmentIndex} | Read document attachment info by its index.
 *PdfApi* | [**getDocumentAttachments**](PdfApi.md#getDocumentAttachments) | **GET** /pdf/\{name}/attachments | Read document attachments info.
+*PdfApi* | [**getDocumentBookmarks**](PdfApi.md#getDocumentBookmarks) | **GET** /pdf/\{name}/bookmarks/tree | Read document bookmarks tree.
 *PdfApi* | [**getDocumentCaretAnnotations**](PdfApi.md#getDocumentCaretAnnotations) | **GET** /pdf/\{name}/annotations/caret | Read document caret annotations.
 *PdfApi* | [**getDocumentCircleAnnotations**](PdfApi.md#getDocumentCircleAnnotations) | **GET** /pdf/\{name}/annotations/circle | Read document circle annotations.
 *PdfApi* | [**getDocumentFileAttachmentAnnotations**](PdfApi.md#getDocumentFileAttachmentAnnotations) | **GET** /pdf/\{name}/annotations/fileattachment | Read document FileAttachment annotations.
@@ -46,6 +55,7 @@ Method | HTTP request | Description
 *PdfApi* | [**getDocumentProperty**](PdfApi.md#getDocumentProperty) | **GET** /pdf/\{name}/documentproperties/\{propertyName} | Read document property by name.
 *PdfApi* | [**getDocumentRedactionAnnotations**](PdfApi.md#getDocumentRedactionAnnotations) | **GET** /pdf/\{name}/annotations/redaction | Read document redaction annotations.
 *PdfApi* | [**getDocumentScreenAnnotations**](PdfApi.md#getDocumentScreenAnnotations) | **GET** /pdf/\{name}/annotations/screen | Read document screen annotations.
+*PdfApi* | [**getDocumentSignatureFields**](PdfApi.md#getDocumentSignatureFields) | **GET** /pdf/\{name}/fields/signature | Read document signature fields.
 *PdfApi* | [**getDocumentSoundAnnotations**](PdfApi.md#getDocumentSoundAnnotations) | **GET** /pdf/\{name}/annotations/sound | Read document sound annotations.
 *PdfApi* | [**getDocumentSquareAnnotations**](PdfApi.md#getDocumentSquareAnnotations) | **GET** /pdf/\{name}/annotations/square | Read document square annotations.
 *PdfApi* | [**getDocumentSquigglyAnnotations**](PdfApi.md#getDocumentSquigglyAnnotations) | **GET** /pdf/\{name}/annotations/squiggly | Read document squiggly annotations.
@@ -55,13 +65,17 @@ Method | HTTP request | Description
 *PdfApi* | [**getDocumentTables**](PdfApi.md#getDocumentTables) | **GET** /pdf/\{name}/tables | Read document tables.
 *PdfApi* | [**getDocumentTextAnnotations**](PdfApi.md#getDocumentTextAnnotations) | **GET** /pdf/\{name}/annotations/text | Read document text annotations.
 *PdfApi* | [**getDocumentUnderlineAnnotations**](PdfApi.md#getDocumentUnderlineAnnotations) | **GET** /pdf/\{name}/annotations/underline | Read document underline annotations.
-*PdfApi* | [**getDownload**](PdfApi.md#getDownload) | **GET** /storage/file | Download a specific file 
 *PdfApi* | [**getDownloadDocumentAttachmentByIndex**](PdfApi.md#getDownloadDocumentAttachmentByIndex) | **GET** /pdf/\{name}/attachments/\{attachmentIndex}/download | Download document attachment content by its index.
 *PdfApi* | [**getEpubInStorageToPdf**](PdfApi.md#getEpubInStorageToPdf) | **GET** /pdf/create/epub | Convert EPUB file (located on storage) to PDF format and return resulting file in response. 
+*PdfApi* | [**getExportFieldsFromPdfToFdfInStorage**](PdfApi.md#getExportFieldsFromPdfToFdfInStorage) | **GET** /pdf/\{name}/export/fdf | Export fields from from PDF in storage to FDF file.
+*PdfApi* | [**getExportFieldsFromPdfToXfdfInStorage**](PdfApi.md#getExportFieldsFromPdfToXfdfInStorage) | **GET** /pdf/\{name}/export/xfdf | Export fields from from PDF in storage to XFDF file.
+*PdfApi* | [**getExportFieldsFromPdfToXmlInStorage**](PdfApi.md#getExportFieldsFromPdfToXmlInStorage) | **GET** /pdf/\{name}/export/xml | Export fields from from PDF in storage to XML file.
 *PdfApi* | [**getField**](PdfApi.md#getField) | **GET** /pdf/\{name}/fields/\{fieldName} | Get document field by name.
 *PdfApi* | [**getFields**](PdfApi.md#getFields) | **GET** /pdf/\{name}/fields | Get document fields.
 *PdfApi* | [**getFileAttachmentAnnotation**](PdfApi.md#getFileAttachmentAnnotation) | **GET** /pdf/\{name}/annotations/fileattachment/\{annotationId} | Read document page FileAttachment annotation by ID.
 *PdfApi* | [**getFileAttachmentAnnotationData**](PdfApi.md#getFileAttachmentAnnotationData) | **GET** /pdf/\{name}/annotations/fileattachment/\{annotationId}/data | Read document page FileAttachment annotation by ID.
+*PdfApi* | [**getFilesList**](PdfApi.md#getFilesList) | **GET** /pdf/storage/folder/\{path} | Get all files and folders within a folder
+*PdfApi* | [**getFileVersions**](PdfApi.md#getFileVersions) | **GET** /pdf/storage/version/\{path} | Get file versions
 *PdfApi* | [**getFreeTextAnnotation**](PdfApi.md#getFreeTextAnnotation) | **GET** /pdf/\{name}/annotations/freetext/\{annotationId} | Read document page free text annotation by ID.
 *PdfApi* | [**getHighlightAnnotation**](PdfApi.md#getHighlightAnnotation) | **GET** /pdf/\{name}/annotations/highlight/\{annotationId} | Read document page highlight annotation by ID.
 *PdfApi* | [**getHtmlInStorageToPdf**](PdfApi.md#getHtmlInStorageToPdf) | **GET** /pdf/create/html | Convert HTML file (located on storage) to PDF format and return resulting file in response. 
@@ -71,14 +85,14 @@ Method | HTTP request | Description
 *PdfApi* | [**getImageExtractAsPng**](PdfApi.md#getImageExtractAsPng) | **GET** /pdf/\{name}/images/\{imageId}/extract/png | Extract document image in PNG format
 *PdfApi* | [**getImageExtractAsTiff**](PdfApi.md#getImageExtractAsTiff) | **GET** /pdf/\{name}/images/\{imageId}/extract/tiff | Extract document image in TIFF format
 *PdfApi* | [**getImages**](PdfApi.md#getImages) | **GET** /pdf/\{name}/pages/\{pageNumber}/images | Read document images.
+*PdfApi* | [**getImportFieldsFromFdfInStorage**](PdfApi.md#getImportFieldsFromFdfInStorage) | **GET** /pdf/\{name}/import/fdf | Update fields from FDF file in storage.
+*PdfApi* | [**getImportFieldsFromXfdfInStorage**](PdfApi.md#getImportFieldsFromXfdfInStorage) | **GET** /pdf/\{name}/import/xfdf | Update fields from XFDF file in storage.
+*PdfApi* | [**getImportFieldsFromXmlInStorage**](PdfApi.md#getImportFieldsFromXmlInStorage) | **GET** /pdf/\{name}/import/xml | Import from XML file (located on storage) to PDF format and return resulting file in response. 
 *PdfApi* | [**getInkAnnotation**](PdfApi.md#getInkAnnotation) | **GET** /pdf/\{name}/annotations/ink/\{annotationId} | Read document page ink annotation by ID.
-*PdfApi* | [**getIsExist**](PdfApi.md#getIsExist) | **GET** /storage/exist | Check if a specific file or folder exists
-*PdfApi* | [**getIsStorageExist**](PdfApi.md#getIsStorageExist) | **GET** /storage/\{name}/exist | Check if storage exists 
 *PdfApi* | [**getLaTeXInStorageToPdf**](PdfApi.md#getLaTeXInStorageToPdf) | **GET** /pdf/create/latex | Convert LaTeX file (located on storage) to PDF format and return resulting file in response. 
 *PdfApi* | [**getLineAnnotation**](PdfApi.md#getLineAnnotation) | **GET** /pdf/\{name}/annotations/line/\{annotationId} | Read document page line annotation by ID.
 *PdfApi* | [**getLinkAnnotation**](PdfApi.md#getLinkAnnotation) | **GET** /pdf/\{name}/links/\{linkId} | Read document link annotation by ID.
-*PdfApi* | [**getListFiles**](PdfApi.md#getListFiles) | **GET** /storage/folder | Get the file listing of a specific folder 
-*PdfApi* | [**getListFileVersions**](PdfApi.md#getListFileVersions) | **GET** /storage/version | Get the file's versions list 
+*PdfApi* | [**getMarkdownInStorageToPdf**](PdfApi.md#getMarkdownInStorageToPdf) | **GET** /pdf/create/markdown | Convert MD file (located on storage) to PDF format and return resulting file in response. 
 *PdfApi* | [**getMhtInStorageToPdf**](PdfApi.md#getMhtInStorageToPdf) | **GET** /pdf/create/mht | Convert MHT file (located on storage) to PDF format and return resulting file in response. 
 *PdfApi* | [**getMovieAnnotation**](PdfApi.md#getMovieAnnotation) | **GET** /pdf/\{name}/annotations/movie/\{annotationId} | Read document page movie annotation by ID.
 *PdfApi* | [**getPage**](PdfApi.md#getPage) | **GET** /pdf/\{name}/pages/\{pageNumber} | Read document page info.
@@ -105,6 +119,7 @@ Method | HTTP request | Description
 *PdfApi* | [**getPageRedactionAnnotations**](PdfApi.md#getPageRedactionAnnotations) | **GET** /pdf/\{name}/pages/\{pageNumber}/annotations/redaction | Read document page redaction annotations.
 *PdfApi* | [**getPages**](PdfApi.md#getPages) | **GET** /pdf/\{name}/pages | Read document pages info.
 *PdfApi* | [**getPageScreenAnnotations**](PdfApi.md#getPageScreenAnnotations) | **GET** /pdf/\{name}/pages/\{pageNumber}/annotations/screen | Read document page screen annotations.
+*PdfApi* | [**getPageSignatureFields**](PdfApi.md#getPageSignatureFields) | **GET** /pdf/\{name}/page/\{pageNumber}/fields/signature | Read document page signature fields.
 *PdfApi* | [**getPageSoundAnnotations**](PdfApi.md#getPageSoundAnnotations) | **GET** /pdf/\{name}/pages/\{pageNumber}/annotations/sound | Read document page sound annotations.
 *PdfApi* | [**getPageSquareAnnotations**](PdfApi.md#getPageSquareAnnotations) | **GET** /pdf/\{name}/pages/\{pageNumber}/annotations/square | Read document page square annotations.
 *PdfApi* | [**getPageSquigglyAnnotations**](PdfApi.md#getPageSquigglyAnnotations) | **GET** /pdf/\{name}/pages/\{pageNumber}/annotations/squiggly | Read document page squiggly annotations.
@@ -136,6 +151,7 @@ Method | HTTP request | Description
 *PdfApi* | [**getRedactionAnnotation**](PdfApi.md#getRedactionAnnotation) | **GET** /pdf/\{name}/annotations/redaction/\{annotationId} | Read document page redaction annotation by ID.
 *PdfApi* | [**getScreenAnnotation**](PdfApi.md#getScreenAnnotation) | **GET** /pdf/\{name}/annotations/screen/\{annotationId} | Read document page screen annotation by ID.
 *PdfApi* | [**getScreenAnnotationData**](PdfApi.md#getScreenAnnotationData) | **GET** /pdf/\{name}/annotations/screen/\{annotationId}/data | Read document page screen annotation by ID.
+*PdfApi* | [**getSignatureField**](PdfApi.md#getSignatureField) | **GET** /pdf/\{name}/fields/signature/\{fieldName} | Read document signature field by name.
 *PdfApi* | [**getSoundAnnotation**](PdfApi.md#getSoundAnnotation) | **GET** /pdf/\{name}/annotations/sound/\{annotationId} | Read document page sound annotation by ID.
 *PdfApi* | [**getSoundAnnotationData**](PdfApi.md#getSoundAnnotationData) | **GET** /pdf/\{name}/annotations/sound/\{annotationId}/data | Read document page sound annotation by ID.
 *PdfApi* | [**getSquareAnnotation**](PdfApi.md#getSquareAnnotation) | **GET** /pdf/\{name}/annotations/square/\{annotationId} | Read document page square annotation by ID.
@@ -155,7 +171,11 @@ Method | HTTP request | Description
 *PdfApi* | [**getXmlInStorageToPdf**](PdfApi.md#getXmlInStorageToPdf) | **GET** /pdf/create/xml | Convert XML file (located on storage) to PDF format and return resulting file in response. 
 *PdfApi* | [**getXpsInStorageToPdf**](PdfApi.md#getXpsInStorageToPdf) | **GET** /pdf/create/xps | Convert XPS file (located on storage) to PDF format and return resulting file in response. 
 *PdfApi* | [**getXslFoInStorageToPdf**](PdfApi.md#getXslFoInStorageToPdf) | **GET** /pdf/create/xslfo | Convert XslFo file (located on storage) to PDF format and return resulting file in response. 
+*PdfApi* | [**moveFile**](PdfApi.md#moveFile) | **PUT** /pdf/storage/file/move/\{srcPath} | Move file
+*PdfApi* | [**moveFolder**](PdfApi.md#moveFolder) | **PUT** /pdf/storage/folder/move/\{srcPath} | Move folder
+*PdfApi* | [**objectExists**](PdfApi.md#objectExists) | **GET** /pdf/storage/exist/\{path} | Check if file or folder exists
 *PdfApi* | [**postAppendDocument**](PdfApi.md#postAppendDocument) | **POST** /pdf/\{name}/appendDocument | Append document to existing one.
+*PdfApi* | [**postBookmark**](PdfApi.md#postBookmark) | **POST** /pdf/\{name}/bookmarks/bookmark/\{bookmarkPath} | Add document bookmarks.
 *PdfApi* | [**postChangePasswordDocumentInStorage**](PdfApi.md#postChangePasswordDocumentInStorage) | **POST** /pdf/\{name}/changepassword | Change document password in storage.
 *PdfApi* | [**postCreateField**](PdfApi.md#postCreateField) | **POST** /pdf/\{name}/fields | Create field.
 *PdfApi* | [**postDecryptDocumentInStorage**](PdfApi.md#postDecryptDocumentInStorage) | **POST** /pdf/\{name}/decrypt | Decrypt document in storage.
@@ -167,12 +187,14 @@ Method | HTTP request | Description
 *PdfApi* | [**postDocumentTextReplace**](PdfApi.md#postDocumentTextReplace) | **POST** /pdf/\{name}/text/replace | Document's replace text method.
 *PdfApi* | [**postEncryptDocumentInStorage**](PdfApi.md#postEncryptDocumentInStorage) | **POST** /pdf/\{name}/encrypt | Encrypt document in storage.
 *PdfApi* | [**postFlattenDocument**](PdfApi.md#postFlattenDocument) | **POST** /pdf/\{name}/flatten | Flatten the document.
+*PdfApi* | [**postImportFieldsFromFdf**](PdfApi.md#postImportFieldsFromFdf) | **POST** /pdf/\{name}/import/fdf | Update fields from FDF file in request.
+*PdfApi* | [**postImportFieldsFromXfdf**](PdfApi.md#postImportFieldsFromXfdf) | **POST** /pdf/\{name}/import/xfdf | Update fields from XFDF file in request.
+*PdfApi* | [**postImportFieldsFromXml**](PdfApi.md#postImportFieldsFromXml) | **POST** /pdf/\{name}/import/xml | Update fields from XML file in request.
 *PdfApi* | [**postInsertImage**](PdfApi.md#postInsertImage) | **POST** /pdf/\{name}/pages/\{pageNumber}/images | Insert image to document page.
-*PdfApi* | [**postMoveFile**](PdfApi.md#postMoveFile) | **POST** /storage/file | Move a specific file
-*PdfApi* | [**postMoveFolder**](PdfApi.md#postMoveFolder) | **POST** /storage/folder | Move a specific folder 
 *PdfApi* | [**postMovePage**](PdfApi.md#postMovePage) | **POST** /pdf/\{name}/pages/\{pageNumber}/movePage | Move page to new position.
 *PdfApi* | [**postOptimizeDocument**](PdfApi.md#postOptimizeDocument) | **POST** /pdf/\{name}/optimize | Optimize document.
 *PdfApi* | [**postPageCaretAnnotations**](PdfApi.md#postPageCaretAnnotations) | **POST** /pdf/\{name}/pages/\{pageNumber}/annotations/caret | Add document page caret annotations.
+*PdfApi* | [**postPageCertify**](PdfApi.md#postPageCertify) | **POST** /pdf/\{name}/pages/\{pageNumber}/certify | Certify document page.
 *PdfApi* | [**postPageCircleAnnotations**](PdfApi.md#postPageCircleAnnotations) | **POST** /pdf/\{name}/pages/\{pageNumber}/annotations/circle | Add document page circle annotations.
 *PdfApi* | [**postPageFileAttachmentAnnotations**](PdfApi.md#postPageFileAttachmentAnnotations) | **POST** /pdf/\{name}/pages/\{pageNumber}/annotations/fileattachment | Add document page FileAttachment annotations.
 *PdfApi* | [**postPageFreeTextAnnotations**](PdfApi.md#postPageFreeTextAnnotations) | **POST** /pdf/\{name}/pages/\{pageNumber}/annotations/freetext | Add document page free text annotations.
@@ -204,15 +226,17 @@ Method | HTTP request | Description
 *PdfApi* | [**putAddNewPage**](PdfApi.md#putAddNewPage) | **PUT** /pdf/\{name}/pages | Add new page to end of the document.
 *PdfApi* | [**putAddText**](PdfApi.md#putAddText) | **PUT** /pdf/\{name}/pages/\{pageNumber}/text | Add text to PDF document page.
 *PdfApi* | [**putAnnotationsFlatten**](PdfApi.md#putAnnotationsFlatten) | **PUT** /pdf/\{name}/annotations/flatten | Flattens the annotations of the specified types
+*PdfApi* | [**putBookmark**](PdfApi.md#putBookmark) | **PUT** /pdf/\{name}/bookmarks/bookmark/\{bookmarkPath} | Update document bookmark.
 *PdfApi* | [**putCaretAnnotation**](PdfApi.md#putCaretAnnotation) | **PUT** /pdf/\{name}/annotations/caret/\{annotationId} | Replace document caret annotation
 *PdfApi* | [**putChangePasswordDocument**](PdfApi.md#putChangePasswordDocument) | **PUT** /pdf/changepassword | Change document password from content.
 *PdfApi* | [**putCircleAnnotation**](PdfApi.md#putCircleAnnotation) | **PUT** /pdf/\{name}/annotations/circle/\{annotationId} | Replace document circle annotation
-*PdfApi* | [**putCreate**](PdfApi.md#putCreate) | **PUT** /storage/file | Upload a specific file 
 *PdfApi* | [**putCreateDocument**](PdfApi.md#putCreateDocument) | **PUT** /pdf/\{name} | Create empty document.
-*PdfApi* | [**putCreateFolder**](PdfApi.md#putCreateFolder) | **PUT** /storage/folder | Create the folder 
 *PdfApi* | [**putDecryptDocument**](PdfApi.md#putDecryptDocument) | **PUT** /pdf/decrypt | Decrypt document from content.
 *PdfApi* | [**putEncryptDocument**](PdfApi.md#putEncryptDocument) | **PUT** /pdf/encrypt | Encrypt document from content.
 *PdfApi* | [**putEpubInStorageToPdf**](PdfApi.md#putEpubInStorageToPdf) | **PUT** /pdf/\{name}/create/epub | Convert EPUB file (located on storage) to PDF format and upload resulting file to storage. 
+*PdfApi* | [**putExportFieldsFromPdfToFdfInStorage**](PdfApi.md#putExportFieldsFromPdfToFdfInStorage) | **PUT** /pdf/\{name}/export/fdf | Export fields from from PDF in storage to FDF file in storage.
+*PdfApi* | [**putExportFieldsFromPdfToXfdfInStorage**](PdfApi.md#putExportFieldsFromPdfToXfdfInStorage) | **PUT** /pdf/\{name}/export/xfdf | Export fields from from PDF in storage to XFDF file in storage.
+*PdfApi* | [**putExportFieldsFromPdfToXmlInStorage**](PdfApi.md#putExportFieldsFromPdfToXmlInStorage) | **PUT** /pdf/\{name}/export/xml | Export fields from from PDF in storage to XML file in storage.
 *PdfApi* | [**putFieldsFlatten**](PdfApi.md#putFieldsFlatten) | **PUT** /pdf/\{name}/fields/flatten | Flatten form fields in document.
 *PdfApi* | [**putFileAttachmentAnnotation**](PdfApi.md#putFileAttachmentAnnotation) | **PUT** /pdf/\{name}/annotations/fileattachment/\{annotationId} | Replace document FileAttachment annotation
 *PdfApi* | [**putFileAttachmentAnnotationDataExtract**](PdfApi.md#putFileAttachmentAnnotationDataExtract) | **PUT** /pdf/\{name}/annotations/fileattachment/\{annotationId}/data/extract | Extract document FileAttachment annotation content to storage
@@ -228,10 +252,14 @@ Method | HTTP request | Description
 *PdfApi* | [**putImagesExtractAsJpeg**](PdfApi.md#putImagesExtractAsJpeg) | **PUT** /pdf/\{name}/pages/\{pageNumber}/images/extract/jpeg | Extract document images in JPEG format to folder.
 *PdfApi* | [**putImagesExtractAsPng**](PdfApi.md#putImagesExtractAsPng) | **PUT** /pdf/\{name}/pages/\{pageNumber}/images/extract/png | Extract document images in PNG format to folder.
 *PdfApi* | [**putImagesExtractAsTiff**](PdfApi.md#putImagesExtractAsTiff) | **PUT** /pdf/\{name}/pages/\{pageNumber}/images/extract/tiff | Extract document images in TIFF format to folder.
+*PdfApi* | [**putImportFieldsFromFdfInStorage**](PdfApi.md#putImportFieldsFromFdfInStorage) | **PUT** /pdf/\{name}/import/fdf | Update fields from FDF file in storage.
+*PdfApi* | [**putImportFieldsFromXfdfInStorage**](PdfApi.md#putImportFieldsFromXfdfInStorage) | **PUT** /pdf/\{name}/import/xfdf | Update fields from XFDF file in storage.
+*PdfApi* | [**putImportFieldsFromXmlInStorage**](PdfApi.md#putImportFieldsFromXmlInStorage) | **PUT** /pdf/\{name}/import/xml | Update fields from XML file in storage.
 *PdfApi* | [**putInkAnnotation**](PdfApi.md#putInkAnnotation) | **PUT** /pdf/\{name}/annotations/ink/\{annotationId} | Replace document ink annotation
 *PdfApi* | [**putLaTeXInStorageToPdf**](PdfApi.md#putLaTeXInStorageToPdf) | **PUT** /pdf/\{name}/create/latex | Convert LaTeX file (located on storage) to PDF format and upload resulting file to storage. 
 *PdfApi* | [**putLineAnnotation**](PdfApi.md#putLineAnnotation) | **PUT** /pdf/\{name}/annotations/line/\{annotationId} | Replace document line annotation
 *PdfApi* | [**putLinkAnnotation**](PdfApi.md#putLinkAnnotation) | **PUT** /pdf/\{name}/links/\{linkId} | Replace document page link annotations
+*PdfApi* | [**putMarkdownInStorageToPdf**](PdfApi.md#putMarkdownInStorageToPdf) | **PUT** /pdf/\{name}/create/markdown | Convert MD file (located on storage) to PDF format and upload resulting file to storage. 
 *PdfApi* | [**putMergeDocuments**](PdfApi.md#putMergeDocuments) | **PUT** /pdf/\{name}/merge | Merge a list of documents.
 *PdfApi* | [**putMhtInStorageToPdf**](PdfApi.md#putMhtInStorageToPdf) | **PUT** /pdf/\{name}/create/mht | Convert MHT file (located on storage) to PDF format and upload resulting file to storage. 
 *PdfApi* | [**putMovieAnnotation**](PdfApi.md#putMovieAnnotation) | **PUT** /pdf/\{name}/annotations/movie/\{annotationId} | Replace document movie annotation
@@ -299,6 +327,76 @@ Method | HTTP request | Description
 *PdfApi* | [**putXmlInStorageToPdf**](PdfApi.md#putXmlInStorageToPdf) | **PUT** /pdf/\{name}/create/xml | Convert XML file (located on storage) to PDF format and upload resulting file to storage. 
 *PdfApi* | [**putXpsInStorageToPdf**](PdfApi.md#putXpsInStorageToPdf) | **PUT** /pdf/\{name}/create/xps | Convert XPS file (located on storage) to PDF format and upload resulting file to storage. 
 *PdfApi* | [**putXslFoInStorageToPdf**](PdfApi.md#putXslFoInStorageToPdf) | **PUT** /pdf/\{name}/create/xslfo | Convert XslFo file (located on storage) to PDF format and upload resulting file to storage. 
+*PdfApi* | [**storageExists**](PdfApi.md#storageExists) | **GET** /pdf/storage/\{storageName}/exist | Check if storage exists
+*PdfApi* | [**uploadFile**](PdfApi.md#uploadFile) | **PUT** /pdf/storage/file/\{path} | Upload file
+<a name="copyFile"></a>
+## **copyFile**
+> copyFile(srcPath: String, destPath: String, srcStorageName: String? = nil, destStorageName: String? = nil, versionId: String? = nil, completion: @escaping ((_ data: ?, _ error: Error?) -> Void))
+
+Copy file
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**srcPath** | **String** | Source file path e.g. '/folder/file.ext' | 
+**destPath** | **String** | Destination file path | 
+**srcStorageName** | **String?** | Source storage name | [optional]
+**destStorageName** | **String?** | Destination storage name | [optional]
+**versionId** | **String?** | File version ID to copy | [optional]
+
+### Return type
+
+****
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="copyFolder"></a>
+## **copyFolder**
+> copyFolder(srcPath: String, destPath: String, srcStorageName: String? = nil, destStorageName: String? = nil, completion: @escaping ((_ data: ?, _ error: Error?) -> Void))
+
+Copy folder
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**srcPath** | **String** | Source folder path e.g. '/src' | 
+**destPath** | **String** | Destination folder path e.g. '/dst' | 
+**srcStorageName** | **String?** | Source storage name | [optional]
+**destStorageName** | **String?** | Destination storage name | [optional]
+
+### Return type
+
+****
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="createFolder"></a>
+## **createFolder**
+> createFolder(path: String, storageName: String? = nil, completion: @escaping ((_ data: ?, _ error: Error?) -> Void))
+
+Create the folder
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**path** | **String** | Folder path to create e.g. 'folder_1/folder_2/' | 
+**storageName** | **String?** | Storage name | [optional]
+
+### Return type
+
+****
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="deleteAnnotation"></a>
 ## **deleteAnnotation**
 > deleteAnnotation(name: String, annotationId: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
@@ -322,6 +420,29 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="deleteBookmark"></a>
+## **deleteBookmark**
+> deleteBookmark(name: String, bookmarkPath: String, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+
+Delete document bookmark by ID.
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**name** | **String** | The document name. | 
+**bookmarkPath** | **String** | The bookmark path. | 
+**folder** | **String?** | The document folder. | [optional]
+**storage** | **String?** | The document storage. | [optional]
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="deleteDocumentAnnotations"></a>
 ## **deleteDocumentAnnotations**
 > deleteDocumentAnnotations(name: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
@@ -334,6 +455,28 @@ Name | Type | Description  | Notes
 **name** | **String** | The document name. | 
 **storage** | **String?** | The document storage. | [optional]
 **folder** | **String?** | The document folder. | [optional]
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="deleteDocumentBookmarks"></a>
+## **deleteDocumentBookmarks**
+> deleteDocumentBookmarks(name: String, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+
+Delete all document bookmarks.
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**name** | **String** | The document name. | 
+**folder** | **String?** | The document folder. | [optional]
+**storage** | **String?** | The document storage. | [optional]
 
 ### Return type
 
@@ -435,20 +578,20 @@ Name | Type | Description  | Notes
 
 <a name="deleteFile"></a>
 ## **deleteFile**
-> deleteFile(path: String, versionId: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+> deleteFile(path: String, storageName: String? = nil, versionId: String? = nil, completion: @escaping ((_ data: ?, _ error: Error?) -> Void))
 
-Remove a specific file 
+Delete file
 
 ### Parameters
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**path** | **String** | Path of the file including file name and extension e.g. /Folder1/file.ext | 
-**versionId** | **String?** | File's version | [optional]
-**storage** | **String?** | User's storage name | [optional]
+**path** | **String** | File path e.g. '/folder/file.ext' | 
+**storageName** | **String?** | Storage name | [optional]
+**versionId** | **String?** | File version ID to delete | [optional]
 
 ### Return type
 
-[**AsposeResponse**](AsposeResponse.md)
+****
 
 ### HTTP request headers
 
@@ -457,20 +600,20 @@ Name | Type | Description  | Notes
 
 <a name="deleteFolder"></a>
 ## **deleteFolder**
-> deleteFolder(path: String, storage: String? = nil, recursive: Bool? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+> deleteFolder(path: String, storageName: String? = nil, recursive: Bool? = nil, completion: @escaping ((_ data: ?, _ error: Error?) -> Void))
 
-Remove a specific folder 
+Delete folder
 
 ### Parameters
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**path** | **String** | Folder path e.g. /Folder1 | 
-**storage** | **String?** | User's storage name | [optional]
-**recursive** | **Bool?** | Remove recursivelly inner folder/files. If false and folder contains data than exception is raised. | [optional]
+**path** | **String** | Folder path e.g. '/folder' | 
+**storageName** | **String?** | Storage name | [optional]
+**recursive** | **Bool?** | Enable to delete folders, subfolders and files | [optional]
 
 ### Return type
 
-[**AsposeResponse**](AsposeResponse.md)
+****
 
 ### HTTP request headers
 
@@ -729,6 +872,74 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="downloadFile"></a>
+## **downloadFile**
+> downloadFile(path: String, storageName: String? = nil, versionId: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
+
+Download file
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**path** | **String** | File path e.g. '/folder/file.ext' | 
+**storageName** | **String?** | Storage name | [optional]
+**versionId** | **String?** | File version ID to download | [optional]
+
+### Return type
+
+**Data**
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: multipart/form-data
+
+<a name="getBookmark"></a>
+## **getBookmark**
+> getBookmark(name: String, bookmarkPath: String, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: BookmarkResponse?, _ error: Error?) -> Void))
+
+Read document bookmark.
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**name** | **String** | The document name. | 
+**bookmarkPath** | **String** | The bookmark path. | 
+**folder** | **String?** | The document folder. | [optional]
+**storage** | **String?** | The document storage. | [optional]
+
+### Return type
+
+[**BookmarkResponse**](BookmarkResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getBookmarks"></a>
+## **getBookmarks**
+> getBookmarks(name: String, bookmarkPath: String, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: BookmarksResponse?, _ error: Error?) -> Void))
+
+Read document bookmarks node list.
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**name** | **String** | The document name. | 
+**bookmarkPath** | **String** | The bookmark path. | 
+**folder** | **String?** | The document folder. | [optional]
+**storage** | **String?** | The document storage. | [optional]
+
+### Return type
+
+[**BookmarksResponse**](BookmarksResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="getCaretAnnotation"></a>
 ## **getCaretAnnotation**
 > getCaretAnnotation(name: String, annotationId: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: CaretAnnotationResponse?, _ error: Error?) -> Void))
@@ -777,18 +988,18 @@ Name | Type | Description  | Notes
 
 <a name="getDiscUsage"></a>
 ## **getDiscUsage**
-> getDiscUsage(storage: String? = nil, completion: @escaping ((_ data: DiscUsageResponse?, _ error: Error?) -> Void))
+> getDiscUsage(storageName: String? = nil, completion: @escaping ((_ data: DiscUsage?, _ error: Error?) -> Void))
 
-Check the disk usage of the current account 
+Get disc usage
 
 ### Parameters
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**storage** | **String?** | User's storage name | [optional]
+**storageName** | **String?** | Storage name | [optional]
 
 ### Return type
 
-[**DiscUsageResponse**](DiscUsageResponse.md)
+[**DiscUsage**](DiscUsage.md)
 
 ### HTTP request headers
 
@@ -878,6 +1089,28 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AttachmentsResponse**](AttachmentsResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getDocumentBookmarks"></a>
+## **getDocumentBookmarks**
+> getDocumentBookmarks(name: String, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: BookmarksResponse?, _ error: Error?) -> Void))
+
+Read document bookmarks tree.
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**name** | **String** | The document name. | 
+**folder** | **String?** | The document folder. | [optional]
+**storage** | **String?** | The document storage. | [optional]
+
+### Return type
+
+[**BookmarksResponse**](BookmarksResponse.md)
 
 ### HTTP request headers
 
@@ -1238,6 +1471,28 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="getDocumentSignatureFields"></a>
+## **getDocumentSignatureFields**
+> getDocumentSignatureFields(name: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: SignatureFieldsResponse?, _ error: Error?) -> Void))
+
+Read document signature fields.
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**name** | **String** | The document name. | 
+**storage** | **String?** | The document storage. | [optional]
+**folder** | **String?** | The document folder. | [optional]
+
+### Return type
+
+[**SignatureFieldsResponse**](SignatureFieldsResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="getDocumentSoundAnnotations"></a>
 ## **getDocumentSoundAnnotations**
 > getDocumentSoundAnnotations(name: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: SoundAnnotationsResponse?, _ error: Error?) -> Void))
@@ -1436,28 +1691,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="getDownload"></a>
-## **getDownload**
-> getDownload(path: String, versionId: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
-
-Download a specific file 
-
-### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**path** | **String** | Path of the file including the file name and extension e.g. /file.ext | 
-**versionId** | **String?** | File's version | [optional]
-**storage** | **String?** | User's storage name | [optional]
-
-### Return type
-
-**Data**
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: multipart/form-data
-
 <a name="getDownloadDocumentAttachmentByIndex"></a>
 ## **getDownloadDocumentAttachmentByIndex**
 > getDownloadDocumentAttachmentByIndex(name: String, attachmentIndex: Int, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
@@ -1502,6 +1735,72 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: multipart/form-data
 
+<a name="getExportFieldsFromPdfToFdfInStorage"></a>
+## **getExportFieldsFromPdfToFdfInStorage**
+> getExportFieldsFromPdfToFdfInStorage(name: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
+
+Export fields from from PDF in storage to FDF file.
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**name** | **String** | The document name. | 
+**storage** | **String?** | The document storage. | [optional]
+**folder** | **String?** | The document folder. | [optional]
+
+### Return type
+
+**Data**
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: multipart/form-data
+
+<a name="getExportFieldsFromPdfToXfdfInStorage"></a>
+## **getExportFieldsFromPdfToXfdfInStorage**
+> getExportFieldsFromPdfToXfdfInStorage(name: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
+
+Export fields from from PDF in storage to XFDF file.
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**name** | **String** | The document name. | 
+**storage** | **String?** | The document storage. | [optional]
+**folder** | **String?** | The document folder. | [optional]
+
+### Return type
+
+**Data**
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: multipart/form-data
+
+<a name="getExportFieldsFromPdfToXmlInStorage"></a>
+## **getExportFieldsFromPdfToXmlInStorage**
+> getExportFieldsFromPdfToXmlInStorage(name: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
+
+Export fields from from PDF in storage to XML file.
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**name** | **String** | The document name. | 
+**storage** | **String?** | The document storage. | [optional]
+**folder** | **String?** | The document folder. | [optional]
+
+### Return type
+
+**Data**
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: multipart/form-data
+
 <a name="getField"></a>
 ## **getField**
 > getField(name: String, fieldName: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: FieldResponse?, _ error: Error?) -> Void))
@@ -1512,7 +1811,7 @@ Get document field by name.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **name** | **String** | The document name. | 
-**fieldName** | **String** | The field name/ | 
+**fieldName** | **String** | The field name (name should be encoded). | 
 **storage** | **String?** | The document storage. | [optional]
 **folder** | **String?** | The document folder. | [optional]
 
@@ -1568,7 +1867,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: multipart/form-data
+ - **Accept**: application/json
 
 <a name="getFileAttachmentAnnotationData"></a>
 ## **getFileAttachmentAnnotationData**
@@ -1592,6 +1891,48 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: multipart/form-data
+
+<a name="getFilesList"></a>
+## **getFilesList**
+> getFilesList(path: String, storageName: String? = nil, completion: @escaping ((_ data: FilesList?, _ error: Error?) -> Void))
+
+Get all files and folders within a folder
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**path** | **String** | Folder path e.g. '/folder' | 
+**storageName** | **String?** | Storage name | [optional]
+
+### Return type
+
+[**FilesList**](FilesList.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getFileVersions"></a>
+## **getFileVersions**
+> getFileVersions(path: String, storageName: String? = nil, completion: @escaping ((_ data: FileVersions?, _ error: Error?) -> Void))
+
+Get file versions
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**path** | **String** | File path e.g. '/file.ext' | 
+**storageName** | **String?** | Storage name | [optional]
+
+### Return type
+
+[**FileVersions**](FileVersions.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="getFreeTextAnnotation"></a>
 ## **getFreeTextAnnotation**
@@ -1689,7 +2030,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: multipart/form-data
+ - **Accept**: application/json
 
 <a name="getImageExtractAsGif"></a>
 ## **getImageExtractAsGif**
@@ -1814,6 +2155,75 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="getImportFieldsFromFdfInStorage"></a>
+## **getImportFieldsFromFdfInStorage**
+> getImportFieldsFromFdfInStorage(name: String, fdfFilePath: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
+
+Update fields from FDF file in storage.
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**name** | **String** | The document name. | 
+**fdfFilePath** | **String** | The Fdf file path. | 
+**storage** | **String?** | The document storage. | [optional]
+**folder** | **String?** | The document folder. | [optional]
+
+### Return type
+
+**Data**
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: multipart/form-data
+
+<a name="getImportFieldsFromXfdfInStorage"></a>
+## **getImportFieldsFromXfdfInStorage**
+> getImportFieldsFromXfdfInStorage(name: String, xfdfFilePath: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
+
+Update fields from XFDF file in storage.
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**name** | **String** | The document name. | 
+**xfdfFilePath** | **String** | The XFDF file path. | 
+**storage** | **String?** | The document storage. | [optional]
+**folder** | **String?** | The document folder. | [optional]
+
+### Return type
+
+**Data**
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: multipart/form-data
+
+<a name="getImportFieldsFromXmlInStorage"></a>
+## **getImportFieldsFromXmlInStorage**
+> getImportFieldsFromXmlInStorage(name: String, xmlFilePath: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
+
+Import from XML file (located on storage) to PDF format and return resulting file in response. 
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**name** | **String** | The document name. | 
+**xmlFilePath** | **String** | Full source filename (ex. /folder1/folder2/template.xml) | 
+**storage** | **String?** | The document storage. | [optional]
+**folder** | **String?** | The document folder. | [optional]
+
+### Return type
+
+**Data**
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: multipart/form-data
+
 <a name="getInkAnnotation"></a>
 ## **getInkAnnotation**
 > getInkAnnotation(name: String, annotationId: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: InkAnnotationResponse?, _ error: Error?) -> Void))
@@ -1831,48 +2241,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**InkAnnotationResponse**](InkAnnotationResponse.md)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="getIsExist"></a>
-## **getIsExist**
-> getIsExist(path: String, versionId: String? = nil, storage: String? = nil, completion: @escaping ((_ data: FileExistResponse?, _ error: Error?) -> Void))
-
-Check if a specific file or folder exists
-
-### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**path** | **String** | File or folder path e.g. /file.ext or /Folder1 | 
-**versionId** | **String?** | File's version | [optional]
-**storage** | **String?** | User's storage name | [optional]
-
-### Return type
-
-[**FileExistResponse**](FileExistResponse.md)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="getIsStorageExist"></a>
-## **getIsStorageExist**
-> getIsStorageExist(name: String, completion: @escaping ((_ data: StorageExistResponse?, _ error: Error?) -> Void))
-
-Check if storage exists 
-
-### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**name** | **String** | Storage name | 
-
-### Return type
-
-[**StorageExistResponse**](StorageExistResponse.md)
 
 ### HTTP request headers
 
@@ -1946,47 +2314,26 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="getListFiles"></a>
-## **getListFiles**
-> getListFiles(path: String? = nil, storage: String? = nil, completion: @escaping ((_ data: FilesResponse?, _ error: Error?) -> Void))
+<a name="getMarkdownInStorageToPdf"></a>
+## **getMarkdownInStorageToPdf**
+> getMarkdownInStorageToPdf(srcPath: String, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
-Get the file listing of a specific folder 
-
-### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**path** | **String?** | Start with name of storage e.g. root folder '/'or some folder '/folder1/..' | [optional]
-**storage** | **String?** | User's storage name | [optional]
-
-### Return type
-
-[**FilesResponse**](FilesResponse.md)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="getListFileVersions"></a>
-## **getListFileVersions**
-> getListFileVersions(path: String, storage: String? = nil, completion: @escaping ((_ data: FileVersionsResponse?, _ error: Error?) -> Void))
-
-Get the file's versions list 
+Convert MD file (located on storage) to PDF format and return resulting file in response. 
 
 ### Parameters
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**path** | **String** | File path e.g. /file.ext or /Folder1/file.ext | 
-**storage** | **String?** | User's storage name | [optional]
+**srcPath** | **String** | Full source filename (ex. /folder1/folder2/template.md) | 
+**storage** | **String?** | The document storage. | [optional]
 
 ### Return type
 
-[**FileVersionsResponse**](FileVersionsResponse.md)
+**Data**
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: multipart/form-data
 
 <a name="getMhtInStorageToPdf"></a>
 ## **getMhtInStorageToPdf**
@@ -2053,7 +2400,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: multipart/form-data
+ - **Accept**: application/json
 
 <a name="getPageAnnotations"></a>
 ## **getPageAnnotations**
@@ -2596,6 +2943,29 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="getPageSignatureFields"></a>
+## **getPageSignatureFields**
+> getPageSignatureFields(name: String, pageNumber: Int, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: SignatureFieldsResponse?, _ error: Error?) -> Void))
+
+Read document page signature fields.
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**name** | **String** | The document name. | 
+**pageNumber** | **Int** | The page number. | 
+**storage** | **String?** | The document storage. | [optional]
+**folder** | **String?** | The document folder. | [optional]
+
+### Return type
+
+[**SignatureFieldsResponse**](SignatureFieldsResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="getPageSoundAnnotations"></a>
 ## **getPageSoundAnnotations**
 > getPageSoundAnnotations(name: String, pageNumber: Int, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: SoundAnnotationsResponse?, _ error: Error?) -> Void))
@@ -2856,7 +3226,7 @@ Name | Type | Description  | Notes
 
 <a name="getPdfInStorageToDoc"></a>
 ## **getPdfInStorageToDoc**
-> getPdfInStorageToDoc(name: String, addReturnToLineEnd: Bool? = nil, format: DocFormat? = nil, imageResolutionX: Int? = nil, imageResolutionY: Int? = nil, maxDistanceBetweenTextLines: Double? = nil, mode: DocRecognitionMode? = nil, recognizeBullets: Bool? = nil, relativeHorizontalProximity: Double? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
+> getPdfInStorageToDoc(name: String, addReturnToLineEnd: Bool? = nil, format: String? = nil, imageResolutionX: Int? = nil, imageResolutionY: Int? = nil, maxDistanceBetweenTextLines: Double? = nil, mode: String? = nil, recognizeBullets: Bool? = nil, relativeHorizontalProximity: Double? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Converts PDF document (located on storage) to DOC format and returns resulting file in response content
 
@@ -2865,11 +3235,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **name** | **String** | The document name. | 
 **addReturnToLineEnd** | **Bool?** | Add return to line end. | [optional]
-**format** | [**DocFormat?**](DocFormat.md) | Allows to specify .doc or .docx file format. | [optional]
+**format** | **String?** | Allows to specify .doc or .docx file format. | [optional]
 **imageResolutionX** | **Int?** | Image resolution X. | [optional]
 **imageResolutionY** | **Int?** | Image resolution Y. | [optional]
 **maxDistanceBetweenTextLines** | **Double?** | Max distance between text lines. | [optional]
-**mode** | [**DocRecognitionMode?**](DocRecognitionMode.md) | Allows to control how a PDF document is converted into a word processing document. | [optional]
+**mode** | **String?** | Allows to control how a PDF document is converted into a word processing document. | [optional]
 **recognizeBullets** | **Bool?** | Recognize bullets. | [optional]
 **relativeHorizontalProximity** | **Double?** | Relative horizontal proximity. | [optional]
 **folder** | **String?** | The document folder. | [optional]
@@ -2886,7 +3256,7 @@ Name | Type | Description  | Notes
 
 <a name="getPdfInStorageToEpub"></a>
 ## **getPdfInStorageToEpub**
-> getPdfInStorageToEpub(name: String, contentRecognitionMode: EpubRecognitionMode? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
+> getPdfInStorageToEpub(name: String, contentRecognitionMode: String? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Converts PDF document (located on storage) to EPUB format and returns resulting file in response content
 
@@ -2894,7 +3264,7 @@ Converts PDF document (located on storage) to EPUB format and returns resulting 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **name** | **String** | The document name. | 
-**contentRecognitionMode** | [**EpubRecognitionMode?**](EpubRecognitionMode.md) | Property tunes conversion for this or that desirable method of recognition of content. | [optional]
+**contentRecognitionMode** | **String?** | Property tunes conversion for this or that desirable method of recognition of content. | [optional]
 **folder** | **String?** | The document folder. | [optional]
 **storage** | **String?** | The document storage. | [optional]
 
@@ -2909,7 +3279,7 @@ Name | Type | Description  | Notes
 
 <a name="getPdfInStorageToHtml"></a>
 ## **getPdfInStorageToHtml**
-> getPdfInStorageToHtml(name: String, additionalMarginWidthInPoints: Int? = nil, compressSvgGraphicsIfAny: Bool? = nil, convertMarkedContentToLayers: Bool? = nil, defaultFontName: String? = nil, documentType: HtmlDocumentType? = nil, fixedLayout: Bool? = nil, imageResolution: Int? = nil, minimalLineWidth: Int? = nil, preventGlyphsGrouping: Bool? = nil, splitCssIntoPages: Bool? = nil, splitIntoPages: Bool? = nil, useZOrder: Bool? = nil, antialiasingProcessing: AntialiasingProcessingType? = nil, cssClassNamesPrefix: String? = nil, explicitListOfSavedPages: [Int]? = nil, fontEncodingStrategy: FontEncodingRules? = nil, fontSavingMode: FontSavingModes? = nil, htmlMarkupGenerationMode: HtmlMarkupGenerationModes? = nil, lettersPositioningMethod: LettersPositioningMethods? = nil, pagesFlowTypeDependsOnViewersScreenSize: Bool? = nil, partsEmbeddingMode: PartsEmbeddingModes? = nil, rasterImagesSavingMode: RasterImagesSavingModes? = nil, removeEmptyAreasOnTopAndBottom: Bool? = nil, saveShadowedTextsAsTransparentTexts: Bool? = nil, saveTransparentTexts: Bool? = nil, specialFolderForAllImages: String? = nil, specialFolderForSvgImages: String? = nil, trySaveTextUnderliningAndStrikeoutingInCss: Bool? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
+> getPdfInStorageToHtml(name: String, additionalMarginWidthInPoints: Int? = nil, compressSvgGraphicsIfAny: Bool? = nil, convertMarkedContentToLayers: Bool? = nil, defaultFontName: String? = nil, documentType: String? = nil, fixedLayout: Bool? = nil, imageResolution: Int? = nil, minimalLineWidth: Int? = nil, preventGlyphsGrouping: Bool? = nil, splitCssIntoPages: Bool? = nil, splitIntoPages: Bool? = nil, useZOrder: Bool? = nil, antialiasingProcessing: String? = nil, cssClassNamesPrefix: String? = nil, explicitListOfSavedPages: [Int]? = nil, fontEncodingStrategy: String? = nil, fontSavingMode: String? = nil, htmlMarkupGenerationMode: String? = nil, lettersPositioningMethod: String? = nil, pagesFlowTypeDependsOnViewersScreenSize: Bool? = nil, partsEmbeddingMode: String? = nil, rasterImagesSavingMode: String? = nil, removeEmptyAreasOnTopAndBottom: Bool? = nil, saveShadowedTextsAsTransparentTexts: Bool? = nil, saveTransparentTexts: Bool? = nil, specialFolderForAllImages: String? = nil, specialFolderForSvgImages: String? = nil, trySaveTextUnderliningAndStrikeoutingInCss: Bool? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Converts PDF document (located on storage) to Html format and returns resulting file in response content
 
@@ -2921,7 +3291,7 @@ Name | Type | Description  | Notes
 **compressSvgGraphicsIfAny** | **Bool?** | The flag that indicates whether found SVG graphics(if any) will be compressed(zipped) into SVGZ format during saving. | [optional]
 **convertMarkedContentToLayers** | **Bool?** | If attribute ConvertMarkedContentToLayers set to true then an all elements inside a PDF marked content (layer) will be put into an HTML div with "data-pdflayer" attribute specifying a layer name. This layer name will be extracted from optional properties of PDF marked content. If this attribute is false (by default) then no any layers will be created from PDF marked content. | [optional]
 **defaultFontName** | **String?** | Specifies the name of an installed font which is used to substitute any document font that is not embedded and not installed in the system. If null then default substitution font is used. | [optional]
-**documentType** | [**HtmlDocumentType?**](HtmlDocumentType.md) | Result document type. | [optional]
+**documentType** | **String?** | Result document type. | [optional]
 **fixedLayout** | **Bool?** | The value indicating whether that HTML is created as fixed layout. | [optional]
 **imageResolution** | **Int?** | Resolution for image rendering. | [optional]
 **minimalLineWidth** | **Int?** | This attribute sets minimal width of graphic path line. If thickness of line is less than 1px Adobe Acrobat rounds it to this value. So this attribute can be used to emulate this behavior for HTML browsers. | [optional]
@@ -2929,16 +3299,16 @@ Name | Type | Description  | Notes
 **splitCssIntoPages** | **Bool?** | When multipage-mode selected(i.e 'SplitIntoPages' is 'true'), then this attribute defines whether should be created separate CSS-file for each result HTML page. | [optional]
 **splitIntoPages** | **Bool?** | The flag that indicates whether each page of source document will be converted into it's own target HTML document, i.e whether result HTML will be splitted into several HTML-pages. | [optional]
 **useZOrder** | **Bool?** | If attribute UseZORder set to true, graphics and text are added to resultant HTML document accordingly Z-order in original PDF document. If this attribute is false all graphics is put as single layer which may cause some unnecessary effects for overlapped objects. | [optional]
-**antialiasingProcessing** | [**AntialiasingProcessingType?**](AntialiasingProcessingType.md) | The parameter defines required antialiasing measures during conversion of compound background images from PDF to HTML. | [optional]
+**antialiasingProcessing** | **String?** | The parameter defines required antialiasing measures during conversion of compound background images from PDF to HTML. | [optional]
 **cssClassNamesPrefix** | **String?** | When PDFtoHTML converter generates result CSSs, CSS class names (something like ".stl_01 {}" ... ".stl_NN {}) are generated and used in result CSS. This property allows forcibly set class name prefix. | [optional]
 **explicitListOfSavedPages** | **[Int]?** | With this property You can explicitely define what pages of document should be converted. Pages in this list must have 1-based numbers. I.e. valid numbers of pages must be taken from range (1...[NumberOfPagesInConvertedDocument]) Order of appearing of pages in this list does not affect their order in result HTML page(s) - in result pages allways will go in order in which they are present in source PDF. | [optional]
-**fontEncodingStrategy** | [**FontEncodingRules?**](FontEncodingRules.md) | Defines encoding special rule to tune PDF decoding for current document. | [optional]
-**fontSavingMode** | [**FontSavingModes?**](FontSavingModes.md) | Defines font saving mode that will be used during saving of PDF to desirable format. | [optional]
-**htmlMarkupGenerationMode** | [**HtmlMarkupGenerationModes?**](HtmlMarkupGenerationModes.md) | Sometimes specific reqirments to generation of HTML markup are present. This parameter defines HTML preparing modes that can be used during conversion of PDF to HTML to match such specific requirments. | [optional]
-**lettersPositioningMethod** | [**LettersPositioningMethods?**](LettersPositioningMethods.md) | The mode of positioning of letters in words in result HTML. | [optional]
+**fontEncodingStrategy** | **String?** | Defines encoding special rule to tune PDF decoding for current document. | [optional]
+**fontSavingMode** | **String?** | Defines font saving mode that will be used during saving of PDF to desirable format. | [optional]
+**htmlMarkupGenerationMode** | **String?** | Sometimes specific reqirments to generation of HTML markup are present. This parameter defines HTML preparing modes that can be used during conversion of PDF to HTML to match such specific requirments. | [optional]
+**lettersPositioningMethod** | **String?** | The mode of positioning of letters in words in result HTML. | [optional]
 **pagesFlowTypeDependsOnViewersScreenSize** | **Bool?** | If attribute 'SplitOnPages=false', than whole HTML representing all input PDF pages will be put into one big result HTML file. This flag defines whether result HTML will be generated in such way that flow of areas that represent PDF pages in result HTML will depend on screen resolution of viewer. | [optional]
-**partsEmbeddingMode** | [**PartsEmbeddingModes?**](PartsEmbeddingModes.md) | It defines whether referenced files (HTML, Fonts,Images, CSSes) will be embedded into main HTML file or will be generated as apart binary entities. | [optional]
-**rasterImagesSavingMode** | [**RasterImagesSavingModes?**](RasterImagesSavingModes.md) | Converted PDF can contain raster images This parameter defines how they should be handled during conversion of PDF to HTML. | [optional]
+**partsEmbeddingMode** | **String?** | It defines whether referenced files (HTML, Fonts,Images, CSSes) will be embedded into main HTML file or will be generated as apart binary entities. | [optional]
+**rasterImagesSavingMode** | **String?** | Converted PDF can contain raster images This parameter defines how they should be handled during conversion of PDF to HTML. | [optional]
 **removeEmptyAreasOnTopAndBottom** | **Bool?** | Defines whether in created HTML will be removed top and bottom empty area without any content (if any). | [optional]
 **saveShadowedTextsAsTransparentTexts** | **Bool?** | Pdf can contain texts that are shadowed by another elements (f.e. by images) but can be selected to clipboard in Acrobat Reader (usually it happen when document contains images and OCRed texts extracted from it). This settings tells to converter whether we need save such texts as transparent selectable texts in result HTML to mimic behaviour of Acrobat Reader (othervise such texts are usually saved as hidden, not available for copying to clipboard). | [optional]
 **saveTransparentTexts** | **Bool?** | Pdf can contain transparent texts that can be selected to clipboard (usually it happen when document contains images and OCRed texts extracted from it). This settings tells to converter whether we need save such texts as transparent selectable texts in result HTML. | [optional]
@@ -3004,7 +3374,7 @@ Name | Type | Description  | Notes
 
 <a name="getPdfInStorageToPdfA"></a>
 ## **getPdfInStorageToPdfA**
-> getPdfInStorageToPdfA(name: String, type: PdfAType, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
+> getPdfInStorageToPdfA(name: String, type: String, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Converts PDF document (located on storage) to PdfA format and returns resulting file in response content
 
@@ -3012,7 +3382,7 @@ Converts PDF document (located on storage) to PdfA format and returns resulting 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **name** | **String** | The document name. | 
-**type** | [**PdfAType**](PdfAType.md) | Type of PdfA format. | 
+**type** | **String** | Type of PdfA format. | 
 **folder** | **String?** | The document folder. | [optional]
 **storage** | **String?** | The document storage. | [optional]
 
@@ -3074,7 +3444,7 @@ Name | Type | Description  | Notes
 
 <a name="getPdfInStorageToTiff"></a>
 ## **getPdfInStorageToTiff**
-> getPdfInStorageToTiff(name: String, brightness: Double? = nil, compression: CompressionType? = nil, colorDepth: ColorDepth? = nil, leftMargin: Int? = nil, rightMargin: Int? = nil, topMargin: Int? = nil, bottomMargin: Int? = nil, orientation: ShapeType? = nil, skipBlankPages: Bool? = nil, width: Int? = nil, height: Int? = nil, xResolution: Int? = nil, yResolution: Int? = nil, pageIndex: Int? = nil, pageCount: Int? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
+> getPdfInStorageToTiff(name: String, brightness: Double? = nil, compression: String? = nil, colorDepth: String? = nil, leftMargin: Int? = nil, rightMargin: Int? = nil, topMargin: Int? = nil, bottomMargin: Int? = nil, orientation: String? = nil, skipBlankPages: Bool? = nil, width: Int? = nil, height: Int? = nil, xResolution: Int? = nil, yResolution: Int? = nil, pageIndex: Int? = nil, pageCount: Int? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Converts PDF document (located on storage) to TIFF format and returns resulting file in response content
 
@@ -3083,13 +3453,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **name** | **String** | The document name. | 
 **brightness** | **Double?** | Image brightness. | [optional]
-**compression** | [**CompressionType?**](CompressionType.md) | Tiff compression. Possible values are: LZW, CCITT4, CCITT3, RLE, None. | [optional]
-**colorDepth** | [**ColorDepth?**](ColorDepth.md) | Image color depth. Possible valuse are: Default, Format8bpp, Format4bpp, Format1bpp. | [optional]
+**compression** | **String?** | Tiff compression. Possible values are: LZW, CCITT4, CCITT3, RLE, None. | [optional]
+**colorDepth** | **String?** | Image color depth. Possible valuse are: Default, Format8bpp, Format4bpp, Format1bpp. | [optional]
 **leftMargin** | **Int?** | Left image margin. | [optional]
 **rightMargin** | **Int?** | Right image margin. | [optional]
 **topMargin** | **Int?** | Top image margin. | [optional]
 **bottomMargin** | **Int?** | Bottom image margin. | [optional]
-**orientation** | [**ShapeType?**](ShapeType.md) | Image orientation. Possible values are: None, Landscape, Portait. | [optional]
+**orientation** | **String?** | Image orientation. Possible values are: None, Landscape, Portait. | [optional]
 **skipBlankPages** | **Bool?** | Skip blank pages flag. | [optional]
 **width** | **Int?** | Image width. | [optional]
 **height** | **Int?** | Image height. | [optional]
@@ -3339,7 +3709,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: multipart/form-data
+ - **Accept**: application/json
 
 <a name="getScreenAnnotationData"></a>
 ## **getScreenAnnotationData**
@@ -3364,6 +3734,29 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: multipart/form-data
 
+<a name="getSignatureField"></a>
+## **getSignatureField**
+> getSignatureField(name: String, fieldName: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: SignatureFieldResponse?, _ error: Error?) -> Void))
+
+Read document signature field by name.
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**name** | **String** | The document name. | 
+**fieldName** | **String** | The field name. | 
+**storage** | **String?** | The document storage. | [optional]
+**folder** | **String?** | The document folder. | [optional]
+
+### Return type
+
+[**SignatureFieldResponse**](SignatureFieldResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="getSoundAnnotation"></a>
 ## **getSoundAnnotation**
 > getSoundAnnotation(name: String, annotationId: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: SoundAnnotationResponse?, _ error: Error?) -> Void))
@@ -3385,7 +3778,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: multipart/form-data
+ - **Accept**: application/json
 
 <a name="getSoundAnnotationData"></a>
 ## **getSoundAnnotationData**
@@ -3811,9 +4204,78 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: multipart/form-data
 
+<a name="moveFile"></a>
+## **moveFile**
+> moveFile(srcPath: String, destPath: String, srcStorageName: String? = nil, destStorageName: String? = nil, versionId: String? = nil, completion: @escaping ((_ data: ?, _ error: Error?) -> Void))
+
+Move file
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**srcPath** | **String** | Source file path e.g. '/src.ext' | 
+**destPath** | **String** | Destination file path e.g. '/dest.ext' | 
+**srcStorageName** | **String?** | Source storage name | [optional]
+**destStorageName** | **String?** | Destination storage name | [optional]
+**versionId** | **String?** | File version ID to move | [optional]
+
+### Return type
+
+****
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="moveFolder"></a>
+## **moveFolder**
+> moveFolder(srcPath: String, destPath: String, srcStorageName: String? = nil, destStorageName: String? = nil, completion: @escaping ((_ data: ?, _ error: Error?) -> Void))
+
+Move folder
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**srcPath** | **String** | Folder path to move e.g. '/folder' | 
+**destPath** | **String** | Destination folder path to move to e.g '/dst' | 
+**srcStorageName** | **String?** | Source storage name | [optional]
+**destStorageName** | **String?** | Destination storage name | [optional]
+
+### Return type
+
+****
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="objectExists"></a>
+## **objectExists**
+> objectExists(path: String, storageName: String? = nil, versionId: String? = nil, completion: @escaping ((_ data: ObjectExist?, _ error: Error?) -> Void))
+
+Check if file or folder exists
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**path** | **String** | File or folder path e.g. '/file.ext' or '/folder' | 
+**storageName** | **String?** | Storage name | [optional]
+**versionId** | **String?** | File version ID | [optional]
+
+### Return type
+
+[**ObjectExist**](ObjectExist.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="postAppendDocument"></a>
 ## **postAppendDocument**
-> postAppendDocument(name: String, appendDocument: AppendDocument? = nil, appendFile: String? = nil, startPage: Int? = nil, endPage: Int? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: DocumentResponse?, _ error: Error?) -> Void))
+> postAppendDocument(name: String, appendFile: String, startPage: Int? = nil, endPage: Int? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: DocumentResponse?, _ error: Error?) -> Void))
 
 Append document to existing one.
 
@@ -3821,8 +4283,7 @@ Append document to existing one.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **name** | **String** | The original document name. | 
-**appendDocument** | [**AppendDocument?**](AppendDocument.md) | with the append document data. | [optional]
-**appendFile** | **String?** | Append file server path. | [optional]
+**appendFile** | **String** | Append file server path. | 
 **startPage** | **Int?** | Appending start page. | [optional]
 **endPage** | **Int?** | Appending end page. | [optional]
 **storage** | **String?** | The documents storage. | [optional]
@@ -3831,6 +4292,30 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DocumentResponse**](DocumentResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="postBookmark"></a>
+## **postBookmark**
+> postBookmark(name: String, bookmarkPath: String, bookmarks: [Bookmark], folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: BookmarksResponse?, _ error: Error?) -> Void))
+
+Add document bookmarks.
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**name** | **String** | The document name. | 
+**bookmarkPath** | **String** | The bookmark path. | 
+**bookmarks** | [**[Bookmark]**](Bookmark.md) | The array of bookmark. | 
+**folder** | **String?** | The document folder. | [optional]
+**storage** | **String?** | The document storage. | [optional]
+
+### Return type
+
+[**BookmarksResponse**](BookmarksResponse.md)
 
 ### HTTP request headers
 
@@ -3864,7 +4349,7 @@ Name | Type | Description  | Notes
 
 <a name="postCreateField"></a>
 ## **postCreateField**
-> postCreateField(name: String, page: Int, field: Field? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+> postCreateField(name: String, page: Int, field: Field, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
 
 Create field.
 
@@ -3873,7 +4358,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **name** | **String** | The document name. | 
 **page** | **Int** | Document page number. | 
-**field** | [**Field?**](Field.md) | with the field data. | [optional]
+**field** | [**Field**](Field.md) | Field with the field data. | 
 **storage** | **String?** | The document storage. | [optional]
 **folder** | **String?** | The document folder. | [optional]
 
@@ -4059,7 +4544,7 @@ Name | Type | Description  | Notes
 
 <a name="postEncryptDocumentInStorage"></a>
 ## **postEncryptDocumentInStorage**
-> postEncryptDocumentInStorage(name: String, userPassword: String, ownerPassword: String, cryptoAlgorithm: CryptoAlgorithm, permissionsFlags: []? = nil, usePdf20: Bool? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+> postEncryptDocumentInStorage(name: String, userPassword: String, ownerPassword: String, cryptoAlgorithm: String, permissionsFlags: []? = nil, usePdf20: Bool? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
 
 Encrypt document in storage.
 
@@ -4069,8 +4554,8 @@ Name | Type | Description  | Notes
 **name** | **String** | Document name. | 
 **userPassword** | **String** | User password (encrypted Base64). | 
 **ownerPassword** | **String** | Owner password (encrypted Base64). | 
-**cryptoAlgorithm** | [**CryptoAlgorithm**](CryptoAlgorithm.md) | Cryptographic algorithm, see for details. | 
-**permissionsFlags** | **[]?** | Array of document permissions, see for details. | [optional]
+**cryptoAlgorithm** | **String** | Cryptographic algorithm, see CryptoAlgorithm for details. | 
+**permissionsFlags** | **[]?** | Array of document permissions, see PermissionsFlags for details. | [optional]
 **usePdf20** | **Bool?** | Support for revision 6 (Extension 8). | [optional]
 **storage** | **String?** | The document storage. | [optional]
 **folder** | **String?** | The document folder. | [optional]
@@ -4109,6 +4594,75 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="postImportFieldsFromFdf"></a>
+## **postImportFieldsFromFdf**
+> postImportFieldsFromFdf(name: String, storage: String? = nil, folder: String? = nil, fdfData: Data? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+
+Update fields from FDF file in request.
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**name** | **String** | The document name. | 
+**storage** | **String?** | The document storage. | [optional]
+**folder** | **String?** | The document folder. | [optional]
+**fdfData** | **Data?** | Fdf file. | [optional]
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+<a name="postImportFieldsFromXfdf"></a>
+## **postImportFieldsFromXfdf**
+> postImportFieldsFromXfdf(name: String, storage: String? = nil, folder: String? = nil, xfdfData: Data? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+
+Update fields from XFDF file in request.
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**name** | **String** | The document name. | 
+**storage** | **String?** | The document storage. | [optional]
+**folder** | **String?** | The document folder. | [optional]
+**xfdfData** | **Data?** | Xfdf file. | [optional]
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+<a name="postImportFieldsFromXml"></a>
+## **postImportFieldsFromXml**
+> postImportFieldsFromXml(name: String, storage: String? = nil, folder: String? = nil, xmlData: Data? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+
+Update fields from XML file in request.
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**name** | **String** | The document name. | 
+**storage** | **String?** | The document storage. | [optional]
+**folder** | **String?** | The document folder. | [optional]
+**xmlData** | **Data?** | Xml file. | [optional]
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
 <a name="postInsertImage"></a>
 ## **postInsertImage**
 > postInsertImage(name: String, pageNumber: Int, llx: Double, lly: Double, urx: Double, ury: Double, imageFilePath: String? = nil, storage: String? = nil, folder: String? = nil, image: Data? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
@@ -4138,53 +4692,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
-<a name="postMoveFile"></a>
-## **postMoveFile**
-> postMoveFile(src: String, dest: String, versionId: String? = nil, storage: String? = nil, destStorage: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
-
-Move a specific file
-
-### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**src** | **String** | Source file path e.g. /fileSource.ext | 
-**dest** | **String** | Destination file path e.g. /fileDestination.ext | 
-**versionId** | **String?** | Source file's version, | [optional]
-**storage** | **String?** | User's source storage name | [optional]
-**destStorage** | **String?** | User's destination storage name | [optional]
-
-### Return type
-
-[**AsposeResponse**](AsposeResponse.md)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
-
-<a name="postMoveFolder"></a>
-## **postMoveFolder**
-> postMoveFolder(src: String, dest: String, storage: String? = nil, destStorage: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
-
-Move a specific folder 
-
-### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**src** | **String** | Source folder path e.g. /Folder1 | 
-**dest** | **String** | Destination folder path e.g. /Folder2 | 
-**storage** | **String?** | User's source storage name | [optional]
-**destStorage** | **String?** | User's destination storage name | [optional]
-
-### Return type
-
-[**AsposeResponse**](AsposeResponse.md)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
 <a name="postMovePage"></a>
 ## **postMovePage**
 > postMovePage(name: String, pageNumber: Int, newIndex: Int, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
@@ -4211,7 +4718,7 @@ Name | Type | Description  | Notes
 
 <a name="postOptimizeDocument"></a>
 ## **postOptimizeDocument**
-> postOptimizeDocument(name: String, options: OptimizeOptions? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+> postOptimizeDocument(name: String, options: OptimizeOptions, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
 
 Optimize document.
 
@@ -4219,7 +4726,7 @@ Optimize document.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **name** | **String** | The document name. | 
-**options** | [**OptimizeOptions?**](OptimizeOptions.md) | The optimization options. | [optional]
+**options** | [**OptimizeOptions**](OptimizeOptions.md) | The optimization options. | 
 **storage** | **String?** | The document storage. | [optional]
 **folder** | **String?** | The document folder. | [optional]
 
@@ -4244,6 +4751,31 @@ Name | Type | Description  | Notes
 **name** | **String** | The document name. | 
 **pageNumber** | **Int** | The page number. | 
 **annotations** | [**[CaretAnnotation]**](CaretAnnotation.md) | The array of annotation. | 
+**storage** | **String?** | The document storage. | [optional]
+**folder** | **String?** | The document folder. | [optional]
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="postPageCertify"></a>
+## **postPageCertify**
+> postPageCertify(name: String, pageNumber: Int, sign: Signature, docMdpAccessPermissionType: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+
+Certify document page.
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**name** | **String** | The document name. | 
+**pageNumber** | **Int** | The page number. | 
+**sign** | [**Signature**](Signature.md) | Signature object containing signature data. | 
+**docMdpAccessPermissionType** | **String** | The access permissions granted for this document. | 
 **storage** | **String?** | The document storage. | [optional]
 **folder** | **String?** | The document folder. | [optional]
 
@@ -4858,7 +5390,7 @@ Name | Type | Description  | Notes
 
 <a name="postSignDocument"></a>
 ## **postSignDocument**
-> postSignDocument(name: String, signature: Signature? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+> postSignDocument(name: String, sign: Signature, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
 
 Sign document.
 
@@ -4866,7 +5398,7 @@ Sign document.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **name** | **String** | The document name. | 
-**signature** | [**Signature?**](Signature.md) | Signature object containing signature data. | [optional]
+**sign** | [**Signature**](Signature.md) | Signature object containing signature data. | 
 **storage** | **String?** | The document storage. | [optional]
 **folder** | **String?** | The document folder. | [optional]
 
@@ -4881,7 +5413,7 @@ Name | Type | Description  | Notes
 
 <a name="postSignPage"></a>
 ## **postSignPage**
-> postSignPage(name: String, pageNumber: Int, signature: Signature? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+> postSignPage(name: String, pageNumber: Int, sign: Signature, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
 
 Sign page.
 
@@ -4890,7 +5422,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **name** | **String** | The document name. | 
 **pageNumber** | **Int** | The page number. | 
-**signature** | [**Signature?**](Signature.md) | Signature object containing signature data. | [optional]
+**sign** | [**Signature**](Signature.md) | Signature object containing signature data. | 
 **storage** | **String?** | The document storage. | [optional]
 **folder** | **String?** | The document folder. | [optional]
 
@@ -4952,7 +5484,7 @@ Name | Type | Description  | Notes
 
 <a name="putAddText"></a>
 ## **putAddText**
-> putAddText(name: String, pageNumber: Int, paragraph: Paragraph? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+> putAddText(name: String, pageNumber: Int, paragraph: Paragraph, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
 
 Add text to PDF document page.
 
@@ -4961,7 +5493,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **name** | **String** | The document name. | 
 **pageNumber** | **Int** | Number of page (starting from 1). | 
-**paragraph** | [**Paragraph?**](Paragraph.md) | Paragraph data. | [optional]
+**paragraph** | [**Paragraph**](Paragraph.md) | Paragraph data. | 
 **folder** | **String?** | Document folder. | [optional]
 **storage** | **String?** | The document storage. | [optional]
 
@@ -4993,6 +5525,30 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="putBookmark"></a>
+## **putBookmark**
+> putBookmark(name: String, bookmarkPath: String, bookmark: Bookmark, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: BookmarkResponse?, _ error: Error?) -> Void))
+
+Update document bookmark.
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**name** | **String** | The document name. | 
+**bookmarkPath** | **String** | The bookmark path. | 
+**bookmark** | [**Bookmark**](Bookmark.md) | The bookmark. | 
+**folder** | **String?** | The document folder. | [optional]
+**storage** | **String?** | The document storage. | [optional]
+
+### Return type
+
+[**BookmarkResponse**](BookmarkResponse.md)
 
 ### HTTP request headers
 
@@ -5072,29 +5628,6 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="putCreate"></a>
-## **putCreate**
-> putCreate(path: String, File: Data, versionId: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
-
-Upload a specific file 
-
-### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**path** | **String** | Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext | 
-**File** | **Data** | File to upload | 
-**versionId** | **String?** | Source file's version | [optional]
-**storage** | **String?** | User's storage name | [optional]
-
-### Return type
-
-[**AsposeResponse**](AsposeResponse.md)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
-
 <a name="putCreateDocument"></a>
 ## **putCreateDocument**
 > putCreateDocument(name: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: DocumentResponse?, _ error: Error?) -> Void))
@@ -5111,28 +5644,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DocumentResponse**](DocumentResponse.md)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="putCreateFolder"></a>
-## **putCreateFolder**
-> putCreateFolder(path: String, storage: String? = nil, destStorage: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
-
-Create the folder 
-
-### Parameters
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**path** | **String** | Target folder's path e.g. Folder1/Folder2/. The folders will be created recursively | 
-**storage** | **String?** | User's source storage name | [optional]
-**destStorage** | **String?** | User's destination storage name | [optional]
-
-### Return type
-
-[**AsposeResponse**](AsposeResponse.md)
 
 ### HTTP request headers
 
@@ -5164,7 +5675,7 @@ Name | Type | Description  | Notes
 
 <a name="putEncryptDocument"></a>
 ## **putEncryptDocument**
-> putEncryptDocument(outPath: String, userPassword: String, ownerPassword: String, cryptoAlgorithm: CryptoAlgorithm, permissionsFlags: []? = nil, usePdf20: Bool? = nil, storage: String? = nil, file: Data? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+> putEncryptDocument(outPath: String, userPassword: String, ownerPassword: String, cryptoAlgorithm: String, permissionsFlags: []? = nil, usePdf20: Bool? = nil, storage: String? = nil, file: Data? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
 
 Encrypt document from content.
 
@@ -5174,8 +5685,8 @@ Name | Type | Description  | Notes
 **outPath** | **String** | Full resulting filename (ex. /folder1/folder2/result.doc) | 
 **userPassword** | **String** | User password (encrypted Base64). | 
 **ownerPassword** | **String** | Owner password (encrypted Base64). | 
-**cryptoAlgorithm** | [**CryptoAlgorithm**](CryptoAlgorithm.md) | Cryptographic algorithm, see for details. | 
-**permissionsFlags** | **[]?** | Array of document permissions, see for details. | [optional]
+**cryptoAlgorithm** | **String** | Cryptographic algorithm, see CryptoAlgorithm for details. | 
+**permissionsFlags** | **[]?** | Array of document permissions, see PermissionsFlags for details. | [optional]
 **usePdf20** | **Bool?** | Support for revision 6 (Extension 8). | [optional]
 **storage** | **String?** | The document storage. | [optional]
 **file** | **Data?** | A file to be encrypted. | [optional]
@@ -5202,6 +5713,75 @@ Name | Type | Description  | Notes
 **srcPath** | **String** | Full source filename (ex. /folder1/folder2/template.epub) | 
 **storage** | **String?** | The document storage. | [optional]
 **dstFolder** | **String?** | The destination document folder. | [optional]
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="putExportFieldsFromPdfToFdfInStorage"></a>
+## **putExportFieldsFromPdfToFdfInStorage**
+> putExportFieldsFromPdfToFdfInStorage(name: String, fdfOutputFilePath: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+
+Export fields from from PDF in storage to FDF file in storage.
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**name** | **String** | The document name. | 
+**fdfOutputFilePath** | **String** | The output Fdf file path. | 
+**storage** | **String?** | The document storage. | [optional]
+**folder** | **String?** | The document folder. | [optional]
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="putExportFieldsFromPdfToXfdfInStorage"></a>
+## **putExportFieldsFromPdfToXfdfInStorage**
+> putExportFieldsFromPdfToXfdfInStorage(name: String, xfdfOutputFilePath: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+
+Export fields from from PDF in storage to XFDF file in storage.
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**name** | **String** | The document name. | 
+**xfdfOutputFilePath** | **String** | The output xfdf file path. | 
+**storage** | **String?** | The document storage. | [optional]
+**folder** | **String?** | The document folder. | [optional]
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="putExportFieldsFromPdfToXmlInStorage"></a>
+## **putExportFieldsFromPdfToXmlInStorage**
+> putExportFieldsFromPdfToXmlInStorage(name: String, xmlOutputFilePath: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+
+Export fields from from PDF in storage to XML file in storage.
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**name** | **String** | The document name. | 
+**xmlOutputFilePath** | **String** | The output xml file path. | 
+**storage** | **String?** | The document storage. | [optional]
+**folder** | **String?** | The document folder. | [optional]
 
 ### Return type
 
@@ -5475,7 +6055,7 @@ Convert image file (located on storage) to PDF format and upload resulting file 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **name** | **String** | The document name. | 
-**imageTemplates** | [**ImageTemplatesRequest**](ImageTemplatesRequest.md) | Image templates | 
+**imageTemplates** | [**ImageTemplatesRequest**](ImageTemplatesRequest.md) | ImageTemplatesRequestImage templates | 
 **dstFolder** | **String?** | The destination document folder. | [optional]
 **storage** | **String?** | The document storage. | [optional]
 
@@ -5527,7 +6107,7 @@ Name | Type | Description  | Notes
 **pageNumber** | **Int** | The page number. | 
 **width** | **Int?** | The converted image width. | [optional]
 **height** | **Int?** | The converted image height. | [optional]
-**storage** | **String?** |  | [optional]
+**storage** | **String?** | The document storage. | [optional]
 **folder** | **String?** | The document folder. | [optional]
 **destFolder** | **String?** | The document folder. | [optional]
 
@@ -5582,6 +6162,75 @@ Name | Type | Description  | Notes
 **storage** | **String?** | The document storage. | [optional]
 **folder** | **String?** | The document folder. | [optional]
 **destFolder** | **String?** | The document folder. | [optional]
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="putImportFieldsFromFdfInStorage"></a>
+## **putImportFieldsFromFdfInStorage**
+> putImportFieldsFromFdfInStorage(name: String, fdfFilePath: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+
+Update fields from FDF file in storage.
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**name** | **String** | The document name. | 
+**fdfFilePath** | **String** | The Fdf file path. | 
+**storage** | **String?** | The document storage. | [optional]
+**folder** | **String?** | The document folder. | [optional]
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="putImportFieldsFromXfdfInStorage"></a>
+## **putImportFieldsFromXfdfInStorage**
+> putImportFieldsFromXfdfInStorage(name: String, xfdfFilePath: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+
+Update fields from XFDF file in storage.
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**name** | **String** | The document name. | 
+**xfdfFilePath** | **String** | The XFDF file path. | 
+**storage** | **String?** | The document storage. | [optional]
+**folder** | **String?** | The document folder. | [optional]
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="putImportFieldsFromXmlInStorage"></a>
+## **putImportFieldsFromXmlInStorage**
+> putImportFieldsFromXmlInStorage(name: String, xmlFilePath: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+
+Update fields from XML file in storage.
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**name** | **String** | The document name. | 
+**xmlFilePath** | **String** | Full source filename (ex. /folder1/folder2/template.xml) | 
+**storage** | **String?** | The document storage. | [optional]
+**folder** | **String?** | The document folder. | [optional]
 
 ### Return type
 
@@ -5687,9 +6336,32 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="putMarkdownInStorageToPdf"></a>
+## **putMarkdownInStorageToPdf**
+> putMarkdownInStorageToPdf(name: String, srcPath: String, storage: String? = nil, dstFolder: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+
+Convert MD file (located on storage) to PDF format and upload resulting file to storage. 
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**name** | **String** | The document name. | 
+**srcPath** | **String** | Full source filename (ex. /folder1/folder2/template.md) | 
+**storage** | **String?** | The document storage. | [optional]
+**dstFolder** | **String?** | The destination document folder. | [optional]
+
+### Return type
+
+[**AsposeResponse**](AsposeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="putMergeDocuments"></a>
 ## **putMergeDocuments**
-> putMergeDocuments(name: String, mergeDocuments: MergeDocuments? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: DocumentResponse?, _ error: Error?) -> Void))
+> putMergeDocuments(name: String, mergeDocuments: MergeDocuments, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: DocumentResponse?, _ error: Error?) -> Void))
 
 Merge a list of documents.
 
@@ -5697,7 +6369,7 @@ Merge a list of documents.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **name** | **String** | Resulting documen name. | 
-**mergeDocuments** | [**MergeDocuments?**](MergeDocuments.md) | with a list of documents. | [optional]
+**mergeDocuments** | [**MergeDocuments**](MergeDocuments.md) | MergeDocuments with a list of documents. | 
 **storage** | **String?** | Resulting document storage. | [optional]
 **folder** | **String?** | Resulting document folder. | [optional]
 
@@ -5768,7 +6440,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **name** | **String** | The document name. | 
 **pageNumber** | **Int** | The page number. | 
-**stamp** | [**Stamp**](Stamp.md) | with data. | 
+**stamp** | [**Stamp**](Stamp.md) | Stamp with data. | 
 **storage** | **String?** | The document storage. | [optional]
 **folder** | **String?** | The document folder. | [optional]
 
@@ -5962,7 +6634,7 @@ Name | Type | Description  | Notes
 
 <a name="putPdfInRequestToDoc"></a>
 ## **putPdfInRequestToDoc**
-> putPdfInRequestToDoc(outPath: String, addReturnToLineEnd: Bool? = nil, format: DocFormat? = nil, imageResolutionX: Int? = nil, imageResolutionY: Int? = nil, maxDistanceBetweenTextLines: Double? = nil, mode: DocRecognitionMode? = nil, recognizeBullets: Bool? = nil, relativeHorizontalProximity: Double? = nil, storage: String? = nil, file: Data? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+> putPdfInRequestToDoc(outPath: String, addReturnToLineEnd: Bool? = nil, format: String? = nil, imageResolutionX: Int? = nil, imageResolutionY: Int? = nil, maxDistanceBetweenTextLines: Double? = nil, mode: String? = nil, recognizeBullets: Bool? = nil, relativeHorizontalProximity: Double? = nil, storage: String? = nil, file: Data? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
 
 Converts PDF document (in request content) to DOC format and uploads resulting file to storage.
 
@@ -5971,11 +6643,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **outPath** | **String** | Full resulting filename (ex. /folder1/folder2/result.doc) | 
 **addReturnToLineEnd** | **Bool?** | Add return to line end. | [optional]
-**format** | [**DocFormat?**](DocFormat.md) | Allows to specify .doc or .docx file format. | [optional]
+**format** | **String?** | Allows to specify .doc or .docx file format. | [optional]
 **imageResolutionX** | **Int?** | Image resolution X. | [optional]
 **imageResolutionY** | **Int?** | Image resolution Y. | [optional]
 **maxDistanceBetweenTextLines** | **Double?** | Max distance between text lines. | [optional]
-**mode** | [**DocRecognitionMode?**](DocRecognitionMode.md) | Allows to control how a PDF document is converted into a word processing document. | [optional]
+**mode** | **String?** | Allows to control how a PDF document is converted into a word processing document. | [optional]
 **recognizeBullets** | **Bool?** | Recognize bullets. | [optional]
 **relativeHorizontalProximity** | **Double?** | Relative horizontal proximity. | [optional]
 **storage** | **String?** | The document storage. | [optional]
@@ -5992,7 +6664,7 @@ Name | Type | Description  | Notes
 
 <a name="putPdfInRequestToEpub"></a>
 ## **putPdfInRequestToEpub**
-> putPdfInRequestToEpub(outPath: String, contentRecognitionMode: EpubRecognitionMode? = nil, storage: String? = nil, file: Data? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+> putPdfInRequestToEpub(outPath: String, contentRecognitionMode: String? = nil, storage: String? = nil, file: Data? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
 
 Converts PDF document (in request content) to EPUB format and uploads resulting file to storage.
 
@@ -6000,7 +6672,7 @@ Converts PDF document (in request content) to EPUB format and uploads resulting 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **outPath** | **String** | Full resulting filename (ex. /folder1/folder2/result.epub) | 
-**contentRecognitionMode** | [**EpubRecognitionMode?**](EpubRecognitionMode.md) | Property tunes conversion for this or that desirable method of recognition of content. | [optional]
+**contentRecognitionMode** | **String?** | Property tunes conversion for this or that desirable method of recognition of content. | [optional]
 **storage** | **String?** | The document storage. | [optional]
 **file** | **Data?** | A file to be converted. | [optional]
 
@@ -6015,7 +6687,7 @@ Name | Type | Description  | Notes
 
 <a name="putPdfInRequestToHtml"></a>
 ## **putPdfInRequestToHtml**
-> putPdfInRequestToHtml(outPath: String, additionalMarginWidthInPoints: Int? = nil, compressSvgGraphicsIfAny: Bool? = nil, convertMarkedContentToLayers: Bool? = nil, defaultFontName: String? = nil, documentType: HtmlDocumentType? = nil, fixedLayout: Bool? = nil, imageResolution: Int? = nil, minimalLineWidth: Int? = nil, preventGlyphsGrouping: Bool? = nil, splitCssIntoPages: Bool? = nil, splitIntoPages: Bool? = nil, useZOrder: Bool? = nil, antialiasingProcessing: AntialiasingProcessingType? = nil, cssClassNamesPrefix: String? = nil, explicitListOfSavedPages: [Int]? = nil, fontEncodingStrategy: FontEncodingRules? = nil, fontSavingMode: FontSavingModes? = nil, htmlMarkupGenerationMode: HtmlMarkupGenerationModes? = nil, lettersPositioningMethod: LettersPositioningMethods? = nil, pagesFlowTypeDependsOnViewersScreenSize: Bool? = nil, partsEmbeddingMode: PartsEmbeddingModes? = nil, rasterImagesSavingMode: RasterImagesSavingModes? = nil, removeEmptyAreasOnTopAndBottom: Bool? = nil, saveShadowedTextsAsTransparentTexts: Bool? = nil, saveTransparentTexts: Bool? = nil, specialFolderForAllImages: String? = nil, specialFolderForSvgImages: String? = nil, trySaveTextUnderliningAndStrikeoutingInCss: Bool? = nil, storage: String? = nil, file: Data? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+> putPdfInRequestToHtml(outPath: String, additionalMarginWidthInPoints: Int? = nil, compressSvgGraphicsIfAny: Bool? = nil, convertMarkedContentToLayers: Bool? = nil, defaultFontName: String? = nil, documentType: String? = nil, fixedLayout: Bool? = nil, imageResolution: Int? = nil, minimalLineWidth: Int? = nil, preventGlyphsGrouping: Bool? = nil, splitCssIntoPages: Bool? = nil, splitIntoPages: Bool? = nil, useZOrder: Bool? = nil, antialiasingProcessing: String? = nil, cssClassNamesPrefix: String? = nil, explicitListOfSavedPages: [Int]? = nil, fontEncodingStrategy: String? = nil, fontSavingMode: String? = nil, htmlMarkupGenerationMode: String? = nil, lettersPositioningMethod: String? = nil, pagesFlowTypeDependsOnViewersScreenSize: Bool? = nil, partsEmbeddingMode: String? = nil, rasterImagesSavingMode: String? = nil, removeEmptyAreasOnTopAndBottom: Bool? = nil, saveShadowedTextsAsTransparentTexts: Bool? = nil, saveTransparentTexts: Bool? = nil, specialFolderForAllImages: String? = nil, specialFolderForSvgImages: String? = nil, trySaveTextUnderliningAndStrikeoutingInCss: Bool? = nil, storage: String? = nil, file: Data? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
 
 Converts PDF document (in request content) to Html format and uploads resulting file to storage.
 
@@ -6027,7 +6699,7 @@ Name | Type | Description  | Notes
 **compressSvgGraphicsIfAny** | **Bool?** | The flag that indicates whether found SVG graphics(if any) will be compressed(zipped) into SVGZ format during saving. | [optional]
 **convertMarkedContentToLayers** | **Bool?** | If attribute ConvertMarkedContentToLayers set to true then an all elements inside a PDF marked content (layer) will be put into an HTML div with "data-pdflayer" attribute specifying a layer name. This layer name will be extracted from optional properties of PDF marked content. If this attribute is false (by default) then no any layers will be created from PDF marked content. | [optional]
 **defaultFontName** | **String?** | Specifies the name of an installed font which is used to substitute any document font that is not embedded and not installed in the system. If null then default substitution font is used. | [optional]
-**documentType** | [**HtmlDocumentType?**](HtmlDocumentType.md) | Result document type. | [optional]
+**documentType** | **String?** | Result document type. | [optional]
 **fixedLayout** | **Bool?** | The value indicating whether that HTML is created as fixed layout. | [optional]
 **imageResolution** | **Int?** | Resolution for image rendering. | [optional]
 **minimalLineWidth** | **Int?** | This attribute sets minimal width of graphic path line. If thickness of line is less than 1px Adobe Acrobat rounds it to this value. So this attribute can be used to emulate this behavior for HTML browsers. | [optional]
@@ -6035,16 +6707,16 @@ Name | Type | Description  | Notes
 **splitCssIntoPages** | **Bool?** | When multipage-mode selected(i.e 'SplitIntoPages' is 'true'), then this attribute defines whether should be created separate CSS-file for each result HTML page. | [optional]
 **splitIntoPages** | **Bool?** | The flag that indicates whether each page of source document will be converted into it's own target HTML document, i.e whether result HTML will be splitted into several HTML-pages. | [optional]
 **useZOrder** | **Bool?** | If attribute UseZORder set to true, graphics and text are added to resultant HTML document accordingly Z-order in original PDF document. If this attribute is false all graphics is put as single layer which may cause some unnecessary effects for overlapped objects. | [optional]
-**antialiasingProcessing** | [**AntialiasingProcessingType?**](AntialiasingProcessingType.md) | The parameter defines required antialiasing measures during conversion of compound background images from PDF to HTML. | [optional]
+**antialiasingProcessing** | **String?** | The parameter defines required antialiasing measures during conversion of compound background images from PDF to HTML. | [optional]
 **cssClassNamesPrefix** | **String?** | When PDFtoHTML converter generates result CSSs, CSS class names (something like ".stl_01 {}" ... ".stl_NN {}) are generated and used in result CSS. This property allows forcibly set class name prefix. | [optional]
 **explicitListOfSavedPages** | **[Int]?** | With this property You can explicitely define what pages of document should be converted. Pages in this list must have 1-based numbers. I.e. valid numbers of pages must be taken from range (1...[NumberOfPagesInConvertedDocument]) Order of appearing of pages in this list does not affect their order in result HTML page(s) - in result pages allways will go in order in which they are present in source PDF. | [optional]
-**fontEncodingStrategy** | [**FontEncodingRules?**](FontEncodingRules.md) | Defines encoding special rule to tune PDF decoding for current document. | [optional]
-**fontSavingMode** | [**FontSavingModes?**](FontSavingModes.md) | Defines font saving mode that will be used during saving of PDF to desirable format. | [optional]
-**htmlMarkupGenerationMode** | [**HtmlMarkupGenerationModes?**](HtmlMarkupGenerationModes.md) | Sometimes specific reqirments to generation of HTML markup are present. This parameter defines HTML preparing modes that can be used during conversion of PDF to HTML to match such specific requirments. | [optional]
-**lettersPositioningMethod** | [**LettersPositioningMethods?**](LettersPositioningMethods.md) | The mode of positioning of letters in words in result HTML. | [optional]
+**fontEncodingStrategy** | **String?** | Defines encoding special rule to tune PDF decoding for current document. | [optional]
+**fontSavingMode** | **String?** | Defines font saving mode that will be used during saving of PDF to desirable format. | [optional]
+**htmlMarkupGenerationMode** | **String?** | Sometimes specific reqirments to generation of HTML markup are present. This parameter defines HTML preparing modes that can be used during conversion of PDF to HTML to match such specific requirments. | [optional]
+**lettersPositioningMethod** | **String?** | The mode of positioning of letters in words in result HTML. | [optional]
 **pagesFlowTypeDependsOnViewersScreenSize** | **Bool?** | If attribute 'SplitOnPages=false', than whole HTML representing all input PDF pages will be put into one big result HTML file. This flag defines whether result HTML will be generated in such way that flow of areas that represent PDF pages in result HTML will depend on screen resolution of viewer. | [optional]
-**partsEmbeddingMode** | [**PartsEmbeddingModes?**](PartsEmbeddingModes.md) | It defines whether referenced files (HTML, Fonts,Images, CSSes) will be embedded into main HTML file or will be generated as apart binary entities. | [optional]
-**rasterImagesSavingMode** | [**RasterImagesSavingModes?**](RasterImagesSavingModes.md) | Converted PDF can contain raster images This parameter defines how they should be handled during conversion of PDF to HTML. | [optional]
+**partsEmbeddingMode** | **String?** | It defines whether referenced files (HTML, Fonts,Images, CSSes) will be embedded into main HTML file or will be generated as apart binary entities. | [optional]
+**rasterImagesSavingMode** | **String?** | Converted PDF can contain raster images This parameter defines how they should be handled during conversion of PDF to HTML. | [optional]
 **removeEmptyAreasOnTopAndBottom** | **Bool?** | Defines whether in created HTML will be removed top and bottom empty area without any content (if any). | [optional]
 **saveShadowedTextsAsTransparentTexts** | **Bool?** | Pdf can contain texts that are shadowed by another elements (f.e. by images) but can be selected to clipboard in Acrobat Reader (usually it happen when document contains images and OCRed texts extracted from it). This settings tells to converter whether we need save such texts as transparent selectable texts in result HTML to mimic behaviour of Acrobat Reader (othervise such texts are usually saved as hidden, not available for copying to clipboard). | [optional]
 **saveTransparentTexts** | **Bool?** | Pdf can contain transparent texts that can be selected to clipboard (usually it happen when document contains images and OCRed texts extracted from it). This settings tells to converter whether we need save such texts as transparent selectable texts in result HTML. | [optional]
@@ -6110,7 +6782,7 @@ Name | Type | Description  | Notes
 
 <a name="putPdfInRequestToPdfA"></a>
 ## **putPdfInRequestToPdfA**
-> putPdfInRequestToPdfA(outPath: String, type: PdfAType, storage: String? = nil, file: Data? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+> putPdfInRequestToPdfA(outPath: String, type: String, storage: String? = nil, file: Data? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
 
 Converts PDF document (in request content) to PdfA format and uploads resulting file to storage.
 
@@ -6118,7 +6790,7 @@ Converts PDF document (in request content) to PdfA format and uploads resulting 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **outPath** | **String** | Full resulting filename (ex. /folder1/folder2/result.pdf) | 
-**type** | [**PdfAType**](PdfAType.md) | Type of PdfA format. | 
+**type** | **String** | Type of PdfA format. | 
 **storage** | **String?** | The document storage. | [optional]
 **file** | **Data?** | A file to be converted. | [optional]
 
@@ -6179,7 +6851,7 @@ Name | Type | Description  | Notes
 
 <a name="putPdfInRequestToTiff"></a>
 ## **putPdfInRequestToTiff**
-> putPdfInRequestToTiff(outPath: String, brightness: Double? = nil, compression: CompressionType? = nil, colorDepth: ColorDepth? = nil, leftMargin: Int? = nil, rightMargin: Int? = nil, topMargin: Int? = nil, bottomMargin: Int? = nil, orientation: ShapeType? = nil, skipBlankPages: Bool? = nil, width: Int? = nil, height: Int? = nil, xResolution: Int? = nil, yResolution: Int? = nil, pageIndex: Int? = nil, pageCount: Int? = nil, storage: String? = nil, file: Data? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+> putPdfInRequestToTiff(outPath: String, brightness: Double? = nil, compression: String? = nil, colorDepth: String? = nil, leftMargin: Int? = nil, rightMargin: Int? = nil, topMargin: Int? = nil, bottomMargin: Int? = nil, orientation: String? = nil, skipBlankPages: Bool? = nil, width: Int? = nil, height: Int? = nil, xResolution: Int? = nil, yResolution: Int? = nil, pageIndex: Int? = nil, pageCount: Int? = nil, storage: String? = nil, file: Data? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
 
 Converts PDF document (in request content) to TIFF format and uploads resulting file to storage.
 
@@ -6188,13 +6860,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **outPath** | **String** | Full resulting filename (ex. /folder1/folder2/result.tiff) | 
 **brightness** | **Double?** | Image brightness. | [optional]
-**compression** | [**CompressionType?**](CompressionType.md) | Tiff compression. Possible values are: LZW, CCITT4, CCITT3, RLE, None. | [optional]
-**colorDepth** | [**ColorDepth?**](ColorDepth.md) | Image color depth. Possible valuse are: Default, Format8bpp, Format4bpp, Format1bpp. | [optional]
+**compression** | **String?** | Tiff compression. Possible values are: LZW, CCITT4, CCITT3, RLE, None. | [optional]
+**colorDepth** | **String?** | Image color depth. Possible valuse are: Default, Format8bpp, Format4bpp, Format1bpp. | [optional]
 **leftMargin** | **Int?** | Left image margin. | [optional]
 **rightMargin** | **Int?** | Right image margin. | [optional]
 **topMargin** | **Int?** | Top image margin. | [optional]
 **bottomMargin** | **Int?** | Bottom image margin. | [optional]
-**orientation** | [**ShapeType?**](ShapeType.md) | Image orientation. Possible values are: None, Landscape, Portait. | [optional]
+**orientation** | **String?** | Image orientation. Possible values are: None, Landscape, Portait. | [optional]
 **skipBlankPages** | **Bool?** | Skip blank pages flag. | [optional]
 **width** | **Int?** | Image width. | [optional]
 **height** | **Int?** | Image height. | [optional]
@@ -6312,7 +6984,7 @@ Name | Type | Description  | Notes
 
 <a name="putPdfInStorageToDoc"></a>
 ## **putPdfInStorageToDoc**
-> putPdfInStorageToDoc(name: String, outPath: String, addReturnToLineEnd: Bool? = nil, format: DocFormat? = nil, imageResolutionX: Int? = nil, imageResolutionY: Int? = nil, maxDistanceBetweenTextLines: Double? = nil, mode: DocRecognitionMode? = nil, recognizeBullets: Bool? = nil, relativeHorizontalProximity: Double? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+> putPdfInStorageToDoc(name: String, outPath: String, addReturnToLineEnd: Bool? = nil, format: String? = nil, imageResolutionX: Int? = nil, imageResolutionY: Int? = nil, maxDistanceBetweenTextLines: Double? = nil, mode: String? = nil, recognizeBullets: Bool? = nil, relativeHorizontalProximity: Double? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
 
 Converts PDF document (located on storage) to DOC format and uploads resulting file to storage
 
@@ -6322,11 +6994,11 @@ Name | Type | Description  | Notes
 **name** | **String** | The document name. | 
 **outPath** | **String** | Full resulting filename (ex. /folder1/folder2/result.doc) | 
 **addReturnToLineEnd** | **Bool?** | Add return to line end. | [optional]
-**format** | [**DocFormat?**](DocFormat.md) | Allows to specify .doc or .docx file format. | [optional]
+**format** | **String?** | Allows to specify .doc or .docx file format. | [optional]
 **imageResolutionX** | **Int?** | Image resolution X. | [optional]
 **imageResolutionY** | **Int?** | Image resolution Y. | [optional]
 **maxDistanceBetweenTextLines** | **Double?** | Max distance between text lines. | [optional]
-**mode** | [**DocRecognitionMode?**](DocRecognitionMode.md) | Allows to control how a PDF document is converted into a word processing document. | [optional]
+**mode** | **String?** | Allows to control how a PDF document is converted into a word processing document. | [optional]
 **recognizeBullets** | **Bool?** | Recognize bullets. | [optional]
 **relativeHorizontalProximity** | **Double?** | Relative horizontal proximity. | [optional]
 **folder** | **String?** | The document folder. | [optional]
@@ -6343,7 +7015,7 @@ Name | Type | Description  | Notes
 
 <a name="putPdfInStorageToEpub"></a>
 ## **putPdfInStorageToEpub**
-> putPdfInStorageToEpub(name: String, outPath: String, contentRecognitionMode: EpubRecognitionMode? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+> putPdfInStorageToEpub(name: String, outPath: String, contentRecognitionMode: String? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
 
 Converts PDF document (located on storage) to EPUB format and uploads resulting file to storage
 
@@ -6352,7 +7024,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **name** | **String** | The document name. | 
 **outPath** | **String** | Full resulting filename (ex. /folder1/folder2/result.epub) | 
-**contentRecognitionMode** | [**EpubRecognitionMode?**](EpubRecognitionMode.md) | Property tunes conversion for this or that desirable method of recognition of content. | [optional]
+**contentRecognitionMode** | **String?** | Property tunes conversion for this or that desirable method of recognition of content. | [optional]
 **folder** | **String?** | The document folder. | [optional]
 **storage** | **String?** | The document storage. | [optional]
 
@@ -6367,7 +7039,7 @@ Name | Type | Description  | Notes
 
 <a name="putPdfInStorageToHtml"></a>
 ## **putPdfInStorageToHtml**
-> putPdfInStorageToHtml(name: String, outPath: String, additionalMarginWidthInPoints: Int? = nil, compressSvgGraphicsIfAny: Bool? = nil, convertMarkedContentToLayers: Bool? = nil, defaultFontName: String? = nil, documentType: HtmlDocumentType? = nil, fixedLayout: Bool? = nil, imageResolution: Int? = nil, minimalLineWidth: Int? = nil, preventGlyphsGrouping: Bool? = nil, splitCssIntoPages: Bool? = nil, splitIntoPages: Bool? = nil, useZOrder: Bool? = nil, antialiasingProcessing: AntialiasingProcessingType? = nil, cssClassNamesPrefix: String? = nil, explicitListOfSavedPages: [Int]? = nil, fontEncodingStrategy: FontEncodingRules? = nil, fontSavingMode: FontSavingModes? = nil, htmlMarkupGenerationMode: HtmlMarkupGenerationModes? = nil, lettersPositioningMethod: LettersPositioningMethods? = nil, pagesFlowTypeDependsOnViewersScreenSize: Bool? = nil, partsEmbeddingMode: PartsEmbeddingModes? = nil, rasterImagesSavingMode: RasterImagesSavingModes? = nil, removeEmptyAreasOnTopAndBottom: Bool? = nil, saveShadowedTextsAsTransparentTexts: Bool? = nil, saveTransparentTexts: Bool? = nil, specialFolderForAllImages: String? = nil, specialFolderForSvgImages: String? = nil, trySaveTextUnderliningAndStrikeoutingInCss: Bool? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+> putPdfInStorageToHtml(name: String, outPath: String, additionalMarginWidthInPoints: Int? = nil, compressSvgGraphicsIfAny: Bool? = nil, convertMarkedContentToLayers: Bool? = nil, defaultFontName: String? = nil, documentType: String? = nil, fixedLayout: Bool? = nil, imageResolution: Int? = nil, minimalLineWidth: Int? = nil, preventGlyphsGrouping: Bool? = nil, splitCssIntoPages: Bool? = nil, splitIntoPages: Bool? = nil, useZOrder: Bool? = nil, antialiasingProcessing: String? = nil, cssClassNamesPrefix: String? = nil, explicitListOfSavedPages: [Int]? = nil, fontEncodingStrategy: String? = nil, fontSavingMode: String? = nil, htmlMarkupGenerationMode: String? = nil, lettersPositioningMethod: String? = nil, pagesFlowTypeDependsOnViewersScreenSize: Bool? = nil, partsEmbeddingMode: String? = nil, rasterImagesSavingMode: String? = nil, removeEmptyAreasOnTopAndBottom: Bool? = nil, saveShadowedTextsAsTransparentTexts: Bool? = nil, saveTransparentTexts: Bool? = nil, specialFolderForAllImages: String? = nil, specialFolderForSvgImages: String? = nil, trySaveTextUnderliningAndStrikeoutingInCss: Bool? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
 
 Converts PDF document (located on storage) to Html format and uploads resulting file to storage
 
@@ -6380,7 +7052,7 @@ Name | Type | Description  | Notes
 **compressSvgGraphicsIfAny** | **Bool?** | The flag that indicates whether found SVG graphics(if any) will be compressed(zipped) into SVGZ format during saving. | [optional]
 **convertMarkedContentToLayers** | **Bool?** | If attribute ConvertMarkedContentToLayers set to true then an all elements inside a PDF marked content (layer) will be put into an HTML div with "data-pdflayer" attribute specifying a layer name. This layer name will be extracted from optional properties of PDF marked content. If this attribute is false (by default) then no any layers will be created from PDF marked content. | [optional]
 **defaultFontName** | **String?** | Specifies the name of an installed font which is used to substitute any document font that is not embedded and not installed in the system. If null then default substitution font is used. | [optional]
-**documentType** | [**HtmlDocumentType?**](HtmlDocumentType.md) | Result document type. | [optional]
+**documentType** | **String?** | Result document type. | [optional]
 **fixedLayout** | **Bool?** | The value indicating whether that HTML is created as fixed layout. | [optional]
 **imageResolution** | **Int?** | Resolution for image rendering. | [optional]
 **minimalLineWidth** | **Int?** | This attribute sets minimal width of graphic path line. If thickness of line is less than 1px Adobe Acrobat rounds it to this value. So this attribute can be used to emulate this behavior for HTML browsers. | [optional]
@@ -6388,16 +7060,16 @@ Name | Type | Description  | Notes
 **splitCssIntoPages** | **Bool?** | When multipage-mode selected(i.e 'SplitIntoPages' is 'true'), then this attribute defines whether should be created separate CSS-file for each result HTML page. | [optional]
 **splitIntoPages** | **Bool?** | The flag that indicates whether each page of source document will be converted into it's own target HTML document, i.e whether result HTML will be splitted into several HTML-pages. | [optional]
 **useZOrder** | **Bool?** | If attribute UseZORder set to true, graphics and text are added to resultant HTML document accordingly Z-order in original PDF document. If this attribute is false all graphics is put as single layer which may cause some unnecessary effects for overlapped objects. | [optional]
-**antialiasingProcessing** | [**AntialiasingProcessingType?**](AntialiasingProcessingType.md) | The parameter defines required antialiasing measures during conversion of compound background images from PDF to HTML. | [optional]
+**antialiasingProcessing** | **String?** | The parameter defines required antialiasing measures during conversion of compound background images from PDF to HTML. | [optional]
 **cssClassNamesPrefix** | **String?** | When PDFtoHTML converter generates result CSSs, CSS class names (something like ".stl_01 {}" ... ".stl_NN {}) are generated and used in result CSS. This property allows forcibly set class name prefix. | [optional]
 **explicitListOfSavedPages** | **[Int]?** | With this property You can explicitely define what pages of document should be converted. Pages in this list must have 1-based numbers. I.e. valid numbers of pages must be taken from range (1...[NumberOfPagesInConvertedDocument]) Order of appearing of pages in this list does not affect their order in result HTML page(s) - in result pages allways will go in order in which they are present in source PDF. | [optional]
-**fontEncodingStrategy** | [**FontEncodingRules?**](FontEncodingRules.md) | Defines encoding special rule to tune PDF decoding for current document. | [optional]
-**fontSavingMode** | [**FontSavingModes?**](FontSavingModes.md) | Defines font saving mode that will be used during saving of PDF to desirable format. | [optional]
-**htmlMarkupGenerationMode** | [**HtmlMarkupGenerationModes?**](HtmlMarkupGenerationModes.md) | Sometimes specific reqirments to generation of HTML markup are present. This parameter defines HTML preparing modes that can be used during conversion of PDF to HTML to match such specific requirments. | [optional]
-**lettersPositioningMethod** | [**LettersPositioningMethods?**](LettersPositioningMethods.md) | The mode of positioning of letters in words in result HTML. | [optional]
+**fontEncodingStrategy** | **String?** | Defines encoding special rule to tune PDF decoding for current document. | [optional]
+**fontSavingMode** | **String?** | Defines font saving mode that will be used during saving of PDF to desirable format. | [optional]
+**htmlMarkupGenerationMode** | **String?** | Sometimes specific reqirments to generation of HTML markup are present. This parameter defines HTML preparing modes that can be used during conversion of PDF to HTML to match such specific requirments. | [optional]
+**lettersPositioningMethod** | **String?** | The mode of positioning of letters in words in result HTML. | [optional]
 **pagesFlowTypeDependsOnViewersScreenSize** | **Bool?** | If attribute 'SplitOnPages=false', than whole HTML representing all input PDF pages will be put into one big result HTML file. This flag defines whether result HTML will be generated in such way that flow of areas that represent PDF pages in result HTML will depend on screen resolution of viewer. | [optional]
-**partsEmbeddingMode** | [**PartsEmbeddingModes?**](PartsEmbeddingModes.md) | It defines whether referenced files (HTML, Fonts,Images, CSSes) will be embedded into main HTML file or will be generated as apart binary entities. | [optional]
-**rasterImagesSavingMode** | [**RasterImagesSavingModes?**](RasterImagesSavingModes.md) | Converted PDF can contain raster images This parameter defines how they should be handled during conversion of PDF to HTML. | [optional]
+**partsEmbeddingMode** | **String?** | It defines whether referenced files (HTML, Fonts,Images, CSSes) will be embedded into main HTML file or will be generated as apart binary entities. | [optional]
+**rasterImagesSavingMode** | **String?** | Converted PDF can contain raster images This parameter defines how they should be handled during conversion of PDF to HTML. | [optional]
 **removeEmptyAreasOnTopAndBottom** | **Bool?** | Defines whether in created HTML will be removed top and bottom empty area without any content (if any). | [optional]
 **saveShadowedTextsAsTransparentTexts** | **Bool?** | Pdf can contain texts that are shadowed by another elements (f.e. by images) but can be selected to clipboard in Acrobat Reader (usually it happen when document contains images and OCRed texts extracted from it). This settings tells to converter whether we need save such texts as transparent selectable texts in result HTML to mimic behaviour of Acrobat Reader (othervise such texts are usually saved as hidden, not available for copying to clipboard). | [optional]
 **saveTransparentTexts** | **Bool?** | Pdf can contain transparent texts that can be selected to clipboard (usually it happen when document contains images and OCRed texts extracted from it). This settings tells to converter whether we need save such texts as transparent selectable texts in result HTML. | [optional]
@@ -6465,7 +7137,7 @@ Name | Type | Description  | Notes
 
 <a name="putPdfInStorageToPdfA"></a>
 ## **putPdfInStorageToPdfA**
-> putPdfInStorageToPdfA(name: String, outPath: String, type: PdfAType, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+> putPdfInStorageToPdfA(name: String, outPath: String, type: String, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
 
 Converts PDF document (located on storage) to PdfA format and uploads resulting file to storage
 
@@ -6474,7 +7146,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **name** | **String** | The document name. | 
 **outPath** | **String** | Full resulting filename (ex. /folder1/folder2/result.pdf) | 
-**type** | [**PdfAType**](PdfAType.md) | Type of PdfA format. | 
+**type** | **String** | Type of PdfA format. | 
 **folder** | **String?** | The document folder. | [optional]
 **storage** | **String?** | The document storage. | [optional]
 
@@ -6537,7 +7209,7 @@ Name | Type | Description  | Notes
 
 <a name="putPdfInStorageToTiff"></a>
 ## **putPdfInStorageToTiff**
-> putPdfInStorageToTiff(name: String, outPath: String, brightness: Double? = nil, compression: CompressionType? = nil, colorDepth: ColorDepth? = nil, leftMargin: Int? = nil, rightMargin: Int? = nil, topMargin: Int? = nil, bottomMargin: Int? = nil, orientation: ShapeType? = nil, skipBlankPages: Bool? = nil, width: Int? = nil, height: Int? = nil, xResolution: Int? = nil, yResolution: Int? = nil, pageIndex: Int? = nil, pageCount: Int? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+> putPdfInStorageToTiff(name: String, outPath: String, brightness: Double? = nil, compression: String? = nil, colorDepth: String? = nil, leftMargin: Int? = nil, rightMargin: Int? = nil, topMargin: Int? = nil, bottomMargin: Int? = nil, orientation: String? = nil, skipBlankPages: Bool? = nil, width: Int? = nil, height: Int? = nil, xResolution: Int? = nil, yResolution: Int? = nil, pageIndex: Int? = nil, pageCount: Int? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
 
 Converts PDF document (located on storage) to TIFF format and uploads resulting file to storage
 
@@ -6547,13 +7219,13 @@ Name | Type | Description  | Notes
 **name** | **String** | The document name. | 
 **outPath** | **String** | Full resulting filename (ex. /folder1/folder2/result.tiff) | 
 **brightness** | **Double?** | Image brightness. | [optional]
-**compression** | [**CompressionType?**](CompressionType.md) | Tiff compression. Possible values are: LZW, CCITT4, CCITT3, RLE, None. | [optional]
-**colorDepth** | [**ColorDepth?**](ColorDepth.md) | Image color depth. Possible valuse are: Default, Format8bpp, Format4bpp, Format1bpp. | [optional]
+**compression** | **String?** | Tiff compression. Possible values are: LZW, CCITT4, CCITT3, RLE, None. | [optional]
+**colorDepth** | **String?** | Image color depth. Possible valuse are: Default, Format8bpp, Format4bpp, Format1bpp. | [optional]
 **leftMargin** | **Int?** | Left image margin. | [optional]
 **rightMargin** | **Int?** | Right image margin. | [optional]
 **topMargin** | **Int?** | Top image margin. | [optional]
 **bottomMargin** | **Int?** | Bottom image margin. | [optional]
-**orientation** | [**ShapeType?**](ShapeType.md) | Image orientation. Possible values are: None, Landscape, Portait. | [optional]
+**orientation** | **String?** | Image orientation. Possible values are: None, Landscape, Portait. | [optional]
 **skipBlankPages** | **Bool?** | Skip blank pages flag. | [optional]
 **width** | **Int?** | Image width. | [optional]
 **height** | **Int?** | Image height. | [optional]
@@ -6747,7 +7419,7 @@ Name | Type | Description  | Notes
 
 <a name="putPrivileges"></a>
 ## **putPrivileges**
-> putPrivileges(name: String, privileges: DocumentPrivilege? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+> putPrivileges(name: String, privileges: DocumentPrivilege, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
 
 Update privilege document.
 
@@ -6755,7 +7427,7 @@ Update privilege document.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **name** | **String** | The document name. | 
-**privileges** | [**DocumentPrivilege?**](DocumentPrivilege.md) | Document privileges.  | [optional]
+**privileges** | [**DocumentPrivilege**](DocumentPrivilege.md) | Document privileges. DocumentPrivilege | 
 **storage** | **String?** | The document storage. | [optional]
 **folder** | **String?** | The document folder. | [optional]
 
@@ -7208,7 +7880,7 @@ Name | Type | Description  | Notes
 
 <a name="putUpdateField"></a>
 ## **putUpdateField**
-> putUpdateField(name: String, fieldName: String, field: Field? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: FieldResponse?, _ error: Error?) -> Void))
+> putUpdateField(name: String, fieldName: String, field: Field, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: FieldResponse?, _ error: Error?) -> Void))
 
 Update field.
 
@@ -7217,7 +7889,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **name** | **String** | The document name. | 
 **fieldName** | **String** | The name of a field to be updated. | 
-**field** | [**Field?**](Field.md) | with the field data. | [optional]
+**field** | [**Field**](Field.md) | Field with the field data. | 
 **storage** | **String?** | The document storage. | [optional]
 **folder** | **String?** | The document folder. | [optional]
 
@@ -7232,7 +7904,7 @@ Name | Type | Description  | Notes
 
 <a name="putUpdateFields"></a>
 ## **putUpdateFields**
-> putUpdateFields(name: String, fields: Fields? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: FieldsResponse?, _ error: Error?) -> Void))
+> putUpdateFields(name: String, fields: Fields, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: FieldsResponse?, _ error: Error?) -> Void))
 
 Update fields.
 
@@ -7240,7 +7912,7 @@ Update fields.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **name** | **String** | The document name. | 
-**fields** | [**Fields?**](Fields.md) | with the fields data. | [optional]
+**fields** | [**Fields**](Fields.md) | Fields with the fields data. | 
 **storage** | **String?** | The document storage. | [optional]
 **folder** | **String?** | The document folder. | [optional]
 
@@ -7396,6 +8068,48 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="storageExists"></a>
+## **storageExists**
+> storageExists(storageName: String, completion: @escaping ((_ data: StorageExist?, _ error: Error?) -> Void))
+
+Check if storage exists
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**storageName** | **String** | Storage name | 
+
+### Return type
+
+[**StorageExist**](StorageExist.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="uploadFile"></a>
+## **uploadFile**
+> uploadFile(path: String, File: Data, storageName: String? = nil, completion: @escaping ((_ data: FilesUploadResult?, _ error: Error?) -> Void))
+
+Upload file
+
+### Parameters
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**path** | **String** | Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext If the content is multipart and path does not contains the file name it tries to get them from filename parameter from Content-Disposition header.  | 
+**File** | **Data** | File to upload | 
+**storageName** | **String?** | Storage name | [optional]
+
+### Return type
+
+[**FilesUploadResult**](FilesUploadResult.md)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 

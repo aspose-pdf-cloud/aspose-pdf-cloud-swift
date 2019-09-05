@@ -23,12 +23,11 @@
 import Foundation
 
 open class AsposePdfCloudAPI {
-    open static var basePath = "https://api.aspose.cloud/v2.0"
+    open static var basePath = "https://api.aspose.cloud/v3.0"
     open static var appSid: String?
     open static var appKey: String?
     open static var requestBuilderFactory: RequestBuilderFactory = AlamofireRequestBuilderFactory()
     open static var accessToken: String?
-    open static var refreshToken: String?
 }
 
 open class RequestBuilder<T> {

@@ -29,21 +29,21 @@ import Foundation
 
 open class LinkAnnotation: LinkElement {
 
-    public var actionType: LinkActionType?
-    public var action: String?
-    public var highlighting: LinkHighlightingMode?
+    public var actionType: LinkActionType
+    public var action: String
+    public var highlighting: LinkHighlightingMode
     public var color: Color?
-    public var rect: Rectangle?
+    public var rect: Rectangle
     public var id: String?
 
     
-    public init(links: [Link]?, actionType: LinkActionType?, action: String?, highlighting: LinkHighlightingMode?, color: Color?, rect: Rectangle?, id: String?) {
-        super.init(links: links)
+    public init(links: [Link]?, actionType: LinkActionType, action: String, highlighting: LinkHighlightingMode, color: Color?, rect: Rectangle, id: String?) {
         self.actionType = actionType
         self.action = action
         self.highlighting = highlighting
-        self.color = color
         self.rect = rect
+        super.init(links: links)
+        self.color = color
         self.id = id
     }
         
@@ -55,11 +55,11 @@ open class LinkAnnotation: LinkElement {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(actionType, forKey: "ActionType")
-        try container.encodeIfPresent(action, forKey: "Action")
-        try container.encodeIfPresent(highlighting, forKey: "Highlighting")
+        try container.encode(actionType, forKey: "ActionType")
+        try container.encode(action, forKey: "Action")
+        try container.encode(highlighting, forKey: "Highlighting")
         try container.encodeIfPresent(color, forKey: "Color")
-        try container.encodeIfPresent(rect, forKey: "Rect")
+        try container.encode(rect, forKey: "Rect")
         try container.encodeIfPresent(id, forKey: "Id")
         try super.encode(to: encoder)
     }
@@ -69,11 +69,11 @@ open class LinkAnnotation: LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        actionType = try container.decodeIfPresent(LinkActionType.self, forKey: "ActionType")
-        action = try container.decodeIfPresent(String.self, forKey: "Action")
-        highlighting = try container.decodeIfPresent(LinkHighlightingMode.self, forKey: "Highlighting")
+        actionType = try container.decode(LinkActionType.self, forKey: "ActionType")
+        action = try container.decode(String.self, forKey: "Action")
+        highlighting = try container.decode(LinkHighlightingMode.self, forKey: "Highlighting")
         color = try container.decodeIfPresent(Color.self, forKey: "Color")
-        rect = try container.decodeIfPresent(Rectangle.self, forKey: "Rect")
+        rect = try container.decode(Rectangle.self, forKey: "Rect")
         id = try container.decodeIfPresent(String.self, forKey: "Id")
         try super.init(from: decoder)
     }

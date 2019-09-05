@@ -28,6 +28,171 @@ import Alamofire
 
 open class PdfAPI {
     /**
+     Copy file
+     
+     - parameter srcPath: (path) Source file path e.g. &#39;/folder/file.ext&#39; 
+     - parameter destPath: (query) Destination file path 
+     - parameter srcStorageName: (query) Source storage name (optional)
+     - parameter destStorageName: (query) Destination storage name (optional)
+     - parameter versionId: (query) File version ID to copy (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func copyFile(srcPath: String, destPath: String, srcStorageName: String? = nil, destStorageName: String? = nil, versionId: String? = nil, completion: @escaping ((_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(authError)
+                return
+            }
+            copyFileWithRequestBuilder(srcPath: srcPath, destPath: destPath, srcStorageName: srcStorageName, destStorageName: destStorageName, versionId: versionId).execute { (response, error) -> Void in
+                completion(error);
+            }
+        }
+    }
+
+
+    /**
+     Copy file
+     - PUT /pdf/storage/file/copy/{srcPath}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     
+     - parameter srcPath: (path) Source file path e.g. &#39;/folder/file.ext&#39; 
+     - parameter destPath: (query) Destination file path 
+     - parameter srcStorageName: (query) Source storage name (optional)
+     - parameter destStorageName: (query) Destination storage name (optional)
+     - parameter versionId: (query) File version ID to copy (optional)
+
+     - returns: RequestBuilder<Void> 
+     */
+    open class func copyFileWithRequestBuilder(srcPath: String, destPath: String, srcStorageName: String? = nil, destStorageName: String? = nil, versionId: String? = nil) -> RequestBuilder<Void> {
+        var pathUrl = "/pdf/storage/file/copy/{srcPath}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{srcPath}", with: "\(srcPath)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "destPath": destPath, 
+            "srcStorageName": srcStorageName, 
+            "destStorageName": destStorageName, 
+            "versionId": versionId
+        ])
+        
+
+        let requestBuilder: RequestBuilder<Void>.Type = AsposePdfCloudAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Copy folder
+     
+     - parameter srcPath: (path) Source folder path e.g. &#39;/src&#39; 
+     - parameter destPath: (query) Destination folder path e.g. &#39;/dst&#39; 
+     - parameter srcStorageName: (query) Source storage name (optional)
+     - parameter destStorageName: (query) Destination storage name (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func copyFolder(srcPath: String, destPath: String, srcStorageName: String? = nil, destStorageName: String? = nil, completion: @escaping ((_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(authError)
+                return
+            }
+            copyFolderWithRequestBuilder(srcPath: srcPath, destPath: destPath, srcStorageName: srcStorageName, destStorageName: destStorageName).execute { (response, error) -> Void in
+                completion(error);
+            }
+        }
+    }
+
+
+    /**
+     Copy folder
+     - PUT /pdf/storage/folder/copy/{srcPath}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     
+     - parameter srcPath: (path) Source folder path e.g. &#39;/src&#39; 
+     - parameter destPath: (query) Destination folder path e.g. &#39;/dst&#39; 
+     - parameter srcStorageName: (query) Source storage name (optional)
+     - parameter destStorageName: (query) Destination storage name (optional)
+
+     - returns: RequestBuilder<Void> 
+     */
+    open class func copyFolderWithRequestBuilder(srcPath: String, destPath: String, srcStorageName: String? = nil, destStorageName: String? = nil) -> RequestBuilder<Void> {
+        var pathUrl = "/pdf/storage/folder/copy/{srcPath}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{srcPath}", with: "\(srcPath)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "destPath": destPath, 
+            "srcStorageName": srcStorageName, 
+            "destStorageName": destStorageName
+        ])
+        
+
+        let requestBuilder: RequestBuilder<Void>.Type = AsposePdfCloudAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Create the folder
+     
+     - parameter path: (path) Folder path to create e.g. &#39;folder_1/folder_2/&#39; 
+     - parameter storageName: (query) Storage name (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func createFolder(path: String, storageName: String? = nil, completion: @escaping ((_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(authError)
+                return
+            }
+            createFolderWithRequestBuilder(path: path, storageName: storageName).execute { (response, error) -> Void in
+                completion(error);
+            }
+        }
+    }
+
+
+    /**
+     Create the folder
+     - PUT /pdf/storage/folder/{path}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     
+     - parameter path: (path) Folder path to create e.g. &#39;folder_1/folder_2/&#39; 
+     - parameter storageName: (query) Storage name (optional)
+
+     - returns: RequestBuilder<Void> 
+     */
+    open class func createFolderWithRequestBuilder(path: String, storageName: String? = nil) -> RequestBuilder<Void> {
+        var pathUrl = "/pdf/storage/folder/{path}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{path}", with: "\(path)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storageName": storageName
+        ])
+        
+
+        let requestBuilder: RequestBuilder<Void>.Type = AsposePdfCloudAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
      Delete document annotation by ID
      
      - parameter name: (path) The document name. 
@@ -53,6 +218,9 @@ open class PdfAPI {
     /**
      Delete document annotation by ID
      - DELETE /pdf/{name}/annotations/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -76,6 +244,66 @@ open class PdfAPI {
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Delete document bookmark by ID.
+     
+     - parameter name: (path) The document name. 
+     - parameter bookmarkPath: (path) The bookmark path. 
+     - parameter folder: (query) The document folder. (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func deleteBookmark(name: String, bookmarkPath: String, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            deleteBookmarkWithRequestBuilder(name: name, bookmarkPath: bookmarkPath, folder: folder, storage: storage).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Delete document bookmark by ID.
+     - DELETE /pdf/{name}/bookmarks/bookmark/{bookmarkPath}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter bookmarkPath: (path) The bookmark path. 
+     - parameter folder: (query) The document folder. (optional)
+     - parameter storage: (query) The document storage. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func deleteBookmarkWithRequestBuilder(name: String, bookmarkPath: String, folder: String? = nil, storage: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/bookmarks/bookmark/{bookmarkPath}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{bookmarkPath}", with: "\(bookmarkPath)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "folder": folder, 
+            "storage": storage
         ])
         
 
@@ -109,6 +337,9 @@ open class PdfAPI {
     /**
      Delete all annotations from the document
      - DELETE /pdf/{name}/annotations
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -130,6 +361,63 @@ open class PdfAPI {
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Delete all document bookmarks.
+     
+     - parameter name: (path) The document name. 
+     - parameter folder: (query) The document folder. (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func deleteDocumentBookmarks(name: String, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            deleteDocumentBookmarksWithRequestBuilder(name: name, folder: folder, storage: storage).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Delete all document bookmarks.
+     - DELETE /pdf/{name}/bookmarks/tree
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter folder: (query) The document folder. (optional)
+     - parameter storage: (query) The document storage. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func deleteDocumentBookmarksWithRequestBuilder(name: String, folder: String? = nil, storage: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/bookmarks/tree"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "folder": folder, 
+            "storage": storage
         ])
         
 
@@ -163,6 +451,9 @@ open class PdfAPI {
     /**
      Delete all link annotations from the document
      - DELETE /pdf/{name}/links
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -217,6 +508,9 @@ open class PdfAPI {
     /**
      Delete all stamps from the document
      - DELETE /pdf/{name}/stamps
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -271,6 +565,9 @@ open class PdfAPI {
     /**
      Delete all tables from the document
      - DELETE /pdf/{name}/tables
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -326,6 +623,9 @@ open class PdfAPI {
     /**
      Delete document field by name.
      - DELETE /pdf/{name}/fields/{fieldName}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -358,109 +658,107 @@ open class PdfAPI {
     }
 
     /**
-     Remove a specific file 
+     Delete file
      
-     - parameter path: (query) Path of the file including file name and extension e.g. /Folder1/file.ext 
-     - parameter versionId: (query) File&#39;s version (optional)
-     - parameter storage: (query) User&#39;s storage name (optional)
+     - parameter path: (path) File path e.g. &#39;/folder/file.ext&#39; 
+     - parameter storageName: (query) Storage name (optional)
+     - parameter versionId: (query) File version ID to delete (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func deleteFile(path: String, versionId: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+    open class func deleteFile(path: String, storageName: String? = nil, versionId: String? = nil, completion: @escaping ((_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
-                completion(nil, authError)
+                completion(authError)
                 return
             }
-            deleteFileWithRequestBuilder(path: path, versionId: versionId, storage: storage).execute { (response, error) -> Void in
-                completion(response?.body, error);
+            deleteFileWithRequestBuilder(path: path, storageName: storageName, versionId: versionId).execute { (response, error) -> Void in
+                completion(error);
             }
         }
     }
 
 
     /**
-     Remove a specific file 
-     - DELETE /storage/file
-     - examples: [{contentType=application/json, example={
-  "Status" : "Status",
-  "Code" : 0
-}}]
+     Delete file
+     - DELETE /pdf/storage/file/{path}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      
-     - parameter path: (query) Path of the file including file name and extension e.g. /Folder1/file.ext 
-     - parameter versionId: (query) File&#39;s version (optional)
-     - parameter storage: (query) User&#39;s storage name (optional)
+     - parameter path: (path) File path e.g. &#39;/folder/file.ext&#39; 
+     - parameter storageName: (query) Storage name (optional)
+     - parameter versionId: (query) File version ID to delete (optional)
 
-     - returns: RequestBuilder<AsposeResponse> 
+     - returns: RequestBuilder<Void> 
      */
-    open class func deleteFileWithRequestBuilder(path: String, versionId: String? = nil, storage: String? = nil) -> RequestBuilder<AsposeResponse> {
-        let pathUrl = "/storage/file"
+    open class func deleteFileWithRequestBuilder(path: String, storageName: String? = nil, versionId: String? = nil) -> RequestBuilder<Void> {
+        var pathUrl = "/pdf/storage/file/{path}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{path}", with: "\(path)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
-            "path": path, 
-            "versionId": versionId, 
-            "storage": storage
+            "storageName": storageName, 
+            "versionId": versionId
         ])
         
 
-        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<Void>.Type = AsposePdfCloudAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return requestBuilder.init(method: "DELETE", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
-     Remove a specific folder 
+     Delete folder
      
-     - parameter path: (query) Folder path e.g. /Folder1 
-     - parameter storage: (query) User&#39;s storage name (optional)
-     - parameter recursive: (query) Remove recursivelly inner folder/files. If false and folder contains data than exception is raised. (optional, default to false)
+     - parameter path: (path) Folder path e.g. &#39;/folder&#39; 
+     - parameter storageName: (query) Storage name (optional)
+     - parameter recursive: (query) Enable to delete folders, subfolders and files (optional, default to false)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func deleteFolder(path: String, storage: String? = nil, recursive: Bool? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+    open class func deleteFolder(path: String, storageName: String? = nil, recursive: Bool? = nil, completion: @escaping ((_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
-                completion(nil, authError)
+                completion(authError)
                 return
             }
-            deleteFolderWithRequestBuilder(path: path, storage: storage, recursive: recursive).execute { (response, error) -> Void in
-                completion(response?.body, error);
+            deleteFolderWithRequestBuilder(path: path, storageName: storageName, recursive: recursive).execute { (response, error) -> Void in
+                completion(error);
             }
         }
     }
 
 
     /**
-     Remove a specific folder 
-     - DELETE /storage/folder
-     - examples: [{contentType=application/json, example={
-  "Status" : "Status",
-  "Code" : 0
-}}]
+     Delete folder
+     - DELETE /pdf/storage/folder/{path}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      
-     - parameter path: (query) Folder path e.g. /Folder1 
-     - parameter storage: (query) User&#39;s storage name (optional)
-     - parameter recursive: (query) Remove recursivelly inner folder/files. If false and folder contains data than exception is raised. (optional, default to false)
+     - parameter path: (path) Folder path e.g. &#39;/folder&#39; 
+     - parameter storageName: (query) Storage name (optional)
+     - parameter recursive: (query) Enable to delete folders, subfolders and files (optional, default to false)
 
-     - returns: RequestBuilder<AsposeResponse> 
+     - returns: RequestBuilder<Void> 
      */
-    open class func deleteFolderWithRequestBuilder(path: String, storage: String? = nil, recursive: Bool? = nil) -> RequestBuilder<AsposeResponse> {
-        let pathUrl = "/storage/folder"
+    open class func deleteFolderWithRequestBuilder(path: String, storageName: String? = nil, recursive: Bool? = nil) -> RequestBuilder<Void> {
+        var pathUrl = "/pdf/storage/folder/{path}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{path}", with: "\(path)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
-            "path": path, 
-            "storage": storage, 
+            "storageName": storageName, 
             "recursive": recursive
         ])
         
 
-        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<Void>.Type = AsposePdfCloudAPI.requestBuilderFactory.getNonDecodableBuilder()
 
         return requestBuilder.init(method: "DELETE", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -491,6 +789,9 @@ open class PdfAPI {
     /**
      Delete image from document page.
      - DELETE /pdf/{name}/images/{imageId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -548,6 +849,9 @@ open class PdfAPI {
     /**
      Delete document page link annotation by ID
      - DELETE /pdf/{name}/links/{linkId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -605,6 +909,9 @@ open class PdfAPI {
     /**
      Delete document page by its number.
      - DELETE /pdf/{name}/pages/{pageNumber}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -662,6 +969,9 @@ open class PdfAPI {
     /**
      Delete all annotations from the page
      - DELETE /pdf/{name}/pages/{pageNumber}/annotations
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -719,6 +1029,9 @@ open class PdfAPI {
     /**
      Delete all link annotations from the page
      - DELETE /pdf/{name}/pages/{pageNumber}/links
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -776,6 +1089,9 @@ open class PdfAPI {
     /**
      Delete all stamps from the page
      - DELETE /pdf/{name}/pages/{pageNumber}/stamps
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -833,6 +1149,9 @@ open class PdfAPI {
     /**
      Delete all tables from the page
      - DELETE /pdf/{name}/pages/{pageNumber}/tables
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -889,6 +1208,9 @@ open class PdfAPI {
     /**
      Delete custom document properties.
      - DELETE /pdf/{name}/documentproperties
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -944,6 +1266,9 @@ open class PdfAPI {
     /**
      Delete document property.
      - DELETE /pdf/{name}/documentproperties/{propertyName}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -1001,6 +1326,9 @@ open class PdfAPI {
     /**
      Delete document stamp by ID
      - DELETE /pdf/{name}/stamps/{stampId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -1058,6 +1386,9 @@ open class PdfAPI {
     /**
      Delete document table by ID
      - DELETE /pdf/{name}/tables/{tableId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -1090,6 +1421,174 @@ open class PdfAPI {
     }
 
     /**
+     Download file
+     
+     - parameter path: (path) File path e.g. &#39;/folder/file.ext&#39; 
+     - parameter storageName: (query) Storage name (optional)
+     - parameter versionId: (query) File version ID to download (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func downloadFile(path: String, storageName: String? = nil, versionId: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            downloadFileWithRequestBuilder(path: path, storageName: storageName, versionId: versionId).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Download file
+     - GET /pdf/storage/file/{path}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{output=none}]
+     
+     - parameter path: (path) File path e.g. &#39;/folder/file.ext&#39; 
+     - parameter storageName: (query) Storage name (optional)
+     - parameter versionId: (query) File version ID to download (optional)
+
+     - returns: RequestBuilder<Data> 
+     */
+    open class func downloadFileWithRequestBuilder(path: String, storageName: String? = nil, versionId: String? = nil) -> RequestBuilder<Data> {
+        var pathUrl = "/pdf/storage/file/{path}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{path}", with: "\(path)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storageName": storageName, 
+            "versionId": versionId
+        ])
+        
+
+        let requestBuilder: RequestBuilder<Data>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Read document bookmark.
+     
+     - parameter name: (path) The document name. 
+     - parameter bookmarkPath: (path) The bookmark path. 
+     - parameter folder: (query) The document folder. (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getBookmark(name: String, bookmarkPath: String, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: BookmarkResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getBookmarkWithRequestBuilder(name: name, bookmarkPath: bookmarkPath, folder: folder, storage: storage).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Read document bookmark.
+     - GET /pdf/{name}/bookmarks/bookmark/{bookmarkPath}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter name: (path) The document name. 
+     - parameter bookmarkPath: (path) The bookmark path. 
+     - parameter folder: (query) The document folder. (optional)
+     - parameter storage: (query) The document storage. (optional)
+
+     - returns: RequestBuilder<BookmarkResponse> 
+     */
+    open class func getBookmarkWithRequestBuilder(name: String, bookmarkPath: String, folder: String? = nil, storage: String? = nil) -> RequestBuilder<BookmarkResponse> {
+        var pathUrl = "/pdf/{name}/bookmarks/bookmark/{bookmarkPath}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{bookmarkPath}", with: "\(bookmarkPath)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "folder": folder, 
+            "storage": storage
+        ])
+        
+
+        let requestBuilder: RequestBuilder<BookmarkResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Read document bookmarks node list.
+     
+     - parameter name: (path) The document name. 
+     - parameter bookmarkPath: (path) The bookmark path. 
+     - parameter folder: (query) The document folder. (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getBookmarks(name: String, bookmarkPath: String, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: BookmarksResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getBookmarksWithRequestBuilder(name: name, bookmarkPath: bookmarkPath, folder: folder, storage: storage).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Read document bookmarks node list.
+     - GET /pdf/{name}/bookmarks/list/{bookmarkPath}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter name: (path) The document name. 
+     - parameter bookmarkPath: (path) The bookmark path. 
+     - parameter folder: (query) The document folder. (optional)
+     - parameter storage: (query) The document storage. (optional)
+
+     - returns: RequestBuilder<BookmarksResponse> 
+     */
+    open class func getBookmarksWithRequestBuilder(name: String, bookmarkPath: String, folder: String? = nil, storage: String? = nil) -> RequestBuilder<BookmarksResponse> {
+        var pathUrl = "/pdf/{name}/bookmarks/list/{bookmarkPath}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{bookmarkPath}", with: "\(bookmarkPath)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "folder": folder, 
+            "storage": storage
+        ])
+        
+
+        let requestBuilder: RequestBuilder<BookmarksResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
      Read document page caret annotation by ID.
      
      - parameter name: (path) The document name. 
@@ -1115,6 +1614,9 @@ open class PdfAPI {
     /**
      Read document page caret annotation by ID.
      - GET /pdf/{name}/annotations/caret/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -1169,6 +1671,9 @@ open class PdfAPI {
     /**
      Read document page circle annotation by ID.
      - GET /pdf/{name}/annotations/circle/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -1198,19 +1703,19 @@ open class PdfAPI {
     }
 
     /**
-     Check the disk usage of the current account 
+     Get disc usage
      
-     - parameter storage: (query) User&#39;s storage name (optional)
+     - parameter storageName: (query) Storage name (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getDiscUsage(storage: String? = nil, completion: @escaping ((_ data: DiscUsageResponse?,_ error: Error?) -> Void)) {
+    open class func getDiscUsage(storageName: String? = nil, completion: @escaping ((_ data: DiscUsage?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
                 completion(nil, authError)
                 return
             }
-            getDiscUsageWithRequestBuilder(storage: storage).execute { (response, error) -> Void in
+            getDiscUsageWithRequestBuilder(storageName: storageName).execute { (response, error) -> Void in
                 completion(response?.body, error);
             }
         }
@@ -1218,26 +1723,32 @@ open class PdfAPI {
 
 
     /**
-     Check the disk usage of the current account 
-     - GET /storage/disc
-     - examples: [{contentType=application/json, example=""}]
+     Get disc usage
+     - GET /pdf/storage/disc
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example={
+  "UsedSize" : 0,
+  "TotalSize" : 6
+}}]
      
-     - parameter storage: (query) User&#39;s storage name (optional)
+     - parameter storageName: (query) Storage name (optional)
 
-     - returns: RequestBuilder<DiscUsageResponse> 
+     - returns: RequestBuilder<DiscUsage> 
      */
-    open class func getDiscUsageWithRequestBuilder(storage: String? = nil) -> RequestBuilder<DiscUsageResponse> {
-        let pathUrl = "/storage/disc"
+    open class func getDiscUsageWithRequestBuilder(storageName: String? = nil) -> RequestBuilder<DiscUsage> {
+        let pathUrl = "/pdf/storage/disc"
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
-            "storage": storage
+            "storageName": storageName
         ])
         
 
-        let requestBuilder: RequestBuilder<DiscUsageResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<DiscUsage>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -1267,6 +1778,9 @@ open class PdfAPI {
     /**
      Read common document info.
      - GET /pdf/{name}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -1318,6 +1832,9 @@ open class PdfAPI {
     /**
      Read documant page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
      - GET /pdf/{name}/annotations
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -1370,6 +1887,9 @@ open class PdfAPI {
     /**
      Read document attachment info by its index.
      - GET /pdf/{name}/attachments/{attachmentIndex}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -1423,6 +1943,9 @@ open class PdfAPI {
     /**
      Read document attachments info.
      - GET /pdf/{name}/attachments
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -1445,6 +1968,60 @@ open class PdfAPI {
         
 
         let requestBuilder: RequestBuilder<AttachmentsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Read document bookmarks tree.
+     
+     - parameter name: (path) The document name. 
+     - parameter folder: (query) The document folder. (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getDocumentBookmarks(name: String, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: BookmarksResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getDocumentBookmarksWithRequestBuilder(name: name, folder: folder, storage: storage).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Read document bookmarks tree.
+     - GET /pdf/{name}/bookmarks/tree
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter name: (path) The document name. 
+     - parameter folder: (query) The document folder. (optional)
+     - parameter storage: (query) The document storage. (optional)
+
+     - returns: RequestBuilder<BookmarksResponse> 
+     */
+    open class func getDocumentBookmarksWithRequestBuilder(name: String, folder: String? = nil, storage: String? = nil) -> RequestBuilder<BookmarksResponse> {
+        var pathUrl = "/pdf/{name}/bookmarks/tree"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "folder": folder, 
+            "storage": storage
+        ])
+        
+
+        let requestBuilder: RequestBuilder<BookmarksResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -1474,6 +2051,9 @@ open class PdfAPI {
     /**
      Read document caret annotations.
      - GET /pdf/{name}/annotations/caret
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -1525,6 +2105,9 @@ open class PdfAPI {
     /**
      Read document circle annotations.
      - GET /pdf/{name}/annotations/circle
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -1576,6 +2159,9 @@ open class PdfAPI {
     /**
      Read document FileAttachment annotations.
      - GET /pdf/{name}/annotations/fileattachment
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -1627,6 +2213,9 @@ open class PdfAPI {
     /**
      Read document free text annotations.
      - GET /pdf/{name}/annotations/freetext
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -1678,6 +2267,9 @@ open class PdfAPI {
     /**
      Read document highlight annotations.
      - GET /pdf/{name}/annotations/highlight
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -1729,6 +2321,9 @@ open class PdfAPI {
     /**
      Read document ink annotations.
      - GET /pdf/{name}/annotations/ink
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -1780,6 +2375,9 @@ open class PdfAPI {
     /**
      Read document line annotations.
      - GET /pdf/{name}/annotations/line
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -1831,6 +2429,9 @@ open class PdfAPI {
     /**
      Read document movie annotations.
      - GET /pdf/{name}/annotations/movie
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -1882,6 +2483,9 @@ open class PdfAPI {
     /**
      Read document polyline annotations.
      - GET /pdf/{name}/annotations/polyline
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -1933,6 +2537,9 @@ open class PdfAPI {
     /**
      Read document polygon annotations.
      - GET /pdf/{name}/annotations/polygon
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -1984,6 +2591,9 @@ open class PdfAPI {
     /**
      Read document popup annotations.
      - GET /pdf/{name}/annotations/popup
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -2036,6 +2646,9 @@ open class PdfAPI {
     /**
      Read document popup annotations by parent id.
      - GET /pdf/{name}/annotations/{annotationId}/popup
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -2089,6 +2702,9 @@ open class PdfAPI {
     /**
      Read document properties.
      - GET /pdf/{name}/documentproperties
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path)  
@@ -2141,6 +2757,9 @@ open class PdfAPI {
     /**
      Read document property by name.
      - GET /pdf/{name}/documentproperties/{propertyName}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path)  
@@ -2194,6 +2813,9 @@ open class PdfAPI {
     /**
      Read document redaction annotations.
      - GET /pdf/{name}/annotations/redaction
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -2245,6 +2867,9 @@ open class PdfAPI {
     /**
      Read document screen annotations.
      - GET /pdf/{name}/annotations/screen
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -2267,6 +2892,60 @@ open class PdfAPI {
         
 
         let requestBuilder: RequestBuilder<ScreenAnnotationsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Read document signature fields.
+     
+     - parameter name: (path) The document name. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getDocumentSignatureFields(name: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: SignatureFieldsResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getDocumentSignatureFieldsWithRequestBuilder(name: name, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Read document signature fields.
+     - GET /pdf/{name}/fields/signature
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter name: (path) The document name. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<SignatureFieldsResponse> 
+     */
+    open class func getDocumentSignatureFieldsWithRequestBuilder(name: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<SignatureFieldsResponse> {
+        var pathUrl = "/pdf/{name}/fields/signature"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<SignatureFieldsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -2296,6 +2975,9 @@ open class PdfAPI {
     /**
      Read document sound annotations.
      - GET /pdf/{name}/annotations/sound
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -2347,6 +3029,9 @@ open class PdfAPI {
     /**
      Read document square annotations.
      - GET /pdf/{name}/annotations/square
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -2398,6 +3083,9 @@ open class PdfAPI {
     /**
      Read document squiggly annotations.
      - GET /pdf/{name}/annotations/squiggly
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -2449,6 +3137,9 @@ open class PdfAPI {
     /**
      Read document stamp annotations.
      - GET /pdf/{name}/annotations/stamp
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -2500,6 +3191,9 @@ open class PdfAPI {
     /**
      Read document stamps.
      - GET /pdf/{name}/stamps
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -2551,6 +3245,9 @@ open class PdfAPI {
     /**
      Read document StrikeOut annotations.
      - GET /pdf/{name}/annotations/strikeout
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -2602,6 +3299,9 @@ open class PdfAPI {
     /**
      Read document tables.
      - GET /pdf/{name}/tables
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path)  
@@ -2653,6 +3353,9 @@ open class PdfAPI {
     /**
      Read document text annotations.
      - GET /pdf/{name}/annotations/text
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -2704,6 +3407,9 @@ open class PdfAPI {
     /**
      Read document underline annotations.
      - GET /pdf/{name}/annotations/underline
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -2726,57 +3432,6 @@ open class PdfAPI {
         
 
         let requestBuilder: RequestBuilder<UnderlineAnnotationsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
-    }
-
-    /**
-     Download a specific file 
-     
-     - parameter path: (query) Path of the file including the file name and extension e.g. /file.ext 
-     - parameter versionId: (query) File&#39;s version (optional)
-     - parameter storage: (query) User&#39;s storage name (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func getDownload(path: String, versionId: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
-        AuthAspose.checkAuth() {
-            (authError) in
-            guard authError == nil else {
-                completion(nil, authError)
-                return
-            }
-            getDownloadWithRequestBuilder(path: path, versionId: versionId, storage: storage).execute { (response, error) -> Void in
-                completion(response?.body, error);
-            }
-        }
-    }
-
-
-    /**
-     Download a specific file 
-     - GET /storage/file
-     - examples: [{output=none}]
-     
-     - parameter path: (query) Path of the file including the file name and extension e.g. /file.ext 
-     - parameter versionId: (query) File&#39;s version (optional)
-     - parameter storage: (query) User&#39;s storage name (optional)
-
-     - returns: RequestBuilder<Data> 
-     */
-    open class func getDownloadWithRequestBuilder(path: String, versionId: String? = nil, storage: String? = nil) -> RequestBuilder<Data> {
-        let pathUrl = "/storage/file"
-        let URLString = AsposePdfCloudAPI.basePath + pathUrl
-        let parameters: [String:Any]? = nil
-
-        let urlObj = NSURLComponents(string: URLString)
-        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
-            "path": path, 
-            "versionId": versionId, 
-            "storage": storage
-        ])
-        
-
-        let requestBuilder: RequestBuilder<Data>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -2807,6 +3462,9 @@ open class PdfAPI {
     /**
      Download document attachment content by its index.
      - GET /pdf/{name}/attachments/{attachmentIndex}/download
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
@@ -2859,6 +3517,9 @@ open class PdfAPI {
     /**
      Convert EPUB file (located on storage) to PDF format and return resulting file in response. 
      - GET /pdf/create/epub
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.epub) 
@@ -2884,10 +3545,172 @@ open class PdfAPI {
     }
 
     /**
+     Export fields from from PDF in storage to FDF file.
+     
+     - parameter name: (path) The document name. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getExportFieldsFromPdfToFdfInStorage(name: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getExportFieldsFromPdfToFdfInStorageWithRequestBuilder(name: name, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Export fields from from PDF in storage to FDF file.
+     - GET /pdf/{name}/export/fdf
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{output=none}]
+     
+     - parameter name: (path) The document name. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<Data> 
+     */
+    open class func getExportFieldsFromPdfToFdfInStorageWithRequestBuilder(name: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<Data> {
+        var pathUrl = "/pdf/{name}/export/fdf"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<Data>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Export fields from from PDF in storage to XFDF file.
+     
+     - parameter name: (path) The document name. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getExportFieldsFromPdfToXfdfInStorage(name: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getExportFieldsFromPdfToXfdfInStorageWithRequestBuilder(name: name, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Export fields from from PDF in storage to XFDF file.
+     - GET /pdf/{name}/export/xfdf
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{output=none}]
+     
+     - parameter name: (path) The document name. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<Data> 
+     */
+    open class func getExportFieldsFromPdfToXfdfInStorageWithRequestBuilder(name: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<Data> {
+        var pathUrl = "/pdf/{name}/export/xfdf"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<Data>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Export fields from from PDF in storage to XML file.
+     
+     - parameter name: (path) The document name. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getExportFieldsFromPdfToXmlInStorage(name: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getExportFieldsFromPdfToXmlInStorageWithRequestBuilder(name: name, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Export fields from from PDF in storage to XML file.
+     - GET /pdf/{name}/export/xml
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{output=none}]
+     
+     - parameter name: (path) The document name. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<Data> 
+     */
+    open class func getExportFieldsFromPdfToXmlInStorageWithRequestBuilder(name: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<Data> {
+        var pathUrl = "/pdf/{name}/export/xml"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<Data>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
      Get document field by name.
      
      - parameter name: (path) The document name. 
-     - parameter fieldName: (path) The field name/ 
+     - parameter fieldName: (path) The field name (name should be encoded). 
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -2909,10 +3732,13 @@ open class PdfAPI {
     /**
      Get document field by name.
      - GET /pdf/{name}/fields/{fieldName}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
-     - parameter fieldName: (path) The field name/ 
+     - parameter fieldName: (path) The field name (name should be encoded). 
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
 
@@ -2962,6 +3788,9 @@ open class PdfAPI {
     /**
      Get document fields.
      - GET /pdf/{name}/fields
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -3014,7 +3843,10 @@ open class PdfAPI {
     /**
      Read document page FileAttachment annotation by ID.
      - GET /pdf/{name}/annotations/fileattachment/{annotationId}
-     - examples: [{output=none}]
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
      - parameter annotationId: (path) The annotation ID. 
@@ -3068,6 +3900,9 @@ open class PdfAPI {
     /**
      Read document page FileAttachment annotation by ID.
      - GET /pdf/{name}/annotations/fileattachment/{annotationId}/data
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
@@ -3092,6 +3927,124 @@ open class PdfAPI {
         
 
         let requestBuilder: RequestBuilder<Data>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Get file versions
+     
+     - parameter path: (path) File path e.g. &#39;/file.ext&#39; 
+     - parameter storageName: (query) Storage name (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getFileVersions(path: String, storageName: String? = nil, completion: @escaping ((_ data: FileVersions?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getFileVersionsWithRequestBuilder(path: path, storageName: storageName).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Get file versions
+     - GET /pdf/storage/version/{path}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example={
+  "Value" : [ "", "" ]
+}}]
+     
+     - parameter path: (path) File path e.g. &#39;/file.ext&#39; 
+     - parameter storageName: (query) Storage name (optional)
+
+     - returns: RequestBuilder<FileVersions> 
+     */
+    open class func getFileVersionsWithRequestBuilder(path: String, storageName: String? = nil) -> RequestBuilder<FileVersions> {
+        var pathUrl = "/pdf/storage/version/{path}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{path}", with: "\(path)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storageName": storageName
+        ])
+        
+
+        let requestBuilder: RequestBuilder<FileVersions>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Get all files and folders within a folder
+     
+     - parameter path: (path) Folder path e.g. &#39;/folder&#39; 
+     - parameter storageName: (query) Storage name (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getFilesList(path: String, storageName: String? = nil, completion: @escaping ((_ data: FilesList?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getFilesListWithRequestBuilder(path: path, storageName: storageName).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Get all files and folders within a folder
+     - GET /pdf/storage/folder/{path}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example={
+  "Value" : [ {
+    "Path" : "Path",
+    "Size" : 0,
+    "IsFolder" : true,
+    "ModifiedDate" : "2000-01-23T04:56:07.000+00:00",
+    "Name" : "Name"
+  }, {
+    "Path" : "Path",
+    "Size" : 0,
+    "IsFolder" : true,
+    "ModifiedDate" : "2000-01-23T04:56:07.000+00:00",
+    "Name" : "Name"
+  } ]
+}}]
+     
+     - parameter path: (path) Folder path e.g. &#39;/folder&#39; 
+     - parameter storageName: (query) Storage name (optional)
+
+     - returns: RequestBuilder<FilesList> 
+     */
+    open class func getFilesListWithRequestBuilder(path: String, storageName: String? = nil) -> RequestBuilder<FilesList> {
+        var pathUrl = "/pdf/storage/folder/{path}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{path}", with: "\(path)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storageName": storageName
+        ])
+        
+
+        let requestBuilder: RequestBuilder<FilesList>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -3122,6 +4075,9 @@ open class PdfAPI {
     /**
      Read document page free text annotation by ID.
      - GET /pdf/{name}/annotations/freetext/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -3176,6 +4132,9 @@ open class PdfAPI {
     /**
      Read document page highlight annotation by ID.
      - GET /pdf/{name}/annotations/highlight/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -3236,6 +4195,9 @@ open class PdfAPI {
     /**
      Convert HTML file (located on storage) to PDF format and return resulting file in response. 
      - GET /pdf/create/html
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.zip) 
@@ -3302,7 +4264,10 @@ open class PdfAPI {
     /**
      Read document image by ID.
      - GET /pdf/{name}/images/{imageId}
-     - examples: [{output=none}]
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
      - parameter imageId: (path) Image ID. 
@@ -3335,8 +4300,8 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter imageId: (path) Image ID. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -3358,12 +4323,15 @@ open class PdfAPI {
     /**
      Extract document image in GIF format
      - GET /pdf/{name}/images/{imageId}/extract/gif
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
      - parameter imageId: (path) Image ID. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
 
@@ -3395,8 +4363,8 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter imageId: (path) Image ID. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -3418,12 +4386,15 @@ open class PdfAPI {
     /**
      Extract document image in JPEG format
      - GET /pdf/{name}/images/{imageId}/extract/jpeg
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
      - parameter imageId: (path) Image ID. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
 
@@ -3455,8 +4426,8 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter imageId: (path) Image ID. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -3478,12 +4449,15 @@ open class PdfAPI {
     /**
      Extract document image in PNG format
      - GET /pdf/{name}/images/{imageId}/extract/png
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
      - parameter imageId: (path) Image ID. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
 
@@ -3515,8 +4489,8 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter imageId: (path) Image ID. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -3538,12 +4512,15 @@ open class PdfAPI {
     /**
      Extract document image in TIFF format
      - GET /pdf/{name}/images/{imageId}/extract/tiff
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
      - parameter imageId: (path) Image ID. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
 
@@ -3596,6 +4573,9 @@ open class PdfAPI {
     /**
      Read document images.
      - GET /pdf/{name}/pages/{pageNumber}/images
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -3620,6 +4600,177 @@ open class PdfAPI {
         
 
         let requestBuilder: RequestBuilder<ImagesResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Update fields from FDF file in storage.
+     
+     - parameter name: (path) The document name. 
+     - parameter fdfFilePath: (query) The Fdf file path. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getImportFieldsFromFdfInStorage(name: String, fdfFilePath: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getImportFieldsFromFdfInStorageWithRequestBuilder(name: name, fdfFilePath: fdfFilePath, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Update fields from FDF file in storage.
+     - GET /pdf/{name}/import/fdf
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{output=none}]
+     
+     - parameter name: (path) The document name. 
+     - parameter fdfFilePath: (query) The Fdf file path. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<Data> 
+     */
+    open class func getImportFieldsFromFdfInStorageWithRequestBuilder(name: String, fdfFilePath: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<Data> {
+        var pathUrl = "/pdf/{name}/import/fdf"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "fdfFilePath": fdfFilePath, 
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<Data>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Update fields from XFDF file in storage.
+     
+     - parameter name: (path) The document name. 
+     - parameter xfdfFilePath: (query) The XFDF file path. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getImportFieldsFromXfdfInStorage(name: String, xfdfFilePath: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getImportFieldsFromXfdfInStorageWithRequestBuilder(name: name, xfdfFilePath: xfdfFilePath, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Update fields from XFDF file in storage.
+     - GET /pdf/{name}/import/xfdf
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{output=none}]
+     
+     - parameter name: (path) The document name. 
+     - parameter xfdfFilePath: (query) The XFDF file path. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<Data> 
+     */
+    open class func getImportFieldsFromXfdfInStorageWithRequestBuilder(name: String, xfdfFilePath: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<Data> {
+        var pathUrl = "/pdf/{name}/import/xfdf"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "xfdfFilePath": xfdfFilePath, 
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<Data>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Import from XML file (located on storage) to PDF format and return resulting file in response. 
+     
+     - parameter name: (path) The document name. 
+     - parameter xmlFilePath: (query) Full source filename (ex. /folder1/folder2/template.xml) 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getImportFieldsFromXmlInStorage(name: String, xmlFilePath: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getImportFieldsFromXmlInStorageWithRequestBuilder(name: name, xmlFilePath: xmlFilePath, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Import from XML file (located on storage) to PDF format and return resulting file in response. 
+     - GET /pdf/{name}/import/xml
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{output=none}]
+     
+     - parameter name: (path) The document name. 
+     - parameter xmlFilePath: (query) Full source filename (ex. /folder1/folder2/template.xml) 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<Data> 
+     */
+    open class func getImportFieldsFromXmlInStorageWithRequestBuilder(name: String, xmlFilePath: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<Data> {
+        var pathUrl = "/pdf/{name}/import/xml"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "xmlFilePath": xmlFilePath, 
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<Data>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -3650,6 +4801,9 @@ open class PdfAPI {
     /**
      Read document page ink annotation by ID.
      - GET /pdf/{name}/annotations/ink/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -3679,100 +4833,6 @@ open class PdfAPI {
     }
 
     /**
-     Check if a specific file or folder exists
-     
-     - parameter path: (query) File or folder path e.g. /file.ext or /Folder1 
-     - parameter versionId: (query) File&#39;s version (optional)
-     - parameter storage: (query) User&#39;s storage name (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func getIsExist(path: String, versionId: String? = nil, storage: String? = nil, completion: @escaping ((_ data: FileExistResponse?,_ error: Error?) -> Void)) {
-        AuthAspose.checkAuth() {
-            (authError) in
-            guard authError == nil else {
-                completion(nil, authError)
-                return
-            }
-            getIsExistWithRequestBuilder(path: path, versionId: versionId, storage: storage).execute { (response, error) -> Void in
-                completion(response?.body, error);
-            }
-        }
-    }
-
-
-    /**
-     Check if a specific file or folder exists
-     - GET /storage/exist
-     - examples: [{contentType=application/json, example=""}]
-     
-     - parameter path: (query) File or folder path e.g. /file.ext or /Folder1 
-     - parameter versionId: (query) File&#39;s version (optional)
-     - parameter storage: (query) User&#39;s storage name (optional)
-
-     - returns: RequestBuilder<FileExistResponse> 
-     */
-    open class func getIsExistWithRequestBuilder(path: String, versionId: String? = nil, storage: String? = nil) -> RequestBuilder<FileExistResponse> {
-        let pathUrl = "/storage/exist"
-        let URLString = AsposePdfCloudAPI.basePath + pathUrl
-        let parameters: [String:Any]? = nil
-
-        let urlObj = NSURLComponents(string: URLString)
-        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
-            "path": path, 
-            "versionId": versionId, 
-            "storage": storage
-        ])
-        
-
-        let requestBuilder: RequestBuilder<FileExistResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
-    }
-
-    /**
-     Check if storage exists 
-     
-     - parameter name: (path) Storage name 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func getIsStorageExist(name: String, completion: @escaping ((_ data: StorageExistResponse?,_ error: Error?) -> Void)) {
-        AuthAspose.checkAuth() {
-            (authError) in
-            guard authError == nil else {
-                completion(nil, authError)
-                return
-            }
-            getIsStorageExistWithRequestBuilder(name: name).execute { (response, error) -> Void in
-                completion(response?.body, error);
-            }
-        }
-    }
-
-
-    /**
-     Check if storage exists 
-     - GET /storage/{name}/exist
-     - examples: [{contentType=application/json, example=""}]
-     
-     - parameter name: (path) Storage name 
-
-     - returns: RequestBuilder<StorageExistResponse> 
-     */
-    open class func getIsStorageExistWithRequestBuilder(name: String) -> RequestBuilder<StorageExistResponse> {
-        var pathUrl = "/storage/{name}/exist"
-        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
-        let URLString = AsposePdfCloudAPI.basePath + pathUrl
-        let parameters: [String:Any]? = nil
-
-        let urlObj = NSURLComponents(string: URLString)
-
-
-        let requestBuilder: RequestBuilder<StorageExistResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
-    }
-
-    /**
      Convert LaTeX file (located on storage) to PDF format and return resulting file in response. 
      
      - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.tex) 
@@ -3796,6 +4856,9 @@ open class PdfAPI {
     /**
      Convert LaTeX file (located on storage) to PDF format and return resulting file in response. 
      - GET /pdf/create/latex
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.tex) 
@@ -3846,6 +4909,9 @@ open class PdfAPI {
     /**
      Read document page line annotation by ID.
      - GET /pdf/{name}/annotations/line/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -3900,6 +4966,9 @@ open class PdfAPI {
     /**
      Read document link annotation by ID.
      - GET /pdf/{name}/links/{linkId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -3929,20 +4998,20 @@ open class PdfAPI {
     }
 
     /**
-     Get the file's versions list 
+     Convert MD file (located on storage) to PDF format and return resulting file in response. 
      
-     - parameter path: (query) File path e.g. /file.ext or /Folder1/file.ext 
-     - parameter storage: (query) User&#39;s storage name (optional)
+     - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.md) 
+     - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getListFileVersions(path: String, storage: String? = nil, completion: @escaping ((_ data: FileVersionsResponse?,_ error: Error?) -> Void)) {
+    open class func getMarkdownInStorageToPdf(srcPath: String, storage: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
                 completion(nil, authError)
                 return
             }
-            getListFileVersionsWithRequestBuilder(path: path, storage: storage).execute { (response, error) -> Void in
+            getMarkdownInStorageToPdfWithRequestBuilder(srcPath: srcPath, storage: storage).execute { (response, error) -> Void in
                 completion(response?.body, error);
             }
         }
@@ -3950,76 +5019,31 @@ open class PdfAPI {
 
 
     /**
-     Get the file's versions list 
-     - GET /storage/version
-     - examples: [{contentType=application/json, example=""}]
+     Convert MD file (located on storage) to PDF format and return resulting file in response. 
+     - GET /pdf/create/markdown
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{output=none}]
      
-     - parameter path: (query) File path e.g. /file.ext or /Folder1/file.ext 
-     - parameter storage: (query) User&#39;s storage name (optional)
+     - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.md) 
+     - parameter storage: (query) The document storage. (optional)
 
-     - returns: RequestBuilder<FileVersionsResponse> 
+     - returns: RequestBuilder<Data> 
      */
-    open class func getListFileVersionsWithRequestBuilder(path: String, storage: String? = nil) -> RequestBuilder<FileVersionsResponse> {
-        let pathUrl = "/storage/version"
+    open class func getMarkdownInStorageToPdfWithRequestBuilder(srcPath: String, storage: String? = nil) -> RequestBuilder<Data> {
+        let pathUrl = "/pdf/create/markdown"
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
-            "path": path, 
+            "srcPath": srcPath, 
             "storage": storage
         ])
         
 
-        let requestBuilder: RequestBuilder<FileVersionsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
-    }
-
-    /**
-     Get the file listing of a specific folder 
-     
-     - parameter path: (query) Start with name of storage e.g. root folder &#39;/&#39;or some folder &#39;/folder1/..&#39; (optional, default to /)
-     - parameter storage: (query) User&#39;s storage name (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func getListFiles(path: String? = nil, storage: String? = nil, completion: @escaping ((_ data: FilesResponse?,_ error: Error?) -> Void)) {
-        AuthAspose.checkAuth() {
-            (authError) in
-            guard authError == nil else {
-                completion(nil, authError)
-                return
-            }
-            getListFilesWithRequestBuilder(path: path, storage: storage).execute { (response, error) -> Void in
-                completion(response?.body, error);
-            }
-        }
-    }
-
-
-    /**
-     Get the file listing of a specific folder 
-     - GET /storage/folder
-     - examples: [{contentType=application/json, example=""}]
-     
-     - parameter path: (query) Start with name of storage e.g. root folder &#39;/&#39;or some folder &#39;/folder1/..&#39; (optional, default to /)
-     - parameter storage: (query) User&#39;s storage name (optional)
-
-     - returns: RequestBuilder<FilesResponse> 
-     */
-    open class func getListFilesWithRequestBuilder(path: String? = nil, storage: String? = nil) -> RequestBuilder<FilesResponse> {
-        let pathUrl = "/storage/folder"
-        let URLString = AsposePdfCloudAPI.basePath + pathUrl
-        let parameters: [String:Any]? = nil
-
-        let urlObj = NSURLComponents(string: URLString)
-        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
-            "path": path, 
-            "storage": storage
-        ])
-        
-
-        let requestBuilder: RequestBuilder<FilesResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<Data>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -4048,6 +5072,9 @@ open class PdfAPI {
     /**
      Convert MHT file (located on storage) to PDF format and return resulting file in response. 
      - GET /pdf/create/mht
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.mht) 
@@ -4098,6 +5125,9 @@ open class PdfAPI {
     /**
      Read document page movie annotation by ID.
      - GET /pdf/{name}/annotations/movie/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -4152,7 +5182,10 @@ open class PdfAPI {
     /**
      Read document page info.
      - GET /pdf/{name}/pages/{pageNumber}
-     - examples: [{output=none}]
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
@@ -4206,6 +5239,9 @@ open class PdfAPI {
     /**
      Read document page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
      - GET /pdf/{name}/pages/{pageNumber}/annotations
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -4260,6 +5296,9 @@ open class PdfAPI {
     /**
      Read document page caret annotations.
      - GET /pdf/{name}/pages/{pageNumber}/annotations/caret
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -4314,6 +5353,9 @@ open class PdfAPI {
     /**
      Read document page circle annotations.
      - GET /pdf/{name}/pages/{pageNumber}/annotations/circle
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -4347,8 +5389,8 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -4370,12 +5412,15 @@ open class PdfAPI {
     /**
      Convert document page to Bmp image and return resulting file in response.
      - GET /pdf/{name}/pages/{pageNumber}/convert/bmp
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
 
@@ -4407,8 +5452,8 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -4430,12 +5475,15 @@ open class PdfAPI {
     /**
      Convert document page to Emf image and return resulting file in response.
      - GET /pdf/{name}/pages/{pageNumber}/convert/emf
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
 
@@ -4467,8 +5515,8 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -4490,12 +5538,15 @@ open class PdfAPI {
     /**
      Convert document page to Gif image and return resulting file in response.
      - GET /pdf/{name}/pages/{pageNumber}/convert/gif
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
 
@@ -4527,8 +5578,8 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -4550,12 +5601,15 @@ open class PdfAPI {
     /**
      Convert document page to Jpeg image and return resulting file in response.
      - GET /pdf/{name}/pages/{pageNumber}/convert/jpeg
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
 
@@ -4587,8 +5641,8 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -4610,12 +5664,15 @@ open class PdfAPI {
     /**
      Convert document page to Png image and return resulting file in response.
      - GET /pdf/{name}/pages/{pageNumber}/convert/png
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
 
@@ -4647,8 +5704,8 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -4670,12 +5727,15 @@ open class PdfAPI {
     /**
      Convert document page to Tiff image  and return resulting file in response.
      - GET /pdf/{name}/pages/{pageNumber}/convert/tiff
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
 
@@ -4728,6 +5788,9 @@ open class PdfAPI {
     /**
      Read document page FileAttachment annotations.
      - GET /pdf/{name}/pages/{pageNumber}/annotations/fileattachment
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -4782,6 +5845,9 @@ open class PdfAPI {
     /**
      Read document page free text annotations.
      - GET /pdf/{name}/pages/{pageNumber}/annotations/freetext
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -4836,6 +5902,9 @@ open class PdfAPI {
     /**
      Read document page highlight annotations.
      - GET /pdf/{name}/pages/{pageNumber}/annotations/highlight
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -4890,6 +5959,9 @@ open class PdfAPI {
     /**
      Read document page ink annotations.
      - GET /pdf/{name}/pages/{pageNumber}/annotations/ink
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -4944,6 +6016,9 @@ open class PdfAPI {
     /**
      Read document page line annotations.
      - GET /pdf/{name}/pages/{pageNumber}/annotations/line
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -4999,6 +6074,9 @@ open class PdfAPI {
     /**
      Read document page link annotation by ID.
      - GET /pdf/{name}/pages/{pageNumber}/links/{linkId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -5055,6 +6133,9 @@ open class PdfAPI {
     /**
      Read document page link annotations.
      - GET /pdf/{name}/pages/{pageNumber}/links
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -5109,6 +6190,9 @@ open class PdfAPI {
     /**
      Read document page movie annotations.
      - GET /pdf/{name}/pages/{pageNumber}/annotations/movie
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -5163,6 +6247,9 @@ open class PdfAPI {
     /**
      Read document page polyline annotations.
      - GET /pdf/{name}/pages/{pageNumber}/annotations/polyline
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -5217,6 +6304,9 @@ open class PdfAPI {
     /**
      Read document page polygon annotations.
      - GET /pdf/{name}/pages/{pageNumber}/annotations/polygon
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -5271,6 +6361,9 @@ open class PdfAPI {
     /**
      Read document page popup annotations.
      - GET /pdf/{name}/pages/{pageNumber}/annotations/popup
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -5325,6 +6418,9 @@ open class PdfAPI {
     /**
      Read document page redaction annotations.
      - GET /pdf/{name}/pages/{pageNumber}/annotations/redaction
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -5379,6 +6475,9 @@ open class PdfAPI {
     /**
      Read document page screen annotations.
      - GET /pdf/{name}/pages/{pageNumber}/annotations/screen
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -5403,6 +6502,63 @@ open class PdfAPI {
         
 
         let requestBuilder: RequestBuilder<ScreenAnnotationsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Read document page signature fields.
+     
+     - parameter name: (path) The document name. 
+     - parameter pageNumber: (path) The page number. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getPageSignatureFields(name: String, pageNumber: Int, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: SignatureFieldsResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getPageSignatureFieldsWithRequestBuilder(name: name, pageNumber: pageNumber, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Read document page signature fields.
+     - GET /pdf/{name}/page/{pageNumber}/fields/signature
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter name: (path) The document name. 
+     - parameter pageNumber: (path) The page number. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<SignatureFieldsResponse> 
+     */
+    open class func getPageSignatureFieldsWithRequestBuilder(name: String, pageNumber: Int, storage: String? = nil, folder: String? = nil) -> RequestBuilder<SignatureFieldsResponse> {
+        var pathUrl = "/pdf/{name}/page/{pageNumber}/fields/signature"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<SignatureFieldsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -5433,6 +6589,9 @@ open class PdfAPI {
     /**
      Read document page sound annotations.
      - GET /pdf/{name}/pages/{pageNumber}/annotations/sound
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -5487,6 +6646,9 @@ open class PdfAPI {
     /**
      Read document page square annotations.
      - GET /pdf/{name}/pages/{pageNumber}/annotations/square
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -5541,6 +6703,9 @@ open class PdfAPI {
     /**
      Read document page squiggly annotations.
      - GET /pdf/{name}/pages/{pageNumber}/annotations/squiggly
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -5595,6 +6760,9 @@ open class PdfAPI {
     /**
      Read document page stamp annotations.
      - GET /pdf/{name}/pages/{pageNumber}/annotations/stamp
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -5649,6 +6817,9 @@ open class PdfAPI {
     /**
      Read page document stamps.
      - GET /pdf/{name}/pages/{pageNumber}/stamps
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -5703,6 +6874,9 @@ open class PdfAPI {
     /**
      Read document page StrikeOut annotations.
      - GET /pdf/{name}/pages/{pageNumber}/annotations/strikeout
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -5757,6 +6931,9 @@ open class PdfAPI {
     /**
      Read document page tables.
      - GET /pdf/{name}/pages/{pageNumber}/tables
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path)  
@@ -5796,7 +6973,7 @@ open class PdfAPI {
      - parameter URY: (query) Y - coordinate of upper-right corner. 
      - parameter format: (query) List of formats for search. (optional)
      - parameter regex: (query) Formats are specified as a regular expression. (optional)
-     - parameter splitRects: (query) Split result fragments (default is true). (optional)
+     - parameter splitRects: (query) Split result fragments (default is true). (optional, default to true)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -5818,6 +6995,9 @@ open class PdfAPI {
     /**
      Read page text items.
      - GET /pdf/{name}/pages/{pageNumber}/text
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -5828,7 +7008,7 @@ open class PdfAPI {
      - parameter URY: (query) Y - coordinate of upper-right corner. 
      - parameter format: (query) List of formats for search. (optional)
      - parameter regex: (query) Formats are specified as a regular expression. (optional)
-     - parameter splitRects: (query) Split result fragments (default is true). (optional)
+     - parameter splitRects: (query) Split result fragments (default is true). (optional, default to true)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
 
@@ -5886,6 +7066,9 @@ open class PdfAPI {
     /**
      Read document page text annotations.
      - GET /pdf/{name}/pages/{pageNumber}/annotations/text
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -5940,6 +7123,9 @@ open class PdfAPI {
     /**
      Read document page underline annotations.
      - GET /pdf/{name}/pages/{pageNumber}/annotations/underline
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -5993,6 +7179,9 @@ open class PdfAPI {
     /**
      Read document pages info.
      - GET /pdf/{name}/pages
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -6043,6 +7232,9 @@ open class PdfAPI {
     /**
      Convert PCL file (located on storage) to PDF format and return resulting file in response. 
      - GET /pdf/create/pcl
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.pcl) 
@@ -6100,6 +7292,9 @@ open class PdfAPI {
     /**
      Converts PDF document (located on storage) to DOC format and returns resulting file in response content
      - GET /pdf/{name}/convert/doc
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
@@ -6168,6 +7363,9 @@ open class PdfAPI {
     /**
      Converts PDF document (located on storage) to EPUB format and returns resulting file in response content
      - GET /pdf/{name}/convert/epub
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
@@ -6249,6 +7447,9 @@ open class PdfAPI {
     /**
      Converts PDF document (located on storage) to Html format and returns resulting file in response content
      - GET /pdf/{name}/convert/html
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
@@ -6357,6 +7558,9 @@ open class PdfAPI {
     /**
      Converts PDF document (located on storage) to LaTeX format and returns resulting file in response content
      - GET /pdf/{name}/convert/latex
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
@@ -6410,6 +7614,9 @@ open class PdfAPI {
     /**
      Converts PDF document (located on storage) to MOBIXML format and returns resulting file in response content
      - GET /pdf/{name}/convert/mobixml
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
@@ -6462,6 +7669,9 @@ open class PdfAPI {
     /**
      Converts PDF document (located on storage) to PdfA format and returns resulting file in response content
      - GET /pdf/{name}/convert/pdfa
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
@@ -6517,6 +7727,9 @@ open class PdfAPI {
     /**
      Converts PDF document (located on storage) to PPTX format and returns resulting file in response content
      - GET /pdf/{name}/convert/pptx
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
@@ -6573,6 +7786,9 @@ open class PdfAPI {
     /**
      Converts PDF document (located on storage) to SVG format and returns resulting file in response content
      - GET /pdf/{name}/convert/svg
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
@@ -6641,6 +7857,9 @@ open class PdfAPI {
     /**
      Converts PDF document (located on storage) to TIFF format and returns resulting file in response content
      - GET /pdf/{name}/convert/tiff
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
@@ -6726,6 +7945,9 @@ open class PdfAPI {
     /**
      Converts PDF document (located on storage) to XLS format and returns resulting file in response content
      - GET /pdf/{name}/convert/xls
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
@@ -6789,6 +8011,9 @@ open class PdfAPI {
     /**
      Converts PDF document (located on storage) to XLSX format and returns resulting file in response content
      - GET /pdf/{name}/convert/xlsx
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
@@ -6848,6 +8073,9 @@ open class PdfAPI {
     /**
      Converts PDF document (located on storage) to XML format and returns resulting file in response content
      - GET /pdf/{name}/convert/xml
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
@@ -6899,6 +8127,9 @@ open class PdfAPI {
     /**
      Converts PDF document (located on storage) to XPS format and returns resulting file in response content
      - GET /pdf/{name}/convert/xps
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
@@ -6951,6 +8182,9 @@ open class PdfAPI {
     /**
      Read document page polyline annotation by ID.
      - GET /pdf/{name}/annotations/polyline/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -7005,6 +8239,9 @@ open class PdfAPI {
     /**
      Read document page polygon annotation by ID.
      - GET /pdf/{name}/annotations/polygon/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -7059,6 +8296,9 @@ open class PdfAPI {
     /**
      Read document page popup annotation by ID.
      - GET /pdf/{name}/annotations/popup/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -7111,6 +8351,9 @@ open class PdfAPI {
     /**
      Convert PS file (located on storage) to PDF format and return resulting file in response. 
      - GET /pdf/create/ps
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.ps) 
@@ -7161,6 +8404,9 @@ open class PdfAPI {
     /**
      Read document page redaction annotation by ID.
      - GET /pdf/{name}/annotations/redaction/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -7215,7 +8461,10 @@ open class PdfAPI {
     /**
      Read document page screen annotation by ID.
      - GET /pdf/{name}/annotations/screen/{annotationId}
-     - examples: [{output=none}]
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
      - parameter annotationId: (path) The annotation ID. 
@@ -7269,6 +8518,9 @@ open class PdfAPI {
     /**
      Read document page screen annotation by ID.
      - GET /pdf/{name}/annotations/screen/{annotationId}/data
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
@@ -7293,6 +8545,63 @@ open class PdfAPI {
         
 
         let requestBuilder: RequestBuilder<Data>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Read document signature field by name.
+     
+     - parameter name: (path) The document name. 
+     - parameter fieldName: (path) The field name. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getSignatureField(name: String, fieldName: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: SignatureFieldResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getSignatureFieldWithRequestBuilder(name: name, fieldName: fieldName, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Read document signature field by name.
+     - GET /pdf/{name}/fields/signature/{fieldName}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter name: (path) The document name. 
+     - parameter fieldName: (path) The field name. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<SignatureFieldResponse> 
+     */
+    open class func getSignatureFieldWithRequestBuilder(name: String, fieldName: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<SignatureFieldResponse> {
+        var pathUrl = "/pdf/{name}/fields/signature/{fieldName}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{fieldName}", with: "\(fieldName)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<SignatureFieldResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -7323,7 +8632,10 @@ open class PdfAPI {
     /**
      Read document page sound annotation by ID.
      - GET /pdf/{name}/annotations/sound/{annotationId}
-     - examples: [{output=none}]
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
      - parameter annotationId: (path) The annotation ID. 
@@ -7377,6 +8689,9 @@ open class PdfAPI {
     /**
      Read document page sound annotation by ID.
      - GET /pdf/{name}/annotations/sound/{annotationId}/data
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
@@ -7431,6 +8746,9 @@ open class PdfAPI {
     /**
      Read document page square annotation by ID.
      - GET /pdf/{name}/annotations/square/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -7485,6 +8803,9 @@ open class PdfAPI {
     /**
      Read document page squiggly annotation by ID.
      - GET /pdf/{name}/annotations/squiggly/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -7539,6 +8860,9 @@ open class PdfAPI {
     /**
      Read document page stamp annotation by ID.
      - GET /pdf/{name}/annotations/stamp/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -7593,6 +8917,9 @@ open class PdfAPI {
     /**
      Read document page stamp annotation by ID.
      - GET /pdf/{name}/annotations/stamp/{annotationId}/data
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -7647,6 +8974,9 @@ open class PdfAPI {
     /**
      Read document page StrikeOut annotation by ID.
      - GET /pdf/{name}/annotations/strikeout/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -7707,6 +9037,9 @@ open class PdfAPI {
     /**
      Convert SVG file (located on storage) to PDF format and return resulting file in response. 
      - GET /pdf/create/svg
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.svg) 
@@ -7773,6 +9106,9 @@ open class PdfAPI {
     /**
      Read document page table by ID.
      - GET /pdf/{name}/tables/{tableId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -7811,7 +9147,7 @@ open class PdfAPI {
      - parameter URY: (query) Y - coordinate of upper-right corner. 
      - parameter format: (query) List of formats for search. (optional)
      - parameter regex: (query) Formats are specified as a regular expression. (optional)
-     - parameter splitRects: (query) Split result fragments (default is true). (optional)
+     - parameter splitRects: (query) Split result fragments (default is true). (optional, default to true)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -7833,6 +9169,9 @@ open class PdfAPI {
     /**
      Read document text.
      - GET /pdf/{name}/text
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -7842,7 +9181,7 @@ open class PdfAPI {
      - parameter URY: (query) Y - coordinate of upper-right corner. 
      - parameter format: (query) List of formats for search. (optional)
      - parameter regex: (query) Formats are specified as a regular expression. (optional)
-     - parameter splitRects: (query) Split result fragments (default is true). (optional)
+     - parameter splitRects: (query) Split result fragments (default is true). (optional, default to true)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
 
@@ -7899,6 +9238,9 @@ open class PdfAPI {
     /**
      Read document page text annotation by ID.
      - GET /pdf/{name}/annotations/text/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -7953,6 +9295,9 @@ open class PdfAPI {
     /**
      Read document page underline annotation by ID.
      - GET /pdf/{name}/annotations/underline/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -8007,6 +9352,9 @@ open class PdfAPI {
     /**
      Verify signature document.
      - GET /pdf/{name}/verifySignature
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -8066,6 +9414,9 @@ open class PdfAPI {
     /**
      Convert web page to PDF format and return resulting file in response. 
      - GET /pdf/create/web
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter url: (query) Source url 
@@ -8129,6 +9480,9 @@ open class PdfAPI {
     /**
      Get number of words per document page.
      - GET /pdf/{name}/pages/wordCount
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -8180,6 +9534,9 @@ open class PdfAPI {
     /**
      Converts PDF document which contatins XFA form (located on storage) to PDF with AcroForm and returns resulting file response content
      - GET /pdf/{name}/convert/xfatoacroform
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
@@ -8231,6 +9588,9 @@ open class PdfAPI {
     /**
      Convert XML file (located on storage) to PDF format and return resulting file in response. 
      - GET /pdf/create/xml
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.xml) 
@@ -8281,6 +9641,9 @@ open class PdfAPI {
     /**
      Convert XPS file (located on storage) to PDF format and return resulting file in response. 
      - GET /pdf/create/xps
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.xps) 
@@ -8329,6 +9692,9 @@ open class PdfAPI {
     /**
      Convert XslFo file (located on storage) to PDF format and return resulting file in response. 
      - GET /pdf/create/xslfo
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{output=none}]
      
      - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.xslfo) 
@@ -8354,25 +9720,196 @@ open class PdfAPI {
     }
 
     /**
-     Append document to existing one.
+     Move file
      
-     - parameter name: (path) The original document name. 
-     - parameter appendDocument: (body) with the append document data. (optional)
-     - parameter appendFile: (query) Append file server path. (optional)
-     - parameter startPage: (query) Appending start page. (optional, default to 0)
-     - parameter endPage: (query) Appending end page. (optional, default to 0)
-     - parameter storage: (query) The documents storage. (optional)
-     - parameter folder: (query) The original document folder. (optional)
+     - parameter srcPath: (path) Source file path e.g. &#39;/src.ext&#39; 
+     - parameter destPath: (query) Destination file path e.g. &#39;/dest.ext&#39; 
+     - parameter srcStorageName: (query) Source storage name (optional)
+     - parameter destStorageName: (query) Destination storage name (optional)
+     - parameter versionId: (query) File version ID to move (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func postAppendDocument(name: String, appendDocument: AppendDocument? = nil, appendFile: String? = nil, startPage: Int? = nil, endPage: Int? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: DocumentResponse?,_ error: Error?) -> Void)) {
+    open class func moveFile(srcPath: String, destPath: String, srcStorageName: String? = nil, destStorageName: String? = nil, versionId: String? = nil, completion: @escaping ((_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(authError)
+                return
+            }
+            moveFileWithRequestBuilder(srcPath: srcPath, destPath: destPath, srcStorageName: srcStorageName, destStorageName: destStorageName, versionId: versionId).execute { (response, error) -> Void in
+                completion(error);
+            }
+        }
+    }
+
+
+    /**
+     Move file
+     - PUT /pdf/storage/file/move/{srcPath}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     
+     - parameter srcPath: (path) Source file path e.g. &#39;/src.ext&#39; 
+     - parameter destPath: (query) Destination file path e.g. &#39;/dest.ext&#39; 
+     - parameter srcStorageName: (query) Source storage name (optional)
+     - parameter destStorageName: (query) Destination storage name (optional)
+     - parameter versionId: (query) File version ID to move (optional)
+
+     - returns: RequestBuilder<Void> 
+     */
+    open class func moveFileWithRequestBuilder(srcPath: String, destPath: String, srcStorageName: String? = nil, destStorageName: String? = nil, versionId: String? = nil) -> RequestBuilder<Void> {
+        var pathUrl = "/pdf/storage/file/move/{srcPath}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{srcPath}", with: "\(srcPath)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "destPath": destPath, 
+            "srcStorageName": srcStorageName, 
+            "destStorageName": destStorageName, 
+            "versionId": versionId
+        ])
+        
+
+        let requestBuilder: RequestBuilder<Void>.Type = AsposePdfCloudAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Move folder
+     
+     - parameter srcPath: (path) Folder path to move e.g. &#39;/folder&#39; 
+     - parameter destPath: (query) Destination folder path to move to e.g &#39;/dst&#39; 
+     - parameter srcStorageName: (query) Source storage name (optional)
+     - parameter destStorageName: (query) Destination storage name (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func moveFolder(srcPath: String, destPath: String, srcStorageName: String? = nil, destStorageName: String? = nil, completion: @escaping ((_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(authError)
+                return
+            }
+            moveFolderWithRequestBuilder(srcPath: srcPath, destPath: destPath, srcStorageName: srcStorageName, destStorageName: destStorageName).execute { (response, error) -> Void in
+                completion(error);
+            }
+        }
+    }
+
+
+    /**
+     Move folder
+     - PUT /pdf/storage/folder/move/{srcPath}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     
+     - parameter srcPath: (path) Folder path to move e.g. &#39;/folder&#39; 
+     - parameter destPath: (query) Destination folder path to move to e.g &#39;/dst&#39; 
+     - parameter srcStorageName: (query) Source storage name (optional)
+     - parameter destStorageName: (query) Destination storage name (optional)
+
+     - returns: RequestBuilder<Void> 
+     */
+    open class func moveFolderWithRequestBuilder(srcPath: String, destPath: String, srcStorageName: String? = nil, destStorageName: String? = nil) -> RequestBuilder<Void> {
+        var pathUrl = "/pdf/storage/folder/move/{srcPath}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{srcPath}", with: "\(srcPath)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "destPath": destPath, 
+            "srcStorageName": srcStorageName, 
+            "destStorageName": destStorageName
+        ])
+        
+
+        let requestBuilder: RequestBuilder<Void>.Type = AsposePdfCloudAPI.requestBuilderFactory.getNonDecodableBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Check if file or folder exists
+     
+     - parameter path: (path) File or folder path e.g. &#39;/file.ext&#39; or &#39;/folder&#39; 
+     - parameter storageName: (query) Storage name (optional)
+     - parameter versionId: (query) File version ID (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func objectExists(path: String, storageName: String? = nil, versionId: String? = nil, completion: @escaping ((_ data: ObjectExist?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
                 completion(nil, authError)
                 return
             }
-            postAppendDocumentWithRequestBuilder(name: name, appendDocument: appendDocument, appendFile: appendFile, startPage: startPage, endPage: endPage, storage: storage, folder: folder).execute { (response, error) -> Void in
+            objectExistsWithRequestBuilder(path: path, storageName: storageName, versionId: versionId).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Check if file or folder exists
+     - GET /pdf/storage/exist/{path}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example={
+  "Exists" : true,
+  "IsFolder" : true
+}}]
+     
+     - parameter path: (path) File or folder path e.g. &#39;/file.ext&#39; or &#39;/folder&#39; 
+     - parameter storageName: (query) Storage name (optional)
+     - parameter versionId: (query) File version ID (optional)
+
+     - returns: RequestBuilder<ObjectExist> 
+     */
+    open class func objectExistsWithRequestBuilder(path: String, storageName: String? = nil, versionId: String? = nil) -> RequestBuilder<ObjectExist> {
+        var pathUrl = "/pdf/storage/exist/{path}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{path}", with: "\(path)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storageName": storageName, 
+            "versionId": versionId
+        ])
+        
+
+        let requestBuilder: RequestBuilder<ObjectExist>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Append document to existing one.
+     
+     - parameter name: (path) The original document name. 
+     - parameter appendFile: (query) Append file server path. 
+     - parameter startPage: (query) Appending start page. (optional, default to 0)
+     - parameter endPage: (query) Appending end page. (optional, default to 0)
+     - parameter storage: (query) The documents storage. (optional)
+     - parameter folder: (query) The original document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postAppendDocument(name: String, appendFile: String, startPage: Int? = nil, endPage: Int? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: DocumentResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            postAppendDocumentWithRequestBuilder(name: name, appendFile: appendFile, startPage: startPage, endPage: endPage, storage: storage, folder: folder).execute { (response, error) -> Void in
                 completion(response?.body, error);
             }
         }
@@ -8382,11 +9919,13 @@ open class PdfAPI {
     /**
      Append document to existing one.
      - POST /pdf/{name}/appendDocument
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The original document name. 
-     - parameter appendDocument: (body) with the append document data. (optional)
-     - parameter appendFile: (query) Append file server path. (optional)
+     - parameter appendFile: (query) Append file server path. 
      - parameter startPage: (query) Appending start page. (optional, default to 0)
      - parameter endPage: (query) Appending end page. (optional, default to 0)
      - parameter storage: (query) The documents storage. (optional)
@@ -8394,11 +9933,11 @@ open class PdfAPI {
 
      - returns: RequestBuilder<DocumentResponse> 
      */
-    open class func postAppendDocumentWithRequestBuilder(name: String, appendDocument: AppendDocument? = nil, appendFile: String? = nil, startPage: Int? = nil, endPage: Int? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<DocumentResponse> {
+    open class func postAppendDocumentWithRequestBuilder(name: String, appendFile: String, startPage: Int? = nil, endPage: Int? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<DocumentResponse> {
         var pathUrl = "/pdf/{name}/appendDocument"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: appendDocument)
+        let parameters: [String:Any]? = nil
 
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
@@ -8411,6 +9950,65 @@ open class PdfAPI {
         
 
         let requestBuilder: RequestBuilder<DocumentResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Add document bookmarks.
+     
+     - parameter name: (path) The document name. 
+     - parameter bookmarkPath: (path) The bookmark path. 
+     - parameter bookmarks: (body) The array of bookmark. 
+     - parameter folder: (query) The document folder. (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postBookmark(name: String, bookmarkPath: String, bookmarks: [Bookmark], folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: BookmarksResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            postBookmarkWithRequestBuilder(name: name, bookmarkPath: bookmarkPath, bookmarks: bookmarks, folder: folder, storage: storage).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Add document bookmarks.
+     - POST /pdf/{name}/bookmarks/bookmark/{bookmarkPath}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter name: (path) The document name. 
+     - parameter bookmarkPath: (path) The bookmark path. 
+     - parameter bookmarks: (body) The array of bookmark. 
+     - parameter folder: (query) The document folder. (optional)
+     - parameter storage: (query) The document storage. (optional)
+
+     - returns: RequestBuilder<BookmarksResponse> 
+     */
+    open class func postBookmarkWithRequestBuilder(name: String, bookmarkPath: String, bookmarks: [Bookmark], folder: String? = nil, storage: String? = nil) -> RequestBuilder<BookmarksResponse> {
+        var pathUrl = "/pdf/{name}/bookmarks/bookmark/{bookmarkPath}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{bookmarkPath}", with: "\(bookmarkPath)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: bookmarks)
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "folder": folder, 
+            "storage": storage
+        ])
+        
+
+        let requestBuilder: RequestBuilder<BookmarksResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
@@ -8443,6 +10041,9 @@ open class PdfAPI {
     /**
      Change document password in storage.
      - POST /pdf/{name}/changepassword
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -8483,12 +10084,12 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter page: (query) Document page number. 
-     - parameter field: (body) with the field data. (optional)
+     - parameter field: (body) Field with the field data. 
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func postCreateField(name: String, page: Int, field: Field? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+    open class func postCreateField(name: String, page: Int, field: Field, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
@@ -8505,6 +10106,9 @@ open class PdfAPI {
     /**
      Create field.
      - POST /pdf/{name}/fields
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -8512,13 +10116,13 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter page: (query) Document page number. 
-     - parameter field: (body) with the field data. (optional)
+     - parameter field: (body) Field with the field data. 
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
 
      - returns: RequestBuilder<AsposeResponse> 
      */
-    open class func postCreateFieldWithRequestBuilder(name: String, page: Int, field: Field? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+    open class func postCreateFieldWithRequestBuilder(name: String, page: Int, field: Field, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
         var pathUrl = "/pdf/{name}/fields"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
@@ -8563,6 +10167,9 @@ open class PdfAPI {
     /**
      Decrypt document in storage.
      - POST /pdf/{name}/decrypt
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -8622,6 +10229,9 @@ open class PdfAPI {
     /**
      Add document image footer.
      - POST /pdf/{name}/footer/image
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -8684,6 +10294,9 @@ open class PdfAPI {
     /**
      Add document image header.
      - POST /pdf/{name}/header/image
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -8746,6 +10359,9 @@ open class PdfAPI {
     /**
      Add document page number stamps.
      - POST /pdf/{name}/stamps/pagenumber
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -8808,6 +10424,9 @@ open class PdfAPI {
     /**
      Add document text footer.
      - POST /pdf/{name}/footer/text
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -8870,6 +10489,9 @@ open class PdfAPI {
     /**
      Add document text header.
      - POST /pdf/{name}/header/text
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -8930,6 +10552,9 @@ open class PdfAPI {
     /**
      Document's replace text method.
      - POST /pdf/{name}/text/replace
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path)  
@@ -8963,8 +10588,8 @@ open class PdfAPI {
      - parameter name: (path) Document name. 
      - parameter userPassword: (query) User password (encrypted Base64). 
      - parameter ownerPassword: (query) Owner password (encrypted Base64). 
-     - parameter cryptoAlgorithm: (query) Cryptographic algorithm, see  for details. 
-     - parameter permissionsFlags: (query) Array of document permissions, see  for details. (optional)
+     - parameter cryptoAlgorithm: (query) Cryptographic algorithm, see CryptoAlgorithm for details. 
+     - parameter permissionsFlags: (query) Array of document permissions, see PermissionsFlags for details. (optional)
      - parameter usePdf20: (query) Support for revision 6 (Extension 8). (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
@@ -8987,6 +10612,9 @@ open class PdfAPI {
     /**
      Encrypt document in storage.
      - POST /pdf/{name}/encrypt
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -8995,8 +10623,8 @@ open class PdfAPI {
      - parameter name: (path) Document name. 
      - parameter userPassword: (query) User password (encrypted Base64). 
      - parameter ownerPassword: (query) Owner password (encrypted Base64). 
-     - parameter cryptoAlgorithm: (query) Cryptographic algorithm, see  for details. 
-     - parameter permissionsFlags: (query) Array of document permissions, see  for details. (optional)
+     - parameter cryptoAlgorithm: (query) Cryptographic algorithm, see CryptoAlgorithm for details. 
+     - parameter permissionsFlags: (query) Array of document permissions, see PermissionsFlags for details. (optional)
      - parameter usePdf20: (query) Support for revision 6 (Extension 8). (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
@@ -9054,6 +10682,9 @@ open class PdfAPI {
     /**
      Flatten the document.
      - POST /pdf/{name}/flatten
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -9079,6 +10710,198 @@ open class PdfAPI {
             "updateAppearances": updateAppearances, 
             "callEvents": callEvents, 
             "hideButtons": hideButtons, 
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Update fields from FDF file in request.
+     
+     - parameter name: (path) The document name. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter fdfData: (form) Fdf file. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postImportFieldsFromFdf(name: String, storage: String? = nil, folder: String? = nil, fdfData: URL? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            postImportFieldsFromFdfWithRequestBuilder(name: name, storage: storage, folder: folder, fdfData: fdfData).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Update fields from FDF file in request.
+     - POST /pdf/{name}/import/fdf
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter fdfData: (form) Fdf file. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func postImportFieldsFromFdfWithRequestBuilder(name: String, storage: String? = nil, folder: String? = nil, fdfData: URL? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/import/fdf"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let formParams: [String:Any?] = [
+            "fdfData": fdfData
+        ]
+
+        let nonNullParameters = APIHelper.rejectNil(formParams)
+        let parameters = APIHelper.convertBoolToString(nonNullParameters)
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Update fields from XFDF file in request.
+     
+     - parameter name: (path) The document name. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter xfdfData: (form) Xfdf file. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postImportFieldsFromXfdf(name: String, storage: String? = nil, folder: String? = nil, xfdfData: URL? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            postImportFieldsFromXfdfWithRequestBuilder(name: name, storage: storage, folder: folder, xfdfData: xfdfData).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Update fields from XFDF file in request.
+     - POST /pdf/{name}/import/xfdf
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter xfdfData: (form) Xfdf file. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func postImportFieldsFromXfdfWithRequestBuilder(name: String, storage: String? = nil, folder: String? = nil, xfdfData: URL? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/import/xfdf"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let formParams: [String:Any?] = [
+            "xfdfData": xfdfData
+        ]
+
+        let nonNullParameters = APIHelper.rejectNil(formParams)
+        let parameters = APIHelper.convertBoolToString(nonNullParameters)
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Update fields from XML file in request.
+     
+     - parameter name: (path) The document name. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter xmlData: (form) Xml file. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postImportFieldsFromXml(name: String, storage: String? = nil, folder: String? = nil, xmlData: URL? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            postImportFieldsFromXmlWithRequestBuilder(name: name, storage: storage, folder: folder, xmlData: xmlData).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Update fields from XML file in request.
+     - POST /pdf/{name}/import/xml
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter xmlData: (form) Xml file. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func postImportFieldsFromXmlWithRequestBuilder(name: String, storage: String? = nil, folder: String? = nil, xmlData: URL? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/import/xml"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let formParams: [String:Any?] = [
+            "xmlData": xmlData
+        ]
+
+        let nonNullParameters = APIHelper.rejectNil(formParams)
+        let parameters = APIHelper.convertBoolToString(nonNullParameters)
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
             "folder": folder
         ])
@@ -9121,6 +10944,9 @@ open class PdfAPI {
     /**
      Insert image to document page.
      - POST /pdf/{name}/pages/{pageNumber}/images
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -9169,123 +10995,6 @@ open class PdfAPI {
     }
 
     /**
-     Move a specific file
-     
-     - parameter src: (query) Source file path e.g. /fileSource.ext 
-     - parameter dest: (query) Destination file path e.g. /fileDestination.ext 
-     - parameter versionId: (query) Source file&#39;s version, (optional)
-     - parameter storage: (query) User&#39;s source storage name (optional)
-     - parameter destStorage: (query) User&#39;s destination storage name (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func postMoveFile(src: String, dest: String, versionId: String? = nil, storage: String? = nil, destStorage: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
-        AuthAspose.checkAuth() {
-            (authError) in
-            guard authError == nil else {
-                completion(nil, authError)
-                return
-            }
-            postMoveFileWithRequestBuilder(src: src, dest: dest, versionId: versionId, storage: storage, destStorage: destStorage).execute { (response, error) -> Void in
-                completion(response?.body, error);
-            }
-        }
-    }
-
-
-    /**
-     Move a specific file
-     - POST /storage/file
-     - examples: [{contentType=application/json, example={
-  "Status" : "Status",
-  "Code" : 0
-}}]
-     
-     - parameter src: (query) Source file path e.g. /fileSource.ext 
-     - parameter dest: (query) Destination file path e.g. /fileDestination.ext 
-     - parameter versionId: (query) Source file&#39;s version, (optional)
-     - parameter storage: (query) User&#39;s source storage name (optional)
-     - parameter destStorage: (query) User&#39;s destination storage name (optional)
-
-     - returns: RequestBuilder<AsposeResponse> 
-     */
-    open class func postMoveFileWithRequestBuilder(src: String, dest: String, versionId: String? = nil, storage: String? = nil, destStorage: String? = nil) -> RequestBuilder<AsposeResponse> {
-        let pathUrl = "/storage/file"
-        let URLString = AsposePdfCloudAPI.basePath + pathUrl
-        let parameters: [String:Any]? = nil
-
-        let urlObj = NSURLComponents(string: URLString)
-        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
-            "src": src, 
-            "dest": dest, 
-            "versionId": versionId, 
-            "storage": storage, 
-            "destStorage": destStorage
-        ])
-        
-
-        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
-    }
-
-    /**
-     Move a specific folder 
-     
-     - parameter src: (query) Source folder path e.g. /Folder1 
-     - parameter dest: (query) Destination folder path e.g. /Folder2 
-     - parameter storage: (query) User&#39;s source storage name (optional)
-     - parameter destStorage: (query) User&#39;s destination storage name (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func postMoveFolder(src: String, dest: String, storage: String? = nil, destStorage: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
-        AuthAspose.checkAuth() {
-            (authError) in
-            guard authError == nil else {
-                completion(nil, authError)
-                return
-            }
-            postMoveFolderWithRequestBuilder(src: src, dest: dest, storage: storage, destStorage: destStorage).execute { (response, error) -> Void in
-                completion(response?.body, error);
-            }
-        }
-    }
-
-
-    /**
-     Move a specific folder 
-     - POST /storage/folder
-     - examples: [{contentType=application/json, example={
-  "Status" : "Status",
-  "Code" : 0
-}}]
-     
-     - parameter src: (query) Source folder path e.g. /Folder1 
-     - parameter dest: (query) Destination folder path e.g. /Folder2 
-     - parameter storage: (query) User&#39;s source storage name (optional)
-     - parameter destStorage: (query) User&#39;s destination storage name (optional)
-
-     - returns: RequestBuilder<AsposeResponse> 
-     */
-    open class func postMoveFolderWithRequestBuilder(src: String, dest: String, storage: String? = nil, destStorage: String? = nil) -> RequestBuilder<AsposeResponse> {
-        let pathUrl = "/storage/folder"
-        let URLString = AsposePdfCloudAPI.basePath + pathUrl
-        let parameters: [String:Any]? = nil
-
-        let urlObj = NSURLComponents(string: URLString)
-        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
-            "src": src, 
-            "dest": dest, 
-            "storage": storage, 
-            "destStorage": destStorage
-        ])
-        
-
-        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
-    }
-
-    /**
      Move page to new position.
      
      - parameter name: (path) The document name. 
@@ -9312,6 +11021,9 @@ open class PdfAPI {
     /**
      Move page to new position.
      - POST /pdf/{name}/pages/{pageNumber}/movePage
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -9349,12 +11061,12 @@ open class PdfAPI {
      Optimize document.
      
      - parameter name: (path) The document name. 
-     - parameter options: (body) The optimization options. (optional)
+     - parameter options: (body) The optimization options. 
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func postOptimizeDocument(name: String, options: OptimizeOptions? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+    open class func postOptimizeDocument(name: String, options: OptimizeOptions, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
@@ -9371,19 +11083,22 @@ open class PdfAPI {
     /**
      Optimize document.
      - POST /pdf/{name}/optimize
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
 }}]
      
      - parameter name: (path) The document name. 
-     - parameter options: (body) The optimization options. (optional)
+     - parameter options: (body) The optimization options. 
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
 
      - returns: RequestBuilder<AsposeResponse> 
      */
-    open class func postOptimizeDocumentWithRequestBuilder(name: String, options: OptimizeOptions? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+    open class func postOptimizeDocumentWithRequestBuilder(name: String, options: OptimizeOptions, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
         var pathUrl = "/pdf/{name}/optimize"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
@@ -9428,6 +11143,9 @@ open class PdfAPI {
     /**
      Add document page caret annotations.
      - POST /pdf/{name}/pages/{pageNumber}/annotations/caret
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -9450,6 +11168,71 @@ open class PdfAPI {
 
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
+     Certify document page.
+     
+     - parameter name: (path) The document name. 
+     - parameter pageNumber: (path) The page number. 
+     - parameter sign: (body) Signature object containing signature data. 
+     - parameter docMdpAccessPermissionType: (query) The access permissions granted for this document. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postPageCertify(name: String, pageNumber: Int, sign: Signature, docMdpAccessPermissionType: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            postPageCertifyWithRequestBuilder(name: name, pageNumber: pageNumber, sign: sign, docMdpAccessPermissionType: docMdpAccessPermissionType, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Certify document page.
+     - POST /pdf/{name}/pages/{pageNumber}/certify
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter pageNumber: (path) The page number. 
+     - parameter sign: (body) Signature object containing signature data. 
+     - parameter docMdpAccessPermissionType: (query) The access permissions granted for this document. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func postPageCertifyWithRequestBuilder(name: String, pageNumber: Int, sign: Signature, docMdpAccessPermissionType: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/pages/{pageNumber}/certify"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: sign)
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "docMdpAccessPermissionType": docMdpAccessPermissionType, 
             "storage": storage, 
             "folder": folder
         ])
@@ -9487,6 +11270,9 @@ open class PdfAPI {
     /**
      Add document page circle annotations.
      - POST /pdf/{name}/pages/{pageNumber}/annotations/circle
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -9546,6 +11332,9 @@ open class PdfAPI {
     /**
      Add document page FileAttachment annotations.
      - POST /pdf/{name}/pages/{pageNumber}/annotations/fileattachment
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -9605,6 +11394,9 @@ open class PdfAPI {
     /**
      Add document page free text annotations.
      - POST /pdf/{name}/pages/{pageNumber}/annotations/freetext
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -9664,6 +11456,9 @@ open class PdfAPI {
     /**
      Add document page highlight annotations.
      - POST /pdf/{name}/pages/{pageNumber}/annotations/highlight
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -9723,6 +11518,9 @@ open class PdfAPI {
     /**
      Add document page image stamps.
      - POST /pdf/{name}/pages/{pageNumber}/stamps/image
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -9782,6 +11580,9 @@ open class PdfAPI {
     /**
      Add document page ink annotations.
      - POST /pdf/{name}/pages/{pageNumber}/annotations/ink
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -9841,6 +11642,9 @@ open class PdfAPI {
     /**
      Add document page line annotations.
      - POST /pdf/{name}/pages/{pageNumber}/annotations/line
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -9900,6 +11704,9 @@ open class PdfAPI {
     /**
      Add document page link annotations.
      - POST /pdf/{name}/pages/{pageNumber}/links
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -9959,6 +11766,9 @@ open class PdfAPI {
     /**
      Add document page movie annotations.
      - POST /pdf/{name}/pages/{pageNumber}/annotations/movie
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -10018,6 +11828,9 @@ open class PdfAPI {
     /**
      Add document pdf page stamps.
      - POST /pdf/{name}/pages/{pageNumber}/stamps/pdfpage
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -10077,6 +11890,9 @@ open class PdfAPI {
     /**
      Add document page polyline annotations.
      - POST /pdf/{name}/pages/{pageNumber}/annotations/polyline
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -10136,6 +11952,9 @@ open class PdfAPI {
     /**
      Add document page polygon annotations.
      - POST /pdf/{name}/pages/{pageNumber}/annotations/polygon
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -10195,6 +12014,9 @@ open class PdfAPI {
     /**
      Add document page redaction annotations.
      - POST /pdf/{name}/pages/{pageNumber}/annotations/redaction
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -10254,6 +12076,9 @@ open class PdfAPI {
     /**
      Add document page screen annotations.
      - POST /pdf/{name}/pages/{pageNumber}/annotations/screen
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -10313,6 +12138,9 @@ open class PdfAPI {
     /**
      Add document page sound annotations.
      - POST /pdf/{name}/pages/{pageNumber}/annotations/sound
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -10372,6 +12200,9 @@ open class PdfAPI {
     /**
      Add document page square annotations.
      - POST /pdf/{name}/pages/{pageNumber}/annotations/square
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -10431,6 +12262,9 @@ open class PdfAPI {
     /**
      Add document page squiggly annotations.
      - POST /pdf/{name}/pages/{pageNumber}/annotations/squiggly
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -10490,6 +12324,9 @@ open class PdfAPI {
     /**
      Add document page stamp annotations.
      - POST /pdf/{name}/pages/{pageNumber}/annotations/stamp
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -10549,6 +12386,9 @@ open class PdfAPI {
     /**
      Add document page StrikeOut annotations.
      - POST /pdf/{name}/pages/{pageNumber}/annotations/strikeout
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -10608,6 +12448,9 @@ open class PdfAPI {
     /**
      Add document page tables.
      - POST /pdf/{name}/pages/{pageNumber}/tables
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -10667,6 +12510,9 @@ open class PdfAPI {
     /**
      Add document page text annotations.
      - POST /pdf/{name}/pages/{pageNumber}/annotations/text
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -10726,6 +12572,9 @@ open class PdfAPI {
     /**
      Page's replace text method.
      - POST /pdf/{name}/pages/{pageNumber}/text/replace
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path)  
@@ -10782,6 +12631,9 @@ open class PdfAPI {
     /**
      Add document page text stamps.
      - POST /pdf/{name}/pages/{pageNumber}/stamps/text
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -10841,6 +12693,9 @@ open class PdfAPI {
     /**
      Add document page underline annotations.
      - POST /pdf/{name}/pages/{pageNumber}/annotations/underline
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -10900,6 +12755,9 @@ open class PdfAPI {
     /**
      Add document popup annotations.
      - POST /pdf/{name}/annotations/{annotationId}/popup
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -10936,19 +12794,19 @@ open class PdfAPI {
      Sign document.
      
      - parameter name: (path) The document name. 
-     - parameter signature: (body) Signature object containing signature data. (optional)
+     - parameter sign: (body) Signature object containing signature data. 
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func postSignDocument(name: String, signature: Signature? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+    open class func postSignDocument(name: String, sign: Signature, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
                 completion(nil, authError)
                 return
             }
-            postSignDocumentWithRequestBuilder(name: name, signature: signature, storage: storage, folder: folder).execute { (response, error) -> Void in
+            postSignDocumentWithRequestBuilder(name: name, sign: sign, storage: storage, folder: folder).execute { (response, error) -> Void in
                 completion(response?.body, error);
             }
         }
@@ -10958,23 +12816,26 @@ open class PdfAPI {
     /**
      Sign document.
      - POST /pdf/{name}/sign
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
 }}]
      
      - parameter name: (path) The document name. 
-     - parameter signature: (body) Signature object containing signature data. (optional)
+     - parameter sign: (body) Signature object containing signature data. 
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
 
      - returns: RequestBuilder<AsposeResponse> 
      */
-    open class func postSignDocumentWithRequestBuilder(name: String, signature: Signature? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+    open class func postSignDocumentWithRequestBuilder(name: String, sign: Signature, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
         var pathUrl = "/pdf/{name}/sign"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: signature)
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: sign)
 
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
@@ -10993,19 +12854,19 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
-     - parameter signature: (body) Signature object containing signature data. (optional)
+     - parameter sign: (body) Signature object containing signature data. 
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func postSignPage(name: String, pageNumber: Int, signature: Signature? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+    open class func postSignPage(name: String, pageNumber: Int, sign: Signature, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
                 completion(nil, authError)
                 return
             }
-            postSignPageWithRequestBuilder(name: name, pageNumber: pageNumber, signature: signature, storage: storage, folder: folder).execute { (response, error) -> Void in
+            postSignPageWithRequestBuilder(name: name, pageNumber: pageNumber, sign: sign, storage: storage, folder: folder).execute { (response, error) -> Void in
                 completion(response?.body, error);
             }
         }
@@ -11015,6 +12876,9 @@ open class PdfAPI {
     /**
      Sign page.
      - POST /pdf/{name}/pages/{pageNumber}/sign
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -11022,18 +12886,18 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
-     - parameter signature: (body) Signature object containing signature data. (optional)
+     - parameter sign: (body) Signature object containing signature data. 
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
 
      - returns: RequestBuilder<AsposeResponse> 
      */
-    open class func postSignPageWithRequestBuilder(name: String, pageNumber: Int, signature: Signature? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+    open class func postSignPageWithRequestBuilder(name: String, pageNumber: Int, sign: Signature, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
         var pathUrl = "/pdf/{name}/pages/{pageNumber}/sign"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: signature)
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: sign)
 
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
@@ -11075,6 +12939,9 @@ open class PdfAPI {
     /**
      Split document to parts.
      - POST /pdf/{name}/split
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) Document name. 
@@ -11132,6 +12999,9 @@ open class PdfAPI {
     /**
      Add new page to end of the document.
      - PUT /pdf/{name}/pages
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -11163,12 +13033,12 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) Number of page (starting from 1). 
-     - parameter paragraph: (body) Paragraph data. (optional)
+     - parameter paragraph: (body) Paragraph data. 
      - parameter folder: (query) Document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putAddText(name: String, pageNumber: Int, paragraph: Paragraph? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+    open class func putAddText(name: String, pageNumber: Int, paragraph: Paragraph, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
@@ -11185,6 +13055,9 @@ open class PdfAPI {
     /**
      Add text to PDF document page.
      - PUT /pdf/{name}/pages/{pageNumber}/text
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -11192,13 +13065,13 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) Number of page (starting from 1). 
-     - parameter paragraph: (body) Paragraph data. (optional)
+     - parameter paragraph: (body) Paragraph data. 
      - parameter folder: (query) Document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
 
      - returns: RequestBuilder<AsposeResponse> 
      */
-    open class func putAddTextWithRequestBuilder(name: String, pageNumber: Int, paragraph: Paragraph? = nil, folder: String? = nil, storage: String? = nil) -> RequestBuilder<AsposeResponse> {
+    open class func putAddTextWithRequestBuilder(name: String, pageNumber: Int, paragraph: Paragraph, folder: String? = nil, storage: String? = nil) -> RequestBuilder<AsposeResponse> {
         var pathUrl = "/pdf/{name}/pages/{pageNumber}/text"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
@@ -11245,6 +13118,9 @@ open class PdfAPI {
     /**
      Flattens the annotations of the specified types
      - PUT /pdf/{name}/annotations/flatten
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -11281,6 +13157,65 @@ open class PdfAPI {
     }
 
     /**
+     Update document bookmark.
+     
+     - parameter name: (path) The document name. 
+     - parameter bookmarkPath: (path) The bookmark path. 
+     - parameter bookmark: (body) The bookmark. 
+     - parameter folder: (query) The document folder. (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func putBookmark(name: String, bookmarkPath: String, bookmark: Bookmark, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: BookmarkResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            putBookmarkWithRequestBuilder(name: name, bookmarkPath: bookmarkPath, bookmark: bookmark, folder: folder, storage: storage).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Update document bookmark.
+     - PUT /pdf/{name}/bookmarks/bookmark/{bookmarkPath}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter name: (path) The document name. 
+     - parameter bookmarkPath: (path) The bookmark path. 
+     - parameter bookmark: (body) The bookmark. 
+     - parameter folder: (query) The document folder. (optional)
+     - parameter storage: (query) The document storage. (optional)
+
+     - returns: RequestBuilder<BookmarkResponse> 
+     */
+    open class func putBookmarkWithRequestBuilder(name: String, bookmarkPath: String, bookmark: Bookmark, folder: String? = nil, storage: String? = nil) -> RequestBuilder<BookmarkResponse> {
+        var pathUrl = "/pdf/{name}/bookmarks/bookmark/{bookmarkPath}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{bookmarkPath}", with: "\(bookmarkPath)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: bookmark)
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "folder": folder, 
+            "storage": storage
+        ])
+        
+
+        let requestBuilder: RequestBuilder<BookmarkResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
      Replace document caret annotation
      
      - parameter name: (path) The document name. 
@@ -11307,6 +13242,9 @@ open class PdfAPI {
     /**
      Replace document caret annotation
      - PUT /pdf/{name}/annotations/caret/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -11364,6 +13302,9 @@ open class PdfAPI {
     /**
      Change document password from content.
      - PUT /pdf/changepassword
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -11430,6 +13371,9 @@ open class PdfAPI {
     /**
      Replace document circle annotation
      - PUT /pdf/{name}/annotations/circle/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -11460,67 +13404,6 @@ open class PdfAPI {
     }
 
     /**
-     Upload a specific file 
-     
-     - parameter path: (query) Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext 
-     - parameter file: (form) File to upload 
-     - parameter versionId: (query) Source file&#39;s version (optional)
-     - parameter storage: (query) User&#39;s storage name (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func putCreate(path: String, file: URL, versionId: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
-        AuthAspose.checkAuth() {
-            (authError) in
-            guard authError == nil else {
-                completion(nil, authError)
-                return
-            }
-            putCreateWithRequestBuilder(path: path, file: file, versionId: versionId, storage: storage).execute { (response, error) -> Void in
-                completion(response?.body, error);
-            }
-        }
-    }
-
-
-    /**
-     Upload a specific file 
-     - PUT /storage/file
-     - examples: [{contentType=application/json, example={
-  "Status" : "Status",
-  "Code" : 0
-}}]
-     
-     - parameter path: (query) Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext 
-     - parameter file: (form) File to upload 
-     - parameter versionId: (query) Source file&#39;s version (optional)
-     - parameter storage: (query) User&#39;s storage name (optional)
-
-     - returns: RequestBuilder<AsposeResponse> 
-     */
-    open class func putCreateWithRequestBuilder(path: String, file: URL, versionId: String? = nil, storage: String? = nil) -> RequestBuilder<AsposeResponse> {
-        let pathUrl = "/storage/file"
-        let URLString = AsposePdfCloudAPI.basePath + pathUrl
-        let formParams: [String:Any?] = [
-            "File": file
-        ]
-
-        let nonNullParameters = APIHelper.rejectNil(formParams)
-        let parameters = APIHelper.convertBoolToString(nonNullParameters)
-
-        let urlObj = NSURLComponents(string: URLString)
-        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
-            "path": path, 
-            "versionId": versionId, 
-            "storage": storage
-        ])
-        
-
-        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
-    }
-
-    /**
      Create empty document.
      
      - parameter name: (path) The new document name. 
@@ -11545,6 +13428,9 @@ open class PdfAPI {
     /**
      Create empty document.
      - PUT /pdf/{name}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The new document name. 
@@ -11567,60 +13453,6 @@ open class PdfAPI {
         
 
         let requestBuilder: RequestBuilder<DocumentResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
-    }
-
-    /**
-     Create the folder 
-     
-     - parameter path: (query) Target folder&#39;s path e.g. Folder1/Folder2/. The folders will be created recursively 
-     - parameter storage: (query) User&#39;s source storage name (optional)
-     - parameter destStorage: (query) User&#39;s destination storage name (optional)
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func putCreateFolder(path: String, storage: String? = nil, destStorage: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
-        AuthAspose.checkAuth() {
-            (authError) in
-            guard authError == nil else {
-                completion(nil, authError)
-                return
-            }
-            putCreateFolderWithRequestBuilder(path: path, storage: storage, destStorage: destStorage).execute { (response, error) -> Void in
-                completion(response?.body, error);
-            }
-        }
-    }
-
-
-    /**
-     Create the folder 
-     - PUT /storage/folder
-     - examples: [{contentType=application/json, example={
-  "Status" : "Status",
-  "Code" : 0
-}}]
-     
-     - parameter path: (query) Target folder&#39;s path e.g. Folder1/Folder2/. The folders will be created recursively 
-     - parameter storage: (query) User&#39;s source storage name (optional)
-     - parameter destStorage: (query) User&#39;s destination storage name (optional)
-
-     - returns: RequestBuilder<AsposeResponse> 
-     */
-    open class func putCreateFolderWithRequestBuilder(path: String, storage: String? = nil, destStorage: String? = nil) -> RequestBuilder<AsposeResponse> {
-        let pathUrl = "/storage/folder"
-        let URLString = AsposePdfCloudAPI.basePath + pathUrl
-        let parameters: [String:Any]? = nil
-
-        let urlObj = NSURLComponents(string: URLString)
-        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
-            "path": path, 
-            "storage": storage, 
-            "destStorage": destStorage
-        ])
-        
-
-        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -11651,6 +13483,9 @@ open class PdfAPI {
     /**
      Decrypt document from content.
      - PUT /pdf/decrypt
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -11692,8 +13527,8 @@ open class PdfAPI {
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.doc) 
      - parameter userPassword: (query) User password (encrypted Base64). 
      - parameter ownerPassword: (query) Owner password (encrypted Base64). 
-     - parameter cryptoAlgorithm: (query) Cryptographic algorithm, see  for details. 
-     - parameter permissionsFlags: (query) Array of document permissions, see  for details. (optional)
+     - parameter cryptoAlgorithm: (query) Cryptographic algorithm, see CryptoAlgorithm for details. 
+     - parameter permissionsFlags: (query) Array of document permissions, see PermissionsFlags for details. (optional)
      - parameter usePdf20: (query) Support for revision 6 (Extension 8). (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter file: (form) A file to be encrypted. (optional)
@@ -11716,6 +13551,9 @@ open class PdfAPI {
     /**
      Encrypt document from content.
      - PUT /pdf/encrypt
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -11724,8 +13562,8 @@ open class PdfAPI {
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.doc) 
      - parameter userPassword: (query) User password (encrypted Base64). 
      - parameter ownerPassword: (query) Owner password (encrypted Base64). 
-     - parameter cryptoAlgorithm: (query) Cryptographic algorithm, see  for details. 
-     - parameter permissionsFlags: (query) Array of document permissions, see  for details. (optional)
+     - parameter cryptoAlgorithm: (query) Cryptographic algorithm, see CryptoAlgorithm for details. 
+     - parameter permissionsFlags: (query) Array of document permissions, see PermissionsFlags for details. (optional)
      - parameter usePdf20: (query) Support for revision 6 (Extension 8). (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter file: (form) A file to be encrypted. (optional)
@@ -11785,6 +13623,9 @@ open class PdfAPI {
     /**
      Convert EPUB file (located on storage) to PDF format and upload resulting file to storage. 
      - PUT /pdf/{name}/create/epub
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -11808,6 +13649,186 @@ open class PdfAPI {
             "srcPath": srcPath, 
             "storage": storage, 
             "dstFolder": dstFolder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Export fields from from PDF in storage to FDF file in storage.
+     
+     - parameter name: (path) The document name. 
+     - parameter fdfOutputFilePath: (query) The output Fdf file path. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func putExportFieldsFromPdfToFdfInStorage(name: String, fdfOutputFilePath: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            putExportFieldsFromPdfToFdfInStorageWithRequestBuilder(name: name, fdfOutputFilePath: fdfOutputFilePath, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Export fields from from PDF in storage to FDF file in storage.
+     - PUT /pdf/{name}/export/fdf
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter fdfOutputFilePath: (query) The output Fdf file path. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func putExportFieldsFromPdfToFdfInStorageWithRequestBuilder(name: String, fdfOutputFilePath: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/export/fdf"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "fdfOutputFilePath": fdfOutputFilePath, 
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Export fields from from PDF in storage to XFDF file in storage.
+     
+     - parameter name: (path) The document name. 
+     - parameter xfdfOutputFilePath: (query) The output xfdf file path. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func putExportFieldsFromPdfToXfdfInStorage(name: String, xfdfOutputFilePath: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            putExportFieldsFromPdfToXfdfInStorageWithRequestBuilder(name: name, xfdfOutputFilePath: xfdfOutputFilePath, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Export fields from from PDF in storage to XFDF file in storage.
+     - PUT /pdf/{name}/export/xfdf
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter xfdfOutputFilePath: (query) The output xfdf file path. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func putExportFieldsFromPdfToXfdfInStorageWithRequestBuilder(name: String, xfdfOutputFilePath: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/export/xfdf"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "xfdfOutputFilePath": xfdfOutputFilePath, 
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Export fields from from PDF in storage to XML file in storage.
+     
+     - parameter name: (path) The document name. 
+     - parameter xmlOutputFilePath: (query) The output xml file path. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func putExportFieldsFromPdfToXmlInStorage(name: String, xmlOutputFilePath: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            putExportFieldsFromPdfToXmlInStorageWithRequestBuilder(name: name, xmlOutputFilePath: xmlOutputFilePath, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Export fields from from PDF in storage to XML file in storage.
+     - PUT /pdf/{name}/export/xml
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter xmlOutputFilePath: (query) The output xml file path. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func putExportFieldsFromPdfToXmlInStorageWithRequestBuilder(name: String, xmlOutputFilePath: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/export/xml"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "xmlOutputFilePath": xmlOutputFilePath, 
+            "storage": storage, 
+            "folder": folder
         ])
         
 
@@ -11841,6 +13862,9 @@ open class PdfAPI {
     /**
      Flatten form fields in document.
      - PUT /pdf/{name}/fields/flatten
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -11897,6 +13921,9 @@ open class PdfAPI {
     /**
      Replace document FileAttachment annotation
      - PUT /pdf/{name}/annotations/fileattachment/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -11953,6 +13980,9 @@ open class PdfAPI {
     /**
      Extract document FileAttachment annotation content to storage
      - PUT /pdf/{name}/annotations/fileattachment/{annotationId}/data/extract
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -12013,6 +14043,9 @@ open class PdfAPI {
     /**
      Replace document free text annotation
      - PUT /pdf/{name}/annotations/freetext/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -12069,6 +14102,9 @@ open class PdfAPI {
     /**
      Replace document highlight annotation
      - PUT /pdf/{name}/annotations/highlight/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -12132,6 +14168,9 @@ open class PdfAPI {
     /**
      Convert HTML file (located on storage) to PDF format and upload resulting file to storage. 
      - PUT /pdf/{name}/create/html
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -12184,8 +14223,8 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter imageId: (path) Image ID. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter destFolder: (query) The document folder. (optional)
@@ -12208,6 +14247,9 @@ open class PdfAPI {
     /**
      Extract document image in GIF format to folder
      - PUT /pdf/{name}/images/{imageId}/extract/gif
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -12215,8 +14257,8 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter imageId: (path) Image ID. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter destFolder: (query) The document folder. (optional)
@@ -12250,8 +14292,8 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter imageId: (path) Image ID. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter destFolder: (query) The document folder. (optional)
@@ -12274,6 +14316,9 @@ open class PdfAPI {
     /**
      Extract document image in JPEG format to folder
      - PUT /pdf/{name}/images/{imageId}/extract/jpeg
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -12281,8 +14326,8 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter imageId: (path) Image ID. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter destFolder: (query) The document folder. (optional)
@@ -12316,8 +14361,8 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter imageId: (path) Image ID. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter destFolder: (query) The document folder. (optional)
@@ -12340,6 +14385,9 @@ open class PdfAPI {
     /**
      Extract document image in PNG format to folder
      - PUT /pdf/{name}/images/{imageId}/extract/png
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -12347,8 +14395,8 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter imageId: (path) Image ID. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter destFolder: (query) The document folder. (optional)
@@ -12382,8 +14430,8 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter imageId: (path) Image ID. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter destFolder: (query) The document folder. (optional)
@@ -12406,6 +14454,9 @@ open class PdfAPI {
     /**
      Extract document image in TIFF format to folder
      - PUT /pdf/{name}/images/{imageId}/extract/tiff
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -12413,8 +14464,8 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter imageId: (path) Image ID. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter destFolder: (query) The document folder. (optional)
@@ -12447,7 +14498,7 @@ open class PdfAPI {
      Convert image file (located on storage) to PDF format and upload resulting file to storage. 
      
      - parameter name: (path) The document name. 
-     - parameter imageTemplates: (body) Image templates 
+     - parameter imageTemplates: (body) ImageTemplatesRequestImage templates 
      - parameter dstFolder: (query) The destination document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -12469,13 +14520,16 @@ open class PdfAPI {
     /**
      Convert image file (located on storage) to PDF format and upload resulting file to storage. 
      - PUT /pdf/{name}/create/images
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
 }}]
      
      - parameter name: (path) The document name. 
-     - parameter imageTemplates: (body) Image templates 
+     - parameter imageTemplates: (body) ImageTemplatesRequestImage templates 
      - parameter dstFolder: (query) The destination document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
 
@@ -12504,8 +14558,8 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter destFolder: (query) The document folder. (optional)
@@ -12528,6 +14582,9 @@ open class PdfAPI {
     /**
      Extract document images in GIF format to folder.
      - PUT /pdf/{name}/pages/{pageNumber}/images/extract/gif
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -12535,8 +14592,8 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter destFolder: (query) The document folder. (optional)
@@ -12570,9 +14627,9 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
-     - parameter storage: (query)  (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
+     - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter destFolder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -12594,6 +14651,9 @@ open class PdfAPI {
     /**
      Extract document images in JPEG format to folder.
      - PUT /pdf/{name}/pages/{pageNumber}/images/extract/jpeg
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -12601,9 +14661,9 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
-     - parameter storage: (query)  (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
+     - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter destFolder: (query) The document folder. (optional)
 
@@ -12636,8 +14696,8 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter destFolder: (query) The document folder. (optional)
@@ -12660,6 +14720,9 @@ open class PdfAPI {
     /**
      Extract document images in PNG format to folder.
      - PUT /pdf/{name}/pages/{pageNumber}/images/extract/png
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -12667,8 +14730,8 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter destFolder: (query) The document folder. (optional)
@@ -12702,8 +14765,8 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter destFolder: (query) The document folder. (optional)
@@ -12726,6 +14789,9 @@ open class PdfAPI {
     /**
      Extract document images in TIFF format to folder.
      - PUT /pdf/{name}/pages/{pageNumber}/images/extract/tiff
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -12733,8 +14799,8 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter destFolder: (query) The document folder. (optional)
@@ -12755,6 +14821,186 @@ open class PdfAPI {
             "storage": storage, 
             "folder": folder, 
             "destFolder": destFolder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Update fields from FDF file in storage.
+     
+     - parameter name: (path) The document name. 
+     - parameter fdfFilePath: (query) The Fdf file path. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func putImportFieldsFromFdfInStorage(name: String, fdfFilePath: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            putImportFieldsFromFdfInStorageWithRequestBuilder(name: name, fdfFilePath: fdfFilePath, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Update fields from FDF file in storage.
+     - PUT /pdf/{name}/import/fdf
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter fdfFilePath: (query) The Fdf file path. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func putImportFieldsFromFdfInStorageWithRequestBuilder(name: String, fdfFilePath: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/import/fdf"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "fdfFilePath": fdfFilePath, 
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Update fields from XFDF file in storage.
+     
+     - parameter name: (path) The document name. 
+     - parameter xfdfFilePath: (query) The XFDF file path. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func putImportFieldsFromXfdfInStorage(name: String, xfdfFilePath: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            putImportFieldsFromXfdfInStorageWithRequestBuilder(name: name, xfdfFilePath: xfdfFilePath, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Update fields from XFDF file in storage.
+     - PUT /pdf/{name}/import/xfdf
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter xfdfFilePath: (query) The XFDF file path. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func putImportFieldsFromXfdfInStorageWithRequestBuilder(name: String, xfdfFilePath: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/import/xfdf"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "xfdfFilePath": xfdfFilePath, 
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Update fields from XML file in storage.
+     
+     - parameter name: (path) The document name. 
+     - parameter xmlFilePath: (query) Full source filename (ex. /folder1/folder2/template.xml) 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func putImportFieldsFromXmlInStorage(name: String, xmlFilePath: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            putImportFieldsFromXmlInStorageWithRequestBuilder(name: name, xmlFilePath: xmlFilePath, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Update fields from XML file in storage.
+     - PUT /pdf/{name}/import/xml
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter xmlFilePath: (query) Full source filename (ex. /folder1/folder2/template.xml) 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func putImportFieldsFromXmlInStorageWithRequestBuilder(name: String, xmlFilePath: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/import/xml"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "xmlFilePath": xmlFilePath, 
+            "storage": storage, 
+            "folder": folder
         ])
         
 
@@ -12790,6 +15036,9 @@ open class PdfAPI {
     /**
      Replace document ink annotation
      - PUT /pdf/{name}/annotations/ink/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -12845,6 +15094,9 @@ open class PdfAPI {
     /**
      Convert LaTeX file (located on storage) to PDF format and upload resulting file to storage. 
      - PUT /pdf/{name}/create/latex
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -12903,6 +15155,9 @@ open class PdfAPI {
     /**
      Replace document line annotation
      - PUT /pdf/{name}/annotations/line/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -12959,6 +15214,9 @@ open class PdfAPI {
     /**
      Replace document page link annotations
      - PUT /pdf/{name}/links/{linkId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -12989,15 +15247,75 @@ open class PdfAPI {
     }
 
     /**
+     Convert MD file (located on storage) to PDF format and upload resulting file to storage. 
+     
+     - parameter name: (path) The document name. 
+     - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.md) 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter dstFolder: (query) The destination document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func putMarkdownInStorageToPdf(name: String, srcPath: String, storage: String? = nil, dstFolder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            putMarkdownInStorageToPdfWithRequestBuilder(name: name, srcPath: srcPath, storage: storage, dstFolder: dstFolder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Convert MD file (located on storage) to PDF format and upload resulting file to storage. 
+     - PUT /pdf/{name}/create/markdown
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.md) 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter dstFolder: (query) The destination document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func putMarkdownInStorageToPdfWithRequestBuilder(name: String, srcPath: String, storage: String? = nil, dstFolder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/create/markdown"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "srcPath": srcPath, 
+            "storage": storage, 
+            "dstFolder": dstFolder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
      Merge a list of documents.
      
      - parameter name: (path) Resulting documen name. 
-     - parameter mergeDocuments: (body) with a list of documents. (optional)
+     - parameter mergeDocuments: (body) MergeDocuments with a list of documents. 
      - parameter storage: (query) Resulting document storage. (optional)
      - parameter folder: (query) Resulting document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putMergeDocuments(name: String, mergeDocuments: MergeDocuments? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: DocumentResponse?,_ error: Error?) -> Void)) {
+    open class func putMergeDocuments(name: String, mergeDocuments: MergeDocuments, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: DocumentResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
@@ -13014,16 +15332,19 @@ open class PdfAPI {
     /**
      Merge a list of documents.
      - PUT /pdf/{name}/merge
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) Resulting documen name. 
-     - parameter mergeDocuments: (body) with a list of documents. (optional)
+     - parameter mergeDocuments: (body) MergeDocuments with a list of documents. 
      - parameter storage: (query) Resulting document storage. (optional)
      - parameter folder: (query) Resulting document folder. (optional)
 
      - returns: RequestBuilder<DocumentResponse> 
      */
-    open class func putMergeDocumentsWithRequestBuilder(name: String, mergeDocuments: MergeDocuments? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<DocumentResponse> {
+    open class func putMergeDocumentsWithRequestBuilder(name: String, mergeDocuments: MergeDocuments, storage: String? = nil, folder: String? = nil) -> RequestBuilder<DocumentResponse> {
         var pathUrl = "/pdf/{name}/merge"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
@@ -13067,6 +15388,9 @@ open class PdfAPI {
     /**
      Convert MHT file (located on storage) to PDF format and upload resulting file to storage. 
      - PUT /pdf/{name}/create/mht
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -13125,6 +15449,9 @@ open class PdfAPI {
     /**
      Replace document movie annotation
      - PUT /pdf/{name}/annotations/movie/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -13159,7 +15486,7 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
-     - parameter stamp: (body) with data. 
+     - parameter stamp: (body) Stamp with data. 
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -13181,6 +15508,9 @@ open class PdfAPI {
     /**
      Add page stamp.
      - PUT /pdf/{name}/pages/{pageNumber}/stamp
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -13188,7 +15518,7 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
-     - parameter stamp: (body) with data. 
+     - parameter stamp: (body) Stamp with data. 
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
 
@@ -13219,8 +15549,8 @@ open class PdfAPI {
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
      - parameter outPath: (query) The out path of result image. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -13242,6 +15572,9 @@ open class PdfAPI {
     /**
      Convert document page to bmp image and upload resulting file to storage.
      - PUT /pdf/{name}/pages/{pageNumber}/convert/bmp
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -13250,8 +15583,8 @@ open class PdfAPI {
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
      - parameter outPath: (query) The out path of result image. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
 
@@ -13285,8 +15618,8 @@ open class PdfAPI {
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
      - parameter outPath: (query) The out path of result image. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -13308,6 +15641,9 @@ open class PdfAPI {
     /**
      Convert document page to emf image and upload resulting file to storage.
      - PUT /pdf/{name}/pages/{pageNumber}/convert/emf
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -13316,8 +15652,8 @@ open class PdfAPI {
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
      - parameter outPath: (query) The out path of result image. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
 
@@ -13351,8 +15687,8 @@ open class PdfAPI {
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
      - parameter outPath: (query) The out path of result image. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -13374,6 +15710,9 @@ open class PdfAPI {
     /**
      Convert document page to gif image and upload resulting file to storage.
      - PUT /pdf/{name}/pages/{pageNumber}/convert/gif
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -13382,8 +15721,8 @@ open class PdfAPI {
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
      - parameter outPath: (query) The out path of result image. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
 
@@ -13417,8 +15756,8 @@ open class PdfAPI {
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
      - parameter outPath: (query) The out path of result image. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -13440,6 +15779,9 @@ open class PdfAPI {
     /**
      Convert document page to Jpeg image and upload resulting file to storage.
      - PUT /pdf/{name}/pages/{pageNumber}/convert/jpeg
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -13448,8 +15790,8 @@ open class PdfAPI {
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
      - parameter outPath: (query) The out path of result image. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
 
@@ -13483,8 +15825,8 @@ open class PdfAPI {
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
      - parameter outPath: (query) The out path of result image. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -13506,6 +15848,9 @@ open class PdfAPI {
     /**
      Convert document page to png image and upload resulting file to storage.
      - PUT /pdf/{name}/pages/{pageNumber}/convert/png
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -13514,8 +15859,8 @@ open class PdfAPI {
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
      - parameter outPath: (query) The out path of result image. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
 
@@ -13549,8 +15894,8 @@ open class PdfAPI {
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
      - parameter outPath: (query) The out path of result image. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -13572,6 +15917,9 @@ open class PdfAPI {
     /**
      Convert document page to Tiff image and upload resulting file to storage.
      - PUT /pdf/{name}/pages/{pageNumber}/convert/tiff
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -13580,8 +15928,8 @@ open class PdfAPI {
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
      - parameter outPath: (query) The out path of result image. 
-     - parameter width: (query) The converted image width. (optional)
-     - parameter height: (query) The converted image height. (optional)
+     - parameter width: (query) The converted image width. (optional, default to 0)
+     - parameter height: (query) The converted image height. (optional, default to 0)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
 
@@ -13635,6 +15983,9 @@ open class PdfAPI {
     /**
      Convert PCL file (located on storage) to PDF format and upload resulting file to storage. 
      - PUT /pdf/{name}/create/pcl
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -13699,6 +16050,9 @@ open class PdfAPI {
     /**
      Converts PDF document (in request content) to DOC format and uploads resulting file to storage.
      - PUT /pdf/convert/doc
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -13774,6 +16128,9 @@ open class PdfAPI {
     /**
      Converts PDF document (in request content) to EPUB format and uploads resulting file to storage.
      - PUT /pdf/convert/epub
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -13862,6 +16219,9 @@ open class PdfAPI {
     /**
      Converts PDF document (in request content) to Html format and uploads resulting file to storage.
      - PUT /pdf/convert/html
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -13977,6 +16337,9 @@ open class PdfAPI {
     /**
      Converts PDF document (in request content) to LaTeX format and uploads resulting file to storage.
      - PUT /pdf/convert/latex
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -14037,6 +16400,9 @@ open class PdfAPI {
     /**
      Converts PDF document (in request content) to MOBIXML format and uploads resulting file to storage.
      - PUT /pdf/convert/mobixml
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -14096,6 +16462,9 @@ open class PdfAPI {
     /**
      Converts PDF document (in request content) to PdfA format and uploads resulting file to storage.
      - PUT /pdf/convert/pdfa
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -14158,6 +16527,9 @@ open class PdfAPI {
     /**
      Converts PDF document (in request content) to PPTX format and uploads resulting file to storage.
      - PUT /pdf/convert/pptx
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -14220,6 +16592,9 @@ open class PdfAPI {
     /**
      Converts PDF document (in request content) to SVG format and uploads resulting file to storage.
      - PUT /pdf/convert/svg
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -14293,6 +16668,9 @@ open class PdfAPI {
     /**
      Converts PDF document (in request content) to TIFF format and uploads resulting file to storage.
      - PUT /pdf/convert/tiff
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -14385,6 +16763,9 @@ open class PdfAPI {
     /**
      Converts PDF document (in request content) to XLS format and uploads resulting file to storage.
      - PUT /pdf/convert/xls
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -14455,6 +16836,9 @@ open class PdfAPI {
     /**
      Converts PDF document (in request content) to XLSX format and uploads resulting file to storage.
      - PUT /pdf/convert/xlsx
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -14521,6 +16905,9 @@ open class PdfAPI {
     /**
      Converts PDF document (in request content) to XML format and uploads resulting file to storage.
      - PUT /pdf/convert/xml
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -14579,6 +16966,9 @@ open class PdfAPI {
     /**
      Converts PDF document (in request content) to XPS format and uploads resulting file to storage.
      - PUT /pdf/convert/xps
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -14646,6 +17036,9 @@ open class PdfAPI {
     /**
      Converts PDF document (located on storage) to DOC format and uploads resulting file to storage
      - PUT /pdf/{name}/convert/doc
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -14720,6 +17113,9 @@ open class PdfAPI {
     /**
      Converts PDF document (located on storage) to EPUB format and uploads resulting file to storage
      - PUT /pdf/{name}/convert/epub
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -14807,6 +17203,9 @@ open class PdfAPI {
     /**
      Converts PDF document (located on storage) to Html format and uploads resulting file to storage
      - PUT /pdf/{name}/convert/html
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -14921,6 +17320,9 @@ open class PdfAPI {
     /**
      Converts PDF document (located on storage) to LaTeX format and uploads resulting file to storage
      - PUT /pdf/{name}/convert/latex
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -14980,6 +17382,9 @@ open class PdfAPI {
     /**
      Converts PDF document (located on storage) to MOBIXML format and uploads resulting file to storage
      - PUT /pdf/{name}/convert/mobixml
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -15038,6 +17443,9 @@ open class PdfAPI {
     /**
      Converts PDF document (located on storage) to PdfA format and uploads resulting file to storage
      - PUT /pdf/{name}/convert/pdfa
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -15099,6 +17507,9 @@ open class PdfAPI {
     /**
      Converts PDF document (located on storage) to PPTX format and uploads resulting file to storage
      - PUT /pdf/{name}/convert/pptx
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -15160,6 +17571,9 @@ open class PdfAPI {
     /**
      Converts PDF document (located on storage) to SVG format and uploads resulting file to storage
      - PUT /pdf/{name}/convert/svg
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -15232,6 +17646,9 @@ open class PdfAPI {
     /**
      Converts PDF document (located on storage) to TIFF format and uploads resulting file to storage
      - PUT /pdf/{name}/convert/tiff
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -15323,6 +17740,9 @@ open class PdfAPI {
     /**
      Converts PDF document (located on storage) to XLS format and uploads resulting file to storage
      - PUT /pdf/{name}/convert/xls
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -15392,6 +17812,9 @@ open class PdfAPI {
     /**
      Converts PDF document (located on storage) to XLSX format and uploads resulting file to storage
      - PUT /pdf/{name}/convert/xlsx
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -15457,6 +17880,9 @@ open class PdfAPI {
     /**
      Converts PDF document (located on storage) to XML format and uploads resulting file to storage
      - PUT /pdf/{name}/convert/xml
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -15514,6 +17940,9 @@ open class PdfAPI {
     /**
      Converts PDF document (located on storage) to XPS format and uploads resulting file to storage
      - PUT /pdf/{name}/convert/xps
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -15572,6 +18001,9 @@ open class PdfAPI {
     /**
      Replace document polyline annotation
      - PUT /pdf/{name}/annotations/polyline/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -15628,6 +18060,9 @@ open class PdfAPI {
     /**
      Replace document polygon annotation
      - PUT /pdf/{name}/annotations/polygon/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -15684,6 +18119,9 @@ open class PdfAPI {
     /**
      Replace document popup annotation
      - PUT /pdf/{name}/annotations/popup/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -15717,12 +18155,12 @@ open class PdfAPI {
      Update privilege document.
      
      - parameter name: (path) The document name. 
-     - parameter privileges: (body) Document privileges.  (optional)
+     - parameter privileges: (body) Document privileges. DocumentPrivilege 
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putPrivileges(name: String, privileges: DocumentPrivilege? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+    open class func putPrivileges(name: String, privileges: DocumentPrivilege, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
@@ -15739,19 +18177,22 @@ open class PdfAPI {
     /**
      Update privilege document.
      - PUT /pdf/{name}/privileges
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
 }}]
      
      - parameter name: (path) The document name. 
-     - parameter privileges: (body) Document privileges.  (optional)
+     - parameter privileges: (body) Document privileges. DocumentPrivilege 
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
 
      - returns: RequestBuilder<AsposeResponse> 
      */
-    open class func putPrivilegesWithRequestBuilder(name: String, privileges: DocumentPrivilege? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+    open class func putPrivilegesWithRequestBuilder(name: String, privileges: DocumentPrivilege, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
         var pathUrl = "/pdf/{name}/privileges"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
@@ -15795,6 +18236,9 @@ open class PdfAPI {
     /**
      Convert PS file (located on storage) to PDF format and upload resulting file to storage. 
      - PUT /pdf/{name}/create/ps
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -15853,6 +18297,9 @@ open class PdfAPI {
     /**
      Replace document redaction annotation
      - PUT /pdf/{name}/annotations/redaction/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -15910,6 +18357,9 @@ open class PdfAPI {
     /**
      Replace document image.
      - PUT /pdf/{name}/images/{imageId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -15973,6 +18423,9 @@ open class PdfAPI {
     /**
      Replace document screen annotation
      - PUT /pdf/{name}/annotations/screen/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -16029,6 +18482,9 @@ open class PdfAPI {
     /**
      Extract document screen annotation content to storage
      - PUT /pdf/{name}/annotations/screen/{annotationId}/data/extract
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -16088,6 +18544,9 @@ open class PdfAPI {
     /**
      Create searchable PDF document. Generate OCR layer for images in input PDF document.
      - PUT /pdf/{name}/ocr
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -16146,6 +18605,9 @@ open class PdfAPI {
     /**
      Add/update document property.
      - PUT /pdf/{name}/documentproperties/{propertyName}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path)  
@@ -16203,6 +18665,9 @@ open class PdfAPI {
     /**
      Replace document sound annotation
      - PUT /pdf/{name}/annotations/sound/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -16259,6 +18724,9 @@ open class PdfAPI {
     /**
      Extract document sound annotation content to storage
      - PUT /pdf/{name}/annotations/sound/{annotationId}/data/extract
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -16319,6 +18787,9 @@ open class PdfAPI {
     /**
      Replace document square annotation
      - PUT /pdf/{name}/annotations/square/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -16375,6 +18846,9 @@ open class PdfAPI {
     /**
      Replace document squiggly annotation
      - PUT /pdf/{name}/annotations/squiggly/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -16431,6 +18905,9 @@ open class PdfAPI {
     /**
      Replace document stamp annotation
      - PUT /pdf/{name}/annotations/stamp/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -16487,6 +18964,9 @@ open class PdfAPI {
     /**
      Extract document stamp annotation content to storage
      - PUT /pdf/{name}/annotations/stamp/{annotationId}/data/extract
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -16547,6 +19027,9 @@ open class PdfAPI {
     /**
      Replace document StrikeOut annotation
      - PUT /pdf/{name}/annotations/strikeout/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -16610,6 +19093,9 @@ open class PdfAPI {
     /**
      Convert SVG file (located on storage) to PDF format and upload resulting file to storage. 
      - PUT /pdf/{name}/create/svg
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -16684,6 +19170,9 @@ open class PdfAPI {
     /**
      Replace document page table.
      - PUT /pdf/{name}/tables/{tableId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -16743,6 +19232,9 @@ open class PdfAPI {
     /**
      Replace document text annotation
      - PUT /pdf/{name}/annotations/text/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -16799,6 +19291,9 @@ open class PdfAPI {
     /**
      Replace document underline annotation
      - PUT /pdf/{name}/annotations/underline/{annotationId}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
@@ -16833,12 +19328,12 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter fieldName: (path) The name of a field to be updated. 
-     - parameter field: (body) with the field data. (optional)
+     - parameter field: (body) Field with the field data. 
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putUpdateField(name: String, fieldName: String, field: Field? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: FieldResponse?,_ error: Error?) -> Void)) {
+    open class func putUpdateField(name: String, fieldName: String, field: Field, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: FieldResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
@@ -16855,17 +19350,20 @@ open class PdfAPI {
     /**
      Update field.
      - PUT /pdf/{name}/fields/{fieldName}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
      - parameter fieldName: (path) The name of a field to be updated. 
-     - parameter field: (body) with the field data. (optional)
+     - parameter field: (body) Field with the field data. 
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
 
      - returns: RequestBuilder<FieldResponse> 
      */
-    open class func putUpdateFieldWithRequestBuilder(name: String, fieldName: String, field: Field? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<FieldResponse> {
+    open class func putUpdateFieldWithRequestBuilder(name: String, fieldName: String, field: Field, storage: String? = nil, folder: String? = nil) -> RequestBuilder<FieldResponse> {
         var pathUrl = "/pdf/{name}/fields/{fieldName}"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         pathUrl = pathUrl.replacingOccurrences(of: "{fieldName}", with: "\(fieldName)", options: .literal, range: nil)
@@ -16888,12 +19386,12 @@ open class PdfAPI {
      Update fields.
      
      - parameter name: (path) The document name. 
-     - parameter fields: (body) with the fields data. (optional)
+     - parameter fields: (body) Fields with the fields data. 
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putUpdateFields(name: String, fields: Fields? = nil, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: FieldsResponse?,_ error: Error?) -> Void)) {
+    open class func putUpdateFields(name: String, fields: Fields, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: FieldsResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
@@ -16910,16 +19408,19 @@ open class PdfAPI {
     /**
      Update fields.
      - PUT /pdf/{name}/fields
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
-     - parameter fields: (body) with the fields data. (optional)
+     - parameter fields: (body) Fields with the fields data. 
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
 
      - returns: RequestBuilder<FieldsResponse> 
      */
-    open class func putUpdateFieldsWithRequestBuilder(name: String, fields: Fields? = nil, storage: String? = nil, folder: String? = nil) -> RequestBuilder<FieldsResponse> {
+    open class func putUpdateFieldsWithRequestBuilder(name: String, fields: Fields, storage: String? = nil, folder: String? = nil) -> RequestBuilder<FieldsResponse> {
         var pathUrl = "/pdf/{name}/fields"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
@@ -16970,6 +19471,9 @@ open class PdfAPI {
     /**
      Convert web page to PDF format and upload resulting file to storage. 
      - PUT /pdf/{name}/create/web
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -17040,6 +19544,9 @@ open class PdfAPI {
     /**
      Converts PDF document which contatins XFA form (in request content) to PDF with AcroForm and uploads resulting file to storage.
      - PUT /pdf/convert/xfatoacroform
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -17099,6 +19606,9 @@ open class PdfAPI {
     /**
      Converts PDF document which contatins XFA form (located on storage) to PDF with AcroForm and uploads resulting file to storage
      - PUT /pdf/{name}/convert/xfatoacroform
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -17157,6 +19667,9 @@ open class PdfAPI {
     /**
      Convert XML file (located on storage) to PDF format and upload resulting file to storage. 
      - PUT /pdf/{name}/create/xml
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -17216,6 +19729,9 @@ open class PdfAPI {
     /**
      Convert XPS file (located on storage) to PDF format and upload resulting file to storage. 
      - PUT /pdf/{name}/create/xps
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -17273,6 +19789,9 @@ open class PdfAPI {
     /**
      Convert XslFo file (located on storage) to PDF format and upload resulting file to storage. 
      - PUT /pdf/{name}/create/xslfo
+     - OAuth:
+       - type: oauth2
+       - name: JWT
      - examples: [{contentType=application/json, example={
   "Status" : "Status",
   "Code" : 0
@@ -17300,6 +19819,131 @@ open class PdfAPI {
         
 
         let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Check if storage exists
+     
+     - parameter storageName: (path) Storage name 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func storageExists(storageName: String, completion: @escaping ((_ data: StorageExist?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            storageExistsWithRequestBuilder(storageName: storageName).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Check if storage exists
+     - GET /pdf/storage/{storageName}/exist
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example={
+  "Exists" : true
+}}]
+     
+     - parameter storageName: (path) Storage name 
+
+     - returns: RequestBuilder<StorageExist> 
+     */
+    open class func storageExistsWithRequestBuilder(storageName: String) -> RequestBuilder<StorageExist> {
+        var pathUrl = "/pdf/storage/{storageName}/exist"
+        pathUrl = pathUrl.replacingOccurrences(of: "{storageName}", with: "\(storageName)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+
+
+        let requestBuilder: RequestBuilder<StorageExist>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Upload file
+     
+     - parameter path: (path) Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.              
+     - parameter file: (form) File to upload 
+     - parameter storageName: (query) Storage name (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func uploadFile(path: String, file: URL, storageName: String? = nil, completion: @escaping ((_ data: FilesUploadResult?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            uploadFileWithRequestBuilder(path: path, file: file, storageName: storageName).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Upload file
+     - PUT /pdf/storage/file/{path}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example={
+  "Errors" : [ {
+    "Description" : "Description",
+    "Message" : "Message",
+    "InnerError" : {
+      "RequestId" : "RequestId",
+      "Date" : "2000-01-23T04:56:07.000+00:00"
+    },
+    "Code" : "Code"
+  }, {
+    "Description" : "Description",
+    "Message" : "Message",
+    "InnerError" : {
+      "RequestId" : "RequestId",
+      "Date" : "2000-01-23T04:56:07.000+00:00"
+    },
+    "Code" : "Code"
+  } ],
+  "Uploaded" : [ "Uploaded", "Uploaded" ]
+}}]
+     
+     - parameter path: (path) Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.              
+     - parameter file: (form) File to upload 
+     - parameter storageName: (query) Storage name (optional)
+
+     - returns: RequestBuilder<FilesUploadResult> 
+     */
+    open class func uploadFileWithRequestBuilder(path: String, file: URL, storageName: String? = nil) -> RequestBuilder<FilesUploadResult> {
+        var pathUrl = "/pdf/storage/file/{path}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{path}", with: "\(path)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let formParams: [String:Any?] = [
+            "File": file
+        ]
+
+        let nonNullParameters = APIHelper.rejectNil(formParams)
+        let parameters = APIHelper.convertBoolToString(nonNullParameters)
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storageName": storageName
+        ])
+        
+
+        let requestBuilder: RequestBuilder<FilesUploadResult>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }

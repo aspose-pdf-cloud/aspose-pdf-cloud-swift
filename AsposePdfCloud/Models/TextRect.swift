@@ -39,11 +39,11 @@ open class TextRect: Codable {
     public var horizontalAlignment: HorizontalAlignment?
     /** Gets or sets a vertical alignment of text fragment.  */
     public var verticalAlignment: VerticalAlignment?
-    /** Gets or sets text position for text, represented with  object. */
+    /** Gets or sets text position for text, represented with TextRect object. */
     public var position: Position?
-    /** Gets text position for text, represented with  object. The YIndent of the Position structure represents baseline coordinate of the text fragment. */
+    /** Gets text position for text, represented with TextRect object. The YIndent of the Position structure represents baseline coordinate of the text fragment. */
     public var baselinePosition: Position?
-    /** Gets or sets text state for the text that  object represents. */
+    /** Gets or sets text state for the text that TextRect object represents. */
     public var textState: TextState?
 
         

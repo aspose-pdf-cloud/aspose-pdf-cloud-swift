@@ -30,12 +30,12 @@ import Foundation
 open class TextReplaceResponse: AsposeResponse {
 
     /** Number of matches */
-    public var matches: Int?
+    public var matches: Int
 
     
-    public init(code: Int, status: String?, matches: Int?) {
-        super.init(code: code, status: status)
+    public init(code: Int, status: String?, matches: Int) {
         self.matches = matches
+        super.init(code: code, status: status)
     }
         
     
@@ -46,7 +46,7 @@ open class TextReplaceResponse: AsposeResponse {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(matches, forKey: "Matches")
+        try container.encode(matches, forKey: "Matches")
         try super.encode(to: encoder)
     }
 
@@ -55,7 +55,7 @@ open class TextReplaceResponse: AsposeResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        matches = try container.decodeIfPresent(Int.self, forKey: "Matches")
+        matches = try container.decode(Int.self, forKey: "Matches")
         try super.init(from: decoder)
     }
 }

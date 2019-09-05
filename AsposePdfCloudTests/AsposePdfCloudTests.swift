@@ -26,10 +26,9 @@ class AsposePdfCloudTests: XCTestCase {
     
     internal let tempFolder = "TempPdfCloud"
     internal let testDataFolder = "TestData"
-    internal let testTimeout: TimeInterval = 300.0
+    internal let testTimeout: TimeInterval = 60.0
     
     internal let codeOk = 200
-    internal let codeCreated = 201
     
     override func setUp() {
         super.setUp()
@@ -72,13 +71,13 @@ class AsposePdfCloudTests: XCTestCase {
             return
         }
         
-        PdfAPI.putCreate(path: path, file: url!) {
+        PdfAPI.uploadFile(path: path, file: url!) {
             (response, error) in
             guard error == nil else {
                 XCTFail("error uploading file \(name)")
                 return
             }
-            if let response = response, response.code == self.codeOk {
+            if let response = response, response.uploaded!.count == 1 {
                 completion()
             } else {
                 XCTFail("error uploading file \(name)")

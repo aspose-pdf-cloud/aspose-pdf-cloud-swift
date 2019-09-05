@@ -21,7 +21,6 @@
 
 
 import Foundation
-
 class APIHelper {
     static func rejectNil(_ source: [String:Any?]) -> [String:Any]? {
         var destination = [String:Any]()
@@ -70,7 +69,11 @@ class APIHelper {
         let returnValues = values
             .filter { $0.1 != nil }
             .map { (item: (_key: String, _value: Any?)) -> URLQueryItem in
-                URLQueryItem(name: item._key, value:"\(item._value!)")
+                if let p = item._value as? [AnnotationType] {
+                    return URLQueryItem(name: item._key, value:"\(p.map{(it)->String in return "\(it.rawValue)"}.joined(separator: ","))")
+                } else {
+                    return URLQueryItem(name: item._key, value:"\(item._value!)")
+                }
             }
         if returnValues.count == 0 {
             return nil

@@ -34,14 +34,14 @@ open class DocumentProperty: LinkElement {
     /** Property value. */
     public var value: String?
     /** Value indicating whether it is a built-in property. */
-    public var builtIn: Bool?
+    public var builtIn: Bool
 
     
-    public init(links: [Link]?, name: String?, value: String?, builtIn: Bool?) {
+    public init(links: [Link]?, name: String?, value: String?, builtIn: Bool) {
+        self.builtIn = builtIn
         super.init(links: links)
         self.name = name
         self.value = value
-        self.builtIn = builtIn
     }
         
     
@@ -54,7 +54,7 @@ open class DocumentProperty: LinkElement {
 
         try container.encodeIfPresent(name, forKey: "Name")
         try container.encodeIfPresent(value, forKey: "Value")
-        try container.encodeIfPresent(builtIn, forKey: "BuiltIn")
+        try container.encode(builtIn, forKey: "BuiltIn")
         try super.encode(to: encoder)
     }
 
@@ -65,7 +65,7 @@ open class DocumentProperty: LinkElement {
 
         name = try container.decodeIfPresent(String.self, forKey: "Name")
         value = try container.decodeIfPresent(String.self, forKey: "Value")
-        builtIn = try container.decodeIfPresent(Bool.self, forKey: "BuiltIn")
+        builtIn = try container.decode(Bool.self, forKey: "BuiltIn")
         try super.init(from: decoder)
     }
 }

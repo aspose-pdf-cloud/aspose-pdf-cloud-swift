@@ -30,12 +30,12 @@ import Foundation
 open class AnnotationInfo: Annotation {
 
     /** Gets annotation type. */
-    public var annotationType: AnnotationType?
+    public var annotationType: AnnotationType
 
     
-    public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, annotationType: AnnotationType?) {
-        super.init(links: links, color: color, contents: contents, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment)
+    public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, annotationType: AnnotationType) {
         self.annotationType = annotationType
+        super.init(links: links, color: color, contents: contents, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment)
     }
         
     
@@ -46,7 +46,7 @@ open class AnnotationInfo: Annotation {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(annotationType, forKey: "AnnotationType")
+        try container.encode(annotationType, forKey: "AnnotationType")
         try super.encode(to: encoder)
     }
 
@@ -55,7 +55,7 @@ open class AnnotationInfo: Annotation {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        annotationType = try container.decodeIfPresent(AnnotationType.self, forKey: "AnnotationType")
+        annotationType = try container.decode(AnnotationType.self, forKey: "AnnotationType")
         try super.init(from: decoder)
     }
 }

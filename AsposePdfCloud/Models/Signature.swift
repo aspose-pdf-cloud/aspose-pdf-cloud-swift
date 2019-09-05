@@ -30,7 +30,7 @@ import Foundation
 open class Signature: Codable {
 
     /** Gets or sets the signature path. */
-    public var signaturePath: String
+    public var signaturePath: String?
     /** Gets or sets the type of the signature. */
     public var signatureType: SignatureType
     /** Gets or sets the signature password. */
@@ -43,7 +43,7 @@ open class Signature: Codable {
     public var contact: String?
     /** Gets or sets the location of the signature. */
     public var location: String?
-    /** Gets or sets a value indicating whether this  is visible. Supports only when signing particular page. */
+    /** Gets or sets a value indicating whether this Signature is visible. Supports only when signing particular page. */
     public var visible: Bool
     /** Gets or sets the visible rectangle of the signature. Supports only when signing particular page. */
     public var rectangle: Rectangle?
@@ -55,10 +55,16 @@ open class Signature: Codable {
     public var date: String?
     /** Gets or sets the showproperties in signature field */
     public var showProperties: Bool
+    /** Gets/sets timestamp settings. */
+    public var timestampSettings: TimestampSettings?
+    /** Verify the document regarding this signature and return true if document is valid or otherwise false. */
+    public var isValid: Bool?
+    /** Gets/sets the custom appearance. */
+    public var customAppearance: SignatureCustomAppearance?
 
         
     
-    public init(signaturePath: String, signatureType: SignatureType, password: String?, appearance: String?, reason: String?, contact: String?, location: String?, visible: Bool, rectangle: Rectangle?, formFieldName: String?, authority: String?, date: String?, showProperties: Bool) {
+    public init(signaturePath: String?, signatureType: SignatureType, password: String?, appearance: String?, reason: String?, contact: String?, location: String?, visible: Bool, rectangle: Rectangle?, formFieldName: String?, authority: String?, date: String?, showProperties: Bool, timestampSettings: TimestampSettings?, isValid: Bool?, customAppearance: SignatureCustomAppearance?) {
         self.signaturePath = signaturePath
         self.signatureType = signatureType
         self.password = password
@@ -72,6 +78,9 @@ open class Signature: Codable {
         self.authority = authority
         self.date = date
         self.showProperties = showProperties
+        self.timestampSettings = timestampSettings
+        self.isValid = isValid
+        self.customAppearance = customAppearance
     }
     
 
@@ -94,6 +103,9 @@ open class Signature: Codable {
         try container.encodeIfPresent(authority, forKey: "Authority")
         try container.encodeIfPresent(date, forKey: "Date")
         try container.encode(showProperties, forKey: "ShowProperties")
+        try container.encodeIfPresent(timestampSettings, forKey: "TimestampSettings")
+        try container.encodeIfPresent(isValid, forKey: "IsValid")
+        try container.encodeIfPresent(customAppearance, forKey: "CustomAppearance")
     }
 
     // Decodable protocol methods
@@ -101,7 +113,7 @@ open class Signature: Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        signaturePath = try container.decode(String.self, forKey: "SignaturePath")
+        signaturePath = try container.decodeIfPresent(String.self, forKey: "SignaturePath")
         signatureType = try container.decode(SignatureType.self, forKey: "SignatureType")
         password = try container.decodeIfPresent(String.self, forKey: "Password")
         appearance = try container.decodeIfPresent(String.self, forKey: "Appearance")
@@ -114,6 +126,9 @@ open class Signature: Codable {
         authority = try container.decodeIfPresent(String.self, forKey: "Authority")
         date = try container.decodeIfPresent(String.self, forKey: "Date")
         showProperties = try container.decode(Bool.self, forKey: "ShowProperties")
+        timestampSettings = try container.decodeIfPresent(TimestampSettings.self, forKey: "TimestampSettings")
+        isValid = try container.decodeIfPresent(Bool.self, forKey: "IsValid")
+        customAppearance = try container.decodeIfPresent(SignatureCustomAppearance.self, forKey: "CustomAppearance")
     }
 }
 

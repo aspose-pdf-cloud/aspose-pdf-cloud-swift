@@ -45,7 +45,7 @@ class StorageTests: AsposePdfCloudTests {
         
         let expectation = self.expectation(description: "testUploadFile")
         
-        PdfAPI.putCreate(path: path, file: file!) {
+        PdfAPI.uploadFile(path: path, file: file!) {
             (response, error) in
             guard error == nil else {
                 XCTFail("error uploading file " + name)
@@ -53,7 +53,7 @@ class StorageTests: AsposePdfCloudTests {
             }
             
             if let response = response {
-                XCTAssertEqual(response.code, self.codeOk)
+                XCTAssertEqual(response.uploaded?.count, 1)
                 
                 expectation.fulfill()
             }
@@ -63,18 +63,18 @@ class StorageTests: AsposePdfCloudTests {
     }
     
     
-    func testGetDownloadFile() {
+    func testDownloadFile() {
         
         let name = "4pages.pdf"
         let path = "\(self.tempFolder)/\(name)"
-        let expectation = self.expectation(description: "testGetDownloadFile")
+        let expectation = self.expectation(description: "testDownloadFile")
         
         uploadFile(name: name) {
         
-            PdfAPI.getDownload(path: path) {
+            PdfAPI.downloadFile(path: path) {
                 (response, error) in
                 guard error == nil else {
-                    XCTFail("error testGetDownloadFile")
+                    XCTFail("error testDownloadFile")
                     return
                 }
                 
@@ -88,24 +88,20 @@ class StorageTests: AsposePdfCloudTests {
         self.waitForExpectations(timeout: self.testTimeout, handler: nil)
     }
     
-    func testPostMoveFile() {
+    func testMoveFile() {
         
-        let expectation = self.expectation(description: "testPostMoveFile")
+        let expectation = self.expectation(description: "testMoveFile")
         let name = "4pages.pdf"
         let src = self.tempFolder + "/" + name
         let dest = self.tempFolder + "/4pages_renamed.pdf"
         uploadFile(name: name) {
-            PdfAPI.postMoveFile(src: src, dest: dest) {
-                (response, error) in
+            PdfAPI.moveFile(srcPath: src, destPath: dest) {
+                (error) in
                 guard error == nil else {
-                    XCTFail("error testPostMoveFile")
+                    XCTFail("error testMoveFile")
                     return
                 }
-                
-                if let response = response {
-                    XCTAssertEqual(response.code, self.codeOk)
-                    expectation.fulfill()
-                }
+                expectation.fulfill()
             }
         }
         
@@ -120,36 +116,11 @@ class StorageTests: AsposePdfCloudTests {
         
         uploadFile(name: name) {
             PdfAPI.deleteFile(path: path) {
-                (response, error) in
+                (error) in
                 guard error == nil else {
                     XCTFail("error testDeleteFile")
                     return
                 }
-                
-                if let response = response {
-                    XCTAssertEqual(response.code, self.codeOk)
-                    expectation.fulfill()
-                }
-            }
-        }
-        
-        self.waitForExpectations(timeout: self.testTimeout, handler: nil)
-    }
-    
-    
-    func testGetListFiles() {
-        
-        let expectation = self.expectation(description: "testGetListFiles")
-        
-        PdfAPI.getListFiles(path: self.tempFolder) {
-            (response, error) in
-            guard error == nil else {
-                XCTFail("error testGetListFiles")
-                return
-            }
-            
-            if let response = response {
-                XCTAssertEqual(response.code, self.codeOk)
                 expectation.fulfill()
             }
         }
@@ -158,23 +129,40 @@ class StorageTests: AsposePdfCloudTests {
     }
     
     
-    func testPutCreateFolder() {
+    func testGetFilesList() {
         
-        let expectation = self.expectation(description: "testPutCreateFolder")
+        let expectation = self.expectation(description: "testGetFilesList")
+        
+        PdfAPI.getFilesList(path: self.tempFolder) {
+            (response, error) in
+            guard error == nil else {
+                XCTFail("error testGetFilesList")
+                return
+            }
+            
+            if let response = response {
+                XCTAssertGreaterThan(response.value!.count, 0)
+                expectation.fulfill()
+            }
+        }
+        
+        self.waitForExpectations(timeout: self.testTimeout, handler: nil)
+    }
+    
+    
+    func testCreateFolder() {
+        
+        let expectation = self.expectation(description: "testCreateFolder")
 
         let path = self.tempFolder + "/testFolder"
 
-        PdfAPI.putCreateFolder(path: path) {
-            (response, error) in
+        PdfAPI.createFolder(path: path) {
+            (error) in
             guard error == nil else {
-                XCTFail("error testPutCreateFolder")
+                XCTFail("error testCreateFolder")
                 return
             }
-            
-            if let response = response {
-                XCTAssertEqual(response.code, self.codeOk)
-                expectation.fulfill()
-            }
+            expectation.fulfill()
         }
         
         
@@ -182,31 +170,27 @@ class StorageTests: AsposePdfCloudTests {
     }
     
     
-    func testPostMoveFolder() {
+    func testMoveFolder() {
         
-        let expectation = self.expectation(description: "testPostMoveFolder")
+        let expectation = self.expectation(description: "testMoveFolder")
         
         let src = self.tempFolder + "/testFolder"
         let dest = self.tempFolder + "/testFolderRenamed"
         
-        PdfAPI.putCreateFolder(path: src) {
-            (response, error) in
+        PdfAPI.createFolder(path: src) {
+            (error) in
             guard error == nil else {
-                XCTFail("error testPutCreateFolder")
+                XCTFail("error testCreateFolder")
                 return
             }
        
-            PdfAPI.postMoveFolder(src: src, dest: dest) {
-                (response, error) in
+            PdfAPI.moveFolder(srcPath: src, destPath: dest) {
+                (error) in
                 guard error == nil else {
-                    XCTFail("error testPostMoveFolder")
+                    XCTFail("error testMoveFolder")
                     return
                 }
-                
-                if let response = response {
-                    XCTAssertEqual(response.code, self.codeOk)
-                    expectation.fulfill()
-                }
+                expectation.fulfill()
             }
         
         }
@@ -220,24 +204,20 @@ class StorageTests: AsposePdfCloudTests {
         
         let path = self.tempFolder + "/testFolder"
         
-        PdfAPI.putCreateFolder(path: path) {
-            (response, error) in
+        PdfAPI.createFolder(path: path) {
+            (error) in
             guard error == nil else {
-                XCTFail("error testPutCreateFolder")
+                XCTFail("error testCreateFolder")
                 return
             }
             
             PdfAPI.deleteFolder(path: path) {
-                (response, error) in
+                (error) in
                 guard error == nil else {
                     XCTFail("error testDeleteFolder")
                     return
                 }
-                
-                if let response = response {
-                    XCTAssertEqual(response.code, self.codeOk)
-                    expectation.fulfill()
-                }
+                expectation.fulfill()
             }
             
         }
@@ -245,22 +225,22 @@ class StorageTests: AsposePdfCloudTests {
     }
     
     
-    func testGetIsStorageExist() {
+    func testStorageExistx() {
         
-        let expectation = self.expectation(description: "testGetIsStorageExist")
+        let expectation = self.expectation(description: "testStorageExistx")
         
         let name = "PDF-CI"
         
             
-        PdfAPI.getIsStorageExist(name: name) {
+        PdfAPI.storageExists(storageName: name) {
             (response, error) in
             guard error == nil else {
-                XCTFail("error testGetIsStorageExist")
+                XCTFail("error testStorageExistx")
                 return
             }
             
             if let response = response {
-                XCTAssertEqual(response.code, self.codeOk)
+                XCTAssertEqual(response.exists, true)
                 expectation.fulfill()
             }
         }
@@ -270,22 +250,22 @@ class StorageTests: AsposePdfCloudTests {
     }
     
     
-    func testGetIsExist() {
+    func objectExists() {
         
-        let expectation = self.expectation(description: "testGetIsExist")
+        let expectation = self.expectation(description: "objectExists")
         let name = "4pages.pdf"
         let path = self.tempFolder + "/" + name
         
         uploadFile(name: name) {
-            PdfAPI.getIsExist(path: path) {
+            PdfAPI.objectExists(path: path) {
                 (response, error) in
                 guard error == nil else {
-                    XCTFail("error testGetIsExist")
+                    XCTFail("error objectExists")
                     return
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeOk)
+                    XCTAssertEqual(response.exists, true)
                     expectation.fulfill()
                 }
             }
@@ -306,7 +286,7 @@ class StorageTests: AsposePdfCloudTests {
             }
             
             if let response = response {
-                XCTAssertEqual(response.code, self.codeOk)
+                XCTAssertGreaterThan(response.totalSize, 0)
                 expectation.fulfill()
             }
         }
@@ -316,27 +296,52 @@ class StorageTests: AsposePdfCloudTests {
     }
     
     
-    func testGetListFileVersions() {
+    func testGetFileVersions() {
         
-        let expectation = self.expectation(description: "testGetListFileVersions")
+        let expectation = self.expectation(description: "testGetFileVersions")
         let name = "4pages.pdf"
         let path = self.tempFolder + "/" + name
         
         uploadFile(name: name) {
-            PdfAPI.getListFileVersions(path: path) {
+            PdfAPI.getFileVersions(path: path) {
                 (response, error) in
                 guard error == nil else {
-                    XCTFail("error testGetListFileVersions")
+                    XCTFail("error testGetFileVersions" + (error.debugDescription))
                     return
                 }
                 
                 if let response = response {
-                    XCTAssertEqual(response.code, self.codeOk)
+                    XCTAssertGreaterThan(response.value!.count, 0)
                     expectation.fulfill()
                 }
             }
         }
         
+        self.waitForExpectations(timeout: self.testTimeout, handler: nil)
+    }
+    
+    func testObjectExists() {
+        
+        let name = "4pages.pdf"
+        let path = "\(self.tempFolder)/\(name)"
+        let expectation = self.expectation(description: "testObjectExists")
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.objectExists(path: path) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testObjectExists")
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertTrue(response.exists)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
         self.waitForExpectations(timeout: self.testTimeout, handler: nil)
     }
 }

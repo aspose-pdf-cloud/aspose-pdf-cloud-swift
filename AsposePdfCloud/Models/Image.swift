@@ -30,24 +30,24 @@ import Foundation
 open class Image: LinkElement {
 
     /** Gets width of the image. */
-    public var width: Int?
+    public var width: Int
     /** Gets height of the image. */
-    public var height: Int?
+    public var height: Int
     /** Gets ID of the image. */
     public var id: String?
     /** Gets rectangle of the image. */
     public var rectangle: Rectangle?
     /** Gets page number. */
-    public var pageNumber: Int?
+    public var pageNumber: Int
 
     
-    public init(links: [Link]?, width: Int?, height: Int?, id: String?, rectangle: Rectangle?, pageNumber: Int?) {
-        super.init(links: links)
+    public init(links: [Link]?, width: Int, height: Int, id: String?, rectangle: Rectangle?, pageNumber: Int) {
         self.width = width
         self.height = height
+        self.pageNumber = pageNumber
+        super.init(links: links)
         self.id = id
         self.rectangle = rectangle
-        self.pageNumber = pageNumber
     }
         
     
@@ -58,11 +58,11 @@ open class Image: LinkElement {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(width, forKey: "Width")
-        try container.encodeIfPresent(height, forKey: "Height")
+        try container.encode(width, forKey: "Width")
+        try container.encode(height, forKey: "Height")
         try container.encodeIfPresent(id, forKey: "Id")
         try container.encodeIfPresent(rectangle, forKey: "Rectangle")
-        try container.encodeIfPresent(pageNumber, forKey: "PageNumber")
+        try container.encode(pageNumber, forKey: "PageNumber")
         try super.encode(to: encoder)
     }
 
@@ -71,11 +71,11 @@ open class Image: LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        width = try container.decodeIfPresent(Int.self, forKey: "Width")
-        height = try container.decodeIfPresent(Int.self, forKey: "Height")
+        width = try container.decode(Int.self, forKey: "Width")
+        height = try container.decode(Int.self, forKey: "Height")
         id = try container.decodeIfPresent(String.self, forKey: "Id")
         rectangle = try container.decodeIfPresent(Rectangle.self, forKey: "Rectangle")
-        pageNumber = try container.decodeIfPresent(Int.self, forKey: "PageNumber")
+        pageNumber = try container.decode(Int.self, forKey: "PageNumber")
         try super.init(from: decoder)
     }
 }

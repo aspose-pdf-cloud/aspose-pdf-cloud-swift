@@ -30,12 +30,12 @@ import Foundation
 open class Fields: LinkElement {
 
     /** List of form fields. */
-    public var list: [Field]?
+    public var list: [Field]
 
     
-    public init(links: [Link]?, list: [Field]?) {
-        super.init(links: links)
+    public init(links: [Link]?, list: [Field]) {
         self.list = list
+        super.init(links: links)
     }
         
     
@@ -46,7 +46,7 @@ open class Fields: LinkElement {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(list, forKey: "List")
+        try container.encode(list, forKey: "List")
         try super.encode(to: encoder)
     }
 
@@ -55,7 +55,7 @@ open class Fields: LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        list = try container.decodeIfPresent([Field].self, forKey: "List")
+        list = try container.decode([Field].self, forKey: "List")
         try super.init(from: decoder)
     }
 }

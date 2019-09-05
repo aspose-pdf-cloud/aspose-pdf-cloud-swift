@@ -31,7 +31,7 @@ open class PolygonAnnotation: PolyAnnotation {
 
 
     
-    public override init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, creationDate: String?, subject: String?, title: String?, richText: String?, interiorColor: Color?, startingStyle: LineEnding?, endingStyle: LineEnding?, intent: PolyIntent?, vertices: [Point]?) {
+    public override init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, creationDate: String?, subject: String?, title: String?, richText: String?, interiorColor: Color?, startingStyle: LineEnding?, endingStyle: LineEnding?, intent: PolyIntent?, vertices: [Point]) {
         super.init(links: links, color: color, contents: contents, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, creationDate: creationDate, subject: subject, title: title, richText: richText, interiorColor: interiorColor, startingStyle: startingStyle, endingStyle: endingStyle, intent: intent, vertices: vertices)
     }
         
@@ -40,6 +40,7 @@ open class PolygonAnnotation: PolyAnnotation {
     // Encodable protocol methods
 
     public override func encode(to encoder: Encoder) throws {
+
         try super.encode(to: encoder)
     }
 

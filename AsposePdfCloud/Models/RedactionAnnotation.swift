@@ -43,7 +43,7 @@ open class RedactionAnnotation: Annotation {
     public var textAlignment: HorizontalAlignment?
 
     
-    public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle?, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, quadPoint: [Point]?, fillColor: Color?, borderColor: Color?, overlayText: String?, repeat_: Bool?, textAlignment: HorizontalAlignment?) {
+    public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, quadPoint: [Point]?, fillColor: Color?, borderColor: Color?, overlayText: String?, repeat_: Bool?, textAlignment: HorizontalAlignment?) {
         super.init(links: links, color: color, contents: contents, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment)
         self.quadPoint = quadPoint
         self.fillColor = fillColor

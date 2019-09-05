@@ -33,7 +33,7 @@ open class TextHeader: StampBase {
     public var textAlignment: HorizontalAlignment?
     /** Gets or sets string value which is used as stamp on the page. */
     public var value: String?
-    /** Gets text properties of the stamp. See  for details. */
+    /** Gets text properties of the stamp. See TextState for details. */
     public var textState: TextState?
     /** Gets or sets left margin of stamp. */
     public var leftMargin: Double?

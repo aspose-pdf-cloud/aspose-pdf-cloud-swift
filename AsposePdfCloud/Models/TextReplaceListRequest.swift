@@ -31,6 +31,7 @@ open class TextReplaceListRequest: Codable {
 
     /** A list of text replacement settings. */
     public var textReplaces: [TextReplace]
+    /** Name of font to use if requested font is not embedded into document. */
     public var defaultFont: String?
     /** The index of first match to be replaced. */
     public var startIndex: Int?
