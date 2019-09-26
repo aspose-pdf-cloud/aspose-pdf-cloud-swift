@@ -318,4 +318,184 @@ class FieldsTests: AsposePdfCloudTests {
         
         self.waitForExpectations(timeout: testTimeout, handler: nil)
     }
+    
+    func testGetDocumentTextBoxFields() {
+        
+        let name = "FormDataTextBox.pdf"
+        let expectation = self.expectation(description: "testGetDocumentTextBoxFields")
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.getDocumentTextBoxFields(name: name, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testGetDocumentTextBoxFields: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    func testGetPageTextBoxFields() {
+        
+        let name = "FormDataTextBox.pdf"
+        let expectation = self.expectation(description: "testGetPageTextBoxFields")
+        
+        let pageNumber = 1
+        uploadFile(name: name) {
+            
+            PdfAPI.getPageTextBoxFields(name: name, pageNumber: pageNumber, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testGetPageTextBoxFields: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    func testGetTextBoxField() {
+        
+        let name = "FormDataTextBox.pdf"
+        let expectation = self.expectation(description: "testGetTextBoxField")
+        
+        let fieldName = "Petitioner"
+        uploadFile(name: name) {
+            
+            PdfAPI.getTextBoxField(name: name, fieldName: fieldName, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testGetTextBoxField: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    func testPostTextBoxFields() {
+        
+        let name = "4pages.pdf"
+        let expectation = self.expectation(description: "testPostTextBoxFields")
+        
+        let textBox = TextBoxField(links: nil,
+                                   partialName: "testField",
+                                   rect: Rectangle(LLX: 100, LLY: 100, URX: 500, URY: 200),
+                                   value: "Value\nValue",
+                                   pageIndex: 1,
+                                   height: nil,
+                                   width: nil,
+                                   zIndex: nil,
+                                   isGroup: false,
+                                   parent: nil,
+                                   isSharedField: nil,
+                                   flags: nil,
+                                   color: Color(A: 255, R: 255, G: 0, B: 0),
+                                   contents: nil,
+                                   margin: nil,
+                                   highlighting: nil,
+                                   horizontalAlignment: nil,
+                                   verticalAlignment: nil,
+                                   multiline: true,
+                                   spellCheck: nil,
+                                   scrollable: nil,
+                                   forceCombs: nil,
+                                   maxLen: 100,
+                                   barcode: nil)
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.postTextBoxFields(name: name, fields: [textBox], folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testPostTextBoxFields: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    func testPutTextBoxField() {
+        
+        let name = "FormDataTextBox.pdf"
+        let expectation = self.expectation(description: "testPutTextBoxField")
+        
+        let fieldName = "Petitioner"
+        
+        let textBox = TextBoxField(links: nil,
+                                   partialName: "testField",
+                                   rect: Rectangle(LLX: 100, LLY: 100, URX: 500, URY: 200),
+                                   value: "Value\nValue",
+                                   pageIndex: 1,
+                                   height: nil,
+                                   width: nil,
+                                   zIndex: nil,
+                                   isGroup: false,
+                                   parent: nil,
+                                   isSharedField: nil,
+                                   flags: nil,
+                                   color: Color(A: 255, R: 255, G: 0, B: 0),
+                                   contents: nil,
+                                   margin: nil,
+                                   highlighting: nil,
+                                   horizontalAlignment: nil,
+                                   verticalAlignment: nil,
+                                   multiline: true,
+                                   spellCheck: nil,
+                                   scrollable: nil,
+                                   forceCombs: nil,
+                                   maxLen: 100,
+                                   barcode: nil)
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.putTextBoxField(name: name, fieldName: fieldName, field: textBox, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testPutTextBoxField: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
 }

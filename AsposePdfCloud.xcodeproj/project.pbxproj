@@ -220,6 +220,11 @@
 		1E7AF02922FC47C20017310A /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7AF01D22FC47C10017310A /* Bookmark.swift */; };
 		1E7AF02A22FC47C20017310A /* BookmarksResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7AF01E22FC47C10017310A /* BookmarksResponse.swift */; };
 		1E7AF02B22FC47C20017310A /* FilesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7AF01F22FC47C20017310A /* FilesList.swift */; };
+		1E84B8C4233CF4F100057874 /* FormDataTextBox.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1E84B8C3233CF4F000057874 /* FormDataTextBox.pdf */; };
+		1E84B8C9233CF53700057874 /* TextBoxFieldResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84B8C5233CF53600057874 /* TextBoxFieldResponse.swift */; };
+		1E84B8CA233CF53700057874 /* TextBoxFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84B8C6233CF53600057874 /* TextBoxFields.swift */; };
+		1E84B8CB233CF53700057874 /* TextBoxField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84B8C7233CF53700057874 /* TextBoxField.swift */; };
+		1E84B8CC233CF53700057874 /* TextBoxFieldsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84B8C8233CF53700057874 /* TextBoxFieldsResponse.swift */; };
 		1E9A4AD122280BBB00BE3FA5 /* StampAnnotationsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A4AC822280BBA00BE3FA5 /* StampAnnotationsResponse.swift */; };
 		1E9A4AD222280BBB00BE3FA5 /* StampAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A4AC922280BBA00BE3FA5 /* StampAnnotations.swift */; };
 		1E9A4AD322280BBB00BE3FA5 /* StampIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9A4ACA22280BBA00BE3FA5 /* StampIcon.swift */; };
@@ -593,6 +598,11 @@
 		1E7AF01D22FC47C10017310A /* Bookmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
 		1E7AF01E22FC47C10017310A /* BookmarksResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksResponse.swift; sourceTree = "<group>"; };
 		1E7AF01F22FC47C20017310A /* FilesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesList.swift; sourceTree = "<group>"; };
+		1E84B8C3233CF4F000057874 /* FormDataTextBox.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = FormDataTextBox.pdf; sourceTree = "<group>"; };
+		1E84B8C5233CF53600057874 /* TextBoxFieldResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextBoxFieldResponse.swift; sourceTree = "<group>"; };
+		1E84B8C6233CF53600057874 /* TextBoxFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextBoxFields.swift; sourceTree = "<group>"; };
+		1E84B8C7233CF53700057874 /* TextBoxField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextBoxField.swift; sourceTree = "<group>"; };
+		1E84B8C8233CF53700057874 /* TextBoxFieldsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextBoxFieldsResponse.swift; sourceTree = "<group>"; };
 		1E9A4AC822280BBA00BE3FA5 /* StampAnnotationsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StampAnnotationsResponse.swift; sourceTree = "<group>"; };
 		1E9A4AC922280BBA00BE3FA5 /* StampAnnotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StampAnnotations.swift; sourceTree = "<group>"; };
 		1E9A4ACA22280BBA00BE3FA5 /* StampIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StampIcon.swift; sourceTree = "<group>"; };
@@ -800,6 +810,10 @@
 		1E668AE72174AFC2004218A8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1E84B8C7233CF53700057874 /* TextBoxField.swift */,
+				1E84B8C5233CF53600057874 /* TextBoxFieldResponse.swift */,
+				1E84B8C6233CF53600057874 /* TextBoxFields.swift */,
+				1E84B8C8233CF53700057874 /* TextBoxFieldsResponse.swift */,
 				1E668B072174AFF2004218A8 /* Annotation.swift */,
 				1E668B1C2174AFF4004218A8 /* AnnotationFlags.swift */,
 				1E668B0B2174AFF2004218A8 /* AnnotationInfo.swift */,
@@ -1056,6 +1070,7 @@
 		1E668BBC2174B2E2004218A8 /* TestData */ = {
 			isa = PBXGroup;
 			children = (
+				1E84B8C3233CF4F000057874 /* FormDataTextBox.pdf */,
 				1ED9932F231FC39700725F99 /* 33226.p12 */,
 				1ED99326231EB51600725F99 /* FormData.fdf */,
 				1ED99327231EB51600725F99 /* FormData.pdf */,
@@ -1310,6 +1325,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E84B8C4233CF4F100057874 /* FormDataTextBox.pdf in Resources */,
 				1ED99331231FC3B500725F99 /* 33226.p12 in Resources */,
 				1ED99329231EB51600725F99 /* FormDataXfa_in.xml in Resources */,
 				1ED9932A231EB51600725F99 /* FormDataXfdf_in.pdf in Resources */,
@@ -1486,6 +1502,7 @@
 				1ED99317231E9B2F00725F99 /* FormField.swift in Sources */,
 				1EC94E6C2282C1FF00624E38 /* GraphInfo.swift in Sources */,
 				1EC94E662282C1FF00624E38 /* TableBroken.swift in Sources */,
+				1E84B8CA233CF53700057874 /* TextBoxFields.swift in Sources */,
 				1E9D85C321B55DF50026DB97 /* PopupAnnotationWithParent.swift in Sources */,
 				1E668BA32174AFFC004218A8 /* ImageTemplate.swift in Sources */,
 				1EC024C521E750BB00450DE6 /* FileVersion.swift in Sources */,
@@ -1602,6 +1619,7 @@
 				1E9D85C721B55DF50026DB97 /* StrikeOutAnnotations.swift in Sources */,
 				1E668B642174AFFC004218A8 /* FreeTextAnnotation.swift in Sources */,
 				1EF1EC1B220B3BF000200CEF /* SoundAnnotationResponse.swift in Sources */,
+				1E84B8C9233CF53700057874 /* TextBoxFieldResponse.swift in Sources */,
 				1E668B782174AFFC004218A8 /* DocumentResponse.swift in Sources */,
 				1E668B702174AFFC004218A8 /* Annotation.swift in Sources */,
 				1E668B872174AFFC004218A8 /* DocumentProperties.swift in Sources */,
@@ -1639,6 +1657,7 @@
 				1E668BB32174AFFC004218A8 /* FieldType.swift in Sources */,
 				1E52FD902189F2AB00DEDC40 /* SquareAnnotationsResponse.swift in Sources */,
 				1E9D85CA21B55DF50026DB97 /* StrikeOutAnnotationResponse.swift in Sources */,
+				1E84B8CB233CF53700057874 /* TextBoxField.swift in Sources */,
 				1E7AF02022FC47C20017310A /* FilesUploadResult.swift in Sources */,
 				1ECF708322562DCE0056698E /* StampsInfoResponse.swift in Sources */,
 				1ECF708522562DCE0056698E /* StampBase.swift in Sources */,
@@ -1646,6 +1665,7 @@
 				1E52FD922189F2AB00DEDC40 /* PolyAnnotation.swift in Sources */,
 				1E9A4AD422280BBB00BE3FA5 /* ScreenAnnotations.swift in Sources */,
 				1E668BB62174AFFC004218A8 /* WrapMode.swift in Sources */,
+				1E84B8CC233CF53700057874 /* TextBoxFieldsResponse.swift in Sources */,
 				1ECF708222562DCE0056698E /* CellRecognized.swift in Sources */,
 				1E52FD912189F2AB00DEDC40 /* PolygonAnnotationsResponse.swift in Sources */,
 				1E668B5B2174AFFC004218A8 /* PageWordCount.swift in Sources */,
