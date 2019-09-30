@@ -26,7 +26,7 @@ class AsposePdfCloudTests: XCTestCase {
     
     internal let tempFolder = "TempPdfCloud"
     internal let testDataFolder = "TestData"
-    internal let testTimeout: TimeInterval = 60.0
+    internal let testTimeout: TimeInterval = 160.0
     
     internal let codeOk = 200
     
