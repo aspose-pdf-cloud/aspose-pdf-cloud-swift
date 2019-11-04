@@ -498,4 +498,446 @@ class FieldsTests: AsposePdfCloudTests {
         self.waitForExpectations(timeout: testTimeout, handler: nil)
     }
     
+    // CheckBoxField
+    
+    func testGetDocumentCheckBoxFields() {
+           
+       let name = "PdfWithAcroForm.pdf"
+       let expectation = self.expectation(description: "testGetDocumentCheckBoxFields")
+       
+       uploadFile(name: name) {
+           
+           PdfAPI.getDocumentCheckBoxFields(name: name, folder: self.tempFolder) {
+               (response, error) in
+               guard error == nil else {
+                   XCTFail("error testGetDocumentCheckBoxFields: " + (error.debugDescription))
+                   return
+               }
+               
+               if let response = response {
+                   XCTAssertEqual(response.code, self.codeOk)
+                   
+                   expectation.fulfill()
+               }
+           }
+       }
+       
+       self.waitForExpectations(timeout: testTimeout, handler: nil)
+   }
+   
+   func testGetPageCheckBoxFields() {
+       
+       let name = "PdfWithAcroForm.pdf"
+       let expectation = self.expectation(description: "testGetPageCheckBoxFields")
+       
+       let pageNumber = 1
+       uploadFile(name: name) {
+           
+           PdfAPI.getPageCheckBoxFields(name: name, pageNumber: pageNumber, folder: self.tempFolder) {
+               (response, error) in
+               guard error == nil else {
+                   XCTFail("error testGetPageCheckBoxFields: " + (error.debugDescription))
+                   return
+               }
+               
+               if let response = response {
+                   XCTAssertEqual(response.code, self.codeOk)
+                   
+                   expectation.fulfill()
+               }
+           }
+       }
+       
+       self.waitForExpectations(timeout: testTimeout, handler: nil)
+   }
+   
+    func testGetCheckBoxField() {
+
+        let name = "PdfWithAcroForm.pdf"
+        let expectation = self.expectation(description: "testGetCheckBoxField")
+
+        let fieldName = "checkboxField"
+        uploadFile(name: name) {
+
+            PdfAPI.getCheckBoxField(name: name, fieldName: fieldName, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                XCTFail("error testGetCheckBoxField: " + (error.debugDescription))
+                return
+            }
+
+            if let response = response {
+                XCTAssertEqual(response.code, self.codeOk)
+
+                expectation.fulfill()
+                }
+            }
+        }
+
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+
+    func testPostCheckBoxFields() {
+        
+        let name = "4pages.pdf"
+        let expectation = self.expectation(description: "testPostCheckBoxFields")
+        
+        let field = CheckBoxField(links: nil,
+            partialName: "testField",
+            rect: Rectangle(LLX: 100, LLY: 100, URX: 200, URY: 200),
+            value: nil,
+            pageIndex: 1,
+            height: nil,
+            width: nil,
+            zIndex: nil,
+            isGroup: false,
+            parent: nil,
+            isSharedField: nil,
+            flags: nil,
+            color: Color(A: 255, R: 255, G: 0, B: 0),
+            contents: nil,
+            margin: nil,
+            highlighting: nil,
+            horizontalAlignment: nil,
+            verticalAlignment: nil,
+            allowedStates: nil,
+            style: BoxStyle.cross,
+            activeState: nil,
+            checked: true,
+            exportValue: "true")
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.postCheckBoxFields(name: name, fields: [field], folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testPostCheckBoxFields: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    func testPutCheckBoxField() {
+        
+        let name = "PdfWithAcroForm.pdf"
+        let expectation = self.expectation(description: "testPutCheckBoxField")
+        
+        let fieldName = "checkboxField"
+        
+        let field = CheckBoxField(links: nil,
+            partialName: "testField",
+            rect: Rectangle(LLX: 100, LLY: 100, URX: 200, URY: 200),
+            value: nil,
+            pageIndex: 1,
+            height: nil,
+            width: nil,
+            zIndex: nil,
+            isGroup: false,
+            parent: nil,
+            isSharedField: nil,
+            flags: nil,
+            color: Color(A: 255, R: 255, G: 0, B: 0),
+            contents: nil,
+            margin: nil,
+            highlighting: nil,
+            horizontalAlignment: nil,
+            verticalAlignment: nil,
+            allowedStates: nil,
+            style: BoxStyle.cross,
+            activeState: nil,
+            checked: true,
+            exportValue: "true")
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.putCheckBoxField(name: name, fieldName: fieldName, field: field, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testPutCheckBoxField: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    // RadioButtonField
+    func testGetDocumentRadioButtonFields() {
+            
+        let name = "PdfWithAcroForm.pdf"
+        let expectation = self.expectation(description: "testGetDocumentRadioButtonFields")
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.getDocumentRadioButtonFields(name: name, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testGetDocumentRadioButtonFields: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    func testGetPageRadioButtonFields() {
+        
+        let name = "PdfWithAcroForm.pdf"
+        let expectation = self.expectation(description: "testGetPageRadioButtonFields")
+        
+        let pageNumber = 1
+        uploadFile(name: name) {
+            
+            PdfAPI.getPageRadioButtonFields(name: name, pageNumber: pageNumber, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testGetPageRadioButtonFields: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+     func testGetRadioButtonField() {
+
+         let name = "PdfWithAcroForm.pdf"
+         let expectation = self.expectation(description: "testGetRadioButtonField")
+
+         let fieldName = "radiobuttonField"
+         uploadFile(name: name) {
+
+             PdfAPI.getRadioButtonField(name: name, fieldName: fieldName, folder: self.tempFolder) {
+                 (response, error) in
+                 guard error == nil else {
+                 XCTFail("error testGetRadioButtonField: " + (error.debugDescription))
+                 return
+             }
+
+             if let response = response {
+                 XCTAssertEqual(response.code, self.codeOk)
+
+                 expectation.fulfill()
+                 }
+             }
+         }
+
+         self.waitForExpectations(timeout: testTimeout, handler: nil)
+     }
+    
+    func testPostRadioButtonFields() {
+        
+        let name = "4pages.pdf"
+        let expectation = self.expectation(description: "testPostRadioButtonFields")
+        
+        let field = RadioButtonField(links: nil,
+            partialName: "testField",
+            rect: Rectangle(LLX: 100, LLY: 100, URX: 160, URY: 140),
+            value: nil,
+            pageIndex: 1,
+            height: nil,
+            width: nil,
+            zIndex: nil,
+            isGroup: false,
+            parent: nil,
+            isSharedField: nil,
+            flags: nil,
+            color: Color(A: 255, R: 255, G: 0, B: 0),
+            contents: nil,
+            margin: nil,
+            highlighting: nil,
+            horizontalAlignment: nil,
+            verticalAlignment: nil,
+            multiSelect: nil,
+            options: nil,
+            radioButtonOptionsField: [
+                RadioButtonOptionField(
+                    links: nil,
+                    partialName: nil,
+                    rect: Rectangle(LLX: 100, LLY: 130, URX: 160, URY: 140),
+                    value: nil,
+                    pageIndex: 1,
+                    height: nil,
+                    width: nil,
+                    zIndex: nil,
+                    isGroup: false,
+                    parent: nil,
+                    isSharedField: nil,
+                    flags: nil,
+                    color: Color(A: 255, R: 255, G: 0, B: 0),
+                    contents: nil,
+                    margin: nil,
+                    highlighting: nil,
+                    horizontalAlignment: nil,
+                    verticalAlignment: nil,
+                    optionName: "1",
+                    style: BoxStyle.cross),
+                RadioButtonOptionField(
+                links: nil,
+                partialName: nil,
+                rect: Rectangle(LLX: 150, LLY: 120, URX: 160, URY: 130),
+                value: nil,
+                pageIndex: 1,
+                height: nil,
+                width: nil,
+                zIndex: nil,
+                isGroup: false,
+                parent: nil,
+                isSharedField: nil,
+                flags: nil,
+                color: Color(A: 255, R: 255, G: 0, B: 0),
+                contents: nil,
+                margin: nil,
+                highlighting: nil,
+                horizontalAlignment: nil,
+                verticalAlignment: nil,
+                optionName: "2",
+                style: BoxStyle.cross),
+            ],
+            style: BoxStyle.cross,
+            selected: 1)
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.postRadioButtonFields(name: name, fields: [field], folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testPostRadioButtonFields: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    func testPutRadioButtonField() {
+        
+        let name = "PdfWithAcroForm.pdf"
+        let expectation = self.expectation(description: "testPutRadioButtonField")
+        let fieldName = "radiobuttonField"
+        
+        let field = RadioButtonField(links: nil,
+            partialName: "testField",
+            rect: Rectangle(LLX: 100, LLY: 100, URX: 160, URY: 140),
+            value: nil,
+            pageIndex: 1,
+            height: nil,
+            width: nil,
+            zIndex: nil,
+            isGroup: false,
+            parent: nil,
+            isSharedField: nil,
+            flags: nil,
+            color: Color(A: 255, R: 255, G: 0, B: 0),
+            contents: nil,
+            margin: nil,
+            highlighting: nil,
+            horizontalAlignment: nil,
+            verticalAlignment: nil,
+            multiSelect: nil,
+            options: nil,
+            radioButtonOptionsField: [
+                RadioButtonOptionField(
+                    links: nil,
+                    partialName: nil,
+                    rect: Rectangle(LLX: 100, LLY: 130, URX: 160, URY: 140),
+                    value: nil,
+                    pageIndex: 1,
+                    height: nil,
+                    width: nil,
+                    zIndex: nil,
+                    isGroup: false,
+                    parent: nil,
+                    isSharedField: nil,
+                    flags: nil,
+                    color: Color(A: 255, R: 255, G: 0, B: 0),
+                    contents: nil,
+                    margin: nil,
+                    highlighting: nil,
+                    horizontalAlignment: nil,
+                    verticalAlignment: nil,
+                    optionName: "1",
+                    style: BoxStyle.cross),
+                RadioButtonOptionField(
+                links: nil,
+                partialName: nil,
+                rect: Rectangle(LLX: 150, LLY: 120, URX: 160, URY: 130),
+                value: nil,
+                pageIndex: 1,
+                height: nil,
+                width: nil,
+                zIndex: nil,
+                isGroup: false,
+                parent: nil,
+                isSharedField: nil,
+                flags: nil,
+                color: Color(A: 255, R: 255, G: 0, B: 0),
+                contents: nil,
+                margin: nil,
+                highlighting: nil,
+                horizontalAlignment: nil,
+                verticalAlignment: nil,
+                optionName: "2",
+                style: BoxStyle.cross),
+            ],
+            style: BoxStyle.cross,
+            selected: 1)
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.putRadioButtonField(name: name, fieldName: fieldName, field: field, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testPutRadioButtonField: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
 }
