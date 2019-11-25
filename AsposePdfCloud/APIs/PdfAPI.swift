@@ -1760,6 +1760,63 @@ open class PdfAPI {
     }
 
     /**
+     Read document combobox field by name.
+     
+     - parameter name: (path) The document name. 
+     - parameter fieldName: (path) The field name. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getComboBoxField(name: String, fieldName: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: ComboBoxFieldResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getComboBoxFieldWithRequestBuilder(name: name, fieldName: fieldName, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Read document combobox field by name.
+     - GET /pdf/{name}/fields/combobox/{fieldName}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter name: (path) The document name. 
+     - parameter fieldName: (path) The field name. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<ComboBoxFieldResponse> 
+     */
+    open class func getComboBoxFieldWithRequestBuilder(name: String, fieldName: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<ComboBoxFieldResponse> {
+        var pathUrl = "/pdf/{name}/fields/combobox/{fieldName}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{fieldName}", with: "\(fieldName)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<ComboBoxFieldResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
      Get disc usage
      
      - parameter storageName: (query) Storage name (optional)
@@ -2241,6 +2298,60 @@ open class PdfAPI {
         
 
         let requestBuilder: RequestBuilder<CircleAnnotationsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Read document combobox fields.
+     
+     - parameter name: (path) The document name. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getDocumentComboBoxFields(name: String, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: ComboBoxFieldsResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getDocumentComboBoxFieldsWithRequestBuilder(name: name, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Read document combobox fields.
+     - GET /pdf/{name}/fields/combobox
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter name: (path) The document name. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<ComboBoxFieldsResponse> 
+     */
+    open class func getDocumentComboBoxFieldsWithRequestBuilder(name: String, storage: String? = nil, folder: String? = nil) -> RequestBuilder<ComboBoxFieldsResponse> {
+        var pathUrl = "/pdf/{name}/fields/combobox"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<ComboBoxFieldsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -5656,6 +5767,63 @@ open class PdfAPI {
         
 
         let requestBuilder: RequestBuilder<CircleAnnotationsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Read document page combobox fields.
+     
+     - parameter name: (path) The document name. 
+     - parameter pageNumber: (path) The page number. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getPageComboBoxFields(name: String, pageNumber: Int, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: ComboBoxFieldsResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getPageComboBoxFieldsWithRequestBuilder(name: name, pageNumber: pageNumber, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Read document page combobox fields.
+     - GET /pdf/{name}/page/{pageNumber}/fields/combobox
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter name: (path) The document name. 
+     - parameter pageNumber: (path) The page number. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<ComboBoxFieldsResponse> 
+     */
+    open class func getPageComboBoxFieldsWithRequestBuilder(name: String, pageNumber: Int, storage: String? = nil, folder: String? = nil) -> RequestBuilder<ComboBoxFieldsResponse> {
+        var pathUrl = "/pdf/{name}/page/{pageNumber}/fields/combobox"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<ComboBoxFieldsResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -10643,6 +10811,65 @@ open class PdfAPI {
     }
 
     /**
+     Add document combobox fields.
+     
+     - parameter name: (path) The document name. 
+     - parameter fields: (body) The array of field. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postComboBoxFields(name: String, fields: [ComboBoxField], storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            postComboBoxFieldsWithRequestBuilder(name: name, fields: fields, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Add document combobox fields.
+     - POST /pdf/{name}/fields/combobox
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter fields: (body) The array of field. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func postComboBoxFieldsWithRequestBuilder(name: String, fields: [ComboBoxField], storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/fields/combobox"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: fields)
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
      Create field.
      
      - parameter name: (path) The document name. 
@@ -14139,6 +14366,65 @@ open class PdfAPI {
         
 
         let requestBuilder: RequestBuilder<CircleAnnotationResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
+     Replace document combobox field
+     
+     - parameter name: (path) The document name. 
+     - parameter fieldName: (path) The field name. 
+     - parameter field: (body) The field. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func putComboBoxField(name: String, fieldName: String, field: ComboBoxField, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: ComboBoxFieldResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            putComboBoxFieldWithRequestBuilder(name: name, fieldName: fieldName, field: field, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Replace document combobox field
+     - PUT /pdf/{name}/fields/combobox/{fieldName}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter name: (path) The document name. 
+     - parameter fieldName: (path) The field name. 
+     - parameter field: (body) The field. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<ComboBoxFieldResponse> 
+     */
+    open class func putComboBoxFieldWithRequestBuilder(name: String, fieldName: String, field: ComboBoxField, storage: String? = nil, folder: String? = nil) -> RequestBuilder<ComboBoxFieldResponse> {
+        var pathUrl = "/pdf/{name}/fields/combobox/{fieldName}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{fieldName}", with: "\(fieldName)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: field)
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<ComboBoxFieldResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
