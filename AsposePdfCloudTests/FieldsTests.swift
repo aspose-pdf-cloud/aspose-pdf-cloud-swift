@@ -940,4 +940,209 @@ class FieldsTests: AsposePdfCloudTests {
         self.waitForExpectations(timeout: testTimeout, handler: nil)
     }
     
+    // ComboBoxField
+    func testGetDocumentComboBoxFields() {
+            
+        let name = "PdfWithAcroForm.pdf"
+        let expectation = self.expectation(description: "testGetDocumentComboBoxFields")
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.getDocumentComboBoxFields(name: name, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testGetDocumentComboBoxFields: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    func testGetPageComboBoxFields() {
+        
+        let name = "PdfWithAcroForm.pdf"
+        let expectation = self.expectation(description: "testGetPageComboBoxFields")
+        
+        let pageNumber = 1
+        uploadFile(name: name) {
+            
+            PdfAPI.getPageComboBoxFields(name: name, pageNumber: pageNumber, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testGetPageComboBoxFields: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+     func testGetComboBoxField() {
+
+         let name = "PdfWithAcroForm.pdf"
+         let expectation = self.expectation(description: "testGetComboBoxField")
+
+         let fieldName = "comboboxField"
+         uploadFile(name: name) {
+
+             PdfAPI.getComboBoxField(name: name, fieldName: fieldName, folder: self.tempFolder) {
+                 (response, error) in
+                 guard error == nil else {
+                 XCTFail("error testGetComboBoxField: " + (error.debugDescription))
+                 return
+             }
+
+             if let response = response {
+                 XCTAssertEqual(response.code, self.codeOk)
+
+                 expectation.fulfill()
+                 }
+             }
+         }
+
+         self.waitForExpectations(timeout: testTimeout, handler: nil)
+     }
+    
+    func testPostComboBoxFields() {
+        
+        let name = "4pages.pdf"
+        let expectation = self.expectation(description: "testPostComboBoxFields")
+        
+        let field = ComboBoxField(links: nil,
+            partialName: "testField",
+            rect: Rectangle(LLX: 100, LLY: 100, URX: 160, URY: 140),
+            value: nil,
+            pageIndex: 1,
+            height: nil,
+            width: nil,
+            zIndex: nil,
+            isGroup: false,
+            parent: nil,
+            isSharedField: nil,
+            flags: nil,
+            color: Color(A: 255, R: 255, G: 0, B: 0),
+            contents: nil,
+            margin: nil,
+            highlighting: nil,
+            horizontalAlignment: nil,
+            verticalAlignment: nil,
+            multiSelect: nil,
+            options: [
+                Option(
+                    value: "one",
+                    name: "one",
+                    selected: true,
+                    index: 1
+                ),
+                Option(
+                    value: "two",
+                    name: "two",
+                    selected: false,
+                    index: 2
+                ),
+            ],
+            activeState: nil,
+            editable: false,
+            spellCheck: nil,
+            selected: 1)
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.postComboBoxFields(name: name, fields: [field], folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testPostComboBoxFields: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    func testPutComboBoxField() {
+        
+        let name = "PdfWithAcroForm.pdf"
+        let expectation = self.expectation(description: "testPutComboBoxField")
+        let fieldName = "comboboxField"
+        
+        let field = ComboBoxField(links: nil,
+        partialName: "testField",
+        rect: Rectangle(LLX: 100, LLY: 100, URX: 160, URY: 140),
+        value: nil,
+        pageIndex: 1,
+        height: nil,
+        width: nil,
+        zIndex: nil,
+        isGroup: false,
+        parent: nil,
+        isSharedField: nil,
+        flags: nil,
+        color: Color(A: 255, R: 255, G: 0, B: 0),
+        contents: nil,
+        margin: nil,
+        highlighting: nil,
+        horizontalAlignment: nil,
+        verticalAlignment: nil,
+        multiSelect: nil,
+        options: [
+            Option(
+                value: "one",
+                name: "one",
+                selected: true,
+                index: 1
+            ),
+            Option(
+                value: "two",
+                name: "two",
+                selected: false,
+                index: 2
+            ),
+        ],
+        activeState: nil,
+        editable: false,
+        spellCheck: nil,
+        selected: 1)
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.putComboBoxField(name: name, fieldName: fieldName, field: field, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testPutComboBoxField: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
 }

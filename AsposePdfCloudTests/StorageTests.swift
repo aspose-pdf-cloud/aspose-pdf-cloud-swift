@@ -229,7 +229,7 @@ class StorageTests: AsposePdfCloudTests {
         
         let expectation = self.expectation(description: "testStorageExistx")
         
-        let name = "PDF-CI"
+        let name = "First Storage"
         
             
         PdfAPI.storageExists(storageName: name) {

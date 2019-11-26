@@ -43,7 +43,7 @@ open class RequestBuilder<T> {
 
     required public init(method: String, URLString: String, parameters: [String:Any]?, isBody: Bool, headers: [String:String] = [:]) {
         self.method = method
-        self.URLString = URLString
+        self.URLString = URLString.replacingOccurrences(of: " ", with: "+")
         self.parameters = parameters
         self.isBody = isBody
         self.headers = headers
