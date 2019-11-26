@@ -19,6 +19,10 @@
 		125EF5D9236C7F1F0013E682 /* RadioButtonField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125EF5D3236C7F1F0013E682 /* RadioButtonField.swift */; };
 		125EF5DA236C7F1F0013E682 /* RadioButtonFieldsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125EF5D4236C7F1F0013E682 /* RadioButtonFieldsResponse.swift */; };
 		125EF5DB236C7F1F0013E682 /* RadioButtonOptionField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125EF5D5236C7F1F0013E682 /* RadioButtonOptionField.swift */; };
+		128B4CEB238C25F500877D55 /* ComboBoxFieldsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128B4CE7238C25F500877D55 /* ComboBoxFieldsResponse.swift */; };
+		128B4CEC238C25F500877D55 /* ComboBoxFieldResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128B4CE8238C25F500877D55 /* ComboBoxFieldResponse.swift */; };
+		128B4CED238C25F500877D55 /* ComboBoxField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128B4CE9238C25F500877D55 /* ComboBoxField.swift */; };
+		128B4CEE238C25F500877D55 /* ComboBoxFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128B4CEA238C25F500877D55 /* ComboBoxFields.swift */; };
 		1E52FD8B2189F2AB00DEDC40 /* LineAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD702189F2A700DEDC40 /* LineAnnotation.swift */; };
 		1E52FD8C2189F2AB00DEDC40 /* PolygonAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD712189F2A700DEDC40 /* PolygonAnnotation.swift */; };
 		1E52FD8D2189F2AB00DEDC40 /* CircleAnnotationsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD722189F2A700DEDC40 /* CircleAnnotationsResponse.swift */; };
@@ -409,6 +413,10 @@
 		125EF5D3236C7F1F0013E682 /* RadioButtonField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioButtonField.swift; sourceTree = "<group>"; };
 		125EF5D4236C7F1F0013E682 /* RadioButtonFieldsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioButtonFieldsResponse.swift; sourceTree = "<group>"; };
 		125EF5D5236C7F1F0013E682 /* RadioButtonOptionField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioButtonOptionField.swift; sourceTree = "<group>"; };
+		128B4CE7238C25F500877D55 /* ComboBoxFieldsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComboBoxFieldsResponse.swift; sourceTree = "<group>"; };
+		128B4CE8238C25F500877D55 /* ComboBoxFieldResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComboBoxFieldResponse.swift; sourceTree = "<group>"; };
+		128B4CE9238C25F500877D55 /* ComboBoxField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComboBoxField.swift; sourceTree = "<group>"; };
+		128B4CEA238C25F500877D55 /* ComboBoxFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComboBoxFields.swift; sourceTree = "<group>"; };
 		1E52FD702189F2A700DEDC40 /* LineAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineAnnotation.swift; sourceTree = "<group>"; };
 		1E52FD712189F2A700DEDC40 /* PolygonAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolygonAnnotation.swift; sourceTree = "<group>"; };
 		1E52FD722189F2A700DEDC40 /* CircleAnnotationsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleAnnotationsResponse.swift; sourceTree = "<group>"; };
@@ -834,6 +842,10 @@
 		1E668AE72174AFC2004218A8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				128B4CE9238C25F500877D55 /* ComboBoxField.swift */,
+				128B4CE8238C25F500877D55 /* ComboBoxFieldResponse.swift */,
+				128B4CEA238C25F500877D55 /* ComboBoxFields.swift */,
+				128B4CE7238C25F500877D55 /* ComboBoxFieldsResponse.swift */,
 				1E668B072174AFF2004218A8 /* Annotation.swift */,
 				1E668B1C2174AFF4004218A8 /* AnnotationFlags.swift */,
 				1E668B0B2174AFF2004218A8 /* AnnotationInfo.swift */,
@@ -1521,6 +1533,7 @@
 				1E668B822174AFFC004218A8 /* TextAnnotation.swift in Sources */,
 				1EC024CA21E750BB00450DE6 /* DiscUsageResponse.swift in Sources */,
 				125EF5CC236C7E1D0013E682 /* CheckBoxFieldsResponse.swift in Sources */,
+				128B4CEE238C25F500877D55 /* ComboBoxFields.swift in Sources */,
 				1EC94E6A2282C1FF00624E38 /* ImageHeader.swift in Sources */,
 				1E668B7F2174AFFC004218A8 /* HtmlMarkupGenerationModes.swift in Sources */,
 				1E668BB92174AFFC004218A8 /* RasterImagesSavingModes.swift in Sources */,
@@ -1568,6 +1581,7 @@
 				1E668AE22174AFA4004218A8 /* Extensions.swift in Sources */,
 				1E9A4AD922280BBB00BE3FA5 /* ScreenAnnotation.swift in Sources */,
 				1E668B9B2174AFFC004218A8 /* LinkActionType.swift in Sources */,
+				128B4CEC238C25F500877D55 /* ComboBoxFieldResponse.swift in Sources */,
 				1E52FD942189F2AB00DEDC40 /* SquareAnnotation.swift in Sources */,
 				1E9A4AD322280BBB00BE3FA5 /* StampIcon.swift in Sources */,
 				1E52FD9A2189F2AB00DEDC40 /* SquareAnnotationResponse.swift in Sources */,
@@ -1608,6 +1622,7 @@
 				1E668B802174AFFC004218A8 /* HtmlDocumentType.swift in Sources */,
 				1E9D85BA21B55DF50026DB97 /* PopupAnnotations.swift in Sources */,
 				1E668B622174AFFC004218A8 /* MarkupAnnotation.swift in Sources */,
+				128B4CED238C25F500877D55 /* ComboBoxField.swift in Sources */,
 				1E668BA02174AFFC004218A8 /* AnnotationType.swift in Sources */,
 				1ECF708622562DCE0056698E /* TablesRecognizedResponse.swift in Sources */,
 				1E668B672174AFFC004218A8 /* Attachments.swift in Sources */,
@@ -1676,6 +1691,7 @@
 				1EF1EC1C220B3BF000200CEF /* FileIcon.swift in Sources */,
 				1EF1EC11220B3BF000200CEF /* MovieAnnotationsResponse.swift in Sources */,
 				1E52FD9F2189F2AB00DEDC40 /* SquareAnnotations.swift in Sources */,
+				128B4CEB238C25F500877D55 /* ComboBoxFieldsResponse.swift in Sources */,
 				125EF5D8236C7F1F0013E682 /* RadioButtonFieldResponse.swift in Sources */,
 				1E668B522174AFFC004218A8 /* StampType.swift in Sources */,
 				1E52FD972189F2AB00DEDC40 /* CircleAnnotationResponse.swift in Sources */,
@@ -1957,7 +1973,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 19.10.0;
+				MARKETING_VERSION = 19.11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aspose.AsposePdfCloud;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1986,7 +2002,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 19.10.0;
+				MARKETING_VERSION = 19.11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aspose.AsposePdfCloud;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
