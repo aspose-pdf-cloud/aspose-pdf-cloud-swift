@@ -1,6 +1,6 @@
 /**
  *
- *   Copyright (c) 2019 Aspose.PDF Cloud
+ *   Copyright (c) 2020 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -44,7 +44,7 @@ open class FormField: LinkElement {
     /** Z index. */
     public var zIndex: Int?
     /** Is group. */
-    public var isGroup: Bool
+    public var isGroup: Bool?
     /** Gets field parent. */
     public var parent: FormField?
     /** Property for Generator support. Used when field is added to header or footer. If true, this field will created once and it&#39;s appearance will be visible on all pages of the document. If false, separated field will be created for every document page. */
@@ -63,11 +63,12 @@ open class FormField: LinkElement {
     public var horizontalAlignment: HorizontalAlignment?
     /** Gets VerticalAlignment of the field. */
     public var verticalAlignment: VerticalAlignment?
+    /** Gets or sets annotation border characteristics. */
+    public var border: Border?
 
     
-    public init(links: [Link]?, partialName: String?, rect: Rectangle?, value: String?, pageIndex: Int, height: Double?, width: Double?, zIndex: Int?, isGroup: Bool, parent: FormField?, isSharedField: Bool?, flags: [AnnotationFlags]?, color: Color?, contents: String?, margin: MarginInfo?, highlighting: LinkHighlightingMode?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?) {
+    public init(links: [Link]?, partialName: String?, rect: Rectangle?, value: String?, pageIndex: Int, height: Double?, width: Double?, zIndex: Int?, isGroup: Bool?, parent: FormField?, isSharedField: Bool?, flags: [AnnotationFlags]?, color: Color?, contents: String?, margin: MarginInfo?, highlighting: LinkHighlightingMode?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, border: Border?) {
         self.pageIndex = pageIndex
-        self.isGroup = isGroup
         super.init(links: links)
         self.partialName = partialName
         self.rect = rect
@@ -75,6 +76,7 @@ open class FormField: LinkElement {
         self.height = height
         self.width = width
         self.zIndex = zIndex
+        self.isGroup = isGroup
         self.parent = parent
         self.isSharedField = isSharedField
         self.flags = flags
@@ -84,6 +86,7 @@ open class FormField: LinkElement {
         self.highlighting = highlighting
         self.horizontalAlignment = horizontalAlignment
         self.verticalAlignment = verticalAlignment
+        self.border = border
     }
         
     
@@ -101,7 +104,7 @@ open class FormField: LinkElement {
         try container.encodeIfPresent(height, forKey: "Height")
         try container.encodeIfPresent(width, forKey: "Width")
         try container.encodeIfPresent(zIndex, forKey: "ZIndex")
-        try container.encode(isGroup, forKey: "IsGroup")
+        try container.encodeIfPresent(isGroup, forKey: "IsGroup")
         try container.encodeIfPresent(parent, forKey: "Parent")
         try container.encodeIfPresent(isSharedField, forKey: "IsSharedField")
         try container.encodeIfPresent(flags, forKey: "Flags")
@@ -111,6 +114,7 @@ open class FormField: LinkElement {
         try container.encodeIfPresent(highlighting, forKey: "Highlighting")
         try container.encodeIfPresent(horizontalAlignment, forKey: "HorizontalAlignment")
         try container.encodeIfPresent(verticalAlignment, forKey: "VerticalAlignment")
+        try container.encodeIfPresent(border, forKey: "Border")
         try super.encode(to: encoder)
     }
 
@@ -126,7 +130,7 @@ open class FormField: LinkElement {
         height = try container.decodeIfPresent(Double.self, forKey: "Height")
         width = try container.decodeIfPresent(Double.self, forKey: "Width")
         zIndex = try container.decodeIfPresent(Int.self, forKey: "ZIndex")
-        isGroup = try container.decode(Bool.self, forKey: "IsGroup")
+        isGroup = try container.decodeIfPresent(Bool.self, forKey: "IsGroup")
         parent = try container.decodeIfPresent(FormField.self, forKey: "Parent")
         isSharedField = try container.decodeIfPresent(Bool.self, forKey: "IsSharedField")
         flags = try container.decodeIfPresent([AnnotationFlags].self, forKey: "Flags")
@@ -136,6 +140,7 @@ open class FormField: LinkElement {
         highlighting = try container.decodeIfPresent(LinkHighlightingMode.self, forKey: "Highlighting")
         horizontalAlignment = try container.decodeIfPresent(HorizontalAlignment.self, forKey: "HorizontalAlignment")
         verticalAlignment = try container.decodeIfPresent(VerticalAlignment.self, forKey: "VerticalAlignment")
+        border = try container.decodeIfPresent(Border.self, forKey: "Border")
         try super.init(from: decoder)
     }
 }

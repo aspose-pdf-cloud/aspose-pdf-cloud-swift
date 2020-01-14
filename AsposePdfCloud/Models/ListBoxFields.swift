@@ -1,6 +1,6 @@
 /**
  *
- *   Copyright (c) 2019 Aspose.PDF Cloud
+ *   Copyright (c) 2020 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -25,38 +25,29 @@
 import Foundation
 
 
-/** Represents file DTO. */
+/** Object representing a list of listbox fields. */
 
-open class File: Codable {
+open class ListBoxFields: LinkElement {
 
-    public var name: String?
-    public var isFolder: Bool
-    public var modifiedDate: Date?
-    public var size: Int64
-    public var path: String?
+    /** List of listbox fields. */
+    public var list: [ListBoxField]?
 
-        
     
-    public init(name: String?, isFolder: Bool, modifiedDate: Date?, size: Int64, path: String?) {
-        self.name = name
-        self.isFolder = isFolder
-        self.modifiedDate = modifiedDate
-        self.size = size
-        self.path = path
+    public init(links: [Link]?, list: [ListBoxField]?) {
+        super.init(links: links)
+        self.list = list
     }
+        
     
 
     // Encodable protocol methods
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(name, forKey: "Name")
-        try container.encode(isFolder, forKey: "IsFolder")
-        try container.encodeIfPresent(modifiedDate, forKey: "ModifiedDate")
-        try container.encode(size, forKey: "Size")
-        try container.encodeIfPresent(path, forKey: "Path")
+        try container.encodeIfPresent(list, forKey: "List")
+        try super.encode(to: encoder)
     }
 
     // Decodable protocol methods
@@ -64,13 +55,8 @@ open class File: Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        name = try container.decodeIfPresent(String.self, forKey: "Name")
-        isFolder = try container.decode(Bool.self, forKey: "IsFolder")
-        if let strDate = try container.decodeIfPresent(String.self, forKey: "ModifiedDate") {
-            modifiedDate = try CodableHelper.decodeDate(strDate)
-        }
-        size = try container.decode(Int64.self, forKey: "Size")
-        path = try container.decodeIfPresent(String.self, forKey: "Path")
+        list = try container.decodeIfPresent([ListBoxField].self, forKey: "List")
+        try super.init(from: decoder)
     }
 }
 

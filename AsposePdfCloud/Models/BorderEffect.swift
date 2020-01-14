@@ -1,6 +1,6 @@
 /**
  *
- *   Copyright (c) 2019 Aspose.PDF Cloud
+ *   Copyright (c) 2020 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -25,36 +25,9 @@
 import Foundation
 
 
+/** Describes effect which should be applied to the border of the annotations. */
+public enum BorderEffect: String, Codable {
+    case _none = "None"
+    case cloudy = "Cloudy"
 
-open class StorageExistResponse: AsposeResponse {
-
-    public var isExist: Bool?
-
-    
-    public init(code: Int, status: String?, isExist: Bool?) {
-        super.init(code: code, status: status)
-        self.isExist = isExist
-    }
-        
-    
-
-    // Encodable protocol methods
-
-    public override func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(isExist, forKey: "IsExist")
-        try super.encode(to: encoder)
-    }
-
-    // Decodable protocol methods
-
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        isExist = try container.decodeIfPresent(Bool.self, forKey: "IsExist")
-        try super.init(from: decoder)
-    }
 }
-

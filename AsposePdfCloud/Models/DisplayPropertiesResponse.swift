@@ -1,6 +1,6 @@
 /**
  *
- *   Copyright (c) 2019 Aspose.PDF Cloud
+ *   Copyright (c) 2020 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -25,28 +25,29 @@
 import Foundation
 
 
+/** Represents response containing DisplayProperties */
 
-open class FileExist: Codable {
+open class DisplayPropertiesResponse: AsposeResponse {
 
-    public var isExist: Bool
-    public var isFolder: Bool
+    /** DisplayProperties object */
+    public var displayProperties: DisplayProperties?
 
-        
     
-    public init(isExist: Bool, isFolder: Bool) {
-        self.isExist = isExist
-        self.isFolder = isFolder
+    public init(code: Int, status: String?, displayProperties: DisplayProperties?) {
+        super.init(code: code, status: status)
+        self.displayProperties = displayProperties
     }
+        
     
 
     // Encodable protocol methods
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encode(isExist, forKey: "IsExist")
-        try container.encode(isFolder, forKey: "IsFolder")
+        try container.encodeIfPresent(displayProperties, forKey: "DisplayProperties")
+        try super.encode(to: encoder)
     }
 
     // Decodable protocol methods
@@ -54,8 +55,8 @@ open class FileExist: Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        isExist = try container.decode(Bool.self, forKey: "IsExist")
-        isFolder = try container.decode(Bool.self, forKey: "IsFolder")
+        displayProperties = try container.decodeIfPresent(DisplayProperties.self, forKey: "DisplayProperties")
+        try super.init(from: decoder)
     }
 }
 

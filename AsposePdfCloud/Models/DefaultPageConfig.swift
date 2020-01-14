@@ -1,6 +1,6 @@
 /**
  *
- *   Copyright (c) 2019 Aspose.PDF Cloud
+ *   Copyright (c) 2020 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -25,27 +25,31 @@
 import Foundation
 
 
+/** Provides link to DefaultPageConfig. */
 
-open class FileVersionsResponse: AsposeResponse {
+open class DefaultPageConfig: Codable {
 
-    public var fileVersions: [FileVersion]?
+    /** Sets default page Height */
+    public var height: Double?
+    /** Sets default page Width */
+    public var width: Double?
 
-    
-    public init(code: Int, status: String?, fileVersions: [FileVersion]?) {
-        super.init(code: code, status: status)
-        self.fileVersions = fileVersions
-    }
         
+    
+    public init(height: Double?, width: Double?) {
+        self.height = height
+        self.width = width
+    }
     
 
     // Encodable protocol methods
 
-    public override func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(fileVersions, forKey: "FileVersions")
-        try super.encode(to: encoder)
+        try container.encodeIfPresent(height, forKey: "Height")
+        try container.encodeIfPresent(width, forKey: "Width")
     }
 
     // Decodable protocol methods
@@ -53,8 +57,8 @@ open class FileVersionsResponse: AsposeResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        fileVersions = try container.decodeIfPresent([FileVersion].self, forKey: "FileVersions")
-        try super.init(from: decoder)
+        height = try container.decodeIfPresent(Double.self, forKey: "Height")
+        width = try container.decodeIfPresent(Double.self, forKey: "Width")
     }
 }
 

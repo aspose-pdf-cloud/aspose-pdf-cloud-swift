@@ -15,7 +15,7 @@ These SDKs are now fully supported. If you have any questions, see any bugs or h
 $ gem install cocoapods
 ```
 
-> CocoaPods 1.1+ is required to build AsposePdfCloud 19.11+.
+> CocoaPods 1.1+ is required to build AsposePdfCloud 19.12+.
 
 To integrate AsposePdfCloud into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
@@ -25,7 +25,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'AsposePdfCloud', '~> 19.11'
+    pod 'AsposePdfCloud', '~> 19.12'
 end
 ```
 
@@ -120,11 +120,13 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**getDocumentCheckBoxFields**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getDocumentCheckBoxFields) | **GET** /pdf/\{name}/fields/checkbox | Read document checkbox fields.
 *PdfApi* | [**getDocumentCircleAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getDocumentCircleAnnotations) | **GET** /pdf/\{name}/annotations/circle | Read document circle annotations.
 *PdfApi* | [**getDocumentComboBoxFields**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getDocumentComboBoxFields) | **GET** /pdf/\{name}/fields/combobox | Read document combobox fields.
+*PdfApi* | [**getDocumentDisplayProperties**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getDocumentDisplayProperties) | **GET** /pdf/\{name}/displayproperties | Read document display properties.
 *PdfApi* | [**getDocumentFileAttachmentAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getDocumentFileAttachmentAnnotations) | **GET** /pdf/\{name}/annotations/fileattachment | Read document FileAttachment annotations.
 *PdfApi* | [**getDocumentFreeTextAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getDocumentFreeTextAnnotations) | **GET** /pdf/\{name}/annotations/freetext | Read document free text annotations.
 *PdfApi* | [**getDocumentHighlightAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getDocumentHighlightAnnotations) | **GET** /pdf/\{name}/annotations/highlight | Read document highlight annotations.
 *PdfApi* | [**getDocumentInkAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getDocumentInkAnnotations) | **GET** /pdf/\{name}/annotations/ink | Read document ink annotations.
 *PdfApi* | [**getDocumentLineAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getDocumentLineAnnotations) | **GET** /pdf/\{name}/annotations/line | Read document line annotations.
+*PdfApi* | [**getDocumentListBoxFields**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getDocumentListBoxFields) | **GET** /pdf/\{name}/fields/listbox | Read document listbox fields.
 *PdfApi* | [**getDocumentMovieAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getDocumentMovieAnnotations) | **GET** /pdf/\{name}/annotations/movie | Read document movie annotations.
 *PdfApi* | [**getDocumentPolygonAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getDocumentPolygonAnnotations) | **GET** /pdf/\{name}/annotations/polygon | Read document polygon annotations.
 *PdfApi* | [**getDocumentPolyLineAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getDocumentPolyLineAnnotations) | **GET** /pdf/\{name}/annotations/polyline | Read document polyline annotations.
@@ -173,6 +175,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**getLaTeXInStorageToPdf**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getLaTeXInStorageToPdf) | **GET** /pdf/create/latex | Convert LaTeX file (located on storage) to PDF format and return resulting file in response. 
 *PdfApi* | [**getLineAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getLineAnnotation) | **GET** /pdf/\{name}/annotations/line/\{annotationId} | Read document page line annotation by ID.
 *PdfApi* | [**getLinkAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getLinkAnnotation) | **GET** /pdf/\{name}/links/\{linkId} | Read document link annotation by ID.
+*PdfApi* | [**getListBoxField**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getListBoxField) | **GET** /pdf/\{name}/fields/listbox/\{fieldName} | Read document listbox field by name.
 *PdfApi* | [**getMarkdownInStorageToPdf**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getMarkdownInStorageToPdf) | **GET** /pdf/create/markdown | Convert MD file (located on storage) to PDF format and return resulting file in response. 
 *PdfApi* | [**getMhtInStorageToPdf**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getMhtInStorageToPdf) | **GET** /pdf/create/mht | Convert MHT file (located on storage) to PDF format and return resulting file in response. 
 *PdfApi* | [**getMovieAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getMovieAnnotation) | **GET** /pdf/\{name}/annotations/movie/\{annotationId} | Read document page movie annotation by ID.
@@ -195,6 +198,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**getPageLineAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getPageLineAnnotations) | **GET** /pdf/\{name}/pages/\{pageNumber}/annotations/line | Read document page line annotations.
 *PdfApi* | [**getPageLinkAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getPageLinkAnnotation) | **GET** /pdf/\{name}/pages/\{pageNumber}/links/\{linkId} | Read document page link annotation by ID.
 *PdfApi* | [**getPageLinkAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getPageLinkAnnotations) | **GET** /pdf/\{name}/pages/\{pageNumber}/links | Read document page link annotations.
+*PdfApi* | [**getPageListBoxFields**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getPageListBoxFields) | **GET** /pdf/\{name}/page/\{pageNumber}/fields/listbox | Read document page listbox fields.
 *PdfApi* | [**getPageMovieAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getPageMovieAnnotations) | **GET** /pdf/\{name}/pages/\{pageNumber}/annotations/movie | Read document page movie annotations.
 *PdfApi* | [**getPagePolygonAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getPagePolygonAnnotations) | **GET** /pdf/\{name}/pages/\{pageNumber}/annotations/polygon | Read document page polygon annotations.
 *PdfApi* | [**getPagePolyLineAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getPagePolyLineAnnotations) | **GET** /pdf/\{name}/pages/\{pageNumber}/annotations/polyline | Read document page polyline annotations.
@@ -266,6 +270,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**postChangePasswordDocumentInStorage**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postChangePasswordDocumentInStorage) | **POST** /pdf/\{name}/changepassword | Change document password in storage.
 *PdfApi* | [**postCheckBoxFields**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postCheckBoxFields) | **POST** /pdf/\{name}/fields/checkbox | Add document checkbox fields.
 *PdfApi* | [**postComboBoxFields**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postComboBoxFields) | **POST** /pdf/\{name}/fields/combobox | Add document combobox fields.
+*PdfApi* | [**postCreateDocument**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postCreateDocument) | **POST** /pdf/\{name} | Create empty document.
 *PdfApi* | [**postCreateField**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postCreateField) | **POST** /pdf/\{name}/fields | Create field.
 *PdfApi* | [**postDecryptDocumentInStorage**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postDecryptDocumentInStorage) | **POST** /pdf/\{name}/decrypt | Decrypt document in storage.
 *PdfApi* | [**postDocumentImageFooter**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postDocumentImageFooter) | **POST** /pdf/\{name}/footer/image | Add document image footer.
@@ -280,6 +285,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**postImportFieldsFromXfdf**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postImportFieldsFromXfdf) | **POST** /pdf/\{name}/import/xfdf | Update fields from XFDF file in request.
 *PdfApi* | [**postImportFieldsFromXml**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postImportFieldsFromXml) | **POST** /pdf/\{name}/import/xml | Update fields from XML file in request.
 *PdfApi* | [**postInsertImage**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postInsertImage) | **POST** /pdf/\{name}/pages/\{pageNumber}/images | Insert image to document page.
+*PdfApi* | [**postListBoxFields**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postListBoxFields) | **POST** /pdf/\{name}/fields/listbox | Add document listbox fields.
 *PdfApi* | [**postMovePage**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postMovePage) | **POST** /pdf/\{name}/pages/\{pageNumber}/movePage | Move page to new position.
 *PdfApi* | [**postOptimizeDocument**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postOptimizeDocument) | **POST** /pdf/\{name}/optimize | Optimize document.
 *PdfApi* | [**postPageCaretAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#postPageCaretAnnotations) | **POST** /pdf/\{name}/pages/\{pageNumber}/annotations/caret | Add document page caret annotations.
@@ -325,6 +331,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**putComboBoxField**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#putComboBoxField) | **PUT** /pdf/\{name}/fields/combobox/\{fieldName} | Replace document combobox field
 *PdfApi* | [**putCreateDocument**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#putCreateDocument) | **PUT** /pdf/\{name} | Create empty document.
 *PdfApi* | [**putDecryptDocument**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#putDecryptDocument) | **PUT** /pdf/decrypt | Decrypt document from content.
+*PdfApi* | [**putDocumentDisplayProperties**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#putDocumentDisplayProperties) | **PUT** /pdf/\{name}/displayproperties | Update document display properties.
 *PdfApi* | [**putEncryptDocument**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#putEncryptDocument) | **PUT** /pdf/encrypt | Encrypt document from content.
 *PdfApi* | [**putEpubInStorageToPdf**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#putEpubInStorageToPdf) | **PUT** /pdf/\{name}/create/epub | Convert EPUB file (located on storage) to PDF format and upload resulting file to storage. 
 *PdfApi* | [**putExportFieldsFromPdfToFdfInStorage**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#putExportFieldsFromPdfToFdfInStorage) | **PUT** /pdf/\{name}/export/fdf | Export fields from from PDF in storage to FDF file in storage.
@@ -352,6 +359,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**putLaTeXInStorageToPdf**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#putLaTeXInStorageToPdf) | **PUT** /pdf/\{name}/create/latex | Convert LaTeX file (located on storage) to PDF format and upload resulting file to storage. 
 *PdfApi* | [**putLineAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#putLineAnnotation) | **PUT** /pdf/\{name}/annotations/line/\{annotationId} | Replace document line annotation
 *PdfApi* | [**putLinkAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#putLinkAnnotation) | **PUT** /pdf/\{name}/links/\{linkId} | Replace document page link annotations
+*PdfApi* | [**putListBoxField**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#putListBoxField) | **PUT** /pdf/\{name}/fields/listbox/\{fieldName} | Replace document listbox field
 *PdfApi* | [**putMarkdownInStorageToPdf**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#putMarkdownInStorageToPdf) | **PUT** /pdf/\{name}/create/markdown | Convert MD file (located on storage) to PDF format and upload resulting file to storage. 
 *PdfApi* | [**putMergeDocuments**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#putMergeDocuments) | **PUT** /pdf/\{name}/merge | Merge a list of documents.
 *PdfApi* | [**putMhtInStorageToPdf**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#putMhtInStorageToPdf) | **PUT** /pdf/\{name}/create/mht | Convert MHT file (located on storage) to PDF format and upload resulting file to storage. 
@@ -446,8 +454,11 @@ Class | Description
 [**BookmarkResponse**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/BookmarkResponse.md) | Represents response containing single bookmark info
 [**Bookmarks**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/Bookmarks.md) | Represents list of bookmark.
 [**BookmarksResponse**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/BookmarksResponse.md) | Represents response containing multiple bookmarks info
+[**Border**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/Border.md) | Class representing characteristics of annotation border.
 [**BorderCornerStyle**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/BorderCornerStyle.md) | Enumerates the border corner styles for border.
+[**BorderEffect**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/BorderEffect.md) | Describes effect which should be applied to the border of the annotations.
 [**BorderInfo**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/BorderInfo.md) | This class represents border for graphics elements.
+[**BorderStyle**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/BorderStyle.md) | Describes style of the annotation border.
 [**BoxStyle**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/BoxStyle.md) | Represents an enumeration of available BoxStyle types.
 [**CapStyle**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/CapStyle.md) | Style of line ending of Ink annotation line. 
 [**CaptionPosition**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/CaptionPosition.md) | Enumeration of the annotation’s caption positioning.
@@ -477,11 +488,17 @@ Class | Description
 [**CommonFigureAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/CommonFigureAnnotation.md) | Provides CommonFigureAnnotation.
 [**CompressionType**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/CompressionType.md) | Used to specify the parameter value passed to a Tiff image device.
 [**CryptoAlgorithm**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/CryptoAlgorithm.md) | Represent type of cryptographic algorithm that used in encryption/decryption routines.
+[**Dash**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/Dash.md) | Class representing line dash pattern.
+[**DefaultPageConfig**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/DefaultPageConfig.md) | Provides link to DefaultPageConfig.
+[**Direction**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/Direction.md) | Text direction.
 [**DiscUsage**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/DiscUsage.md) | Class for disc space information.
+[**DisplayProperties**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/DisplayProperties.md) | Provides link to DisplayProperties.
+[**DisplayPropertiesResponse**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/DisplayPropertiesResponse.md) | Represents response containing DisplayProperties
 [**DocFormat**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/DocFormat.md) | Allows to specify .doc or .docx file format.
 [**DocMDPAccessPermissionType**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/DocMDPAccessPermissionType.md) | The access permissions granted for this document. Valid values are: 1 - No changes to the document are permitted; any change to the document invalidates the signature. 2 - Permitted changes are filling in forms, instantiating page templates, and signing; other changes invalidate the signature. 3 - Permitted changes are the same as for 2, as well as annotation creation, deletion, and modification; other changes invalidate the signature.
 [**DocRecognitionMode**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/DocRecognitionMode.md) | Allows to control how a PDF document is converted into a word processing document.
 [**Document**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/Document.md) | Represents document DTO.
+[**DocumentConfig**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/DocumentConfig.md) | Provides link to DocumentConfig.
 [**DocumentPageResponse**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/DocumentPageResponse.md) | Represents response containing single page info
 [**DocumentPagesResponse**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/DocumentPagesResponse.md) | Represents response containing multiple pages info
 [**DocumentPrivilege**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/DocumentPrivilege.md) | Represents the privileges for accessing Pdf file.
@@ -555,6 +572,10 @@ Class | Description
 [**LinkAnnotationsResponse**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/LinkAnnotationsResponse.md) | Represents response containing multiple links info
 [**LinkElement**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/LinkElement.md) | Represents base DTO object.
 [**LinkHighlightingMode**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/LinkHighlightingMode.md) | Enumerates the annotation’s highlighting mode, the visual effect to be used when the mouse button is pressed or held down inside its active area.
+[**ListBoxField**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/ListBoxField.md) | Provides ListBoxField.
+[**ListBoxFieldResponse**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/ListBoxFieldResponse.md) | Represents response containing single listbox field object
+[**ListBoxFields**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/ListBoxFields.md) | Object representing a list of listbox fields.
+[**ListBoxFieldsResponse**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/ListBoxFieldsResponse.md) | Represents response containing multiple listbox field objects
 [**MarginInfo**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/MarginInfo.md) | This class represents a margin for different objects.
 [**MarkupAnnotation**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/MarkupAnnotation.md) | Provides MarkupAnnotation.
 [**MergeDocuments**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/MergeDocuments.md) | Documents for merging.
@@ -566,6 +587,8 @@ Class | Description
 [**OptimizeOptions**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/OptimizeOptions.md) | Represents Pdf optimize options.
 [**Option**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/Option.md) | Provides form option.
 [**Page**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/Page.md) | Provides link to page.
+[**PageLayout**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PageLayout.md) | Descibes page layout.
+[**PageMode**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PageMode.md) | Class descibes used components of the document page.
 [**PageNumberStamp**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PageNumberStamp.md) | Represents Pdf stamps.
 [**Pages**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/Pages.md) | Represents list of pages.
 [**PageWordCount**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PageWordCount.md) | Page words count.

@@ -1,6 +1,6 @@
 /**
  *
- *   Copyright (c) 2019 Aspose.PDF Cloud
+ *   Copyright (c) 2020 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -45,6 +45,8 @@ open class Table: LinkElement {
     public var defaultCellPadding: MarginInfo?
     /** Gets or sets the border. */
     public var border: BorderInfo?
+    /** Gets or sets a outer margin for paragraph (for pdf generation) */
+    public var margin: MarginInfo?
     /** Sets the rows of the table. */
     public var rows: [Row]
     /** Gets default cell border; */
@@ -75,7 +77,7 @@ open class Table: LinkElement {
     public var zIndex: Int?
 
     
-    public init(links: [Link]?, alignment: HorizontalAlignment?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, top: Double?, _left: Double?, defaultCellTextState: TextState?, defaultCellPadding: MarginInfo?, border: BorderInfo?, rows: [Row], defaultColumnWidth: String?, defaultCellBorder: BorderInfo?, broken: TableBroken?, columnWidths: String?, repeatingRowsCount: Int?, repeatingColumnsCount: Int?, repeatingRowsStyle: TextState?, cornerStyle: BorderCornerStyle?, breakText: TextRect?, backgroundColor: Color?, isBordersIncluded: Bool?, columnAdjustment: ColumnAdjustment?, zIndex: Int?) {
+    public init(links: [Link]?, alignment: HorizontalAlignment?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, top: Double?, _left: Double?, defaultCellTextState: TextState?, defaultCellPadding: MarginInfo?, border: BorderInfo?, margin: MarginInfo?, rows: [Row], defaultColumnWidth: String?, defaultCellBorder: BorderInfo?, broken: TableBroken?, columnWidths: String?, repeatingRowsCount: Int?, repeatingColumnsCount: Int?, repeatingRowsStyle: TextState?, cornerStyle: BorderCornerStyle?, breakText: TextRect?, backgroundColor: Color?, isBordersIncluded: Bool?, columnAdjustment: ColumnAdjustment?, zIndex: Int?) {
         self.rows = rows
         super.init(links: links)
         self.alignment = alignment
@@ -86,6 +88,7 @@ open class Table: LinkElement {
         self.defaultCellTextState = defaultCellTextState
         self.defaultCellPadding = defaultCellPadding
         self.border = border
+        self.margin = margin
         self.defaultColumnWidth = defaultColumnWidth
         self.defaultCellBorder = defaultCellBorder
         self.broken = broken
@@ -117,6 +120,7 @@ open class Table: LinkElement {
         try container.encodeIfPresent(defaultCellTextState, forKey: "DefaultCellTextState")
         try container.encodeIfPresent(defaultCellPadding, forKey: "DefaultCellPadding")
         try container.encodeIfPresent(border, forKey: "Border")
+        try container.encodeIfPresent(margin, forKey: "Margin")
         try container.encode(rows, forKey: "Rows")
         try container.encodeIfPresent(defaultColumnWidth, forKey: "DefaultColumnWidth")
         try container.encodeIfPresent(defaultCellBorder, forKey: "DefaultCellBorder")
@@ -147,6 +151,7 @@ open class Table: LinkElement {
         defaultCellTextState = try container.decodeIfPresent(TextState.self, forKey: "DefaultCellTextState")
         defaultCellPadding = try container.decodeIfPresent(MarginInfo.self, forKey: "DefaultCellPadding")
         border = try container.decodeIfPresent(BorderInfo.self, forKey: "Border")
+        margin = try container.decodeIfPresent(MarginInfo.self, forKey: "Margin")
         rows = try container.decode([Row].self, forKey: "Rows")
         defaultColumnWidth = try container.decodeIfPresent(String.self, forKey: "DefaultColumnWidth")
         defaultCellBorder = try container.decodeIfPresent(BorderInfo.self, forKey: "DefaultCellBorder")
