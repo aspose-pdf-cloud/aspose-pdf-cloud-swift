@@ -1,6 +1,6 @@
 /**
  *
- *   Copyright (c) 2019 Aspose.PDF Cloud
+ *   Copyright (c) 2020 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -356,7 +356,7 @@ class TablesTests: AsposePdfCloudTests {
             roundedBorderRadius: nil
         )
         
-        let table = Table(links: nil, alignment: nil, horizontalAlignment: nil, verticalAlignment: nil, top: 100, _left: nil, defaultCellTextState: textState, defaultCellPadding: nil, border: nil, rows: rows, defaultColumnWidth: nil,
+        let table = Table(links: nil, alignment: nil, horizontalAlignment: nil, verticalAlignment: nil, top: 100, _left: nil, defaultCellTextState: textState, defaultCellPadding: nil, border: nil, margin: nil, rows: rows, defaultColumnWidth: nil,
                           defaultCellBorder: defaultCellBorder, broken: nil, columnWidths: colWidths, repeatingRowsCount: nil, repeatingColumnsCount: nil, repeatingRowsStyle: nil, cornerStyle: nil, breakText: nil, backgroundColor: nil, isBordersIncluded: nil, columnAdjustment: nil, zIndex: nil)
 
         return table;

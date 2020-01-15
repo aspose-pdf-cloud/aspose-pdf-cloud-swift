@@ -1,6 +1,6 @@
 /**
  *
- *   Copyright (c) 2019 Aspose.PDF Cloud
+ *   Copyright (c) 2020 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -31,11 +31,14 @@ open class ChoiceField: FormField {
 
     /** Gets or sets multiselection flag. */
     public var multiSelect: Bool?
+    /** Gets or sets index of selected item. Numbering of items is started from 1. */
+    public var selected: Int?
 
     
-    public init(links: [Link]?, partialName: String?, rect: Rectangle?, value: String?, pageIndex: Int, height: Double?, width: Double?, zIndex: Int?, isGroup: Bool, parent: FormField?, isSharedField: Bool?, flags: [AnnotationFlags]?, color: Color?, contents: String?, margin: MarginInfo?, highlighting: LinkHighlightingMode?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, multiSelect: Bool?) {
-        super.init(links: links, partialName: partialName, rect: rect, value: value, pageIndex: pageIndex, height: height, width: width, zIndex: zIndex, isGroup: isGroup, parent: parent, isSharedField: isSharedField, flags: flags, color: color, contents: contents, margin: margin, highlighting: highlighting, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment)
+    public init(links: [Link]?, partialName: String?, rect: Rectangle?, value: String?, pageIndex: Int, height: Double?, width: Double?, zIndex: Int?, isGroup: Bool?, parent: FormField?, isSharedField: Bool?, flags: [AnnotationFlags]?, color: Color?, contents: String?, margin: MarginInfo?, highlighting: LinkHighlightingMode?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, border: Border?, multiSelect: Bool?, selected: Int?) {
+        super.init(links: links, partialName: partialName, rect: rect, value: value, pageIndex: pageIndex, height: height, width: width, zIndex: zIndex, isGroup: isGroup, parent: parent, isSharedField: isSharedField, flags: flags, color: color, contents: contents, margin: margin, highlighting: highlighting, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, border: border)
         self.multiSelect = multiSelect
+        self.selected = selected
     }
         
     
@@ -47,6 +50,7 @@ open class ChoiceField: FormField {
         var container = encoder.container(keyedBy: String.self)
 
         try container.encodeIfPresent(multiSelect, forKey: "MultiSelect")
+        try container.encodeIfPresent(selected, forKey: "Selected")
         try super.encode(to: encoder)
     }
 
@@ -56,6 +60,7 @@ open class ChoiceField: FormField {
         let container = try decoder.container(keyedBy: String.self)
 
         multiSelect = try container.decodeIfPresent(Bool.self, forKey: "MultiSelect")
+        selected = try container.decodeIfPresent(Int.self, forKey: "Selected")
         try super.init(from: decoder)
     }
 }

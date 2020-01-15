@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		122D5DEB23CE1C8300D9E42E /* Dash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122D5DDC23CE1C7E00D9E42E /* Dash.swift */; };
+		122D5DEC23CE1C8300D9E42E /* ListBoxField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122D5DDD23CE1C7F00D9E42E /* ListBoxField.swift */; };
+		122D5DED23CE1C8300D9E42E /* Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122D5DDE23CE1C7F00D9E42E /* Border.swift */; };
+		122D5DEE23CE1C8300D9E42E /* DefaultPageConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122D5DDF23CE1C7F00D9E42E /* DefaultPageConfig.swift */; };
+		122D5DEF23CE1C8300D9E42E /* ListBoxFieldsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122D5DE023CE1C8000D9E42E /* ListBoxFieldsResponse.swift */; };
+		122D5DF023CE1C8300D9E42E /* DocumentConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122D5DE123CE1C8000D9E42E /* DocumentConfig.swift */; };
+		122D5DF123CE1C8300D9E42E /* PageMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122D5DE223CE1C8000D9E42E /* PageMode.swift */; };
+		122D5DF223CE1C8300D9E42E /* PageLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122D5DE323CE1C8000D9E42E /* PageLayout.swift */; };
+		122D5DF323CE1C8300D9E42E /* BorderStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122D5DE423CE1C8100D9E42E /* BorderStyle.swift */; };
+		122D5DF423CE1C8300D9E42E /* DisplayProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122D5DE523CE1C8100D9E42E /* DisplayProperties.swift */; };
+		122D5DF523CE1C8300D9E42E /* BorderEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122D5DE623CE1C8100D9E42E /* BorderEffect.swift */; };
+		122D5DF623CE1C8300D9E42E /* DisplayPropertiesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122D5DE723CE1C8100D9E42E /* DisplayPropertiesResponse.swift */; };
+		122D5DF723CE1C8300D9E42E /* ListBoxFieldResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122D5DE823CE1C8200D9E42E /* ListBoxFieldResponse.swift */; };
+		122D5DF823CE1C8300D9E42E /* ListBoxFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122D5DE923CE1C8200D9E42E /* ListBoxFields.swift */; };
+		122D5DF923CE1C8300D9E42E /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122D5DEA23CE1C8200D9E42E /* Direction.swift */; };
 		125EF5CA236C7E1D0013E682 /* CheckBoxFieldResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125EF5C4236C7E1C0013E682 /* CheckBoxFieldResponse.swift */; };
 		125EF5CB236C7E1D0013E682 /* CheckBoxFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125EF5C5236C7E1D0013E682 /* CheckBoxFields.swift */; };
 		125EF5CC236C7E1D0013E682 /* CheckBoxFieldsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125EF5C6236C7E1D0013E682 /* CheckBoxFieldsResponse.swift */; };
@@ -94,7 +109,6 @@
 		1E668B672174AFFC004218A8 /* Attachments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E668AFE2174AFF1004218A8 /* Attachments.swift */; };
 		1E668B682174AFFC004218A8 /* TextAnnotationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E668AFF2174AFF1004218A8 /* TextAnnotationResponse.swift */; };
 		1E668B692174AFFC004218A8 /* TextReplaceListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E668B002174AFF1004218A8 /* TextReplaceListRequest.swift */; };
-		1E668B6A2174AFFC004218A8 /* AppendDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E668B012174AFF1004218A8 /* AppendDocument.swift */; };
 		1E668B6B2174AFFC004218A8 /* TextAnnotationsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E668B022174AFF1004218A8 /* TextAnnotationsResponse.swift */; };
 		1E668B6C2174AFFC004218A8 /* ImagesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E668B032174AFF1004218A8 /* ImagesResponse.swift */; };
 		1E668B6D2174AFFC004218A8 /* AnnotationsInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E668B042174AFF1004218A8 /* AnnotationsInfoResponse.swift */; };
@@ -265,7 +279,6 @@
 		1E9D85B121B55DF50026DB97 /* UnderlineAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9D859021B55DF00026DB97 /* UnderlineAnnotations.swift */; };
 		1E9D85B221B55DF50026DB97 /* StrikeOutAnnotationsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9D859121B55DF00026DB97 /* StrikeOutAnnotationsResponse.swift */; };
 		1E9D85B321B55DF50026DB97 /* CaretAnnotationsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9D859221B55DF10026DB97 /* CaretAnnotationsResponse.swift */; };
-		1E9D85B421B55DF50026DB97 /* FilesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9D859321B55DF10026DB97 /* FilesResponse.swift */; };
 		1E9D85B521B55DF50026DB97 /* CaretSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9D859421B55DF10026DB97 /* CaretSymbol.swift */; };
 		1E9D85B621B55DF50026DB97 /* CaretAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9D859521B55DF10026DB97 /* CaretAnnotations.swift */; };
 		1E9D85B721B55DF50026DB97 /* HighlightAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9D859621B55DF10026DB97 /* HighlightAnnotations.swift */; };
@@ -274,7 +287,6 @@
 		1E9D85BA21B55DF50026DB97 /* PopupAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9D859921B55DF20026DB97 /* PopupAnnotations.swift */; };
 		1E9D85BB21B55DF50026DB97 /* CaretAnnotationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9D859A21B55DF20026DB97 /* CaretAnnotationResponse.swift */; };
 		1E9D85BC21B55DF50026DB97 /* SquigglyAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9D859B21B55DF20026DB97 /* SquigglyAnnotations.swift */; };
-		1E9D85BD21B55DF50026DB97 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9D859C21B55DF20026DB97 /* File.swift */; };
 		1E9D85BE21B55DF50026DB97 /* InkAnnotationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9D859D21B55DF20026DB97 /* InkAnnotationResponse.swift */; };
 		1E9D85BF21B55DF50026DB97 /* PopupAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9D859E21B55DF20026DB97 /* PopupAnnotation.swift */; };
 		1E9D85C021B55DF50026DB97 /* SquigglyAnnotationsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9D859F21B55DF30026DB97 /* SquigglyAnnotationsResponse.swift */; };
@@ -299,12 +311,7 @@
 		1E9D85DA21B57D070026DB97 /* PopupAnnotationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9D85D921B57D070026DB97 /* PopupAnnotationsTests.swift */; };
 		1EC024C421E750BB00450DE6 /* DiscUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC024BC21E750B900450DE6 /* DiscUsage.swift */; };
 		1EC024C521E750BB00450DE6 /* FileVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC024BD21E750B900450DE6 /* FileVersion.swift */; };
-		1EC024C621E750BB00450DE6 /* StorageExistResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC024BE21E750B900450DE6 /* StorageExistResponse.swift */; };
-		1EC024C721E750BB00450DE6 /* FileExist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC024BF21E750B900450DE6 /* FileExist.swift */; };
-		1EC024C821E750BB00450DE6 /* FileVersionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC024C021E750BA00450DE6 /* FileVersionsResponse.swift */; };
 		1EC024C921E750BB00450DE6 /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC024C121E750BA00450DE6 /* Rectangle.swift */; };
-		1EC024CA21E750BB00450DE6 /* DiscUsageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC024C221E750BA00450DE6 /* DiscUsageResponse.swift */; };
-		1EC024CB21E750BB00450DE6 /* FileExistResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC024C321E750BA00450DE6 /* FileExistResponse.swift */; };
 		1EC94E5E2282C1FF00624E38 /* BorderCornerStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC94E4F2282C1FD00624E38 /* BorderCornerStyle.swift */; };
 		1EC94E5F2282C1FF00624E38 /* ImageFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC94E502282C1FD00624E38 /* ImageFooter.swift */; };
 		1EC94E602282C1FF00624E38 /* TextHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC94E512282C1FD00624E38 /* TextHeader.swift */; };
@@ -401,6 +408,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		122D5DDC23CE1C7E00D9E42E /* Dash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dash.swift; sourceTree = "<group>"; };
+		122D5DDD23CE1C7F00D9E42E /* ListBoxField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListBoxField.swift; sourceTree = "<group>"; };
+		122D5DDE23CE1C7F00D9E42E /* Border.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Border.swift; sourceTree = "<group>"; };
+		122D5DDF23CE1C7F00D9E42E /* DefaultPageConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultPageConfig.swift; sourceTree = "<group>"; };
+		122D5DE023CE1C8000D9E42E /* ListBoxFieldsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListBoxFieldsResponse.swift; sourceTree = "<group>"; };
+		122D5DE123CE1C8000D9E42E /* DocumentConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentConfig.swift; sourceTree = "<group>"; };
+		122D5DE223CE1C8000D9E42E /* PageMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageMode.swift; sourceTree = "<group>"; };
+		122D5DE323CE1C8000D9E42E /* PageLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageLayout.swift; sourceTree = "<group>"; };
+		122D5DE423CE1C8100D9E42E /* BorderStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderStyle.swift; sourceTree = "<group>"; };
+		122D5DE523CE1C8100D9E42E /* DisplayProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayProperties.swift; sourceTree = "<group>"; };
+		122D5DE623CE1C8100D9E42E /* BorderEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderEffect.swift; sourceTree = "<group>"; };
+		122D5DE723CE1C8100D9E42E /* DisplayPropertiesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayPropertiesResponse.swift; sourceTree = "<group>"; };
+		122D5DE823CE1C8200D9E42E /* ListBoxFieldResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListBoxFieldResponse.swift; sourceTree = "<group>"; };
+		122D5DE923CE1C8200D9E42E /* ListBoxFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListBoxFields.swift; sourceTree = "<group>"; };
+		122D5DEA23CE1C8200D9E42E /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		125EF5C4236C7E1C0013E682 /* CheckBoxFieldResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxFieldResponse.swift; sourceTree = "<group>"; };
 		125EF5C5236C7E1D0013E682 /* CheckBoxFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxFields.swift; sourceTree = "<group>"; };
 		125EF5C6236C7E1D0013E682 /* CheckBoxFieldsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxFieldsResponse.swift; sourceTree = "<group>"; };
@@ -489,7 +511,6 @@
 		1E668AFE2174AFF1004218A8 /* Attachments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attachments.swift; sourceTree = "<group>"; };
 		1E668AFF2174AFF1004218A8 /* TextAnnotationResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextAnnotationResponse.swift; sourceTree = "<group>"; };
 		1E668B002174AFF1004218A8 /* TextReplaceListRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextReplaceListRequest.swift; sourceTree = "<group>"; };
-		1E668B012174AFF1004218A8 /* AppendDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppendDocument.swift; sourceTree = "<group>"; };
 		1E668B022174AFF1004218A8 /* TextAnnotationsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextAnnotationsResponse.swift; sourceTree = "<group>"; };
 		1E668B032174AFF1004218A8 /* ImagesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesResponse.swift; sourceTree = "<group>"; };
 		1E668B042174AFF1004218A8 /* AnnotationsInfoResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationsInfoResponse.swift; sourceTree = "<group>"; };
@@ -662,7 +683,6 @@
 		1E9D859021B55DF00026DB97 /* UnderlineAnnotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnderlineAnnotations.swift; sourceTree = "<group>"; };
 		1E9D859121B55DF00026DB97 /* StrikeOutAnnotationsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrikeOutAnnotationsResponse.swift; sourceTree = "<group>"; };
 		1E9D859221B55DF10026DB97 /* CaretAnnotationsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaretAnnotationsResponse.swift; sourceTree = "<group>"; };
-		1E9D859321B55DF10026DB97 /* FilesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesResponse.swift; sourceTree = "<group>"; };
 		1E9D859421B55DF10026DB97 /* CaretSymbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaretSymbol.swift; sourceTree = "<group>"; };
 		1E9D859521B55DF10026DB97 /* CaretAnnotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaretAnnotations.swift; sourceTree = "<group>"; };
 		1E9D859621B55DF10026DB97 /* HighlightAnnotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightAnnotations.swift; sourceTree = "<group>"; };
@@ -671,7 +691,6 @@
 		1E9D859921B55DF20026DB97 /* PopupAnnotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupAnnotations.swift; sourceTree = "<group>"; };
 		1E9D859A21B55DF20026DB97 /* CaretAnnotationResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaretAnnotationResponse.swift; sourceTree = "<group>"; };
 		1E9D859B21B55DF20026DB97 /* SquigglyAnnotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquigglyAnnotations.swift; sourceTree = "<group>"; };
-		1E9D859C21B55DF20026DB97 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		1E9D859D21B55DF20026DB97 /* InkAnnotationResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InkAnnotationResponse.swift; sourceTree = "<group>"; };
 		1E9D859E21B55DF20026DB97 /* PopupAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupAnnotation.swift; sourceTree = "<group>"; };
 		1E9D859F21B55DF30026DB97 /* SquigglyAnnotationsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquigglyAnnotationsResponse.swift; sourceTree = "<group>"; };
@@ -696,12 +715,7 @@
 		1E9D85D921B57D070026DB97 /* PopupAnnotationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupAnnotationsTests.swift; sourceTree = "<group>"; };
 		1EC024BC21E750B900450DE6 /* DiscUsage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscUsage.swift; sourceTree = "<group>"; };
 		1EC024BD21E750B900450DE6 /* FileVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileVersion.swift; sourceTree = "<group>"; };
-		1EC024BE21E750B900450DE6 /* StorageExistResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageExistResponse.swift; sourceTree = "<group>"; };
-		1EC024BF21E750B900450DE6 /* FileExist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileExist.swift; sourceTree = "<group>"; };
-		1EC024C021E750BA00450DE6 /* FileVersionsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileVersionsResponse.swift; sourceTree = "<group>"; };
 		1EC024C121E750BA00450DE6 /* Rectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rectangle.swift; sourceTree = "<group>"; };
-		1EC024C221E750BA00450DE6 /* DiscUsageResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscUsageResponse.swift; sourceTree = "<group>"; };
-		1EC024C321E750BA00450DE6 /* FileExistResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileExistResponse.swift; sourceTree = "<group>"; };
 		1EC94E4F2282C1FD00624E38 /* BorderCornerStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderCornerStyle.swift; sourceTree = "<group>"; };
 		1EC94E502282C1FD00624E38 /* ImageFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFooter.swift; sourceTree = "<group>"; };
 		1EC94E512282C1FD00624E38 /* TextHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextHeader.swift; sourceTree = "<group>"; };
@@ -842,10 +856,6 @@
 		1E668AE72174AFC2004218A8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				128B4CE9238C25F500877D55 /* ComboBoxField.swift */,
-				128B4CE8238C25F500877D55 /* ComboBoxFieldResponse.swift */,
-				128B4CEA238C25F500877D55 /* ComboBoxFields.swift */,
-				128B4CE7238C25F500877D55 /* ComboBoxFieldsResponse.swift */,
 				1E668B072174AFF2004218A8 /* Annotation.swift */,
 				1E668B1C2174AFF4004218A8 /* AnnotationFlags.swift */,
 				1E668B0B2174AFF2004218A8 /* AnnotationInfo.swift */,
@@ -854,7 +864,6 @@
 				1E668B3E2174AFF9004218A8 /* AnnotationState.swift */,
 				1E668B372174AFF8004218A8 /* AnnotationType.swift */,
 				1E668B2D2174AFF7004218A8 /* AntialiasingProcessingType.swift */,
-				1E668B012174AFF1004218A8 /* AppendDocument.swift */,
 				1E668B272174AFF6004218A8 /* AsposeResponse.swift */,
 				1E668AFA2174AFF0004218A8 /* Attachment.swift */,
 				1E668AEF2174AFEF004218A8 /* AttachmentResponse.swift */,
@@ -864,8 +873,11 @@
 				1E7AF01822FC47C00017310A /* BookmarkResponse.swift */,
 				1E7AF01C22FC47C10017310A /* Bookmarks.swift */,
 				1E7AF01E22FC47C10017310A /* BookmarksResponse.swift */,
+				122D5DDE23CE1C7F00D9E42E /* Border.swift */,
 				1EC94E4F2282C1FD00624E38 /* BorderCornerStyle.swift */,
+				122D5DE623CE1C8100D9E42E /* BorderEffect.swift */,
 				1EC94E582282C1FE00624E38 /* BorderInfo.swift */,
+				122D5DE423CE1C8100D9E42E /* BorderStyle.swift */,
 				125EF5C7236C7E1D0013E682 /* BoxStyle.swift */,
 				1E9D858B21B55DEF0026DB97 /* CapStyle.swift */,
 				1E52FD832189F2AA00DEDC40 /* CaptionPosition.swift */,
@@ -888,15 +900,24 @@
 				1E668B1F2174AFF5004218A8 /* Color.swift */,
 				1E668B3F2174AFF9004218A8 /* ColorDepth.swift */,
 				1EC94E562282C1FE00624E38 /* ColumnAdjustment.swift */,
+				128B4CE9238C25F500877D55 /* ComboBoxField.swift */,
+				128B4CE8238C25F500877D55 /* ComboBoxFieldResponse.swift */,
+				128B4CEA238C25F500877D55 /* ComboBoxFields.swift */,
+				128B4CE7238C25F500877D55 /* ComboBoxFieldsResponse.swift */,
 				1E52FD872189F2AA00DEDC40 /* CommonFigureAnnotation.swift */,
 				1E668B402174AFFA004218A8 /* CompressionType.swift */,
 				1EC94E542282C1FD00624E38 /* CryptoAlgorithm.swift */,
+				122D5DDC23CE1C7E00D9E42E /* Dash.swift */,
+				122D5DDF23CE1C7F00D9E42E /* DefaultPageConfig.swift */,
+				122D5DEA23CE1C8200D9E42E /* Direction.swift */,
 				1EC024BC21E750B900450DE6 /* DiscUsage.swift */,
-				1EC024C221E750BA00450DE6 /* DiscUsageResponse.swift */,
+				122D5DE523CE1C8100D9E42E /* DisplayProperties.swift */,
+				122D5DE723CE1C8100D9E42E /* DisplayPropertiesResponse.swift */,
 				1E668B092174AFF2004218A8 /* DocFormat.swift */,
 				1ED9930E231E9B2E00725F99 /* DocMDPAccessPermissionType.swift */,
 				1E668B292174AFF6004218A8 /* DocRecognitionMode.swift */,
 				1E668B2E2174AFF7004218A8 /* Document.swift */,
+				122D5DE123CE1C8000D9E42E /* DocumentConfig.swift */,
 				1E668B0C2174AFF2004218A8 /* DocumentPageResponse.swift */,
 				1E668B392174AFF8004218A8 /* DocumentPagesResponse.swift */,
 				1E668B202174AFF5004218A8 /* DocumentPrivilege.swift */,
@@ -912,20 +933,15 @@
 				1E668B0E2174AFF3004218A8 /* Fields.swift */,
 				1E668B442174AFFA004218A8 /* FieldsResponse.swift */,
 				1E668B4A2174AFFB004218A8 /* FieldType.swift */,
-				1E9D859C21B55DF20026DB97 /* File.swift */,
 				1EF1EC0E220B3BF000200CEF /* FileAttachmentAnnotation.swift */,
 				1EF1EC02220B3BEE00200CEF /* FileAttachmentAnnotationResponse.swift */,
 				1EF1EC04220B3BEF00200CEF /* FileAttachmentAnnotations.swift */,
 				1EF1EC03220B3BEF00200CEF /* FileAttachmentAnnotationsResponse.swift */,
-				1EC024BF21E750B900450DE6 /* FileExist.swift */,
-				1EC024C321E750BA00450DE6 /* FileExistResponse.swift */,
 				1EF1EC09220B3BEF00200CEF /* FileIcon.swift */,
 				1E7AF01F22FC47C20017310A /* FilesList.swift */,
-				1E9D859321B55DF10026DB97 /* FilesResponse.swift */,
 				1E7AF01422FC47C00017310A /* FilesUploadResult.swift */,
 				1EC024BD21E750B900450DE6 /* FileVersion.swift */,
 				1E7AF01522FC47C00017310A /* FileVersions.swift */,
-				1EC024C021E750BA00450DE6 /* FileVersionsResponse.swift */,
 				1E668AF62174AFF0004218A8 /* FontEncodingRules.swift */,
 				1E668AFC2174AFF0004218A8 /* FontSavingModes.swift */,
 				1E668AEB2174AFEF004218A8 /* FontStyles.swift */,
@@ -974,6 +990,10 @@
 				1E668B082174AFF2004218A8 /* LinkAnnotationsResponse.swift */,
 				1E668AFD2174AFF0004218A8 /* LinkElement.swift */,
 				1E668B3B2174AFF9004218A8 /* LinkHighlightingMode.swift */,
+				122D5DDD23CE1C7F00D9E42E /* ListBoxField.swift */,
+				122D5DE823CE1C8200D9E42E /* ListBoxFieldResponse.swift */,
+				122D5DE923CE1C8200D9E42E /* ListBoxFields.swift */,
+				122D5DE023CE1C8000D9E42E /* ListBoxFieldsResponse.swift */,
 				1E668B0D2174AFF2004218A8 /* MarginInfo.swift */,
 				1E668AF92174AFF0004218A8 /* MarkupAnnotation.swift */,
 				1E668B152174AFF4004218A8 /* MergeDocuments.swift */,
@@ -986,6 +1006,8 @@
 				1E668AF02174AFEF004218A8 /* OptimizeOptions.swift */,
 				125EF5D0236C7F1E0013E682 /* Option.swift */,
 				1E668B452174AFFA004218A8 /* Page.swift */,
+				122D5DE323CE1C8000D9E42E /* PageLayout.swift */,
+				122D5DE223CE1C8000D9E42E /* PageMode.swift */,
 				1EC94E522282C1FD00624E38 /* PageNumberStamp.swift */,
 				1E668B412174AFFA004218A8 /* Pages.swift */,
 				1E668AF22174AFEF004218A8 /* PageWordCount.swift */,
@@ -1068,7 +1090,6 @@
 				1ECF707522562DCA0056698E /* StampsInfoResponse.swift */,
 				1E668AE92174AFEF004218A8 /* StampType.swift */,
 				1E7AF01922FC47C10017310A /* StorageExist.swift */,
-				1EC024BE21E750B900450DE6 /* StorageExistResponse.swift */,
 				1E7AF01622FC47C00017310A /* StorageFile.swift */,
 				1E9D859821B55DF10026DB97 /* StrikeOutAnnotation.swift */,
 				1E9D85A921B55DF40026DB97 /* StrikeOutAnnotationResponse.swift */,
@@ -1492,7 +1513,7 @@
 				1E668B7A2174AFFC004218A8 /* TextStyle.swift in Sources */,
 				1E9D85B121B55DF50026DB97 /* UnderlineAnnotations.swift in Sources */,
 				1E9A4AD122280BBB00BE3FA5 /* StampAnnotationsResponse.swift in Sources */,
-				1EC024C821E750BB00450DE6 /* FileVersionsResponse.swift in Sources */,
+				122D5DF223CE1C8300D9E42E /* PageLayout.swift in Sources */,
 				1E668B902174AFFC004218A8 /* AsposeResponse.swift in Sources */,
 				1E52FDA02189F2AB00DEDC40 /* PolygonAnnotations.swift in Sources */,
 				1E668B792174AFFC004218A8 /* PartsEmbeddingModes.swift in Sources */,
@@ -1501,9 +1522,11 @@
 				1E668B9A2174AFFC004218A8 /* TextRect.swift in Sources */,
 				1E9D85B021B55DF50026DB97 /* SquigglyAnnotation.swift in Sources */,
 				1E668BB72174AFFC004218A8 /* Rotation.swift in Sources */,
+				122D5DF523CE1C8300D9E42E /* BorderEffect.swift in Sources */,
 				1E668B952174AFFC004218A8 /* ShapeType.swift in Sources */,
 				1EC94E622282C1FF00624E38 /* Table.swift in Sources */,
 				1E668B832174AFFC004218A8 /* TextReplace.swift in Sources */,
+				122D5DEE23CE1C8300D9E42E /* DefaultPageConfig.swift in Sources */,
 				1E668B5F2174AFFC004218A8 /* FontEncodingRules.swift in Sources */,
 				125EF5CA236C7E1D0013E682 /* CheckBoxFieldResponse.swift in Sources */,
 				1ED99315231E9B2F00725F99 /* SignatureFields.swift in Sources */,
@@ -1526,12 +1549,11 @@
 				1ED99319231E9B2F00725F99 /* SignatureField.swift in Sources */,
 				1E9D85BC21B55DF50026DB97 /* SquigglyAnnotations.swift in Sources */,
 				1E9D85B921B55DF50026DB97 /* StrikeOutAnnotation.swift in Sources */,
+				122D5DF923CE1C8300D9E42E /* Direction.swift in Sources */,
 				1E9D85B521B55DF50026DB97 /* CaretSymbol.swift in Sources */,
 				1E668B7B2174AFFC004218A8 /* TextRects.swift in Sources */,
-				1EC024CB21E750BB00450DE6 /* FileExistResponse.swift in Sources */,
 				1E52FD9D2189F2AB00DEDC40 /* LineAnnotations.swift in Sources */,
 				1E668B822174AFFC004218A8 /* TextAnnotation.swift in Sources */,
-				1EC024CA21E750BB00450DE6 /* DiscUsageResponse.swift in Sources */,
 				125EF5CC236C7E1D0013E682 /* CheckBoxFieldsResponse.swift in Sources */,
 				128B4CEE238C25F500877D55 /* ComboBoxFields.swift in Sources */,
 				1EC94E6A2282C1FF00624E38 /* ImageHeader.swift in Sources */,
@@ -1556,6 +1578,7 @@
 				1E84B8CA233CF53700057874 /* TextBoxFields.swift in Sources */,
 				1E9D85C321B55DF50026DB97 /* PopupAnnotationWithParent.swift in Sources */,
 				1E668BA32174AFFC004218A8 /* ImageTemplate.swift in Sources */,
+				122D5DEC23CE1C8300D9E42E /* ListBoxField.swift in Sources */,
 				1EC024C521E750BB00450DE6 /* FileVersion.swift in Sources */,
 				1E668B512174AFFC004218A8 /* Segment.swift in Sources */,
 				1E668AE12174AFA4004218A8 /* CodableHelper.swift in Sources */,
@@ -1617,6 +1640,8 @@
 				1EF1EC20220B3BF000200CEF /* SoundEncoding.swift in Sources */,
 				1EC94E682282C1FF00624E38 /* Row.swift in Sources */,
 				1E52FD9E2189F2AB00DEDC40 /* CaptionPosition.swift in Sources */,
+				122D5DF123CE1C8300D9E42E /* PageMode.swift in Sources */,
+				122D5DEB23CE1C8300D9E42E /* Dash.swift in Sources */,
 				1E668B542174AFFC004218A8 /* FontStyles.swift in Sources */,
 				1ECF708122562DCE0056698E /* StampInfo.swift in Sources */,
 				1E668B802174AFFC004218A8 /* HtmlDocumentType.swift in Sources */,
@@ -1626,6 +1651,7 @@
 				1E668BA02174AFFC004218A8 /* AnnotationType.swift in Sources */,
 				1ECF708622562DCE0056698E /* TablesRecognizedResponse.swift in Sources */,
 				1E668B672174AFFC004218A8 /* Attachments.swift in Sources */,
+				122D5DF823CE1C8300D9E42E /* ListBoxFields.swift in Sources */,
 				1E9D85C221B55DF50026DB97 /* UnderlineAnnotation.swift in Sources */,
 				1EF1EC21220B3BF000200CEF /* FileAttachmentAnnotation.swift in Sources */,
 				1E668B682174AFFC004218A8 /* TextAnnotationResponse.swift in Sources */,
@@ -1634,7 +1660,6 @@
 				1E668B6B2174AFFC004218A8 /* TextAnnotationsResponse.swift in Sources */,
 				1E9A4AD822280BBB00BE3FA5 /* StampAnnotation.swift in Sources */,
 				1E52FD8C2189F2AB00DEDC40 /* PolygonAnnotation.swift in Sources */,
-				1EC024C721E750BB00450DE6 /* FileExist.swift in Sources */,
 				1EC94E6B2282C1FF00624E38 /* TextFooter.swift in Sources */,
 				1ECF708022562DCE0056698E /* TablesRecognized.swift in Sources */,
 				1E668B862174AFFC004218A8 /* Signature.swift in Sources */,
@@ -1646,7 +1671,6 @@
 				1ECF707D22562DCE0056698E /* RowRecognized.swift in Sources */,
 				1E668B992174AFFC004218A8 /* LettersPositioningMethods.swift in Sources */,
 				1E9D85BB21B55DF50026DB97 /* CaretAnnotationResponse.swift in Sources */,
-				1E668B6A2174AFFC004218A8 /* AppendDocument.swift in Sources */,
 				1E668BAA2174AFFC004218A8 /* Pages.swift in Sources */,
 				1E9A4AD522280BBB00BE3FA5 /* ScreenAnnotationResponse.swift in Sources */,
 				1E668BA92174AFFC004218A8 /* CompressionType.swift in Sources */,
@@ -1662,7 +1686,9 @@
 				1E52FDA42189F2AB00DEDC40 /* CircleAnnotation.swift in Sources */,
 				1E52FDA52189F2AB00DEDC40 /* Point.swift in Sources */,
 				1E7AF02B22FC47C20017310A /* FilesList.swift in Sources */,
+				122D5DEF23CE1C8300D9E42E /* ListBoxFieldsResponse.swift in Sources */,
 				1E668AE32174AFA4004218A8 /* Models.swift in Sources */,
+				122D5DF423CE1C8300D9E42E /* DisplayProperties.swift in Sources */,
 				1E9D85C421B55DF50026DB97 /* InkAnnotation.swift in Sources */,
 				1E9D85C521B55DF50026DB97 /* UnderlineAnnotationResponse.swift in Sources */,
 				1E668B9C2174AFFC004218A8 /* Link.swift in Sources */,
@@ -1683,7 +1709,6 @@
 				1E7AF02A22FC47C20017310A /* BookmarksResponse.swift in Sources */,
 				1E668B922174AFFC004218A8 /* DocRecognitionMode.swift in Sources */,
 				125EF5CE236C7E1D0013E682 /* CheckBoxField.swift in Sources */,
-				1E9D85BD21B55DF50026DB97 /* File.swift in Sources */,
 				1E668B5E2174AFFC004218A8 /* SplitResult.swift in Sources */,
 				1EF1EC15220B3BF000200CEF /* FileAttachmentAnnotationResponse.swift in Sources */,
 				1EF1EC17220B3BF000200CEF /* FileAttachmentAnnotations.swift in Sources */,
@@ -1698,13 +1723,13 @@
 				1E52FD962189F2AB00DEDC40 /* LineIntent.swift in Sources */,
 				1E668B7E2174AFFC004218A8 /* MergeDocuments.swift in Sources */,
 				1E52FD8B2189F2AB00DEDC40 /* LineAnnotation.swift in Sources */,
+				122D5DF023CE1C8300D9E42E /* DocumentConfig.swift in Sources */,
 				1E9D85B221B55DF50026DB97 /* StrikeOutAnnotationsResponse.swift in Sources */,
 				1E7AF02822FC47C20017310A /* Bookmarks.swift in Sources */,
 				125EF5D6236C7F1F0013E682 /* Option.swift in Sources */,
 				1ED99314231E9B2F00725F99 /* TimestampSettings.swift in Sources */,
 				1E9D85AF21B55DF50026DB97 /* SquigglyAnnotationResponse.swift in Sources */,
 				1EF1EC14220B3BF000200CEF /* SoundAnnotationsResponse.swift in Sources */,
-				1EC024C621E750BB00450DE6 /* StorageExistResponse.swift in Sources */,
 				1E52FD992189F2AB00DEDC40 /* PolygonAnnotationResponse.swift in Sources */,
 				1EC94E642282C1FF00624E38 /* Cell.swift in Sources */,
 				1E7AF02422FC47C20017310A /* BookmarkResponse.swift in Sources */,
@@ -1714,7 +1739,6 @@
 				1EF1EC1F220B3BF000200CEF /* RedactionAnnotation.swift in Sources */,
 				1E668B562174AFFC004218A8 /* FreeTextAnnotations.swift in Sources */,
 				1E9D85AE21B55DF50026DB97 /* HighlightAnnotationResponse.swift in Sources */,
-				1E9D85B421B55DF50026DB97 /* FilesResponse.swift in Sources */,
 				1E668BB32174AFFC004218A8 /* FieldType.swift in Sources */,
 				1E52FD902189F2AB00DEDC40 /* SquareAnnotationsResponse.swift in Sources */,
 				1E9D85CA21B55DF50026DB97 /* StrikeOutAnnotationResponse.swift in Sources */,
@@ -1729,6 +1753,7 @@
 				1E84B8CC233CF53700057874 /* TextBoxFieldsResponse.swift in Sources */,
 				1ECF708222562DCE0056698E /* CellRecognized.swift in Sources */,
 				1E52FD912189F2AB00DEDC40 /* PolygonAnnotationsResponse.swift in Sources */,
+				122D5DF623CE1C8300D9E42E /* DisplayPropertiesResponse.swift in Sources */,
 				1E668B5B2174AFFC004218A8 /* PageWordCount.swift in Sources */,
 				1ECF707C22562DCE0056698E /* PdfPageStamp.swift in Sources */,
 				1E668AE62174AFA4004218A8 /* APIs.swift in Sources */,
@@ -1745,6 +1770,7 @@
 				1E9D85CB21B55DF50026DB97 /* HighlightAnnotationsResponse.swift in Sources */,
 				1EF1EC16220B3BF000200CEF /* FileAttachmentAnnotationsResponse.swift in Sources */,
 				1EF1EC19220B3BF000200CEF /* SoundAnnotations.swift in Sources */,
+				122D5DF723CE1C8300D9E42E /* ListBoxFieldResponse.swift in Sources */,
 				1ECF708422562DCE0056698E /* Position.swift in Sources */,
 				125EF5D9236C7F1F0013E682 /* RadioButtonField.swift in Sources */,
 				1E7AF02522FC47C20017310A /* StorageExist.swift in Sources */,
@@ -1760,9 +1786,11 @@
 				1E668AD22174AC62004218A8 /* PdfAPI.swift in Sources */,
 				1E9D85C121B55DF50026DB97 /* InkAnnotationsResponse.swift in Sources */,
 				1E668B532174AFFC004218A8 /* FieldResponse.swift in Sources */,
+				122D5DED23CE1C8300D9E42E /* Border.swift in Sources */,
 				1E52FD9C2189F2AB00DEDC40 /* PolyLineAnnotations.swift in Sources */,
 				1E668BA42174AFFC004218A8 /* LinkHighlightingMode.swift in Sources */,
 				1E668B762174AFFC004218A8 /* MarginInfo.swift in Sources */,
+				122D5DF323CE1C8300D9E42E /* BorderStyle.swift in Sources */,
 				1EF1EC18220B3BF000200CEF /* RedactionAnnotationResponse.swift in Sources */,
 				1E668BB42174AFFC004218A8 /* LinkAnnotationResponse.swift in Sources */,
 				1E9D85C821B55DF50026DB97 /* HighlightAnnotation.swift in Sources */,
@@ -1973,7 +2001,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 19.11.0;
+				MARKETING_VERSION = 19.12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aspose.AsposePdfCloud;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -2002,7 +2030,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 19.11.0;
+				MARKETING_VERSION = 19.12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aspose.AsposePdfCloud;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

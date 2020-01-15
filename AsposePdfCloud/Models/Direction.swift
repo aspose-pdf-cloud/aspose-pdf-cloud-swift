@@ -1,6 +1,6 @@
 /**
  *
- *   Copyright (c) 2019 Aspose.PDF Cloud
+ *   Copyright (c) 2020 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -25,36 +25,9 @@
 import Foundation
 
 
+/** Text direction. */
+public enum Direction: String, Codable {
+    case l2R = "L2R"
+    case r2L = "R2L"
 
-open class DiscUsageResponse: AsposeResponse {
-
-    public var discUsage: DiscUsage?
-
-    
-    public init(code: Int, status: String?, discUsage: DiscUsage?) {
-        super.init(code: code, status: status)
-        self.discUsage = discUsage
-    }
-        
-    
-
-    // Encodable protocol methods
-
-    public override func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(discUsage, forKey: "DiscUsage")
-        try super.encode(to: encoder)
-    }
-
-    // Decodable protocol methods
-
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        discUsage = try container.decodeIfPresent(DiscUsage.self, forKey: "DiscUsage")
-        try super.init(from: decoder)
-    }
 }
-

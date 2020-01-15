@@ -1,6 +1,6 @@
 /**
  *
- *   Copyright (c) 2019 Aspose.PDF Cloud
+ *   Copyright (c) 2020 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -25,15 +25,17 @@
 import Foundation
 
 
+/** Represents response containing multiple listbox field objects */
 
-open class FilesResponse: AsposeResponse {
+open class ListBoxFieldsResponse: AsposeResponse {
 
-    public var files: [File]?
+    /** Listbox fields object */
+    public var fields: ListBoxFields?
 
     
-    public init(code: Int, status: String?, files: [File]?) {
+    public init(code: Int, status: String?, fields: ListBoxFields?) {
         super.init(code: code, status: status)
-        self.files = files
+        self.fields = fields
     }
         
     
@@ -44,7 +46,7 @@ open class FilesResponse: AsposeResponse {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(files, forKey: "Files")
+        try container.encodeIfPresent(fields, forKey: "Fields")
         try super.encode(to: encoder)
     }
 
@@ -53,7 +55,7 @@ open class FilesResponse: AsposeResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        files = try container.decodeIfPresent([File].self, forKey: "Files")
+        fields = try container.decodeIfPresent(ListBoxFields.self, forKey: "Fields")
         try super.init(from: decoder)
     }
 }

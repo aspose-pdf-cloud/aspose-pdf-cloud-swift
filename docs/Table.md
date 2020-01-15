@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **defaultCellTextState** | [**TextState?**](TextState.md) | Gets or sets the default cell text state. | [optional]
 **defaultCellPadding** | [**MarginInfo?**](MarginInfo.md) | Gets or sets the default cell padding. | [optional]
 **border** | [**BorderInfo?**](BorderInfo.md) | Gets or sets the border. | [optional]
+**margin** | [**MarginInfo?**](MarginInfo.md) | Gets or sets a outer margin for paragraph (for pdf generation) | [optional]
 **rows** | [**[Row]**](Row.md) | Sets the rows of the table. | 
 **defaultColumnWidth** | **String?** | Gets default cell border; | [optional]
 **defaultCellBorder** | [**BorderInfo?**](BorderInfo.md) | Gets default cell border; | [optional]

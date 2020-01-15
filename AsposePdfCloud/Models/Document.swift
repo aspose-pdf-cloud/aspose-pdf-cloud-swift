@@ -1,6 +1,6 @@
 /**
  *
- *   Copyright (c) 2019 Aspose.PDF Cloud
+ *   Copyright (c) 2020 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -31,13 +31,16 @@ open class Document: LinkElement {
 
     /** Document properties. */
     public var documentProperties: DocumentProperties?
+    /** Document display properties. */
+    public var displayProperties: DisplayProperties?
     /** Document pages. */
     public var pages: Pages?
 
     
-    public init(links: [Link]?, documentProperties: DocumentProperties?, pages: Pages?) {
+    public init(links: [Link]?, documentProperties: DocumentProperties?, displayProperties: DisplayProperties?, pages: Pages?) {
         super.init(links: links)
         self.documentProperties = documentProperties
+        self.displayProperties = displayProperties
         self.pages = pages
     }
         
@@ -50,6 +53,7 @@ open class Document: LinkElement {
         var container = encoder.container(keyedBy: String.self)
 
         try container.encodeIfPresent(documentProperties, forKey: "DocumentProperties")
+        try container.encodeIfPresent(displayProperties, forKey: "DisplayProperties")
         try container.encodeIfPresent(pages, forKey: "Pages")
         try super.encode(to: encoder)
     }
@@ -60,6 +64,7 @@ open class Document: LinkElement {
         let container = try decoder.container(keyedBy: String.self)
 
         documentProperties = try container.decodeIfPresent(DocumentProperties.self, forKey: "DocumentProperties")
+        displayProperties = try container.decodeIfPresent(DisplayProperties.self, forKey: "DisplayProperties")
         pages = try container.decodeIfPresent(Pages.self, forKey: "Pages")
         try super.init(from: decoder)
     }

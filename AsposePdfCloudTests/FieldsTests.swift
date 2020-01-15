@@ -1,6 +1,6 @@
 /**
  *
- *   Copyright (c) 2019 Aspose.PDF Cloud
+ *   Copyright (c) 2020 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -419,6 +419,7 @@ class FieldsTests: AsposePdfCloudTests {
                                    highlighting: nil,
                                    horizontalAlignment: nil,
                                    verticalAlignment: nil,
+                                   border: nil,
                                    multiline: true,
                                    spellCheck: nil,
                                    scrollable: nil,
@@ -471,6 +472,7 @@ class FieldsTests: AsposePdfCloudTests {
                                    highlighting: nil,
                                    horizontalAlignment: nil,
                                    verticalAlignment: nil,
+                                   border: nil,
                                    multiline: true,
                                    spellCheck: nil,
                                    scrollable: nil,
@@ -600,6 +602,7 @@ class FieldsTests: AsposePdfCloudTests {
             highlighting: nil,
             horizontalAlignment: nil,
             verticalAlignment: nil,
+            border:nil,
             allowedStates: nil,
             style: BoxStyle.cross,
             activeState: nil,
@@ -651,6 +654,7 @@ class FieldsTests: AsposePdfCloudTests {
             highlighting: nil,
             horizontalAlignment: nil,
             verticalAlignment: nil,
+            border: nil,
             allowedStates: nil,
             style: BoxStyle.cross,
             activeState: nil,
@@ -778,13 +782,15 @@ class FieldsTests: AsposePdfCloudTests {
             highlighting: nil,
             horizontalAlignment: nil,
             verticalAlignment: nil,
+            border: nil,
             multiSelect: nil,
+            selected: 1,
             options: nil,
             radioButtonOptionsField: [
                 RadioButtonOptionField(
                     links: nil,
                     partialName: nil,
-                    rect: Rectangle(LLX: 100, LLY: 130, URX: 160, URY: 140),
+                    rect: Rectangle(LLX: 100.0, LLY: 130.0, URX: 160.0, URY: 140.0),
                     value: nil,
                     pageIndex: 1,
                     height: nil,
@@ -800,32 +806,33 @@ class FieldsTests: AsposePdfCloudTests {
                     highlighting: nil,
                     horizontalAlignment: nil,
                     verticalAlignment: nil,
+                    border: nil,
                     optionName: "1",
                     style: BoxStyle.cross),
                 RadioButtonOptionField(
-                links: nil,
-                partialName: nil,
-                rect: Rectangle(LLX: 150, LLY: 120, URX: 160, URY: 130),
-                value: nil,
-                pageIndex: 1,
-                height: nil,
-                width: nil,
-                zIndex: nil,
-                isGroup: false,
-                parent: nil,
-                isSharedField: nil,
-                flags: nil,
-                color: Color(A: 255, R: 255, G: 0, B: 0),
-                contents: nil,
-                margin: nil,
-                highlighting: nil,
-                horizontalAlignment: nil,
-                verticalAlignment: nil,
-                optionName: "2",
-                style: BoxStyle.cross),
+                    links: nil,
+                    partialName: nil,
+                    rect: Rectangle(LLX: 150.0, LLY: 120.0, URX: 160.0, URY: 130.0),
+                    value: nil,
+                    pageIndex: 1,
+                    height: nil,
+                    width: nil,
+                    zIndex: nil,
+                    isGroup: false,
+                    parent: nil,
+                    isSharedField: nil,
+                    flags: nil,
+                    color: Color(A: 255, R: 255, G: 0, B: 0),
+                    contents: nil,
+                    margin: nil,
+                    highlighting: nil,
+                    horizontalAlignment: nil,
+                    verticalAlignment: nil,
+                    border: nil,
+                    optionName: "2",
+                    style: BoxStyle.cross),
             ],
-            style: BoxStyle.cross,
-            selected: 1)
+            style: BoxStyle.cross)
         
         uploadFile(name: name) {
             
@@ -871,13 +878,15 @@ class FieldsTests: AsposePdfCloudTests {
             highlighting: nil,
             horizontalAlignment: nil,
             verticalAlignment: nil,
+            border: nil,
             multiSelect: nil,
+            selected: 1,
             options: nil,
             radioButtonOptionsField: [
                 RadioButtonOptionField(
                     links: nil,
                     partialName: nil,
-                    rect: Rectangle(LLX: 100, LLY: 130, URX: 160, URY: 140),
+                    rect: Rectangle(LLX: 100.0, LLY: 130.0, URX: 160.0, URY: 140.0),
                     value: nil,
                     pageIndex: 1,
                     height: nil,
@@ -893,32 +902,33 @@ class FieldsTests: AsposePdfCloudTests {
                     highlighting: nil,
                     horizontalAlignment: nil,
                     verticalAlignment: nil,
+                    border: nil,
                     optionName: "1",
                     style: BoxStyle.cross),
                 RadioButtonOptionField(
-                links: nil,
-                partialName: nil,
-                rect: Rectangle(LLX: 150, LLY: 120, URX: 160, URY: 130),
-                value: nil,
-                pageIndex: 1,
-                height: nil,
-                width: nil,
-                zIndex: nil,
-                isGroup: false,
-                parent: nil,
-                isSharedField: nil,
-                flags: nil,
-                color: Color(A: 255, R: 255, G: 0, B: 0),
-                contents: nil,
-                margin: nil,
-                highlighting: nil,
-                horizontalAlignment: nil,
-                verticalAlignment: nil,
-                optionName: "2",
-                style: BoxStyle.cross),
+                    links: nil,
+                    partialName: nil,
+                    rect: Rectangle(LLX: 150.0, LLY: 120.0, URX: 160.0, URY: 130.0),
+                    value: nil,
+                    pageIndex: 1,
+                    height: nil,
+                    width: nil,
+                    zIndex: nil,
+                    isGroup: false,
+                    parent: nil,
+                    isSharedField: nil,
+                    flags: nil,
+                    color: Color(A: 255, R: 255, G: 0, B: 0),
+                    contents: nil,
+                    margin: nil,
+                    highlighting: nil,
+                    horizontalAlignment: nil,
+                    verticalAlignment: nil,
+                    border: nil,
+                    optionName: "2",
+                    style: BoxStyle.cross),
             ],
-            style: BoxStyle.cross,
-            selected: 1)
+            style: BoxStyle.cross)
         
         uploadFile(name: name) {
             
@@ -1041,7 +1051,9 @@ class FieldsTests: AsposePdfCloudTests {
             highlighting: nil,
             horizontalAlignment: nil,
             verticalAlignment: nil,
+            border: nil,
             multiSelect: nil,
+            selected: 1,
             options: [
                 Option(
                     value: "one",
@@ -1058,8 +1070,7 @@ class FieldsTests: AsposePdfCloudTests {
             ],
             activeState: nil,
             editable: false,
-            spellCheck: nil,
-            selected: 1)
+            spellCheck: nil)
         
         uploadFile(name: name) {
             
@@ -1105,7 +1116,9 @@ class FieldsTests: AsposePdfCloudTests {
         highlighting: nil,
         horizontalAlignment: nil,
         verticalAlignment: nil,
+        border: nil,
         multiSelect: nil,
+        selected: 1,
         options: [
             Option(
                 value: "one",
@@ -1119,11 +1132,10 @@ class FieldsTests: AsposePdfCloudTests {
                 selected: false,
                 index: 2
             ),
-        ],
+            ],
         activeState: nil,
         editable: false,
-        spellCheck: nil,
-        selected: 1)
+        spellCheck: nil)
         
         uploadFile(name: name) {
             
@@ -1145,4 +1157,234 @@ class FieldsTests: AsposePdfCloudTests {
         self.waitForExpectations(timeout: testTimeout, handler: nil)
     }
     
+    // ListBoxField
+    func testGetDocumentListBoxFields() {
+            
+        let name = "PdfWithAcroForm.pdf"
+        let expectation = self.expectation(description: "testGetDocumentListBoxFields")
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.getDocumentListBoxFields(name: name, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testGetDocumentListBoxFields: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    func testGetPageListBoxFields() {
+        
+        let name = "PdfWithAcroForm.pdf"
+        let expectation = self.expectation(description: "testGetPageListBoxFields")
+        
+        let pageNumber = 1
+        uploadFile(name: name) {
+            
+            PdfAPI.getPageListBoxFields(name: name, pageNumber: pageNumber, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testGetPageListBoxFields: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+     func testGetListBoxField() {
+
+         let name = "PdfWithAcroForm.pdf"
+         let expectation = self.expectation(description: "testGetListBoxField")
+
+         let fieldName = "listboxField"
+         uploadFile(name: name) {
+
+             PdfAPI.getListBoxField(name: name, fieldName: fieldName, folder: self.tempFolder) {
+                 (response, error) in
+                 guard error == nil else {
+                 XCTFail("error testGetListBoxField: " + (error.debugDescription))
+                 return
+             }
+
+             if let response = response {
+                 XCTAssertEqual(response.code, self.codeOk)
+
+                 expectation.fulfill()
+                 }
+             }
+         }
+
+         self.waitForExpectations(timeout: testTimeout, handler: nil)
+     }
+    
+    func testPostListBoxFields() {
+        
+        let name = "4pages.pdf"
+        let expectation = self.expectation(description: "testPostListBoxFields")
+        
+        let field = ListBoxField(links: nil,
+            partialName: "testField",
+            rect: Rectangle(LLX: 100, LLY: 100, URX: 160, URY: 140),
+            value: nil,
+            pageIndex: 1,
+            height: nil,
+            width: nil,
+            zIndex: nil,
+            isGroup: false,
+            parent: nil,
+            isSharedField: nil,
+            flags: nil,
+            color: Color(A: 255, R: 255, G: 0, B: 0),
+            contents: nil,
+            margin: nil,
+            highlighting: nil,
+            horizontalAlignment: nil,
+            verticalAlignment: nil,
+            border: nil,
+            multiSelect: true,
+            selected: nil,
+            options: [
+                Option(
+                    value: "one",
+                    name: "one",
+                    selected: nil,
+                    index: 1
+                ),
+                Option(
+                    value: "two",
+                    name: "two",
+                    selected: nil,
+                    index: 2
+                ),
+                Option(
+                    value: "three",
+                    name: "three",
+                    selected: nil,
+                    index: 3
+                ),
+                Option(
+                    value: "four",
+                    name: "four",
+                    selected: nil,
+                    index: 4
+                ),
+            ],
+            activeState: nil,
+            topIndex: nil,
+            selectedItems: [1, 4])
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.postListBoxFields(name: name, fields: [field], folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testPostListBoxFields: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    func testPutListBoxField() {
+        
+        let name = "PdfWithAcroForm.pdf"
+        let expectation = self.expectation(description: "testPutListBoxField")
+        let fieldName = "listboxField"
+        
+        let field = ListBoxField(links: nil,
+        partialName: "testField",
+        rect: Rectangle(LLX: 100, LLY: 100, URX: 160, URY: 140),
+        value: nil,
+        pageIndex: 1,
+        height: nil,
+        width: nil,
+        zIndex: nil,
+        isGroup: false,
+        parent: nil,
+        isSharedField: nil,
+        flags: nil,
+        color: Color(A: 255, R: 255, G: 0, B: 0),
+        contents: nil,
+        margin: nil,
+        highlighting: nil,
+        horizontalAlignment: nil,
+        verticalAlignment: nil,
+        border: nil,
+        multiSelect: true,
+        selected: nil,
+        options: [
+            Option(
+                value: "one",
+                name: "one",
+                selected: nil,
+                index: 1
+            ),
+            Option(
+                value: "two",
+                name: "two",
+                selected: nil,
+                index: 2
+            ),
+            Option(
+                value: "three",
+                name: "three",
+                selected: nil,
+                index: 3
+            ),
+            Option(
+                value: "four",
+                name: "four",
+                selected: nil,
+                index: 4
+            ),
+        ],
+        activeState: nil,
+        topIndex: nil,
+        selectedItems: [1, 4])
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.putListBoxField(name: name, fieldName: fieldName, field: field, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testPutListBoxField: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
 }

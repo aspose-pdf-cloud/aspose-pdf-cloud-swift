@@ -1,6 +1,6 @@
 /**
  *
- *   Copyright (c) 2019 Aspose.PDF Cloud
+ *   Copyright (c) 2020 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -40,7 +40,6 @@ open class PolygonAnnotation: PolyAnnotation {
     // Encodable protocol methods
 
     public override func encode(to encoder: Encoder) throws {
-
         try super.encode(to: encoder)
     }
 

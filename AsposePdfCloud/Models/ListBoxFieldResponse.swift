@@ -1,6 +1,6 @@
 /**
  *
- *   Copyright (c) 2019 Aspose.PDF Cloud
+ *   Copyright (c) 2020 Aspose.PDF Cloud
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -25,15 +25,17 @@
 import Foundation
 
 
+/** Represents response containing single listbox field object */
 
-open class FileExistResponse: AsposeResponse {
+open class ListBoxFieldResponse: AsposeResponse {
 
-    public var fileExist: FileExist?
+    /** Listbox field object */
+    public var field: ListBoxField?
 
     
-    public init(code: Int, status: String?, fileExist: FileExist?) {
+    public init(code: Int, status: String?, field: ListBoxField?) {
         super.init(code: code, status: status)
-        self.fileExist = fileExist
+        self.field = field
     }
         
     
@@ -44,7 +46,7 @@ open class FileExistResponse: AsposeResponse {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(fileExist, forKey: "FileExist")
+        try container.encodeIfPresent(field, forKey: "Field")
         try super.encode(to: encoder)
     }
 
@@ -53,7 +55,7 @@ open class FileExistResponse: AsposeResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        fileExist = try container.decodeIfPresent(FileExist.self, forKey: "FileExist")
+        field = try container.decodeIfPresent(ListBoxField.self, forKey: "Field")
         try super.init(from: decoder)
     }
 }
