@@ -31,8 +31,8 @@ open class PolyLineAnnotation: PolyAnnotation {
 
 
     
-    public override init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, creationDate: String?, subject: String?, title: String?, richText: String?, interiorColor: Color?, startingStyle: LineEnding?, endingStyle: LineEnding?, intent: PolyIntent?, vertices: [Point]) {
-        super.init(links: links, color: color, contents: contents, modified: modified, id: id, flags: flags, name: name, rect: rect, pageIndex: pageIndex, zIndex: zIndex, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, creationDate: creationDate, subject: subject, title: title, richText: richText, interiorColor: interiorColor, startingStyle: startingStyle, endingStyle: endingStyle, intent: intent, vertices: vertices)
+    public init(links: [Link]?, color: Color?, contents: String?, modified: String?, id: String?, flags: [AnnotationFlags]?, name: String?, rect: Rectangle, pageIndex: Int?, zIndex: Int?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, creationDate: String?, subject: String?, title: String?, richText: String?, interiorColor: Color?, startingStyle: LineEnding?, endingStyle: LineEnding?, intent: PolyIntent?, vertices: [Point]) {
+        super.init(links: links)
     }
         
     
@@ -41,12 +41,16 @@ open class PolyLineAnnotation: PolyAnnotation {
 
     public override func encode(to encoder: Encoder) throws {
 
+        var container = encoder.container(keyedBy: String.self)
+
         try super.encode(to: encoder)
     }
 
     // Decodable protocol methods
 
     public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: String.self)
+
         try super.init(from: decoder)
     }
 }

@@ -30,7 +30,7 @@ import Foundation
 open class Signature: Codable {
 
     /** Gets or sets the signature path. */
-    public var signaturePath: String?
+    public var signaturePath: String
     /** Gets or sets the type of the signature. */
     public var signatureType: SignatureType
     /** Gets or sets the signature password. */
@@ -64,7 +64,7 @@ open class Signature: Codable {
 
         
     
-    public init(signaturePath: String?, signatureType: SignatureType, password: String?, appearance: String?, reason: String?, contact: String?, location: String?, visible: Bool, rectangle: Rectangle?, formFieldName: String?, authority: String?, date: String?, showProperties: Bool, timestampSettings: TimestampSettings?, isValid: Bool?, customAppearance: SignatureCustomAppearance?) {
+    public init(signaturePath: String, signatureType: SignatureType, password: String?, appearance: String?, reason: String?, contact: String?, location: String?, visible: Bool, rectangle: Rectangle?, formFieldName: String?, authority: String?, date: String?, showProperties: Bool, timestampSettings: TimestampSettings?, isValid: Bool?, customAppearance: SignatureCustomAppearance?) {
         self.signaturePath = signaturePath
         self.signatureType = signatureType
         self.password = password
@@ -113,7 +113,7 @@ open class Signature: Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        signaturePath = try container.decodeIfPresent(String.self, forKey: "SignaturePath")
+        signaturePath = try container.decode(String.self, forKey: "SignaturePath")
         signatureType = try container.decode(SignatureType.self, forKey: "SignatureType")
         password = try container.decodeIfPresent(String.self, forKey: "Password")
         appearance = try container.decodeIfPresent(String.self, forKey: "Appearance")

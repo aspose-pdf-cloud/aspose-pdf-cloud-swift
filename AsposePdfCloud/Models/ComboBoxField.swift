@@ -37,13 +37,10 @@ open class ComboBoxField: ChoiceField {
     public var editable: Bool?
     /** Gets or sets spellchaeck activiity status. */
     public var spellCheck: Bool?
-    /** Gets or sets index of selected item. Numbering of items is started from 1. */
-    public var selected: Int
 
     
-    public init(links: [Link]?, partialName: String?, rect: Rectangle?, value: String?, pageIndex: Int, height: Double?, width: Double?, zIndex: Int?, isGroup: Bool, parent: FormField?, isSharedField: Bool?, flags: [AnnotationFlags]?, color: Color?, contents: String?, margin: MarginInfo?, highlighting: LinkHighlightingMode?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, multiSelect: Bool?, options: [Option]?, activeState: String?, editable: Bool?, spellCheck: Bool?, selected: Int) {
-        self.selected = selected
-        super.init(links: links, partialName: partialName, rect: rect, value: value, pageIndex: pageIndex, height: height, width: width, zIndex: zIndex, isGroup: isGroup, parent: parent, isSharedField: isSharedField, flags: flags, color: color, contents: contents, margin: margin, highlighting: highlighting, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, multiSelect: multiSelect)
+    public init(links: [Link]?, partialName: String?, rect: Rectangle?, value: String?, pageIndex: Int, height: Double?, width: Double?, zIndex: Int?, isGroup: Bool?, parent: FormField?, isSharedField: Bool?, flags: [AnnotationFlags]?, color: Color?, contents: String?, margin: MarginInfo?, highlighting: LinkHighlightingMode?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, border: Border?, multiSelect: Bool?, selected: Int?, options: [Option]?, activeState: String?, editable: Bool?, spellCheck: Bool?) {
+        super.init(links: links)
         self.options = options
         self.activeState = activeState
         self.editable = editable
@@ -62,7 +59,6 @@ open class ComboBoxField: ChoiceField {
         try container.encodeIfPresent(activeState, forKey: "ActiveState")
         try container.encodeIfPresent(editable, forKey: "Editable")
         try container.encodeIfPresent(spellCheck, forKey: "SpellCheck")
-        try container.encode(selected, forKey: "Selected")
         try super.encode(to: encoder)
     }
 
@@ -75,7 +71,6 @@ open class ComboBoxField: ChoiceField {
         activeState = try container.decodeIfPresent(String.self, forKey: "ActiveState")
         editable = try container.decodeIfPresent(Bool.self, forKey: "Editable")
         spellCheck = try container.decodeIfPresent(Bool.self, forKey: "SpellCheck")
-        selected = try container.decode(Int.self, forKey: "Selected")
         try super.init(from: decoder)
     }
 }
