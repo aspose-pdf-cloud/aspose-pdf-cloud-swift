@@ -356,7 +356,7 @@ class TablesTests: AsposePdfCloudTests {
             roundedBorderRadius: nil
         )
         
-        let table = Table(links: nil, alignment: nil, horizontalAlignment: nil, verticalAlignment: nil, top: 100, _left: nil, defaultCellTextState: textState, defaultCellPadding: nil, border: nil, rows: rows, defaultColumnWidth: nil,
+        let table = Table(links: nil, alignment: nil, horizontalAlignment: nil, verticalAlignment: nil, top: 100, _left: nil, defaultCellTextState: textState, defaultCellPadding: nil, border: nil, margin: nil, rows: rows, defaultColumnWidth: nil,
                           defaultCellBorder: defaultCellBorder, broken: nil, columnWidths: colWidths, repeatingRowsCount: nil, repeatingColumnsCount: nil, repeatingRowsStyle: nil, cornerStyle: nil, breakText: nil, backgroundColor: nil, isBordersIncluded: nil, columnAdjustment: nil, zIndex: nil)
 
         return table;

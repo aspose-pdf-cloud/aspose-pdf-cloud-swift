@@ -130,4 +130,118 @@ class DocumentTests: AsposePdfCloudTests {
         
          self.waitForExpectations(timeout: testTimeout, handler: nil)
      }
+    
+    func testPostCreateDocument() {
+    
+        let expectation = self.expectation(description: "testPostCreateDocument")
+        let name = "empty_swift.pdf"
+       
+        let documentConfig = DocumentConfig(
+            displayProperties: DisplayProperties(
+                links: nil,
+                centerWindow: true,
+                direction: Direction.l2R,
+                displayDocTitle: true,
+                hideMenuBar: true,
+                hideToolBar: nil,
+                hideWindowUI: nil,
+                nonFullScreenPageMode: PageMode.useNone,
+                pageLayout: PageLayout.twoPageRight,
+                pageMode: PageMode.useOC
+            ),
+            documentProperties: DocumentProperties(
+                links: nil,
+                list: [
+                    DocumentProperty(
+                        links: nil,
+                        name: "prop1",
+                        value: "val1",
+                        builtIn: false
+                    ),
+                ]
+            ),
+            pagesCount: 2,
+            defaultPageConfig: DefaultPageConfig(
+                height: 100,
+                width: 100
+            )
+        );
+        
+        PdfAPI.postCreateDocument(name: name, documentConfig: documentConfig, folder: self.tempFolder) { (response, error) in
+        guard error == nil else {
+            XCTFail("error testPostCreateDocument")
+            return
+        }
+        
+            if let response = response {
+                XCTAssertEqual(response.code, self.codeOk)
+               
+                expectation.fulfill()
+            }
+        }
+       
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    func testGetDocumentDisplayProperties() {
+            
+        let name = "4pages.pdf"
+        let expectation = self.expectation(description: "testGetDocumentDisplayProperties")
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.getDocumentDisplayProperties(name: name, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testGetDocumentDisplayProperties: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    func testPutDocumentDisplayProperties() {
+            
+        let name = "4pages.pdf"
+        let expectation = self.expectation(description: "testPutDocumentDisplayProperties")
+        let displayProperties = DisplayProperties(
+            links: nil,
+            centerWindow: true,
+            direction: Direction.l2R,
+            displayDocTitle: true,
+            hideMenuBar: true,
+            hideToolBar: nil,
+            hideWindowUI: nil,
+            nonFullScreenPageMode: PageMode.useNone,
+            pageLayout: PageLayout.twoPageRight,
+            pageMode: PageMode.useOC
+        )
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.putDocumentDisplayProperties(name: name, displayProperties: displayProperties, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testPutDocumentDisplayProperties: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
 }

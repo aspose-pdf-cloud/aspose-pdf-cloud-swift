@@ -38,7 +38,7 @@ open class RadioButtonField: ChoiceField {
 
     
     public init(links: [Link]?, partialName: String?, rect: Rectangle?, value: String?, pageIndex: Int, height: Double?, width: Double?, zIndex: Int?, isGroup: Bool?, parent: FormField?, isSharedField: Bool?, flags: [AnnotationFlags]?, color: Color?, contents: String?, margin: MarginInfo?, highlighting: LinkHighlightingMode?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, border: Border?, multiSelect: Bool?, selected: Int?, options: [Option]?, radioButtonOptionsField: [RadioButtonOptionField]?, style: BoxStyle?) {
-        super.init(links: links)
+        super.init(links: links, partialName: partialName, rect: rect, value: value, pageIndex: pageIndex, height: height, width: width, zIndex: zIndex, isGroup: isGroup, parent: parent, isSharedField: isSharedField, flags: flags, color: color, contents: contents, margin: margin, highlighting: highlighting, horizontalAlignment: horizontalAlignment, verticalAlignment: verticalAlignment, border: border, multiSelect: multiSelect, selected: selected)
         self.options = options
         self.radioButtonOptionsField = radioButtonOptionsField
         self.style = style
