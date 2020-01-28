@@ -319,6 +319,140 @@ class FieldsTests: AsposePdfCloudTests {
         self.waitForExpectations(timeout: testTimeout, handler: nil)
     }
     
+    func testPostSignatureField() {
+        
+        let name = "4pages.pdf"
+        let signatureName = "33226.p12"
+        
+        let expectation = self.expectation(description: "testPostSignatureField")
+        
+        let signature = Signature(
+            signaturePath: "\(self.tempFolder)/\(signatureName)",
+            signatureType: SignatureType.pkcs7,
+            password: "sIikZSmz",
+            appearance: nil,
+            reason: nil,
+            contact: "test@mail.ru",
+            location: "Ukraine",
+            visible: true,
+            rectangle: Rectangle(LLX: 100, LLY: 100, URX: 0, URY: 0),
+            formFieldName: "Signature1",
+            authority: "Sergey Smal",
+            date: "08/01/2012 12:15:00.000 PM",
+            showProperties: false,
+            timestampSettings: nil,
+            isValid: nil,
+            customAppearance: nil)
+        
+        let field = SignatureField(
+            links: nil,
+            partialName: "Sign1",
+            rect: Rectangle(LLX: 100, LLY: 100, URX: 0, URY: 0),
+            value: nil,
+            pageIndex: 1,
+            height: nil,
+            width: nil,
+            zIndex: nil,
+            isGroup: nil,
+            parent: nil,
+            isSharedField: nil,
+            flags: nil,
+            color: nil,
+            contents: nil,
+            margin: nil,
+            highlighting: nil,
+            horizontalAlignment: nil,
+            verticalAlignment: nil,
+            border: nil,
+            signature: signature)
+        
+        uploadFiles(names: [name, signatureName]) {
+            
+            PdfAPI.postSignatureField(name: name, field: field, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testPostSignatureField: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    func testPutSignatureField() {
+        
+        let name = "adbe.x509.rsa_sha1.valid.pdf"
+        let signatureName = "33226.p12"
+        
+        let expectation = self.expectation(description: "testPutSignatureField")
+        
+        let signature = Signature(
+            signaturePath: "\(self.tempFolder)/\(signatureName)",
+            signatureType: SignatureType.pkcs7,
+            password: "sIikZSmz",
+            appearance: nil,
+            reason: nil,
+            contact: "test@mail.ru",
+            location: "Ukraine",
+            visible: true,
+            rectangle: Rectangle(LLX: 100, LLY: 100, URX: 0, URY: 0),
+            formFieldName: "Signature1",
+            authority: "Sergey Smal",
+            date: "08/01/2012 12:15:00.000 PM",
+            showProperties: false,
+            timestampSettings: nil,
+            isValid: nil,
+            customAppearance: nil)
+        
+        let field = SignatureField(
+            links: nil,
+            partialName: "Sign1",
+            rect: Rectangle(LLX: 100, LLY: 100, URX: 0, URY: 0),
+            value: nil,
+            pageIndex: 1,
+            height: nil,
+            width: nil,
+            zIndex: nil,
+            isGroup: nil,
+            parent: nil,
+            isSharedField: nil,
+            flags: nil,
+            color: nil,
+            contents: nil,
+            margin: nil,
+            highlighting: nil,
+            horizontalAlignment: nil,
+            verticalAlignment: nil,
+            border: nil,
+            signature: signature)
+        
+        uploadFiles(names: [name, signatureName]) {
+            
+            PdfAPI.putSignatureField(name: name, fieldName: "Signature1", field: field, folder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testPutSignatureField: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
     func testGetDocumentTextBoxFields() {
         
         let name = "FormDataTextBox.pdf"
