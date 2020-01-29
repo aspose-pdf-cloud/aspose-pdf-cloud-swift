@@ -14101,6 +14101,65 @@ open class PdfAPI {
     }
 
     /**
+     Add document signature field.
+     
+     - parameter name: (path) The document name. 
+     - parameter field: (body) The field. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func postSignatureField(name: String, field: SignatureField, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            postSignatureFieldWithRequestBuilder(name: name, field: field, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Add document signature field.
+     - POST /pdf/{name}/fields/signature
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter field: (body) The field. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func postSignatureFieldWithRequestBuilder(name: String, field: SignatureField, storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/fields/signature"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: field)
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
      Split document to parts.
      
      - parameter name: (path) Document name. 
@@ -20182,6 +20241,65 @@ open class PdfAPI {
         let requestBuilder: RequestBuilder<DocumentPropertyResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Replace document signature field.
+     
+     - parameter name: (path) The document name. 
+     - parameter fieldName: (path) The field name. 
+     - parameter field: (body) The field. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func putSignatureField(name: String, fieldName: String, field: SignatureField, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: SignatureFieldResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            putSignatureFieldWithRequestBuilder(name: name, fieldName: fieldName, field: field, storage: storage, folder: folder).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Replace document signature field.
+     - PUT /pdf/{name}/fields/signature/{fieldName}
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example=""}]
+     
+     - parameter name: (path) The document name. 
+     - parameter fieldName: (path) The field name. 
+     - parameter field: (body) The field. 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter folder: (query) The document folder. (optional)
+
+     - returns: RequestBuilder<SignatureFieldResponse> 
+     */
+    open class func putSignatureFieldWithRequestBuilder(name: String, fieldName: String, field: SignatureField, storage: String? = nil, folder: String? = nil) -> RequestBuilder<SignatureFieldResponse> {
+        var pathUrl = "/pdf/{name}/fields/signature/{fieldName}"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        pathUrl = pathUrl.replacingOccurrences(of: "{fieldName}", with: "\(fieldName)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: field)
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "storage": storage, 
+            "folder": folder
+        ])
+        
+
+        let requestBuilder: RequestBuilder<SignatureFieldResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
