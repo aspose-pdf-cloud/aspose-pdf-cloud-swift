@@ -17,7 +17,7 @@ Edit assembly info of a PDF document online https://products.aspose.app/pdf/asse
 $ gem install cocoapods
 ```
 
-> CocoaPods 1.1+ is required to build AsposePdfCloud 20.1+.
+> CocoaPods 1.1+ is required to build AsposePdfCloud 20.2+.
 
 To integrate AsposePdfCloud into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
@@ -27,7 +27,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'AsposePdfCloud', '~> 20.1'
+    pod 'AsposePdfCloud', '~> 20.2'
 end
 ```
 
@@ -222,6 +222,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**getPageTextBoxFields**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getPageTextBoxFields) | **GET** /pdf/\{name}/page/\{pageNumber}/fields/textbox | Read document page text box fields.
 *PdfApi* | [**getPageUnderlineAnnotations**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getPageUnderlineAnnotations) | **GET** /pdf/\{name}/pages/\{pageNumber}/annotations/underline | Read document page underline annotations.
 *PdfApi* | [**getPclInStorageToPdf**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getPclInStorageToPdf) | **GET** /pdf/create/pcl | Convert PCL file (located on storage) to PDF format and return resulting file in response. 
+*PdfApi* | [**getPdfAInStorageToPdf**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getPdfAInStorageToPdf) | **GET** /pdf/create/pdfa | Convert PDFA file (located on storage) to PDF format and return resulting file in response. 
 *PdfApi* | [**getPdfInStorageToDoc**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getPdfInStorageToDoc) | **GET** /pdf/\{name}/convert/doc | Converts PDF document (located on storage) to DOC format and returns resulting file in response content
 *PdfApi* | [**getPdfInStorageToEpub**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getPdfInStorageToEpub) | **GET** /pdf/\{name}/convert/epub | Converts PDF document (located on storage) to EPUB format and returns resulting file in response content
 *PdfApi* | [**getPdfInStorageToHtml**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#getPdfInStorageToHtml) | **GET** /pdf/\{name}/convert/html | Converts PDF document (located on storage) to Html format and returns resulting file in response content
@@ -375,6 +376,7 @@ Class | Method | HTTP request | Description
 *PdfApi* | [**putPageConvertToPng**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#putPageConvertToPng) | **PUT** /pdf/\{name}/pages/\{pageNumber}/convert/png | Convert document page to png image and upload resulting file to storage.
 *PdfApi* | [**putPageConvertToTiff**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#putPageConvertToTiff) | **PUT** /pdf/\{name}/pages/\{pageNumber}/convert/tiff | Convert document page to Tiff image and upload resulting file to storage.
 *PdfApi* | [**putPclInStorageToPdf**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#putPclInStorageToPdf) | **PUT** /pdf/\{name}/create/pcl | Convert PCL file (located on storage) to PDF format and upload resulting file to storage. 
+*PdfApi* | [**putPdfAInStorageToPdf**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#putPdfAInStorageToPdf) | **PUT** /pdf/\{name}/create/pdfa | Convert PDFA file (located on storage) to PDF format and upload resulting file to storage. 
 *PdfApi* | [**putPdfInRequestToDoc**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#putPdfInRequestToDoc) | **PUT** /pdf/convert/doc | Converts PDF document (in request content) to DOC format and uploads resulting file to storage.
 *PdfApi* | [**putPdfInRequestToEpub**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#putPdfInRequestToEpub) | **PUT** /pdf/convert/epub | Converts PDF document (in request content) to EPUB format and uploads resulting file to storage.
 *PdfApi* | [**putPdfInRequestToHtml**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PdfApi.md#putPdfInRequestToHtml) | **PUT** /pdf/convert/html | Converts PDF document (in request content) to Html format and uploads resulting file to storage.

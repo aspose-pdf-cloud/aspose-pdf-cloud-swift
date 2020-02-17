@@ -8040,6 +8040,60 @@ open class PdfAPI {
     }
 
     /**
+     Convert PDFA file (located on storage) to PDF format and return resulting file in response. 
+     
+     - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.pdf) 
+     - parameter dontOptimize: (query) If set, document resources will not be optimized. (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getPdfAInStorageToPdf(srcPath: String, dontOptimize: Bool? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getPdfAInStorageToPdfWithRequestBuilder(srcPath: srcPath, dontOptimize: dontOptimize, storage: storage).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Convert PDFA file (located on storage) to PDF format and return resulting file in response. 
+     - GET /pdf/create/pdfa
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{output=none}]
+     
+     - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.pdf) 
+     - parameter dontOptimize: (query) If set, document resources will not be optimized. (optional)
+     - parameter storage: (query) The document storage. (optional)
+
+     - returns: RequestBuilder<Data> 
+     */
+    open class func getPdfAInStorageToPdfWithRequestBuilder(srcPath: String, dontOptimize: Bool? = nil, storage: String? = nil) -> RequestBuilder<Data> {
+        let pathUrl = "/pdf/create/pdfa"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "srcPath": srcPath, 
+            "dontOptimize": dontOptimize, 
+            "storage": storage
+        ])
+        
+
+        let requestBuilder: RequestBuilder<Data>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
      Converts PDF document (located on storage) to DOC format and returns resulting file in response content
      
      - parameter name: (path) The document name. 
@@ -10855,7 +10909,7 @@ open class PdfAPI {
      Add document bookmarks.
      
      - parameter name: (path) The document name. 
-     - parameter bookmarkPath: (path) The bookmark path. 
+     - parameter bookmarkPath: (path) The parent bookmark path. Specify an empty string when adding a bookmark to the root. 
      - parameter bookmarks: (body) The array of bookmark. 
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
@@ -10884,7 +10938,7 @@ open class PdfAPI {
      - examples: [{contentType=application/json, example=""}]
      
      - parameter name: (path) The document name. 
-     - parameter bookmarkPath: (path) The bookmark path. 
+     - parameter bookmarkPath: (path) The parent bookmark path. Specify an empty string when adding a bookmark to the root. 
      - parameter bookmarks: (body) The array of bookmark. 
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
@@ -17548,6 +17602,69 @@ open class PdfAPI {
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "srcPath": srcPath, 
             "dstFolder": dstFolder, 
+            "storage": storage
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Convert PDFA file (located on storage) to PDF format and upload resulting file to storage. 
+     
+     - parameter name: (path) The document name. 
+     - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.pdf) 
+     - parameter dstFolder: (query) The destination document folder. (optional)
+     - parameter dontOptimize: (query) If set, document resources will not be optimized. (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func putPdfAInStorageToPdf(name: String, srcPath: String, dstFolder: String? = nil, dontOptimize: Bool? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            putPdfAInStorageToPdfWithRequestBuilder(name: name, srcPath: srcPath, dstFolder: dstFolder, dontOptimize: dontOptimize, storage: storage).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Convert PDFA file (located on storage) to PDF format and upload resulting file to storage. 
+     - PUT /pdf/{name}/create/pdfa
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.pdf) 
+     - parameter dstFolder: (query) The destination document folder. (optional)
+     - parameter dontOptimize: (query) If set, document resources will not be optimized. (optional)
+     - parameter storage: (query) The document storage. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func putPdfAInStorageToPdfWithRequestBuilder(name: String, srcPath: String, dstFolder: String? = nil, dontOptimize: Bool? = nil, storage: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/create/pdfa"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "srcPath": srcPath, 
+            "dstFolder": dstFolder, 
+            "dontOptimize": dontOptimize, 
             "storage": storage
         ])
         

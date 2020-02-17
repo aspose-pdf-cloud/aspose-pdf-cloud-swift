@@ -707,4 +707,57 @@ class ConvertToPdfTests: AsposePdfCloudTests {
         
         self.waitForExpectations(timeout: testTimeout, handler: nil)
     }
+    
+    // PDFA
+    func testGetPdfAInStorageToPdf() {
+        
+        let expectation = self.expectation(description: "testGetPdfAInStorageToPdf")
+        let name = "4pagesPdfA.pdf"
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.getPdfAInStorageToPdf(srcPath: "\(self.tempFolder)/\(name)") {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testGetPdfAInStorageToPdf: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertFalse(response.isEmpty)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
+    
+    
+    func testPutPdfAInStorageToPdf() {
+        
+        let expectation = self.expectation(description: "testPutPdfAInStorageToPdf")
+        let name = "4pagesPdfA.pdf"
+        let resultName = "fromPdfA.pdf"
+        
+        uploadFile(name: name) {
+            
+            PdfAPI.putPdfAInStorageToPdf(name: resultName, srcPath: "\(self.tempFolder)/\(name)", dstFolder: self.tempFolder) {
+                (response, error) in
+                guard error == nil else {
+                    XCTFail("error testPutPdfAInStorageToPdf: " + (error.debugDescription))
+                    return
+                }
+                
+                if let response = response {
+                    XCTAssertEqual(response.code, self.codeOk)
+                    
+                    expectation.fulfill()
+                }
+            }
+        }
+        
+        self.waitForExpectations(timeout: testTimeout, handler: nil)
+    }
 }

@@ -38,6 +38,7 @@
 		128B4CEC238C25F500877D55 /* ComboBoxFieldResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128B4CE8238C25F500877D55 /* ComboBoxFieldResponse.swift */; };
 		128B4CED238C25F500877D55 /* ComboBoxField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128B4CE9238C25F500877D55 /* ComboBoxField.swift */; };
 		128B4CEE238C25F500877D55 /* ComboBoxFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128B4CEA238C25F500877D55 /* ComboBoxFields.swift */; };
+		12AE101C23F45BD7007D00A5 /* 4pagesPdfA.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 12AE101B23F45BD6007D00A5 /* 4pagesPdfA.pdf */; };
 		1E52FD8B2189F2AB00DEDC40 /* LineAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD702189F2A700DEDC40 /* LineAnnotation.swift */; };
 		1E52FD8C2189F2AB00DEDC40 /* PolygonAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD712189F2A700DEDC40 /* PolygonAnnotation.swift */; };
 		1E52FD8D2189F2AB00DEDC40 /* CircleAnnotationsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E52FD722189F2A700DEDC40 /* CircleAnnotationsResponse.swift */; };
@@ -439,6 +440,7 @@
 		128B4CE8238C25F500877D55 /* ComboBoxFieldResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComboBoxFieldResponse.swift; sourceTree = "<group>"; };
 		128B4CE9238C25F500877D55 /* ComboBoxField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComboBoxField.swift; sourceTree = "<group>"; };
 		128B4CEA238C25F500877D55 /* ComboBoxFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComboBoxFields.swift; sourceTree = "<group>"; };
+		12AE101B23F45BD6007D00A5 /* 4pagesPdfA.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = 4pagesPdfA.pdf; sourceTree = "<group>"; };
 		1E52FD702189F2A700DEDC40 /* LineAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineAnnotation.swift; sourceTree = "<group>"; };
 		1E52FD712189F2A700DEDC40 /* PolygonAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolygonAnnotation.swift; sourceTree = "<group>"; };
 		1E52FD722189F2A700DEDC40 /* CircleAnnotationsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleAnnotationsResponse.swift; sourceTree = "<group>"; };
@@ -1139,6 +1141,7 @@
 		1E668BBC2174B2E2004218A8 /* TestData */ = {
 			isa = PBXGroup;
 			children = (
+				12AE101B23F45BD6007D00A5 /* 4pagesPdfA.pdf */,
 				1E84B8C3233CF4F000057874 /* FormDataTextBox.pdf */,
 				1ED9932F231FC39700725F99 /* 33226.p12 */,
 				1ED99326231EB51600725F99 /* FormData.fdf */,
@@ -1394,6 +1397,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12AE101C23F45BD7007D00A5 /* 4pagesPdfA.pdf in Resources */,
 				1E84B8C4233CF4F100057874 /* FormDataTextBox.pdf in Resources */,
 				1ED99331231FC3B500725F99 /* 33226.p12 in Resources */,
 				1ED99329231EB51600725F99 /* FormDataXfa_in.xml in Resources */,
@@ -2001,7 +2005,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 20.1.0;
+				MARKETING_VERSION = 20.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aspose.AsposePdfCloud;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -2030,7 +2034,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 20.1.0;
+				MARKETING_VERSION = 20.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aspose.AsposePdfCloud;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
