@@ -3700,7 +3700,7 @@ Name | Type | Description  | Notes
 
 <a name="getPdfInStorageToLaTeX"></a>
 ## **getPdfInStorageToLaTeX**
-> getPdfInStorageToLaTeX(name: String, pagesCount: Int? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
+> getPdfInStorageToLaTeX(name: String, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?, _ error: Error?) -> Void))
 
 Converts PDF document (located on storage) to LaTeX format and returns resulting file in response content
 
@@ -3708,7 +3708,6 @@ Converts PDF document (located on storage) to LaTeX format and returns resulting
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **name** | **String** | The document name. | 
-**pagesCount** | **Int?** | Pages count. | [optional]
 **folder** | **String?** | The document folder. | [optional]
 **storage** | **String?** | The document storage. | [optional]
 
@@ -7435,7 +7434,7 @@ Name | Type | Description  | Notes
 
 <a name="putPdfInRequestToLaTeX"></a>
 ## **putPdfInRequestToLaTeX**
-> putPdfInRequestToLaTeX(outPath: String, pagesCount: Int? = nil, storage: String? = nil, file: Data? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+> putPdfInRequestToLaTeX(outPath: String, storage: String? = nil, file: Data? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
 
 Converts PDF document (in request content) to LaTeX format and uploads resulting file to storage.
 
@@ -7443,7 +7442,6 @@ Converts PDF document (in request content) to LaTeX format and uploads resulting
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **outPath** | **String** | Full resulting filename (ex. /folder1/folder2/result.tex) | 
-**pagesCount** | **Int?** | Pages count. | [optional]
 **storage** | **String?** | The document storage. | [optional]
 **file** | **Data?** | A file to be converted. | [optional]
 
@@ -7789,7 +7787,7 @@ Name | Type | Description  | Notes
 
 <a name="putPdfInStorageToLaTeX"></a>
 ## **putPdfInStorageToLaTeX**
-> putPdfInStorageToLaTeX(name: String, outPath: String, pagesCount: Int? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+> putPdfInStorageToLaTeX(name: String, outPath: String, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
 
 Converts PDF document (located on storage) to LaTeX format and uploads resulting file to storage
 
@@ -7798,7 +7796,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **name** | **String** | The document name. | 
 **outPath** | **String** | Full resulting filename (ex. /folder1/folder2/result.tex) | 
-**pagesCount** | **Int?** | Pages count. | [optional]
 **folder** | **String?** | The document folder. | [optional]
 **storage** | **String?** | The document storage. | [optional]
 

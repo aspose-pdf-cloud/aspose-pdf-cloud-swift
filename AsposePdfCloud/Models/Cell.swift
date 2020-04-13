@@ -39,6 +39,8 @@ open class Cell: Codable {
     public var backgroundColor: Color?
     /** Gets or sets the background image file. */
     public var backgroundImageFile: String?
+    /** Gets or sets path of the background image file from storage. */
+    public var backgroundImageStorageFile: String?
     /** Gets or sets the alignment. */
     public var alignment: HorizontalAlignment?
     /** Gets or sets the default cell text state. */
@@ -55,15 +57,20 @@ open class Cell: Codable {
     public var rowSpan: Int?
     /** Gets or sets the column width. */
     public var width: Double?
+    /** Gets or sets Html fragment. */
+    public var htmlFragment: String?
+    /** Gets or sets ImageFragment list. */
+    public var images: [ImageFragment]?
 
         
     
-    public init(isNoBorder: Bool?, margin: MarginInfo?, border: BorderInfo?, backgroundColor: Color?, backgroundImageFile: String?, alignment: HorizontalAlignment?, defaultCellTextState: TextState?, paragraphs: [TextRect]?, isWordWrapped: Bool?, verticalAlignment: VerticalAlignment?, colSpan: Int?, rowSpan: Int?, width: Double?) {
+    public init(isNoBorder: Bool?, margin: MarginInfo?, border: BorderInfo?, backgroundColor: Color?, backgroundImageFile: String?, backgroundImageStorageFile: String?, alignment: HorizontalAlignment?, defaultCellTextState: TextState?, paragraphs: [TextRect]?, isWordWrapped: Bool?, verticalAlignment: VerticalAlignment?, colSpan: Int?, rowSpan: Int?, width: Double?, htmlFragment: String?, images: [ImageFragment]?) {
         self.isNoBorder = isNoBorder
         self.margin = margin
         self.border = border
         self.backgroundColor = backgroundColor
         self.backgroundImageFile = backgroundImageFile
+        self.backgroundImageStorageFile = backgroundImageStorageFile
         self.alignment = alignment
         self.defaultCellTextState = defaultCellTextState
         self.paragraphs = paragraphs
@@ -72,6 +79,8 @@ open class Cell: Codable {
         self.colSpan = colSpan
         self.rowSpan = rowSpan
         self.width = width
+        self.htmlFragment = htmlFragment
+        self.images = images
     }
     
 
@@ -86,6 +95,7 @@ open class Cell: Codable {
         try container.encodeIfPresent(border, forKey: "Border")
         try container.encodeIfPresent(backgroundColor, forKey: "BackgroundColor")
         try container.encodeIfPresent(backgroundImageFile, forKey: "BackgroundImageFile")
+        try container.encodeIfPresent(backgroundImageStorageFile, forKey: "BackgroundImageStorageFile")
         try container.encodeIfPresent(alignment, forKey: "Alignment")
         try container.encodeIfPresent(defaultCellTextState, forKey: "DefaultCellTextState")
         try container.encodeIfPresent(paragraphs, forKey: "Paragraphs")
@@ -94,6 +104,8 @@ open class Cell: Codable {
         try container.encodeIfPresent(colSpan, forKey: "ColSpan")
         try container.encodeIfPresent(rowSpan, forKey: "RowSpan")
         try container.encodeIfPresent(width, forKey: "Width")
+        try container.encodeIfPresent(htmlFragment, forKey: "HtmlFragment")
+        try container.encodeIfPresent(images, forKey: "Images")
     }
 
     // Decodable protocol methods
@@ -106,6 +118,7 @@ open class Cell: Codable {
         border = try container.decodeIfPresent(BorderInfo.self, forKey: "Border")
         backgroundColor = try container.decodeIfPresent(Color.self, forKey: "BackgroundColor")
         backgroundImageFile = try container.decodeIfPresent(String.self, forKey: "BackgroundImageFile")
+        backgroundImageStorageFile = try container.decodeIfPresent(String.self, forKey: "BackgroundImageStorageFile")
         alignment = try container.decodeIfPresent(HorizontalAlignment.self, forKey: "Alignment")
         defaultCellTextState = try container.decodeIfPresent(TextState.self, forKey: "DefaultCellTextState")
         paragraphs = try container.decodeIfPresent([TextRect].self, forKey: "Paragraphs")
@@ -114,6 +127,8 @@ open class Cell: Codable {
         colSpan = try container.decodeIfPresent(Int.self, forKey: "ColSpan")
         rowSpan = try container.decodeIfPresent(Int.self, forKey: "RowSpan")
         width = try container.decodeIfPresent(Double.self, forKey: "Width")
+        htmlFragment = try container.decodeIfPresent(String.self, forKey: "HtmlFragment")
+        images = try container.decodeIfPresent([ImageFragment].self, forKey: "Images")
     }
 }
 
