@@ -312,9 +312,10 @@ class TablesTests: AsposePdfCloudTests {
             for c in 0..<numOfCols {
                 let cell = Cell(isNoBorder: nil, margin: nil, border: nil,
                                 backgroundColor: Color(A: 255, R: 0, G: 128, B: 0),
-                                backgroundImageFile: nil, alignment: nil, defaultCellTextState: textState,
+                                backgroundImageFile: nil,
+                                backgroundImageStorageFile: nil, alignment: nil, defaultCellTextState: textState,
                                 paragraphs: [TextRect(text: "Value", page: nil, rect: nil, horizontalAlignment: nil, verticalAlignment: nil, position: nil, baselinePosition: nil, textState: nil)],
-                                isWordWrapped: nil, verticalAlignment: nil, colSpan: nil, rowSpan: nil, width: nil)
+                                isWordWrapped: nil, verticalAlignment: nil, colSpan: nil, rowSpan: nil, width: nil, htmlFragment: nil, images: nil)
                 
                 // change properties on cell
                 if c == 1 {
@@ -338,9 +339,8 @@ class TablesTests: AsposePdfCloudTests {
                 // change properties on paragraph AFTER first clearing and re-adding paragraphs
                 else if c == 4
                 {
-                    cell.paragraphs?[0].text = "y"
-                    cell.paragraphs?[0].textState = textState
-                    cell.paragraphs?[0].textState?.foregroundColor = Color(A: 255, R: 0, G: 0, B: 255)
+                    cell.paragraphs = nil
+                    cell.htmlFragment = "<ul><li>First</li><li>Second</li></ul>"
                 }
                 row.cells.append(cell)
                 

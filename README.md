@@ -17,7 +17,7 @@ Edit assembly info of a PDF document online https://products.aspose.app/pdf/asse
 $ gem install cocoapods
 ```
 
-> CocoaPods 1.1+ is required to build AsposePdfCloud 20.2+.
+> CocoaPods 1.1+ is required to build AsposePdfCloud 20.4+.
 
 To integrate AsposePdfCloud into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
@@ -27,7 +27,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'AsposePdfCloud', '~> 20.2'
+    pod 'AsposePdfCloud', '~> 20.4'
 end
 ```
 
@@ -549,6 +549,7 @@ Class | Description
 [**HtmlMarkupGenerationModes**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/HtmlMarkupGenerationModes.md) | Sometimes specific reqirments to created HTML are present. This enum defines HTML preparing modes that can be used during conversion of PDF to HTML to match such specific requirments. 
 [**Image**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/Image.md) | Represents image DTO.
 [**ImageFooter**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/ImageFooter.md) | Represents Pdf image footer.
+[**ImageFragment**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/ImageFragment.md) | Represents Image Fragment DTO.
 [**ImageHeader**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/ImageHeader.md) | Represents Pdf image header.
 [**ImageResponse**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/ImageResponse.md) | Represents response containing single image info
 [**Images**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/Images.md) | Represents list of images.

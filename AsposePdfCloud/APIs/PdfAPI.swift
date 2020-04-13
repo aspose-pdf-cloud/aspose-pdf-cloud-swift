@@ -8373,19 +8373,18 @@ open class PdfAPI {
      Converts PDF document (located on storage) to LaTeX format and returns resulting file in response content
      
      - parameter name: (path) The document name. 
-     - parameter pagesCount: (query) Pages count. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getPdfInStorageToLaTeX(name: String, pagesCount: Int? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
+    open class func getPdfInStorageToLaTeX(name: String, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
                 completion(nil, authError)
                 return
             }
-            getPdfInStorageToLaTeXWithRequestBuilder(name: name, pagesCount: pagesCount, folder: folder, storage: storage).execute { (response, error) -> Void in
+            getPdfInStorageToLaTeXWithRequestBuilder(name: name, folder: folder, storage: storage).execute { (response, error) -> Void in
                 completion(response?.body, error);
             }
         }
@@ -8401,13 +8400,12 @@ open class PdfAPI {
      - examples: [{output=none}]
      
      - parameter name: (path) The document name. 
-     - parameter pagesCount: (query) Pages count. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
 
      - returns: RequestBuilder<Data> 
      */
-    open class func getPdfInStorageToLaTeXWithRequestBuilder(name: String, pagesCount: Int? = nil, folder: String? = nil, storage: String? = nil) -> RequestBuilder<Data> {
+    open class func getPdfInStorageToLaTeXWithRequestBuilder(name: String, folder: String? = nil, storage: String? = nil) -> RequestBuilder<Data> {
         var pathUrl = "/pdf/{name}/convert/latex"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
@@ -8415,7 +8413,6 @@ open class PdfAPI {
 
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
-            "pagesCount": pagesCount?.encodeToJSON(), 
             "folder": folder, 
             "storage": storage
         ])
@@ -17975,19 +17972,18 @@ open class PdfAPI {
      Converts PDF document (in request content) to LaTeX format and uploads resulting file to storage.
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.tex) 
-     - parameter pagesCount: (query) Pages count. (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter file: (form) A file to be converted. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putPdfInRequestToLaTeX(outPath: String, pagesCount: Int? = nil, storage: String? = nil, file: URL? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+    open class func putPdfInRequestToLaTeX(outPath: String, storage: String? = nil, file: URL? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
                 completion(nil, authError)
                 return
             }
-            putPdfInRequestToLaTeXWithRequestBuilder(outPath: outPath, pagesCount: pagesCount, storage: storage, file: file).execute { (response, error) -> Void in
+            putPdfInRequestToLaTeXWithRequestBuilder(outPath: outPath, storage: storage, file: file).execute { (response, error) -> Void in
                 completion(response?.body, error);
             }
         }
@@ -18006,13 +18002,12 @@ open class PdfAPI {
 }}]
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.tex) 
-     - parameter pagesCount: (query) Pages count. (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter file: (form) A file to be converted. (optional)
 
      - returns: RequestBuilder<AsposeResponse> 
      */
-    open class func putPdfInRequestToLaTeXWithRequestBuilder(outPath: String, pagesCount: Int? = nil, storage: String? = nil, file: URL? = nil) -> RequestBuilder<AsposeResponse> {
+    open class func putPdfInRequestToLaTeXWithRequestBuilder(outPath: String, storage: String? = nil, file: URL? = nil) -> RequestBuilder<AsposeResponse> {
         let pathUrl = "/pdf/convert/latex"
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let formParams: [String:Any?] = [
@@ -18025,7 +18020,6 @@ open class PdfAPI {
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
-            "pagesCount": pagesCount?.encodeToJSON(), 
             "storage": storage
         ])
         
@@ -18961,19 +18955,18 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.tex) 
-     - parameter pagesCount: (query) Pages count. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putPdfInStorageToLaTeX(name: String, outPath: String, pagesCount: Int? = nil, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+    open class func putPdfInStorageToLaTeX(name: String, outPath: String, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
                 completion(nil, authError)
                 return
             }
-            putPdfInStorageToLaTeXWithRequestBuilder(name: name, outPath: outPath, pagesCount: pagesCount, folder: folder, storage: storage).execute { (response, error) -> Void in
+            putPdfInStorageToLaTeXWithRequestBuilder(name: name, outPath: outPath, folder: folder, storage: storage).execute { (response, error) -> Void in
                 completion(response?.body, error);
             }
         }
@@ -18993,13 +18986,12 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.tex) 
-     - parameter pagesCount: (query) Pages count. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter storage: (query) The document storage. (optional)
 
      - returns: RequestBuilder<AsposeResponse> 
      */
-    open class func putPdfInStorageToLaTeXWithRequestBuilder(name: String, outPath: String, pagesCount: Int? = nil, folder: String? = nil, storage: String? = nil) -> RequestBuilder<AsposeResponse> {
+    open class func putPdfInStorageToLaTeXWithRequestBuilder(name: String, outPath: String, folder: String? = nil, storage: String? = nil) -> RequestBuilder<AsposeResponse> {
         var pathUrl = "/pdf/{name}/convert/latex"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
@@ -19008,7 +19000,6 @@ open class PdfAPI {
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "outPath": outPath, 
-            "pagesCount": pagesCount?.encodeToJSON(), 
             "folder": folder, 
             "storage": storage
         ])

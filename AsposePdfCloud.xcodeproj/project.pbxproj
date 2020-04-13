@@ -34,6 +34,7 @@
 		125EF5D9236C7F1F0013E682 /* RadioButtonField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125EF5D3236C7F1F0013E682 /* RadioButtonField.swift */; };
 		125EF5DA236C7F1F0013E682 /* RadioButtonFieldsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125EF5D4236C7F1F0013E682 /* RadioButtonFieldsResponse.swift */; };
 		125EF5DB236C7F1F0013E682 /* RadioButtonOptionField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125EF5D5236C7F1F0013E682 /* RadioButtonOptionField.swift */; };
+		1278CC982444B50900AACF09 /* ImageFragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278CC972444B50900AACF09 /* ImageFragment.swift */; };
 		128B4CEB238C25F500877D55 /* ComboBoxFieldsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128B4CE7238C25F500877D55 /* ComboBoxFieldsResponse.swift */; };
 		128B4CEC238C25F500877D55 /* ComboBoxFieldResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128B4CE8238C25F500877D55 /* ComboBoxFieldResponse.swift */; };
 		128B4CED238C25F500877D55 /* ComboBoxField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128B4CE9238C25F500877D55 /* ComboBoxField.swift */; };
@@ -436,6 +437,7 @@
 		125EF5D3236C7F1F0013E682 /* RadioButtonField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioButtonField.swift; sourceTree = "<group>"; };
 		125EF5D4236C7F1F0013E682 /* RadioButtonFieldsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioButtonFieldsResponse.swift; sourceTree = "<group>"; };
 		125EF5D5236C7F1F0013E682 /* RadioButtonOptionField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioButtonOptionField.swift; sourceTree = "<group>"; };
+		1278CC972444B50900AACF09 /* ImageFragment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFragment.swift; sourceTree = "<group>"; };
 		128B4CE7238C25F500877D55 /* ComboBoxFieldsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComboBoxFieldsResponse.swift; sourceTree = "<group>"; };
 		128B4CE8238C25F500877D55 /* ComboBoxFieldResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComboBoxFieldResponse.swift; sourceTree = "<group>"; };
 		128B4CE9238C25F500877D55 /* ComboBoxField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComboBoxField.swift; sourceTree = "<group>"; };
@@ -858,6 +860,7 @@
 		1E668AE72174AFC2004218A8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1278CC972444B50900AACF09 /* ImageFragment.swift */,
 				1E668B072174AFF2004218A8 /* Annotation.swift */,
 				1E668B1C2174AFF4004218A8 /* AnnotationFlags.swift */,
 				1E668B0B2174AFF2004218A8 /* AnnotationInfo.swift */,
@@ -1676,6 +1679,7 @@
 				1E668B992174AFFC004218A8 /* LettersPositioningMethods.swift in Sources */,
 				1E9D85BB21B55DF50026DB97 /* CaretAnnotationResponse.swift in Sources */,
 				1E668BAA2174AFFC004218A8 /* Pages.swift in Sources */,
+				1278CC982444B50900AACF09 /* ImageFragment.swift in Sources */,
 				1E9A4AD522280BBB00BE3FA5 /* ScreenAnnotationResponse.swift in Sources */,
 				1E668BA92174AFFC004218A8 /* CompressionType.swift in Sources */,
 				1E7AF02122FC47C20017310A /* FileVersions.swift in Sources */,
@@ -2005,7 +2009,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 20.2.0;
+				MARKETING_VERSION = 20.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aspose.AsposePdfCloud;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -2034,7 +2038,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 20.2.0;
+				MARKETING_VERSION = 20.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aspose.AsposePdfCloud;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
