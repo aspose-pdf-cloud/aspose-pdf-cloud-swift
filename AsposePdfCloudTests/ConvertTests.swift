@@ -805,18 +805,18 @@ class ConvertTests: AsposePdfCloudTests {
     }
     
     
-    //to LaTeX
+    //to TeX
     
-    func testGetPdfInStorageToLaTeX() {
+    func testGetPdfInStorageToTeX() {
         
-        let expectation = self.expectation(description: "testGetPdfInStorageToLaTeX")
+        let expectation = self.expectation(description: "testGetPdfInStorageToTeX")
         
         uploadFile(name: fileName) {
             
-            PdfAPI.getPdfInStorageToLaTeX(name: self.fileName, folder: self.tempFolder) {
+            PdfAPI.getPdfInStorageToTeX(name: self.fileName, folder: self.tempFolder) {
                 (response, error) in
                 guard error == nil else {
-                    XCTFail("error testGetPdfInStorageToLaTeX")
+                    XCTFail("error testGetPdfInStorageToTeX")
                     return
                 }
                 
@@ -831,18 +831,18 @@ class ConvertTests: AsposePdfCloudTests {
         self.waitForExpectations(timeout: testTimeout, handler: nil)
     }
     
-    func testPutPdfInStorageToLaTeX() {
+    func testPutPdfInStorageToTeX() {
         
-        let expectation = self.expectation(description: "testPutPdfInStorageToLaTeX")
+        let expectation = self.expectation(description: "testPutPdfInStorageToTeX")
         let resFileName = "result.tex"
         let outPath = "\(self.tempFolder)/\(resFileName)"
         
         uploadFile(name: fileName) {
             
-            PdfAPI.putPdfInStorageToLaTeX(name: self.fileName, outPath: outPath, folder: self.tempFolder) {
+            PdfAPI.putPdfInStorageToTeX(name: self.fileName, outPath: outPath, folder: self.tempFolder) {
                 (response, error) in
                 guard error == nil else {
-                    XCTFail("error testPutPdfInStorageToLaTeX")
+                    XCTFail("error testPutPdfInStorageToTeX")
                     return
                 }
                 
@@ -858,17 +858,17 @@ class ConvertTests: AsposePdfCloudTests {
     }
     
     
-    func testPutPdfInRequestToLaTeX() {
+    func testPutPdfInRequestToTeX() {
         
-        let expectation = self.expectation(description: "testPutPdfInRequestToLaTeX")
+        let expectation = self.expectation(description: "testPutPdfInRequestToTeX")
         let resFileName = "result.tex"
         let outPath = "\(self.tempFolder)/\(resFileName)"
         let file = getURL(fileName)
         
-        PdfAPI.putPdfInRequestToLaTeX(outPath: outPath, file: file) {
+        PdfAPI.putPdfInRequestToTeX(outPath: outPath, file: file) {
             (response, error) in
             guard error == nil else {
-                XCTFail("error testPutPdfInRequestToLaTeX")
+                XCTFail("error testPutPdfInRequestToTeX")
                 return
             }
             
