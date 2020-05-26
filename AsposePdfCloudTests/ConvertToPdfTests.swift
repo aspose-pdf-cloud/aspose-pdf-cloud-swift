@@ -131,18 +131,18 @@ class ConvertToPdfTests: AsposePdfCloudTests {
     }
     
     
-    // LaTeX
-    func testGetLaTeXInStorageToPdf() {
+    // TeX
+    func testGetTeXInStorageToPdf() {
         
-        let expectation = self.expectation(description: "testGetLaTeXInStorageToPdf")
+        let expectation = self.expectation(description: "testGetTeXInStorageToPdf")
         let name = "sample.tex"
         
         uploadFile(name: name) {
             
-            PdfAPI.getLaTeXInStorageToPdf(srcPath: "\(self.tempFolder)/\(name)") {
+            PdfAPI.getTeXInStorageToPdf(srcPath: "\(self.tempFolder)/\(name)") {
                 (response, error) in
                 guard error == nil else {
-                    XCTFail("error testGetLaTeXInStorageToPdf: " + (error.debugDescription))
+                    XCTFail("error testGetTeXInStorageToPdf: " + (error.debugDescription))
                     return
                 }
                 
@@ -158,18 +158,18 @@ class ConvertToPdfTests: AsposePdfCloudTests {
     }
     
     
-    func testPutLaTeXInStorageToPdf() {
+    func testPutTeXInStorageToPdf() {
         
-        let expectation = self.expectation(description: "testPutLaTeXInStorageToPdf")
+        let expectation = self.expectation(description: "testPutTeXInStorageToPdf")
         let name = "sample.tex"
         let resultName = "fromTex.pdf"
         
         uploadFile(name: name) {
             
-            PdfAPI.putLaTeXInStorageToPdf(name: resultName, srcPath: "\(self.tempFolder)/\(name)", dstFolder: self.tempFolder) {
+            PdfAPI.putTeXInStorageToPdf(name: resultName, srcPath: "\(self.tempFolder)/\(name)", dstFolder: self.tempFolder) {
                 (response, error) in
                 guard error == nil else {
-                    XCTFail("error testPutLaTeXInStorageToPdf: " + (error.debugDescription))
+                    XCTFail("error testPutTeXInStorageToPdf: " + (error.debugDescription))
                     return
                 }
                 

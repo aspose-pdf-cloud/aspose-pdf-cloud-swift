@@ -5271,7 +5271,7 @@ open class PdfAPI {
     }
 
     /**
-     Convert LaTeX file (located on storage) to PDF format and return resulting file in response. 
+     Convert TeX file (located on storage) to PDF format and return resulting file in response. 
      
      - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.tex) 
      - parameter storage: (query) The document storage. (optional)
@@ -5292,7 +5292,7 @@ open class PdfAPI {
 
 
     /**
-     Convert LaTeX file (located on storage) to PDF format and return resulting file in response. 
+     Convert TeX file (located on storage) to PDF format and return resulting file in response. 
      - GET /pdf/create/latex
      - OAuth:
        - type: oauth2
@@ -8370,7 +8370,7 @@ open class PdfAPI {
     }
 
     /**
-     Converts PDF document (located on storage) to LaTeX format and returns resulting file in response content
+     Converts PDF document (located on storage) to TeX format and returns resulting file in response content
      
      - parameter name: (path) The document name. 
      - parameter folder: (query) The document folder. (optional)
@@ -8392,7 +8392,7 @@ open class PdfAPI {
 
 
     /**
-     Converts PDF document (located on storage) to LaTeX format and returns resulting file in response content
+     Converts PDF document (located on storage) to TeX format and returns resulting file in response content
      - GET /pdf/{name}/convert/latex
      - OAuth:
        - type: oauth2
@@ -8641,6 +8641,60 @@ open class PdfAPI {
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "compressOutputToZipArchive": compressOutputToZipArchive, 
+            "folder": folder, 
+            "storage": storage
+        ])
+        
+
+        let requestBuilder: RequestBuilder<Data>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Converts PDF document (located on storage) to TeX format and returns resulting file in response content
+     
+     - parameter name: (path) The document name. 
+     - parameter folder: (query) The document folder. (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getPdfInStorageToTeX(name: String, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getPdfInStorageToTeXWithRequestBuilder(name: name, folder: folder, storage: storage).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Converts PDF document (located on storage) to TeX format and returns resulting file in response content
+     - GET /pdf/{name}/convert/tex
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{output=none}]
+     
+     - parameter name: (path) The document name. 
+     - parameter folder: (query) The document folder. (optional)
+     - parameter storage: (query) The document storage. (optional)
+
+     - returns: RequestBuilder<Data> 
+     */
+    open class func getPdfInStorageToTeXWithRequestBuilder(name: String, folder: String? = nil, storage: String? = nil) -> RequestBuilder<Data> {
+        var pathUrl = "/pdf/{name}/convert/tex"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "folder": folder, 
             "storage": storage
         ])
@@ -10024,6 +10078,57 @@ open class PdfAPI {
         
 
         let requestBuilder: RequestBuilder<TableRecognizedResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Convert TeX file (located on storage) to PDF format and return resulting file in response. 
+     
+     - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.tex) 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getTeXInStorageToPdf(srcPath: String, storage: String? = nil, completion: @escaping ((_ data: Data?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getTeXInStorageToPdfWithRequestBuilder(srcPath: srcPath, storage: storage).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Convert TeX file (located on storage) to PDF format and return resulting file in response. 
+     - GET /pdf/create/tex
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{output=none}]
+     
+     - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.tex) 
+     - parameter storage: (query) The document storage. (optional)
+
+     - returns: RequestBuilder<Data> 
+     */
+    open class func getTeXInStorageToPdfWithRequestBuilder(srcPath: String, storage: String? = nil) -> RequestBuilder<Data> {
+        let pathUrl = "/pdf/create/tex"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "srcPath": srcPath, 
+            "storage": storage
+        ])
+        
+
+        let requestBuilder: RequestBuilder<Data>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
@@ -16601,7 +16706,7 @@ open class PdfAPI {
     }
 
     /**
-     Convert LaTeX file (located on storage) to PDF format and upload resulting file to storage. 
+     Convert TeX file (located on storage) to PDF format and upload resulting file to storage. 
      
      - parameter name: (path) The document name. 
      - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.tex) 
@@ -16624,7 +16729,7 @@ open class PdfAPI {
 
 
     /**
-     Convert LaTeX file (located on storage) to PDF format and upload resulting file to storage. 
+     Convert TeX file (located on storage) to PDF format and upload resulting file to storage. 
      - PUT /pdf/{name}/create/latex
      - OAuth:
        - type: oauth2
@@ -17969,7 +18074,7 @@ open class PdfAPI {
     }
 
     /**
-     Converts PDF document (in request content) to LaTeX format and uploads resulting file to storage.
+     Converts PDF document (in request content) to TeX format and uploads resulting file to storage.
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.tex) 
      - parameter storage: (query) The document storage. (optional)
@@ -17991,7 +18096,7 @@ open class PdfAPI {
 
 
     /**
-     Converts PDF document (in request content) to LaTeX format and uploads resulting file to storage.
+     Converts PDF document (in request content) to TeX format and uploads resulting file to storage.
      - PUT /pdf/convert/latex
      - OAuth:
        - type: oauth2
@@ -18262,6 +18367,67 @@ open class PdfAPI {
      */
     open class func putPdfInRequestToSvgWithRequestBuilder(outPath: String, storage: String? = nil, file: URL? = nil) -> RequestBuilder<AsposeResponse> {
         let pathUrl = "/pdf/convert/svg"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let formParams: [String:Any?] = [
+            "file": file
+        ]
+
+        let nonNullParameters = APIHelper.rejectNil(formParams)
+        let parameters = APIHelper.convertBoolToString(nonNullParameters)
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "outPath": outPath, 
+            "storage": storage
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Converts PDF document (in request content) to TeX format and uploads resulting file to storage.
+     
+     - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.tex) 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter file: (form) A file to be converted. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func putPdfInRequestToTeX(outPath: String, storage: String? = nil, file: URL? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            putPdfInRequestToTeXWithRequestBuilder(outPath: outPath, storage: storage, file: file).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Converts PDF document (in request content) to TeX format and uploads resulting file to storage.
+     - PUT /pdf/convert/tex
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.tex) 
+     - parameter storage: (query) The document storage. (optional)
+     - parameter file: (form) A file to be converted. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func putPdfInRequestToTeXWithRequestBuilder(outPath: String, storage: String? = nil, file: URL? = nil) -> RequestBuilder<AsposeResponse> {
+        let pathUrl = "/pdf/convert/tex"
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let formParams: [String:Any?] = [
             "file": file
@@ -18951,7 +19117,7 @@ open class PdfAPI {
     }
 
     /**
-     Converts PDF document (located on storage) to LaTeX format and uploads resulting file to storage
+     Converts PDF document (located on storage) to TeX format and uploads resulting file to storage
      
      - parameter name: (path) The document name. 
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.tex) 
@@ -18974,7 +19140,7 @@ open class PdfAPI {
 
 
     /**
-     Converts PDF document (located on storage) to LaTeX format and uploads resulting file to storage
+     Converts PDF document (located on storage) to TeX format and uploads resulting file to storage
      - PUT /pdf/{name}/convert/latex
      - OAuth:
        - type: oauth2
@@ -19242,6 +19408,66 @@ open class PdfAPI {
      */
     open class func putPdfInStorageToSvgWithRequestBuilder(name: String, outPath: String, folder: String? = nil, storage: String? = nil) -> RequestBuilder<AsposeResponse> {
         var pathUrl = "/pdf/{name}/convert/svg"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "outPath": outPath, 
+            "folder": folder, 
+            "storage": storage
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
+     Converts PDF document (located on storage) to TeX format and uploads resulting file to storage
+     
+     - parameter name: (path) The document name. 
+     - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.tex) 
+     - parameter folder: (query) The document folder. (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func putPdfInStorageToTeX(name: String, outPath: String, folder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            putPdfInStorageToTeXWithRequestBuilder(name: name, outPath: outPath, folder: folder, storage: storage).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Converts PDF document (located on storage) to TeX format and uploads resulting file to storage
+     - PUT /pdf/{name}/convert/tex
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.tex) 
+     - parameter folder: (query) The document folder. (optional)
+     - parameter storage: (query) The document storage. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func putPdfInStorageToTeXWithRequestBuilder(name: String, outPath: String, folder: String? = nil, storage: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/convert/tex"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         let URLString = AsposePdfCloudAPI.basePath + pathUrl
         let parameters: [String:Any]? = nil
@@ -20975,6 +21201,66 @@ open class PdfAPI {
         let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: true)
+    }
+
+    /**
+     Convert TeX file (located on storage) to PDF format and upload resulting file to storage. 
+     
+     - parameter name: (path) The document name. 
+     - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.tex) 
+     - parameter dstFolder: (query) The destination document folder. (optional)
+     - parameter storage: (query) The document storage. (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func putTeXInStorageToPdf(name: String, srcPath: String, dstFolder: String? = nil, storage: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            putTeXInStorageToPdfWithRequestBuilder(name: name, srcPath: srcPath, dstFolder: dstFolder, storage: storage).execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     Convert TeX file (located on storage) to PDF format and upload resulting file to storage. 
+     - PUT /pdf/{name}/create/tex
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example={
+  "Status" : "Status",
+  "Code" : 0
+}}]
+     
+     - parameter name: (path) The document name. 
+     - parameter srcPath: (query) Full source filename (ex. /folder1/folder2/template.tex) 
+     - parameter dstFolder: (query) The destination document folder. (optional)
+     - parameter storage: (query) The document storage. (optional)
+
+     - returns: RequestBuilder<AsposeResponse> 
+     */
+    open class func putTeXInStorageToPdfWithRequestBuilder(name: String, srcPath: String, dstFolder: String? = nil, storage: String? = nil) -> RequestBuilder<AsposeResponse> {
+        var pathUrl = "/pdf/{name}/create/tex"
+        pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+        urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "srcPath": srcPath, 
+            "dstFolder": dstFolder, 
+            "storage": storage
+        ])
+        
+
+        let requestBuilder: RequestBuilder<AsposeResponse>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
     }
 
     /**
