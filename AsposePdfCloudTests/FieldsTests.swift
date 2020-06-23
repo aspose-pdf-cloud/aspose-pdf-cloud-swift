@@ -347,6 +347,7 @@ class FieldsTests: AsposePdfCloudTests {
         let field = SignatureField(
             links: nil,
             partialName: "Sign1",
+            fullName: nil,
             rect: Rectangle(LLX: 100, LLY: 100, URX: 0, URY: 0),
             value: nil,
             pageIndex: 1,
@@ -414,6 +415,7 @@ class FieldsTests: AsposePdfCloudTests {
         let field = SignatureField(
             links: nil,
             partialName: "Sign1",
+            fullName: nil,
             rect: Rectangle(LLX: 100, LLY: 100, URX: 0, URY: 0),
             value: nil,
             pageIndex: 1,
@@ -536,7 +538,7 @@ class FieldsTests: AsposePdfCloudTests {
         let expectation = self.expectation(description: "testPostTextBoxFields")
         
         let textBox = TextBoxField(links: nil,
-                                   partialName: "testField",
+                                   partialName: "testField", fullName: nil,
                                    rect: Rectangle(LLX: 100, LLY: 100, URX: 500, URY: 200),
                                    value: "Value\nValue",
                                    pageIndex: 1,
@@ -589,7 +591,7 @@ class FieldsTests: AsposePdfCloudTests {
         let fieldName = "Petitioner"
         
         let textBox = TextBoxField(links: nil,
-                                   partialName: "testField",
+                                   partialName: "testField", fullName: nil,
                                    rect: Rectangle(LLX: 100, LLY: 100, URX: 500, URY: 200),
                                    value: "Value\nValue",
                                    pageIndex: 1,
@@ -719,7 +721,7 @@ class FieldsTests: AsposePdfCloudTests {
         let expectation = self.expectation(description: "testPostCheckBoxFields")
         
         let field = CheckBoxField(links: nil,
-            partialName: "testField",
+            partialName: "testField", fullName: nil,
             rect: Rectangle(LLX: 100, LLY: 100, URX: 200, URY: 200),
             value: nil,
             pageIndex: 1,
@@ -771,7 +773,7 @@ class FieldsTests: AsposePdfCloudTests {
         let fieldName = "checkboxField"
         
         let field = CheckBoxField(links: nil,
-            partialName: "testField",
+            partialName: "testField", fullName: nil,
             rect: Rectangle(LLX: 100, LLY: 100, URX: 200, URY: 200),
             value: nil,
             pageIndex: 1,
@@ -899,7 +901,7 @@ class FieldsTests: AsposePdfCloudTests {
         let expectation = self.expectation(description: "testPostRadioButtonFields")
         
         let field = RadioButtonField(links: nil,
-            partialName: "testField",
+            partialName: "testField", fullName: nil,
             rect: Rectangle(LLX: 100, LLY: 100, URX: 160, URY: 140),
             value: nil,
             pageIndex: 1,
@@ -923,7 +925,7 @@ class FieldsTests: AsposePdfCloudTests {
             radioButtonOptionsField: [
                 RadioButtonOptionField(
                     links: nil,
-                    partialName: nil,
+                    partialName: nil, fullName: nil,
                     rect: Rectangle(LLX: 100.0, LLY: 130.0, URX: 160.0, URY: 140.0),
                     value: nil,
                     pageIndex: 1,
@@ -945,7 +947,7 @@ class FieldsTests: AsposePdfCloudTests {
                     style: BoxStyle.cross),
                 RadioButtonOptionField(
                     links: nil,
-                    partialName: nil,
+                    partialName: nil, fullName: nil,
                     rect: Rectangle(LLX: 150.0, LLY: 120.0, URX: 160.0, URY: 130.0),
                     value: nil,
                     pageIndex: 1,
@@ -995,7 +997,7 @@ class FieldsTests: AsposePdfCloudTests {
         let fieldName = "radiobuttonField"
         
         let field = RadioButtonField(links: nil,
-            partialName: "testField",
+            partialName: "testField", fullName: nil,
             rect: Rectangle(LLX: 100, LLY: 100, URX: 160, URY: 140),
             value: nil,
             pageIndex: 1,
@@ -1019,7 +1021,7 @@ class FieldsTests: AsposePdfCloudTests {
             radioButtonOptionsField: [
                 RadioButtonOptionField(
                     links: nil,
-                    partialName: nil,
+                    partialName: nil, fullName: nil,
                     rect: Rectangle(LLX: 100.0, LLY: 130.0, URX: 160.0, URY: 140.0),
                     value: nil,
                     pageIndex: 1,
@@ -1041,7 +1043,7 @@ class FieldsTests: AsposePdfCloudTests {
                     style: BoxStyle.cross),
                 RadioButtonOptionField(
                     links: nil,
-                    partialName: nil,
+                    partialName: nil, fullName: nil,
                     rect: Rectangle(LLX: 150.0, LLY: 120.0, URX: 160.0, URY: 130.0),
                     value: nil,
                     pageIndex: 1,
@@ -1168,7 +1170,7 @@ class FieldsTests: AsposePdfCloudTests {
         let expectation = self.expectation(description: "testPostComboBoxFields")
         
         let field = ComboBoxField(links: nil,
-            partialName: "testField",
+            partialName: "testField", fullName: nil,
             rect: Rectangle(LLX: 100, LLY: 100, URX: 160, URY: 140),
             value: nil,
             pageIndex: 1,
@@ -1233,7 +1235,7 @@ class FieldsTests: AsposePdfCloudTests {
         let fieldName = "comboboxField"
         
         let field = ComboBoxField(links: nil,
-        partialName: "testField",
+        partialName: "testField", fullName: nil,
         rect: Rectangle(LLX: 100, LLY: 100, URX: 160, URY: 140),
         value: nil,
         pageIndex: 1,
@@ -1375,7 +1377,7 @@ class FieldsTests: AsposePdfCloudTests {
         let expectation = self.expectation(description: "testPostListBoxFields")
         
         let field = ListBoxField(links: nil,
-            partialName: "testField",
+            partialName: "testField", fullName: nil,
             rect: Rectangle(LLX: 100, LLY: 100, URX: 160, URY: 140),
             value: nil,
             pageIndex: 1,
@@ -1452,7 +1454,7 @@ class FieldsTests: AsposePdfCloudTests {
         let fieldName = "listboxField"
         
         let field = ListBoxField(links: nil,
-        partialName: "testField",
+        partialName: "testField", fullName: nil,
         rect: Rectangle(LLX: 100, LLY: 100, URX: 160, URY: 140),
         value: nil,
         pageIndex: 1,

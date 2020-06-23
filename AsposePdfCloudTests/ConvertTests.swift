@@ -600,12 +600,12 @@ class ConvertTests: AsposePdfCloudTests {
     func testPutPdfInStorageToHtml() {
         
         let expectation = self.expectation(description: "testPutPdfInStorageToHtml")
-        let resFileName = "result.zip"
+        let resFileName = "result.html"
         let outPath = "\(self.tempFolder)/\(resFileName)"
         
         uploadFile(name: fileName) {
             
-            PdfAPI.putPdfInStorageToHtml(name: self.fileName, outPath: outPath, folder: self.tempFolder) {
+            PdfAPI.putPdfInStorageToHtml(name: self.fileName, outPath: outPath, folder: self.tempFolder, outputFormat: OutputFormat.folder.rawValue) {
                 (response, error) in
                 guard error == nil else {
                     XCTFail("error testPutPdfInStorageToHtml")
