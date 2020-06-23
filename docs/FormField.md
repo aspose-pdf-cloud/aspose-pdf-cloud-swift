@@ -6,6 +6,7 @@ Provides form field.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **partialName** | **String?** | Field name. | [optional]
+**fullName** | **String?** | Full Field name. | [optional]
 **rect** | [**Rectangle?**](Rectangle.md) | Field rectangle. | [optional]
 **value** | **String?** | Field value. | [optional]
 **pageIndex** | **Int** | Page index. | 

@@ -17,7 +17,7 @@ Edit assembly info of a PDF document online https://products.aspose.app/pdf/asse
 $ gem install cocoapods
 ```
 
-> CocoaPods 1.1+ is required to build AsposePdfCloud 20.5+.
+> CocoaPods 1.1+ is required to build AsposePdfCloud 20.6+.
 
 To integrate AsposePdfCloud into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
@@ -27,7 +27,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'AsposePdfCloud', '~> 20.5'
+    pod 'AsposePdfCloud', '~> 20.6'
 end
 ```
 
@@ -598,6 +598,7 @@ Class | Description
 [**ObjectExist**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/ObjectExist.md) | Object exists
 [**OptimizeOptions**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/OptimizeOptions.md) | Represents Pdf optimize options.
 [**Option**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/Option.md) | Provides form option.
+[**OutputFormat**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/OutputFormat.md) | Enumeration for output type format.
 [**Page**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/Page.md) | Provides link to page.
 [**PageLayout**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PageLayout.md) | Descibes page layout.
 [**PageMode**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/PageMode.md) | Class descibes used components of the document page.

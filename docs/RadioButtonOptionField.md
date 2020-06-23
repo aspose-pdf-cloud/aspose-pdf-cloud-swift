@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **optionName** | **String?** | Gets or sets name of the option. | [optional]
 **style** | [**BoxStyle?**](BoxStyle.md) | Style of field box. | [optional]
 **partialName** | **String?** | Field name.<br />*Inherited from [FormField](FormField.md)* | [optional]
+**fullName** | **String?** | Full Field name.<br />*Inherited from [FormField](FormField.md)* | [optional]
 **rect** | [**Rectangle?**](Rectangle.md) | Field rectangle.<br />*Inherited from [FormField](FormField.md)* | [optional]
 **value** | **String?** | Field value.<br />*Inherited from [FormField](FormField.md)* | [optional]
 **pageIndex** | **Int** | Page index.<br />*Inherited from [FormField](FormField.md)* | 
