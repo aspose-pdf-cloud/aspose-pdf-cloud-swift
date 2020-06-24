@@ -22,6 +22,7 @@
 		122D5DF723CE1C8300D9E42E /* ListBoxFieldResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122D5DE823CE1C8200D9E42E /* ListBoxFieldResponse.swift */; };
 		122D5DF823CE1C8300D9E42E /* ListBoxFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122D5DE923CE1C8200D9E42E /* ListBoxFields.swift */; };
 		122D5DF923CE1C8300D9E42E /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122D5DEA23CE1C8200D9E42E /* Direction.swift */; };
+		125B282224A23A8D001CAB84 /* OutputFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125B282124A23A8C001CAB84 /* OutputFormat.swift */; };
 		125EF5CA236C7E1D0013E682 /* CheckBoxFieldResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125EF5C4236C7E1C0013E682 /* CheckBoxFieldResponse.swift */; };
 		125EF5CB236C7E1D0013E682 /* CheckBoxFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125EF5C5236C7E1D0013E682 /* CheckBoxFields.swift */; };
 		125EF5CC236C7E1D0013E682 /* CheckBoxFieldsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125EF5C6236C7E1D0013E682 /* CheckBoxFieldsResponse.swift */; };
@@ -425,6 +426,7 @@
 		122D5DE823CE1C8200D9E42E /* ListBoxFieldResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListBoxFieldResponse.swift; sourceTree = "<group>"; };
 		122D5DE923CE1C8200D9E42E /* ListBoxFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListBoxFields.swift; sourceTree = "<group>"; };
 		122D5DEA23CE1C8200D9E42E /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
+		125B282124A23A8C001CAB84 /* OutputFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputFormat.swift; sourceTree = "<group>"; };
 		125EF5C4236C7E1C0013E682 /* CheckBoxFieldResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxFieldResponse.swift; sourceTree = "<group>"; };
 		125EF5C5236C7E1D0013E682 /* CheckBoxFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxFields.swift; sourceTree = "<group>"; };
 		125EF5C6236C7E1D0013E682 /* CheckBoxFieldsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxFieldsResponse.swift; sourceTree = "<group>"; };
@@ -860,6 +862,7 @@
 		1E668AE72174AFC2004218A8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				125B282124A23A8C001CAB84 /* OutputFormat.swift */,
 				1278CC972444B50900AACF09 /* ImageFragment.swift */,
 				1E668B072174AFF2004218A8 /* Annotation.swift */,
 				1E668B1C2174AFF4004218A8 /* AnnotationFlags.swift */,
@@ -1659,6 +1662,7 @@
 				1ECF708622562DCE0056698E /* TablesRecognizedResponse.swift in Sources */,
 				1E668B672174AFFC004218A8 /* Attachments.swift in Sources */,
 				122D5DF823CE1C8300D9E42E /* ListBoxFields.swift in Sources */,
+				125B282224A23A8D001CAB84 /* OutputFormat.swift in Sources */,
 				1E9D85C221B55DF50026DB97 /* UnderlineAnnotation.swift in Sources */,
 				1EF1EC21220B3BF000200CEF /* FileAttachmentAnnotation.swift in Sources */,
 				1E668B682174AFFC004218A8 /* TextAnnotationResponse.swift in Sources */,
@@ -2009,7 +2013,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 20.5.0;
+				MARKETING_VERSION = 20.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aspose.AsposePdfCloud;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -2038,7 +2042,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 20.5.0;
+				MARKETING_VERSION = 20.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aspose.AsposePdfCloud;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

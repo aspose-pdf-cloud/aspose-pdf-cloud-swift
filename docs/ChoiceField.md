@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **multiSelect** | **Bool?** | Gets or sets multiselection flag. | [optional]
 **selected** | **Int?** | Gets or sets index of selected item. Numbering of items is started from 1. | [optional]
 **partialName** | **String?** | Field name.<br />*Inherited from [FormField](FormField.md)* | [optional]
+**fullName** | **String?** | Full Field name.<br />*Inherited from [FormField](FormField.md)* | [optional]
 **rect** | [**Rectangle?**](Rectangle.md) | Field rectangle.<br />*Inherited from [FormField](FormField.md)* | [optional]
 **value** | **String?** | Field value.<br />*Inherited from [FormField](FormField.md)* | [optional]
 **pageIndex** | **Int** | Page index.<br />*Inherited from [FormField](FormField.md)* | 

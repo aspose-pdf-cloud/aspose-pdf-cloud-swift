@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **checked** | **Bool** | Gets or sets state of check box. | 
 **exportValue** | **String?** | Gets or sets export value of CheckBox field. | [optional]
 **partialName** | **String?** | Field name.<br />*Inherited from [FormField](FormField.md)* | [optional]
+**fullName** | **String?** | Full Field name.<br />*Inherited from [FormField](FormField.md)* | [optional]
 **rect** | [**Rectangle?**](Rectangle.md) | Field rectangle.<br />*Inherited from [FormField](FormField.md)* | [optional]
 **value** | **String?** | Field value.<br />*Inherited from [FormField](FormField.md)* | [optional]
 **pageIndex** | **Int** | Page index.<br />*Inherited from [FormField](FormField.md)* | 

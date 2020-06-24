@@ -31,6 +31,8 @@ open class FormField: LinkElement {
 
     /** Field name. */
     public var partialName: String?
+    /** Full Field name. */
+    public var fullName: String?
     /** Field rectangle. */
     public var rect: Rectangle?
     /** Field value. */
@@ -67,10 +69,11 @@ open class FormField: LinkElement {
     public var border: Border?
 
     
-    public init(links: [Link]?, partialName: String?, rect: Rectangle?, value: String?, pageIndex: Int, height: Double?, width: Double?, zIndex: Int?, isGroup: Bool?, parent: FormField?, isSharedField: Bool?, flags: [AnnotationFlags]?, color: Color?, contents: String?, margin: MarginInfo?, highlighting: LinkHighlightingMode?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, border: Border?) {
+    public init(links: [Link]?, partialName: String?, fullName: String?, rect: Rectangle?, value: String?, pageIndex: Int, height: Double?, width: Double?, zIndex: Int?, isGroup: Bool?, parent: FormField?, isSharedField: Bool?, flags: [AnnotationFlags]?, color: Color?, contents: String?, margin: MarginInfo?, highlighting: LinkHighlightingMode?, horizontalAlignment: HorizontalAlignment?, verticalAlignment: VerticalAlignment?, border: Border?) {
         self.pageIndex = pageIndex
         super.init(links: links)
         self.partialName = partialName
+        self.fullName = fullName
         self.rect = rect
         self.value = value
         self.height = height
@@ -98,6 +101,7 @@ open class FormField: LinkElement {
         var container = encoder.container(keyedBy: String.self)
 
         try container.encodeIfPresent(partialName, forKey: "PartialName")
+        try container.encodeIfPresent(fullName, forKey: "FullName")
         try container.encodeIfPresent(rect, forKey: "Rect")
         try container.encodeIfPresent(value, forKey: "Value")
         try container.encode(pageIndex, forKey: "PageIndex")
@@ -124,6 +128,7 @@ open class FormField: LinkElement {
         let container = try decoder.container(keyedBy: String.self)
 
         partialName = try container.decodeIfPresent(String.self, forKey: "PartialName")
+        fullName = try container.decodeIfPresent(String.self, forKey: "FullName")
         rect = try container.decodeIfPresent(Rectangle.self, forKey: "Rect")
         value = try container.decodeIfPresent(String.self, forKey: "Value")
         pageIndex = try container.decode(Int.self, forKey: "PageIndex")
