@@ -55,13 +55,20 @@ class DocumentTests: AsposePdfCloudTests {
         let name = "4pages.pdf"
         let expectation = self.expectation(description: "testPostOptimizeDocument")
         let options = OptimizeOptions(
-            allowReusePageContent: false,
+            allowReusePageContent: true,
             compressImages: true,
             imageQuality: 100,
             linkDuplcateStreams: true,
             removeUnusedObjects: true,
             removeUnusedStreams: true,
-            unembedFonts: true);
+            unembedFonts: true,
+            resizeImages: true,
+            maxResolution: 3000,
+            subsetFonts: true,
+            removePrivateInfo: true,
+            imageEncoding: ImageEncoding.unchanged,
+            imageCompressionVersion: ImageCompressionVersion.standard
+            );
         
         
         uploadFile(name: name) {

@@ -36,6 +36,9 @@
 		125EF5DA236C7F1F0013E682 /* RadioButtonFieldsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125EF5D4236C7F1F0013E682 /* RadioButtonFieldsResponse.swift */; };
 		125EF5DB236C7F1F0013E682 /* RadioButtonOptionField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125EF5D5236C7F1F0013E682 /* RadioButtonOptionField.swift */; };
 		1278CC982444B50900AACF09 /* ImageFragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278CC972444B50900AACF09 /* ImageFragment.swift */; };
+		1288960024D068D8007FD10A /* ImageEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128895FD24D068D8007FD10A /* ImageEncoding.swift */; };
+		1288960124D068D8007FD10A /* ApiInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128895FE24D068D8007FD10A /* ApiInfo.swift */; };
+		1288960224D068D8007FD10A /* ImageCompressionVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128895FF24D068D8007FD10A /* ImageCompressionVersion.swift */; };
 		128B4CEB238C25F500877D55 /* ComboBoxFieldsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128B4CE7238C25F500877D55 /* ComboBoxFieldsResponse.swift */; };
 		128B4CEC238C25F500877D55 /* ComboBoxFieldResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128B4CE8238C25F500877D55 /* ComboBoxFieldResponse.swift */; };
 		128B4CED238C25F500877D55 /* ComboBoxField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128B4CE9238C25F500877D55 /* ComboBoxField.swift */; };
@@ -440,6 +443,9 @@
 		125EF5D4236C7F1F0013E682 /* RadioButtonFieldsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioButtonFieldsResponse.swift; sourceTree = "<group>"; };
 		125EF5D5236C7F1F0013E682 /* RadioButtonOptionField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioButtonOptionField.swift; sourceTree = "<group>"; };
 		1278CC972444B50900AACF09 /* ImageFragment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFragment.swift; sourceTree = "<group>"; };
+		128895FD24D068D8007FD10A /* ImageEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageEncoding.swift; sourceTree = "<group>"; };
+		128895FE24D068D8007FD10A /* ApiInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiInfo.swift; sourceTree = "<group>"; };
+		128895FF24D068D8007FD10A /* ImageCompressionVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCompressionVersion.swift; sourceTree = "<group>"; };
 		128B4CE7238C25F500877D55 /* ComboBoxFieldsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComboBoxFieldsResponse.swift; sourceTree = "<group>"; };
 		128B4CE8238C25F500877D55 /* ComboBoxFieldResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComboBoxFieldResponse.swift; sourceTree = "<group>"; };
 		128B4CE9238C25F500877D55 /* ComboBoxField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComboBoxField.swift; sourceTree = "<group>"; };
@@ -862,6 +868,9 @@
 		1E668AE72174AFC2004218A8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				128895FE24D068D8007FD10A /* ApiInfo.swift */,
+				128895FF24D068D8007FD10A /* ImageCompressionVersion.swift */,
+				128895FD24D068D8007FD10A /* ImageEncoding.swift */,
 				125B282124A23A8C001CAB84 /* OutputFormat.swift */,
 				1278CC972444B50900AACF09 /* ImageFragment.swift */,
 				1E668B072174AFF2004218A8 /* Annotation.swift */,
@@ -1585,6 +1594,7 @@
 				1ED99317231E9B2F00725F99 /* FormField.swift in Sources */,
 				1EC94E6C2282C1FF00624E38 /* GraphInfo.swift in Sources */,
 				1EC94E662282C1FF00624E38 /* TableBroken.swift in Sources */,
+				1288960024D068D8007FD10A /* ImageEncoding.swift in Sources */,
 				1E84B8CA233CF53700057874 /* TextBoxFields.swift in Sources */,
 				1E9D85C321B55DF50026DB97 /* PopupAnnotationWithParent.swift in Sources */,
 				1E668BA32174AFFC004218A8 /* ImageTemplate.swift in Sources */,
@@ -1611,6 +1621,7 @@
 				1ECF708722562DCE0056698E /* StampsInfo.swift in Sources */,
 				1E52FD8F2189F2AB00DEDC40 /* PolyLineAnnotationResponse.swift in Sources */,
 				1E668BA62174AFFC004218A8 /* VerticalAlignment.swift in Sources */,
+				1288960224D068D8007FD10A /* ImageCompressionVersion.swift in Sources */,
 				1E668AE22174AFA4004218A8 /* Extensions.swift in Sources */,
 				1E9A4AD922280BBB00BE3FA5 /* ScreenAnnotation.swift in Sources */,
 				1E668B9B2174AFFC004218A8 /* LinkActionType.swift in Sources */,
@@ -1751,6 +1762,7 @@
 				1EF1EC1F220B3BF000200CEF /* RedactionAnnotation.swift in Sources */,
 				1E668B562174AFFC004218A8 /* FreeTextAnnotations.swift in Sources */,
 				1E9D85AE21B55DF50026DB97 /* HighlightAnnotationResponse.swift in Sources */,
+				1288960124D068D8007FD10A /* ApiInfo.swift in Sources */,
 				1E668BB32174AFFC004218A8 /* FieldType.swift in Sources */,
 				1E52FD902189F2AB00DEDC40 /* SquareAnnotationsResponse.swift in Sources */,
 				1E9D85CA21B55DF50026DB97 /* StrikeOutAnnotationResponse.swift in Sources */,
@@ -2013,7 +2025,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 20.6.0;
+				MARKETING_VERSION = 20.7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aspose.AsposePdfCloud;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -2042,7 +2054,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 20.6.0;
+				MARKETING_VERSION = 20.7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aspose.AsposePdfCloud;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
