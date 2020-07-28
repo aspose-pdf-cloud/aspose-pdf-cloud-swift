@@ -1475,6 +1475,49 @@ open class PdfAPI {
     }
 
     /**
+
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getApiInfo(completion: @escaping ((_ data: ApiInfo?,_ error: Error?) -> Void)) {
+        AuthAspose.checkAuth() {
+            (authError) in
+            guard authError == nil else {
+                completion(nil, authError)
+                return
+            }
+            getApiInfoWithRequestBuilder().execute { (response, error) -> Void in
+                completion(response?.body, error);
+            }
+        }
+    }
+
+
+    /**
+     - GET /pdf/info
+     - OAuth:
+       - type: oauth2
+       - name: JWT
+     - examples: [{contentType=application/json, example={
+  "Version" : "Version",
+  "Name" : "Name"
+}}]
+
+     - returns: RequestBuilder<ApiInfo> 
+     */
+    open class func getApiInfoWithRequestBuilder() -> RequestBuilder<ApiInfo> {
+        let pathUrl = "/pdf/info"
+        let URLString = AsposePdfCloudAPI.basePath + pathUrl
+        let parameters: [String:Any]? = nil
+
+        let urlObj = NSURLComponents(string: URLString)
+
+
+        let requestBuilder: RequestBuilder<ApiInfo>.Type = AsposePdfCloudAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (urlObj?.string ?? URLString), parameters: parameters, isBody: false)
+    }
+
+    /**
      Read document bookmark.
      
      - parameter name: (path) The document name. 
@@ -1922,7 +1965,7 @@ open class PdfAPI {
     }
 
     /**
-     Read documant page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
+     Read document page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
      
      - parameter name: (path) The document name. 
      - parameter storage: (query) The document storage. (optional)
@@ -1944,7 +1987,7 @@ open class PdfAPI {
 
 
     /**
-     Read documant page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
+     Read document page annotations. Returns only FreeTextAnnotations, TextAnnotations, other annotations will implemented next releases.
      - GET /pdf/{name}/annotations
      - OAuth:
        - type: oauth2
@@ -10563,7 +10606,7 @@ open class PdfAPI {
     }
 
     /**
-     Converts PDF document which contatins XFA form (located on storage) to PDF with AcroForm and returns resulting file response content
+     Converts PDF document which contains XFA form (located on storage) to PDF with AcroForm and returns resulting file response content
      
      - parameter name: (path) The document name. 
      - parameter folder: (query) The document folder. (optional)
@@ -10585,7 +10628,7 @@ open class PdfAPI {
 
 
     /**
-     Converts PDF document which contatins XFA form (located on storage) to PDF with AcroForm and returns resulting file response content
+     Converts PDF document which contains XFA form (located on storage) to PDF with AcroForm and returns resulting file response content
      - GET /pdf/{name}/convert/xfatoacroform
      - OAuth:
        - type: oauth2
@@ -12968,7 +13011,7 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
-     - parameter links: (body) Array of link anotation. 
+     - parameter links: (body) Array of link annotation. 
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -13000,7 +13043,7 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter pageNumber: (path) The page number. 
-     - parameter links: (body) Array of link anotation. 
+     - parameter links: (body) Array of link annotation. 
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
 
@@ -15044,7 +15087,7 @@ open class PdfAPI {
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.doc) 
      - parameter password: (query) The password (encrypted Base64). 
      - parameter storage: (query) The document storage. (optional)
-     - parameter file: (form) A file to be derypted. (optional)
+     - parameter file: (form) A file to be decrypted. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func putDecryptDocument(outPath: String, password: String, storage: String? = nil, file: URL? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
@@ -15075,7 +15118,7 @@ open class PdfAPI {
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.doc) 
      - parameter password: (query) The password (encrypted Base64). 
      - parameter storage: (query) The document storage. (optional)
-     - parameter file: (form) A file to be derypted. (optional)
+     - parameter file: (form) A file to be decrypted. (optional)
 
      - returns: RequestBuilder<AsposeResponse> 
      */
@@ -16829,7 +16872,7 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter linkId: (path) The link ID. 
-     - parameter link: (body) Link anotation. 
+     - parameter link: (body) Link annotation. 
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
      - parameter completion: completion handler to receive the data and the error objects
@@ -16858,7 +16901,7 @@ open class PdfAPI {
      
      - parameter name: (path) The document name. 
      - parameter linkId: (path) The link ID. 
-     - parameter link: (body) Link anotation. 
+     - parameter link: (body) Link annotation. 
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
 
@@ -17005,7 +17048,7 @@ open class PdfAPI {
     /**
      Merge a list of documents.
      
-     - parameter name: (path) Resulting documen name. 
+     - parameter name: (path) Resulting document name. 
      - parameter mergeDocuments: (body) MergeDocuments with a list of documents. 
      - parameter storage: (query) Resulting document storage. (optional)
      - parameter folder: (query) Resulting document folder. (optional)
@@ -17033,7 +17076,7 @@ open class PdfAPI {
        - name: JWT
      - examples: [{contentType=application/json, example=""}]
      
-     - parameter name: (path) Resulting documen name. 
+     - parameter name: (path) Resulting document name. 
      - parameter mergeDocuments: (body) MergeDocuments with a list of documents. 
      - parameter storage: (query) Resulting document storage. (optional)
      - parameter folder: (query) Resulting document folder. (optional)
@@ -21643,7 +21686,7 @@ open class PdfAPI {
     }
 
     /**
-     Converts PDF document which contatins XFA form (in request content) to PDF with AcroForm and uploads resulting file to storage.
+     Converts PDF document which contains XFA form (in request content) to PDF with AcroForm and uploads resulting file to storage.
      
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.pdf) 
      - parameter storage: (query) The document storage. (optional)
@@ -21665,7 +21708,7 @@ open class PdfAPI {
 
 
     /**
-     Converts PDF document which contatins XFA form (in request content) to PDF with AcroForm and uploads resulting file to storage.
+     Converts PDF document which contains XFA form (in request content) to PDF with AcroForm and uploads resulting file to storage.
      - PUT /pdf/convert/xfatoacroform
      - OAuth:
        - type: oauth2
@@ -21704,7 +21747,7 @@ open class PdfAPI {
     }
 
     /**
-     Converts PDF document which contatins XFA form (located on storage) to PDF with AcroForm and uploads resulting file to storage
+     Converts PDF document which contains XFA form (located on storage) to PDF with AcroForm and uploads resulting file to storage
      
      - parameter name: (path) The document name. 
      - parameter outPath: (query) Full resulting filename (ex. /folder1/folder2/result.pdf) 
@@ -21727,7 +21770,7 @@ open class PdfAPI {
 
 
     /**
-     Converts PDF document which contatins XFA form (located on storage) to PDF with AcroForm and uploads resulting file to storage
+     Converts PDF document which contains XFA form (located on storage) to PDF with AcroForm and uploads resulting file to storage
      - PUT /pdf/{name}/convert/xfatoacroform
      - OAuth:
        - type: oauth2
