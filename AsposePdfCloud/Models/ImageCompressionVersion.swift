@@ -25,10 +25,10 @@
 import Foundation
 
 
-/** Allows to specify PdfA file format. */
-public enum PdfAType: String, Codable {
-    case pdfa1a = "PDFA1A"
-    case pdfa1b = "PDFA1B"
-    case pdfa3a = "PDFA3A"
+/** Describes versions of image compression algorithm. */
+public enum ImageCompressionVersion: String, Codable {
+    case standard = "Standard"
+    case fast = "Fast"
+    case mixed = "Mixed"
 
 }

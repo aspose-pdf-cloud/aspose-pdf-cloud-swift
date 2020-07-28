@@ -25,10 +25,40 @@
 import Foundation
 
 
-/** Allows to specify PdfA file format. */
-public enum PdfAType: String, Codable {
-    case pdfa1a = "PDFA1A"
-    case pdfa1b = "PDFA1B"
-    case pdfa3a = "PDFA3A"
+/** Represents response for ApiInfo  DTO */
 
+open class ApiInfo: Codable {
+
+    /** Product name. */
+    public var name: String?
+    /** API version. */
+    public var version: String?
+
+        
+    
+    public init(name: String?, version: String?) {
+        self.name = name
+        self.version = version
+    }
+    
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+
+        var container = encoder.container(keyedBy: String.self)
+
+        try container.encodeIfPresent(name, forKey: "Name")
+        try container.encodeIfPresent(version, forKey: "Version")
+    }
+
+    // Decodable protocol methods
+
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: String.self)
+
+        name = try container.decodeIfPresent(String.self, forKey: "Name")
+        version = try container.decodeIfPresent(String.self, forKey: "Version")
+    }
 }
+
