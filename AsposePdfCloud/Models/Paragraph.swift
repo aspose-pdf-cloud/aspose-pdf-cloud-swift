@@ -33,7 +33,7 @@ open class Paragraph: Codable {
     public var lineSpacing: LineSpacing?
     /** Word wrap mode. */
     public var wrapMode: WrapMode?
-    /** Horizontal alignment for the text inside paragrph&#39;s rectangle. */
+    /** Horizontal alignment for the text inside paragraph&#39;s rectangle. */
     public var horizontalAlignment: TextHorizontalAlignment?
     /** Left margin. */
     public var leftMargin: Double?
@@ -49,7 +49,7 @@ open class Paragraph: Codable {
     public var rotation: Double?
     /** Subsequent lines indent value. */
     public var subsequentLinesIndent: Double?
-    /** Vertical alignment for the text inside paragrph&#39;s rectangle */
+    /** Vertical alignment for the text inside paragraph&#39;s rectangle */
     public var verticalAlignment: VerticalAlignment?
     /** An array of text lines. */
     public var lines: [TextLine]
