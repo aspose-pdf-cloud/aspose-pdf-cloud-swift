@@ -54,7 +54,9 @@ class HeaderFooterTests: AsposePdfCloudTests {
                 font: "Arial Bold",
                 foregroundColor: Color(A: 255, R: 255, G: 0, B: 0),
                 backgroundColor: nil,
-                fontStyle: FontStyles.regular),
+                fontStyle: FontStyles.regular,
+                fontFile: nil
+            ),
             leftMargin: 1,
             topMargin: 2,
             rightMargin: 3
@@ -105,7 +107,8 @@ class HeaderFooterTests: AsposePdfCloudTests {
                 font: "Arial Bold",
                 foregroundColor: Color(A: 255, R: 255, G: 0, B: 0),
                 backgroundColor: nil,
-                fontStyle: FontStyles.regular),
+                fontStyle: FontStyles.regular,
+                fontFile: nil),
             bottomMargin: 2,
             leftMargin: 1,
             rightMargin: 3

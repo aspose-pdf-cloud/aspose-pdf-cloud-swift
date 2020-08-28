@@ -81,6 +81,7 @@ class TextTests: AsposePdfCloudTests {
         
         let expectation = self.expectation(description: "testPutAddText")
         let fileName = "4pages.pdf"
+        let fontFile = "Righteous-Regular.ttf"
         let pageNumber = 1
         let paragraph = Paragraph(
             lineSpacing: LineSpacing.fontSize,
@@ -102,19 +103,18 @@ class TextTests: AsposePdfCloudTests {
                             value: "segment 1",
                             textState: TextState(
                                 fontSize: 10,
-                                font: "Arial",
+                                font: "Righteous",
                                 foregroundColor: Color(A: 0x00, R: 0x00, G: 0xFF, B: 0x00),
                                 backgroundColor: Color(A: 0x00, R: 0xFF, G: 0x00, B: 0x00),
-                                fontStyle: FontStyles.bold
+                                fontStyle: FontStyles.regular,
+                                fontFile: self.tempFolder + "/" + fontFile
                             )
                         )
                     ]
                 )
             ]
         )
-        
-        
-        uploadFile(name: fileName) {
+        uploadFiles(names: [fileName, fontFile]) {
             
             PdfAPI.putAddText(name: fileName, pageNumber: pageNumber, paragraph: paragraph, folder: self.tempFolder) {
                 (response, error) in

@@ -288,7 +288,8 @@ class TablesTests: AsposePdfCloudTests {
             font: "Arial Bold",
             foregroundColor: Color(A: 255, R: 255, G: 0, B: 0),
             backgroundColor: nil,
-            fontStyle: FontStyles.regular)
+            fontStyle: FontStyles.regular,
+            fontFile: nil)
         
         let numOfCols = 5
         let numOfRows = 5
