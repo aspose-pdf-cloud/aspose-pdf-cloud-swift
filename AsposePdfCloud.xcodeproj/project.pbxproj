@@ -35,6 +35,7 @@
 		125EF5D9236C7F1F0013E682 /* RadioButtonField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125EF5D3236C7F1F0013E682 /* RadioButtonField.swift */; };
 		125EF5DA236C7F1F0013E682 /* RadioButtonFieldsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125EF5D4236C7F1F0013E682 /* RadioButtonFieldsResponse.swift */; };
 		125EF5DB236C7F1F0013E682 /* RadioButtonOptionField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125EF5D5236C7F1F0013E682 /* RadioButtonOptionField.swift */; };
+		1270D81924F8F2BB00827FB9 /* Righteous-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1270D81824F8F2BB00827FB9 /* Righteous-Regular.ttf */; };
 		1278CC982444B50900AACF09 /* ImageFragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278CC972444B50900AACF09 /* ImageFragment.swift */; };
 		1288960024D068D8007FD10A /* ImageEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128895FD24D068D8007FD10A /* ImageEncoding.swift */; };
 		1288960124D068D8007FD10A /* ApiInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128895FE24D068D8007FD10A /* ApiInfo.swift */; };
@@ -442,6 +443,7 @@
 		125EF5D3236C7F1F0013E682 /* RadioButtonField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioButtonField.swift; sourceTree = "<group>"; };
 		125EF5D4236C7F1F0013E682 /* RadioButtonFieldsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioButtonFieldsResponse.swift; sourceTree = "<group>"; };
 		125EF5D5236C7F1F0013E682 /* RadioButtonOptionField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioButtonOptionField.swift; sourceTree = "<group>"; };
+		1270D81824F8F2BB00827FB9 /* Righteous-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Righteous-Regular.ttf"; sourceTree = "<group>"; };
 		1278CC972444B50900AACF09 /* ImageFragment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFragment.swift; sourceTree = "<group>"; };
 		128895FD24D068D8007FD10A /* ImageEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageEncoding.swift; sourceTree = "<group>"; };
 		128895FE24D068D8007FD10A /* ApiInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiInfo.swift; sourceTree = "<group>"; };
@@ -1156,6 +1158,7 @@
 		1E668BBC2174B2E2004218A8 /* TestData */ = {
 			isa = PBXGroup;
 			children = (
+				1270D81824F8F2BB00827FB9 /* Righteous-Regular.ttf */,
 				12AE101B23F45BD6007D00A5 /* 4pagesPdfA.pdf */,
 				1E84B8C3233CF4F000057874 /* FormDataTextBox.pdf */,
 				1ED9932F231FC39700725F99 /* 33226.p12 */,
@@ -1437,6 +1440,7 @@
 				1E668BE32174B38A004218A8 /* butterfly.jpg in Resources */,
 				1E668BE42174B38A004218A8 /* rusdoc.pdf in Resources */,
 				1E668BEE2174B38A004218A8 /* Penguins.emf in Resources */,
+				1270D81924F8F2BB00827FB9 /* Righteous-Regular.ttf in Resources */,
 				1E668BE52174B38A004218A8 /* PdfWithXfaForm.pdf in Resources */,
 				1E668BE62174B38A004218A8 /* test1234.pfx in Resources */,
 				1E668BEB2174B38A004218A8 /* PdfWithImages2.pdf in Resources */,
@@ -2025,7 +2029,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 20.7.0;
+				MARKETING_VERSION = 20.8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aspose.AsposePdfCloud;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -2054,7 +2058,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 20.7.0;
+				MARKETING_VERSION = 20.8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aspose.AsposePdfCloud;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

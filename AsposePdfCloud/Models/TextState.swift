@@ -31,7 +31,7 @@ open class TextState: Codable {
 
     /** Gets or sets font size of the text. */
     public var fontSize: Double
-    /** Gets or sets font of the text. */
+    /** Gets or sets font name of the text. */
     public var font: String?
     /** Gets or sets foreground color of the text. */
     public var foregroundColor: Color?
@@ -39,15 +39,18 @@ open class TextState: Codable {
     public var backgroundColor: Color?
     /** Sets font style of the text. */
     public var fontStyle: FontStyles
+    /** Sets path of font file in storage. */
+    public var fontFile: String?
 
         
     
-    public init(fontSize: Double, font: String?, foregroundColor: Color?, backgroundColor: Color?, fontStyle: FontStyles) {
+    public init(fontSize: Double, font: String?, foregroundColor: Color?, backgroundColor: Color?, fontStyle: FontStyles, fontFile: String?) {
         self.fontSize = fontSize
         self.font = font
         self.foregroundColor = foregroundColor
         self.backgroundColor = backgroundColor
         self.fontStyle = fontStyle
+        self.fontFile = fontFile
     }
     
 
@@ -62,6 +65,7 @@ open class TextState: Codable {
         try container.encodeIfPresent(foregroundColor, forKey: "ForegroundColor")
         try container.encodeIfPresent(backgroundColor, forKey: "BackgroundColor")
         try container.encode(fontStyle, forKey: "FontStyle")
+        try container.encodeIfPresent(fontFile, forKey: "FontFile")
     }
 
     // Decodable protocol methods
@@ -74,6 +78,7 @@ open class TextState: Codable {
         foregroundColor = try container.decodeIfPresent(Color.self, forKey: "ForegroundColor")
         backgroundColor = try container.decodeIfPresent(Color.self, forKey: "BackgroundColor")
         fontStyle = try container.decode(FontStyles.self, forKey: "FontStyle")
+        fontFile = try container.decodeIfPresent(String.self, forKey: "FontFile")
     }
 }
 

@@ -17,7 +17,7 @@ Edit assembly info of a PDF document online https://products.aspose.app/pdf/asse
 $ gem install cocoapods
 ```
 
-> CocoaPods 1.1+ is required to build AsposePdfCloud 20.7+.
+> CocoaPods 1.1+ is required to build AsposePdfCloud 20.8+.
 
 To integrate AsposePdfCloud into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
@@ -27,7 +27,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'AsposePdfCloud', '~> 20.7'
+    pod 'AsposePdfCloud', '~> 20.8'
 end
 ```
 
