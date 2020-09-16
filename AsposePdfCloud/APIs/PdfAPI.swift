@@ -13324,16 +13324,17 @@ open class PdfAPI {
      - parameter annotations: (body) The array of annotation. 
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
+     - parameter apply: (query) Apply redaction immediately after adding. (optional, default to false)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func postPageRedactionAnnotations(name: String, pageNumber: Int, annotations: [RedactionAnnotation], storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
+    open class func postPageRedactionAnnotations(name: String, pageNumber: Int, annotations: [RedactionAnnotation], storage: String? = nil, folder: String? = nil, apply: Bool? = nil, completion: @escaping ((_ data: AsposeResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
                 completion(nil, authError)
                 return
             }
-            postPageRedactionAnnotationsWithRequestBuilder(name: name, pageNumber: pageNumber, annotations: annotations, storage: storage, folder: folder).execute { (response, error) -> Void in
+            postPageRedactionAnnotationsWithRequestBuilder(name: name, pageNumber: pageNumber, annotations: annotations, storage: storage, folder: folder, apply: apply).execute { (response, error) -> Void in
                 completion(response?.body, error);
             }
         }
@@ -13356,10 +13357,11 @@ open class PdfAPI {
      - parameter annotations: (body) The array of annotation. 
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
+     - parameter apply: (query) Apply redaction immediately after adding. (optional, default to false)
 
      - returns: RequestBuilder<AsposeResponse> 
      */
-    open class func postPageRedactionAnnotationsWithRequestBuilder(name: String, pageNumber: Int, annotations: [RedactionAnnotation], storage: String? = nil, folder: String? = nil) -> RequestBuilder<AsposeResponse> {
+    open class func postPageRedactionAnnotationsWithRequestBuilder(name: String, pageNumber: Int, annotations: [RedactionAnnotation], storage: String? = nil, folder: String? = nil, apply: Bool? = nil) -> RequestBuilder<AsposeResponse> {
         var pathUrl = "/pdf/{name}/pages/{pageNumber}/annotations/redaction"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         pathUrl = pathUrl.replacingOccurrences(of: "{pageNumber}", with: "\(pageNumber)", options: .literal, range: nil)
@@ -13369,7 +13371,8 @@ open class PdfAPI {
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
-            "folder": folder
+            "folder": folder, 
+            "apply": apply
         ])
         
 
@@ -20266,16 +20269,17 @@ open class PdfAPI {
      - parameter annotation: (body) Annotation. 
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
+     - parameter apply: (query) Apply redaction immediately after adding. (optional, default to false)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func putRedactionAnnotation(name: String, annotationId: String, annotation: RedactionAnnotation, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: RedactionAnnotationResponse?,_ error: Error?) -> Void)) {
+    open class func putRedactionAnnotation(name: String, annotationId: String, annotation: RedactionAnnotation, storage: String? = nil, folder: String? = nil, apply: Bool? = nil, completion: @escaping ((_ data: RedactionAnnotationResponse?,_ error: Error?) -> Void)) {
         AuthAspose.checkAuth() {
             (authError) in
             guard authError == nil else {
                 completion(nil, authError)
                 return
             }
-            putRedactionAnnotationWithRequestBuilder(name: name, annotationId: annotationId, annotation: annotation, storage: storage, folder: folder).execute { (response, error) -> Void in
+            putRedactionAnnotationWithRequestBuilder(name: name, annotationId: annotationId, annotation: annotation, storage: storage, folder: folder, apply: apply).execute { (response, error) -> Void in
                 completion(response?.body, error);
             }
         }
@@ -20295,10 +20299,11 @@ open class PdfAPI {
      - parameter annotation: (body) Annotation. 
      - parameter storage: (query) The document storage. (optional)
      - parameter folder: (query) The document folder. (optional)
+     - parameter apply: (query) Apply redaction immediately after adding. (optional, default to false)
 
      - returns: RequestBuilder<RedactionAnnotationResponse> 
      */
-    open class func putRedactionAnnotationWithRequestBuilder(name: String, annotationId: String, annotation: RedactionAnnotation, storage: String? = nil, folder: String? = nil) -> RequestBuilder<RedactionAnnotationResponse> {
+    open class func putRedactionAnnotationWithRequestBuilder(name: String, annotationId: String, annotation: RedactionAnnotation, storage: String? = nil, folder: String? = nil, apply: Bool? = nil) -> RequestBuilder<RedactionAnnotationResponse> {
         var pathUrl = "/pdf/{name}/annotations/redaction/{annotationId}"
         pathUrl = pathUrl.replacingOccurrences(of: "{name}", with: "\(name)", options: .literal, range: nil)
         pathUrl = pathUrl.replacingOccurrences(of: "{annotationId}", with: "\(annotationId)", options: .literal, range: nil)
@@ -20308,7 +20313,8 @@ open class PdfAPI {
         let urlObj = NSURLComponents(string: URLString)
         urlObj?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "storage": storage, 
-            "folder": folder
+            "folder": folder, 
+            "apply": apply
         ])
         
 

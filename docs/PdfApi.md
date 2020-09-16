@@ -5655,7 +5655,7 @@ Name | Type | Description  | Notes
 
 <a name="postPageRedactionAnnotations"></a>
 ## **postPageRedactionAnnotations**
-> postPageRedactionAnnotations(name: String, pageNumber: Int, annotations: [RedactionAnnotation], storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
+> postPageRedactionAnnotations(name: String, pageNumber: Int, annotations: [RedactionAnnotation], storage: String? = nil, folder: String? = nil, apply: Bool? = nil, completion: @escaping ((_ data: AsposeResponse?, _ error: Error?) -> Void))
 
 Add document page redaction annotations.
 
@@ -5667,6 +5667,7 @@ Name | Type | Description  | Notes
 **annotations** | [**[RedactionAnnotation]**](RedactionAnnotation.md) | The array of annotation. | 
 **storage** | **String?** | The document storage. | [optional]
 **folder** | **String?** | The document folder. | [optional]
+**apply** | **Bool?** | Apply redaction immediately after adding. | [optional]
 
 ### Return type
 
@@ -8301,7 +8302,7 @@ Name | Type | Description  | Notes
 
 <a name="putRedactionAnnotation"></a>
 ## **putRedactionAnnotation**
-> putRedactionAnnotation(name: String, annotationId: String, annotation: RedactionAnnotation, storage: String? = nil, folder: String? = nil, completion: @escaping ((_ data: RedactionAnnotationResponse?, _ error: Error?) -> Void))
+> putRedactionAnnotation(name: String, annotationId: String, annotation: RedactionAnnotation, storage: String? = nil, folder: String? = nil, apply: Bool? = nil, completion: @escaping ((_ data: RedactionAnnotationResponse?, _ error: Error?) -> Void))
 
 Replace document redaction annotation
 
@@ -8313,6 +8314,7 @@ Name | Type | Description  | Notes
 **annotation** | [**RedactionAnnotation**](RedactionAnnotation.md) | Annotation. | 
 **storage** | **String?** | The document storage. | [optional]
 **folder** | **String?** | The document folder. | [optional]
+**apply** | **Bool?** | Apply redaction immediately after adding. | [optional]
 
 ### Return type
 

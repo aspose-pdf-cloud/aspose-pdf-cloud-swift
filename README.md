@@ -17,7 +17,7 @@ Edit assembly info of a PDF document online https://products.aspose.app/pdf/asse
 $ gem install cocoapods
 ```
 
-> CocoaPods 1.1+ is required to build AsposePdfCloud 20.8+.
+> CocoaPods 1.1+ is required to build AsposePdfCloud 20.9+.
 
 To integrate AsposePdfCloud into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
@@ -27,7 +27,7 @@ platform :ios, '10.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'AsposePdfCloud', '~> 20.8'
+    pod 'AsposePdfCloud', '~> 20.9'
 end
 ```
 
@@ -652,7 +652,7 @@ Class | Description
 [**Segment**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/Segment.md) | Represents segment of Pdf text.
 [**ShapeType**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/ShapeType.md) | This enum represents shape type for the extracted images.
 [**Signature**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/Signature.md) | Represents signature.
-[**SignatureCustomAppearance**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/SignatureCustomAppearance.md) | An abstract class which represents signature custon appearance object.
+[**SignatureCustomAppearance**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/SignatureCustomAppearance.md) | An abstract class which represents signature custom appearance object.
 [**SignatureField**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/SignatureField.md) | Provides SignatureField.
 [**SignatureFieldResponse**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/SignatureFieldResponse.md) | Represents response containing single signature field object
 [**SignatureFields**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/SignatureFields.md) | Object representing a list of signature fields.

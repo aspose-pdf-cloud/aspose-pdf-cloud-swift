@@ -25,7 +25,7 @@
 import Foundation
 
 
-/** An abstract class which represents signature custon appearance object. */
+/** An abstract class which represents signature custom appearance object. */
 
 open class SignatureCustomAppearance: Codable {
 

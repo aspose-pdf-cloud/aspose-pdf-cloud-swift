@@ -37,14 +37,17 @@ open class TextStyle: Codable {
     public var foregroundColor: Color?
     /** Sets background color of the text. */
     public var backgroundColor: Color?
+    /** Sets path of font file in storage. */
+    public var fontFile: String?
 
         
     
-    public init(fontSize: Double, font: String?, foregroundColor: Color?, backgroundColor: Color?) {
+    public init(fontSize: Double, font: String?, foregroundColor: Color?, backgroundColor: Color?, fontFile: String?) {
         self.fontSize = fontSize
         self.font = font
         self.foregroundColor = foregroundColor
         self.backgroundColor = backgroundColor
+        self.fontFile = fontFile
     }
     
 
@@ -58,6 +61,7 @@ open class TextStyle: Codable {
         try container.encodeIfPresent(font, forKey: "Font")
         try container.encodeIfPresent(foregroundColor, forKey: "ForegroundColor")
         try container.encodeIfPresent(backgroundColor, forKey: "BackgroundColor")
+        try container.encodeIfPresent(fontFile, forKey: "FontFile")
     }
 
     // Decodable protocol methods
@@ -69,6 +73,7 @@ open class TextStyle: Codable {
         font = try container.decodeIfPresent(String.self, forKey: "Font")
         foregroundColor = try container.decodeIfPresent(Color.self, forKey: "ForegroundColor")
         backgroundColor = try container.decodeIfPresent(Color.self, forKey: "BackgroundColor")
+        fontFile = try container.decodeIfPresent(String.self, forKey: "FontFile")
     }
 }
 
