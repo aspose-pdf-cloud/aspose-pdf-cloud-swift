@@ -156,7 +156,8 @@ class FreeTextAnnotationsTests: AsposePdfCloudTests {
                 fontSize: 12,
                 font: "Arial",
                 foregroundColor: Color(A: 0xFF, R: 0, G: 0xFF, B: 0),
-                backgroundColor: Color(A: 0xFF, R: 0xFF, G: 0, B: 0)
+                backgroundColor: Color(A: 0xFF, R: 0xFF, G: 0, B: 0),
+                fontFile: nil
             )
         )
         
@@ -208,7 +209,8 @@ class FreeTextAnnotationsTests: AsposePdfCloudTests {
                 fontSize: 12,
                 font: "Arial",
                 foregroundColor: Color(A: 0xFF, R: 0, G: 0xFF, B: 0),
-                backgroundColor: Color(A: 0xFF, R: 0xFF, G: 0, B: 0)
+                backgroundColor: Color(A: 0xFF, R: 0xFF, G: 0, B: 0),
+                fontFile: nil
             )
         )
         
