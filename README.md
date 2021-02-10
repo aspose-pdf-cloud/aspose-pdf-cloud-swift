@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/api-v3.0-lightgrey)  [![GitHub license](https://img.shields.io/github/license/aspose-pdf-cloud/aspose-pdf-cloud-swift)](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift)
+![](https://img.shields.io/badge/api-v3.0-lightgrey)  ![GitHub release (latest by date)](https://img.shields.io/github/v/release/aspose-words-cloud/aspose-words-cloud-swift) [![GitHub license](https://img.shields.io/github/license/aspose-pdf-cloud/aspose-pdf-cloud-swift)](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift)
 # Swift REST API to Process PDF in Cloud
 [Aspose.PDF Cloud](https://products.aspose.cloud/pdf) is a true REST API that enables you to perform a wide range of document processing operations including creation, manipulation, conversion and rendering of PDF documents in the cloud.
 
@@ -76,24 +76,23 @@ $ pod install
 
 Please follow the [installation](#installation) instruction and execute the following Java code:
 
+## Get PDF Page Annotations in Swift
+
 ```swift
+	// Get your ClientId and ClientSecret from https://dashboard.aspose.cloud (free registration required).
 
-func testGetPageAnnotations() {
-    let name = "PdfWithAnnotations.pdf"
-
-    let pageNumber = 2
-    PdfAPI.getPageAnnotations(name: name, pageNumber: pageNumber, folder: self.tempFolder) {
-        (response, error) in
-        guard error == nil else {
-            // errror handle
-            return
-        }
-        if let response = response {
-            // do
-        }
-    }
-}
-
+	let pdfAPI = PdfAPI(clientId: "MY_CLIENT_ID", clientSecret: "MY_CLIENT_SECRET");
+	let pageNumber = 2
+	pdfAPI.getPageAnnotations(name: name, pageNumber: pageNumber, folder: self.tempFolder) {
+		(response, error) in
+		guard error == nil else {
+			// errror handle
+			return
+		}
+		if let response = response {
+			// do
+		}
+	}
 ```
 
 ## Unit Tests
@@ -759,11 +758,11 @@ Class | Description
 [**WrapMode**](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift/tree/master/docs/WrapMode.md) | Defines word wrapping strategies
 
 
-## Aspose.PDF Cloud SDKs in Popular Languages
+ ## Aspose.PDF Cloud SDKs in Popular Languages
 
-| .NET | Java | PHP | Python | Ruby | Node.js | Android | Swift|Go|
-|---|---|---|---|---|---|---|--|--|
-| [GitHub](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-dotnet) | [GitHub](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-java) | [GitHub](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-php) | [GitHub](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-python) | [GitHub](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-ruby)  | [GitHub](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-node.js) | [GitHub](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-android) | [GitHub](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift)|[GitHub](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-perl) |[GitHub](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-go) |
-| [NuGet](https://www.nuget.org/packages/Aspose.pdf-Cloud/) | [Maven](https://repository.aspose.cloud/webapp/#/artifacts/browse/tree/General/repo/com/aspose/aspose-pdf-cloud) | [Composer](https://packagist.org/packages/aspose/pdf-sdk-php) | [PIP](https://pypi.org/project/asposepdfcloud/) | [GEM](https://rubygems.org/gems/aspose_pdf_cloud)  | [NPM](https://www.npmjs.com/package/asposepdfcloud) | [Maven](https://repository.aspose.cloud/webapp/#/artifacts/browse/tree/General/repo/com/aspose/aspose-pdf-cloud) | [Cocoapods](https://cocoapods.org/pods/AsposepdfCloud)|[Go.Dev](https://pkg.go.dev/github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/) |
+ | .NET | Java | PHP | Python | Ruby | Node.js | Android | Swift|Go|
+ |---|---|---|---|---|---|---|--|--|
+ | [GitHub](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-dotnet) | [GitHub](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-java) | [GitHub](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-php) | [GitHub](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-python) | [GitHub](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-ruby)  | [GitHub](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-node.js) | [GitHub](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-android) | [GitHub](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift)|[GitHub](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-go) |
+ | [NuGet](https://www.nuget.org/packages/Aspose.pdf-Cloud/) | [Maven](https://repository.aspose.cloud/webapp/#/artifacts/browse/tree/General/repo/com/aspose/aspose-pdf-cloud) | [Composer](https://packagist.org/packages/aspose/pdf-sdk-php) | [PIP](https://pypi.org/project/asposepdfcloud/) | [GEM](https://rubygems.org/gems/aspose_pdf_cloud)  | [NPM](https://www.npmjs.com/package/asposepdfcloud) | [Maven](https://repository.aspose.cloud/webapp/#/artifacts/browse/tree/General/repo/com/aspose/aspose-pdf-cloud) | [Cocoapods](https://cocoapods.org/pods/AsposepdfCloud)|[Go.Dev](https://pkg.go.dev/github.com/aspose-pdf-cloud/aspose-pdf-cloud-go/v20#readme-aspose-pdf-cloud) |
 
 [Product Page](https://products.aspose.cloud/pdf/swift) | [Documentation](https://docs.aspose.cloud/display/pdfcloud/Home) | [API Reference](https://apireference.aspose.cloud/pdf/) | [Code Samples](https://github.com/aspose-pdf-cloud/aspose-pdf-cloud-swift) | [Blog](https://blog.aspose.cloud/category/pdf/) | [Free Support](https://forum.aspose.cloud/c/pdf) | [Free Trial](https://dashboard.aspose.cloud/#/apps)
